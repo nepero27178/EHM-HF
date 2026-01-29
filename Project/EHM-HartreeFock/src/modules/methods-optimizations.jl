@@ -68,7 +68,7 @@ function GetUc(
 """
 function GetUc(
     t::Float64,							# Hopping amplitude
-    # V::Float64,							# Non-local attraction
+    # V::Float64,						# Non-local attraction
     L::Vector{Int64},					# [Lx, Ly]
     δ::Float64,							# Doping
     β::Float64;							# Inverse temperature
@@ -134,8 +134,8 @@ function GetOptimalg(
 [...]
 """
 function GetOptimalg(
-    U::Float64,                         # Local repulsion
-    Uc::Float64;                        # Critical U
+    U::Float64,						# Local repulsion
+    Uc::Float64;						# Critical U
     ΔU::Float64=1.0 					# U tolerance
 )::Float64
 

@@ -32,7 +32,7 @@ end
 
 AllSingletSyms = ["s", "S", "d"]
 AllTripletSyms = ["px", "py", "p+", "p-"]
-Syms = ["s", "S"]
+Syms = ["s", "S", "d"]
 # Fake AF symmetry to respect general filestructure
 occursin("AF",Phase) ? Syms=["π"] : 0
 
@@ -52,7 +52,7 @@ end
 #------------------------------------ SETUP ------------------------------------
 #-------------------------------------------------------------------------------
 
-Setup = "Test[30]" # Choose your setup #TODO Use readline()
+Setup = "A[150]" # Choose your setup #TODO Use readline()
 AvailableSetups = [
 	"Test[30]",			# Test setup
 	"A[150]",			# UV plane

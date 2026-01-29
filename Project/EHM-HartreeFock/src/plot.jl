@@ -32,6 +32,7 @@ if in(Mode, ["rs","hs"])
 	include(PROJECT_SRC_DIR * "/modules/methods-" * Dim * "-plotting.jl")
 else
 	@error "Invalid mode. Use: mode = hs / rs"
+	exit()
 end
 
 # Process obj
@@ -47,6 +48,7 @@ elseif Obj=="phys"
 	objList = ["μ", "fMFT"]
 else
 	@error "Invalid obj. Use obj = HFPs / RMPs / Qs / phys"
+	exit()
 end
 
 function main()
