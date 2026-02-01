@@ -1,0 +1,45 @@
+\begin{tikzpicture}
+	\fill[color=lightgray] 
+	(0,0) circle (1.5pt)
+		node (O) {}
+	(2,0) circle (1.5pt)
+		node (+x) {}
+	(-2,0) circle (1.5pt)
+		node (-x) {}
+	(0,2) circle (1.5pt)
+		node (+y) {}
+	(0,-2) circle (1.5pt)
+		node (-y) {};
+	
+	\draw[color=lightgray]
+		(-2,0) -- (2,0)
+		(0,-2) -- (0,2);
+		
+	\draw[color=lightgray,dashed]
+		(-2,0) -- (-2.3,0)
+		(-2,-0.3) -- (-2,0.3)
+		(2,-0.3) -- (2,0.3)
+		(2,0) -- (2.3,0)
+		(-0.3,-2) -- (0.3,-2)
+		(0,-2) -- (0,-2.3)
+		(-0.3,2) -- (0.3,2)
+		(0,2) -- (0,2.3);
+		
+	\draw[color=tabblue, -stealth]
+		(O) to[bend right]node[anchor=north west]{$t^{(s^*)}+t^{(d)}$} (+x);
+	\draw[color=tabblue, -stealth]
+		(+x) to[bend right] (O);
+	\draw[color=tabblue, -stealth]
+		(O) to[bend left] (-x);
+	\draw[color=tabblue, -stealth]
+		(-x) to[bend left] (O);
+		
+	\draw[color=tabgreen, -stealth]
+		(O) to[bend right]node[anchor=south west]{$t^{(s^*)}-t^{(d)}$} (+y);
+	\draw[color=tabgreen, -stealth]
+		(+y) to[bend right] (O);
+	\draw[color=tabgreen, -stealth]
+		(O) to[bend left] (-y);
+	\draw[color=tabgreen, -stealth]
+		(-y) to[bend left] (O);
+\end{tikzpicture}

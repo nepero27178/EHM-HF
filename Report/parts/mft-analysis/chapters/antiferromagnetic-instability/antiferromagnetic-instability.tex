@@ -1,25 +1,25 @@
 \def\GraphicsFolder{parts/mft-analysis/chapters/antiferromagnetic-instability/pictures}
 \chapter{Anti-Ferromagnetic instability}\label{chap:mft-af-instability}
 
-This chapter is devoted to an in-depth discussion of the antiferromagnetic (AF) long-range ordering in the EHM by the means of MFT. In the context of the $2$D Hubbard model (HM), discussed in App.~\ref{appendix:mean-field-hubbard}, AF ordering establishes as an unconventional metallic phase which is only stable at half-filling (as is discussed in Sec.~\ref{appsubsec:instability-af-commensurate}). The situation for the EHM is similar: the present analysis is carried out based on the argument that, given the symmetry structure of the non-local NN interaction, the fundamental features of the commensurate AF phase of the HM are effectively preserved, while the parameters are redefined by the interaction itself. The two most relevant effects we discuss in this chapter are the ``gap complexification'' (Sec.~\mref) and the ``hopping renormalization`` (Sec.~\mref), the latter being a general feature of the EHM common to all phases preserving (or, at most, weakening without destroying) the translational invariance, discussed in Sec.~\ref{subsec:fock-hopping-renormalization-normal}.
+This chapter is devoted to an in-depth discussion of the antiferromagnetic (AF) long-range ordering in the EHM by the means of MFT. In the context of the $2$D Hubbard model (HM), discussed in App.~\ref{appendix:mean-field-hubbard}, AF ordering establishes as an unconventional metallic phase which is only stable at half-filling (as is discussed in Sec.~\ref{appsubsec:instability-af-commensurate}). The situation for the EHM is similar: the present analysis is carried out based on the argument that, given the symmetry structure of the non-local NN interaction, the fundamental features of the commensurate AF phase of the HM are effectively preserved, while the parameters are redefined by the interaction itself. The two most relevant effects we discuss in this chapter are the ``gap complexification'' (Sec.~\mref) and the ``hopping renormalization`` (Sec.~\mref), the latter being a general feature of the EHM common to all phases preserving (or, at most, weakening without destroying) the translational invariance, discussed in Sec.~\ref{sec:normal-fock-bands-renormalization}.
 
-\section{Sketch and general features of the MFT solution}
+\section{The AF phase and its symmetries}\label{sec:af-phase-theory}
 
-\todo
-
-\subsection{Symmetry considerations for the AF phase}\label{subsec:af-symmetry-considerations}
-
-The antiferromagnetic phase transition is simply described in reciprocal space by the order parameter 
+When discussing the AF phase on the EHM square lattice, we must specify the type of antiferromagnetism we are dealing with. SDW antiferromagnets on a square lattice can emerge in a variety of ways, the simplest one -- described in this text -- being the so-called ``commensurate''. By this we mean essentially a kind of long range spin density ordering varying on the length scale of two lattice sites. This type of AF structure is particularly interesting on a square lattice because the phase transition is simply described in reciprocal space by the order parameter 
 \[
 	\langle
 		\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma}
 	\rangle
 \]
-When such an EV acquires a non-zero $s$-wave value, commensurate finite magnetization is established. \todo
+going from a null EV in the normal phase to a non-zero value. This phenomenon occurs at the so called AF vector
+\[
+	\bm{\pi} \equiv (\pi,\pi)
+\]
+Large portions of a square lattice Fermi surface (FS) can turn out to be connected precisely by an AF vector: this implies that, if the hamiltonian makes available a scattering channel at this wavevector, electrons can jump from one side to the other, making said EV non-zero.
 
-In principle, the AF phase is physically established by breaking the $\mathrm{SU}(2)$ spin rotation symmetry down to the $\mathrm{U}^z(1)$ projected spin rotation symmetry; however, it is to be noted that -- even if the concept of SSB is well defined only for the $\mathrm{SU}(2) \to \mathrm{U}^z(1)$ symmetry reduction -- the hamiltonian in thermodynamic limit remains $\mathbb{Z}_2$ invariant with respect to spin inversion, $\sigma \leftrightarrow \overline{\sigma}$. This implies that all physical quantities, as is for the normal phase, should not depend on the spin index.
+In principle, the AF phase is physically established by breaking the $\mathrm{SU}(2)$ spin rotation symmetry down to the $\mathrm{U}^z(1)$ projected spin rotation symmetry; however, it is to be noted that -- even if the concept of SSB is well defined only for the $\mathrm{SU}(2) \to \mathrm{U}^z(1)$ symmetry reduction -- the hamiltonian in thermodynamic limit remains $\mathbb{Z}_2$ invariant with respect to spin inversion, $\sigma \leftrightarrow \overline{\sigma}$. Identical considerations as in Sec.~\ref{sec:normal-phase-theory} hold This: all physical quantities are spin-independent. As for the normal phase, we will use this considerations at the end of the calculations.
 
-\subsection{Antiferromagnetism in the conventional Hubbard model}
+\subsection{Antiferromagnetism in the HM}\label{subsec:af-hm}
 
 Within the Hubbard model, the antiferromagnetic phase (AF) is specified by the Ansatz \eqref{appeq:af-mean-field-ansatz} which is explicitly breaking translational invariance in each spin sector, while preserving $\mathrm{U}^z(1)$ and $\mathrm{U}^c(1)$ symmetries and reduces the hamiltonian to the form of Eq.~\eqref{appeq:hubbard-mean-field-hamiltonian} (ignoring the double-counting terms)
 \[
@@ -95,7 +95,7 @@ These fermions populate the two bands $\pm E_{\mathbf{k}\sigma} = \sqrt{\epsilon
 	\label{tab:af-pseudospin-map}
 \end{table}
 
-\subsection{Extension to the EHM}
+\subsection{Extension to the EHM}\label{subsec:af-ehm}
 
 Consider now the non-local interaction $\hat H_V$: since only translational invariance is partially broken in the AF phase, the only RWCs within the MFT decomposition are Hartree terms and the same-spin Fock term. The discussion is thus essentially the same as for the normal phase of Chap.~\ref{chap:normal-phase}, with the only relevant difference being the Ansatz we use in Eq.~\eqref{eq:normal-density-ansatz}, substituted by the commensurate oscillatory Ansatz of Eq.~\eqref{appeq:af-mean-field-ansatz}. As for the normal phase, by design the MFT solution to the model for the given phase is described by a redefinition of the various physical quantities and mathematical objects,
 \[
@@ -154,7 +154,7 @@ The physical behaviour is the same as for the pure Hubbard model. In terms of MF
 	\label{fig:pseudo-magnetic-field}
 \end{figure}
 
-\section{Hartree effects: renormalization of chemical potential and gap}
+\section{Hartree effects: chemical potential renormalization}\label{subsec:af-hartree-mu}
 
 As in Eq.~\eqref{eq:normal-V-wick-decomposition}, the same-spin and opposite-spin non-local Hartree terms are
 \begin{multline*}
@@ -216,7 +216,7 @@ as well as the its scalar counterpart
 \end{equation}
 which accounts for the energy shift to be accounted when performing Wick's contractions.
 
-\subsection{Operatorial part and mapping on the gapped AF hamiltonian}
+\subsection{Hartree channel in the AF phase: analytical derivation}\label{subsec:af-hartree-analytical}
 
 Let us start from the operator of Expr.~\eqref{eq:af-V-wick-decomposition-operatorial}. By inserting the Ansatz of Eq.~\eqref{appeq:af-mean-field-ansatz}, we get
 \begin{multline*}
@@ -350,7 +350,7 @@ thus the only net effect of the Hartree RWCs affects $\mu$. This is somewhat to 
 %\]
 Let us now move to the last part of the Hartree effects on the AF phase originated by $\hat H_V$, which is, the energy shift due to double counting terms originated by MFT decomposition of the quartic interactions $\hat H_U$ and $\hat H_V$.
 
-\subsection{Double counting terms: energy shift due to contractions}
+\subsection{Hartree contraction energy}\label{subsec:af-hartree-energy}
 
 Consider the scalar Expr.~\eqref{eq:af-V-wick-decomposition-double-counting}: it's the sum of two parts, the first coming from s.s. sector, the second from o.s. sector.
 
@@ -435,9 +435,9 @@ Hence, the total ``contraction energy'', given by the sum of both contributions,
 \end{equation}
 This implies that, when comparing normal and AF phase, we can rule out this energy contribution, being equal for both free energy densities.
 
-\section{Fock effects: bands renormalization}\label{subsec:af-fock-bands-renormalization}
+\section{Fock effects: gap and bands renormalization}\label{sec:af-fock-bands-renormalization}
 
-We explored thoroughly the Hartree contractions effects on the MFT hamiltonian. Let us now move to the effects originated by Fock contractions. We can use the derivation of Sec.~\ref{subsec:fock-hopping-renormalization-normal} up to Eq.~\eqref{eq:normal-V-fock-int2},
+We explored thoroughly the Hartree contractions effects on the MFT hamiltonian. Let us now move to the effects originated by Fock contractions. We can use the derivation of Sec.~\ref{sec:normal-fock-bands-renormalization} up to Eq.~\eqref{eq:normal-V-fock-int2},
 \begin{multline}
 	V \sum_{\ev{ij}} \sum_\sigma \left[
 		\langle
@@ -462,7 +462,7 @@ We explored thoroughly the Hartree contractions effects on the MFT hamiltonian. 
 \end{multline}
 where $E_{\mathrm{F}/V}^{(\mathrm{AF})}$ is defined as in Eq.~\eqref{eq:reciprocal-space-non-local-interaction-fock-double-couting}, with the expectation value being computed on the AF (thermal) ground-state. As before, we discuss the operatorial part and the scalar part separately.
 
-\subsection{Operatorial part and mapping on the gapped AF hamiltonian}
+\subsection{Fock channel in the AF phase: analytical derivation}\label{subsec:af-fock-analytical}
 
 In order to proceed from Eq.~\eqref{eq:af-V-fock-int1}, it is necessary to understand how the AF phase is realized in reciprocal space. For the conventional Hubbard model, as is exposed in App.~\ref{appendix:mean-field-hubbard}, to impose an AF Ansatz of the form
 \[
@@ -567,7 +567,7 @@ The diagonal terms of Eq.~\eqref{eq:af-V-fock-int2} are simple density interacti
 	\hat c_{\mathbf{q}'\sigma}^\dagger
 	\hat c_{\mathbf{q}'\sigma} \label{eq:af-V-fock-int3-diag}
 \end{align}
-where the sign $\stackrel{*}{=}$ indicates that we have substituted the decomposition of Eq.~\eqref{eq:coscos-symmetries-decomposition}. Define the expectation value
+where the sign $\stackrel{*}{=}$ indicates that we have substituted the decomposition of Eq.~\eqref{eq:coscos-symmetries-decomposition}. Define as in Eq.~\eqref{eq:normal-uqsigma-def} the EV
 \begin{equation}\label{eq:af-uqsigma-def}
 	u_{\mathbf{q}\sigma} \equiv \langle
 		\hat c_{\mathbf{q}\sigma}^\dagger
@@ -1014,7 +1014,7 @@ As we will discuss later in Sec.~\ref{subsec:ehm-af-flavours}, not all these HFP
 %Notice that this expression is purely real, as promised, and contributes to the $y$ component of the pseudo-field of Fig.~\ref{fig:pseudo-magnetic-field}.
 %}
 
-\subsection{Double counting terms: energy shift due to contractions}
+\subsection{Fock contraction energy}\label{subsec:af-fock-energy}
 
 Let us now get back to $E_{\mathrm{F}/V}^{(\mathrm{AF})}$, the double counting energy of Eq.~\eqref{eq:af-V-fock-int1}. As said before, its definition is the same as for the normal phase, Eq.~\eqref{eq:reciprocal-space-non-local-interaction-fock-double-couting}, with the averaging operation being performed on the AF ground state:
 \begin{equation}\label{eq:af-V-fock-double-counting-int1}
@@ -1123,7 +1123,7 @@ where in the second passage we employed the change of variables $\mathbf{q}'=\ma
 \end{equation}
 Interestingly enough, the new HFPs amplitudes contribute to lowering the contraction energy.
 
-\subsection{Full MFT hamiltonian and gap function}
+\section{Full MFT hamiltonian and gap function}\label{sec:af-full-hamiltonian}
 
 Finally, it is time to collect everything in a single hamiltonian operator. The MFT model is approximated by:
 \begin{multline*}
@@ -1177,7 +1177,7 @@ Moreover, the net effect $\hat H_V$ is a ``gap complexification''. In other word
 \]
 while for the HM the $y$ pseudospin component was identically null.
 
-\subsection{Symmetry considerations and AF phase flavour}\label{subsec:ehm-af-flavours}
+\subsection{AF phase flavours and spin degeneracy}\label{subsec:ehm-af-flavours}
 
 The AF phase we are studying cannot break inversion symmetry, a core property of the system which is respected from all our approximations. This translates in the simple requirement that:
 \[
