@@ -1,12 +1,25 @@
+#!/usr/bin/julia
+
+using CairoMakie
+using LaTeXStrings
+using ColorSchemes
+
 # Includer
 PROJECT_ROOT = @__DIR__
 PROJECT_ROOT *= "/.."   # Up to the effective root
-include(PROJECT_ROOT * "/setup/graphic-setup.jl")
 include(PROJECT_ROOT * "/modules/methods-simulating.jl")
 
-@doc raw"""
-[TODO]
-"""
+CairoMakie.activate!()
+
+MT = Makie.MathTeXEngine
+MT_DIR = dirname(pathof(MT)) * "/../assets/fonts/NewComputerModern"
+
+set_theme!(fonts = (
+	regular = MT_DIR * "/NewCM10-Regular.otf",
+	bold = MT_DIR * "/NewCM10-Bold.otf"
+))
+
+
 function PlotDensity(
 		Phase::String,
 		U::Float64,
@@ -17,17 +30,14 @@ function PlotDensity(
 		cs::Symbol=:winter,
 	)
 
-	P = plot(
-		size = (600,400),
-		xlabel = L"$\mu/\Delta$",
-		ylabel = L"$N(\mu)/2L_xL_y$",
-		xticks = [-4,-2,-1,0,1,2,4],
-		xminorticks = false,
-		ylim = (-0.05,1.05),
-		title = L"%$(Phase) density ($U=%$(U)$, $L=%$(Lx)$)",
-		legend = :topleft,
-		legendfonthalign = :left
-	)
+	# Initialize plot
+	Fig = Figure(size=(600,400),figure_padding = 1)
+	ax = Axis(Fig[1, 1])
+
+	ax.xlabel = L"$\mu/\Delta$"
+	ax.ylabel = L"$N(\mu)/2L_xL_y$"
+	ax.xticks = [-4,-2,-1,0,1,2,4]
+	ax.title = L"%$(Phase) density ($t=1.0$, $U=%$(U)$, $L=%$(Lx)$)"
 
 	Parameters::Dict{String,Float64} = Dict([
 		"t" => 1.0,
@@ -44,17 +54,22 @@ function PlotDensity(
 	K::Matrix{Vector{Float64}} = [ [kx,ky] for kx in Kx, ky in Ky ]
 
 	v::Dict{String,Float64} = Dict("m" => Δ/U)
-	vline!(
+	vlines!(
+		ax,
 		[-Δ,Δ],
-		ls = :dash,
+		linestyle = :dash,
 		color = :gray,
-		alpha = 0.5,
-		label = "",
+		alpha = 0.5
 	)
-	annotate!([
-		(-Δ-0.25,0.75,text(L"\mu=-\Delta",9,color=:gray,alpha=0.5,rotation=90)),
-		(Δ+0.25,0.25,text(L"\mu=\Delta",9,color=:gray,alpha=0.5,rotation=90))
-	])
+	text!(
+		ax,
+		[Point(-Δ-0.25,0.75),Point(Δ+0.25,0.25)],
+		text = [L"\mu=-\Delta",L"\mu=\Delta"],
+		fontsize = 12,
+		color = :gray,
+		align = (:center,:center),
+		rotation = pi/2
+	)
 
 	xx = [x for x in -5:0.01:5]
 	q = floor(Int64, length(colorschemes[cs]) / length(ββ) )
@@ -66,15 +81,26 @@ function PlotDensity(
 		else
 			βlabel = "\\beta=$(β)"
 		end
-		plot!(
-			xx,yy,
-			label=L"%$(βlabel)",
-			color=colorschemes[cs][q*j]
+		# scatter!(
+		# 	ax, xx, yy,
+		# 	marker = :circle,
+		# 	color = colorschemes[cs][q*j],
+		# 	markersize = 4,
+		# 	label = L"%$(βlabel)",
+		# )
+		lines!(
+			ax, xx, yy,
+			color = colorschemes[cs][q*j],
+			label = L"%$(βlabel)",
 		)
 	end
 
+	xlims!(ax,-5,5)
+	ylims!(ax,-0.05,1.05)
+	Fig[1, 2] = Legend(Fig, ax, framevisible = false)
+
 	# Save figure
-	savefig(P, FilePathOut)
+	save(FilePathOut,Fig.scene)
 end
 
 if abspath(PROGRAM_FILE) == @__FILE__

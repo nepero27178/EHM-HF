@@ -536,7 +536,7 @@ For the $2$D square lattice, various spatial symmetries are possible. Let $i$ be
 \]
 where $g^{(\gamma)}$ are the $g_{ij}$ symmetries-decomposition coefficients while $\varphi_{ij}^{(\gamma)}$ are the form factors listed in Tab.~\ref{tab:x-wave-real-factors} and plotted in Fig.~\ref{fig:x-wave-reciprocal-factors}, a simple orthonormal rearrangement of the harmonics basis.
 
-\setlength{\extrarowheight}{0.5em}
+\setlength{\extrarowheight}{1em}
 \begin{table}
 	\centering
 	\begin{tabular}{r E l l}
@@ -544,24 +544,38 @@ where $g^{(\gamma)}$ are the $g_{ij}$ symmetries-decomposition coefficients whil
 		\midrule
 		$s$-wave & $\varphi^{(s)}_{ij}$ & $\delta_{ij}$ & Fig.~\ref{subfig:s-wave-correlator} \\
 		Extended $s$-wave & $\varphi^{(s^*)}_{ij}$ &
-		$\delta_{j=i+\delta_x} + \delta_{j=i-\delta_x} + \delta_{j=i+\delta_y} + \delta_{j=i-\delta_y}$ & Fig.~\ref{subfig:s*-wave-correlator} \\
+		$\displaystyle \frac{1}{2} \left[
+			\delta_{j=i+\delta_x} + \delta_{j=i-\delta_x} + \delta_{j=i+\delta_y} + \delta_{j=i-\delta_y}
+		\right]$ & Fig.~\ref{subfig:s*-wave-correlator} \\
 		$p_x$-wave & $\varphi^{(p_x)}_{ij}$ & $ 
-		\delta_{j=i+\delta_x} - \delta_{j=i-\delta_x}$ & Fig.~\ref{subfig:px-wave-correlator} \\
-		$p_y$-wave & $\varphi^{(p_y)}_{ij}$ & $ \delta_{j=i+\delta_y} - \delta_{j=i-\delta_y}$ & Fig.~\ref{subfig:py-wave-correlator} \\
-		$d_{x^2-y^2}$-wave & $\varphi^{(d)}_{ij}$ & $
-		\delta_{j=i+\delta_x} + \delta_{j=i-\delta_x} - \delta_{j=i+\delta_y} - \delta_{j=i-\delta_y}$ & Fig.~\ref{subfig:d-wave-correlator} \\[0.5em]
+		\displaystyle \frac{1}{\sqrt{2}} \left[
+			\delta_{j=i+\delta_x} - \delta_{j=i-\delta_x}
+		\right]$ & Fig.~\ref{subfig:px-wave-correlator} \\
+		$p_y$-wave & $\varphi^{(p_y)}_{ij}$ & $ \displaystyle \frac{1}{\sqrt{2}} \left[
+			\delta_{j=i+\delta_y} - \delta_{j=i-\delta_y}
+		\right]$ & Fig.~\ref{subfig:py-wave-correlator} \\
+		$d_{x^2-y^2}$-wave & $\varphi^{(d)}_{ij}$ & $\displaystyle \frac{1}{2} \left[
+			\delta_{j=i+\delta_x} + \delta_{j=i-\delta_x} - \delta_{j=i+\delta_y} - \delta_{j=i-\delta_y}
+		\right]$ & Fig.~\ref{subfig:d-wave-correlator} \\[0.5em]
 		\midrule
 	\end{tabular}
-	\caption{Form factors for a function defined on a square lattice,- The last column indicates the graph representation of each contribution given in Fig.~\ref{fig:wave-correlators}. Subscript $x^2-y^2$ is omitted for notational clarity.}
+	\caption{Form factors for a function defined on a square lattice, with a prefactor included for normalization. The last column indicates the graph representation of each contribution given in Fig.~\ref{fig:wave-correlators}. Subscript $x^2-y^2$ is omitted for notational clarity.}
 	\label{tab:x-wave-real-factors}
 \end{table}
 \setlength{\extrarowheight}{0em}
 
+{\color{tabred}
 Antiferromagnetic ordering considered in this text exhibits a perfect $s \oplus s^*$ topological ordering. Instead, superconductivity is established with a given symmetry -- which means, symmetry breaking in the phase transition proceeds in a specific channel. Conventional $\mathrm{BCS}$ superconductivity arises from the only possible spatial structure of the local pairing, $s$-wave -- here appearing as a local term (Fig.~\ref{subfig:s-wave-correlator}) and extended on a non-local term (Fig.~\ref{subfig:s*-wave-correlator}). Cuprates exhibit a tendency towards $d_{x^2-y^2}$ SC, while other materials towards $p$-wave types -- eventually with some chirality, as is the case for $p_x \pm i p_y$ SCs. To establish SC under a certain symmetry $\gamma$ means that Cooper pairs acquire said symmetry.
-
+}
 \subsection{Symmetry-based optimizations}\label{subsec:symmetry-based-optimizations}
 
-When dealing with phases which respect translational symmetry, or at most reduce it to a weaker symmetry by shrinking the Brillouin Zone, it' useful to work in reciprocal space, as discussed in Sec.~\ref{sec:mft-analysis-reciprocal-space}. As said, a particular phase can show specific spatial symmetries, and so will the Hartree Fock parameters. The key point to notice is that self-consistent equations involve sums (or integrals) to be computed over fermionic states, which can be heavily simplified by employing said symmetries. Consider the form factors of Tab.~\ref{tab:x-wave-real-factors}, and their Fourier transforms of Tab.~\ref{tab:x-wave-reciprocal-factors}. If these symmetries are developed by the HFPs, it's of no use to integrate over the entire BZ, since different regions linked by periodicity of the form factors will lead to redundant calculations.
+When dealing with phases which respect translational symmetry, or at most reduce it to a weaker symmetry by shrinking the Brillouin Zone, it' useful to work in reciprocal space, as discussed in Sec.~\ref{sec:mft-analysis-reciprocal-space}. As said, a particular phase can show specific spatial symmetries, and so will the Hartree Fock parameters. The key point to notice is that self-consistent equations involve sums (or integrals) to be computed over fermionic states, which can be heavily simplified by employing said symmetries. Consider the form factors of Tab.~\ref{tab:x-wave-real-factors}, and their Fourier transforms of Tab.~\ref{tab:x-wave-reciprocal-factors}. They satisfy the relations:
+\[
+	\frac{1}{L_x L_y} \sum_{ij} \varphi_{ij}^{(\gamma)} \varphi_{ij}^{(\gamma)*} = \delta_{\gamma\gamma'}
+	\qquad
+	\frac{1}{L_x L_y} \sum_{\mathbf{k}} \varphi_{\mathbf{k}}^{(\gamma)} \varphi_{\mathbf{k}}^{(\gamma)*} = \delta_{\gamma\gamma'}
+\]
+If these symmetries are developed by the HFPs, it's of no use to integrate over the entire BZ, since different regions linked by periodicity of the form factors will lead to redundant calculations.
 
 \setlength{\extrarowheight}{0.5em}
 \begin{table}
@@ -584,7 +598,7 @@ When dealing with phases which respect translational symmetry, or at most reduce
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.9\linewidth]{../Project/EHM-HartreeFock/src/labs/structure-factors/plot-structure-factors.pdf}
-	\caption{Representation of the various structure factors listed in Tab.~\ref{tab:x-wave-reciprocal-factors} on the BZ. For the $s^*$ and $d_{x^2-y^2}$-wave factors, the real part is plotted; for the $p_\ell$ factors, the imaginary part is plotted.}
+	\caption{Representation of the various structure factors listed in Tab.~\ref{tab:x-wave-reciprocal-factors} on the BZ. For the $s^*$ and $d_{x^2-y^2}$-wave factors, the real part is plotted; for the $p_\ell$ factors, the imaginary part is plotted.  {[\color{tabred}Rotate d-wave]}}
 	\label{fig:x-wave-reciprocal-factors}
 \end{figure}
 

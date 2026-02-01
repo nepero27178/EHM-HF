@@ -42,7 +42,7 @@
 			%
 			xmin=-1, xmax=1,
 			ymin=-1, ymax=1,
-			zmin=-0.6, zmax=0.6,
+			zmin=-0.4, zmax=0.4,
 			view/h=60,
 			view/v=15,
 			scale=2.25,
@@ -111,11 +111,11 @@
 						{$2\tilde{\theta}_\mathbf{k}$};
 						
 			\draw[color=tabred,dashed,-stealth] 
-				(0,\r*\EpsilonParameter) arc [start angle=90,end angle=-90+atan(\DeltaParameter/\EpsilonParameter),radius=\r*\EpsilonParameter]
-					node[anchor=south west,yshift=0.3em,midway]
+				(0,\r*\EpsilonParameter) arc [start angle=90,end angle=90+atan(\DeltaParameter/\EpsilonParameter)-2,radius=\r*\EpsilonParameter]
+					node[anchor=south east,midway]
 						{\small Diagonalization};
 			\draw[color=tabred,dashed,-stealth] 
-				(0,-\r*\EpsilonParameter) arc [start angle=270,end angle=90+atan(\DeltaParameter/\EpsilonParameter),radius=\r*\EpsilonParameter];
+				(0,-\r*\EpsilonParameter) arc [start angle=-90,end angle=-90+atan(\DeltaParameter/\EpsilonParameter)-2,radius=\r*\EpsilonParameter];
 		\end{scope}
 	\end{axis}
 \end{tikzpicture}
