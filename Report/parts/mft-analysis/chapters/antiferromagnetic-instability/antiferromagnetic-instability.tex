@@ -1107,7 +1107,7 @@ where in the second passage we employed the change of variables $\mathbf{q}'=\ma
 \end{equation}
 Interestingly enough, the new HFPs amplitudes contribute to lowering the contraction energy.
 
-\section{Full MFT hamiltonian and gap function}\label{sec:af-full-hamiltonian}
+\section{Full MFT hamiltonian and gap complexification}\label{sec:af-full-hamiltonian}
 
 Finally, it is time to collect everything in a single hamiltonian operator. The MFT model is approximated by:
 \begin{multline*}
@@ -1160,6 +1160,10 @@ Moreover, the net effect $\hat H_V$ is a ``gap complexification''. In other word
 	\big| \ge 0
 \]
 while for the HM the $y$ pseudospin component was identically null.
+
+\subsection{The relative phase in the zero temperature ground state}
+
+\todo
 
 \subsection{AF phase flavours and spin degeneracy}\label{subsec:ehm-af-flavours}
 
@@ -1288,6 +1292,78 @@ As is well documented in literature \cite{wietek2021stripes}, AF can establish i
 Of course the sketched procedure can lead to a lot of complications, first the fact that at incommensurate wavevector $\mathbf{k} \neq \bm{\pi}$ the unit cell is not as simple as a pair of sites, but can become much larger requiring more refined computational solutions.
 
 In this text we will show the self consistent result for AF-SSB at wavevector $\bm{\pi}$ even at finite doping as a first step in the above sketched procedure. The presented results are self-consistent, but unfortunately deeply unstable and unphysical at finite doping, a situation where an incommensurate and insulating AF phase is preferred to this commensurate metallic counterpart. Nevertheless we present them anyway.
+
+\section{AF free energy density}\label{sec:af-free-energy}
+
+In order to derive the expression of the free energy density for the AF phase, we proceed precisely as in Sec.~\ref{sec:normal-free-energy}. The only notable difference is in entropy: Eq.~\eqref{eq:normal-entropy-density} is written for two opposite bands on MBZ
+\[
+	s = s^{(+)} + s^{(-)}
+\]
+with
+\begin{multline}
+	s^{(\pm)} \equiv -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \Big[
+		\left(
+		1- f( \pm\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
+		\right) \ln \left(
+		1- f( \pm\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
+		\right) \\
+		+ f(
+		\pm\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
+		\ln f( \pm\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
+	\Big]
+\end{multline}
+Consider also that we are computing free energy on the gran-canonical hamiltonian
+\[
+	\hat H - \mu \hat N \simeq \sum_\sigma \sum_{\mathbf{k}\in\mathrm{MBZ}} \left[
+		(\tilde{E}_\mathbf{k} - \tilde{\mu}) \hat \gamma_{\mathbf{k}\sigma}^{(+)\dagger} \hat \gamma_{\mathbf{k}\sigma}^{(+)} - (\tilde{E}_\mathbf{k} + \tilde{\mu}) \hat \gamma_{\mathbf{k}\sigma}^{(-)\dagger} \hat \gamma_{\mathbf{k}\sigma}^{(-)}
+	\right] + E_\mathrm{c}^{(\mathrm{AF})}
+\]
+being $E_\mathrm{c}^{(\mathrm{AF})}$ the total AF contraction energy. Note that on the left-hand side we have $\mu$ and on the right-hand side its RMP counterpart $\tilde{\mu}$.
+
+With identical meaning of the notation with respect to Sec.~\ref{sec:normal-free-energy}, the free energy contributions are:
+\begin{enumerate}
+	\item Quasiparticles energy, taking care of spin degeneracy:
+	\[
+		e_\mathrm{g}^{(\mathrm{AF})} = \frac{2}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} (\tilde{E}_\mathbf{k} - \tilde{\mu}) f( \tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) - \frac{2}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} (\tilde{E}_\mathbf{k} + \tilde{\mu}) f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
+	\]
+	\item Contraction energy:
+	\[
+		e_\mathrm{c}^{(\mathrm{AF})} = U(m^2 - n^2) - V \left[
+			2zn^2 + \sum_{\gamma} \left(
+				\big|u^{(\gamma)}\big|^2 + \big|v^{(\gamma)}\big|^2
+			\right)
+		\right]
+	\]
+	\item Entropic energy
+	\begin{multline*}
+		e_s^{(\mathrm{AF})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \ln \left(
+		1- f( \tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \right) - \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\tilde{E}_\mathbf{k}-\tilde{\mu}) f( \tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \\
+		\frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \ln \left(
+		1- f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \right) + \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\tilde{E}_\mathbf{k}+\tilde{\mu}) f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
+	\end{multline*}
+	\item Chemical potential correction
+	\[
+		e_n^{(\mathrm{AF})} = \mu n
+	\]
+\end{enumerate}
+Compose everything
+\[
+	f_\mathrm{MFT}^{(\mathrm{AF})} \equiv e_\mathrm{g}^{(\mathrm{AF})} + e_\mathrm{c}^{(\mathrm{AF})} + e_s^{(\mathrm{AF})} + e_n^{(\mathrm{AF})}
+\]
+and we get
+\begin{multline}
+	f_\mathrm{MFT}^{(\mathrm{AF})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \left[
+		\ln \left(
+		1- f( \tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \right) + \ln \left(
+		1- f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \right)
+	\right] \\
+	+ U(m^2 - n^2) - V \left[
+		2zn^2 + \sum_{\gamma} \left(
+			\big|u^{(\gamma)}\big|^2 + \big|v^{(\gamma)}\big|^2
+		\right)
+	\right] + \mu n
+\end{multline}
+It's of particular interest the half-filling condition, with $\tilde{\mu}=0$. \todo
 
 \section{HF algorithm, computational strategy and results}
 

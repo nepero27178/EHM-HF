@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  3 FEB 2026 13:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  3 FEB 2026 17:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1829,16 +1829,23 @@ LaTeX Warning: Citation 'grosso2014solid' on page 7 undefined on input line 529
 .
 
 
-LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 7 undefined on 
-input line 565.
+Overfull \hbox (24.13512pt too wide) in paragraph at lines 528--530
+\OT1/cmr/m/n/10 with $\OML/cmm/m/it/10 T \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 =k
+[]^^L$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 s$ \OT1/cmr/m/n/10 the free Fermi 
+gas en-tropy den-sity for a sin-gle spin sec-tor [[]], 
+ []
 
 
 LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 7 undefined on 
-input line 580.
+input line 566.
+
+
+LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 7 undefined on 
+input line 581.
 
 
 LaTeX Warning: Reference `subsec:hf-sketch' on page 7 undefined on input line 5
-84.
+85.
 
 
 
@@ -1948,22 +1955,24 @@ ned on input line 1048.
 [18]
 
 LaTeX Warning: Reference `subsec:af-symmetry-considerations' on page 19 undefin
-ed on input line 1205.
+ed on input line 1209.
 
 
 
 [19]
 
 LaTeX Warning: Citation 'singh1990collective' on page 20 undefined on input lin
-e 1272.
+e 1276.
 
 
 LaTeX Warning: Citation 'wietek2021stripes' on page 20 undefined on input line 
-1280.
+1284.
 
 
 
 [20]
+
+[21]
 (./parts/mft-analysis/chapters/antiferromagnetic-instability/pictures/af-mbz-s*
 -optimization.tex
 Package pgfplots info on input line 63: fill between: activating layered graphi
@@ -1990,23 +1999,19 @@ tions,axis foreground'...
 )
 
 LaTeX Warning: Reference `eq:af-renormalized-self-consistent-equation-m' on pag
-e 21 undefined on input line 1305.
+e 22 undefined on input line 1381.
 
 
 LaTeX Warning: Reference `eq:af-renormalized-self-consistent-equation-w0' on pa
-ge 21 undefined on input line 1305.
+ge 22 undefined on input line 1381.
 
 
 LaTeX Warning: Reference `eq:af-renormalized-self-consistent-equation-wpi' on p
-age 21 undefined on input line 1305.
+age 22 undefined on input line 1381.
 
 ) (./parts/appendices/mean-field-hubbard/mean-field-hubbard.tex
 
-[21]
-
-[22
-
-]
+[22]
 
 LaTeX Warning: Reference `eq:hubbard-model' on page 23 undefined on input line 
 4.
@@ -2037,7 +2042,9 @@ t line 20.
 
 
 
-[23]
+[23
+
+]
 
 LaTeX Warning: Citation 'fabrizio2022course' on page 24 undefined on input line
  177.
@@ -2071,7 +2078,7 @@ e 377.
 [27]
 
 [28]
-<../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.pdf, id=627, 451.6875pt 
+<../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.pdf, id=648, 451.6875pt 
 x 301.125pt>
 File: ../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.pdf Graphic file (t
 ype pdf)
@@ -2107,7 +2114,7 @@ line 741.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 793.
 <../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOrderP
-arameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf, id=693, 482.80273pt x 29
+arameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf, id=713, 482.80273pt x 29
 8.89566pt>
 File: ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotO
 rderParameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf Graphic file (type p
@@ -2119,7 +2126,7 @@ Package pdftex.def Info: ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup
 used on input line 809.
 (pdftex.def)             Requested size: 213.39568pt x 132.10739pt.
 <../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOrderP
-arameter/xVar=δ/pVar=U/m_t=1.0_Lx=128.0_β=100.0.pdf, id=694, 485.6283pt x 299
+arameter/xVar=δ/pVar=U/m_t=1.0_Lx=128.0_β=100.0.pdf, id=714, 485.6283pt x 299
 .00809pt>
 File: ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotO
 rderParameter/xVar=δ/pVar=U/m_t=1.0_Lx=128.0_β=100.0.pdf Graphic file (type p
@@ -2160,7 +2167,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A1C75548BCA19914AD5D5D113F1BBBA7;9908.
+(rerunfilecheck)             Checksum: 2C8FE49FDDEDFC43A96B129C2386A18B;10483.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -2171,9 +2178,9 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53305 strings out of 475076
- 1202968 string characters out of 5763687
- 2231737 words of memory out of 5000000
+ 53314 strings out of 475076
+ 1203086 string characters out of 5763687
+ 2231852 words of memory out of 5000000
  75296 multiletter control sequences out of 15000+600000
  577040 words of font info for 102 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
@@ -2210,10 +2217,10 @@ t/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/p
 ublic/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0
 800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (36 pages, 606270 bytes).
+Output written on main.pdf (36 pages, 610761 bytes).
 PDF statistics:
- 983 PDF objects out of 1000 (max. 8388607)
- 827 compressed objects within 9 object streams
- 220 named destinations out of 1000 (max. 500000)
- 440 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1005 PDF objects out of 1200 (max. 8388607)
+ 849 compressed objects within 9 object streams
+ 229 named destinations out of 1000 (max. 500000)
+ 456 words of extra memory for PDF output out of 10000 (max. 10000000)
 

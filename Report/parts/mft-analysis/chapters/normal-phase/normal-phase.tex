@@ -419,12 +419,12 @@ Finally, let us derive the Fock contraction energy by expanding Eq.~\eqref{eq:re
 	\rangle \langle
 		\hat c_{\mathbf{q} \sigma}^\dagger  \hat c_{\mathbf{q}' \sigma}
 	\rangle \nonumber \\
-	&= L_x L_y \times V \sum_{\gamma,\sigma} \left[
+	&= L_x L_y \times \frac{V}{2} \sum_{\gamma,\sigma} \left[
 		\frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}} \varphi_\mathbf{q}^{(\gamma)} u_{\mathbf{q}\sigma}
 	\right] \left[
 		\frac{1}{L_x L_y} \sum_{\mathbf{q}'\in\mathrm{BZ}} \varphi_\mathbf{q}'^{(\gamma)*} u_{\mathbf{q}'\sigma}
 	\right] \nonumber \\
-	&= L_x L_y \times V \sum_\sigma \left[
+	&= L_x L_y \times \frac{V}{2} \sum_\sigma \left[
 		\big|
 			u_\sigma^{(s^*)}
 		\big|^2 + \big|
@@ -506,14 +506,14 @@ Let us now take together all terms. From now on, we will omit spin index $\sigma
 \begin{enumerate}
 	\item The free particles thermal ground state energy density,
 	\[
-		e_\mathrm{g}^{(\mathrm{N})} = \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{\epsilon}_\mathbf{k} f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu} )
+		e_\mathrm{g}^{(\mathrm{N})} = \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu}) f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu} )
 	\]
 	\item The contraction energy density,
 	\[
 	\begin{aligned}
 		e_\mathrm{c}^{(\mathrm{N})} &\equiv \frac{E_\mathrm{c}^{(\mathrm{N})}}{L_x L_y} \\
-		&= - n^2 U - 2V \left[
-			zn^2 + 
+		&= - n^2 U - V \left[
+			2zn^2 + 
 			\big|
 				u^{(s^*)}
 			\big|^2 + \big|
@@ -526,9 +526,9 @@ Let us now take together all terms. From now on, we will omit spin index $\sigma
 	\[
 		e_s^{(\mathrm{N})} \equiv -Ts
 	\]
-	with $T = 1/k_B \beta$ and $s$ the free Fermi gas entropy density \cite{grosso2014solid},
-	\[
-		s = -\frac{2 k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
+	with $T = 1/k_B \beta$ and $s$ the free Fermi gas entropy density for a single spin sector \cite{grosso2014solid},
+	\begin{equation}\label{eq:normal-entropy-density}
+		s = -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
 			\left(
 				1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
 			\right) \ln \left(
@@ -536,8 +536,9 @@ Let us now take together all terms. From now on, we will omit spin index $\sigma
 			\right) + f(
 				\tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
 			\ln f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
+			\vphantom{A^A}
 		\right]
-	\]
+	\end{equation}
 	We use the identity:
 	\[
 		\ln \left(
@@ -548,15 +549,15 @@ Let us now take together all terms. From now on, we will omit spin index $\sigma
 	\]
 	and reduce the above expression to:
 	\begin{multline*}
-		s = -\frac{2 k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[ \ln \left(
+		s = -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[ \ln \left(
 		1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) + f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \ln f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \\
-		- \beta \tilde{\epsilon}_\mathbf{k} f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) - f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \ln f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
+		- \beta (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu}) f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) - f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \ln f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
 		\Big]
 	\end{multline*}
-	Second and fourth terms cancel out, and we have
+	Second and fourth terms cancel out, and multiplying by $-2T$ (taking care of spin degeneracy) we have
 	\[
 		e_s^{(\mathrm{N})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
-		1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{\epsilon}_\mathbf{k} f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
+		1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu}) f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
 	\]
 	\item The chemical potential correction
 	\[
@@ -568,8 +569,8 @@ Thus, composing everything
 \begin{align}
 	f_\mathrm{MFT}^{(\mathrm{N})} &\equiv e_\mathrm{g}^{(\mathrm{N})} + e_\mathrm{c}^{(\mathrm{N})} + e_s^{(\mathrm{N})} + e_n^{(\mathrm{N})} \nonumber \\
 	&= \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
-	1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - n^2 U - 2V \left[
-		zn^2 + 
+	1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - n^2 U - V \left[
+		2zn^2 + 
 		\big|
 			u^{(s^*)}
 		\big|^2 + \big|
