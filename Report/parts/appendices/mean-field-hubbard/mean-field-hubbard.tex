@@ -144,15 +144,13 @@ with $E_{\mathrm{H}/U}^{(\mathrm{AF})}$ the HM Hartree contraction energy,
 	\right) \label{appeq:af-hartree-V-contraction-energy}
 \end{align}
 By a Fourier transform, the phase factor of Eq.~\eqref{appeq:hubbard-mean-field-hamiltonian} can be absorbed in the destruction operator inside of $\hat n_{\mathbf{r}\sigma}$:
-\[
-\begin{aligned}
-	\sum_\mathbf{r} (-1)^{x+y} \hat n_{\mathbf{r}\sigma} &= \sum_\mathbf{r} (-1)^{x+y} \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \\
+\begin{align}
+	\sum_\mathbf{r} (-1)^{x+y} \hat n_{\mathbf{r}\sigma} &= \sum_\mathbf{r} (-1)^{x+y} \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \nonumber \\
 	&\stackrel{\mathcal{F}}{=} \sum_\mathbf{r} e^{i \bm{\pi} \cdot \mathbf{r}}
-	\frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k} \in \mathrm{BZ}} e^{i \mathbf{k} \cdot \mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k}' \in \mathrm{BZ}} e^{-i \mathbf{k}' \cdot \mathbf{r}} \hat c_{\mathbf{k}'\sigma} \\
-	&=\sum_{\mathbf{k} \in \mathrm{BZ}} \sum_{\mathbf{k}' \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \frac{1}{L_x L_y} \sum_\mathbf{r} e^{-i [\mathbf{k}' - (\mathbf{k} + \bm{\pi}) ] \cdot \mathbf{r}} \\
-	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma}
-\end{aligned}
-\]
+	\frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k} \in \mathrm{BZ}} e^{i \mathbf{k} \cdot \mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k}' \in \mathrm{BZ}} e^{-i \mathbf{k}' \cdot \mathbf{r}} \hat c_{\mathbf{k}'\sigma} \nonumber \\
+	&=\sum_{\mathbf{k} \in \mathrm{BZ}} \sum_{\mathbf{k}' \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \frac{1}{L_x L_y} \sum_\mathbf{r} e^{-i [\mathbf{k}' - (\mathbf{k} + \bm{\pi}) ] \cdot \mathbf{r}} \nonumber \\
+	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma}\label{appeq:af-hm-staggered-n-transform}
+\end{align}
 where $\bm{\pi} = (\pi,\pi)$. It follows:
 \[
 mU \sum_\mathbf{r} (-1)^{x+y} \left[
@@ -195,10 +193,16 @@ Periodicity by shifts $2\bm{\pi}$ has been used. Now, define the Nambu spinors:
 		\hat c_{\mathbf{k}+\bm{\pi}\sigma} 
 	\end{bmatrix}
 \]
-and the gap function
+As in Eq.~\mref, it is useful to define the density and AF fluctuation operators:
+\begin{align}
+	\hat n_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{appeq:af-hm-n-def} \\
+	\hat \psi_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma} \label{appeq:af-hm-psi-def}
+\end{align}
+whose EVs are relevant order parameters for the normal and AF phases. Let also the gap function:
 \[
 	\Delta_{\mathbf{k}\sigma} = (-1)^{\delta_{\sigma=\downarrow}} mU
 \]
+
 At fixed filling, the $nU$ term is a pure chemical potential shift, thus will be neglected. The kinetic term transforms as
 \[
 \begin{aligned}
@@ -262,7 +266,22 @@ one gets:
 		\hat s_{\mathbf{k}\sigma}^z
 	\end{bmatrix}
 \end{equation}
-The hamiltonian represents a system of spins subject to local magnetic fields, each tilted by an angle $\tan(2\theta_{\mathbf{k}\sigma}) = \Delta_{\mathbf{k}\sigma}/\epsilon_{\mathbf{k}\sigma}$, as sketched in Fig.~\ref{appfig:pseudo-magnetic-field}. At any finite temperature, the ground-state of such a system is well-known: a thermal superposition of ``down'' spins with ``up'' spins. In the pseudospin picture, at each ``site'' $(\mathbf{k}\sigma)$, the lowest-energy state is the one anti-aligned with the pseudo-magnetic field. It is useful now to define the thermal factors,
+The hamiltonian represents a system of spins subject to local magnetic fields, each tilted by an angle $\tan(2\theta_{\mathbf{k}\sigma}) = \Delta_{\mathbf{k}\sigma}/\epsilon_{\mathbf{k}\sigma}$, as sketched in Fig.~\ref{appfig:pseudo-magnetic-field}. Evidently the following relations hold:
+\begin{align}
+	\hat s_{\mathbf{k}\sigma}^x &= \hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger \label{appeq:af-hm-x-psi} \\
+	\hat s_{\mathbf{k}\sigma}^y &= -i \left(
+		\hat \psi_{\mathbf{k}\sigma} - \hat \psi_{\mathbf{k}\sigma}^\dagger 
+	\right) \label{appeq:af-hm-y-psi} \\
+	\hat s_{\mathbf{k}\sigma}^z &= \hat n_{\mathbf{k}\sigma} - \hat n_{\mathbf{k}\sigma}^\dagger \label{appeq:af-hm-z-psi} 
+\end{align}
+Let also:
+\begin{align}
+	\hat \Id_{\mathbf{k}\sigma} &\equiv \hat \Psi_{\mathbf{k}\sigma}^\dagger \hat \Psi_{\mathbf{k}\sigma} \nonumber \\
+	&= \hat n_{\mathbf{k}\sigma} + \hat n_{\mathbf{k}+\bm{\pi}\sigma} \label{appeq:af-hm-id-def}
+\end{align}
+which accounts for a chemical potential shift.
+
+At any finite temperature, the ground-state of such a system is well-known: a thermal superposition of ``down'' spins with ``up'' spins. In the pseudospin picture, at each ``site'' $(\mathbf{k}\sigma)$, the lowest-energy state is the one anti-aligned with the pseudo-magnetic field. It is useful now to define the thermal factors,
 \begin{equation}\label{appeq:af-thermal-factors-def}
 	\mathrm{Th}_{\mathbf{k}\sigma}^{(\pm)}[\beta,\mu] \equiv 
 	f\left(
@@ -315,30 +334,29 @@ Eigenvalues are:
 	}
 \end{equation}
 
-Note that considering the full hamiltonian $\hat H - \mu\hat N$, the diagonalizing matrix remains the same, being
+Note that considering the gran canonical hamiltonian $\hat K \equiv \hat H - \mu\hat N$ and using Eq.~\eqref{appeq:af-hm-id-def} the diagonalizing matrix remains the same, being
 \begin{equation}\label{appeq:af-full-h-diagonalization}
 	-\mu\hat N = \sum_{\mathbf{k}\in\mathrm{MBZ}} \begin{bmatrix}
 		-\mu & \\ & -\mu
 	\end{bmatrix}
 	\quad\implies\quad
 	W_{\mathbf{k}\sigma} \left[ 
-	h_{\mathbf{k}\sigma}-\mu\mathbb{I}_{2\times2}
-	\right] W_{\mathbf{k}\sigma}^\dagger = d_{\mathbf{k}\sigma}-\mu\mathbb{I}_{2\times2}
+	h_{\mathbf{k}\sigma}-\mu \hat \Id_{\mathbf{k}\sigma}
+	\right] W_{\mathbf{k}\sigma}^\dagger = d_{\mathbf{k}\sigma}-\mu \hat \Id_{\mathbf{k}\sigma}
 \end{equation}
 thus for non-null chemical potential (i.e. finite doping) the eigenvalues are just shifted, $\pm E_\mathbf{k}-\mu$. In other words, the new bands retain the same chemical potential of the bare bands. Notice also that the presence of an absolute value makes the eigenvalues independent of the $\sigma$ index. Eigenvector fermion operators are obtained simply as:
 \begin{equation}\label{appeq:af-diagonalized-nambu-spinor}
 	\hat\Gamma_{\mathbf{k}\sigma} = W_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma}
 \end{equation}
 The $\hat\Gamma$ spinor operators are effectively free fermionic spinor fields and as such must be treated. Explicitly,
-\[
-\begin{aligned}
+\begin{align}
 	\hat\Gamma_{\mathbf{k}\sigma} &= \begin{bmatrix}
 		\cos \theta_{\mathbf{k}\sigma} & - \sin \theta_{\mathbf{k}\sigma} \\
 		\sin \theta_{\mathbf{k}\sigma} & \cos \theta_{\mathbf{k}\sigma}
 	\end{bmatrix} \begin{bmatrix}
 		\hat c_{\mathbf{k}\sigma} \\
 		\hat c_{\mathbf{k}+\bm{\pi}\sigma} 
-	\end{bmatrix} \\
+	\end{bmatrix} \nonumber \\
 	&= \begin{bmatrix}
 		\cos \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma} - \sin \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}+\bm{\pi}\sigma}  \\
 		\sin \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma} + \cos \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}+\bm{\pi}\sigma} 
@@ -346,9 +364,8 @@ The $\hat\Gamma$ spinor operators are effectively free fermionic spinor fields a
 	\begin{bmatrix}
 		\hat \gamma_{\mathbf{k}\sigma}^{(+)} \\
 		\hat \gamma_{\mathbf{k}\sigma}^{(-)} 
-	\end{bmatrix}
-\end{aligned}
-\]
+	\end{bmatrix} \label{appeq:af-hm-gamma-ops-transform}
+\end{align}
 
 \begin{figure}
 	\centering
@@ -358,6 +375,90 @@ The $\hat\Gamma$ spinor operators are effectively free fermionic spinor fields a
 \end{figure}
 
 The consequence of Eq.~\eqref{appeq:af-full-h-diagonalization} is interesting by itself: within this HF solution, the gap opens always at $E=0$. In other words, the bands sketched in Fig.~\ref{appfig:antiferromagnetic-3d-bands} retain the same geometric features regardless of the doping, what changes is the bands width and the gap between them. The very key point here is that, being the two bands symmetric (thus containing each half of the electronic states) and defined over the MBZ, any finite doping $\delta>0$ will produce a metallic behaviour, imposing that the chemical potential crosses the upper band. It is widely observed and confirmed by more refined numerical procedures, however, that AF establishes an insulating phase -- here only reproduced at half-filling, where the chemical potential lies within the gap. As will be detailed in \ref{appsubsec:instability-af-commensurate}, the commensurate nature of AF SSB at wavevector $\bm{\pi}$ of this self-consistent solution is highly unstable and atypical at finite doping \cite{singh1990collective}.
+
+\subsection{Explicit zero-temperature ground state}
+
+The AF ground state can be expressed easily. Let $\ket{\Uparrow_{\mathbf{k}\sigma}}$ and $\ket{\Downarrow_{\mathbf{k}\sigma}}$ be respectively the ``up'' and ``down'' $\mathbf{k}$-th pseudospin states. Let $\ket{\overline{\Downarrow}_{\mathbf{k}\sigma}}$ be the ``down'' state in the tilted frame. At $\beta \to +\infty$, the ground state is given by
+\begin{equation}\label{appeq:af-hm-gs-1}
+	\ket{\Psi} \equiv \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \ket{\overline{\Downarrow}_{\mathbf{k}\sigma}}
+\end{equation}
+We can link the ``down'' states via an inverse rotation,
+\begin{align}
+	\ket{\overline{\Downarrow}_{\mathbf{k}\sigma}} &= e^{-i\theta_{\mathbf{k}\sigma} \hat s_{\mathbf{k}\sigma}^y} \ket{\Downarrow_{\mathbf{k}\sigma}} \nonumber \\
+	&= \cos \theta_{\mathbf{k}\sigma} \ket{\Downarrow_{\mathbf{k}\sigma}} - i \sin\theta_{\mathbf{k}\sigma} \hat s_{\mathbf{k}\sigma}^y \ket{\Downarrow_{\mathbf{k}\sigma}} \nonumber \\
+	&= \cos \theta_{\mathbf{k}\sigma} \ket{\Downarrow_{\mathbf{k}\sigma}} - \sin\theta_{\mathbf{k}\sigma} (\hat s_{\mathbf{k}\sigma}^+ - \hat s_{\mathbf{k}\sigma}^-) \ket{\Downarrow_{\mathbf{k}\sigma}} \nonumber \\
+	&= \cos \theta_{\mathbf{k}\sigma} \ket{\Downarrow_{\mathbf{k}\sigma}} - \sin\theta_{\mathbf{k}\sigma} \ket{\Uparrow_{\mathbf{k}\sigma}} \label{appeq:af-tilted-down}
+\end{align}
+having we used
+\[
+	\hat s_{\mathbf{k}\sigma}^\pm \equiv \frac{\hat s_{\mathbf{k}\sigma}^x \pm i\hat s_{\mathbf{k}\sigma}^y}{2}
+\]
+
+Use now Eqns.~\eqref{appeq:af-hm-id-def} and \eqref{appeq:af-hm-z-psi},
+\[
+	\frac{\hat \Id_{\mathbf{k}\sigma} + \hat s_{\mathbf{k}\sigma}^z}{2} = \hat n_{\mathbf{k}\sigma}
+	\qquad
+	\frac{\hat \Id_{\mathbf{k}\sigma} - \hat s_{\mathbf{k}\sigma}^z}{2} = \hat n_{\mathbf{k}+\bm{\pi}\sigma}
+\]
+Evaluating the above operators on the ``up'' and ``down'' states, we get immediately
+\[
+\begin{aligned}
+	\frac{1}{2} \mel{\Uparrow_{\mathbf{k}\sigma}}{\hat \Id_{\mathbf{k}\sigma} + \hat s_{\mathbf{k}\sigma}^z}{\Uparrow_{\mathbf{k}\sigma}} &= 1 \\
+	\frac{1}{2} \mel{\Downarrow_{\mathbf{k}\sigma}}{\hat \Id_{\mathbf{k}\sigma} + \hat s_{\mathbf{k}\sigma}^z}{\Downarrow_{\mathbf{k}\sigma}} &= 0
+\end{aligned}
+\qquad
+\begin{aligned}
+	\frac{1}{2} \mel{\Uparrow_{\mathbf{k}\sigma}}{\hat \Id_{\mathbf{k}\sigma} - \hat s_{\mathbf{k}\sigma}^z}{\Uparrow_{\mathbf{k}\sigma}} &= 0 \\
+	\frac{1}{2} \mel{\Downarrow_{\mathbf{k}\sigma}}{\hat \Id_{\mathbf{k}\sigma} - \hat s_{\mathbf{k}\sigma}^z}{\Downarrow_{\mathbf{k}\sigma}} &= 1
+\end{aligned}
+\]
+Thus, up to a phase
+\[
+	\ket{\Uparrow_{\mathbf{k}\sigma}} \sim \hat c_{\mathbf{k}\sigma}^\dagger \ket{\Omega_{\mathbf{k}\sigma}}
+	\qquad
+	\ket{\Downarrow_{\mathbf{k}\sigma}} \sim \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \ket{\Omega_{\mathbf{k}\sigma}}
+\]
+being $\ket{\Omega_{\mathbf{k}\sigma}}$ the $(\mathbf{k},\sigma)$ Hilbert subspace vacuum. 
+
+It follows that composing Eqns.~\eqref{appeq:af-hm-gs-1} and \eqref{appeq:af-tilted-down} the ground state $\ket{\Psi}$ can be written as:
+\begin{equation}\label{appeq:af-hm-gs-2}
+	\ket{\Psi} = \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \left[
+		\cos \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger + e^{2i\zeta_{\mathbf{k}\sigma}} \sin\theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma}^\dagger
+	\right] \ket{\Omega_{\mathbf{k}\sigma}}
+\end{equation}
+having we absorbed in the relative phase $e^{2i\zeta_{\mathbf{k}\sigma}}$ the two states phases differences as well as the original sign difference of Eq.~\eqref{appeq:af-tilted-down}. Now, inserting the explicit form of the ground state from equation above:
+\[
+\begin{aligned}
+	\mel{\overline{\Downarrow}_{\mathbf{k}\sigma}}{\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger}{\overline{\Downarrow}_{\mathbf{k}\sigma}} &= \left(e^{2i\zeta_{\mathbf{k}\sigma}} + e^{-2i\zeta_{\mathbf{k}\sigma}}\right) \sin\theta_{\mathbf{k}\sigma} \cos\theta_{\mathbf{k}\sigma} \\
+	&= \cos 2\zeta_{\mathbf{k}\sigma} \sin 2\theta_{\mathbf{k}\sigma}
+\end{aligned}
+\]
+but from Eq.~\eqref{appeq:af-hm-x-psi}
+\[
+\begin{aligned}
+	\mel{\overline{\Downarrow}_{\mathbf{k}\sigma}}{\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger}{\overline{\Downarrow}_{\mathbf{k}\sigma}} &= 	\mel{\overline{\Downarrow}_{\mathbf{k}\sigma}}{\hat s_{\mathbf{k}\sigma}^x}{\overline{\Downarrow}_{\mathbf{k}\sigma}} \\
+	&= \sin 2\theta_{\mathbf{k}\sigma}
+\end{aligned}
+\]
+since the pseudofield has no $y$ component. This implies necessarily
+\[
+	\cos 2\zeta_{\mathbf{k}\sigma}
+	\quad\implies\quad
+	\zeta_{\mathbf{k}\sigma} = k\pi
+	\qq{with}
+	k\in\mathbb{Z}
+\]
+and lets us conclude from Eq.~\eqref{appeq:af-hm-gs-2}
+\begin{equation}\label{appeq:af-hm-gs-3}
+	\ket{\Psi} = \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \left[
+	\sin \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma}^\dagger + \cos \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger
+	\right] \ket{\Omega_{\mathbf{k}\sigma}}
+\end{equation}
+For low-temperature physics, we can expect the ground-state density matrix to be highly dominated by this BCS-like zero-temperature ground-state, which highlights the essential features of the system. Finally, using Eq.~\eqref{appeq:af-hm-gamma-ops-transform}, we check that correctly the ground-state describes a perfect degenerate $\gamma^{(-)}$ quasiparticles Fermi gas,
+\begin{equation}\label{appeq:af-hm-gs-4}
+	\ket{\Psi} = \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \gamma_{\mathbf{k}\sigma}^{(-)\dagger} \ket{\Omega_{\mathbf{k}\sigma}}
+\end{equation}
+The AF phase can be thought of as a long-range coordination between fermionic states related by a $\bm{\pi}$ shift in reciprocal space, producing a new free gas where all interactions have been ``condensed'' in these AF pairs.
 
 \subsection{Spin degeneracy removal}
 
@@ -375,7 +476,17 @@ being the latter purely $s$-wave. This is a property of the pure HM: for the EHM
 
 \subsection{Chemical potential and system density}
 
-The total number of electrons is given by
+Using the fact that
+\[
+	\left\langle
+		\hat\Gamma_{\mathbf{k}\sigma}^\dagger
+		\hat\Gamma_{\mathbf{k}\sigma}
+	\right\rangle = \left\langle
+		\hat\Psi_{\mathbf{k}\sigma}^\dagger
+		\hat\Psi_{\mathbf{k}\sigma}
+	\right\rangle
+\]
+due to the $W_{\mathbf{k}\sigma}$ unitarity properties, the total number of electrons is given by
 \begin{align}
 	N &= \sum_{\mathbf{k}\sigma} \ev{\hat n_{\mathbf{k}\sigma}} \nonumber \\
 	&= \sum_\sigma \sum_{\mathbf{k} \in \mathrm{MBZ}} \left\langle
@@ -412,27 +523,26 @@ In Fig.~\ref{appfig:af-density-various-betas} the density $n(\mu)$ is plotted as
 
 \subsection{Self-consistency gap equation and magnetization}\label{appsubsec:af-self-consistency-gap-equation}
 
-A convergence algorithm can be designed to find the Hartree-Fock solution to the model. Ultimately, we aim to extract $m$ self-consistently. Since
+A convergence algorithm can be designed to find the Hartree-Fock solution to the model. Ultimately, we aim to extract $m$ self-consistently. Combining Eqns.~\eqref{appeq:af-hm-staggered-n-transform}, \eqref{appeq:mixed-cc-term-intermediate-passage} and the definition of Eq.~\eqref{appeq:af-hm-psi-def}, we get
+\[
+	\frac{1}{2L_xL_y} \sum_\mathbf{r} (-1)^{x+y} \hat n_{\mathbf{r}\sigma} = \sum_{\mathbf{k}\in\mathrm{MBZ}} \left[
+		\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger
+	\right]
+\]
+thus
 \[
 \begin{aligned}
 	m &= \frac{1}{2L_xL_y} \sum_\mathbf{r} (-1)^{x+y} \langle
 		\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
 	\rangle \\
-	&= \frac{1}{2L_xL_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \langle
-		\hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\uparrow} - \hat c_{\mathbf{k}\downarrow}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\downarrow}
-	\rangle \\
 	&= \frac{1}{2L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \left\langle
-			\left(
-				\hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\uparrow} + \hat c_{\mathbf{k}+\bm{\pi}\uparrow}^\dagger \hat c_{\mathbf{k}\uparrow}	
-			\right) - \left(
-				\hat c_{\mathbf{k}\downarrow}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\downarrow} + \hat c_{\mathbf{k}+\bm{\pi}\downarrow}^\dagger \hat c_{\mathbf{k}\downarrow}	
-			\right)
-		\right\rangle
+		\left(\hat \psi_{\mathbf{k}\uparrow} + \hat \psi_{\mathbf{k}\uparrow}^\dagger\right) - \left(\hat \psi_{\mathbf{k}\downarrow} + \hat \psi_{\mathbf{k}\downarrow}^\dagger\right)
+	\right\rangle
 \end{aligned}
 \]
-In the last passage, Eq.~\eqref{appeq:mixed-cc-term-intermediate-passage} has been used. By multiplying the above equation by $U$, we get the HF self-consistency equation for the HFP $\Delta=mU$,
+Using now Eq.~\eqref{appeq:af-hm-x-psi} we get the self-consistency equation for the HFP $m$,
 \begin{align}
-	\Delta &= \frac{U}{2L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \left[
+	m &= \frac{1}{2L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \left[
 		\langle
 			\hat s_{\mathbf{k}\uparrow}^x
 		\rangle
@@ -441,16 +551,9 @@ In the last passage, Eq.~\eqref{appeq:mixed-cc-term-intermediate-passage} has be
 			 \hat s_{\mathbf{k}\downarrow}^x
 		 \rangle
 	\right] \nonumber \\
-	&= -\frac{U}{2L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Re\lbrace\Delta_{\mathbf{k}\uparrow}\rbrace-\Re\lbrace\Delta_{\mathbf{k}\downarrow}\rbrace}{2E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta,\mu] \nonumber \\
-	&= -\frac{U}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta}{2E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta,\mu] \label{appeq:hm-af-Delta-self-consistency}
+	&= -\frac{1}{2L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Re\lbrace\Delta_{\mathbf{k}\uparrow}\rbrace-\Re\lbrace\Delta_{\mathbf{k}\downarrow}\rbrace}{2E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta,\mu] \nonumber \\
+	&= -\frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta}{2E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta,\mu] \label{appeq:hm-af-m-self-consistency}
 \end{align}
-Of course, the same equation would have been obtained more straightforwardly by the equivalent definition of $\Delta_{\mathbf{k}\sigma}$,
-\[
-	\Delta_{\mathbf{k}\sigma} \equiv \frac{U}{L_x L_y} \sum_{\mathbf{k},\mathbf{k}'} 
-	\langle
-		\hat c_{\mathbf{k}\sigma}^\dagger \hat 	c_{\mathbf{k}+\bm{\pi}\sigma} 
-	\rangle
-\]
 
 The magnetization $m$ is the physical order parameter of the phase transition from the normal phase to the antiferromagnetic one. Within such phase transition, in fact, it is the expectation value
 \[
@@ -575,7 +678,7 @@ that goes from zero (normal phase, free Fermi gas) to a non-zero value (AF). As 
 
 \subsection{The half-filled case}
 
-Consider specifically the half-filled situation. Since due to symmetry $\mu=0$, we have the finite-temperature self-consistent equation
+Consider specifically the half-filled situation and multiply Eq.~\eqref{appeq:hm-af-Delta-self-consistency} on both sides by $U$. Since due to symmetry $\mu=0$, we have the finite-temperature self-consistent equation
 \[
 	\Delta = \frac{U}{2L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta}{\sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2})
 \]
@@ -628,14 +731,14 @@ For any finite doping, the commensurate AF phase becomes unstable and is destroy
 
 \subsection{Hartree-Fock algorithm results in reciprocal space}\label{appsubsec:hartree-fock-algorithm}
 
-The above sections offer a self-consistency equation for the only HFP $\Delta$; $W$ is determined by $\Delta$ indeed. In an iterative HF fashion, Eq.~\eqref{appeq:hm-af-Delta-self-consistency} reads:
-\begin{equation}\label{appeq:hm-af-Delta-self-consistency-iterative}
-	\Delta_{i+1} =
-	\frac{U}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta_i}{2E_\mathbf{k}[\Delta_i]} \left[
-	f(-E_\mathbf{k}[\Delta_i];\beta,\mu)-f(E_\mathbf{k}[\Delta_i];\beta,\mu)
+The above sections offer a self-consistency equation for the only HFP $m$; $W$ is determined by $\Delta = mU$ indeed. In an iterative HF fashion, Eq.~\eqref{appeq:hm-af-m-self-consistency} reads:
+\begin{equation}\label{appeq:hm-af-m-self-consistency-iterative}
+	m_{i+1} =
+	\frac{U}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{m_i}{2E_\mathbf{k}[\Delta_i]} \left[
+	f(-E_\mathbf{k}[m_i];\beta,\mu)-f(E_\mathbf{k}[m_i];\beta,\mu)
 	\right]
 \end{equation}
-Then a self-consistent algorithm to search for a self consistent estimate for $m = \Delta/U$ may be sketched, following the general idea of Sec.~\ref{sec:computational-mft}:
+Then a self-consistent algorithm to search for a self consistent estimate of the magnetization may be sketched, following the general idea of Sec.~\ref{sec:computational-mft}:
 \begin{enumerate}
 	\item Algorithm setup: initialize a counter $i=1$ and choose:
 	\begin{itemize}
@@ -651,26 +754,26 @@ Then a self-consistent algorithm to search for a self consistent estimate for $m
 		\item the inverse temperature $\beta$;
 		\item the maximum number of iterations $p \in \mathbb{N}$; 
 		\item the mixing parameter $g \in [0,1]$;
-		\item the tolerance parameters $\delta_\Delta, \Delta_n \in \mathbb{R}$ (respectively for the HFP $\Delta$ and density);
+		\item the tolerance parameters $\delta_m, \delta_n \in \mathbb{R}$ (respectively for the HFP $m$ and density);
 	\end{itemize}
-	\item Select a random starting value $\Delta_i > 0$ for $i=1$;
+	\item Select a random starting value $m_i > 0$ for $i=1$;
 	\item Find the optimal chemical potential $\mu$ as follows:
 	\begin{enumerate}
 		\item Compute $\pm E_\mathbf{k}[\Delta_i, U$]; 
 		\item Define the function of the chemical potential $\mu$,
 		\[
-			\delta n(\mu; \beta, \Delta_i, U) \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \left[
-			f\left(-E_\mathbf{k}[U,\Delta_i]; \beta,\mu \right) + f \left( E_\mathbf{k}[U,\Delta_i]; \beta,\mu \right)
+			\delta n(\mu; \beta, m_i, U) \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \left[
+			f\left(-E_\mathbf{k}[U,m_i]; \beta,\mu \right) + f \left( E_\mathbf{k}[U,m_i]; \beta,\mu \right)
 			\right] - n
 		\]
 		\item Find the root of $\delta n$, 
 		\[
 			\delta n(\mu_i) = 0
 		\]
-		Then $\mu_i$ is the chemical potential which, at step $i$ with HFP $\Delta_i$, realizes the best approximation of density $n$;
+		Then $\mu_i$ is the chemical potential which, at step $i$ with HFP $m_i$, realizes the best approximation of density $n$;
 	\end{enumerate}
-	\item Compute $\Delta_{i+1}$ using Eq.~\eqref{appeq:hm-af-Delta-self-consistency} with chemical potential $\mu_i$ and update the counter, $i \to i+1$;
-	\item Check if $\abs{\Delta_{i+1}-\Delta_i} \le \delta_\Delta$:
+	\item Compute $m_{i+1}$ using Eq.~\eqref{appeq:hm-af-m-self-consistency-iterative} with chemical potential $\mu_i$ and update the counter, $i \to i+1$;
+	\item Check if $\abs{m_{i+1}-m_i} \le \delta_m$:
 	\begin{itemize}
 		\item If yes, halt;
 		\item If not: check if $i > p$
@@ -678,7 +781,7 @@ Then a self-consistent algorithm to search for a self consistent estimate for $m
 			\item If yes, halt and consider choosing better tolerance and model parameters;
 			\item If not, define 
 			\[
-				\Delta_{i+1} \colon g \Delta_{i+1} + (1-g) \Delta_i
+				m_{i+1} \colon g m_{i+1} + (1-g) m_i
 			\]
 			(logical assignment notation used) and repeat from step 2.
 		\end{itemize}

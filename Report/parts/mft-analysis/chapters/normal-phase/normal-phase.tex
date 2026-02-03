@@ -18,14 +18,11 @@ The normal phase is simply the one where no symmetry is broken, and the many-bod
 \]
 and since the phase we are establishing obeys translational symmetry, we also know Hartree terms are essentially chemical potential shifts. Next section derives this effect in detail.
 
-In the normal phase, the state retains its full $\mathrm{SU}(2) \times \mathrm{U}^\mathrm{c}(1) \times (\mathrm{Lattice})$ symmetry discussed in Sec.~\ref{sec:ehm-symmetries}. Spin is a pure physical degeneracy, being th e$\uparrow$ and $\downarrow$ sectors separated, and $\hat H$ is $\mathbb{Z}_2$ invariant with respect to spin inversion, $\sigma \leftrightarrow \overline{\sigma}$. This implies that all physical quantities, as is for the normal phase, should not depend on the spin index. As for the normal phase, we will perform all computation leaving $\sigma$ explicit and using this consideration at the end.
+In the normal phase, the state retains its full $\mathrm{SU}(2) \times \mathrm{U}^\mathrm{c}(1) \times (\mathrm{Lattice})$ symmetry discussed in Sec.~\ref{sec:ehm-symmetries}. Spin is a pure physical degeneracy, being the $\uparrow$ and $\downarrow$ sectors separated, and $\hat H$ is $\mathbb{Z}_2$ invariant with respect to spin inversion, $\sigma \leftrightarrow \overline{\sigma}$. This implies that all physical quantities, as is for the normal phase, should not depend on the spin index. As for the normal phase, we will perform all computations leaving $\sigma$ explicit and using this consideration at the end.
 
 \section{Hartree effects: chemical potential renormalization}\label{sec:normal-hartree-mu}
 
-The first RMP we discuss is $\mu$, whose numerical value is renormalized by Hartree channel interactions within MFT. In the context of numerical simulations at fixed density, the chemical potential is determined self-consistently; thus any net effect that shifts $\mu$ is effectively ignored within (and limitedly to) the iterative algorithm. 
-{\color{tabred}
-	However, the same is not true when we consider the free energy density, which -- as will be discussed -- takes a non-null contribution from $\mu$ itself. Hartree contractions originate a chemical potential shift, which is, the system itself contributes to $\mu$ with HFPs and thus allows the ``physical'' value of $\mu$ to be different than the effective one, eventually lowering the contribution to free energy.
-}
+The first RMP we discuss is $\mu$, whose numerical value is renormalized by Hartree channel interactions within MFT. As is discussed in Sec.~\ref{subsec:fixed-density-role-mu}, in the context of numerical simulations at fixed density, the chemical potential is determined self-consistently; thus any net effect that shifts $\mu$ is effectively ignored within (and limitedly to) the iterative algorithm. Renormalization effects become relevant when computing free energy.
 
 \subsection{Hartree channel in the normal phase: analytical derivation}\label{subsec:normal-hartree-analytical}
 
@@ -33,7 +30,7 @@ Within this section we discuss analytically the effects of MFT on the Hartree ch
 
 \paragraph{Local repulsion.}
 
-In the normal phase, the local repulsion $\hat H_U$ only contributes through Hartree-like RWCs,
+In the normal phase, the local repulsion $\hat H_U$ decomposes in Hartree channel as
 \[
 	\hat H_U \simeq
 	U \sum_{i} \left[
@@ -121,18 +118,19 @@ where ``all the rest'' collects all non-Hartree RWCs. Recalling the Ansatz of Eq
 \]
 with $E_{\mathrm{H}/V}^{(\mathrm{N})}$ the normal state shift to energy brought by $\hat H_V$. Now, evidently both sums above are just a number operator,
 \[
-	\hat H_V \simeq -2nzV \times \hat N + 
+	\hat H_V \simeq -2nzV \times \hat N - E_{\mathrm{H}/V}^{(\mathrm{N})} + 
 	(\text{all the rest})
 \]
 This accounts for the final Hartree shift of $\mu$,
 \begin{equation}\label{eq:non-local-hartree-mu-shift}
 	\mu \to \mu + 2znV
 \end{equation}
-Thus, when considering the net shift to $\mu$ due to both interactions combining Eqns.~\eqref{eq:local-hartree-mu-shift}, \eqref{eq:non-local-hartree-mu-shift}, we get
+
+Considering the net shift to $\mu$ due to both interactions by combining Eqns.~\eqref{eq:local-hartree-mu-shift}, \eqref{eq:non-local-hartree-mu-shift}, we get
 \begin{equation}\label{eq:total-hartree-mu-shift}
 	\tilde{\mu} \equiv \mu + n(2zV-U)
 \end{equation}
-This result remains valid in all phases discussed in this text: for the AF phase, the SDW character leaves this shift untouched, while the superconducting phase we are discussion is inherently translational invariant.
+This result remains valid throughout all phases discussed in this text: for the AF phase, the SDW character leaves this shift untouched, while the superconducting phase we are discussion is inherently translational invariant.
 
 \subsection{Hartree contraction energy}\label{subsec:normal-hartree-energy}
 
@@ -143,7 +141,7 @@ The double counting terms accounting for energy shifts in the Hartree channel ar
 	\rangle \langle 
 		\hat n_{i\uparrow}
 	\rangle \\
-	&= L_x L_y \times nU \label{eq:normal-hartree-U-contraction-energy}
+	&= L_x L_y \times n^2U \label{eq:normal-hartree-U-contraction-energy}
 \end{align}
 for the local repulsion and 
 \begin{align}
@@ -165,7 +163,10 @@ for the local repulsion and
 \end{align}
 for the non-local attraction, being $z=4$ the coordination number for the $2$D square lattice. In the last passage, we used that
 \[
-	\sum_{\ev{ij}} (1) = \sum_{i\in\mathcal{S}/2} \sum_{j\in\mathrm{NN}(i)} (1) = \frac{L_x L_y}{2} \times z
+\begin{aligned}
+	\sum_{\ev{ij}} (1) &= \sum_{i\in\mathcal{S}/2} \sum_{j\in\mathrm{NN}(i)} (1) \\
+	&= \frac{L_x L_y}{2} \times z
+\end{aligned}
 \]
 as well as spin degeneracy. Note that, correctly, the contraction energy is an extensive quantity. This implies that we can define a contraction energy per site -- something we will do later when computing total free energy density.
 
@@ -433,7 +434,7 @@ Finally, let us derive the Fock contraction energy by expanding Eq.~\eqref{eq:re
 \end{align}
 This expression gives the Fock contraction energy coming from the $\hat H_V$ operator. The particularly relevant result, here, is the fact that the full spectral amplitude of $u_{\mathbf{k}\sigma}$ here is weighted and contributes to contraction energy with a $V$ linear prefactor. This suggests that a mixed-symmetry band could be energetically preferred.
 
-\subsection{Extending hopping to $d$-wave bands}
+\subsection{Extending hopping to $d$-wave bands}\label{subsec:normal-d-wave-hopping}
 
 \begin{figure}
 	\centering
@@ -454,6 +455,34 @@ with
 \]
 Interestingly enough, in principle an anisotropy in the normal diffusion between $x$ and $y$ direction emerges. A schematics of anisotropic mixed symmetry hopping is depicted in Fig.~\ref{fig:anisotropic-hopping}: as is evident, for each bond linking two sites the hopping parameter can be a positive or negative combination of the two components whether the link direction is vertical or horizontal. \todo
 
+Note that for null HFPs,
+\[
+	u_\sigma^{(s^*)} = 0
+	\qquad
+	u_\sigma^{(d)} = 0
+\]
+we have:
+\[
+	\tilde{t}_{ij\sigma} = \frac{t}{2} \left[
+		\delta_{j=i+\delta_x} + \delta_{j=i-\delta_x} + \delta_{j=i+\delta_y} + \delta_{j=i-\delta_y}
+	\right]
+\]
+The fact that $t/2$ appears here instead of $t$ is not inconsistent, it's just a consequence of the equivalence:
+\[
+	-t \sum_{\ev{ij}} \sum_\sigma \left[
+		\hat c_{i\sigma}^\dagger \hat c_{j\sigma} + \hc
+	\right] = -\frac{t}{2} \sum_{i,j \in \mathcal{S}} \sum_\sigma \left[
+		\hat c_{i\sigma}^\dagger \hat c_{j\sigma} + \hc
+	\right]
+\]
+The diffusion RMP $\tilde{t}_{ij\sigma}$ is to be interpreted like the right-hand side of the above equation, with the kinetic operator becoming:
+\[
+	\hat H_{\tilde{t}} \equiv -\frac{1}{2} \sum_{i,j \in \mathcal{S}} \sum_\sigma \left[
+		\tilde{t}_{ij\sigma} \hat c_{i\sigma}^\dagger \hat c_{j\sigma} + \hc
+	\right]
+\]
+To limit the sum to NNs is a matter of the symmetry structure of the function $\tilde{t}_{ij\sigma}$.
+
 \section{Normal free energy density}\label{sec:normal-free-energy}
 
 An important quantity to derive in order to compare different phases is free energy density, defined as
@@ -473,7 +502,7 @@ where $E_\mathrm{c}^{(\mathrm{N})}$ is the (negative) total contraction energy f
 \]
 having included the various contraction energies from Eqns.~\eqref{eq:normal-hartree-U-contraction-energy}, \eqref{eq:normal-hartree-V-contraction-energy} and \eqref{eq:normal-fock-V-contraction-energy}.
 
-For a free Fermi gas, the free energy density is simply obtained by summing four contributions:
+Let us now take together all terms. From now on, we will omit spin index $\sigma$, making use of the always present $\mathbb{Z}_2$ spin inversion symmetry discussed in Sec.~\ref{sec:normal-phase-theory}. For a free Fermi gas, the free energy density is simply obtained by summing four contributions:
 \begin{enumerate}
 	\item The free particles thermal ground state energy density,
 	\[
@@ -483,12 +512,12 @@ For a free Fermi gas, the free energy density is simply obtained by summing four
 	\[
 	\begin{aligned}
 		e_\mathrm{c}^{(\mathrm{N})} &\equiv \frac{E_\mathrm{c}^{(\mathrm{N})}}{L_x L_y} \\
-		&= - nU - 2V \left[
+		&= - n^2 U - 2V \left[
 			zn^2 + 
 			\big|
-				u_\sigma^{(s^*)}
+				u^{(s^*)}
 			\big|^2 + \big|
-				u_\sigma^{(d)}
+				u^{(d)}
 			\big|^2
 		\right]
 	\end{aligned}
@@ -497,7 +526,7 @@ For a free Fermi gas, the free energy density is simply obtained by summing four
 	\[
 		e_s^{(\mathrm{N})} \equiv -Ts
 	\]
-	with $T = 1/k_B \beta$ and $s$ the free Fermi gas entropy density,
+	with $T = 1/k_B \beta$ and $s$ the free Fermi gas entropy density \cite{grosso2014solid},
 	\[
 		s = -\frac{2 k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
 			\left(
@@ -533,25 +562,46 @@ For a free Fermi gas, the free energy density is simply obtained by summing four
 	\[
 		e_n^{(\mathrm{N})} = \mu n
 	\]
-	Note here that we are using the ``physical'' value of $\mu$, not its RMP counterpart $\tilde{\mu}$. The reason for that is the following: by studying a fixed density situation, $n=N/L_x L_y$, we are actually diagonalizing the hamiltonian operator
-	\[
-		\hat H - \mu (\hat N - N)
-	\]
-	by the means of the Lagrange multplier $\mu$. This gives the entire energy a $+\mu N$ shifts which is not absorbed by the renormalization of $\mu$. {\color{tabred}[Double check.]}
+	Note here that we are using the ``physical'' value of $\mu$, not its RMP counterpart $\tilde{\mu}$. The reason for this is discussed in Sec.~\ref{subsec:fixed-density-role-mu}.
 \end{enumerate}
 Thus, composing everything
 \begin{align}
 	f_\mathrm{MFT}^{(\mathrm{N})} &\equiv e_\mathrm{g}^{(\mathrm{N})} + e_\mathrm{c}^{(\mathrm{N})} + e_s^{(\mathrm{N})} + e_n^{(\mathrm{N})} \nonumber \\
 	&= \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
-	1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - nU - 2V \left[
+	1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - n^2 U - 2V \left[
 		zn^2 + 
 		\big|
-			u_\sigma^{(s^*)}
+			u^{(s^*)}
 		\big|^2 + \big|
-			u_\sigma^{(d)}
+			u^{(d)}
 		\big|^2
-	\right] + \mu n \label{eq:af-fMFT}
+	\right] + \mu n \label{eq:normal-fMFT}
 \end{align}
+When it comes to algorithmic computation of this quantity, it is important to express $\mu$ in terms of its RMP counterpart $\tilde{\mu}$, as discussed in Sec.~\ref{subsec:fixed-density-role-mu}. By doing this we are considering all the effects of MFT decomposition of $\hat H$.
 
-\section{Hartree-Fock iterative algorithm}
-\todo
+\section{HF iterative algorithm sketch}
+
+We are finally able to move to the computational part of this chapter. The aim is to write down an algorithm of the kind of Sec.~\ref{subsec:hf-sketch}. For the normal phase, the HFPs vector has two components:
+\[
+	\mathbf{v} = \begin{bmatrix}
+		u^{(s^*)} \\ u^{(d)}
+	\end{bmatrix}
+\]
+As before, we treat spin as a pure degeneracy. The HFPs are characterized by the self-consistency equations
+\begin{align}
+	u^{(s^*)} &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \\
+	u^{(d)} &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+\end{align}
+The resulting model has two RMPs:
+\begin{align}
+	\tilde{t}_{ij} &\equiv \left(
+		t - \frac{u^{(s^*)}V}{2}
+	\right) \varphi_{ij}^{(s^*)} - \frac{u^{(d)}V}{2} \varphi_{ij}^{(d)} \\
+	\tilde{\mu} &\equiv \mu + n (2zV-U)
+\end{align}
+the second one being only dependent on the model parameters and not on HFPs. We can define the direction-dependent hopping as
+\begin{align}
+	\tilde{t}^{(x)} &\equiv t - \frac{u^{(s^*)} - u^{(d)}}{2} V \\
+	\tilde{t}^{(y)} &\equiv t - \frac{u^{(s^*)} + u^{(d)}}{2} V
+\end{align}
+Both components are controlled by $V$. Evidently $u^{(s^*)}$ is a measure of the direction-averaged hopping shift with respect to $V$, while $u^{(d)}$ measures the hopping anisotropy with respect to $V$. Finally, the phase free energy is given by Eq.~\eqref{eq:normal-fMFT}. \todo

@@ -76,11 +76,20 @@ The last point is important: for the AF phase, for example, there is no need for
 
 Different phases are described by different order parameters, each one exhibiting a specific symmetry subset from the initial set, while the rest are broken. Ferromagnetic state perform $\mathrm{SU}(2) \to \mathrm{U}^z(1)$ spontaneous symmetry breaking (SSB), through the magnetic order parameter acquiring a specific spatial direction. Such SSB process is graphically depicted in Fig.~\ref{fig:su2-u1-domains}. Anti-ferromagnetic ordering breaks also translational invariance (reducing it to a smaller symmetry, relative to double-sized unitary cells). Basic superconducting models do not break translational invariance and can preserve full $\mathrm{SU}(2)$ symmetry, while breaking $\mathrm{U}^\mathrm{c}(1)$ charge conservation. The three phases hereby considered do not completely break translational invariance: the latter either is left untouched or is reduced to a weaker translational invariance. Because of this, it will be rather useful to move the framework to reciprocal space. We will get there in Sec.~\ref{subsec:mft-discussion-reciprocal-non-local}.
 
-\subsection{Particle-hole symmetry}
+\subsection{Particle-hole symmetry at half-filling}
 
-\todo For now, let us focus on the non-local term showing how can it break symmetries.
+\todo
 
-\section{MFT framework and self-consistency}
+\subsection{The role of spin}
+\todo
+
+\subsection{Translational invariance}
+\todo
+
+\section{MFT on Hubbard lattices}
+\todo
+
+\subsection{MFT general procedure and self-consistency}
 
 The Mean Field Theory approach to a fermionic quartic is given by the following procedure: given the hamiltonian made of the quadratic operators $\hat A$ and $\hat B$
 \[
@@ -451,6 +460,9 @@ The only difference here is made by the fact that the interaction is repulsive o
 When contracting these fermionic operators, identical considerations as for the non-local counterpart \eqref{eq:reciprocal-space-non-local-interaction-explicit} hold.
 
 \section{General computational approach to MFT}\label{sec:computational-mft}
+\todo
+
+\subsection{Sketch of the Hartree-Fock iterative algorithm}\label{subsec:hf-sketch}
 
 The general sketch of a self-consistent Hartree-Fock algorithm in our context is simple enough. Start from a fermionic quartic hamiltonian,
 \begin{equation}\label{eq:generic-quartic-hamiltonian}
@@ -479,11 +491,11 @@ These equations are determined by many-body expectation values, which in general
 \begin{figure}
 	\centering
 	\input{\GraphicsFolder/effective-model-scheme}
-	\caption{Schematization of the self-consistent Hartree Fock method described in Sec.~\ref{sec:computational-mft}. The effective model is solved, the solution is used to estimate self-consistently the Hartree Fock vector, which is then used to update iteratively the model itself.}
+	\caption{Schematization of the self-consistent Hartree Fock method described in Sec.~\ref{sec:computational-mft}. The effective model is solved, the solution is used to estimate self-consistently the Hartree Fock vector, which is then used to update iteratively the model itself. {\color{tabred}[Update including initializer and endpoint.]}}
 	\label{fig:effective-model-scheme}
 \end{figure}
 %
-A self consistent Hartree-Fock scheme goes as follows: {\color{tabred}[ Consider adding a point for chemical potential estimation. ]}
+A self consistent Hartree-Fock scheme goes as follows:
 \begin{enumerate}
 	\item Apply MFT to the quartic hamiltonian, recovering its general theoretic effective form;
 	\item Impose selection rules on the parameters $C_{\alpha\beta}$, $D_{\alpha\beta}$, eventually eliminating those not respecting the symmetry sector we are working in\footnote{
@@ -492,12 +504,75 @@ A self consistent Hartree-Fock scheme goes as follows: {\color{tabred}[ Consider
 	\item Choose a starting value and a coherent symmetry structure for the remaining parameters;
 	\item Enter iterative scheme of Fig.~\ref{fig:effective-model-scheme}:
 	\begin{enumerate}
-		\item Diagonalize the effective hamiltonian $\hat H^{(\mathrm{eff})}[C,D]$ and recover the ground-state $\ket{\Psi [C,D]}$;
-		\item Compute the new parameters $C_{\alpha\beta}'$, $D_{\alpha\beta}'$ via the self consistent equations;
-		\item Initialize the new effective hamiltonian $\hat H^{(\mathrm{eff})}[C',D']$ and repeat the cycle until convergence.
+		\item Based on the current HFPs, determine $\mu [C,D]$ that gives the correct density;
+		\item Diagonalize the effective hamiltonian $\hat H^{(\mathrm{eff})}[C,D] - \mu[C,D] \hat N$ and recover the ground-state $\ket{\Psi [C,D]}$;
+		\item Compute the new HFPs $C_{\alpha\beta}'$, $D_{\alpha\beta}'$ via the self consistent equations;
+		\item Initialize the new effective hamiltonian $\hat H^{(\mathrm{eff})}[C',D']$ and repeat the cycle until the HFPs have converged to stable values.
 	\end{enumerate}
 \end{enumerate}
-Of course, to work any of these algorithms we need to know how to diagonalize the hamiltonian. In the context of the Extended Hubbad Model at thermal equilibrium, due to the phases we are simulating, we know analytically the diagonalized hamiltonian, and making use of this knowledge we are able to reduce the self consistent scheme to a simple iterative algorithm. An explicit example of HF algorithm used in present text, somewhat simplified due to the presence of a single HF parameter, is given in App.~\ref{appsubsec:hartree-fock-algorithm}.
+Of course, to work any of these algorithms we need to know how to diagonalize the hamiltonian. In the context of the Extended Hubbad Model at thermal equilibrium, due to the phases we are simulating, we know analytically the diagonalized hamiltonian, and making use of this knowledge we are able to reduce the self consistent scheme to a simple iterative algorithm. An explicit example of HF algorithm used in present text, somewhat simplified due to the presence of a single HFP, is given in App.~\ref{appsubsec:hartree-fock-algorithm}.
+
+\subsection{Self-consistency and RMPs}
+
+As will be thoroughly discussed in the following derivations for each physical phase we treat, treating the EHM via MFT keeping under strict control the effects of Wick's theorem produces ground states whose parametric properties (band structures, gap functions, chemical potential) are controlled parametrically and self-consistently by the model two-body interactions $\hat H_U$ and $\hat H_V$. Let us define the concept of Renormalized model parameter (RMP), meaning one model that is effectively renormalized via interactions. 
+
+Let us invent a relevant example to explain the concept of RMP. Suppose that under MFT, for a given phase the decomposition $\hat H_V$ has a net effect of defining the RMP $\tilde{t}$,
+\[
+	t \stackrel{V}{\to} \tilde{t}
+\]
+In other words, the decomposition of $\hat H_V$ produces a free Fermionic hamiltonian whose diffusive parameter is $\tilde{t}$. We define $\tilde{t}$ as an RMP, being the result of the original model parameter $t$ plus the effect of interactions. 
+
+\subsection{Algorithm parametrization}
+\todo
+
+\subsection{Fixed density simulations and the role of $\mu$}\label{subsec:fixed-density-role-mu}
+
+In the context of the present text, all simulations are performed at fixed density, determining self-consistently the value of the chemical potential. This means that, for a given step $i$ and the relative HFPs vector $\mathbf{v}_i$, and for a fixed density $n\in[0,1]$, $\mu_i$ (the chemical potential at the current step) is determined as
+\begin{equation}\label{eq:mu-numerical-minimization}
+	\mu_i
+	\quad\colon\quad
+	\min_\mu \left\lbrace
+		\frac{1}{2L_x L_y} \sum_\mathbf{k} \sum_\sigma \ev{\hat n_{\mathbf{k}\sigma}} \big|_{\mathbf{v}=\mathbf{v}_i} - n
+	\right\rbrace
+\end{equation}
+being $\mathbf{v}=\mathbf{v}_i$ and indication that the averaging operation is performed over the ground state determined parametrically by the current value of the HFPs.
+
+Hence, if we are able to perform averages and know both $\mathbf{v}_i$ and $n$, at step $i$ we infer the correct chemical potential. Now, as we will discuss $\tilde{\mu}$ will turn out to be an RMP itself, meaning that theoretically
+\[
+	\mu \to \mu + F[\mathbf{v}] \equiv \tilde{\mu} [\mathbf{v}]
+\]
+being $F$ some functional of the HFPs. In other words, a common effect of interactions under MFT will be precisely to shift the chemical potential. At step $i$, keeping the density fixed, the chemical potential we are determining numerically and using in our equations is then $\tilde{\mu}_i$. In simpler words, the designed algorithm ``does not know'' about chemical potential renormalization and thus just determines the number that solves Eq.~\eqref{eq:mu-numerical-minimization}. But we know that this number is made of two contributions: the ``physical'' $\mu_i$ and the effective shift produced by the model itself, $F[\mathbf{v}_i]$. So, when it comes to $\mu_i$, this consideration becomes important.
+
+It is the case of the ground state energy estimation. Let us abstract from the EHM and MFT, and consider a generic hamiltonian $\hat H$. To find the ground state $\ket{\Psi}$ means precisely to solve
+\[
+	\fdv{}{\bra{\Psi}} \mel{\Psi}{\hat H}{\Psi} = 0
+\]
+Now, working with a fixed particles number $N$ means we are performing a constrained minimization (which is, taking the functional derivative) on the composite operator
+\[
+	\hat H - \mu (\hat N - N) \equiv \hat K + \mu N
+\]
+being $\mu$ the Lagrange multiplier, $\hat N$ the number operator and $\hat K \equiv \hat H - \mu \hat N$. Finding the constrained ground state parametrized by a vector $\mathbf{v}$ now means to solve
+\[
+	\mathbf{v} \implies \ket{\Psi [\mathbf{v}]}
+	\quad\colon\quad
+	\begin{cases}
+		\displaystyle
+		\fdv{}{\bra{\Psi}} \mel{\Psi}{\hat K + \mu N}{\Psi} \bigg|_{\ket{\Psi}=\ket{\Psi [\mathbf{v}]}} = 0 \\[1em]
+		\mel{\Psi [\mathbf{v}]}{\hat N}{\Psi [\mathbf{v}]} = N
+	\end{cases}
+\]
+Of course, in the first line $\mu N$ is derived to zero. The constraint is imposed in the second line. This means that, when it comes to determining the parametric ground state, $\hat K$ is functionally minimized. If in this context $\mu$ (the Lagrange multiplier) sums with other effective terms arisen from algebraic manipulations of $\hat H$ giving a grand total of $\tilde{\mu}$, the number operator $\hat N$ average is performed over the many-body ground state $\ket{\Psi [\mathbf{v}]}$ with the total effective chemical potential $\tilde{\mu}$, not $\mu$. However, when it comes to computing energy,
+\[
+\begin{aligned}
+	\langle \hat H \rangle &= \mel{\Psi[\mathbf{v}]}{\hat K}{\Psi[\mathbf{v}]} + \mu N \\
+	&= \Omega[\mathbf{v}] + (\tilde{\mu}[\mathbf{v}]-F[\mathbf{v}]) N
+\end{aligned}
+\]
+being $\Omega$ the expectation value (EV) of $\hat K$. In the last passage we wrote everything in terms of functionals of the HFPs vector $\mathbf{v}$. Using this relation, when the algorithm has converged, we can estimate the physical energy.
+
+\section{The role of $2$D symmetry channels}
+
+Looking at $\hat H$, the main difference between its two-body interactions $\hat H_U$ and $\hat H_V$ of course relies in locality (first) and non-locality (second). As any two-body interaction, $\hat H_V$ can be decomposed in harmonics. At a first look one may think that, being the potential symmetric by $\pi/2$ rotations on the lattice, the resulting ground state should exhibit only properties with identical symmetry. However this is not the case: said symmetry is a property of the hamiltonian operator on the square lattice, however the resulting ground state is a composite object living in a many-body Fock space, \todo
 
 \subsection{Square lattice spatial symmetry structures}
 
@@ -567,7 +642,7 @@ where $g^{(\gamma)}$ are the $g_{ij}$ symmetries-decomposition coefficients whil
 {\color{tabred}
 Antiferromagnetic ordering considered in this text exhibits a perfect $s \oplus s^*$ topological ordering. Instead, superconductivity is established with a given symmetry -- which means, symmetry breaking in the phase transition proceeds in a specific channel. Conventional $\mathrm{BCS}$ superconductivity arises from the only possible spatial structure of the local pairing, $s$-wave -- here appearing as a local term (Fig.~\ref{subfig:s-wave-correlator}) and extended on a non-local term (Fig.~\ref{subfig:s*-wave-correlator}). Cuprates exhibit a tendency towards $d_{x^2-y^2}$ SC, while other materials towards $p$-wave types -- eventually with some chirality, as is the case for $p_x \pm i p_y$ SCs. To establish SC under a certain symmetry $\gamma$ means that Cooper pairs acquire said symmetry.
 }
-\subsection{Symmetry-based optimizations}\label{subsec:symmetry-based-optimizations}
+\subsection{Symmetry channels structure factors decomposition}\label{subsec:symmetry-channels-decomposition}
 
 When dealing with phases which respect translational symmetry, or at most reduce it to a weaker symmetry by shrinking the Brillouin Zone, it' useful to work in reciprocal space, as discussed in Sec.~\ref{sec:mft-analysis-reciprocal-space}. As said, a particular phase can show specific spatial symmetries, and so will the Hartree Fock parameters. The key point to notice is that self-consistent equations involve sums (or integrals) to be computed over fermionic states, which can be heavily simplified by employing said symmetries. Consider the form factors of Tab.~\ref{tab:x-wave-real-factors}, and their Fourier transforms of Tab.~\ref{tab:x-wave-reciprocal-factors}. They satisfy the relations:
 \[

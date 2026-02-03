@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  2 FEB 2026 00:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  3 FEB 2026 13:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1697,12 +1697,20 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (./main.toc)
+) (./main.toc
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
-dvips/cm-super/cm-super-ts1.enc}] (./misc/abbreviations.tex
+dvips/cm-super/cm-super-ts1.enc}])
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.36 \clearpage
+                [2] (./misc/abbreviations.tex
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1743,7 +1751,7 @@ een already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.35 \restoregeometry
-                      [2])
+                      [3])
 (./parts/mft-analysis/chapters/normal-phase/normal-phase.tex
 
 LaTeX Warning: Reference `eq:ehm-global-u2-symmetry-u1-su2' on page 1 undefined
@@ -1762,6 +1770,10 @@ LaTeX Warning: Reference `sec:ehm-symmetries' on page 1 undefined on input line
  21.
 
 
+LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 1 undefined on 
+input line 25.
+
+
 
 [1
 
@@ -1774,243 +1786,180 @@ LaTeX Warning: Reference `sec:ehm-symmetries' on page 1 undefined on input line
 [2]
 
 LaTeX Warning: Reference `eq:reciprocal-space-non-local-interaction-explicit' o
-n page 3 undefined on input line 212.
+n page 3 undefined on input line 213.
 
 
 
 [3]
 
 LaTeX Warning: Reference `eq:coscos-symmetries-decomposition' on page 4 undefin
-ed on input line 314.
+ed on input line 315.
 
 
 
 [4]
 
 LaTeX Warning: Reference `tab:x-wave-reciprocal-factors' on page 5 undefined on
- input line 364.
+ input line 365.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 436.
+(hyperref)                removing `math shift' on input line 437.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 436.
+(hyperref)                removing `math shift' on input line 437.
 
 (./parts/mft-analysis/chapters/normal-phase/pictures/anisotropic-hopping.tex)
 
-LaTeX Warning: Reference `tab:x-wave-real-factors' on page 5 undefined on input
- line 445.
-
-
-LaTeX Warning: Reference `tab:x-wave-reciprocal-factors' on page 5 undefined on
- input line 445.
-
-
-
 [5]
 
-[6])
+LaTeX Warning: Reference `tab:x-wave-real-factors' on page 6 undefined on input
+ line 446.
+
+
+LaTeX Warning: Reference `tab:x-wave-reciprocal-factors' on page 6 undefined on
+ input line 446.
+
+
+
+[6]
+
+LaTeX Warning: Citation 'grosso2014solid' on page 7 undefined on input line 529
+.
+
+
+LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 7 undefined on 
+input line 565.
+
+
+LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 7 undefined on 
+input line 580.
+
+
+LaTeX Warning: Reference `subsec:hf-sketch' on page 7 undefined on input line 5
+84.
+
+
+
+[7])
 (./parts/mft-analysis/chapters/antiferromagnetic-instability/antiferromagnetic-
 instability.tex
 
-[7]
+[8]
 
-[8
+LaTeX Warning: Reference `tab:U-wick-terms-phases' on page 9 undefined on input
+ line 29.
+
+
+
+[9
 
 ]
-
-LaTeX Warning: Reference `appendix:mean-field-hubbard' on page 9 undefined on i
-nput line 4.
-
-
-LaTeX Warning: Reference `appsubsec:instability-af-commensurate' on page 9 unde
-fined on input line 4.
-
-
-LaTeX Warning: Reference `appeq:af-mean-field-ansatz' on page 9 undefined on in
-put line 24.
-
-
-LaTeX Warning: Reference `appeq:hubbard-mean-field-hamiltonian' on page 9 undef
-ined on input line 24.
-
-
-
-[9]
-
-LaTeX Warning: Reference `appeq:hubbard-bogoliubov-hamiltonian' on page 10 unde
-fined on input line 36.
-
-
-LaTeX Warning: Reference `appeq:af-diagonalized-nambu-spinor' on page 10 undefi
-ned on input line 58.
-
-
-LaTeX Warning: Reference `appeq:hm-af-sx' on page 10 undefined on input line 83
-.
-
-
-LaTeX Warning: Reference `appeq:hm-af-sy' on page 10 undefined on input line 87
-.
-
-
-LaTeX Warning: Reference `appeq:hm-af-sz' on page 10 undefined on input line 91
-.
-
-
-LaTeX Warning: Reference `appeq:af-mean-field-ansatz' on page 10 undefined on i
-nput line 100.
+Overfull \hbox (5.14699pt too wide) in paragraph at lines 41--43
+\OT1/cmr/m/n/10 with $\OML/cmm/m/it/10 E[]$ \OT1/cmr/m/n/10 the con-trac-tion e
+n-ergy re-sult-ing from dou-ble count-ing terms, given ex-plic-itly in Eq. [].
+ []
 
 
 
 [10]
 
-LaTeX Warning: Reference `appeq:hm-af-sx' on page 11 undefined on input line 13
-0.
-
-
-LaTeX Warning: Reference `appeq:hm-af-sy' on page 11 undefined on input line 13
-0.
-
-
-LaTeX Warning: Reference `appeq:hm-af-sz' on page 11 undefined on input line 13
-0.
-
-
-LaTeX Warning: Reference `appeq:af-thermal-factors-def' on page 11 undefined on
- input line 130.
-
-
 LaTeX Warning: Reference `sec:normal-phase-introduction' on page 11 undefined o
-n input line 148.
+n input line 154.
 
 
 LaTeX Warning: Reference `tab:U-wick-terms-phases' on page 11 undefined on inpu
-t line 148.
+t line 154.
 
 
 LaTeX Warning: Reference `tab:V-wick-terms-phases' on page 11 undefined on inpu
-t line 148.
+t line 154.
 
 
 (./parts/mft-analysis/chapters/antiferromagnetic-instability/pictures/pseudo-ma
 gnetic-field.tex)
 
-LaTeX Warning: Reference `appeq:af-mean-field-ansatz' on page 11 undefined on i
-nput line 191.
-
-
-
 [11]
-
-LaTeX Warning: Reference `appeq:af-mean-field-ansatz' on page 12 undefined on i
-nput line 221.
-
-
 
 [12]
 
 LaTeX Warning: Reference `subsec:hartree-shifts-mu' on page 13 undefined on inp
-ut line 280.
+ut line 286.
 
 
 
 [13]
 
 LaTeX Warning: Reference `eq:normal-V-contraction-energy' on page 14 undefined 
-on input line 432.
+on input line 438.
 
 
-LaTeX Warning: Reference `appendix:mean-field-hubbard' on page 14 undefined on 
-input line 467.
-
-
-LaTeX Warning: Reference `appeq:af-diagonalized-nambu-spinor' on page 14 undefi
-ned on input line 471.
-
-
-LaTeX Warning: Reference `eq:reciprocal-space-non-local-interaction-fock-interm
-ediate' on page 14 undefined on input line 477.
-
-
-
-[14]
 (./parts/mft-analysis/chapters/antiferromagnetic-instability/pictures/af-bz-foc
 k-terms-generic.tex)
 (./parts/mft-analysis/chapters/antiferromagnetic-instability/pictures/af-bz-foc
 k-terms-newvariables.tex)
 
 LaTeX Warning: Reference `eq:reciprocal-space-non-local-interaction-fock-interm
-ediate-2' on page 15 undefined on input line 534.
+ediate-2' on page 14 undefined on input line 542.
 
 
 LaTeX Warning: Reference `eq:reciprocal-space-non-local-interaction-fock-interm
-ediate-2' on page 15 undefined on input line 534.
+ediate-2' on page 14 undefined on input line 542.
 
+
+
+[14]
 
 LaTeX Warning: Reference `eq:coscos-symmetries-decomposition' on page 15 undefi
-ned on input line 570.
+ned on input line 577.
 
 
 
 [15]
 
 LaTeX Warning: Reference `eq:af-V-fock-int3' on page 16 undefined on input line
- 623.
+ 624.
+
+
+LaTeX Warning: Reference `subsec:hf-sketch' on page 16 undefined on input line 
+656.
+
+
+LaTeX Warning: Reference `tab:x-wave-reciprocal-factors' on page 16 undefined o
+n input line 807.
 
 
 
 [16]
 
 LaTeX Warning: Reference `tab:x-wave-reciprocal-factors' on page 17 undefined o
-n input line 817.
-
-
-LaTeX Warning: Reference `tab:x-wave-reciprocal-factors' on page 17 undefined o
-n input line 866.
+n input line 853.
 
 
 
 [17]
 
 LaTeX Warning: Reference `eq:coscos-symmetries-decomposition' on page 18 undefi
-ned on input line 1064.
+ned on input line 1048.
 
 
 
 [18]
 
-LaTeX Warning: Reference `appsubsec:af-self-consistency-gap-equation' on page 1
-9 undefined on input line 1167.
+LaTeX Warning: Reference `subsec:af-symmetry-considerations' on page 19 undefin
+ed on input line 1205.
 
 
 
 [19]
 
-LaTeX Warning: Reference `subsec:af-symmetry-considerations' on page 20 undefin
-ed on input line 1221.
-
-
-LaTeX Warning: Reference `appsubsec:instability-af-commensurate' on page 20 und
-efined on input line 1288.
-
-
 LaTeX Warning: Citation 'singh1990collective' on page 20 undefined on input lin
-e 1288.
-
-
-LaTeX Warning: Reference `appsubsec:instability-af-commensurate' on page 20 und
-efined on input line 1288.
-
-
-LaTeX Warning: Reference `appeq:af-commensurate-proper-response' on page 20 und
-efined on input line 1288.
+e 1272.
 
 
 LaTeX Warning: Citation 'wietek2021stripes' on page 20 undefined on input line 
-1296.
+1280.
 
 
 
@@ -2041,25 +1990,163 @@ tions,axis foreground'...
 )
 
 LaTeX Warning: Reference `eq:af-renormalized-self-consistent-equation-m' on pag
-e 21 undefined on input line 1321.
+e 21 undefined on input line 1305.
 
 
 LaTeX Warning: Reference `eq:af-renormalized-self-consistent-equation-w0' on pa
-ge 21 undefined on input line 1321.
+ge 21 undefined on input line 1305.
 
 
 LaTeX Warning: Reference `eq:af-renormalized-self-consistent-equation-wpi' on p
-age 21 undefined on input line 1321.
+age 21 undefined on input line 1305.
+
+) (./parts/appendices/mean-field-hubbard/mean-field-hubbard.tex
+
+[21]
+
+[22
+
+]
+
+LaTeX Warning: Reference `eq:hubbard-model' on page 23 undefined on input line 
+4.
+
+
+LaTeX Warning: Citation 'arovas2022hubbard' on page 23 undefined on input line 
+18.
+
+
+LaTeX Warning: Citation 'arovas2022hubbard' on page 23 undefined on input line 
+18.
+
+
+LaTeX Warning: Reference `fig:su2-u1-domains' on page 23 undefined on input lin
+e 18.
+
+
+LaTeX Warning: Reference `chap:mft-discussion' on page 23 undefined on input li
+ne 20.
+
+
+LaTeX Warning: Reference `subsec-mft-treatment-hm' on page 23 undefined on inpu
+t line 20.
+
+
+LaTeX Warning: Reference `tab:U-wick-terms-phases' on page 23 undefined on inpu
+t line 20.
 
 
 
-[21])
+[23]
+
+LaTeX Warning: Citation 'fabrizio2022course' on page 24 undefined on input line
+ 177.
+
+
+LaTeX Warning: Citation 'fabrizio2022course' on page 24 undefined on input line
+ 177.
+
+
+LaTeX Warning: Reference `appsubfig:alternative-ferromagnetic-3d-band' on page 
+24 undefined on input line 177.
+
+
+
+[24]
+
+LaTeX Warning: Reference `appsubfig:alternative-ferromagnetic-3d-band' on page 
+25 undefined on input line 227.
+
+
+
+[25]
+
+LaTeX Warning: Citation 'singh1990collective' on page 26 undefined on input lin
+e 377.
+
+
+
+[26]
+
+[27]
+
+[28]
+<../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.pdf, id=627, 451.6875pt 
+x 301.125pt>
+File: ../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.pdf Graphic file (t
+ype pdf)
+<use ../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.pdf>
+Package pdftex.def Info: ../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.
+pdf  used on input line 517.
+(pdftex.def)             Requested size: 341.43437pt x 227.63515pt.
+
+
+[29 <../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.pdf>]
+
+LaTeX Warning: Reference `appeq:hm-af-Delta-self-consistency' on page 30 undefi
+ned on input line 681.
+
+
+LaTeX Warning: Citation 'singh1990collective' on page 30 undefined on input lin
+e 701.
+
+
+
+[30]
+
+LaTeX Warning: Citation 'singh1990collective' on page 31 undefined on input lin
+e 710.
+
+
+LaTeX Warning: Reference `sec:computational-mft' on page 31 undefined on input 
+line 741.
+
+
+
+[31]
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 793.
+<../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOrderP
+arameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf, id=693, 482.80273pt x 29
+8.89566pt>
+File: ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotO
+rderParameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf Graphic file (type p
+df)
+<use ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOr
+derParameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf>
+Package pdftex.def Info: ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup
+=A[128]_t=1.0/PlotOrderParameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf  
+used on input line 809.
+(pdftex.def)             Requested size: 213.39568pt x 132.10739pt.
+<../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOrderP
+arameter/xVar=δ/pVar=U/m_t=1.0_Lx=128.0_β=100.0.pdf, id=694, 485.6283pt x 299
+.00809pt>
+File: ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotO
+rderParameter/xVar=δ/pVar=U/m_t=1.0_Lx=128.0_β=100.0.pdf Graphic file (type p
+df)
+<use ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOr
+derParameter/xVar=δ/pVar=U/m_t=1.0_Lx=128.0_β=100.0.pdf>
+Package pdftex.def Info: ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup
+=A[128]_t=1.0/PlotOrderParameter/xVar=δ/pVar=U/m_t=1.0_Lx=128.0_β=100.0.pdf  
+used on input line 813.
+(pdftex.def)             Requested size: 213.39568pt x 131.39058pt.
+
+Overfull \hbox (19.99997pt too wide) in paragraph at lines 809--814
+ [][][] 
+ []
+
+)
 
 LaTeX Warning: Empty bibliography on input line 63.
 
 
 
-[22]
+[32]
+
+[33 <../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOr
+derParameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf> <../Project/HM-Hartr
+eeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOrderParameter/xVar=δ/pVa
+r=U/m_t=1.0_Lx=128.0_β=100.0.pdf>]
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
@@ -2073,7 +2160,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F2E46A7D8CDE47F27E99E235C5C2618E;6486.
+(rerunfilecheck)             Checksum: A1C75548BCA19914AD5D5D113F1BBBA7;9908.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -2084,49 +2171,49 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 52742 strings out of 475076
- 1194097 string characters out of 5763687
- 2203341 words of memory out of 5000000
- 74826 multiletter control sequences out of 15000+600000
- 576722 words of font info for 100 fonts, out of 8000000 for 9000
+ 53305 strings out of 475076
+ 1202968 string characters out of 5763687
+ 2231737 words of memory out of 5000000
+ 75296 multiletter control sequences out of 15000+600000
+ 577040 words of font info for 102 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  92i,17n,96p,1315b,2205s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texlive/te
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/publ
-ic/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800
-.pfb>
-Output written on main.pdf (24 pages, 457681 bytes).
+c/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/p
+ublic/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0
+800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (36 pages, 606270 bytes).
 PDF statistics:
- 626 PDF objects out of 1000 (max. 8388607)
- 506 compressed objects within 6 object streams
- 133 named destinations out of 1000 (max. 500000)
- 329 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 983 PDF objects out of 1000 (max. 8388607)
+ 827 compressed objects within 9 object streams
+ 220 named destinations out of 1000 (max. 500000)
+ 440 words of extra memory for PDF output out of 10000 (max. 10000000)
 
