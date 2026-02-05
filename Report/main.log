@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  3 FEB 2026 17:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  5 FEB 2026 18:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1576,7 +1576,11 @@ tween.code.tex)))
 corations.softclip.code.tex))) (./misc/definitions.tex)
 \@quotelevel=\count556
 \@quotereset=\count557
- (./main.aux)
+ (./main.aux
+
+LaTeX Warning: Label `eq:sc-ehm-phi-def' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -1751,27 +1755,26 @@ een already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.35 \restoregeometry
-                      [3])
-(./parts/mft-analysis/chapters/normal-phase/normal-phase.tex
+                      [3]) (./chapters/mft-discussion/mft-discussion.tex
 
-LaTeX Warning: Reference `eq:ehm-global-u2-symmetry-u1-su2' on page 1 undefined
- on input line 8.
-
-
-LaTeX Warning: Reference `tab:U-wick-terms-phases' on page 1 undefined on input
- line 8.
+LaTeX Warning: Reference `eq:extended-hubbard-model' on page 1 undefined on inp
+ut line 4.
 
 
-LaTeX Warning: Reference `tab:V-wick-terms-phases' on page 1 undefined on input
- line 8.
+LaTeX Warning: Reference `chap:mft-su-instability' on page 1 undefined on input
+ line 19.
 
 
-LaTeX Warning: Reference `sec:ehm-symmetries' on page 1 undefined on input line
- 21.
+LaTeX Warning: Reference `chap:mft-su-instability' on page 1 undefined on input
+ line 22.
 
 
-LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 1 undefined on 
-input line 25.
+LaTeX Warning: Reference `sec:mft-analysis-non-local-source' on page 1 undefine
+d on input line 23.
+
+
+LaTeX Warning: Citation 'arovas2022hubbard' on page 1 undefined on input line 2
+8.
 
 
 
@@ -1781,264 +1784,240 @@ input line 25.
 
 
 
-]
+] (./chapters/mft-discussion/pictures/su2-full-symmetry.tex
+\pgf@layerbox@back=\box79
+\pgf@layerboxsaved@back=\box80
+\pgf@layerbox@front=\box81
+\pgf@layerboxsaved@front=\box82
+
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+)
+Underfull \hbox (badness 1286) in paragraph at lines 52--52
+[]|$[]\OT1/cmr/m/n/9 (2)$ ro-ta-tions do-main be-fore
+ []
+
+(./chapters/mft-discussion/pictures/su2-u1-reduced-symmetry.tex
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+)
+
+LaTeX Warning: Reference `subsec:mft-discussion-reciprocal-non-local' on page 2
+ undefined on input line 77.
+
+
+Underfull \vbox (badness 1490) has occurred while \output is active []
+
+
 
 [2]
 
-LaTeX Warning: Reference `eq:reciprocal-space-non-local-interaction-explicit' o
-n page 3 undefined on input line 213.
+LaTeX Warning: Reference `appendix:mean-field-hubbard' on page 3 undefined on i
+nput line 131.
 
 
 
 [3]
 
-LaTeX Warning: Reference `eq:coscos-symmetries-decomposition' on page 4 undefin
-ed on input line 315.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 188.
 
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 188.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 188.
+
+(./chapters/mft-discussion/pictures/square-nearest-neighbors.tex)
 
 [4]
 
-LaTeX Warning: Reference `tab:x-wave-reciprocal-factors' on page 5 undefined on
- input line 365.
+LaTeX Warning: Reference `subfig:antiferromagnet-sublattices' on page 5 undefin
+ed on input line 214.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 437.
+LaTeX Warning: Reference `subfig:antiferromagnet-sublattices' on page 5 undefin
+ed on input line 229.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 437.
+LaTeX Warning: Citation 'grosso2014solid' on page 5 undefined on input line 262
+.
 
-(./parts/mft-analysis/chapters/normal-phase/pictures/anisotropic-hopping.tex)
+
+LaTeX Warning: Citation 'giuliani2005quantum' on page 5 undefined on input line
+ 262.
+
+
+
+
+Class memoir Warning: The material used in the headers is too large
+(25.07225pt) for the given head height (12.0pt), it is recommended to
+either increase the head height or redesign the header
+(in both cases you will find help in the memoir manual). on input line 299.
+
+
+Overfull \vbox (13.07225pt too high) has occurred while \output is active []
+
 
 [5]
 
-LaTeX Warning: Reference `tab:x-wave-real-factors' on page 6 undefined on input
- line 446.
-
-
-LaTeX Warning: Reference `tab:x-wave-reciprocal-factors' on page 6 undefined on
- input line 446.
+LaTeX Warning: Reference `appendix:mean-field-hubbard' on page 6 undefined on i
+nput line 306.
 
 
 
 [6]
 
-LaTeX Warning: Citation 'grosso2014solid' on page 7 undefined on input line 529
-.
+
+Overfull \vbox (13.07225pt too high) has occurred while \output is active []
 
 
-Overfull \hbox (24.13512pt too wide) in paragraph at lines 528--530
+[7] (./chapters/mft-discussion/pictures/effective-model-scheme.tex)
+
+LaTeX Warning: Reference `appsubsec:hartree-fock-algorithm' on page 8 undefined
+ on input line 513.
+
+
+
+[8]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 528.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mu' on input line 528.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 528.
+
+
+
+[9]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 573.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 573.
+
+(./chapters/mft-discussion/pictures/s-wave-correlator.tex)
+(./chapters/mft-discussion/pictures/s*-wave-correlator.tex)
+(./chapters/mft-discussion/pictures/px-wave-correlator.tex)
+(./chapters/mft-discussion/pictures/py-wave-correlator.tex)
+(./chapters/mft-discussion/pictures/d-wave-correlator.tex)
+
+[10]
+
+LaTeX Warning: Reference `fig:wave-correlators' on page 11 undefined on input l
+ine 637.
+
+
+LaTeX Warning: Reference `fig:wave-correlators' on page 11 undefined on input l
+ine 637.
+
+
+
+[11]
+
+LaTeX Warning: Reference `sec:mft-analysis-reciprocal-space' on page 12 undefin
+ed on input line 647.
+
+<../Project/EHM-HartreeFock/src/labs/structure-factors/plot-structure-factors.p
+df, id=569, 602.25pt x 526.96875pt>
+File: ../Project/EHM-HartreeFock/src/labs/structure-factors/plot-structure-fact
+ors.pdf Graphic file (type pdf)
+<use ../Project/EHM-HartreeFock/src/labs/structure-factors/plot-structure-facto
+rs.pdf>
+Package pdftex.def Info: ../Project/EHM-HartreeFock/src/labs/structure-factors/
+plot-structure-factors.pdf  used on input line 675.
+(pdftex.def)             Requested size: 384.1096pt x 336.109pt.
+
+
+[12]) (./chapters/normal-phase/normal-phase.tex
+
+[13 <../Project/EHM-HartreeFock/src/labs/structure-factors/plot-structure-facto
+rs.pdf>]
+
+[14
+
+]
+
+[15]
+
+[16]
+
+[17]
+
+[18]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 442.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 442.
+
+(./chapters/normal-phase/pictures/anisotropic-hopping.tex)
+
+[19]
+
+[20]
+
+LaTeX Warning: Citation 'grosso2014solid' on page 21 undefined on input line 53
+4.
+
+
+Overfull \hbox (24.13512pt too wide) in paragraph at lines 533--535
 \OT1/cmr/m/n/10 with $\OML/cmm/m/it/10 T \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 =k
 []^^L$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 s$ \OT1/cmr/m/n/10 the free Fermi 
 gas en-tropy den-sity for a sin-gle spin sec-tor [[]], 
  []
 
 
-LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 7 undefined on 
-input line 566.
 
-
-LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 7 undefined on 
-input line 581.
-
-
-LaTeX Warning: Reference `subsec:hf-sketch' on page 7 undefined on input line 5
-85.
-
-
-
-[7])
-(./parts/mft-analysis/chapters/antiferromagnetic-instability/antiferromagnetic-
-instability.tex
-
-[8]
-
-LaTeX Warning: Reference `tab:U-wick-terms-phases' on page 9 undefined on input
- line 29.
-
-
-
-[9
-
-]
-Overfull \hbox (5.14699pt too wide) in paragraph at lines 41--43
-\OT1/cmr/m/n/10 with $\OML/cmm/m/it/10 E[]$ \OT1/cmr/m/n/10 the con-trac-tion e
-n-ergy re-sult-ing from dou-ble count-ing terms, given ex-plic-itly in Eq. [].
- []
-
-
-
-[10]
-
-LaTeX Warning: Reference `sec:normal-phase-introduction' on page 11 undefined o
-n input line 154.
-
-
-LaTeX Warning: Reference `tab:U-wick-terms-phases' on page 11 undefined on inpu
-t line 154.
-
-
-LaTeX Warning: Reference `tab:V-wick-terms-phases' on page 11 undefined on inpu
-t line 154.
-
-
-(./parts/mft-analysis/chapters/antiferromagnetic-instability/pictures/pseudo-ma
-gnetic-field.tex)
-
-[11]
-
-[12]
-
-LaTeX Warning: Reference `subsec:hartree-shifts-mu' on page 13 undefined on inp
-ut line 286.
-
-
-
-[13]
-
-LaTeX Warning: Reference `eq:normal-V-contraction-energy' on page 14 undefined 
-on input line 438.
-
-
-(./parts/mft-analysis/chapters/antiferromagnetic-instability/pictures/af-bz-foc
-k-terms-generic.tex)
-(./parts/mft-analysis/chapters/antiferromagnetic-instability/pictures/af-bz-foc
-k-terms-newvariables.tex)
-
-LaTeX Warning: Reference `eq:reciprocal-space-non-local-interaction-fock-interm
-ediate-2' on page 14 undefined on input line 542.
-
-
-LaTeX Warning: Reference `eq:reciprocal-space-non-local-interaction-fock-interm
-ediate-2' on page 14 undefined on input line 542.
-
-
-
-[14]
-
-LaTeX Warning: Reference `eq:coscos-symmetries-decomposition' on page 15 undefi
-ned on input line 577.
-
-
-
-[15]
-
-LaTeX Warning: Reference `eq:af-V-fock-int3' on page 16 undefined on input line
- 624.
-
-
-LaTeX Warning: Reference `subsec:hf-sketch' on page 16 undefined on input line 
-656.
-
-
-LaTeX Warning: Reference `tab:x-wave-reciprocal-factors' on page 16 undefined o
-n input line 807.
-
-
-
-[16]
-
-LaTeX Warning: Reference `tab:x-wave-reciprocal-factors' on page 17 undefined o
-n input line 853.
-
-
-
-[17]
-
-LaTeX Warning: Reference `eq:coscos-symmetries-decomposition' on page 18 undefi
-ned on input line 1048.
-
-
-
-[18]
-
-LaTeX Warning: Reference `subsec:af-symmetry-considerations' on page 19 undefin
-ed on input line 1209.
-
-
-
-[19]
-
-LaTeX Warning: Citation 'singh1990collective' on page 20 undefined on input lin
-e 1276.
-
-
-LaTeX Warning: Citation 'wietek2021stripes' on page 20 undefined on input line 
-1284.
-
-
-
-[20]
-
-[21]
-(./parts/mft-analysis/chapters/antiferromagnetic-instability/pictures/af-mbz-s*
--optimization.tex
-Package pgfplots info on input line 63: fill between: activating layered graphi
-cs
-\pgf@layerbox@axis background=\box79
-\pgf@layerboxsaved@axis background=\box80
-\pgf@layerbox@axis grid=\box81
-\pgf@layerboxsaved@axis grid=\box82
-\pgf@layerbox@axis ticks=\box83
-\pgf@layerboxsaved@axis ticks=\box84
-\pgf@layerbox@axis lines=\box85
-\pgf@layerboxsaved@axis lines=\box86
-\pgf@layerbox@axis tick labels=\box87
-\pgf@layerboxsaved@axis tick labels=\box88
-\pgf@layerbox@pre main=\box89
-\pgf@layerboxsaved@pre main=\box90
-\pgf@layerbox@axis descriptions=\box91
-\pgf@layerboxsaved@axis descriptions=\box92
-\pgf@layerbox@axis foreground=\box93
-\pgf@layerboxsaved@axis foreground=\box94
-Package pgfplots info on input line 63: Setting layers 'background,axis backgro
-und,axis grid,axis ticks,axis lines,axis tick labels,pre main,main,axis descrip
-tions,axis foreground'...
-)
-
-LaTeX Warning: Reference `eq:af-renormalized-self-consistent-equation-m' on pag
-e 22 undefined on input line 1381.
-
-
-LaTeX Warning: Reference `eq:af-renormalized-self-consistent-equation-w0' on pa
-ge 22 undefined on input line 1381.
-
-
-LaTeX Warning: Reference `eq:af-renormalized-self-consistent-equation-wpi' on p
-age 22 undefined on input line 1381.
-
-) (./parts/appendices/mean-field-hubbard/mean-field-hubbard.tex
+[21])
+(./chapters/antiferromagnetic-instability/antiferromagnetic-instability.tex
 
 [22]
 
-LaTeX Warning: Reference `eq:hubbard-model' on page 23 undefined on input line 
-4.
+LaTeX Warning: Reference `appendix:mean-field-hubbard' on page 23 undefined on 
+input line 4.
 
 
-LaTeX Warning: Citation 'arovas2022hubbard' on page 23 undefined on input line 
-18.
+LaTeX Warning: Reference `appsubsec:instability-af-commensurate' on page 23 und
+efined on input line 4.
 
 
-LaTeX Warning: Citation 'arovas2022hubbard' on page 23 undefined on input line 
-18.
+LaTeX Warning: Reference `appsec:antiferromagnetic-phase' on page 23 undefined 
+on input line 22.
 
 
-LaTeX Warning: Reference `fig:su2-u1-domains' on page 23 undefined on input lin
-e 18.
+LaTeX Warning: Reference `appeq:af-hm-psi-def' on page 23 undefined on input li
+ne 22.
 
 
-LaTeX Warning: Reference `chap:mft-discussion' on page 23 undefined on input li
-ne 20.
+LaTeX Warning: Reference `appeq:af-hm-n-def' on page 23 undefined on input line
+ 22.
 
 
-LaTeX Warning: Reference `subsec-mft-treatment-hm' on page 23 undefined on inpu
-t line 20.
+LaTeX Warning: Reference `appeq:af-mean-field-ansatz' on page 23 undefined on i
+nput line 27.
 
 
-LaTeX Warning: Reference `tab:U-wick-terms-phases' on page 23 undefined on inpu
-t line 20.
+LaTeX Warning: Reference `appeq:af-hm-mft-h' on page 23 undefined on input line
+ 27.
 
 
 
@@ -2046,30 +2025,73 @@ t line 20.
 
 ]
 
-LaTeX Warning: Citation 'fabrizio2022course' on page 24 undefined on input line
- 177.
+LaTeX Warning: Reference `appeq:af-hm-hartree-U-Ec' on page 24 undefined on inp
+ut line 40.
 
 
-LaTeX Warning: Citation 'fabrizio2022course' on page 24 undefined on input line
- 177.
+LaTeX Warning: Reference `af-hm-bogoliubov-h' on page 24 undefined on input lin
+e 40.
 
 
-LaTeX Warning: Reference `appsubfig:alternative-ferromagnetic-3d-band' on page 
-24 undefined on input line 177.
+Overfull \hbox (0.73022pt too wide) in paragraph at lines 39--41
+\OT1/cmr/m/n/10 with $\OML/cmm/m/it/10 E[]$ \OT1/cmr/m/n/10 the con-trac-tion e
+n-ergy re-sult-ing from dou-ble count-ing terms, given ex-plic-itly in Eq. [].
+ []
+
+
+LaTeX Warning: Reference `appeq:af-diagonalized-nambu-spinor' on page 24 undefi
+ned on input line 62.
+
+
+LaTeX Warning: Reference `appeq:af-hm-sx' on page 24 undefined on input line 87
+.
+
+
+LaTeX Warning: Reference `appeq:af-hm-sy' on page 24 undefined on input line 91
+.
+
+
+LaTeX Warning: Reference `appeq:af-hm-sz' on page 24 undefined on input line 95
+.
+
+
+LaTeX Warning: Reference `appeq:af-mean-field-ansatz' on page 24 undefined on i
+nput line 104.
 
 
 
 [24]
 
-LaTeX Warning: Reference `appsubfig:alternative-ferromagnetic-3d-band' on page 
-25 undefined on input line 227.
+LaTeX Warning: Reference `appeq:af-hm-sx' on page 25 undefined on input line 12
+4.
+
+
+LaTeX Warning: Reference `appeq:af-hm-sy' on page 25 undefined on input line 12
+4.
+
+
+LaTeX Warning: Reference `appeq:af-hm-sz' on page 25 undefined on input line 12
+4.
+
+
+LaTeX Warning: Reference `appeq:af-thermal-factors-def' on page 25 undefined on
+ input line 134.
+
+
+LaTeX Warning: Reference `sec:normal-phase-introduction' on page 25 undefined o
+n input line 152.
+
+(./chapters/antiferromagnetic-instability/pictures/pseudo-magnetic-field.tex)
+
+LaTeX Warning: Reference `appeq:af-mean-field-ansatz' on page 25 undefined on i
+nput line 195.
 
 
 
 [25]
 
-LaTeX Warning: Citation 'singh1990collective' on page 26 undefined on input lin
-e 377.
+LaTeX Warning: Reference `appeq:af-mean-field-ansatz' on page 26 undefined on i
+nput line 225.
 
 
 
@@ -2077,83 +2099,343 @@ e 377.
 
 [27]
 
+LaTeX Warning: Reference `appeq:af-hm-gs-4' on page 28 undefined on input line 
+485.
+
+
+(./chapters/antiferromagnetic-instability/pictures/af-bz-fock-terms-generic.tex
+)
+(./chapters/antiferromagnetic-instability/pictures/af-bz-fock-terms-newvariable
+s.tex)
+
+LaTeX Warning: Reference `eq:reciprocal-space-non-local-interaction-fock-interm
+ediate-2' on page 28 undefined on input line 540.
+
+
+LaTeX Warning: Reference `eq:reciprocal-space-non-local-interaction-fock-interm
+ediate-2' on page 28 undefined on input line 540.
+
+
+
 [28]
-<../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.pdf, id=648, 451.6875pt 
-x 301.125pt>
-File: ../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.pdf Graphic file (t
-ype pdf)
-<use ../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.pdf>
-Package pdftex.def Info: ../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.
-pdf  used on input line 517.
-(pdftex.def)             Requested size: 341.43437pt x 227.63515pt.
 
+[29]
 
-[29 <../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.pdf>]
-
-LaTeX Warning: Reference `appeq:hm-af-Delta-self-consistency' on page 30 undefi
-ned on input line 681.
-
-
-LaTeX Warning: Citation 'singh1990collective' on page 30 undefined on input lin
-e 701.
+LaTeX Warning: Reference `eq:af-V-fock-int3' on page 30 undefined on input line
+ 622.
 
 
 
 [30]
 
-LaTeX Warning: Citation 'singh1990collective' on page 31 undefined on input lin
-e 710.
-
-
-LaTeX Warning: Reference `sec:computational-mft' on page 31 undefined on input 
-line 741.
-
-
-
 [31]
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 793.
-<../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOrderP
-arameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf, id=713, 482.80273pt x 29
-8.89566pt>
-File: ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotO
-rderParameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf Graphic file (type p
-df)
-<use ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOr
-derParameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf>
-Package pdftex.def Info: ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup
-=A[128]_t=1.0/PlotOrderParameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf  
-used on input line 809.
-(pdftex.def)             Requested size: 213.39568pt x 132.10739pt.
-<../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOrderP
-arameter/xVar=δ/pVar=U/m_t=1.0_Lx=128.0_β=100.0.pdf, id=714, 485.6283pt x 299
-.00809pt>
-File: ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotO
-rderParameter/xVar=δ/pVar=U/m_t=1.0_Lx=128.0_β=100.0.pdf Graphic file (type p
-df)
-<use ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOr
-derParameter/xVar=δ/pVar=U/m_t=1.0_Lx=128.0_β=100.0.pdf>
-Package pdftex.def Info: ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup
-=A[128]_t=1.0/PlotOrderParameter/xVar=δ/pVar=U/m_t=1.0_Lx=128.0_β=100.0.pdf  
-used on input line 813.
-(pdftex.def)             Requested size: 213.39568pt x 131.39058pt.
 
-Overfull \hbox (19.99997pt too wide) in paragraph at lines 809--814
- [][][] 
+[32]
+
+LaTeX Warning: Reference `appsubsec:af-self-consistency-gap-equation' on page 3
+3 undefined on input line 1149.
+
+
+LaTeX Warning: Reference `appsubsec:af-zero-T-half-filling-gs' on page 33 undef
+ined on input line 1164.
+
+
+LaTeX Warning: Reference `appeq:af-hm-gs-3' on page 33 undefined on input line 
+1164.
+
+
+LaTeX Warning: Reference `appsubsec:af-zero-T-half-filling-gs' on page 33 undef
+ined on input line 1166.
+
+
+LaTeX Warning: Reference `appeq:af-hm-gs-3' on page 33 undefined on input line 
+1172.
+
+
+
+[33]
+
+LaTeX Warning: Reference `subsec:af-symmetry-considerations' on page 34 undefin
+ed on input line 1215.
+
+
+LaTeX Warning: Reference `appsubsec:instability-af-commensurate' on page 34 und
+efined on input line 1282.
+
+
+LaTeX Warning: Citation 'singh1990collective' on page 34 undefined on input lin
+e 1282.
+
+
+LaTeX Warning: Reference `appsubsec:instability-af-commensurate' on page 34 und
+efined on input line 1282.
+
+
+LaTeX Warning: Reference `appeq:af-commensurate-proper-response' on page 34 und
+efined on input line 1282.
+
+
+LaTeX Warning: Citation 'wietek2021stripes' on page 34 undefined on input line 
+1290.
+
+
+
+[34]
+
+[35]) (./chapters/superconducting-instability/superconducting-instability.tex
+
+[36]
+
+LaTeX Warning: Reference `appsec:superconducting-phase' on page 37 undefined on
+ input line 18.
+
+
+LaTeX Warning: Reference `appeq:sc-hm-mft-h' on page 37 undefined on input line
+ 33.
+
+
+LaTeX Warning: Reference `appeq:sc-hm-hartree-U-Ec' on page 37 undefined on inp
+ut line 47.
+
+
+LaTeX Warning: Reference `appeq:sc-hm-hartree-C-Ec' on page 37 undefined on inp
+ut line 47.
+
+
+LaTeX Warning: Reference `appeq:sc-hm-U-int-2' on page 37 undefined on input li
+ne 47.
+
+
+LaTeX Warning: Reference `appeq:sc-hm-U-int-3' on page 37 undefined on input li
+ne 47.
+
+
+LaTeX Warning: Reference `appeq:sc-hm-ws-self-consistency' on page 37 undefined
+ on input line 47.
+
+
+
+[37
+
+]
+
+LaTeX Warning: Reference `sc-hm-bogoliubov-h' on page 38 undefined on input lin
+e 54.
+
+
+LaTeX Warning: Reference `af-sc-spin-h' on page 38 undefined on input line 54.
+
+
+LaTeX Warning: Reference `appeq:sc-hm-pseudofield' on page 38 undefined on inpu
+t line 77.
+
+
+LaTeX Warning: Reference `appeq:sc-hm-diagonalizer' on page 38 undefined on inp
+ut line 77.
+
+
+LaTeX Warning: Reference `appsubsec:sc-hm-impossible' on page 38 undefined on i
+nput line 84.
+
+
+LaTeX Warning: Reference `appeq:sc-hm-sx' on page 38 undefined on input line 94
+.
+
+
+LaTeX Warning: Reference `appeq:sc-hm-sy' on page 38 undefined on input line 98
+.
+
+
+LaTeX Warning: Reference `appeq:sc-hm-sz' on page 38 undefined on input line 10
+2.
+
+
+LaTeX Warning: Reference `appeq:sc-hm-n-z' on page 38 undefined on input line 1
+05.
+
+
+LaTeX Warning: Reference `appeq:sc-hm-n-z' on page 38 undefined on input line 1
+05.
+
+
+LaTeX Warning: Reference `appsec:superconducting-phase' on page 38 undefined on
+ input line 111.
+
+
+
+[38]
+
+LaTeX Warning: Reference `appsubsec:sc-hartree-channel' on page 39 undefined on
+ input line 121.
+
+
+LaTeX Warning: Reference `appeq:sc-hm-sx' on page 39 undefined on input line 13
+1.
+
+
+LaTeX Warning: Reference `appeq:sc-hm-sy' on page 39 undefined on input line 13
+1.
+
+
+LaTeX Warning: Reference `appeq:sc-hm-sz' on page 39 undefined on input line 13
+1.
+
+
+LaTeX Warning: Reference `appeq:sc-thermal-factors-def' on page 39 undefined on
+ input line 143.
+
+
+LaTeX Warning: Reference `appsec:superconducting-phase' on page 39 undefined on
+ input line 166.
+
+
+
+[39]
+Underfull \vbox (badness 1616) has occurred while \output is active []
+
+
+
+[40]
+
+LaTeX Warning: Reference `eq:extended-hubbard-model' on page 41 undefined on in
+put line 333.
+
+
+
+[41]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 355
+.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+
+LaTeX Warning: Reference `appsubsec:sc-cooper-channel' on page 42 undefined on 
+input line 386.
+
+
+
+[42]
+
+[43]
+
+LaTeX Warning: Reference `subsec:fock-renormalization-hopping-amplitude' on pag
+e 44 undefined on input line 626.
+
+
+LaTeX Warning: Reference `eq:af-fock-hop-ss-renormalization' on page 44 undefin
+ed on input line 626.
+
+
+LaTeX Warning: Reference `eq:reciprocal-space-non-local-interaction-fock-interm
+ediate' on page 44 undefined on input line 626.
+
+
+
+[44]
+
+LaTeX Warning: Reference `eq:reciprocal-space-non-local-interaction-fock-interm
+ediate-2' on page 45 undefined on input line 650.
+
+
+LaTeX Warning: Reference `eq:reciprocal-space-non-local-interaction-fock-dd-int
+ermediate' on page 45 undefined on input line 650.
+
+
+LaTeX Warning: Reference `appendix:mean-field-hubbard' on page 45 undefined on 
+input line 673.
+
+
+
+[45]
+
+LaTeX Warning: Reference `app:mean-field-hubbard' on page 46 undefined on input
+ line 709.
+
+
+LaTeX Warning: Reference `appeq:hubbard-bogoliubov-hamiltonian-pseudofields' on
+ page 46 undefined on input line 731.
+
+
+LaTeX Warning: Reference `app:mean-field-hubbard' on page 46 undefined on input
+ line 741.
+
+
+
+[46]
+
+LaTeX Warning: Reference `appeq:finite-temperature-order-parameter-derivation-i
+ntermediate' on page 47 undefined on input line 793.
+
+
+LaTeX Warning: Reference `eq:extended-hubbard-phi-psi-expression' on page 47 un
+defined on input line 798.
+
+
+LaTeX Warning: Reference `appeq:finite-temperature-order-parameter-derivation-i
+ntermediate' on page 47 undefined on input line 844.
+
+
+
+[47]
+
+[48]
+
+[49]
+
+LaTeX Warning: Reference `subsec:fock-renormalization-hopping-amplitude' on pag
+e 50 undefined on input line 1015.
+
+
+LaTeX Warning: Reference `eq:af-fock-hop-ss-renormalization' on page 50 undefin
+ed on input line 1042.
+
+
+LaTeX Warning: Citation 'zhou1992density' on page 50 undefined on input line 10
+55.
+
+
+
+[50]
+
+LaTeX Warning: Citation 'hutchinson2021mixed' on page 51 undefined on input lin
+e 1112.
+
+
+Overfull \hbox (4.65392pt too wide) in paragraph at lines 1129--1130
+[]\OT1/cmr/m/n/10 The term orig-i-nated by the iden-tity pro-duced by fermionic
+ an-ti-com-mu-ta-tion rules in Eq. [], 
+ []
+
+
+
+[51]
+
+LaTeX Warning: Citation 'hutchinson2021mixed' on page 52 undefined on input lin
+e 1171.
+
+
+LaTeX Warning: Citation 'senarath2025mixed' on page 52 undefined on input line 
+1171.
+
+
+Overfull \hbox (1.51561pt too wide) in paragraph at lines 1170--1174
+\OT1/cmr/m/n/10 The two main dif-fer-ences with the com-monly known ex-pres-sio
+ns for $\OML/cmm/m/it/10 f[]$ \OT1/cmr/m/n/10 [[],
  []
 
 )
 
-LaTeX Warning: Empty bibliography on input line 63.
+LaTeX Warning: Empty bibliography on input line 60.
+
+
+Class memoir Warning: The material used in the headers is too large
+(25.07225pt) for the given head height (12.0pt), it is recommended to
+either increase the head height or redesign the header
+(in both cases you will find help in the memoir manual). on input line 62.
 
 
 
-[32]
-
-[33 <../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOr
-derParameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf> <../Project/HM-Hartr
-eeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOrderParameter/xVar=δ/pVa
-r=U/m_t=1.0_Lx=128.0_β=100.0.pdf>]
+[52]
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
@@ -2166,8 +2448,11 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 2C8FE49FDDEDFC43A96B129C2386A18B;10483.
+(rerunfilecheck)             Checksum: F59CB651DD6D56D6A535B509FCA85E8E;17679.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -2178,49 +2463,52 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53314 strings out of 475076
- 1203086 string characters out of 5763687
- 2231852 words of memory out of 5000000
- 75296 multiletter control sequences out of 15000+600000
- 577040 words of font info for 102 fonts, out of 8000000 for 9000
+ 53852 strings out of 475076
+ 1218552 string characters out of 5763687
+ 2214475 words of memory out of 5000000
+ 75693 multiletter control sequences out of 15000+600000
+ 579745 words of font info for 112 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 92i,17n,96p,1315b,2205s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 92i,18n,96p,1296b,2205s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/p
-ublic/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0
-800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (36 pages, 610761 bytes).
+t/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.p
+fb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf
+/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (55 pages, 1310502 bytes).
 PDF statistics:
- 1005 PDF objects out of 1200 (max. 8388607)
- 849 compressed objects within 9 object streams
- 229 named destinations out of 1000 (max. 500000)
- 456 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1361 PDF objects out of 1440 (max. 8388607)
+ 1175 compressed objects within 12 object streams
+ 336 named destinations out of 1000 (max. 500000)
+ 690 words of extra memory for PDF output out of 10000 (max. 10000000)
 

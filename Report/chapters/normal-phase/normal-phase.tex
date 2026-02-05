@@ -1,4 +1,4 @@
-\def\GraphicsFolder{parts/mft-analysis/chapters/normal-phase/pictures}
+\def\GraphicsFolder{chapters/normal-phase/pictures}
 \chapter{The normal phase}\label{chap:normal-phase}
 
 This chapter is devoted to the MFT analysis of the ``normal phase'', which is, the one where interacting electrons do not develop an antiferromagnetic or superconducting gap, although undergoing an effective non-trivial transformation. What will be derived here, in particular the hopping renormalization effect, constitutes a peculiarity of effective MFT treatment of the EHM and will be the groundwork of following analyses. Note that this chapter is structured in such a way that what is derived here mathematically is recovered and expanded to more complex phases in next chapters.
@@ -127,7 +127,7 @@ This accounts for the final Hartree shift of $\mu$,
 \end{equation}
 
 Considering the net shift to $\mu$ due to both interactions by combining Eqns.~\eqref{eq:local-hartree-mu-shift}, \eqref{eq:non-local-hartree-mu-shift}, we get
-\begin{equation}\label{eq:total-hartree-mu-shift}
+\begin{equation}\label{eq:normal-mu-shift}
 	\tilde{\mu} \equiv \mu + n(2zV-U)
 \end{equation}
 This result remains valid throughout all phases discussed in this text: for the AF phase, the SDW character leaves this shift untouched, while the superconducting phase we are discussion is inherently translational invariant.
@@ -140,12 +140,12 @@ The double counting terms accounting for energy shifts in the Hartree channel ar
 		\hat n_{i\downarrow}
 	\rangle \langle 
 		\hat n_{i\uparrow}
-	\rangle \\
+	\rangle \nonumber \\
 	&= L_x L_y \times n^2U \label{eq:normal-hartree-U-contraction-energy}
 \end{align}
 for the local repulsion and 
 \begin{align}
-	E_{\mathrm{H}/V}^{(\mathrm{N})} &= V \sum_{\ev{ij}} \sum_\sigma \left[
+	E_{\mathrm{H}/V}^{(\mathrm{N})} &= - V \sum_{\ev{ij}} \sum_\sigma \left[
 		\langle 
 			\hat n_{i\sigma}
 		\rangle \langle 
@@ -157,9 +157,9 @@ for the local repulsion and
 		\rangle \langle 
 			\hat n_{j\overline{\sigma}}
 		\rangle
-	\right]\\
-	&= 2V \sum_{\ev{ij}} \sum_\sigma n^2 \\
-	&= L_x L_y \times 2zn^2 V \label{eq:normal-hartree-V-contraction-energy}
+	\right] \nonumber \\
+	&= -2V \sum_{\ev{ij}} \sum_\sigma n^2 \nonumber \\
+	&= - L_x L_y \times 2zn^2 V \label{eq:normal-hartree-V-contraction-energy}
 \end{align}
 for the non-local attraction, being $z=4$ the coordination number for the $2$D square lattice. In the last passage, we used that
 \[
@@ -234,7 +234,7 @@ In reciprocal space, the effective hopping must be transformed as well. Consider
 	\hat c_{\mathbf{K}-\mathbf{k} \sigma}^\dagger  \hat c_{\mathbf{K}+\mathbf{k}'\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \label{eq:normal-V-fock-int1}
 \end{multline}
 Here, the $2$ prefactor comes from recognizing that the first two operators in square brackets in the first line generate identical contributions to the full sum; the double counting energy shift is given by
-\begin{equation}\label{eq:reciprocal-space-non-local-interaction-fock-double-couting}
+\begin{equation}\label{eq:normal-V-fock-double-counting}
 	E_{\mathrm{F}/V}^{(\mathrm{N})} \equiv \frac{V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left[
 		\cos \left(
 			\delta k_x
@@ -252,7 +252,7 @@ Here, the $2$ prefactor comes from recognizing that the first two operators in s
 
 Up to this point, this derivation is general and will be re-used in next chapters. Here the specificity of the physical phase settles in: if we assume the normal state to be a free degenerate Fermi gas with renormalized bands, we get
 \[
-	\langle \hat c_{\mathbf{k}_1\sigma_1} \hat c_{\mathbf{k}_2 \sigma_2} \rangle = \delta_{\mathbf{k}_1=\mathbf{k}_2} \delta_{\sigma_1=\sigma_2} f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+	\langle \hat c_{\mathbf{k}_1\sigma_1}^\dagger \hat c_{\mathbf{k}_2 \sigma_2} \rangle = \delta_{\mathbf{k}_1=\mathbf{k}_2} \delta_{\sigma_1=\sigma_2} f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
 \]
 being $f$ the Fermi-Dirac distribution,
 \[
@@ -261,12 +261,17 @@ being $f$ the Fermi-Dirac distribution,
 It follows that Eq.~\eqref{eq:normal-V-fock-int1} becomes
 \begin{multline}
 	V \sum_{\ev{ij}} \sum_\sigma \left[
-	\langle
-	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	\rangle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} + 
-	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	\langle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle - \langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	\rangle \langle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle
+		\langle
+			\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+		\rangle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} + 
+		\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+		\langle 
+			\hat c_{j\sigma}^\dagger  \hat c_{i\sigma} 
+		\rangle - \langle 
+			\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+		\rangle \langle 
+			\hat c_{j\sigma}^\dagger  \hat c_{i\sigma}
+		\rangle
 	\right] \\
 	\stackrel{\mathcal{F}}{=} \frac{2V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}} \sum_\sigma \left[
 	\cos \left(
@@ -327,7 +332,7 @@ Thanks to this handy property, we reduce Eq.~\eqref{eq:normal-V-fock-int3} to
 	\langle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle - \langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
 	\rangle \langle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle
 	\right] \\
-	\stackrel{\mathcal{F}}{=} \sum_\gamma \left[
+	\stackrel{\mathcal{F}}{=} \sum_{\gamma,\sigma} \left[
 		\frac{1}{L_x L_y} \sum_\mathbf{q\in\mathrm{BZ}} \varphi_\mathbf{q}^{(\gamma)}
 		u_{\mathbf{q}\sigma}
 	\right] \times V
@@ -405,7 +410,7 @@ This equation defines the bands renormalization. The fact that both a $s^*$ and 
 
 \subsection{Fock contraction energy}\label{subsec:normal-fock-energy}
 
-Finally, let us derive the Fock contraction energy by expanding Eq.~\eqref{eq:reciprocal-space-non-local-interaction-fock-double-couting}:
+Finally, let us derive the Fock contraction energy by expanding Eq.~\eqref{eq:normal-V-fock-double-counting}:
 \begin{align}
 	E_{\mathrm{F}/V}^{(\mathrm{N})} &= \frac{V}{L_x L_y} \sum_{ \mathbf{q}, \mathbf{q}'} \sum_\sigma \left[
 		\cos \left(
@@ -512,11 +517,11 @@ Let us now take together all terms. From now on, we will omit spin index $\sigma
 	\[
 	\begin{aligned}
 		e_\mathrm{c}^{(\mathrm{N})} &\equiv \frac{E_\mathrm{c}^{(\mathrm{N})}}{L_x L_y} \\
-		&= - n^2 U - V \left[
-			2zn^2 + 
+		&= - n^2 U + V \left[
+			2zn^2 - 
 			\big|
 				u^{(s^*)}
-			\big|^2 + \big|
+			\big|^2 - \big|
 				u^{(d)}
 			\big|^2
 		\right]
@@ -569,18 +574,22 @@ Thus, composing everything
 \begin{align}
 	f_\mathrm{MFT}^{(\mathrm{N})} &\equiv e_\mathrm{g}^{(\mathrm{N})} + e_\mathrm{c}^{(\mathrm{N})} + e_s^{(\mathrm{N})} + e_n^{(\mathrm{N})} \nonumber \\
 	&= \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
-	1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - n^2 U - V \left[
-		2zn^2 + 
+	1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - n^2 U + V \left[
+		2zn^2 - 
 		\big|
 			u^{(s^*)}
-		\big|^2 + \big|
+		\big|^2 - \big|
 			u^{(d)}
 		\big|^2
 	\right] + \mu n \label{eq:normal-fMFT}
 \end{align}
 When it comes to algorithmic computation of this quantity, it is important to express $\mu$ in terms of its RMP counterpart $\tilde{\mu}$, as discussed in Sec.~\ref{subsec:fixed-density-role-mu}. By doing this we are considering all the effects of MFT decomposition of $\hat H$.
 
-\section{HF iterative algorithm sketch}
+\section{Numerical simulations}\label{sec:normal-numerical}
+
+\todo
+
+\subsection{HF iterative algorithm sketch}\label{subsec:normal-hf-sketch}
 
 We are finally able to move to the computational part of this chapter. The aim is to write down an algorithm of the kind of Sec.~\ref{subsec:hf-sketch}. For the normal phase, the HFPs vector has two components:
 \[

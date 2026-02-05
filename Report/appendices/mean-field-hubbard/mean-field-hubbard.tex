@@ -1,4 +1,4 @@
-\def\GraphicsFolder{parts/appendices/mean-field-hubbard/pictures}
+\def\GraphicsFolder{appendices/mean-field-hubbard/pictures}
 \chapter{Mean-Field Theory in Hubbard lattices}\label{appendix:mean-field-hubbard}
 
 In this Appendix the MFT solutions to the conventional Hubbard hamiltonian of Eq.~\eqref{eq:hubbard-model},
@@ -11,90 +11,7 @@ In this Appendix the MFT solutions to the conventional Hubbard hamiltonian of Eq
 	\qquad
 	t, U  > 0
 \end{equation}
-are described. The discussion is limited to the two-dimensional square lattice.
-
-\section{Symmetries of the Hubbard model and magnetic phase transitions}
-
-The Hubbard model defined on the planar square lattice presents three core symmetries, discussed in detail by \citeauthor{arovas2022hubbard} \cite{arovas2022hubbard}: translational invariance, spin rotational invariance and charge conservation. In this appendix we investigate magnetic ordering: thus we perform a $\mathrm{SU}(2)\to\mathrm{U}(1)$ SSB of the kind depicted in Fig.~\ref{fig:su2-u1-domains}, choosing a particular magnetization direction.
-
-As is done in Chap.~\ref{chap:mft-discussion}, the starting point is to apply Wick's theorem to reduce the quartic hamiltonian of Eq.~\eqref{appeq:hubbard-model} to a quadratic form. Considering the discussion of Sec.~\ref{subsec-mft-treatment-hm}, we need to reduce the quartic interaction down to a quadratic operator, and from Tab.~\ref{tab:U-wick-terms-phases} we know this is only possible for the pure Hubbard model $\hat H_t + \hat H_U$ in the Hartree channel,
-\[
-\begin{aligned}
-	\hat n_{i\uparrow} \hat n_{i\downarrow} &= \left( \ev{\hat n_{i\uparrow}} + \delta \hat n_{i\uparrow} \right) \left( \ev{\hat n_{i\downarrow}} + \delta \hat n_{i\downarrow} \right) \\
-	&\simeq \ev{\hat n_{i\uparrow}} \ev{\hat n_{i\downarrow}} +  \delta \hat n_{i\uparrow} \ev{\hat n_{i\downarrow}} + \ev{\hat n_{i\uparrow}} \delta \hat n_{i\downarrow} + \mathcal{O} \left(\delta n^2\right) \\
-	&= - \ev{\hat n_{i\uparrow}} \ev{\hat n_{i\downarrow}} + \hat n_{i\uparrow} \ev{\hat n_{i\downarrow}} + \ev{\hat n_{i\uparrow}} \hat n_{i\downarrow} + \mathcal{O} \left(\delta n^2\right)
-\end{aligned}
-\]
-where $\delta \hat n_{i\sigma} \equiv \hat n_{i\sigma} - \ev{\hat n_{i\sigma}}$ and orders higher than first have been ignored, assuming negligible fluctuations around the equilibrium single-site population. The first term of the above three can be neglected at fixed particles number, being a pure energy shift. Cooper fluctuations are in principle possible for the pure Hubbard model, and that is dealt with in Sec.~\mref. For now, let us focus on the realization of the AF phase.
-
-%\section{Ferromagnetic phase}
-%
-%The MFT ferromagnetic solution prescribes an uniformly magnetized lattice,
-%\[
-%	\ev{\hat n_{i\uparrow}} = n+m
-%	\qquad
-%	\ev{\hat n_{i\downarrow}} = n-m
-%\]
-%where $n$ is the site electron density and $m$ is the density unbalance, leading to a magnetization per site $2m$. The mean-field hamiltonian with these substitutions becomes:
-%\[
-%\begin{aligned}
-%	\hat H &\simeq 
-%	-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-%	+ U \sum_i \left[
-%		\hat n_{i\uparrow} \ev{\hat n_{i\downarrow}} + \ev{\hat n_{i\uparrow}} \hat n_{i\downarrow} 
-%	\right] \\
-%	&= -t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-%	+ nU \sum_i \left[
-%		\hat n_{i\uparrow} + \hat n_{i\downarrow} 
-%	\right] - mU \sum_i \left[
-%		\hat n_{i\uparrow} - \hat n_{i\downarrow} 
-%	\right]
-%\end{aligned}
-%\]
-%Fourier transforming,
-%\[
-%\begin{aligned}
-%	-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma} &= -2t \sum_{\mathbf{k}\sigma} \left[
-%		\cos(k_x) + \cos(k_y)
-%	\right] \hat n_{\mathbf{k}\sigma} \\
-%	nU \sum_i \left[
-%		\hat n_{i\uparrow} + \hat n_{i\downarrow} 
-%	\right] &= nU \sum_{\mathbf{k}\sigma} \hat n_{\mathbf{k}\sigma} \\
-%	mU \sum_i \left[
-%		\hat n_{i\uparrow} - \hat n_{i\downarrow} 
-%	\right] &= mU \sum_{\mathbf{k}\sigma} \left[
-%		\hat n_{\mathbf{k}\uparrow} - \hat n_{\mathbf{k}\downarrow}
-%	\right]
-%\end{aligned}
-%\]
-%For a square lattice, the Brillouin Zone is delimited by
-%\[
-%	\mathbf{k} \in [-\pi,\pi] \times [-\pi,\pi]
-%\]
-%The hopping single-state energy is given by
-%\[
-%	\epsilon_{\mathbf{k}} = -2t \left[
-%		\cos(k_x) + \cos(k_y)
-%	\right]
-%\]
-%represented as a band in Fig.~\ref{appfig:ferromagnetic-3d-band}. At $U=0$, the mean-field ferromagnetic state fills the band bottom-up. The single-state energy becomes:
-%\[
-%\begin{aligned}
-%	\epsilon_{\mathbf{k}\uparrow} &= U \left(
-%		n-m
-%	\right) - 2t \left[
-%		\cos(k_x) + \cos(k_y)
-%	\right] \\
-%	\epsilon_{\mathbf{k}\downarrow} &= U \left(
-%		n+m
-%	\right) - 2t \left[
-%		\cos(k_x) + \cos(k_y)
-%	\right]
-%\end{aligned}
-%\]
-%Now it is a matter of finding the optimal value for $m$, minimizing the total energy at fixed filling $\rho = 2n$. Notice that said minimization is performed parametrically varying the magnetization $m$, inside the ferromagnetic-polarized space. As it turns out, for strong local repulsion $U/t \gg 1$, antiferromagnetic ordering is preferred. Comparison is needed in order to assess which magnetic ordering is preferred.
-%
-%Consider the half-filling situation. An unpolarized system will have $n=1/4$, $m=0$: this implies $\ev{\hat n_{i\uparrow}} = \ev{\hat n_{i\downarrow}} = 1/4$. A perfectly up-ferromagnetic system, $n=1/4$, $m=1/4$: then $\ev{\hat n_{i\uparrow}} = 1/2$ and $\ev{\hat n_{i\downarrow}} = 0$. \todo
+are described. The discussion is limited to the two-dimensional square lattice. The results of ths appendix are relevant and used throughout the text as the groundwork to be extended by the means of MFT applied to the non-local part of the EHM.
 
 \begin{figure}
 	\centering
@@ -105,7 +22,11 @@ where $\delta \hat n_{i\sigma} \equiv \hat n_{i\sigma} - \ev{\hat n_{i\sigma}}$ 
 
 \section{Antiferromagnetic phase}\label{appsec:antiferromagnetic-phase}
 
-We work in a commensurate AF phase ordering, which is, we explicitly break symmetry by realizing a SDW phase with spin density unevenly distributed on sites with periodicity of two sites, each direction. Let us change notation, indicating each site as
+We work in a commensurate AF phase ordering, which is, we explicitly break symmetry by realizing a SDW phase with spin density unevenly distributed on sites with periodicity of two sites, each direction. Recalling the discussion of Sec.~\ref{sec:ehm-symmetries}, AF long-range ordering we deal with here lies within the $\mathrm{SU}(2) \to \mathrm{U}^z(1)$ SSB, represented pictorially in Fig.~\ref{fig:su2-u1-domains}. Recalling Tab.~\ref{tab:U-wick-terms-phases}, for such a physical phase the only Wick contraction channel available is the Hartree one. Let us proceed in such sense.
+
+\subsection{MFT treatment of the Hartree channel}\label{appsubsec:af-hartree-channel}
+
+Let us change notation, indicating each site as
 \[
 	i \to \mathbf{r} = (x,y)
 	\qquad
@@ -129,7 +50,7 @@ Decoupling the HM hamiltonian and substituting,
 		\hat n_{\mathbf{r}\uparrow} + \hat n_{\mathbf{r}\downarrow}
 	\right] - mU \sum_\mathbf{r} (-1)^{x+y} \left[
 		\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
-	\right] - E_{\mathrm{H}/U}^{(\mathrm{AF})} \label{appeq:hubbard-mean-field-hamiltonian}
+	\right] - E_{\mathrm{H}/U}^{(\mathrm{AF})} \label{appeq:af-hm-mft-h}
 \end{align}
 with $E_{\mathrm{H}/U}^{(\mathrm{AF})}$ the HM Hartree contraction energy,
 \begin{align}
@@ -141,9 +62,9 @@ with $E_{\mathrm{H}/U}^{(\mathrm{AF})}$ the HM Hartree contraction energy,
 	\right) \nonumber \\
 	&= L_x L_y \times U \left(
 		n^2 - m^2
-	\right) \label{appeq:af-hartree-V-contraction-energy}
+	\right) \label{appeq:af-hm-hartree-U-Ec}
 \end{align}
-By a Fourier transform, the phase factor of Eq.~\eqref{appeq:hubbard-mean-field-hamiltonian} can be absorbed in the destruction operator inside of $\hat n_{\mathbf{r}\sigma}$:
+By a Fourier transform, the phase factor of Eq.~\eqref{appeq:af-hm-mft-h} can be absorbed in the destruction operator inside of $\hat n_{\mathbf{r}\sigma}$:
 \begin{align}
 	\sum_\mathbf{r} (-1)^{x+y} \hat n_{\mathbf{r}\sigma} &= \sum_\mathbf{r} (-1)^{x+y} \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \nonumber \\
 	&\stackrel{\mathcal{F}}{=} \sum_\mathbf{r} e^{i \bm{\pi} \cdot \mathbf{r}}
@@ -159,6 +80,15 @@ mU \sum_\mathbf{r} (-1)^{x+y} \left[
 		\hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\uparrow} - \hat c_{\mathbf{k}\downarrow}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\downarrow}
 	\right]
 \]
+Note that the Hartree channel renormalizes chemical potential,
+\[
+	nU \sum_\mathbf{r} \left[
+	\hat n_{\mathbf{r}\uparrow} + \hat n_{\mathbf{r}\downarrow}
+	\right] = nU \times \hat N
+	\quad\implies\quad
+	\mu \to \tilde{\mu} \equiv \mu - nU
+\]
+an effect that is present also in the EHM.
 
 \begin{figure}
 	\centering
@@ -173,6 +103,8 @@ mU \sum_\mathbf{r} (-1)^{x+y} \left[
 	\caption{Alternative depiction of the Hubbard square lattice hopping band previously reported in Fig.~\ref{appfig:ferromagnetic-3d-band}. The Magnetic Brillouin Zone ($\mathrm{MBZ}$) is delimited by the zero-energy contour and is indicated in figure. As it is evident, energy sign flips by taking a $(\pi,\pi)$ translation in $\mathbf{k}$ space.}
 	\label{appfig:alternative-ferromagnetic-band}
 \end{figure}
+
+\subsection{Nambu representation of the AF phase and diagonalization}\label{appsubsec:af-nambu}
 
 Consider the band of Fig.~\ref{appfig:ferromagnetic-3d-band} . As does \citeauthor{fabrizio2022course} \cite{fabrizio2022course}, the area delimited externally by the solid lines at zero energy is denominated ``Magnetic Brillouin Zone'' ($\mathrm{MBZ}$). The periodicity of $\mathbf{k}$ space guarantees that the full $\mathrm{BZ}$ can be taken as well to be the one of Fig.~\ref{appsubfig:alternative-ferromagnetic-3d-band}. Then:
 \begin{align}
@@ -225,8 +157,8 @@ At fixed filling, the $nU$ term is a pure chemical potential shift, thus will be
 \end{aligned}
 \]
 where $\epsilon_{\mathbf{k}\sigma} \equiv -2t ( \cos k_x + \cos k_y )$. In the fourth passage, the sum over the full $\mathrm{BZ}$ was written considering that the entirety of the zone is given by all the points in the $\mathrm{MBZ}$ plus their conjugates obtained by a $\bm{\pi}$ shift in the flipped band. As depicted in Fig.~\ref{appsubfig:alternative-ferromagnetic-3d-band}, kinetic energy is anti-periodic in $\mathbf{k}$ space by a vector $\bm{\pi}$. This anti-periodicity accounts for the minus sign arising in the last passage. The hamiltonian is then given by:
-\begin{equation}\label{appeq:hubbard-bogoliubov-hamiltonian}
-	\hat H = \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger h_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma}
+\begin{equation}\label{af-hm-bogoliubov-h}
+	\hat H \simeq \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger h_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma} - E_{\mathrm{H}/U}^{(\mathrm{AF})}
 	\qq{being}
 	h_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
 		\epsilon_{\mathbf{k}\sigma} & -\Delta_{\mathbf{k}\sigma} \\
@@ -234,8 +166,6 @@ where $\epsilon_{\mathbf{k}\sigma} \equiv -2t ( \cos k_x + \cos k_y )$. In the f
 	\end{bmatrix}
 \end{equation}
 Notice: the Nambu hamiltonian is a $2\times2$ matrix over the $\mathrm{MBZ}$ -- which is half the full $\mathrm{BZ}$, coherently with a solution which essentially bipartites the lattice giving back a double sized unit cell.
-
-\subsection{Diagonalization and AF ground state}
 
 \begin{figure}
 	\centering
@@ -257,8 +187,8 @@ being $\tau^\alpha$ the Pauli matrices. Then, defining
 	\end{bmatrix}
 \]
 one gets:
-\begin{equation}\label{appeq:hubbard-bogoliubov-hamiltonian-pseudofields}
-	\hat H = \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \mathbf{b}_{\mathbf{k}\sigma} \cdot \hat{\mathbf{s}}_{\mathbf{k}\sigma}
+\begin{equation}\label{af-hm-spin-h}
+	\hat H \simeq \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \mathbf{b}_{\mathbf{k}\sigma} \cdot \hat{\mathbf{s}}_{\mathbf{k}\sigma} - E_{\mathrm{H}/U}^{(\mathrm{AF})}
 	\qq{where}
 	\hat{\mathbf{s}}_{\mathbf{k}\sigma} = \begin{bmatrix}
 		\hat s_{\mathbf{k}\sigma}^x \\
@@ -266,20 +196,45 @@ one gets:
 		\hat s_{\mathbf{k}\sigma}^z
 	\end{bmatrix}
 \end{equation}
-The hamiltonian represents a system of spins subject to local magnetic fields, each tilted by an angle $\tan(2\theta_{\mathbf{k}\sigma}) = \Delta_{\mathbf{k}\sigma}/\epsilon_{\mathbf{k}\sigma}$, as sketched in Fig.~\ref{appfig:pseudo-magnetic-field}. Evidently the following relations hold:
+The hamiltonian represents a system of spins subject to local magnetic fields, each tilted by an angle $\tan(2\theta_{\mathbf{k}\sigma}) = \Delta_{\mathbf{k}\sigma}/\epsilon_{\mathbf{k}\sigma}$, as sketched in Fig.~\ref{appfig:pseudo-magnetic-field}. Evidently the following relations, also reported in Tab.~\ref{tab:af-pseudospin-map}, hold:
 \begin{align}
 	\hat s_{\mathbf{k}\sigma}^x &= \hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger \label{appeq:af-hm-x-psi} \\
 	\hat s_{\mathbf{k}\sigma}^y &= -i \left(
 		\hat \psi_{\mathbf{k}\sigma} - \hat \psi_{\mathbf{k}\sigma}^\dagger 
 	\right) \label{appeq:af-hm-y-psi} \\
-	\hat s_{\mathbf{k}\sigma}^z &= \hat n_{\mathbf{k}\sigma} - \hat n_{\mathbf{k}\sigma}^\dagger \label{appeq:af-hm-z-psi} 
+	\hat s_{\mathbf{k}\sigma}^z &= \hat n_{\mathbf{k}\sigma} - \hat n_{\mathbf{k}+\bm{\pi}\sigma} \label{appeq:af-hm-z-psi} 
 \end{align}
 Let also:
 \begin{align}
-	\hat \Id_{\mathbf{k}\sigma} &\equiv \hat \Psi_{\mathbf{k}\sigma}^\dagger \hat \Psi_{\mathbf{k}\sigma} \nonumber \\
+	\hat \Id_{\mathbf{k}\sigma} &\equiv \hat \Psi_{\mathbf{k}\sigma}^\dagger \Id_{2\times2} \hat \Psi_{\mathbf{k}\sigma} \nonumber \\
 	&= \hat n_{\mathbf{k}\sigma} + \hat n_{\mathbf{k}+\bm{\pi}\sigma} \label{appeq:af-hm-id-def}
 \end{align}
 which accounts for a chemical potential shift.
+
+Diagonalization of each $h_{\mathbf{k}\sigma}$ is obtained trivially by a simple rotation around the $y$ axis:
+\[
+	d_{\mathbf{k}\sigma} = W_{\mathbf{k}\sigma} h_{\mathbf{k}\sigma} W_{\mathbf{k}\sigma}^\dagger
+	\qq{with}
+	d_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
+		E_{\mathbf{k}\sigma} & \\
+		& - E_{\mathbf{k}\sigma}
+	\end{bmatrix}
+\]
+and where the diagonalization unitary matrix is simply a rotation by an angle $2 \theta_{\mathbf{k}\sigma}$ around the $y$ axis, counter-clockwise
+\begin{align}
+	W_{\mathbf{k}\sigma} &\equiv e^{-i \theta_{\mathbf{k}\sigma} \tau^y} \nonumber\\
+	&= \cos \theta_{\mathbf{k}\sigma} -i \sin \theta_{\mathbf{k}\sigma} \tau^y \nonumber\\
+	&= \begin{bmatrix}
+		\cos \theta_{\mathbf{k}\sigma} & - \sin \theta_{\mathbf{k}\sigma} \\
+		\sin \theta_{\mathbf{k}\sigma} & \cos \theta_{\mathbf{k}\sigma}
+	\end{bmatrix} \label{appeq:af-hm-diagonalizer}
+\end{align}
+Eigenvalues are:
+\begin{equation}\label{appeq:af-bands}
+	E_{\mathbf{k}\sigma} \equiv \sqrt{
+		\epsilon_{\mathbf{k}\sigma}^2 + \abs{\Delta_{\mathbf{k}\sigma}}^2
+	}
+\end{equation}
 
 At any finite temperature, the ground-state of such a system is well-known: a thermal superposition of ``down'' spins with ``up'' spins. In the pseudospin picture, at each ``site'' $(\mathbf{k}\sigma)$, the lowest-energy state is the one anti-aligned with the pseudo-magnetic field. It is useful now to define the thermal factors,
 \begin{equation}\label{appeq:af-thermal-factors-def}
@@ -287,33 +242,16 @@ At any finite temperature, the ground-state of such a system is well-known: a th
 	f\left(
 		E_{\mathbf{k}\sigma};\beta,\mu
 	\right) \pm f\left(
-		-E_{\mathbf{k}\sigma};\beta,
+		-E_{\mathbf{k}\sigma};\beta,\mu
 	\right)
 \end{equation}
 that will appear quite often. Then it's immediate to derive the various expectation values.
 \begin{align}
-	\ev{\hat s_{\mathbf{k}\sigma}^x} &= -\frac{\Re\lbrace\Delta_{\mathbf{k}\sigma}\rbrace}{2E_{\mathbf{k}\sigma}} \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{appeq:hm-af-sx}\\
-	\ev{\hat s_{\mathbf{k}\sigma}^y} &= -\frac{\Im\lbrace\Delta_{\mathbf{k}\sigma}\rbrace}{2E_{\mathbf{k}\sigma}}  \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{appeq:hm-af-sy}\\
-	\ev{\hat s_{\mathbf{k}\sigma}^z} &=  \frac{\epsilon_{\mathbf{k}\sigma}}{2E_{\mathbf{k}\sigma}}  \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{appeq:hm-af-sz}
+	\ev{\hat s_{\mathbf{k}\sigma}^x} &= -\frac{\Re\lbrace\Delta_{\mathbf{k}\sigma}\rbrace}{2E_{\mathbf{k}\sigma}} \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{appeq:af-hm-sx}\\
+	\ev{\hat s_{\mathbf{k}\sigma}^y} &= -\frac{\Im\lbrace\Delta_{\mathbf{k}\sigma}\rbrace}{2E_{\mathbf{k}\sigma}}  \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{appeq:af-hm-sy}\\
+	\ev{\hat s_{\mathbf{k}\sigma}^z} &=  \frac{\epsilon_{\mathbf{k}\sigma}}{2E_{\mathbf{k}\sigma}}  \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{appeq:af-hm-sz}
 \end{align}
 
-Diagonalization of each $h_{\mathbf{k}\sigma}$ is obtained trivially by a simple rotation around the $y$ axis:
-\[
-	d_{\mathbf{k}\sigma} = W_{\mathbf{k}\sigma} h_{\mathbf{k}\sigma} W_{\mathbf{k}\sigma}^\dagger
-\]
-where
-\[
-	d_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
-		E_{\mathbf{k}\sigma} & \\
-		& - E_{\mathbf{k}\sigma}
-	\end{bmatrix}
-	\qq{and}
-	W_{\mathbf{k}\sigma} \equiv e^{-i \theta_{\mathbf{k}\sigma} 
-	\tau^y} = \begin{bmatrix}
-		\cos \theta_{\mathbf{k}\sigma} & - \sin \theta_{\mathbf{k}\sigma} \\
-		\sin \theta_{\mathbf{k}\sigma} & \cos \theta_{\mathbf{k}\sigma}
-	\end{bmatrix}
-\]
 %Note that rotation is taken to be of an angle $2\theta_{\mathbf{k}\sigma} - \pi$ in order to anti-align the pseudo-spin with the magnetic field of Fig.~\ref{appfig:pseudo-magnetic-field} and thus order the eigenvalues as in $d_{\mathbf{k}\sigma}$, with the smaller one in the top-left corner of the matrix and the larger one in the bottom-right corner. The explicit form of the transformation matrix is thus
 %\begin{equation}\label{appeq:W-explicit-form}
 %	W_{\mathbf{k}\sigma} = \begin{bmatrix}
@@ -327,12 +265,7 @@ where
 %		\cos \theta_{\mathbf{k}\sigma} & - \sin \theta_{\mathbf{k}\sigma}
 %	\end{bmatrix}
 %\end{equation}
-Eigenvalues are:
-\begin{equation}\label{appeq:af-bands}
-	E_{\mathbf{k}\sigma} \equiv \sqrt{
-		\epsilon_{\mathbf{k}\sigma}^2 + \abs{\Delta_{\mathbf{k}\sigma}}^2
-	}
-\end{equation}
+
 
 Note that considering the gran canonical hamiltonian $\hat K \equiv \hat H - \mu\hat N$ and using Eq.~\eqref{appeq:af-hm-id-def} the diagonalizing matrix remains the same, being
 \begin{equation}\label{appeq:af-full-h-diagonalization}
@@ -341,11 +274,11 @@ Note that considering the gran canonical hamiltonian $\hat K \equiv \hat H - \mu
 	\end{bmatrix}
 	\quad\implies\quad
 	W_{\mathbf{k}\sigma} \left[ 
-	h_{\mathbf{k}\sigma}-\mu \hat \Id_{\mathbf{k}\sigma}
-	\right] W_{\mathbf{k}\sigma}^\dagger = d_{\mathbf{k}\sigma}-\mu \hat \Id_{\mathbf{k}\sigma}
+	h_{\mathbf{k}\sigma}-\mu \Id_{2\times2}
+	\right] W_{\mathbf{k}\sigma}^\dagger = d_{\mathbf{k}\sigma}-\mu \Id_{2\times2}
 \end{equation}
 thus for non-null chemical potential (i.e. finite doping) the eigenvalues are just shifted, $\pm E_\mathbf{k}-\mu$. In other words, the new bands retain the same chemical potential of the bare bands. Notice also that the presence of an absolute value makes the eigenvalues independent of the $\sigma$ index. Eigenvector fermion operators are obtained simply as:
-\begin{equation}\label{appeq:af-diagonalized-nambu-spinor}
+\begin{equation}\label{appeq:af-hm-Gamma-WPsi}
 	\hat\Gamma_{\mathbf{k}\sigma} = W_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma}
 \end{equation}
 The $\hat\Gamma$ spinor operators are effectively free fermionic spinor fields and as such must be treated. Explicitly,
@@ -376,9 +309,9 @@ The $\hat\Gamma$ spinor operators are effectively free fermionic spinor fields a
 
 The consequence of Eq.~\eqref{appeq:af-full-h-diagonalization} is interesting by itself: within this HF solution, the gap opens always at $E=0$. In other words, the bands sketched in Fig.~\ref{appfig:antiferromagnetic-3d-bands} retain the same geometric features regardless of the doping, what changes is the bands width and the gap between them. The very key point here is that, being the two bands symmetric (thus containing each half of the electronic states) and defined over the MBZ, any finite doping $\delta>0$ will produce a metallic behaviour, imposing that the chemical potential crosses the upper band. It is widely observed and confirmed by more refined numerical procedures, however, that AF establishes an insulating phase -- here only reproduced at half-filling, where the chemical potential lies within the gap. As will be detailed in \ref{appsubsec:instability-af-commensurate}, the commensurate nature of AF SSB at wavevector $\bm{\pi}$ of this self-consistent solution is highly unstable and atypical at finite doping \cite{singh1990collective}.
 
-\subsection{Explicit zero-temperature ground state}
+\subsection{Explicit zero-temperature AF ground state at half-filling}\label{appsubsec:af-zero-T-half-filling-gs}
 
-The AF ground state can be expressed easily. Let $\ket{\Uparrow_{\mathbf{k}\sigma}}$ and $\ket{\Downarrow_{\mathbf{k}\sigma}}$ be respectively the ``up'' and ``down'' $\mathbf{k}$-th pseudospin states. Let $\ket{\overline{\Downarrow}_{\mathbf{k}\sigma}}$ be the ``down'' state in the tilted frame. At $\beta \to +\infty$, the ground state is given by
+The AF ground state can be expressed easily at $n=1/2$ and $\beta \to +\infty$. Let $\ket{\Uparrow_{\mathbf{k}\sigma}}$ and $\ket{\Downarrow_{\mathbf{k}\sigma}}$ be respectively the ``up'' and ``down'' $\mathbf{k}$-th pseudospin states. Let $\ket{\overline{\Downarrow}_{\mathbf{k}\sigma}}$ be the ``down'' state in the tilted frame. The ground state is given by
 \begin{equation}\label{appeq:af-hm-gs-1}
 	\ket{\Psi} \equiv \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \ket{\overline{\Downarrow}_{\mathbf{k}\sigma}}
 \end{equation}
@@ -387,7 +320,7 @@ We can link the ``down'' states via an inverse rotation,
 	\ket{\overline{\Downarrow}_{\mathbf{k}\sigma}} &= e^{-i\theta_{\mathbf{k}\sigma} \hat s_{\mathbf{k}\sigma}^y} \ket{\Downarrow_{\mathbf{k}\sigma}} \nonumber \\
 	&= \cos \theta_{\mathbf{k}\sigma} \ket{\Downarrow_{\mathbf{k}\sigma}} - i \sin\theta_{\mathbf{k}\sigma} \hat s_{\mathbf{k}\sigma}^y \ket{\Downarrow_{\mathbf{k}\sigma}} \nonumber \\
 	&= \cos \theta_{\mathbf{k}\sigma} \ket{\Downarrow_{\mathbf{k}\sigma}} - \sin\theta_{\mathbf{k}\sigma} (\hat s_{\mathbf{k}\sigma}^+ - \hat s_{\mathbf{k}\sigma}^-) \ket{\Downarrow_{\mathbf{k}\sigma}} \nonumber \\
-	&= \cos \theta_{\mathbf{k}\sigma} \ket{\Downarrow_{\mathbf{k}\sigma}} - \sin\theta_{\mathbf{k}\sigma} \ket{\Uparrow_{\mathbf{k}\sigma}} \label{appeq:af-tilted-down}
+	&= \cos \theta_{\mathbf{k}\sigma} \ket{\Downarrow_{\mathbf{k}\sigma}} - \sin\theta_{\mathbf{k}\sigma} \ket{\Uparrow_{\mathbf{k}\sigma}} \label{appeq:af-hm-tilted-down}
 \end{align}
 having we used
 \[
@@ -420,13 +353,13 @@ Thus, up to a phase
 \]
 being $\ket{\Omega_{\mathbf{k}\sigma}}$ the $(\mathbf{k},\sigma)$ Hilbert subspace vacuum. 
 
-It follows that composing Eqns.~\eqref{appeq:af-hm-gs-1} and \eqref{appeq:af-tilted-down} the ground state $\ket{\Psi}$ can be written as:
+It follows that composing Eqns.~\eqref{appeq:af-hm-gs-1} and \eqref{appeq:af-hm-tilted-down} the ground state $\ket{\Psi}$ can be written as:
 \begin{equation}\label{appeq:af-hm-gs-2}
 	\ket{\Psi} = \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \left[
-		\cos \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger + e^{2i\zeta_{\mathbf{k}\sigma}} \sin\theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma}^\dagger
+		\sin\theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma}^\dagger + e^{2i\zeta_{\mathbf{k}\sigma}} \cos \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger
 	\right] \ket{\Omega_{\mathbf{k}\sigma}}
 \end{equation}
-having we absorbed in the relative phase $e^{2i\zeta_{\mathbf{k}\sigma}}$ the two states phases differences as well as the original sign difference of Eq.~\eqref{appeq:af-tilted-down}. Now, inserting the explicit form of the ground state from equation above:
+having we absorbed in the relative phase $e^{2i\zeta_{\mathbf{k}\sigma}}$ the two states phases differences as well as the original sign difference of Eq.~\eqref{appeq:af-hm-tilted-down}. Now, inserting the explicit form of the ground state from equation above:
 \[
 \begin{aligned}
 	\mel{\overline{\Downarrow}_{\mathbf{k}\sigma}}{\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger}{\overline{\Downarrow}_{\mathbf{k}\sigma}} &= \left(e^{2i\zeta_{\mathbf{k}\sigma}} + e^{-2i\zeta_{\mathbf{k}\sigma}}\right) \sin\theta_{\mathbf{k}\sigma} \cos\theta_{\mathbf{k}\sigma} \\
@@ -552,7 +485,7 @@ Using now Eq.~\eqref{appeq:af-hm-x-psi} we get the self-consistency equation for
 		 \rangle
 	\right] \nonumber \\
 	&= -\frac{1}{2L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Re\lbrace\Delta_{\mathbf{k}\uparrow}\rbrace-\Re\lbrace\Delta_{\mathbf{k}\downarrow}\rbrace}{2E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta,\mu] \nonumber \\
-	&= -\frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta}{2E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta,\mu] \label{appeq:hm-af-m-self-consistency}
+	&= -\frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta}{2E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta,\mu] \label{appeq:af-hm-m-self-consistency}
 \end{align}
 
 The magnetization $m$ is the physical order parameter of the phase transition from the normal phase to the antiferromagnetic one. Within such phase transition, in fact, it is the expectation value
@@ -676,9 +609,7 @@ that goes from zero (normal phase, free Fermi gas) to a non-zero value (AF). As 
 %\end{equation}
 %Then: mean-field approximations yield an estimate for the magnetization at a given temperature and chemical potential just by carefully combining the elements of the diagonalizing matrix $W$ of each Bogoliubov matrix $h_{\mathbf{k}\sigma}$.
 
-\subsection{The half-filled case}
-
-Consider specifically the half-filled situation and multiply Eq.~\eqref{appeq:hm-af-Delta-self-consistency} on both sides by $U$. Since due to symmetry $\mu=0$, we have the finite-temperature self-consistent equation
+Consider specifically the half-filled situation and multiply Eq.~\eqref{appeq:af-hm-Delta-self-consistency} on both sides by $U$. Since due to symmetry $\mu=0$, we have the finite-temperature self-consistent equation
 \[
 	\Delta = \frac{U}{2L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta}{\sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2})
 \]
@@ -707,7 +638,7 @@ $2\times 2$ matrix equation,
 \begin{equation}\label{appeq:af-commensurate-proper-response}
 	\tilde{\chi}_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega) = \frac{\chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega)}{1 - U \chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega)}
 \end{equation}
-being $\chi$ the free transverse response. The pseudospin hereby considered is the one of Eq.~\eqref{appeq:hubbard-bogoliubov-hamiltonian-pseudofields}. As is shown in \cite{singh1990collective}, for the commensurate AF SSB at wavevector $\bm{\pi}$ the condition for the presence of a stable gapless mode reduces to a $2\times 2$ matrix equation,
+being $\chi$ the free transverse response. The pseudospin hereby considered is the one of Eq.~\eqref{af-hm-spin-h}. As is shown in \cite{singh1990collective}, for the commensurate AF SSB at wavevector $\bm{\pi}$ the condition for the presence of a stable gapless mode reduces to a $2\times 2$ matrix equation,
 \begin{equation}\label{appeq:af-commensurate-stability-condition}
 	\text{Stability condition:}
 	\qquad
@@ -731,8 +662,8 @@ For any finite doping, the commensurate AF phase becomes unstable and is destroy
 
 \subsection{Hartree-Fock algorithm results in reciprocal space}\label{appsubsec:hartree-fock-algorithm}
 
-The above sections offer a self-consistency equation for the only HFP $m$; $W$ is determined by $\Delta = mU$ indeed. In an iterative HF fashion, Eq.~\eqref{appeq:hm-af-m-self-consistency} reads:
-\begin{equation}\label{appeq:hm-af-m-self-consistency-iterative}
+The above sections offer a self-consistency equation for the only HFP $m$; $W$ is determined by $\Delta = mU$ indeed. In an iterative HF fashion, Eq.~\eqref{appeq:af-hm-m-self-consistency} reads:
+\begin{equation}\label{appeq:af-hm-m-self-consistency-iterative}
 	m_{i+1} =
 	\frac{U}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{m_i}{2E_\mathbf{k}[\Delta_i]} \left[
 	f(-E_\mathbf{k}[m_i];\beta,\mu)-f(E_\mathbf{k}[m_i];\beta,\mu)
@@ -772,7 +703,7 @@ Then a self-consistent algorithm to search for a self consistent estimate of the
 		\]
 		Then $\mu_i$ is the chemical potential which, at step $i$ with HFP $m_i$, realizes the best approximation of density $n$;
 	\end{enumerate}
-	\item Compute $m_{i+1}$ using Eq.~\eqref{appeq:hm-af-m-self-consistency-iterative} with chemical potential $\mu_i$ and update the counter, $i \to i+1$;
+	\item Compute $m_{i+1}$ using Eq.~\eqref{appeq:af-hm-m-self-consistency-iterative} with chemical potential $\mu_i$ and update the counter, $i \to i+1$;
 	\item Check if $\abs{m_{i+1}-m_i} \le \delta_m$:
 	\begin{itemize}
 		\item If yes, halt;
@@ -903,7 +834,7 @@ In Fig.~\ref{appfig:mdU-beta=100} plots at $\beta=100$ of the magnetization $m$ 
 %\[
 %	\mu \big|_{n=1/2} = -\frac{U}{2}
 %\]
-%as evident from Eq.~\eqref{appeq:hubbard-mean-field-hamiltonian}. Average magnetization is then given by
+%as evident from Eq.~\eqref{appeq:af-hm-mft-h}. Average magnetization is then given by
 %\begin{align}
 %	m &= \frac{1}{D} \sum_{\mathbf{r}} (-1)^{x+y} \left[
 %		\langle
@@ -931,4 +862,328 @@ In Fig.~\ref{appfig:mdU-beta=100} plots at $\beta=100$ of the magnetization $m$ 
 %	\item[5.] Compute $m$ using Eq.~\eqref{appeq:average-magnetization-hf-expression} and update the counter, $i \to i+1$;
 %\end{enumerate}
 
-\section{(Impossibility of a stable) superconducting phase}
+\section{(Impossibility of a stable) superconducting phase}\label{appsec:superconducting-phase}
+
+Let us now move to the discussion of superconductivity in the HM. As for the AF phase, we use the results and analyses of this section as groundwork for the more sophisticated case of SC phase in the EHM. We anticipate here that BCS-like superconductivity cannot develop in the pure HM, due to the inherently repulsive nature of $\hat H_U$. BCS theory admits, for an half filled model, finite Cooper fluctuations for an infinitesimal attractive interaction. However, as will be discussed, by the means of MFT it is perfectly possible and coherent to derive a self-consistent superconducting solution to the HM. The point here is that such self-consistent solution sets to zero Cooper fluctuations.
+
+As done for the AF phase in Sec.~\ref{appsec:antiferromagnetic-phase} and following the introductory discussion of Sec.~\mref, let us start from the discussion of the phase symmetries. We aim to describe a uniform-density superconductor,
+\[
+	\langle \hat n_{i\sigma} \rangle = n
+\]
+taking into account Cooper RWCs,
+\[
+	\langle 
+		\hat c_{i\sigma}^\dagger 
+		\hat c_{i\overline{\sigma}}^\dagger 
+	\rangle
+\]
+which, having we broken $U^\mathrm{c}(1)$ charge symmetry, we allow to fluctuate to non-zero values. For the pure HM, we know from Tab.~\ref{tab:U-wick-terms-phases} that both Hartree and Cooper pairing channels contribute to the RWCs set. We handle them separately.
+
+\subsection{MFT treatment of the Hartree channel}\label{appsubsec:sc-hartree-channel}
+
+For the Hartree channel, knowing the deal with a uniform-density phase, we can re-use the derivation of Sec.~\ref{appsubsec:af-hartree-channel} simply by setting $m=0$. We immediately get from Eq.~\eqref{appeq:af-hm-mft-h}:
+\begin{align}
+	\hat H_U &\simeq U \sum_\mathbf{r} \left[
+		\hat n_{\mathbf{r}\uparrow} \ev{\hat n_{\mathbf{r}\downarrow}} + \ev{\hat n_{\mathbf{r}\uparrow}} \hat n_{\mathbf{r}\downarrow} - \ev{\hat n_{\mathbf{r}\uparrow}} \ev{\hat n_{\mathbf{r}\downarrow}}
+	\right] + \text{(Cooper channel)} \nonumber \\
+	&= nU \times \hat N - E_{\mathrm{H}/U}^{(\mathrm{SC})} + \text{(Cooper channel)} \label{appeq:sc-hm-U-int-1}
+\end{align}
+thus chemical potential renormalization $\tilde{\mu} \equiv \mu - nU$ is present also for the SC phase. The contraction energy comes immediately from Eq.~\eqref{appeq:af-hm-hartree-U-Ec},
+\begin{equation}\label{appeq:sc-hm-hartree-U-Ec}
+	E_{\mathrm{H}/U}^{(\mathrm{SC})} = L_x L_y \times n^2 U
+\end{equation}
+We now move to Cooper channel.
+
+\subsection{MFT treatment of the Cooper channel}\label{appsubsec:sc-cooper-channel}
+
+Recall the result of Eq.~\eqref{eq:reciprocal-space-local-interaction-explicit} which gave the Fourier-transformed version of the local repulsion, and perform a Cooper class Wick's contraction on it,
+\begin{multline}
+	\hat H_U \simeq \text{(Hartree channel)} + \frac{U}{L_x L_y}
+	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \Big[
+		\big\langle
+			\hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \downarrow}^\dagger
+		\big\rangle \hat c_{\mathbf{K}-\mathbf{k}' \downarrow} \hat c_{\mathbf{K}+\mathbf{k}' \uparrow} \\
+		+ \hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \downarrow}^\dagger \big\langle
+			\hat c_{\mathbf{K}-\mathbf{k}' \downarrow} \hat c_{\mathbf{K}+\mathbf{k}' \uparrow} 
+		\big\rangle - \big\langle
+			\hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \downarrow}^\dagger
+		\big\rangle \big\langle 
+			\hat c_{\mathbf{K}-\mathbf{k}' \downarrow} \hat c_{\mathbf{K}+\mathbf{k}' \uparrow}
+		\big\rangle
+	\Big] \label{appeq:sc-hm-U-int-2}
+\end{multline}
+We are not breaking translational invariance, thus only Cooper fluctuations with net zero total momentum are allowed. This means only $\mathbf{K}=\mathbf{0}$ contributes. Define as in Eq.~\eqref{eq:su-ehm-phi-def} the pairing operator 
+\begin{equation}\label{appeq:sc-hm-phi-def}
+	\hat \phi_\mathbf{k} \equiv \hat c_{-\mathbf{k}\downarrow} \hat c_{\mathbf{k} \uparrow}
+\end{equation}
+while $\hat n_{\mathbf{k}\sigma}$ is defined as in Eq.~\eqref{appeq:af-hm-n-def}. Eq.~\eqref{appeq:sc-hm-U-int-1} reduces to
+\begin{equation}\label{appeq:sc-hm-U-int-3}
+	\hat H_U \simeq \text{(Hartree channel)} + \frac{U}{L_x L_y} \sum_{\mathbf{q},\mathbf{q}'} \left[
+		\big\langle
+			\hat \phi_\mathbf{q}^\dagger
+		\big\rangle \hat \phi_{\mathbf{q}'} + 
+		\hat \phi_\mathbf{q}^\dagger \big\langle
+			\hat \phi_{\mathbf{q}'}
+		\big\rangle
+	\right] - E_{\mathrm{C}/U}^{(\mathrm{SC})}
+\end{equation}
+being $E_{\mathrm{C}/U}^{(\mathrm{SC})}$ the HM Cooper contraction energy,
+\begin{align}
+	E_{\mathrm{C}/U}^{(\mathrm{SC})} &\equiv \frac{U}{L_x L_y} \sum_\mathbf{r} \big\langle
+		\hat \phi_\mathbf{q}^\dagger
+	\big\rangle \big\langle
+		\hat \phi_{\mathbf{q}'}
+	\big\rangle \nonumber \\
+	&\equiv \frac{U}{L_x L_y} \sum_\mathbf{r}
+	\abs{w_\mathbf{q}}^2 \label{appeq:sc-hm-hartree-C-Ec}
+\end{align}
+having we defined $w_\mathbf{q}$ as in Eq.~\eqref{eq:sc-wqsigma-def},
+\[
+	w_\mathbf{q} \equiv \big\langle
+		\phi_\mathbf{q}^\dagger
+	\big\rangle
+\]
+
+Evidently in Eq.~\eqref{appeq:sc-hm-U-int-2}, only the $s$-wave component of $w_\mathbf{q}$ partakes,
+\begin{equation}\label{appeq:sc-hm-ws-self-consistency}
+	w^{(s)} \equiv \frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}} w_\mathbf{q}
+\end{equation}
+thus, defining $\Delta^{(s)} \equiv -U w^{(s)}$, we finally reduce $\hat H_U$ to
+\begin{equation}\label{appeq:sc-hm-U-int-4}
+	\hat H_U \simeq \text{(Hartree channel)} - \sum_{\mathbf{q}\in\mathrm{BZ}} \left[
+	\Delta^{(s)} \hat \phi_\mathbf{q} + 
+	\Delta^{(s)*} \hat \phi_\mathbf{q}^\dagger
+	\right] - E_{\mathrm{C}/U}^{(\mathrm{SC})}
+\end{equation}
+which can be easily mapped on a pseudospin model.
+
+\subsection{Nambu representation of the SC phase and diagonalization}\label{appsubsec:sc-nambu}
+
+Composing Eqns.~\eqref{appeq:sc-hm-U-int-1} and \eqref{appeq:sc-hm-U-int-4}, we get the full MFT hamiltonian
+\begin{multline}
+	\hat H \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_{\mathbf{k}\sigma}
+	\left[
+		\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
+		- \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma}
+	\right] \\
+	- \sum_{\mathbf{q}\in\mathrm{BZ}} \left[
+	\Delta^{(s)} \hat \phi_\mathbf{q} + 
+	\Delta^{(s)*} \hat \phi_\mathbf{q}^\dagger
+	\right] + nU \times \hat N - \left[
+		E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
+	\right]
+	\label{appeq:sc-hm-mft-h} 
+\end{multline}
+
+We now proceed precisely as in Sec.~\ref{appsubsec:af-nambu}. Define the SC Nambu spinor
+\[
+	\hat \Phi_\mathbf{k} \equiv \begin{bmatrix}
+		\hat c_{\mathbf{k}\uparrow} \\
+		\hat c_{-\mathbf{k}\downarrow}^\dagger
+	\end{bmatrix}
+\] 
+Define the pseudospin operator:
+\[
+	\hat s_\mathbf{k}^\alpha \equiv \hat \Phi_\mathbf{k}^\dagger \tau^\alpha \hat \Phi_\mathbf{k}
+\]
+and the shifted bare bands,
+\[
+	\xi_\mathbf{k} \equiv \epsilon_\mathbf{k} - \tilde{\mu}
+\]
+Notice we are using the chemical potential RMP. We employ from the start the spin-independency of the bare bands, as well as their pure $s^*$-wave structure, since no Fock interaction in the present context chan change that. The following chain holds:
+\begin{align}
+	\hat n_{\mathbf{k}\uparrow} + \hat n_{-\mathbf{k}\downarrow} &= \hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}\uparrow} + \hat c_{-\mathbf{k}\downarrow}^\dagger \hat c_{-\mathbf{k}\downarrow} \nonumber \\
+	&= \hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}\uparrow} - \hat c_{-\mathbf{k}\downarrow} \hat c_{-\mathbf{k}\downarrow}^\dagger + \hat \Id_\mathbf{k} \nonumber \\
+	&=  \hat \Phi_\mathbf{k}^\dagger \tau^z \hat \Phi_\mathbf{k} + \hat \Id_\mathbf{k} \nonumber \\
+	&=  \hat s_\mathbf{k}^z + \hat \Id_\mathbf{k} \label{appeq:sc-hm-n-z}
+\end{align}
+Then, considering the kinetic part of the gran-canonical hamiltonian,
+\[
+\begin{aligned}
+	\hat H_t - \tilde{\mu}\hat N &= \sum_\sigma \sum_{\mathbf{k} \in \mathrm{BZ}} \left(
+		\epsilon_{\mathbf{k}\sigma} - \tilde{\mu}
+	\right) \hat n_{\mathbf{k}\sigma} \\
+	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \left[ 
+		\xi_\mathbf{k} \hat n_{\mathbf{k}\uparrow} + \xi_{-\mathbf{k}} \hat n_{-\mathbf{k}\downarrow} 
+	\right] \\
+	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \xi_\mathbf{k} \hat s_\mathbf{k}^z - E_{\mathrm{A}/t}^{(\mathrm{SC})}
+\end{aligned}
+\]
+being $E_{\mathrm{A}/t}^{(\mathrm{SC})}$ the ``anticommutation energy'' coming from the kinetic term,
+\begin{equation}
+	E_{\mathrm{N}/t}^{(\mathrm{SC})} \equiv -\sum_{\mathbf{k}\in\mathrm{BZ}} \xi_\mathbf{k}
+\end{equation}
+The scalar term in the above equation is essential for estimating correctly the phase ground state free energy density. The full MFT gran-canonical hamiltonian in Nambu representation is obtained including Eq.~\eqref{appeq:sc-hm-U-int-3},
+\begin{equation}\label{sc-hm-bogoliubov-h}
+	\hat H - \mu \hat N \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \hat \Phi_\mathbf{k}^\dagger h_\mathbf{k} \hat \Phi_\mathbf{k} - \left[
+		E_{\mathrm{A}/t}^{(\mathrm{SC})} + E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
+	\right]
+\end{equation}
+being
+\[
+	h_\mathbf{k} \equiv \begin{bmatrix}
+		\xi_\mathbf{k} & -\Delta_\mathbf{k} \\
+		-\Delta_\mathbf{k}^* & - \xi_\mathbf{k}
+	\end{bmatrix}
+\]
+while the off-diagonal gap is a constant,
+\[
+	\Delta_\mathbf{k} \equiv \Delta^{(s)}
+\]
+This hamiltonian behaves as an ensemble of spins in local magnetic pseudofields
+\begin{equation} \label{appeq:sc-hm-pseudofield}
+	\mathbf{b}_\mathbf{k} \equiv \begin{bmatrix}
+		-\Re{\Delta_\mathbf{k}} \\
+		-\Im{\Delta_\mathbf{k}} \\ 
+		\xi_\mathbf{k}
+	\end{bmatrix}
+	\qquad
+	\tan 2\theta_\mathbf{k} \equiv \frac{\xi_\mathbf{k}}{\sqrt{\xi_\mathbf{k}^2 + \abs{\Delta_\mathbf{k}}^2}}
+	\qquad
+	\tan 2\zeta_\mathbf{k} \equiv \frac{\Im{\Delta_\mathbf{k}}}{\Re{\Delta_\mathbf{k}}}
+\end{equation}
+precisely as was for the AF phase, with the essential difference that now the chemical potential RMP lies inside the $z$ component of the pseudofield itself. This is a consequence of the Nambu spinors definition. We have the spin hamiltonian
+\begin{equation}\label{af-su-spin-h}
+	\hat H -\mu \hat N \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \mathbf{b}_\mathbf{k} \cdot \hat{\mathbf{s}}_\mathbf{k} - \left[
+		E_{\mathrm{A}/t}^{(\mathrm{SC})} + E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
+	\right]
+	\qq{where}
+	\hat{\mathbf{s}}_\mathbf{k} = \begin{bmatrix}
+		\hat s_\mathbf{k}^x \\
+		\hat s_\mathbf{k}^y \\
+		\hat s_\mathbf{k}^z
+	\end{bmatrix}
+\end{equation}
+
+As was for the AF phase, to diagonalize the hamiltonian means essentially to align the spin $z$ axis with the direction of the pseudofield. Then, we diagonalize the hamiltonian via a set of rotations similarly to Eq.~\eqref{appeq:af-hm-diagonalizer}. The main difference is that in general the pseudofield can have a $y$ component, thus the diagonalizing matrix is made of a sequence of two rotations, both counter-clockwise, the first around the $z$ axis by an angle $2\zeta_\mathbf{k}$ to place the pseudofield in the $xz$ plane, the second around the new $y$ axis by an angle $2\theta_\mathbf{k}$ to align the $z$ axis with the pseudofield,
+\begin{align}
+	W_\mathbf{k} &\equiv e^{-i \theta_\mathbf{k} \tau^y} e^{-i \zeta_\mathbf{k} \tau^z} \nonumber \\
+	&= \begin{bmatrix}
+		\cos \theta_\mathbf{k} & - \sin \theta_\mathbf{k} \\
+		\sin \theta_\mathbf{k} & \cos \theta_\mathbf{k}
+	\end{bmatrix} \begin{bmatrix}
+		e^{-i\zeta_\mathbf{k}} & \\ 
+		& e^{i\zeta_\mathbf{k}}
+	\end{bmatrix} \nonumber \\
+	&= \begin{bmatrix}
+		\cos \theta_\mathbf{k} e^{-i\zeta_\mathbf{k}} & - \sin \theta_\mathbf{k} e^{i\zeta_\mathbf{k}} \\
+		\sin \theta_\mathbf{k} e^{-i\zeta_\mathbf{k}} & \cos \theta_\mathbf{k} e^{i\zeta_\mathbf{k}}
+	\end{bmatrix} \label{appeq:sc-hm-diagonalizer}
+\end{align}
+obtaining the diagonal matrix
+\[
+	d_\mathbf{k} \equiv W_\mathbf{k} h_\mathbf{k} W_\mathbf{k}^\dagger 
+	\qq{where}
+	d_\mathbf{k} \equiv \begin{bmatrix}
+		E_\mathbf{k} & \\ & -E_\mathbf{k}
+	\end{bmatrix}
+\]
+and the bands
+\[
+	E_\mathbf{k} \equiv \sqrt{\xi_\mathbf{k}^2 + \abs{\Delta_\mathbf{k}}^2}
+\]
+
+Finally, the Nambu spinor for Bogoliubov quasiparticles is given similarly to Eq.~\eqref{appeq:af-hm-Gamma-WPsi}
+\begin{equation}\label{appeq:sc-hm-Gamma-WPsi}
+	\hat\Gamma_\mathbf{k} = W_\mathbf{k} \hat \Phi_\mathbf{k}
+\end{equation}
+Explicitly,
+\begin{align}
+	\hat\Gamma_\mathbf{k} &= \begin{bmatrix}
+		\cos \theta_\mathbf{k} e^{-i\zeta_\mathbf{k}} & - \sin \theta_\mathbf{k} e^{i\zeta_\mathbf{k}} \\
+		\sin \theta_\mathbf{k} e^{-i\zeta_\mathbf{k}} & \cos \theta_\mathbf{k} e^{i\zeta_\mathbf{k}}
+	\end{bmatrix} \begin{bmatrix}
+		\hat c_{\mathbf{k}\uparrow} \\
+		\hat c_{-\mathbf{k}\downarrow}^\dagger 
+	\end{bmatrix} \nonumber \\
+	&= \begin{bmatrix}
+		\cos \theta_\mathbf{k} e^{-i\zeta_\mathbf{k}} \hat c_{\mathbf{k}\uparrow} - \sin \theta_\mathbf{k} e^{i\zeta_\mathbf{k}} \hat c_{-\mathbf{k}\downarrow}^\dagger  \\
+		\sin \theta_\mathbf{k} e^{-i\zeta_\mathbf{k}} \hat c_{\mathbf{k}\uparrow} + \cos \theta_\mathbf{k} e^{i\zeta_\mathbf{k}} \hat c_{-\mathbf{k}\downarrow}^\dagger
+	\end{bmatrix} \equiv
+	\begin{bmatrix}
+		\hat \gamma_\mathbf{k}^{(+)} \\
+		\hat \gamma_\mathbf{k}^{(-)} 
+	\end{bmatrix} \label{appeq:sc-hm-gamma-ops-transform}
+\end{align}
+These operators act as free fermion fields on the Bogoliubov bands $\pm E_\mathbf{k}$.
+
+\subsection{Explicit zero-temperature SC ground state at half-filling}\label{appsubsec:sc-zero-T-half-filling-gs}
+
+Reasoning precisely as in Sec.~\ref{appsubsec:af-zero-T-half-filling-gs}, we can extract the half-filling zero temperature ground state, commonly referred to as the ``BCS state''. Eqns.~\eqref{appeq:af-hm-gs-1} and \eqref{appeq:af-hm-tilted-down} hold equivalently (ignoring the $\sigma$ index and extending momentum tensor product to the entire BZ),
+\[
+	\ket{\Psi} = \bigotimes_{\mathbf{k}\in\mathrm{BZ}} \left[
+		\cos \theta_\mathbf{k} \ket{\Downarrow_\mathbf{k}} - \sin \theta_\mathbf{k} \ket{\Uparrow_\mathbf{k}}
+	\right]
+\]
+Using now Eq.~\eqref{appeq:sc-hm-n-z}, we have
+\[
+\begin{aligned}
+	\mel{\Downarrow_\mathbf{k}}{\hat s_\mathbf{k}^z + \hat \Id_\mathbf{k}}{\Downarrow_\mathbf{k}} &= 0 \\
+	\mel{\Uparrow_\mathbf{k}}{\hat s_\mathbf{k}^z + \hat \Id_\mathbf{k}}{\Uparrow_\mathbf{k}} &= 2
+\end{aligned}
+\]
+so up to a phase
+\[
+	\ket{\Downarrow_\mathbf{k}} \sim \ket{\Omega_\mathbf{k}}
+	\qquad
+	\ket{\Uparrow_\mathbf{k}} \sim \hat \phi_\mathbf{k}^\dagger \ket{\Omega_\mathbf{k}}
+\]
+Hence, we have
+\[
+	\ket{\Psi} = \bigotimes_{\mathbf{k}\in\mathrm{BZ}} \left[
+		\cos \theta_\mathbf{k} + e^{2i\zeta_\mathbf{k}} \sin \theta_\mathbf{k} \hat \phi_\mathbf{k}
+	\right] \ket{\Omega_\mathbf{k}}
+\]
+The argument $2\zeta_\mathbf{k}$ of the phase factor is precisely the phase of the gap function, as can be shown easily.
+
+\subsection{Superconducting fluctuations suppression in the conventional HM}\label{appsubsec:sc-hm-impossible}
+
+Let us report the SC analogous of the AF Eqns.~\eqref{appeq:af-hm-x-psi} and \eqref{appeq:af-hm-y-psi}:
+\begin{align}
+	\hat s_\mathbf{k}^x &= \hat \phi_\mathbf{k} + \hat \phi_\mathbf{k}^\dagger \label{appeq:sc-hm-x-psi} \\
+	\hat s_\mathbf{k}^y &= -i \left(
+	\hat \phi_\mathbf{k} - \hat \phi_\mathbf{k}^\dagger 
+	\right) \label{appeq:sc-hm-y-psi}
+\end{align}
+while the analogous of Eq.~\eqref{appeq:af-hm-z-psi} was given in Eq.~\eqref{appeq:sc-hm-n-z}. Let also the thermal factor
+\begin{equation}\label{appeq:sc-thermal-factors-def}
+	\mathrm{Th}_\mathbf{k}^{(\pm)}[\beta] \equiv 
+	f\left(
+		E_\mathbf{k};\beta,0
+	\right) \pm f\left(
+		-E_\mathbf{k};\beta,0
+	\right)
+\end{equation}
+and the EVs:
+\begin{align}
+	\ev{\hat s_\mathbf{k}^x} &= -\frac{\Re\lbrace\Delta_\mathbf{k}\rbrace}{2E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta] \label{appeq:sc-hm-sx}\\
+	\ev{\hat s_\mathbf{k}^y} &= -\frac{\Im\lbrace\Delta_\mathbf{k}\rbrace}{2E_\mathbf{k}}  \mathrm{Th}_\mathbf{k}^{(-)}[\beta] \label{appeq:sc-hm-sy}\\
+	\ev{\hat s_\mathbf{k}^z} &=  \frac{\xi_\mathbf{k}}{2E_\mathbf{k}}  \mathrm{Th}_\mathbf{k}^{(-)}[\beta] \label{appeq:sc-hm-sz}
+\end{align}
+
+Up to now, the derivation was general. However, it is immediate to show that for the pure HM the SC phase can never establish. Recall Eq.~\eqref{appeq:sc-hm-ws-self-consistency}: explicitly
+\[
+\begin{aligned}
+	w^{(s)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \big\langle
+		\hat \phi_\mathbf{k}^\dagger
+	\big\rangle \\
+	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \big\langle
+		\hat \Phi_\mathbf{k}^\dagger \tau^+ \hat \Phi_\mathbf{k}
+	\big\rangle \\
+	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
+		\ev{\hat s_\mathbf{k}^x} + i \ev{\hat s_\mathbf{k}^y}
+	\right] \\
+	&= - \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\Delta_\mathbf{k}}{E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta]
+\end{aligned}
+\]
+Now: $\Delta_\mathbf{k} = \Delta^{(s)} = -U w^{(s)}$, thus if we define
+\[
+	U_\mathrm{c}[\beta] \equiv \left[
+		\frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\mathrm{Th}_\mathbf{k}^{(-)}[\beta]}{E_\mathbf{k}}
+	\right]^{-1}
+\]
+(the reason for this notation will be clear in Sec.~\mref) we end with the equation:
+\[
+	w^{(s)} = -\frac{U}{U_\mathrm{c}[\beta]} w^{(s)}
+\]
+Since evidently $U_\mathrm{c}[\beta] > 0$ by definition, the above equation can be solved in $\mathbb{C}$ only by $w^{(s)}=0$. This implication terminates the argument: superconductivity cannot establish self-consistently at this level in the HM.

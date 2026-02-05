@@ -1,13 +1,336 @@
-\def\GraphicsFolder{parts/mft-analysis/chapters/superconducting-instability/pictures}
-\chapter{Superconducting instability}\label{chap:mft-su-instability}
+\def\GraphicsFolder{chapters/superconducting-instability/pictures}
+\chapter{Superconducting instability}\label{chap:mft-sc-instability}
 
-This chapter is devoted to studying the superconducting phase of the system. The only symmetry we assume to break is the $\mathrm{U}^\mathrm{c}(1)$ charge symmetry, thus allowing for superconducting fluctuations. As is described thoroughly in Sec.~\ref{subsec:fock-renormalization-hopping-amplitude}, the hopping amplitude is renormalized because of the non-local attraction. The symmetry structure of the pairing mechanism determines the contributing Cooper fluctuations: for $s$-wave and $d$-wave superconductivity, only the o.s. Cooper term contributes; for $p_\ell$-wave superconductivity, the s.s. term contributes as well. In the following sections, a derivation containing both Cooper terms is proposed.
+This chapter is devoted to studying the superconducting phase of the system. The only symmetry we assume to break is the $\mathrm{U}^\mathrm{c}(1)$ charge symmetry, thus allowing for superconducting fluctuations. As is described thoroughly in Sec.~\ref{subsec:sc-fock-analytical}, the hopping amplitude is renormalized because of the non-local attraction. The symmetry structure of the pairing mechanism determines the contributing Cooper fluctuations: for $s$-wave and $d$-wave superconductivity, only the o.s. Cooper term contributes; for $p_\ell$-wave superconductivity, the s.s. term contributes as well. In the following sections, a derivation containing both Cooper terms is proposed.
 
-{\color{tabred}[
-	To be continued: separate singlet and triplet pairing channels, and describe them separately by the means of four-components Nambu spinors. Use selection rules to set $\Delta^{(p_\ell)}=0$ in the singlet channel, in order to justify results obtained by a pure space-even simulation containing just the o.s. terms.
-	]}
+\section{The SC phase and its symmetries}\label{sec:sc-phase-theory}
 
-\section{Cooper fluctuations in the EHM}
+The starting point is, as done for the other phases, the discussion of the symmetries of the SC phase. We said in introduction we are studying the 
+\[
+	\mathrm{SU}(2) \times \mathrm{U}^\mathrm{c}(1) \times (\text{Point group})
+	\quad\stackrel{\mathrm{SSB}}{\to}\quad
+	\mathrm{SU}(2) \times (\text{Point group})
+\]
+symmetry breaking. Therefore the system density we assume to be uniform across all sites, similarly to the normal phase discussed in Chap.~\ref{chap:normal-phase}. \todo
+
+\subsection{Superconductivity in the HM}\label{subsec:sc-hm}
+
+In Sec.~\ref{appsec:superconducting-phase}, we discuss in detail the (impossibility of a stable) $s$-wave SC phase in the conventional HM. This is an obvious result, since the two-body interaction thereby present $\hat H_U$ is local and repulsive. We nevertheless treat the model within the MFT framework, and here recall the main widely known results, and later use them as groundwork for the EHM extension. Similarly to Sec.~\ref{subsec:af-hm}, let us define the operators
+\begin{align}
+	\hat n_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:sc-ehm-n-def} \\
+	\hat \phi_\mathbf{k} &\equiv \hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{-\mathbf{k}\downarrow}^\dagger \label{eq:sc-ehm-phi-def}
+\end{align}
+whose EVs are relevant for the SC phase. Let:
+\begin{align}
+	u_{\mathbf{q}\sigma} &\equiv \langle
+	\hat n_{\mathbf{q}\sigma}
+	\rangle \label{eq:sc-uqsigma-def} \\
+	w_{\mathbf{q}\sigma} &\equiv \langle
+	\hat \phi_\mathbf{q}^\dagger
+	\rangle \label{eq:sc-wqsigma-def}
+\end{align}
+
+The MFT hamiltonian is given explicitly for the HM in Eq.~\eqref{appeq:sc-hm-mft-h},
+\begin{multline*}
+	\hat H_t + \hat H_U \stackrel{\mathrm{MFT}}{\simeq} \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_{\mathbf{k}\sigma}
+	\left[
+	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
+	- \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma}
+	\right] \\
+	- \sum_{\mathbf{q}\in\mathrm{BZ}} \left[
+	\Delta^{(s)} \hat \phi_\mathbf{q} + 
+	\Delta^{(s)*} \hat \phi_\mathbf{q}^\dagger
+	\right] + nU \times \hat N - \left[
+	E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
+	\right]
+\end{multline*}
+with $E_{\mathrm{H}/U}^{(\mathrm{SC})}$, $E_{\mathrm{C}/U}^{(\mathrm{SC})}$ the contraction energies arising from Hartree and Cooper channels, respectively in Eq.~\eqref{appeq:sc-hm-hartree-U-Ec} and \eqref{appeq:sc-hm-hartree-C-Ec}. In deriving this result we decomposed the interaction of the intermediate passage of Eq.~\eqref{appeq:sc-hm-U-int-2} and assumed the Cooper pair to have null total momentum. Moreover, we recognized in the passage of Eq.~\eqref{appeq:sc-hm-U-int-3} the presence of a $s$-wave harmonic transform of the function $w_\mathbf{q}$, and thus defined in Eq.~\eqref{appeq:sc-hm-ws-self-consistency},
+\[
+	w^{(s)} \equiv \frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}} w_\mathbf{q}
+	\qq{and}
+	\Delta^{(s)} \equiv -U w^{(s)}
+\]
+
+Nambu-Bogoliubov representation of the MFT hamiltonian is given in Eq.~\eqref{sc-hm-bogoliubov-h} and equivalently in Eq.~\eqref{af-sc-spin-h},
+\[
+	\hat H_t + \hat H_U - \mu \hat N \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \hat \Phi_\mathbf{k}^\dagger h_\mathbf{k} \hat \Phi_\mathbf{k} - \left[
+	E_{\mathrm{A}/t}^{(\mathrm{SC})} + E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
+	\right]
+\]
+being
+\[
+	h_\mathbf{k} \equiv \begin{bmatrix}
+		\xi_\mathbf{k} & -\Delta_\mathbf{k} \\
+		-\Delta_\mathbf{k}^* & - \xi_\mathbf{k}
+	\end{bmatrix}
+	\qq{and}
+	\xi_\mathbf{k} \equiv \epsilon_\mathbf{k} - \tilde{\mu}
+\]
+and $\Delta_\mathbf{k} = \Delta^{(s)}$. Nambu spinors are, in this case,
+\[
+	\hat \Phi_\mathbf{k} \equiv \begin{bmatrix}
+		\hat c_{\mathbf{k}\uparrow} \\
+		\hat c_{-\mathbf{k}\downarrow}^\dagger
+	\end{bmatrix}
+\]
+
+For the SC phase in the HM model, in general, we can admit for a complex gap function -- although being the gap a constant it can always be reduced to a purely real gap. Diagonalization by the angles defined in Eq.~\eqref{appeq:sc-hm-pseudofield} is performed via the composed rotation of Eq.~\eqref{appeq:sc-hm-diagonalizer},
+\[
+	W_\mathbf{k} = \begin{bmatrix}
+		\cos \theta_\mathbf{k} e^{-i\zeta_\mathbf{k}} & - \sin \theta_\mathbf{k} e^{i\zeta_\mathbf{k}} \\
+		\sin \theta_\mathbf{k} e^{-i\zeta_\mathbf{k}} & \cos \theta_\mathbf{k} e^{i\zeta_\mathbf{k}}
+	\end{bmatrix}
+\]
+The Bogoliubov bands are $\pm E_\mathbf{k} = \sqrt{\xi_\mathbf{k}^2 + \abs{\Delta_\mathbf{k}}^2}$. The only crucial difference with the AF Bogoliubov bands it that here, apart from the absence of the spin index -- a degeneracy that is solved now by enlarging the computation to the entire BZ --, also the bare bands $\epsilon_\mathbf{k}$ are substituted by their shifted version $\xi_\mathbf{k}$. This difference is essential: it is this feature that makes the superconducting phase gapped in an insulating sense, which means, opening the gap at the position of $\tilde{\mu}$. Instead for the AF phase the gap was always opened at ``midband'', the MBZ contour where $\epsilon_\mathbf{k}=0$. As a final remark, as is proven trivially at the end of Sec.~\ref{appsubsec:sc-hm-impossible}, $s$-wave SC is impossible at MFT level on the pure HM. This was obvious, due to the necessity of an even small attractive interaction to form Cooper pairs. To conclude, in Tab.~\ref{tab:sc-pseudospin-map} we report the operator-pseudospin map for each direction.
+
+\begin{table}
+	\centering
+	\begin{tabular}{c c c}
+		\textbf{EV} & \textbf{Meaning} & \textbf{Equation} \\
+		\midrule
+		$\ev{\hat s_\mathbf{k}^x}$ & $\ev{
+			\hat \phi_\mathbf{k}
+			+ \hat \phi_\mathbf{k}^\dagger
+		}$ & \eqref{appeq:sc-hm-sx} \\[0.7em]
+		$i\ev{\hat s_\mathbf{k}^y}$ & $\ev{
+			\hat \phi_{\mathbf{k}\sigma}
+			- \hat \phi_\mathbf{k}^\dagger
+		}$ & \eqref{appeq:sc-hm-sy} \\[0.7em]
+		$\ev{\hat s_\mathbf{k}^z}$ & $\ev{
+			\hat n_{\mathbf{k}\uparrow}
+			+ \hat n_{\mathbf{k}\downarrow}
+		}  - 1$ & \eqref{appeq:sc-hm-sz} \\
+		\midrule
+	\end{tabular}
+	\caption{List of the various expectation values (EVs) of each pseudospin component, their meaning in terms of fermionic operators and the reference equations from the pure HM. The $z$ component refers also to Eq.~\eqref{appeq:sc-hm-n-z}.}
+	\label{tab:sc-pseudospin-map}
+\end{table}
+
+\subsection{Extension to the EHM}\label{subsec:sc-ehm}
+
+Add now the non-local interaction $\hat H_V$: translational invariance is preserved while charge conservation is broken, thus all three channels (Hartree, Fock and Cooper) contribute via RWCs to the MFT hamiltonian. As for the AF phase, we aim to derive a MFT solution for the SC phase which is an extension of the HM solution of Sec.~\ref{appsec:superconducting-phase}, with an effective redefinition of the various physical quantities and mathematical objects,
+\[
+	\xi_\mathbf{k} \to \tilde{\xi}_\mathbf{k}
+	\qquad
+	E_\mathbf{k} \to \tilde{E}_\mathbf{k}
+	\qquad
+	\Delta_\mathbf{k} \to \tilde{\Delta}_\mathbf{k}
+	\qquad
+	\mu \to \tilde{\mu}
+\]
+To be completely correct, the chemical potential was already renormalized in the HM derivation in Sec.~\ref{appsubsec:sc-hartree-channel}. It here acquires yet another renormalization. The band energies renormalization is simply
+\[
+	\tilde{E}_\mathbf{k} \equiv \sqrt{\tilde{\xi}_\mathbf{k}^2 + |\tilde{\Delta}_\mathbf{k}|^2}
+\]
+and as for the AF phase:
+\begin{align}
+	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^x \hat \Psi_{\mathbf{k}\sigma} \rangle &= -\sin \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) \sin \normalfont(2\tilde{\zeta}_{\mathbf{k}\sigma}) \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \label{eq:sc-x-expectation-non-local}\\
+	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^y \hat \Psi_{\mathbf{k}\sigma} \rangle &= -\sin \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) \cos \normalfont(2\tilde{\zeta}_{\mathbf{k}\sigma}) \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \label{eq:sc-y-expectation-non-local}\\
+	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Psi_{\mathbf{k}\sigma} \rangle &= \cos \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \label{eq:sc-z-expectation-non-local}
+\end{align}
+These equations are identical to the ones for the pure HM, Eqns.~\eqref{appeq:sc-hm-sx}, \eqref{appeq:sc-hm-sy} and \eqref{appeq:sc-hm-sz}. In the tilted frame, we have the analogous of Eq.~\eqref{eq:af-rot-z-expectation} with the important exception that the chemical potential in the Fermi-Dirac factors is zero,
+\begin{equation}\label{eq:sc-rot-z-expectation}
+	\langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle = \frac{1}{2} \left[
+	f\left(
+	\tilde{E}_{\mathbf{k}\sigma};\beta,0
+	\right) - f\left(
+	-\tilde{E}_{\mathbf{k}\sigma};\beta,0
+	\right)
+	\right]
+\end{equation}
+This is because all the chemical potential operatorial contributions were absorbed in the bare bands $\tilde{\xi}_\mathbf{k}$, thus the pseudospin state is thermally described by an effective null chemical potential.
+
+The (renormalized) thermal factors as in Eq.~\eqref{appeq:sc-thermal-factors-def} are
+\begin{equation}\label{eq:sc-ren-thermal-factors-def}
+	\tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(\pm)}[\beta,\tilde{\mu}] \equiv 
+	f\left(
+	\tilde{E}_{\mathbf{k}\sigma};\beta,0
+	\right) \pm f\left(
+	-\tilde{E}_{\mathbf{k}\sigma};\beta,0
+	\right)
+\end{equation}
+while for the angles it holds
+\begin{equation}\label{eq:sc-bogoliubov-angle-relations}
+	\sin \normalfont(2\tilde{\xi}_{\mathbf{k}\sigma}) = \frac{\Re\{\tilde{\Delta}_{\mathbf{k}\sigma}\}}{|\tilde{\Delta}_{\mathbf{k}\sigma}|}
+	\quad
+	\cos \normalfont(2\tilde{\xi}_{\mathbf{k}\sigma}) = \frac{\Im\{\tilde{\Delta}_{\mathbf{k}\sigma}\}}{|\tilde{\Delta}_{\mathbf{k}\sigma}|}
+	\quad
+	\sin \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) = \frac{|\tilde{\Delta}_{\mathbf{k}\sigma}|}{\tilde{E}_{\mathbf{k}\sigma}}
+	\quad
+	\cos \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) = \frac{\tilde{\xi}_{\mathbf{k}\sigma}}{\tilde{E}_{\mathbf{k}\sigma}}
+\end{equation}
+From Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, we know all channel contribute. It is already known the effect of the Fock contractions, responsible as for the normal phase (Chap.~\ref{chap:normal-phase}) of the bare bands renormalization. Cooper terms are to be handled more carefully, since can contribute to superconductivity both in the s.s. and in the o.s. spin sectors.
+
+\section{Non-local Hartree effects: chemical potential renormalization}\label{sec:sc-hartree-mu}
+
+As always, let us start with a very brief section about the Hartree effects on the MFT decomposition of the hamiltonian. We will not delve in the detailed calculations of the Hartree channel MFT effects, already described in previous chapter as well as in Sec.~\ref{appsec:superconducting-phase}. The only effect here is the chemical potential renormalization.
+
+\subsection{Hartree channel in the superconducting phase: analytical derivation}\label{subsec:sc-hartree-analytical}
+
+The Hartree fluctuations are density-density couplings in the MFT hamiltonian. Knowing the deal with a uniform-density phase, we can re-use as it is the derivation of Sec.~\ref{subsec:normal-hartree-analytical}. Without repeating the calculations, the $\hat H_V$ is reduced in the Hartree channel to
+\[
+	\hat H_V \simeq -2nzV \times \hat N - E_{\mathrm{H}/V}^{(\mathrm{SC})} + 
+	(\text{all the rest})
+\]
+This, together with the $\hat H_U$ Hartree channel decomposition
+\[
+	\hat H_U \simeq nU \times \hat N - E_{\mathrm{H}/U}^{(\mathrm{SC})}
+\]
+gives the chemical potential full renormalization, identical to Eq.~\eqref{eq:normal-mu-shift},
+\begin{equation}\label{eq:sc-mu-shift}
+	\tilde{\mu} \equiv \mu + n(2zV-U)
+\end{equation}
+
+\subsection{Hartree contraction energy}\label{subsec:sc-hartree-energy}
+
+The contraction energy for the non-local sector was derived in Eq.~\eqref{eq:normal-hartree-V-contraction-energy},
+\[
+	E_{\mathrm{H}/V}^{(\mathrm{SC})} = - L_x L_y \times 2zn^2 V
+\]
+and together with the local counterpart of  Eq.~\eqref{eq:normal-hartree-U-contraction-energy}
+\[
+	E_{\mathrm{H}/U}^{(\mathrm{SC})} = L_x L_y \times n^2U
+\]
+Now we move to the more interesing Fock sector.
+
+\section{Fock effects: bare bands renormalization}\label{sec:sc-fock}
+\todo
+
+\subsection{Fock channel in the superconducting phase: analytical derivation}\label{subsec:sc-fock-analytical}
+
+When it comes to the Fock RWCs, being the SC phase density-uniform we can re-use almost the entirety of the derivation of Sec.~\ref{sec:normal-fock-bands-renormalization}. Setting as in Eq.~\eqref{eq:normal-uqsigma-def}
+\begin{equation}
+	u_{\mathbf{q}\sigma} \equiv \langle
+	\hat c_{\mathbf{q}\sigma}^\dagger
+	\hat c_{\mathbf{q}\sigma}
+	\rangle
+\end{equation}
+Eq.~\eqref{eq:normal-V-fock-int5} stands perfectly valid, translated to the SC phase
+\begin{multline}
+	V \sum_{\ev{ij}} \sum_\sigma \left[
+	\langle
+	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+	\rangle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} + 
+	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+	\langle 
+	\hat c_{j\sigma}^\dagger  \hat c_{i\sigma} 
+	\rangle - \langle
+	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+	\rangle \langle 
+	\hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle
+	\right] \\
+	\stackrel{\mathcal{F}}{=} \sum_{\gamma,\sigma} \left[
+	\frac{1}{L_x L_y} \sum_\mathbf{q\in\mathrm{BZ}} \varphi_\mathbf{q}^{(\gamma)}
+	u_{\mathbf{q}\sigma}
+	\right] \times V
+	\sum_{\mathbf{q}'\in\mathrm{BZ}}
+	\varphi_{\mathbf{q}'}^{(\gamma)*}
+	\hat c_{\mathbf{q}'\sigma}^\dagger
+	\hat c_{\mathbf{q}'\sigma} - E_{\mathrm{F}/V}^{(\mathrm{SC})} \label{eq:sc-V-fock-int1}
+\end{multline}
+being
+\begin{equation}\label{eq:sc-V-fock-double-counting}
+	E_{\mathrm{F}/V}^{(\mathrm{SC})} \equiv \frac{V}{L_x L_y} \sum_{\mathbf{q}, \mathbf{q}'} \sum_\sigma \left[
+	\cos \left(
+	\delta q_x
+	\right)	+ \cos \left(
+	\delta q_y
+	\right)	
+	\right]	
+	\langle
+	\hat c_{\mathbf{q}\sigma}^\dagger 
+	\hat c_{\mathbf{q}\sigma}
+	\rangle \langle
+	\hat c_{\mathbf{q}'\sigma}^\dagger  \hat c_{\mathbf{q}'\sigma} 
+	\rangle
+\end{equation}
+To get to this point, we employed the assumption
+\[
+	\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}' \sigma'} \rangle = \delta_{\mathbf{k}=\mathbf{k}'} \delta_{\sigma=\sigma'} \langle \hat c_{\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{k} \sigma} \rangle
+\]
+which essentially states translational invariance and spin degeneracy. This assumption is obviously well-verified by the BCS ground state of Eq.~\mref. Recognising the symmetry decomposition
+\[
+	u^{(\gamma)}_\sigma = \frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}} \varphi_\mathbf{q}^{(\gamma)}
+	\langle
+		\hat c_{\mathbf{q}\sigma}^\dagger
+		\hat c_{\mathbf{q}\sigma}
+	\rangle
+\]
+due to inversion symmetry the conclusion is identical to Eqns.~\eqref{eq:normal-V-fock-int5} and \eqref{eq:normal-bands-renormalization},
+\[
+	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv \epsilon_{\mathbf{k}\sigma} + u^{(s^*)}_\sigma V (\cos q_x + \cos q_y) + u^{(d)}_\sigma V (\cos q_x - \cos q_y)
+\]
+
+In order to estimate the $\gamma$-wave components renormalizing the bare bands, we need to compute separately in spin sectors the EVs of $u_{\mathbf{k}\sigma}$
+\begin{align}
+	u_{\mathbf{k}\uparrow} &= \langle \hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}\uparrow} \rangle \\	
+	&= \ev{
+		\hat \Phi_\mathbf{k}^\dagger \frac{\Id + \tau^z}{2} \hat \Phi_\mathbf{k}
+	} \nonumber \\
+	&= \frac{1}{2} \left[
+		\ev{
+			\hat \Gamma_\mathbf{k}^\dagger \hat \Gamma_\mathbf{k}
+		} + \ev{\hat s_\mathbf{k}^z}
+	\right] \nonumber \\
+	&= \frac{1}{2} \left[
+		\tilde{\mathrm{Th}}_\mathbf{k}^{(+)} [\beta] + 
+		\cos 2 \tilde{\theta}_\mathbf{k} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)} [\beta]
+	\right] \nonumber \\
+	&= \frac{1+\cos 2 \tilde{\theta}_\mathbf{k}}{2} f\left( \tilde{E}_\mathbf{k}; \beta,0 \right) + \frac{1-\cos 2 \tilde{\theta}_\mathbf{k}}{2} f\left( -\tilde{E}_\mathbf{k}; \beta,0 \right) \nonumber \\
+	&= \cos^2 \tilde{\theta}_\mathbf{k} f\left( \tilde{E}_\mathbf{k}; \beta,0 \right) + \sin^2 \tilde{\theta}_\mathbf{k} f\left( -\tilde{E}_\mathbf{k}; \beta,0 \right) \nonumber \\
+	&= \sin^2 \tilde{\theta}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) + f\left( \tilde{E}_\mathbf{k}; \beta,0 \right) \label{eq:sc-ehm-uUp-EV}
+\end{align}
+having we used the simple relation
+\[
+\begin{aligned}
+	\frac{1}{e^{-x}+1} - \frac{1}{e^x+1} &= \frac{e^x -1}{e^x +1} \\
+	&= \tanh(\frac{x}{2})
+\end{aligned}
+\]
+For the spin $\downarrow$ EV,
+\begin{align}
+	u_{-\mathbf{k}\downarrow} &= \langle \hat c_{-\mathbf{k}\downarrow}^\dagger \hat c_{-\mathbf{k}\downarrow} \rangle \nonumber \\	
+	&= 1 - \langle \hat c_{-\mathbf{k}\downarrow} \hat c_{-\mathbf{k}\downarrow}^\dagger \rangle \nonumber \\
+	&= 1 - \ev{
+		\hat \Phi_\mathbf{k}^\dagger \frac{\Id - \tau^z}{2} \hat \Phi_\mathbf{k}
+	} \nonumber \\
+	&= 1 - \frac{1}{2} \left[
+	\ev{
+		\hat \Gamma_\mathbf{k}^\dagger \hat \Gamma_\mathbf{k}
+	} - \ev{\hat s_\mathbf{k}^z}
+	\right] \nonumber \\
+	&= 1 - \frac{1}{2} \left[
+		\tilde{\mathrm{Th}}_\mathbf{k}^{(+)} [\beta] - 
+		\cos 2 \tilde{\theta}_\mathbf{k} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)} [\beta]
+	\right] \nonumber \\
+	&= 1 - \frac{1-\cos 2 \tilde{\theta}_\mathbf{k}}{2} f\left( \tilde{E}_\mathbf{k}; \beta,0 \right) - \frac{1+\cos 2 \tilde{\theta}_\mathbf{k}}{2} f\left( -\tilde{E}_\mathbf{k}; \beta,0 \right) \nonumber \\
+	&= 1-\sin^2 \tilde{\theta}_\mathbf{k} f\left( \tilde{E}_\mathbf{k}; \beta,0 \right) - \cos^2 \tilde{\theta}_\mathbf{k} f\left( -\tilde{E}_\mathbf{k}; \beta,0 \right) \nonumber \\
+	&= 1-\sin^2 \tilde{\theta}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) - f\left( -\tilde{E}_\mathbf{k}; \beta,0 \right) \nonumber \\
+	&= -\sin^2 \tilde{\theta}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) + f\left( \tilde{E}_\mathbf{k}; \beta,0 \right) \label{eq:sc-ehm-uDown-EV}
+\end{align}
+These results will be used to extract self-consistency equations for each HFP. Note that
+\[
+	\lim_{\abs{\Delta_\mathbf{k}} \to 0} u_{\mathbf{k}\sigma} = f(\tilde{\xi}_\mathbf{k};\beta,0)
+\]
+Correctly, the null-gap limit reduces to a perfectly degenerate Fermi gas.
+
+\subsection{Fock contraction energy}\label{subsec:sc-fock-energy}
+
+In terms of the energy shift due to Wick's contraction, Eq.~\eqref{eq:normal-fock-V-contraction-energy} holds identically
+\[
+	E_{\mathrm{F}/V}^{(\mathrm{SC})} = L_x L_y \times \frac{V}{2} \sum_\sigma \left[
+		\big|
+			u^{(s^*)}
+		\big|^2 + \big|
+			u^{(d)}
+		\big|^2
+	\right]
+\]
+with the only obvious difference that the $u^{(\gamma)}$ are computed on the SC ground state by the means of Eqns.~\eqref{eq:sc-ehm-uUp-EV}, \eqref{eq:sc-ehm-uDown-EV}.
+
+\section{Cooper effects in the singlet channel: gap renormalization}\label{sec:sc-cooper}
+
+\todo
 
 Let us start once again from the general EHM of Eq.~\eqref{eq:extended-hubbard-model},
 \[
@@ -35,7 +358,7 @@ From basic Quantum Mechanics we know the summation rules of the spin algebra $\m
 \[
 	\frac 1 2 \otimes \frac 1 2 = 0 \oplus 1
 \]
-The two pairing channels are, at this level, the singlet channel associated to total spin $0$ and the triplet channel associated to total spin $1$. If we impose a specific spatial symmetry on the hamiltonian the ground state wavefunction will follow naturally, and the pairing channel will be the one providing a total anti-symmetry to the full wavefunction. This gives a selection rule over the relevant pairings: if we work with space symmetric structures -- say, $s^*$-wave or $d$-wave -- the pairing will happen in singlet channel, allowing us to eliminate the triplet pairing. This concept is summarized in Tab.~\ref{tab:su-pairings-symmetry-structures}.
+The two pairing channels are, at this level, the singlet channel associated to total spin $0$ and the triplet channel associated to total spin $1$. If we impose a specific spatial symmetry on the hamiltonian the ground state wavefunction will follow naturally, and the pairing channel will be the one providing a total anti-symmetry to the full wavefunction. This gives a selection rule over the relevant pairings: if we work with space symmetric structures -- say, $s^*$-wave or $d$-wave -- the pairing will happen in singlet channel, allowing us to eliminate the triplet pairing. This concept is summarized in Tab.~\ref{tab:sc-pairings-symmetry-structures}.
 
 \begin{table}
 	\centering
@@ -52,11 +375,9 @@ The two pairing channels are, at this level, the singlet channel associated to t
 		\big\rangle$ \\
 		\midrule
 	\end{tabular}
-	\caption{Relation of the Cooper pairing channell with the wavefunction spatial symmetry (intended as the inversion $(x,y) \to (-x,-y)$).}
-	\label{tab:su-pairings-symmetry-structures}
+	\caption{Relation of the Cooper pairing channel with the wavefunction spatial symmetry (intended as the inversion $(x,y) \to (-x,-y)$).}
+	\label{tab:sc-pairings-symmetry-structures}
 \end{table}
-
-{\color{tabred}[ Add: Cooper pairing considerations in the pure Hubbard model. ]}
 
 \section{Cooper fluctuations in the opposite-spin sector}
 
@@ -64,6 +385,12 @@ This section deals with Cooper fluctuations induced by the o.s. part of the non-
 
 \paragraph{Local interaction $U$.}
 
+The detailed treatment of $\hat H_U$ is discussed in Sec.~\ref{appsubsec:sc-cooper-channel}, in the context of conventional HM superconductivity. We hereby just sketch the most important results. First, similarly to the AF operator of Eq.~\eqref{eq:af-ehm-psi-def} let the Cooper fluctuations operator be
+\begin{equation}\label{eq:sc-ehm-phi-def}
+	\hat \phi_\mathbf{k} \equiv \hat c_{-\mathbf{k}\downarrow} \hat c_{\mathbf{k} \uparrow}
+\end{equation}
+
+{\color{tabred}
 Consider first the local part,
 \[
 	\hat H_U = U \sum_{i \in \mathcal{S}} \hat n_{i\uparrow} \hat n_{i\downarrow} \simeq U \sum_{i \in \mathcal{S}} \left[
@@ -90,25 +417,25 @@ and use the result of Eq.~\eqref{eq:reciprocal-space-local-interaction-explicit}
 		\big\rangle
 	\right]
 \]
-We are not breaking translational invariance, thus only Cooper fluctuations with net zero total momentum are allowed. This means only $\mathbf{K}=\mathbf{0}$ contributes. Define the pairing operator 
+We are not breaking translational invariance, thus only Cooper fluctuations with net zero total momentum are allowed. This means only $\mathbf{K}=\mathbf{0}$ contributes. Define the pairing operators
 \[
 	\hat \phi_\mathbf{k} \equiv \hat c_{-\mathbf{k}\downarrow} \hat c_{\mathbf{k} \uparrow}
 	\qquad
 	\hat \phi_\mathbf{k}^\dagger \equiv \hat c_{\mathbf{k} \uparrow}^\dagger \hat c_{-\mathbf{k}\downarrow}^\dagger
 \]
 Then the non local repulsion reduces to the ordinary BCS-like interaction,
-\begin{equation}\label{eq:su-ugap-mft}
+\begin{equation}\label{eq:sc-ugap-mft}
 	\hat H_U \simeq \sum_\mathbf{k} \left[
 		\mathcal{U}_\mathbf{k} \hat \phi_\mathbf{k} + \mathcal{U}_\mathbf{k}^* \hat \phi_\mathbf{k}^\dagger
 	\right]
 \end{equation}
 where the MFT parameter $\mathcal{U}_\mathbf{k}$ must satisfy the self-consistency equation
-\begin{equation}\label{eq:su-ugap-self-consistency}
+\begin{equation}\label{eq:sc-ugap-self-consistency}
 	\mathcal{U}_\mathbf{k} \equiv \frac{U}{L_x L_y} \sum_\mathbf{k} \big\langle 
 		\hat \phi_\mathbf{k}^\dagger
 	\big\rangle
 \end{equation}
-Note that $\mathcal{U}_\mathbf{k}$ is actually momentum independent. This is due to the fact that the repulsion is completely localized.
+Note that $\mathcal{U}_\mathbf{k}$ is actually momentum independent. This is due to the fact that the repulsion is completely localized.}
 
 \paragraph{Non-local interaction $V$.}
 
@@ -189,7 +516,7 @@ Making use of the decomposition of Eq.~\eqref{eq:coscos-symmetries-decomposition
 being $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$ and $\varphi_\mathbf{k}^{(\gamma)}$ the reciprocal-space expressions for the form factors of Tab.~\ref{tab:x-wave-real-factors}, listed explicitly in Tab.~\ref{tab:x-wave-reciprocal-factors}, and $V_{\mathbf{k}\mathbf{k}'}^{(\gamma)}$ the symmetry-resolved components of the non-local attraction. Then the two-body potential has been decomposed in its planar symmetry components, each of which will naturally couple only to identically structured parameters in the full hamiltonian.
 
 Define now the non-local gap function
-\begin{equation}\label{eq:su-ugap-self-consistency-intermediate}
+\begin{equation}\label{eq:sc-ugap-self-consistency-intermediate}
 	\mathcal{V}_\mathbf{k} \equiv \sum_{\mathbf{k}'}
 	V_{\mathbf{k}\mathbf{k}'}
 	\langle
@@ -197,18 +524,18 @@ Define now the non-local gap function
 	\rangle
 \end{equation}
 one gets immediately
-\begin{equation}\label{eq:su-vgap-mft}
+\begin{equation}\label{eq:sc-vgap-mft}
 	\hat H_V \simeq -\sum_\mathbf{k} \left[
 	\mathcal{V}_\mathbf{k} \hat \phi_\mathbf{k} + \mathcal{V}_\mathbf{k}^* \hat \phi_\mathbf{k}^\dagger
 	\right]	
 \end{equation}
-To assume symmetry is broken in a specific symmetry channel $\gamma$ means precisely to assume $\langle \hat \phi_\mathbf{k} \rangle \propto \varphi_\mathbf{k}^{(\gamma)}$. Of course, in Eq.~\eqref{eq:su-ugap-self-consistency-intermediate} only the $\gamma$ component of the potential survives, implying the gap function acquires the same symmetry,
+To assume symmetry is broken in a specific symmetry channel $\gamma$ means precisely to assume $\langle \hat \phi_\mathbf{k} \rangle \propto \varphi_\mathbf{k}^{(\gamma)}$. Of course, in Eq.~\eqref{eq:sc-ugap-self-consistency-intermediate} only the $\gamma$ component of the potential survives, implying the gap function acquires the same symmetry,
 \[
 	\mathcal{V}_\mathbf{k} \propto \sum_{\mathbf{k}'} \varphi_\mathbf{k}^{(\gamma)} \varphi_{\mathbf{k}'}^{(\gamma)*}
 	\varphi_{\mathbf{k}'}^{(\gamma)} \propto \varphi_\mathbf{k}^{(\gamma)}
 \]
 where orthonormality of the $\varphi_\mathbf{k}^{(\gamma)}$ functions of Tab.~\ref{tab:x-wave-reciprocal-factors} was used. Thus, assuming to have superconductivity in a given sector $\gamma$, the self consistency equation reads
-\begin{equation}\label{eq:su-vgap-self-consistency}
+\begin{equation}\label{eq:sc-vgap-self-consistency}
 	\forall \gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace
 	\qquad
 	\mathcal{V}_\mathbf{k}\big|_\gamma \equiv \frac{V}{2L_x L_y} \sum_\mathbf{k}
@@ -222,10 +549,10 @@ Now we merge the two interaction in a single gap function.
 \subsection{Full gap function and self-consistency equations}
 
 Define the full gap function as the sum of both contributions,
-\begin{equation}\label{eq:su-os-gap-function-definition}
+\begin{equation}\label{eq:sc-os-gap-function-definition}
 	\Delta_\mathbf{k} \equiv \mathcal{V}_\mathbf{k} - \mathcal{U}_\mathbf{k}
 \end{equation}
-The full self-consistency equation is given by the simple combination of Eqns.~\eqref{eq:su-ugap-self-consistency} and \eqref{eq:su-vgap-self-consistency},
+The full self-consistency equation is given by the simple combination of Eqns.~\eqref{eq:sc-ugap-self-consistency} and \eqref{eq:sc-vgap-self-consistency},
 \begin{equation}\label{eq:self-consistency-equation}
 	\Delta_\mathbf{k} \equiv \sum_{\mathbf{k}'}
 	\left[
@@ -296,7 +623,7 @@ The $s$-wave transition is the only one equipped of both the local and the non-l
 \end{table}
 \setlength{\extrarowheight}{0em}
 
-\subsection{Non-local bands renormalization in the same-spin sector}\label{subsec:su-bands-renormalization-1}
+\subsection{Non-local bands renormalization in the same-spin sector}\label{subsec:sc-bands-renormalization-1}
 
 In the context of antiferromagnetism (Sec.~\ref{subsec:fock-renormalization-hopping-amplitude}) we discussed the role of the non-local interaction $\hat H_V$ as a source of bands effective renormalization. One of the most interesting results was the on of Eq.~\eqref{eq:af-fock-hop-ss-renormalization}, with the hopping parameter being rigidly shifted. In the present context, we aim to treat the non-local part similarly by using immediately the aforementioned results. Start from Eq.~\eqref{eq:reciprocal-space-non-local-interaction-fock-intermediate},
 \begin{multline*}
@@ -337,6 +664,8 @@ which gives the diagonal part of Eq.~\eqref{eq:reciprocal-space-non-local-intera
 \end{equation}
 Recall Eq.~\eqref{eq:coscos-symmetries-decomposition}: the structure term decomposes in harmonic waves, and this feature is particularly handy in order to decouple the $\mathbf{q}$ and $\mathbf{q}'$ parts, as we later do.
 
+{\color{tabred}
+	
 \section{Superconducting solution in the Nambu formalism}
 
 As a first approach to anisotropic SC in the Hubbard model, let us discuss the superconducting solutions in the simple scenario where crystal translational invariance is preserved and thus the system can be treated by the means of common BCS. As will be discussed, the non-local attraction acts as a source of SC in all symmetry sectors.
@@ -441,6 +770,8 @@ the general diagonalizer will be an orthogonal rotation matrix
 \end{align}
 given by a rotation of angle $\zeta_\mathbf{k}$ around the $z$ axis, to align the $x$ axis with the field projection onto the $xy$ plane, followed by a rotation around the $y$ axis to anti-align with the pseudo-field. 
 
+}
+
 \subsection{BCS ground state properties}
 
 The MFT-BCS solution is given by a degenerate Fermi gas at ground state, whose quasi-particles occupy two bands $\pm E_\mathbf{k}$ and their fermionic operators are given by
@@ -481,6 +812,7 @@ The last passage has been obtained by computing the matrix element from the expl
 \end{aligned}
 \]
 Similarly, for $i=1$, $j=1$
+{\color{tabred}
 \begin{align}
 	\langle \hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}\uparrow} \rangle &= [W_\mathbf{k}]_{11} [W_\mathbf{k}^\dagger]_{11} f\left( -E_\mathbf{k}; \beta,0 \right) + [W_\mathbf{k}]_{21} [W_\mathbf{k}^\dagger]_{12} f\left( E_\mathbf{k}; \beta,0 \right) \label{eq:number-dagger-expectation-algorithmic-11} \\
 	&= \sin^2 \theta_\mathbf{k} f\left( -E_\mathbf{k}; \beta,0 \right) + \cos^2 \theta_\mathbf{k} f\left( E_\mathbf{k}; \beta,0 \right) \nonumber \\
@@ -493,7 +825,7 @@ and for $i=2$, $j=2$
 	&= \cos^2 \theta_\mathbf{k} f\left( -E_\mathbf{k}; \beta,0 \right) + \sin^2 \theta_\mathbf{k} f\left( E_\mathbf{k}; \beta,0 \right) \nonumber \\
 	&= \cos^2 \theta_\mathbf{k} \tanh(\frac{\beta E_\mathbf{k}}{2}) + f\left( E_\mathbf{k}; \beta,0 \right)
 	\label{eq:number-dagger-expectation-theoretical-22}
-\end{align}
+\end{align}}
 
 \paragraph{Gap function.} Eqns.~\eqref{eq:pairing-dagger-expectation-algorithmic}, \eqref{eq:pairing-dagger-expectation-theoretical} give us both the algorithmic formula (first row) and its theoretical counterpart (second row) to compute the order parameters in the HF approach at each point in $k$-space $(k_x,k_y)$. We can finally derive the BCS self-consistency equation
 \begin{align}
@@ -577,9 +909,9 @@ Taking Eq.~\eqref{eq:bcs-state-2theta}, combined with Eq.~\eqref{eq:2theta-down-
 \end{align}
 which is the well-known coherent BCS state.
 
-\subsection{Renormalization of the bare bands}\label{subsec:su-bands-renormalization-2} 
+\subsection{Renormalization of the bare bands}\label{subsec:sc-bands-renormalization-2} 
 
-We now deal with the renormalization of bare bands anticipated in Sec.~\ref{subsec:su-bands-renormalization-1}. Taking together Eqns.~\eqref{eq:reciprocal-space-non-local-interaction-fock-dd-intermediate-su}, \eqref{eq:pairing-dagger-expectation-algorithmic} and \eqref{eq:pairing-dagger-expectation-theoretical} we get:
+We now deal with the renormalization of bare bands anticipated in Sec.~\ref{subsec:sc-bands-renormalization-1}. Taking together Eqns.~\eqref{eq:reciprocal-space-non-local-interaction-fock-dd-intermediate-su}, \eqref{eq:pairing-dagger-expectation-algorithmic} and \eqref{eq:pairing-dagger-expectation-theoretical} we get:
 \begin{multline}
 	V \sum_{\ev{ij}} \sum_\sigma \left[
 	\langle
@@ -599,7 +931,7 @@ We now deal with the renormalization of bare bands anticipated in Sec.~\ref{subs
 		\right)
 		\hat c_{\mathbf{q}'\downarrow}^\dagger \hat c_{\mathbf{q}'\downarrow}
 	\bigg]
-	\label{eq:reciprocal-space-non-local-interaction-fock-dd-intermediate-su-2}
+	\label{eq:reciprocal-space-non-local-interaction-fock-dd-intermediate-sc-2}
 \end{multline}
 Spatial inversion symmetry guarantees
 \[
@@ -632,7 +964,7 @@ and let:
 	\right] \tanh(\frac{\beta}{2} \sqrt{\xi_\mathbf{q}^2 + \abs{\Delta_\mathbf{q}}^2}) + f\left(\sqrt{\xi_\mathbf{q}^2 + \abs{\Delta_\mathbf{q}}^2}; \beta,0 \right)
 \]
 which further simplifies to
-\begin{equation}\label{eq:su-bands-renormalization-gq-definition}
+\begin{equation}\label{eq:sc-bands-renormalization-gq-definition}
 	g_\mathbf{q} \equiv
 	\frac 1 2 - \frac{\xi_\mathbf{q}}{2\sqrt{\xi_\mathbf{q}^2 + \abs{\Delta_\mathbf{q}}^2}}
 	\tanh(\frac{\beta}{2} \sqrt{\xi_\mathbf{q}^2 + \abs{\Delta_\mathbf{q}}^2})
@@ -655,12 +987,12 @@ Recall now the result of Eq.~\eqref{eq:coscos-symmetries-decomposition},
 	\qq{for $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$}
 \]
 which gives (sum over $\gamma$ is intended within the aforementioned symmetries)
-\begin{equation}\label{eq:reciprocal-space-non-local-interaction-fock-dd-intermediate-su-3}
+\begin{equation}\label{eq:reciprocal-space-non-local-interaction-fock-dd-intermediate-sc-3}
 	\frac{2V}{L_x L_y} \sum_{\mathbf{q}, \mathbf{q}'} \sum_\sigma \left[
 	\cos \left( \delta q_x \right) + \cos \left( \delta q_y \right)	
 	\right] g_\mathbf{q} \hat c_{\mathbf{q}'\sigma}^\dagger \hat c_{\mathbf{q}'\sigma} = \frac{V}{L_x L_y} \sum_{\mathbf{q}, \mathbf{q}'} \sum_{\sigma,\gamma} \varphi_\mathbf{q}^{(\gamma)} \varphi_{\mathbf{q}'}^{(\gamma)*} g_\mathbf{q} \hat c_{\mathbf{q}'\sigma}^\dagger \hat c_{\mathbf{q}'\sigma}
 \end{equation}
-Evidently from Eq.~\eqref{eq:su-bands-renormalization-gq-definition}, $g_\mathbf{q}$ is an even function of the momentum, a feature that ensures
+Evidently from Eq.~\eqref{eq:sc-bands-renormalization-gq-definition}, $g_\mathbf{q}$ is an even function of the momentum, a feature that ensures
 \[
 	\frac{1}{L_xL_y} \sum_\mathbf{q} \varphi_\mathbf{q}^{(p_\ell)} g_\mathbf{q} = 0
 	\qq{for $\ell \in \left\lbrace x,y \right\rbrace$}
@@ -672,7 +1004,7 @@ Evidently from Eq.~\eqref{eq:su-bands-renormalization-gq-definition}, $g_\mathbf
 	\qquad
 	g^{(d)} \equiv \frac{1}{L_xL_y} \sum_\mathbf{q} (\cos q_x - \cos q_y) g_\mathbf{q}
 \]
-and from Eq.~\eqref{eq:reciprocal-space-non-local-interaction-fock-dd-intermediate-su-3}  we get the final form
+and from Eq.~\eqref{eq:reciprocal-space-non-local-interaction-fock-dd-intermediate-sc-3}  we get the final form
 \begin{multline}
 	\frac{2V}{L_x L_y} \sum_{\mathbf{q}, \mathbf{q}'} \sum_\sigma \left[
 	\cos \left( \delta q_x \right) + \cos \left( \delta q_y \right)	
@@ -680,10 +1012,10 @@ and from Eq.~\eqref{eq:reciprocal-space-non-local-interaction-fock-dd-intermedia
 	= V \sum_{\mathbf{q}\sigma} 
 	\left[
 		g^{(s^*)} (\cos q_x + \cos q_y) + g^{(d)} (\cos q_x - \cos q_y)
-	\right] \hat c_{\mathbf{q}\sigma}^\dagger \hat c_{\mathbf{q}\sigma} \label{eq:reciprocal-space-non-local-interaction-fock-dd-intermediate-su-4}
+	\right] \hat c_{\mathbf{q}\sigma}^\dagger \hat c_{\mathbf{q}\sigma} \label{eq:reciprocal-space-non-local-interaction-fock-dd-intermediate-sc-4}
 \end{multline}
 This equation reduces fully the initial o.s. Fock component of $\hat H_V$ to a simpler, decoupled form. Here, similarly to what we observed for AF phase in Sec.~\ref{subsec:fock-renormalization-hopping-amplitude}, the bare bands are renormalized,
-\begin{equation}\label{eq:su-bands-renormalization-general}
+\begin{equation}\label{eq:sc-bands-renormalization-general}
 	\tilde{\epsilon}_\mathbf{k} \equiv \epsilon_\mathbf{k} + V\left[
 		g^{(s^*)} (\cos k_x + \cos k_y) + g^{(d)} (\cos k_x - \cos k_y)
 	\right]
@@ -692,7 +1024,7 @@ As is done in next paragraph, the $s^*$ is actually a rigid $t$ renormalization,
 
 \paragraph{Pure $x$-wave superconductivity.}
 
-As long as we work in a precise sector ($s\oplus s^*$ as well as $d_{x^2-y^2}$) with a gap function completely contained in said symmetry sector, we can rule out the $d_{x^2-y^2}$-wave component of $g_\mathbf{q}$ from Eq.~\eqref{eq:su-bands-renormalization-general}
+As long as we work in a precise sector ($s\oplus s^*$ as well as $d_{x^2-y^2}$) with a gap function completely contained in said symmetry sector, we can rule out the $d_{x^2-y^2}$-wave component of $g_\mathbf{q}$ from Eq.~\eqref{eq:sc-bands-renormalization-general}
 \[
 	\frac{1}{L_xL_y} \sum_\mathbf{q} \varphi_\mathbf{q}^{(d)} g_\mathbf{q} = 0
 \]
@@ -705,12 +1037,12 @@ The result above is valid only if $\Delta_\mathbf{q}$ is described only by a sin
 		g_\mathbf{q} \to g_\mathbf{q}
 	\end{cases}
 \]
-The only remainder of Eq.~\eqref{eq:su-bands-renormalization-general} is its $s^*$ part
-\begin{equation}\label{eq:su-bands-renormalization-xwave}
+The only remainder of Eq.~\eqref{eq:sc-bands-renormalization-general} is its $s^*$ part
+\begin{equation}\label{eq:sc-bands-renormalization-xwave}
 	\tilde{\epsilon}_\mathbf{k} \equiv \epsilon_\mathbf{k} + V	g^{(s^*)} (\cos k_x + \cos k_y)
 \end{equation}
 and since $\epsilon_\mathbf{k} = -2t(\cos k_x + \cos k_y)$ we obtain an equation essentially identical to the one expressing the hopping renormalization in the AF phase, Eq.~\eqref{eq:af-fock-hop-ss-renormalization}. Indeed, let $w \equiv g^{(s^*)}/2$ be the new HF parameter, we get
-\begin{equation}\label{eq:su-fock-hop-ss-renormalization}
+\begin{equation}\label{eq:sc-fock-hop-ss-renormalization}
 	\tilde{t} \equiv t - wV
 \end{equation}
 Once again the hopping parameter shift is rigid and controlled directly by $V$. As done for the AF phase, we will denote the new bands as:
@@ -720,7 +1052,7 @@ Once again the hopping parameter shift is rigid and controlled directly by $V$. 
 	E_\mathbf{k} \to \tilde{E}_\mathbf{k}
 \]
 
-\subsection{Ground state energy and BCS condensation}
+\section{SU free energy density}\label{sec:sc-free-energy}
 
 BCS essentially relies on the insurgence of an effective free fermionic field, described by the Bogoliubov bands, and the condensation of Cooper pairs. Superconducting state is favored by the lowering of free energy granted by the shifting of much of the spectral weight to a lower-energy maximum \cite{zhou1992density}. ``Condensation energy'' is simply the energy difference between the superconducting state and the normal state, and its negativity indicates instability towards superconducting order. It's pretty straightforward to derive the ground state energy for the standard BCS state. When performing Wick's contractions,
 \[
@@ -772,12 +1104,12 @@ as in Eq.~\eqref{eq:self-consistency-equation}. Following the scheme above, the 
 	\right] g_\mathbf{k} g_{\mathbf{k}'}
 \]
 Further developing this result and applying Eqns.~\eqref{eq:pairing-dagger-expectation-theoretical}, \eqref{eq:coscos-symmetries-decomposition}, these last terms can be written as:
-\begin{equation}\label{eq:su-free-energy-leftovers}
+\begin{equation}\label{eq:sc-free-energy-leftovers}
 	\sum_\mathbf{k} \frac{\abs{\Delta_\mathbf{k}}^2}{2\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) - 2V L_x L_y \sum_\gamma \big| g^{(\gamma)} \big|^2
 	\qquad
 	\gamma\in\lbrace s^*, d_{x^2-y^2} \rbrace
 \end{equation}
-as for Eq.~\eqref{eq:reciprocal-space-non-local-interaction-fock-dd-intermediate-su-4}. Notice the presence of a volume factor in the $\mathcal{O}\left(g^2\right)$ correction.
+as for Eq.~\eqref{eq:reciprocal-space-non-local-interaction-fock-dd-intermediate-sc-4}. Notice the presence of a volume factor in the $\mathcal{O}\left(g^2\right)$ correction.
 
 Now, we retrieve the expression for the MFT free energy density \cite{hutchinson2021mixed} simply by adding four contributions:
 \begin{enumerate}
@@ -801,7 +1133,7 @@ Now, we retrieve the expression for the MFT free energy density \cite{hutchinson
 		\frac{1}{L_x L_y} \sum_\mathbf{k} \tilde{\xi}_\mathbf{k}
 	\]
 	averaged on the lattice.
-	\item The ``leftovers'' of Eq.~\eqref{eq:su-free-energy-leftovers}, divided by $L_x L_y$.
+	\item The ``leftovers'' of Eq.~\eqref{eq:sc-free-energy-leftovers}, divided by $L_x L_y$.
 	\item The entropic free energy
 	\[
 		-Ts
@@ -831,7 +1163,7 @@ Now, we retrieve the expression for the MFT free energy density \cite{hutchinson
 	Second and fourth terms cancel out, while the third compensates the first one of contribution 1.
 \end{enumerate}
 All together, the MFT averaged free energy looks like this:
-\begin{multline}\label{eq:su-free-energy}
+\begin{multline}\label{eq:sc-free-energy}
 	f_\mathrm{MFT} [\Delta_\mathbf{k}, g_\mathbf{k}] = \frac{1}{L_x L_y} \sum_\mathbf{k} \left[
 		\tilde{\xi}_\mathbf{k} - \tilde{E}_\mathbf{k} + \frac{\abs{\Delta_\mathbf{k}}^2}{2\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
 	\right] \\
@@ -842,6 +1174,10 @@ The two main differences with the commonly known expressions for $f_\mathrm{MFT}
 	{\color{tabred}, the absence of $-\mu n$ [Why?],} 
 and the $\mathcal{O}\left(g^2\right)$ correction. The latter, not only is negative for attractive $V$, a feature that can lead to superconducting phase energy lowering and stabilisation, but also it depends explicitly on the spectral amplitude of the $s^*$ and $d$-wave components of $g_\mathbf{k}$. Since as seen the $d$-wave part of $g_\mathbf{k}$ arises for mixed symmetries, this details seems to indicate an energetic preference for multi-symmetry phases.
 
-\section{Results of the HF algorihtm}\label{sec:mft-analysis-hf-results}
+\section{Numerical simulations}\label{sec:sc-numerical}
+
+\todo
+
+\subsection{HF iterative algorithm sketch}\label{subsec:sc-hf-sketch}
 
 \todo
