@@ -916,7 +916,17 @@ We are not breaking translational invariance, thus only Cooper fluctuations with
 \begin{equation}\label{appeq:sc-hm-phi-def}
 	\hat \phi_{\mathbf{k}\uparrow} \equiv \hat c_{-\mathbf{k}\downarrow} \hat c_{\mathbf{k} \uparrow}
 \end{equation}
-while $\hat n_{\mathbf{k}\sigma}$ is defined as in Eq.~\eqref{appeq:af-hm-n-def}. Eq.~\eqref{appeq:sc-hm-U-int-1} reduces to
+and define $w_\mathbf{q}$ as in Eq.~\eqref{eq:sc-wqsigma-def},
+\[
+	w_\mathbf{q} \equiv \big\langle
+		\phi_\mathbf{q}^\dagger
+	\big\rangle
+\]
+Its $s$-wave part is given by:
+\begin{equation}\label{appeq:sc-hm-ws-self-consistency}
+	w^{(s)} \equiv \frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}} w_\mathbf{q}
+\end{equation}
+Let $\hat n_{\mathbf{k}\sigma}$ as in Eq.~\eqref{appeq:af-hm-n-def}. Eq.~\eqref{appeq:sc-hm-U-int-1} reduces to
 \begin{equation}\label{appeq:sc-hm-U-int-3}
 	\hat H_U \simeq \text{(Hartree channel)} + \frac{U}{L_x L_y} \sum_{\mathbf{q},\mathbf{q}'} \left[
 		\big\langle
@@ -929,26 +939,18 @@ while $\hat n_{\mathbf{k}\sigma}$ is defined as in Eq.~\eqref{appeq:af-hm-n-def}
 \end{equation}
 being $E_{\mathrm{C}/U}^{(\mathrm{SC})}$ the HM Cooper contraction energy,
 \begin{align}
-	E_{\mathrm{C}/U}^{(\mathrm{SC})} &\equiv \frac{U}{L_x L_y} \sum_\mathbf{r} \big\langle
+	E_{\mathrm{C}/U}^{(\mathrm{SC})} &\equiv \frac{U}{L_x L_y} \sum_{\mathbf{q}\mathbf{q}'} \big\langle
 		\hat \phi_\mathbf{q}^\dagger
 	\big\rangle \big\langle
 		\hat \phi_{\mathbf{q}'}
 	\big\rangle \nonumber \\
-	&\equiv \frac{U}{L_x L_y} \sum_\mathbf{r}
-	\abs{w_\mathbf{q}}^2 \label{appeq:sc-hm-hartree-C-Ec}
+	&= L_x L_y \times U \big| w^{(s)} \big|^2 \label{appeq:sc-hm-hartree-C-Ec}
 \end{align}
-having we defined $w_\mathbf{q}$ as in Eq.~\eqref{eq:sc-wqsigma-def},
+Let now
 \[
-	w_\mathbf{q} \equiv \big\langle
-		\phi_\mathbf{q}^\dagger
-	\big\rangle
+	\Delta^{(s)} \equiv -U w^{(s)}
 \]
-
-Evidently in Eq.~\eqref{appeq:sc-hm-U-int-2}, only the $s$-wave component of $w_\mathbf{q}$ partakes,
-\begin{equation}\label{appeq:sc-hm-ws-self-consistency}
-	w^{(s)} \equiv \frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}} w_\mathbf{q}
-\end{equation}
-thus, defining $\Delta^{(s)} \equiv -U w^{(s)}$, we finally reduce $\hat H_U$ to
+We finally reduce $\hat H_U$ to
 \begin{equation}\label{appeq:sc-hm-U-int-4}
 	\hat H_U \simeq \text{(Hartree channel)} - \sum_{\mathbf{q}\in\mathrm{BZ}} \left[
 	\Delta^{(s)} \hat \phi_\mathbf{q} + 
@@ -1010,8 +1012,8 @@ Then, considering the kinetic part of the gran-canonical hamiltonian,
 \end{aligned}
 \]
 being $E_{\mathrm{A}/t}^{(\mathrm{SC})}$ the ``anticommutation energy'' coming from the kinetic term,
-\begin{equation}
-	E_{\mathrm{N}/t}^{(\mathrm{SC})} \equiv -\sum_{\mathbf{k}\in\mathrm{BZ}} \xi_\mathbf{k}
+\begin{equation}\label{appeq:sc-hm-anticommutation-energy}
+	E_{\mathrm{A}/t}^{(\mathrm{SC})} \equiv -\sum_{\mathbf{k}\in\mathrm{BZ}} \xi_\mathbf{k}
 \end{equation}
 The scalar term in the above equation is essential for estimating correctly the phase ground state free energy density. The full MFT gran-canonical hamiltonian in Nambu representation is obtained including Eq.~\eqref{appeq:sc-hm-U-int-3},
 \begin{equation}\label{sc-hm-bogoliubov-h}
@@ -1162,20 +1164,18 @@ and the EVs:
 \end{align}
 
 Up to now, the derivation was general. However, it is immediate to show that for the pure HM the SC phase can never establish. Recall Eq.~\eqref{appeq:sc-hm-ws-self-consistency}: explicitly
-\[
-\begin{aligned}
+\begin{align}
 	w^{(s)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \big\langle
 		\hat \phi_\mathbf{k}^\dagger
-	\big\rangle \\
+	\big\rangle \nonumber \\
 	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \big\langle
 		\hat \Phi_\mathbf{k}^\dagger \tau^+ \hat \Phi_\mathbf{k}
-	\big\rangle \\
+	\big\rangle \nonumber \\
 	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
 		\ev{\hat s_\mathbf{k}^x} + i \ev{\hat s_\mathbf{k}^y}
-	\right] \\
-	&= - \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\Delta_\mathbf{k}}{E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta]
-\end{aligned}
-\]
+	\right] \nonumber \\
+	&= - \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\Delta_\mathbf{k}}{E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta] \label{appeq:sc-hm-ws-self-consistency-2}
+\end{align}
 Now: $\Delta_\mathbf{k} = \Delta^{(s)} = -U w^{(s)}$, thus if we define
 \[
 	U_\mathrm{c}[\beta] \equiv \left[

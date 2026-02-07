@@ -171,40 +171,48 @@ To be completely correct, the chemical potential was already renormalized in the
 \]
 and as for the AF phase:
 \begin{align}
-	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^x \hat \Psi_{\mathbf{k}\sigma} \rangle &= -\sin \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) \sin \normalfont(2\tilde{\zeta}_{\mathbf{k}\sigma}) \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \label{eq:sc-x-expectation-non-local}\\
-	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^y \hat \Psi_{\mathbf{k}\sigma} \rangle &= -\sin \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) \cos \normalfont(2\tilde{\zeta}_{\mathbf{k}\sigma}) \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \label{eq:sc-y-expectation-non-local}\\
-	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Psi_{\mathbf{k}\sigma} \rangle &= \cos \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \label{eq:sc-z-expectation-non-local}
+	\langle \hat \Phi_\mathbf{k}^\dagger \tau^x \hat \Phi_\mathbf{k} \rangle &= -\sin \normalfont(2\tilde{\theta}_\mathbf{k}) \sin \normalfont(2\tilde{\zeta}_\mathbf{k}) \langle \hat \Gamma_\mathbf{k}^\dagger \tau^z \hat \Gamma_\mathbf{k} \rangle \label{eq:sc-x-expectation-non-local}\\
+	\langle \hat \Phi_\mathbf{k}^\dagger \tau^y \hat \Phi_\mathbf{k} \rangle &= -\sin \normalfont(2\tilde{\theta}_\mathbf{k}) \cos \normalfont(2\tilde{\zeta}_\mathbf{k}) \langle \hat \Gamma_\mathbf{k}^\dagger \tau^z \hat \Gamma_\mathbf{k} \rangle \label{eq:sc-y-expectation-non-local}\\
+	\langle \hat \Phi_\mathbf{k}^\dagger \tau^z \hat \Phi_\mathbf{k} \rangle &= \cos \normalfont(2\tilde{\theta}_\mathbf{k}) \langle \hat \Gamma_\mathbf{k}^\dagger \tau^z \hat \Gamma_\mathbf{k} \rangle \label{eq:sc-z-expectation-non-local}
 \end{align}
 These equations are identical to the ones for the pure HM, Eqns.~\eqref{appeq:sc-hm-sx}, \eqref{appeq:sc-hm-sy} and \eqref{appeq:sc-hm-sz}. In the tilted frame, we have the analogous of Eq.~\eqref{eq:af-rot-z-expectation} with the important exception that the chemical potential in the Fermi-Dirac factors is zero,
 \begin{equation}\label{eq:sc-rot-z-expectation}
-	\langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle = \frac{1}{2} \left[
-	f\left(
-	\tilde{E}_{\mathbf{k}\sigma};\beta,0
-	\right) - f\left(
-	-\tilde{E}_{\mathbf{k}\sigma};\beta,0
-	\right)
+	\langle \hat \Gamma_\mathbf{k}^\dagger \tau^z \hat \Gamma_\mathbf{k} \rangle = \frac{1}{2} \left[
+		f\left(
+			\tilde{E}_\mathbf{k};\beta,0
+		\right) - f\left(
+			-\tilde{E}_\mathbf{k};\beta,0
+		\right)
 	\right]
 \end{equation}
 This is because all the chemical potential operatorial contributions were absorbed in the bare bands $\tilde{\xi}_\mathbf{k}$, thus the pseudospin state is thermally described by an effective null chemical potential.
 
 The (renormalized) thermal factors as in Eq.~\eqref{appeq:sc-thermal-factors-def} are
 \begin{equation}\label{eq:sc-ren-thermal-factors-def}
-	\tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(\pm)}[\beta,\tilde{\mu}] \equiv 
+	\tilde{\mathrm{Th}}_\mathbf{k}^{(\pm)}[\beta,\tilde{\mu}] \equiv
 	f\left(
-	\tilde{E}_{\mathbf{k}\sigma};\beta,0
+		\tilde{E}_\mathbf{k};\beta,0
 	\right) \pm f\left(
-	-\tilde{E}_{\mathbf{k}\sigma};\beta,0
+		-\tilde{E}_\mathbf{k};\beta,0
 	\right)
 \end{equation}
-while for the angles it holds
+which simply reduce to
+\[
+\begin{aligned}
+	\tilde{\mathrm{Th}}_\mathbf{k}^{(+)} &= 1 \\
+	\tilde{\mathrm{Th}}_\mathbf{k}^{(-)} &= - \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
+\end{aligned}
+\]
+
+For the angles it holds
 \begin{equation}\label{eq:sc-bogoliubov-angle-relations}
-	\sin \normalfont(2\tilde{\xi}_{\mathbf{k}\sigma}) = \frac{\Re\{\tilde{\Delta}_{\mathbf{k}\sigma}\}}{|\tilde{\Delta}_{\mathbf{k}\sigma}|}
+	\sin \normalfont(2\tilde{\xi}_\mathbf{k}) = \frac{\Re\{\tilde{\Delta}_\mathbf{k}\}}{|\tilde{\Delta}_\mathbf{k}|}
 	\quad
-	\cos \normalfont(2\tilde{\xi}_{\mathbf{k}\sigma}) = \frac{\Im\{\tilde{\Delta}_{\mathbf{k}\sigma}\}}{|\tilde{\Delta}_{\mathbf{k}\sigma}|}
+	\cos \normalfont(2\tilde{\xi}_\mathbf{k}) = \frac{\Im\{\tilde{\Delta}_\mathbf{k}\}}{|\tilde{\Delta}_\mathbf{k}|}
 	\quad
-	\sin \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) = \frac{|\tilde{\Delta}_{\mathbf{k}\sigma}|}{\tilde{E}_{\mathbf{k}\sigma}}
+	\sin \normalfont(2\tilde{\theta}_\mathbf{k}) = \frac{|\tilde{\Delta}_\mathbf{k}|}{\tilde{E}_\mathbf{k}}
 	\quad
-	\cos \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) = \frac{\tilde{\xi}_{\mathbf{k}\sigma}}{\tilde{E}_{\mathbf{k}\sigma}}
+	\cos \normalfont(2\tilde{\theta}_\mathbf{k}) = \frac{\tilde{\xi}_\mathbf{k}}{\tilde{E}_\mathbf{k}}
 \end{equation}
 From Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, we know all channel contribute. It is already known the effect of the Fock contractions, responsible as for the normal phase (Chap.~\ref{chap:normal-phase}) of the bare bands renormalization. Cooper terms are to be handled more carefully, since can contribute to superconductivity both in the s.s. and in the o.s. spin sectors.
 
@@ -589,7 +597,7 @@ Identical considerations as above hold, and just the $\mathbf{K}=\mathbf{0}$ ter
 	\right]	- E_{\mathrm{C}/V/\mathrm{o.s.}}^{(\mathrm{SC})} + (\text{all the rest})
 \end{equation}
 where the contraction energy is
-\begin{equation}
+\begin{equation}\label{eq:sc-Vos-cooper-double-counting}
 	E_{\mathrm{C}/V/\mathrm{o.s.}}^{(\mathrm{SC})} \equiv - \frac{2V}{L_x L_y} \sum_{\mathbf{q}, \mathbf{q}'} \left[
 		\cos \left(
 			\delta q_x
@@ -610,10 +618,42 @@ Making use of the decomposition of Eq.~\eqref{eq:coscos-symmetries-decomposition
 	w^{(\gamma)} \varphi_\mathbf{q}^{(\gamma)*} \hat \phi_\mathbf{q} + \hc - E_{\mathrm{C}/V/\mathrm{o.s.}}^{(\mathrm{SC})} + (\text{all the rest})
 \end{aligned}
 \]
-extending the symmetry sum to $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$. We defined
-\[
-	w^{(\gamma)} \equiv \frac{1}{L_x L_y} \sum_\mathbf{q} \varphi_\mathbf{q}^{(\gamma)} w_\mathbf{q}
-\]
+extending the symmetry sum to $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$. As always, we used harmonics decomposition. The following chain, similar to Eq.~\eqref{appeq:sc-hm-ws-self-consistency-2}, holds:
+\begin{align}
+	w^{(\gamma)} &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} w_\mathbf{k} \nonumber \\
+	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \big\langle
+		\hat \phi_\mathbf{k}^\dagger
+	\big\rangle \nonumber \\
+	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}  \big\langle
+		\hat \Phi_\mathbf{k}^\dagger \tau^+ \hat \Phi_\mathbf{k}
+	\big\rangle \nonumber \\
+	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}  \left[
+		\ev{\hat s_\mathbf{k}^x} + i \ev{\hat s_\mathbf{k}^y}
+	\right] \nonumber \\
+	&= - \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta] \label{sc-hm-wgamma-self-consistency}
+\end{align}
+where $\tau^+ \equiv \tau^x + i \tau^y$. We used Eqns.~\eqref{eq:sc-x-expectation-non-local}, \eqref{eq:sc-y-expectation-non-local} and \eqref{eq:sc-rot-z-expectation} as well as the thermal factor defined in Eq.~\eqref{eq:sc-ren-thermal-factors-def}. The derivation above holds for all symmetries, including the $s$ one as testifies Eq.~\eqref{appeq:sc-hm-ws-self-consistency-2}. Explicitly, five self-consitency equations are then derived,
+\begin{align}
+	w^{(s^*)} &= \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y)
+	\frac{\Im\lbrace\tilde{\Delta}_\mathbf{k}\rbrace}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})
+	\label{eq:sc-wS-self-consistency}\\
+	w^{(d)} &= \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x - \cos k_y)
+	\frac{\Im\lbrace\tilde{\Delta}_\mathbf{k}\rbrace}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})
+	\label{eq:sc-wd-self-consistency}\\
+	-iw^{(p_x)} &= \frac{1}{\sqrt{2}L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \sin k_x
+	\frac{\Im\lbrace\tilde{\Delta}_\mathbf{k}\rbrace}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})
+	\label{eq:sc-wpx-self-consistency}\\
+	-iw^{(p_y)} &= \frac{1}{\sqrt{2}L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \sin k_y
+	\frac{\Im\lbrace\tilde{\Delta}_\mathbf{k}\rbrace}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})
+	\label{eq:sc-wpy-self-consistency}
+\end{align}
+Of these, the singlet channel admits for non-zero fluctuations of the superconducting order parameter just in the $s^*$ and $d$ channels. This is because the gap function is inversion-symmetric and $p_\ell$ channels equations integrate it with an antisymmetric function.
+
+Finally, the renormalized $s$-wave part, originated by the Cooper channel of $\hat H_U$ and discussed for the HM in Eq.~\eqref{appeq:sc-hm-ws-self-consistency} is given by:
+\begin{equation}\label{eq:sc-ws-self-consistency}
+	w^{(s)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})
+\end{equation}
+Let us now move to the computation of the contraction energy.
 
 %Define now the non-local gap function
 %\begin{equation}\label{eq:sc-ugap-self-consistency-intermediate}
@@ -648,7 +688,24 @@ extending the symmetry sum to $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rb
 
 \subsection{Cooper contraction energy}\label{subsec:sc-cooper-energy}
 
-\todo
+The Cooper contraction energy is immediately derived from Eq.~\eqref{eq:sc-Vos-cooper-double-counting},
+\[
+\begin{aligned}
+	E_{\mathrm{C}/V/\mathrm{o.s.}}^{(\mathrm{SC})} &= - L_x L_y \times V \sum_\gamma \left[
+		\frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}}
+		\varphi_\mathbf{q}^{(\gamma)}
+		w_\mathbf{q}
+	\right] \left[
+		\frac{1}{L_x L_y} \sum_{\mathbf{q}'\in\mathrm{BZ}}
+		\varphi_{\mathbf{q}'}^{(\gamma)+}
+		w_{\mathbf{q}'}^*
+	\right] \\
+	&= -L_x L_y \times \sum_\gamma \big|
+		w^{(\gamma)}
+	\big|^2
+\end{aligned}
+\]
+and is completed by its local counterpart of Eq.~\eqref
 
 %\subsection{Non-local bands renormalization in the same-spin sector}\label{subsec:sc-bands-renormalization-1}
 %
@@ -1082,7 +1139,44 @@ extending the symmetry sum to $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rb
 
 \section{Full MFT hamiltonian and anisotropic pairing}\label{sec:sc-full-hamiltonian}
 
-{\color{tabblue}CONTINUE FROM HERE}
+By composing all three channels we are able to derive the final form of the MFT gran-canonical hamiltonian,
+\begin{multline*}
+	\hat H - \mu \hat N \simeq \sum_{\mathbf{k}\in\mathrm{MBZ}} \tilde{\xi}_{\mathbf{k}\sigma} \left[
+		\hat c_{\mathbf{k}\uparrow}^\dagger
+		\hat c_{\mathbf{k}\uparrow} +
+		\hat c_{-\mathbf{k}\downarrow}
+		\hat c_{-\mathbf{k}\downarrow}^\dagger
+	\right] - \sum_\sigma \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
+		\tilde{\Delta}_\mathbf{k}
+		\hat \phi_\mathbf{k} + \tilde{\Delta}_\mathbf{k}^* \hat \phi_\mathbf{k}^\dagger
+	\right] \\ - \left[
+		E_{\mathrm{A}/t}^{(\mathrm{SC})} +
+		E_{\mathrm{H}/U}^{(\mathrm{SC})} +		E_{\mathrm{C}/U}^{(\mathrm{SC})} +
+		E_{\mathrm{H}/V}^{(\mathrm{SC})} + E_{\mathrm{F}/V}^{(\mathrm{SC})} + E_{\mathrm{C}/V/\mathrm{o.s.}}^{(\mathrm{SC})}
+	\right]
+\end{multline*}
+having we included the ``anticommutation energy'' also defined for the conventional HM in Eq.~\eqref{appeq:sc-hm-anticommutation-energy},
+\[
+	E_{\mathrm{A}/t}^{(\mathrm{SC})} \equiv -\sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{\xi}_\mathbf{k}
+\]
+coming from fermionic anticommutation relations that are employed in order to get the kinetic term. The renormalized bands are
+\[
+	\tilde{\xi}_{\mathbf{k}\sigma} = \epsilon_{\mathbf{k}\sigma} + V \sum_{\gamma\in\lbrace s^*,d \rbrace} u^{(\gamma)} \varphi_{\mathbf{k}}^{(\gamma)*} - \tilde{\mu}
+\]
+and the full gap function by
+\[
+	\tilde{\Delta}_{\mathbf{k}\sigma} = -Uw^{(s)} + V \sum_{\gamma} w^{(\gamma)} \varphi_\mathbf{k}^{(\gamma)*}
+\]
+We can identify the gap harmonics by
+\[
+	\Delta^{(s)} = -U w^{(s)}
+	\qquad
+	\Delta^{(\gamma)} = V w^{(\gamma)}
+	\qq{being}
+	\gamma\in\lbrace s^*, p_x, p_y, d \rbrace
+\]
+
+{\color{tabred}
 
 Define the full gap function as the sum of both contributions,
 \begin{equation}\label{eq:sc-os-gap-function-definition}
@@ -1158,8 +1252,7 @@ The $s$-wave transition is the only one equipped of both the local and the non-l
 	\label{tab:x-wave-self-consistency-equation}
 \end{table}
 \setlength{\extrarowheight}{0em}
-
-\todo
+}
 
 \section{SU free energy density}\label{sec:sc-free-energy}
 
