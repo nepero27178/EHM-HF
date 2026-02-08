@@ -128,7 +128,7 @@ Periodicity by shifts $2\bm{\pi}$ has been used. Now, define the Nambu spinors:
 As in Eq.~\mref, it is useful to define the density and AF fluctuation operators:
 \begin{align}
 	\hat n_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{appeq:af-hm-n-def} \\
-	\hat \psi_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma} \label{appeq:af-hm-psi-def}
+	\hat \psi_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{appeq:af-hm-psi-def}
 \end{align}
 whose EVs are relevant order parameters for the normal and AF phases. Let also the gap function:
 \[
@@ -161,8 +161,8 @@ where $\epsilon_{\mathbf{k}\sigma} \equiv -2t ( \cos k_x + \cos k_y )$. In the f
 	\hat H \simeq \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger h_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma} - E_{\mathrm{H}/U}^{(\mathrm{AF})}
 	\qq{being}
 	h_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
-		\epsilon_{\mathbf{k}\sigma} & -\Delta_{\mathbf{k}\sigma} \\
-		-\Delta_{\mathbf{k}\sigma}^* & - \epsilon_{\mathbf{k}\sigma}
+		\epsilon_{\mathbf{k}\sigma} & -\Delta_{\mathbf{k}\sigma}^* \\
+		-\Delta_{\mathbf{k}\sigma} & - \epsilon_{\mathbf{k}\sigma}
 	\end{bmatrix}
 \end{equation}
 Notice: the Nambu hamiltonian is a $2\times2$ matrix over the $\mathrm{MBZ}$ -- which is half the full $\mathrm{BZ}$, coherently with a solution which essentially bipartites the lattice giving back a double sized unit cell.
@@ -174,7 +174,7 @@ Notice: the Nambu hamiltonian is a $2\times2$ matrix over the $\mathrm{MBZ}$ -- 
 	\label{appfig:pseudo-magnetic-field}
 \end{figure}
 
-The system ground-state is obtained by the means of a Bogoliubov rotation. The hamiltonian maps onto the simple one of a spin in a magnetic field,
+The system ground-state is obtained by the means of a Bogoliubov rotation. The hamiltonian maps onto the simple one of a spin in a magnetic field (the gap is purely real here),
 \[
 	h_{\mathbf{k}\sigma} = \epsilon_{\mathbf{k}\sigma} \tau^z - \Delta_{\mathbf{k}\sigma} \tau^x
 \]
@@ -199,7 +199,7 @@ one gets:
 The hamiltonian represents a system of spins subject to local magnetic fields, each tilted by an angle $\tan(2\theta_{\mathbf{k}\sigma}) = \Delta_{\mathbf{k}\sigma}/\epsilon_{\mathbf{k}\sigma}$, as sketched in Fig.~\ref{appfig:pseudo-magnetic-field}. Evidently the following relations, also reported in Tab.~\ref{tab:af-pseudospin-map}, hold:
 \begin{align}
 	\hat s_{\mathbf{k}\sigma}^x &= \hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger \label{appeq:af-hm-x-psi} \\
-	\hat s_{\mathbf{k}\sigma}^y &= -i \left(
+	\hat s_{\mathbf{k}\sigma}^y &= i \left(
 		\hat \psi_{\mathbf{k}\sigma} - \hat \psi_{\mathbf{k}\sigma}^\dagger 
 	\right) \label{appeq:af-hm-y-psi} \\
 	\hat s_{\mathbf{k}\sigma}^z &= \hat n_{\mathbf{k}\sigma} - \hat n_{\mathbf{k}+\bm{\pi}\sigma} \label{appeq:af-hm-z-psi} 
@@ -1008,24 +1008,24 @@ Then, considering the kinetic part of the gran-canonical hamiltonian,
 	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \left[ 
 		\xi_\mathbf{k} \hat n_{\mathbf{k}\uparrow} + \xi_{-\mathbf{k}} \hat n_{-\mathbf{k}\downarrow} 
 	\right] \\
-	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \xi_\mathbf{k} \hat s_\mathbf{k}^z - E_{\mathrm{A}/t}^{(\mathrm{SC})}
+	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \xi_\mathbf{k} \hat s_\mathbf{k}^z + E_\mathrm{a}^{(\mathrm{SC})}
 \end{aligned}
 \]
-being $E_{\mathrm{A}/t}^{(\mathrm{SC})}$ the ``anticommutation energy'' coming from the kinetic term,
+being $E_\mathrm{a}^{(\mathrm{SC})}$ the ``anticommutation energy'' coming from the kinetic term,
 \begin{equation}\label{appeq:sc-hm-anticommutation-energy}
-	E_{\mathrm{A}/t}^{(\mathrm{SC})} \equiv -\sum_{\mathbf{k}\in\mathrm{BZ}} \xi_\mathbf{k}
+	E_\mathrm{a}^{(\mathrm{SC})} \equiv \sum_{\mathbf{k}\in\mathrm{BZ}} \xi_\mathbf{k}
 \end{equation}
 The scalar term in the above equation is essential for estimating correctly the phase ground state free energy density. The full MFT gran-canonical hamiltonian in Nambu representation is obtained including Eq.~\eqref{appeq:sc-hm-U-int-3},
-\begin{equation}\label{sc-hm-bogoliubov-h}
-	\hat H - \mu \hat N \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \hat \Phi_\mathbf{k}^\dagger h_\mathbf{k} \hat \Phi_\mathbf{k} - \left[
-		E_{\mathrm{A}/t}^{(\mathrm{SC})} + E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
+\begin{equation}\label{appeq:sc-hm-bogoliubov-h}
+	\hat H - \mu \hat N \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \hat \Phi_\mathbf{k}^\dagger h_\mathbf{k} \hat \Phi_\mathbf{k} + E_\mathrm{a}^{(\mathrm{SC})}- \left[
+		E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
 	\right]
 \end{equation}
-being
+(note the non-renormalized chemical potential on the left) being
 \[
 	h_\mathbf{k} \equiv \begin{bmatrix}
-		\xi_\mathbf{k} & -\Delta_\mathbf{k} \\
-		-\Delta_\mathbf{k}^* & - \xi_\mathbf{k}
+		\xi_\mathbf{k} & -\Delta_\mathbf{k}^* \\
+		-\Delta_\mathbf{k} & - \xi_\mathbf{k}
 	\end{bmatrix}
 \]
 while the off-diagonal gap is a constant,
@@ -1045,9 +1045,9 @@ This hamiltonian behaves as an ensemble of spins in local magnetic pseudofields
 	\tan 2\zeta_\mathbf{k} \equiv \frac{\Im{\Delta_\mathbf{k}}}{\Re{\Delta_\mathbf{k}}}
 \end{equation}
 precisely as was for the AF phase, with the essential difference that now the chemical potential RMP lies inside the $z$ component of the pseudofield itself. This is a consequence of the Nambu spinors definition. We have the spin hamiltonian
-\begin{equation}\label{af-su-spin-h}
-	\hat H -\mu \hat N \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \mathbf{b}_\mathbf{k} \cdot \hat{\mathbf{s}}_\mathbf{k} - \left[
-		E_{\mathrm{A}/t}^{(\mathrm{SC})} + E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
+\begin{equation}\label{appeq:af-sc-spin-h}
+	\hat H -\mu \hat N \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \mathbf{b}_\mathbf{k} \cdot \hat{\mathbf{s}}_\mathbf{k} + E_\mathrm{a}^{(\mathrm{SC})} - \left[
+		E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
 	\right]
 	\qq{where}
 	\hat{\mathbf{s}}_\mathbf{k} = \begin{bmatrix}
@@ -1131,11 +1131,11 @@ so up to a phase
 	\ket{\Uparrow_\mathbf{k}} \sim \hat \phi_\mathbf{k}^\dagger \ket{\Omega_\mathbf{k}}
 \]
 Hence, we have
-\[
+\begin{equation}\label{appeq:sc-hm-gs}
 	\ket{\Psi} = \bigotimes_{\mathbf{k}\in\mathrm{BZ}} \left[
-		\cos \theta_\mathbf{k} + e^{2i\zeta_\mathbf{k}} \sin \theta_\mathbf{k} \hat \phi_\mathbf{k}
+		\cos \theta_\mathbf{k} + e^{2i\zeta_\mathbf{k}} \sin \theta_\mathbf{k} \hat \phi_\mathbf{k}^\dagger
 	\right] \ket{\Omega_\mathbf{k}}
-\]
+\end{equation}
 The argument $2\zeta_\mathbf{k}$ of the phase factor is precisely the phase of the gap function, as can be shown easily.
 
 \subsection{Superconducting fluctuations suppression in the conventional HM}\label{appsubsec:sc-hm-impossible}
@@ -1143,7 +1143,7 @@ The argument $2\zeta_\mathbf{k}$ of the phase factor is precisely the phase of t
 Let us report the SC analogous of the AF Eqns.~\eqref{appeq:af-hm-x-psi} and \eqref{appeq:af-hm-y-psi}:
 \begin{align}
 	\hat s_\mathbf{k}^x &= \hat \phi_\mathbf{k} + \hat \phi_\mathbf{k}^\dagger \label{appeq:sc-hm-x-psi} \\
-	\hat s_\mathbf{k}^y &= -i \left(
+	\hat s_\mathbf{k}^y &= i \left(
 	\hat \phi_\mathbf{k} - \hat \phi_\mathbf{k}^\dagger 
 	\right) \label{appeq:sc-hm-y-psi}
 \end{align}
@@ -1171,19 +1171,19 @@ Up to now, the derivation was general. However, it is immediate to show that for
 	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \big\langle
 		\hat \Phi_\mathbf{k}^\dagger \tau^+ \hat \Phi_\mathbf{k}
 	\big\rangle \nonumber \\
-	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
+	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{	
 		\ev{\hat s_\mathbf{k}^x} + i \ev{\hat s_\mathbf{k}^y}
-	\right] \nonumber \\
-	&= - \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\Delta_\mathbf{k}}{E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta] \label{appeq:sc-hm-ws-self-consistency-2}
+	}{2} \nonumber \\
+	&= - \frac{1}{2 L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\Delta_\mathbf{k}}{E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta] \label{appeq:sc-hm-ws-self-consistency-2}
 \end{align}
 Now: $\Delta_\mathbf{k} = \Delta^{(s)} = -U w^{(s)}$, thus if we define
 \[
 	U_\mathrm{c}[\beta] \equiv \left[
-		\frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\mathrm{Th}_\mathbf{k}^{(-)}[\beta]}{E_\mathbf{k}}
+		- \frac{1}{2 L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\mathrm{Th}_\mathbf{k}^{(-)}[\beta]}{E_\mathbf{k}}
 	\right]^{-1}
 \]
 (the reason for this notation will be clear in Sec.~\mref) we end with the equation:
 \[
 	w^{(s)} = -\frac{U}{U_\mathrm{c}[\beta]} w^{(s)}
 \]
-Since evidently $U_\mathrm{c}[\beta] > 0$ by definition, the above equation can be solved in $\mathbb{C}$ only by $w^{(s)}=0$. This implication terminates the argument: superconductivity cannot establish self-consistently at this level in the HM.
+Since evidently $U_\mathrm{c}[\beta] > 0$ by definition (the thermal factor is negative by construction), the above equation can be solved in $\mathbb{C}$ only by $w^{(s)}=0$. This implication terminates the argument: superconductivity cannot establish self-consistently at this level in the HM.

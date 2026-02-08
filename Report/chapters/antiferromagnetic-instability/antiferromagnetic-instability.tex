@@ -7,7 +7,7 @@ This chapter is devoted to an in-depth discussion of the AF long-range ordering 
 
 When discussing the AF phase on the EHM square lattice, we must specify the type of antiferromagnetism we are dealing with. SDW antiferromagnets on a square lattice can emerge in a variety of ways, the simplest one -- described in this text -- being the so-called ``commensurate''. By this we mean essentially a kind of long range spin density ordering varying on the length scale of two lattice sites. This type of AF structure is particularly interesting on a square lattice because the phase transition is simply described in reciprocal space by the order parameter 
 \[
-	\hat \psi_{\mathbf{k}\sigma} \equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma}
+	\hat \psi_{\mathbf{k}\sigma} \equiv \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
 \]
 going from a null EV in the normal phase to a non-zero value. This phenomenon occurs at the so called ``AF vector''
 \[
@@ -22,7 +22,7 @@ In principle, the AF phase is physically established by breaking the $\mathrm{SU
 In this short section we recall the principal feature of the AF phase established in the conventional HM, extensively discussed in Sec.~\ref{appsec:antiferromagnetic-phase}. Before starting, let us define as in Eqns.~\eqref{appeq:af-hm-psi-def} and \eqref{appeq:af-hm-n-def} the AF and density fluctuations operators,
 \begin{align}
 	\hat n_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:af-ehm-n-def} \\
-	\hat \psi_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma} \label{eq:af-ehm-psi-def}
+	\hat \psi_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:af-ehm-psi-def}
 \end{align}
 which represent the two essential fermionic quadratic operators of the analytic MFT derivation. Within the pure HM, the AF phase is specified by the Ansatz \eqref{appeq:af-mean-field-ansatz} which is explicitly breaking translational invariance in each spin sector, while preserving $\mathrm{U}^z(1)$ and $\mathrm{U}^c(1)$ symmetries. As reported in Tab.~\ref{tab:U-wick-terms-phases}, the only RWC comes in Hartree channel, since the local two-body interaction couples operators at opposite spin index. The hamiltonian $\hat H$ is reduced thereby to the form of Eq.~\eqref{appeq:af-hm-mft-h}
 \begin{multline*}
@@ -85,7 +85,7 @@ These fermions populate the two bands $\pm E_{\mathbf{k}\sigma} = \sqrt{\epsilon
 			\hat \psi_{\mathbf{k}\sigma}
 			+ \hat \psi_{\mathbf{k}\sigma}^\dagger
 		}$ & \eqref{appeq:af-hm-sx} \\[0.7em]
-		$i\ev{\hat s_{\mathbf{k}\sigma}^y}$ & $\ev{
+		$\ev{\hat s_{\mathbf{k}\sigma}^y}$ & $i \ev{
 			\hat \psi_{\mathbf{k}\sigma}
 			- \hat \psi_{\mathbf{k}\sigma}^\dagger
 		}$ & \eqref{appeq:af-hm-sy} \\[0.7em]
@@ -117,8 +117,8 @@ The band energies renormalization is simply
 \]
 and the following relations hold (the \textit{tilde} sign indicates the renormalized quantity):
 \begin{align}
-	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^x \hat \Psi_{\mathbf{k}\sigma} \rangle &= -\sin \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) \sin \normalfont(2\tilde{\zeta}_{\mathbf{k}\sigma}) \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \label{eq:af-x-expectation-non-local}\\
-	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^y \hat \Psi_{\mathbf{k}\sigma} \rangle &= -\sin \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) \cos \normalfont(2\tilde{\zeta}_{\mathbf{k}\sigma}) \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \label{eq:af-y-expectation-non-local}\\
+	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^x \hat \Psi_{\mathbf{k}\sigma} \rangle &= -\sin \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) \cos \normalfont(2\tilde{\zeta}_{\mathbf{k}\sigma}) \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \label{eq:af-x-expectation-non-local}\\
+	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^y \hat \Psi_{\mathbf{k}\sigma} \rangle &= -\sin \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) \sin \normalfont(2\tilde{\zeta}_{\mathbf{k}\sigma}) \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \label{eq:af-y-expectation-non-local}\\
 	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Psi_{\mathbf{k}\sigma} \rangle &= \cos \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \label{eq:af-z-expectation-non-local}
 \end{align}
 equivalent to the ones for the pure HM, Eqns.~\eqref{appeq:af-hm-sx}, \eqref{appeq:af-hm-sy} and \eqref{appeq:af-hm-sz}. Moving to the the tilted frame, the $z$ component of the pseudospin is just a thermal superposition of the ``up'' and ``down'' states
@@ -737,6 +737,8 @@ The general HF scheme, described in Sec.~\ref{subsec:hf-sketch}, is iterative an
 %\end{equation}
 %The full effective MFT hamiltonian is spin-independent, then similarly the renormalized parameters cannot exhibit spin dependency. This justifies the fact that $\tilde{t}$ is spin-independent, and so is $\tilde{\epsilon}_\mathbf{k}$.
 
+{\color{green} \textbf{CHANGE FROM HERE}}
+
 \paragraph{Off-diagonal terms.}
 
 Consider the off-diagonal terms of Eq.~\eqref{eq:af-V-fock-int2}. These contribute instead to the full gap, being out of diagonal in the $2\times2$ hamiltonian matrix. In terms of the pseudospin picture, they account for a transverse field. Define $\mathbf{q}$, $\mathbf{q}'$ as in Fig.~\ref{subfig:af-bz-fock-terms-newvariables}, and rewrite as for Eq.~\eqref{eq:af-V-fock-int3-diag}
@@ -1309,14 +1311,14 @@ with
 \begin{multline}
 	s^{(\pm)} \equiv -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \Big[
 		\left(
-		1- f( \pm\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
+			1- f( \pm\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
 		\right) \ln \left(
-		1- f( \pm\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
+			1- f( \pm\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
 		\right) \\
 		+ f(
-		\pm\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
+			\pm\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
 		\ln f( \pm\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
-	\Big]
+	\Big] \label{eq:af-density-entropy}
 \end{multline}
 Consider also that we are computing free energy on the gran-canonical hamiltonian
 \[

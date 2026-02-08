@@ -406,7 +406,7 @@ Let $\mathbf{k}_1 + \mathbf{k}_2 = \mathbf{k}_3 + \mathbf{k}_4 = \mathbf{K}$, an
 \qquad
 \delta \mathbf{k} \equiv \mathbf{k}-\mathbf{k}'
 \]
-Sums over these variables must be intended as over the Brillouin Zone ($\mathrm{BZ}$). Then, finally
+Sums over these variables must be intended as over the Brillouin Zone ($\mathrm{BZ}$). Hence:
 \begin{align}
 	\hat H_V &= \sum_{j \in \mathcal{S}_a} \sum_{\sigma\sigma'} (j\sigma\sigma') \nonumber \\
 	&\Feq - \frac{V}{L_x L_y} \sum_{\sigma\sigma'} \sum_{\ell = x,y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \cos\left(
@@ -419,8 +419,68 @@ Sums over these variables must be intended as over the Brillouin Zone ($\mathrm{
 		\right)	+ \cos \left(
 		\delta k_y
 			\right)	
-	\right]	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \sigma'}^\dagger \hat c_{\mathbf{K}-\mathbf{k}' \sigma'} \hat c_{\mathbf{K}+\mathbf{k}'\sigma} \label{eq:reciprocal-space-non-local-interaction-explicit}
+	\right]	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \sigma'}^\dagger \hat c_{\mathbf{K}-\mathbf{k}' \sigma'} \hat c_{\mathbf{K}+\mathbf{k}'\sigma} \label{eq:HV-fourier}
 \end{align}
+which decomposes in s.s. and o.s. channels as:
+\begin{multline*}
+	\hat H_V \Feq 
+	\overbrace{
+		- \frac{V}{L_x L_y} \sum_{\sigma}
+		\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
+		\cos \left(
+		\delta k_x
+		\right)	+ \cos \left(
+		\delta k_y
+		\right)	
+		\right]	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\sigma} \hat c_{\mathbf{K}+\mathbf{k}'\sigma}
+	}^{\mathrm{s.s.}} \\
+	\underbrace{
+		- \frac{V}{L_x L_y} \sum_{\sigma}
+		\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
+		\cos \left(
+		\delta k_x
+		\right)	+ \cos \left(
+		\delta k_y
+		\right)	
+		\right]	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\overline{\sigma}}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\overline{\sigma}} \hat c_{\mathbf{K}+\mathbf{k}'\sigma}
+	}_{\mathrm{o.s.}}
+\end{multline*}
+
+The o.s. part can be simplified: since
+\[
+	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\overline{\sigma}}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\overline{\sigma}} \hat c_{\mathbf{K}+\mathbf{k}'\sigma} = \hat c_{\mathbf{K}-\mathbf{k}\overline{\sigma}}^\dagger \hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}+\mathbf{k}'\sigma} \hat c_{\mathbf{K}-\mathbf{k}'\overline{\sigma}} 
+\]
+due to fermionic anti-commutation rules, and since the composite transform
+\[
+	\mathbf{k} \to -\mathbf{k}
+	\qquad
+	\mathbf{k}' \to -\mathbf{k}'	
+\]
+leaves the form factor $\cos \left( \delta k_x \right)	+ \cos \left( \delta k_y \right)$ invariant, we reduce the spin sum to two times the $\sigma=\uparrow$ part,
+\begin{equation}\label{eq:HV-os-fourier}
+	\hat H_V^{(\mathrm{o.s.})} = - \frac{2V}{L_x L_y}
+	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
+		\cos \left(
+			\delta k_x
+		\right)	+ \cos \left(
+			\delta k_y
+		\right)	
+	\right]	\hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\downarrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\downarrow} \hat c_{\mathbf{K}+\mathbf{k}'\uparrow}
+\end{equation}
+whil the explicit s.s. sector is given immediately by:
+\begin{multline}\label{eq:HV-ss-fourier}
+	\hat H_V^{(\mathrm{s.s.})} = - \frac{V}{L_x L_y}
+	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
+	\cos \left(
+	\delta k_x
+	\right)	+ \cos \left(
+	\delta k_y
+	\right)	
+	\right]\\
+	\times \left[
+	\hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\uparrow} \hat c_{\mathbf{K}+\mathbf{k}'\uparrow} + \hat c_{\mathbf{K}+\mathbf{k} \downarrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\downarrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\downarrow} \hat c_{\mathbf{K}+\mathbf{k}'\downarrow}
+	\right]
+\end{multline}
 The result here obtained will be used various times in next chapters. Note that different Wick contraction schemes lead to different results:
 \begin{align}
 	&\wick{
@@ -457,7 +517,7 @@ The only difference here is made by the fact that the interaction is repulsive o
 	\hat H_U \Feq \frac{U}{L_x L_y}
 	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \downarrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}' \downarrow} \hat c_{\mathbf{K}+\mathbf{k}' \uparrow}
 \end{equation}
-When contracting these fermionic operators, identical considerations as for the non-local counterpart \eqref{eq:reciprocal-space-non-local-interaction-explicit} hold.
+When contracting these fermionic operators, identical considerations as for the non-local counterpart \eqref{eq:HV-fourier} hold. Note the similarity of this Fourier transform with the o.s. sector of the non-local attraction, given in Eq.~\eqref{eq:HV-fourier}.
 
 \section{General computational approach to MFT}\label{sec:computational-mft}
 \todo

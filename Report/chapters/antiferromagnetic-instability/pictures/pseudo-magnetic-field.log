@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  31 JAN 2026 18:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  8 FEB 2026 16:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,7 +8,7 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 ! Undefined control sequence.
 l.5 \pgfmathsetmacro
-                    {\DeltaParameter}{sqrt(\reDeltaParameter2 + \imDeltaPara...
+                    {\DeltaPar}{sqrt(\reDeltaPar2 + \imDeltaPar^2)}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -16,8 +16,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.5 \pgfmathsetmacro{\DeltaParameter
-                                    }{sqrt(\reDeltaParameter2 + \imDeltaPara...
+l.5 \pgfmathsetmacro{\DeltaPar
+                              }{sqrt(\reDeltaPar2 + \imDeltaPar^2)}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -31,9 +31,8 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.5 \pgfmathsetmacro{\DeltaParameter}{s
-                                       qrt(\reDeltaParameter2 + \imDeltaPara...
-
+l.5 \pgfmathsetmacro{\DeltaPar}{s
+                                 qrt(\reDeltaPar2 + \imDeltaPar^2)}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
@@ -55,7 +54,7 @@ Missing character: There is no 6 in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.5 ...qrt(\reDeltaParameter2 + \imDeltaParameter^
+l.5 ...\DeltaPar}{sqrt(\reDeltaPar2 + \imDeltaPar^
                                                   2)}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -65,7 +64,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 5.
 ! Extra }, or forgotten $.
-l.5 ...(\reDeltaParameter2 + \imDeltaParameter^2)}
+l.5 ...ltaPar}{sqrt(\reDeltaPar2 + \imDeltaPar^2)}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -75,7 +74,7 @@ deleted material, e.g., by typing `I$}'.
 
 ! Undefined control sequence.
 l.6 \pgfmathsetmacro
-                    {\XiParameter}{atan(\imDeltaParameter/\reDeltaParameter)}
+                    {\ZetaPar}{atan(\imDeltaPar/\reDeltaPar)}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -83,8 +82,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.6 \pgfmathsetmacro{\XiParameter
-                                 }{atan(\imDeltaParameter/\reDeltaParameter)}
+l.6 \pgfmathsetmacro{\ZetaPar
+                             }{atan(\imDeltaPar/\reDeltaPar)}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -765,7 +764,7 @@ Missing character: There is no = in font nullfont!
 Missing character: There is no - in font nullfont!
 Missing character: There is no 0 in font nullfont!
 Missing character: There is no . in font nullfont!
-Missing character: There is no 6 in font nullfont!
+Missing character: There is no 4 in font nullfont!
 Missing character: There is no , in font nullfont!
 Missing character: There is no z in font nullfont!
 Missing character: There is no m in font nullfont!
@@ -774,7 +773,7 @@ Missing character: There is no x in font nullfont!
 Missing character: There is no = in font nullfont!
 Missing character: There is no 0 in font nullfont!
 Missing character: There is no . in font nullfont!
-Missing character: There is no 6 in font nullfont!
+Missing character: There is no 4 in font nullfont!
 Missing character: There is no , in font nullfont!
 Missing character: There is no v in font nullfont!
 Missing character: There is no i in font nullfont!
@@ -2082,12 +2081,12 @@ Missing character: There is no n in font nullfont!
 Missing character: There is no ] in font nullfont!
 Missing character: There is no ( in font nullfont!
 Missing character: There is no 0 in font nullfont!
-Missing character: There is no , in font nullfont!
-Missing character: There is no 0 in font nullfont!
 Missing character: There is no . in font nullfont!
 Missing character: There is no 3 in font nullfont!
 Missing character: There is no / in font nullfont!
 Missing character: There is no 2 in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no 0 in font nullfont!
 Missing character: There is no ) in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no r in font nullfont!
@@ -2104,7 +2103,6 @@ Missing character: There is no g in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no = in font nullfont!
-Missing character: There is no 9 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 Missing character: There is no , in font nullfont!
 Missing character: There is no e in font nullfont!
@@ -2117,8 +2115,8 @@ Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no = in font nullfont!
 ! Undefined control sequence.
-l.102 ...c [start angle=90, end angle=\XiParameter
-                                                  ,radius=\EpsilonParameter/2]
+l.102 ...0) arc [start angle=0, end angle=\ZetaPar
+                                                  ,radius=\EpsPar/2]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2209,7 +2207,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.107 		\begin{scope}
-                     [canvas is plane={O(0,0,0)x(\reDeltaParameter,\imDeltaP...
+                     [canvas is plane={O(0,0,0)x(\reDeltaPar,\imDeltaPar,0)y...
 
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2223,7 +2221,7 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.107 		\begin{scope}[
-                      canvas is plane={O(0,0,0)x(\reDeltaParameter,\imDeltaP...
+                      canvas is plane={O(0,0,0)x(\reDeltaPar,\imDeltaPar,0)y...
 
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -2344,8 +2342,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no ( in font nullfont!
 ! Undefined control sequence.
-l.109 ...ngle=90,end angle=90+atan(\DeltaParameter
-                                                  /\EpsilonParameter),radius...
+l.109 ...tart angle=90,end angle=90+atan(\DeltaPar
+                                                  /\EpsPar),radius=\EpsPar/2]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2517,25 +2515,8 @@ Missing character: There is no g in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no = in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no ( in font nullfont!
-! Undefined control sequence.
-l.114 ...er) arc [start angle=atan(\DeltaParameter
-                                                  /\EpsilonParameter),end an...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
 Missing character: There is no 0 in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 3 in font nullfont!
-Missing character: There is no ) in font nullfont!
 Missing character: There is no , in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no n in font nullfont!
@@ -2548,6 +2529,28 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no = in font nullfont!
 Missing character: There is no 9 in font nullfont!
 Missing character: There is no 0 in font nullfont!
+Missing character: There is no + in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no ( in font nullfont!
+! Undefined control sequence.
+l.114 ...tart angle=90,end angle=90+atan(\DeltaPar
+                                                  /\EpsPar)-2,radius=\r*\Eps...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no / in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no ) in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
 Missing character: There is no , in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no a in font nullfont!
@@ -2581,23 +2584,10 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no u in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no h in font nullfont!
-Missing character: There is no w in font nullfont!
 Missing character: There is no e in font nullfont!
+Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no t in font nullfont!
-Missing character: There is no , in font nullfont!
-Missing character: There is no y in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no h in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no f in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no = in font nullfont!
-Missing character: There is no 0 in font nullfont!
-Missing character: There is no . in font nullfont!
-Missing character: There is no 3 in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no m in font nullfont!
 Missing character: There is no , in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no i in font nullfont!
@@ -2697,6 +2687,20 @@ Missing character: There is no g in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no = in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no - in font nullfont!
 Missing character: There is no 9 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 Missing character: There is no + in font nullfont!
@@ -2706,8 +2710,8 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no ( in font nullfont!
 ! Undefined control sequence.
-l.118 ... arc [start angle=90+atan(\DeltaParameter
-                                                  /\EpsilonParameter),end an...
+l.118 ...rt angle=-90,end angle=-90+atan(\DeltaPar
+                                                  /\EpsPar)-2,radius=\r*\Eps...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2719,19 +2723,8 @@ Missing character: There is no 0 in font nullfont!
 Missing character: There is no . in font nullfont!
 Missing character: There is no 3 in font nullfont!
 Missing character: There is no ) in font nullfont!
-Missing character: There is no , in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no d in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no = in font nullfont!
+Missing character: There is no - in font nullfont!
 Missing character: There is no 2 in font nullfont!
-Missing character: There is no 7 in font nullfont!
-Missing character: There is no 0 in font nullfont!
 Missing character: There is no , in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no a in font nullfont!
@@ -2797,10 +2790,10 @@ or  <return>  to continue without it.
  
 Here is how much of TeX's memory you used:
  34 strings out of 475076
- 751 string characters out of 5763687
+ 729 string characters out of 5763687
  388189 words of memory out of 5000000
  23142 multiletter control sequences out of 15000+600000
  559764 words of font info for 39 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 18i,4n,20p,201b,77s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 18i,4n,20p,157b,77s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!
