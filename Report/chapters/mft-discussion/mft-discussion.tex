@@ -16,16 +16,50 @@ This chapter is devoted to develop a Mean Field Theory (MFT) framework of the Ex
 		- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat n_{i\sigma} \hat n_{j\sigma'}
 	}_{\hat H_V}
 \]
-Mean Field Theory (MFT) is a widely used and simple theoretical tool, often sufficient to describe the leading orders in phase transition phenomena of Many-Body Physics. Here MFT is employed generically, in order to later discuss both the effects of the non-local term $\hat H_V$ onto the AF phase (Chap.~\ref{chap:mft-af-instability}), as well as the insurgence of anisotropic superconductivity (Chap.~\ref{chap:mft-su-instability}). The latter, following the path of Bardeen-Cooper-Schrieffer (BCS) theory in describing conventional $s$-wave superconductivity. As will be thoroughly described, the lattice spatial structure directly influences the topology of the gap function, giving rise to anisotropic pairing.
-
-{
-	\color{tabred}[ Move this part to Chap.~\ref{chap:mft-su-instability} ]
-	Sec.~\ref{sec:mft-analysis-non-local-source} studies the non-local attraction $\hat H_V$ in real-space, describing how such interaction can contribute to the hamiltonian as a symmetry-breaking term in given channels. In the following sections, we move to specific channels and study theoretically and numerically the effect of non-local attraction.
-}
+Mean Field Theory (MFT) is a widely used and simple theoretical tool, often sufficient to describe the leading orders in phase transition phenomena of Many-Body Physics. Here MFT is employed generically, in order to later discuss both the effects of the non-local term $\hat H_V$ onto the AF phase (Chap.~\ref{chap:mft-af-instability}), as well as the insurgence of anisotropic superconductivity (Chap.~\ref{chap:mft-sc-instability}). The latter, following the path of Bardeen-Cooper-Schrieffer (BCS) theory in describing conventional $s$-wave superconductivity. As will be thoroughly described, the lattice spatial structure directly influences the topology of the gap function, giving rise to anisotropic pairing.
 
 \section{Extended Hubbard model symmetries and Wick's theorem}\label{sec:ehm-symmetries}
 
-The general aim of this project is to study the phase diagram of the EHM by comparing ground-state energies of different phases. The phases we consider in next chapters for the EHM are the normal state (N), the antiferromagnetic ordering (AF), given by a non-uniform distribution of charge in each spin sector, and the (anisotropic) superconducting phase, described by a uniformly distributed charge allowing for Cooper pairing instabilities. The first evident symmetry of the model is a global $\mathrm{U}(2)$ symmetry \cite{arovas2022hubbard} given by the transformation
+The general aim of this project is to study the phase diagram of the EHM by comparing ground-state energies of different phases. The phases we consider in next chapters for the EHM are the normal state (N), the antiferromagnetic ordering (AF), given by a non-uniform distribution of charge in each spin sector, and the anisotropic superconducting (SC) phase, described by a uniformly distributed charge allowing for Cooper pairing instabilities.
+
+At the end of this section, in Tab.~\ref{tab:symmetry-groups} we summarize all symmetries with the relative operations. Throughout the entire thesis we will refer to specific SSB for given groups to establish a specific phase.
+
+\subsection{Spatial and topological symmetries}\label{subsec:spatial-syms}
+
+
+Let us start from the trivial topology of the lattice we are working on. The EHM of Eq.~\eqref{eq:extended-hubbard-model} is evidently translational invariant on both the $x$ and $y$ directions. We refer to these groups as $\mathrm{T}_1^{(x)}$, $\mathrm{T}_1^{(x)}$. The $1$ subscript indicates the one-site translations under which the model is symmetric.
+
+Evidently, the following statement holds:
+\[
+	\mathrm{T}_n^{(\ell)} \supset \mathrm{T}_{kn}^{(\ell)}
+	\qquad
+	k\in\mathbb{R}
+\]
+A model which is invariant for $n$-sites translations in the $\ell$ direction, also is for $kn$-sites translations. Then we can break translation symmetry in a given direction reducing it to a smaller group, say
+\[
+	\mathrm{T}_1^{(\ell)}
+	\quad\stackrel{\mathrm{SSB}}{\to}\quad
+	\mathrm{T}_2^{(\ell)}
+\]
+This is precisely what happens in the AF phase.
+
+Another natural symmetry of the EHM is the four-fold point group $\mathrm{C}_4$ of $\pi/2$ rotations, expressing the square lattice property being mapped onto itself under said rotations. A similar property as for the translations hold for point groups,
+\[
+	\mathrm{C}_n \supset \mathrm{C}_{n/k}
+	\qquad
+	k, n/k \in\mathbb{R}
+\]
+which expresse the fact that, if a system is topologically invariant under $n$-fold rotations and $k \in \mathbb{R}$ exists such that $n/k \in \mathbb{R}$, then the smaller point group is automatically included. As for translations, we can break the point group reducing it to a smaller subgroup, say
+\[
+	\mathrm{C}_4
+	\quad\stackrel{\mathrm{SSB}}{\to}\quad
+	\mathrm{C}_2
+\]
+This is what happens with the effective arising of anisotropic corrections to the kinetic hamiltonian due to non-local interactions, as will be discussed in Sec.~\ref{sec:normal-phase}.
+
+\subsection{Spin and charge symmetries}\label{subsec:spin-charge-syms}
+
+When it comes to Fermi algebra and operators, an evident symmetry of the EHM is a global $\mathrm{U}(2)$ symmetry \cite{arovas2022hubbard} given by the transformation
 \begin{equation}\label{eq:ehm-global-u2-symmetry}
 	\hat c_{i\sigma} \to \sum_{\sigma'} \mathcal{U}_{\sigma \sigma'} \hat c_{i\sigma'}
 	\qq{with}
@@ -33,16 +67,18 @@ The general aim of this project is to study the phase diagram of the EHM by comp
 \end{equation}
 The proof is trivial and follows from the fact that $\mathcal{U}^\dagger \mathcal{U} = \mathcal{U} \mathcal{U}^\dagger = \Id$. Note that the the following decomposition holds,
 \begin{equation}\label{eq:ehm-global-u2-symmetry-u1-su2}
-	\mathrm{U}(2) = \mathrm{SU}(2) \otimes \mathrm{U}(1)
+	\mathrm{U}(2) = \mathrm{SU}(2) \otimes \mathrm{U}^\mathrm{c}(1)
 \end{equation}
-which expresses the separate charge conservation and spin rotational symmetries. Thus, for the EHM, three symmetries are ``brekable'':
-\begin{enumerate}
-	\item Discrete translational invariance. By breaking explicitly this symmetry, the obtained state must show a Charge-Density Wave (CDW) ordering;
-	\item $\mathrm{U}^\mathrm{c}(1)$ charge conservation, coming from Eq.~\eqref{eq:ehm-global-u2-symmetry-u1-su2} decomposition. By breaking this symmetry, we allow for the total charge to fluctuate in the ground state;
-	\item $\mathrm{SU}(2)$ spin rotation symmetry, also , coming from Eq.~\eqref{eq:ehm-global-u2-symmetry-u1-su2} decomposition. If this symmetry is broken, we allow for the ground state to exhibit a preferred spin direction.
-	\item Note that the $\mathrm{SU}(2)$ group contains itself a $\mathrm{U}(1)$ subgroup. $\mathrm{SU}(2)$ symmetry can be broken, selecting a particular vectorial direction for the order parameter, and reduced to a smaller $\mathrm{U}^z(1)$ symmetry which is essentially expressed by the conservation of the \textit{magnitude} of the order parameter.
-\end{enumerate}
-The last point is important: for the AF phase, for example, there is no need for the magnetization vector to be directed along the \textit{real} $z$-axis, which is the one perpendicular to the lattice plane. $\mathrm{SU}(2)$ symmetry breaks when (staggered) magnetization is established along a particular direction, but spin rotations around said direction still are ground state symmetries. The symmetries are reported synthetically in Tab.~\ref{tab:symmetry-groups}.
+which expresses the separate charge conservation and spin rotational symmetries. In detail:
+\begin{itemize}
+	\item $\mathrm{U}^\mathrm{c}(1)$ charge conservation, coming from Eq.~\eqref{eq:ehm-global-u2-symmetry-u1-su2} decomposition. By breaking this symmetry, we allow for the total charge to fluctuate in the ground state. This fluctuation is only allowed in the SC phase in the present text;
+	\item $\mathrm{SU}(2)$ spin rotation symmetry, also , coming from Eq.~\eqref{eq:ehm-global-u2-symmetry-u1-su2} decomposition. Note that:
+	\[
+		\mathrm{SU}(2) \supset \mathrm{U}^z(1)
+	\]
+	The $z$ subscript we included to distinguish from the charge group. Hence $\mathrm{SU}(2)$ symmetry can be broken, selecting a particular vectorial direction for the order parameter (we call $z$), and reduced to a smaller $\mathrm{U}^z(1)$ symmetry which is essentially expressed by the conservation of the magnitude of the order parameter.
+\end{itemize}
+The last point is important: for the AF phase, for example, there is no need for the magnetization vector to be directed along the physical $z$-axis, which is the one perpendicular to the lattice plane. $\mathrm{SU}(2)$ symmetry breaks when (staggered) magnetization is established along a particular direction, but spin rotations around said direction still are ground state symmetries. This is shown schematically in Fig.~\ref{fig:su2-u1-domains}.
 
 \begin{figure}
 	\centering
@@ -59,47 +95,175 @@ The last point is important: for the AF phase, for example, there is no need for
 	\label{fig:su2-u1-domains}
 \end{figure}
 
+Different phases are described by different order parameters, each one exhibiting a specific symmetry subset from the initial set, while the rest are broken. Ferromagnetic state perform $\mathrm{SU}(2) \to \mathrm{U}^z(1)$ spontaneous symmetry breaking (SSB), through the magnetic order parameter acquiring a specific spatial direction. AF ordering breaks also translational invariance (reducing it to a smaller symmetry, relative to double-sized unitary cells). Basic SC models do not break translational invariance and can preserve full $\mathrm{SU}(2)$ symmetry, while breaking $\mathrm{U}^\mathrm{c}(1)$ charge conservation. None of the phases hereby considered do completely break translational invariance: the latter either is left untouched or is reduced to a weaker translational invariance. Because of this, it will be rather useful to move the framework to reciprocal space. We will get there in Sec.~\ref{subsec:mft-discussion-reciprocal-non-local}. This discussion is summarized in Tab.~\ref{tab:phases-symmetries}, where we report the various SSBs for AF and SC phases.
+
+\begin{table}
+	\centering
+	\begin{tabular}{c T l}
+		\textbf{Phase} & \multicolumn{2}{c}{\textbf{SSBs}} \\
+		\midrule
+		\multirow{2}*{AF} & $\mathrm{T}_1^{(\ell)}$ & $\mathrm{T}_2^{(\ell)}$ \\
+		& $\mathrm{SU}(2)$ & $\mathrm{U}^z(1)$ \\
+		SC & $\mathrm{U}^\mathrm{c}(1)$ & $0$ \\
+		\midrule
+	\end{tabular}
+	\caption{SSB interpretation of the AF and SC phases. In the last line, the $0$ on the SSB right-hand side indicates a completely disrupted symmetry.}
+	\label{tab:phases-symmetries}
+\end{table}
+
+\subsection{Particle-hole symmetry at half-filling}\label{subsec:half-filling-ph-sym}
+
+The half-filled EHM is of particular interest due to its particle-hole symmetry (PHS), which is immediately distrupted at infinitesimal doping. Let us prove that for the EHM. Consider the generic unitary operation
+\[
+	\mathrm{P}
+	\quad\colon\quad
+	\hat c_{i\sigma}
+	\quad\to\quad
+	e^{i\eta_{i\sigma}} \hat h_{i\sigma}^\dagger
+\]
+being in general $\eta_i$ a phase dependent on the fermionic quantum state $(i\sigma)$. Inserting the above transformation in the EHM, we get
+\[
+	\mathrm{P} \lbrace \hat H \rbrace =
+	-t \sum_{\langle ij \rangle} \sum_\sigma e^{i(\eta_{i\sigma} + \eta_{j\sigma})} \hat h_{i\sigma} \hat h_{j\sigma}^\dagger
+	+U \sum_i \hat h_{i\uparrow} \hat h_{i\downarrow} \hat h_{i\downarrow}^\dagger \hat h_{i\uparrow}^\dagger
+	- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger \hat h_{i\sigma}^\dagger
+\]
+For the two interactions $\hat H_U$, $\hat H_V$ the phase factors cancelled out. We aim to find the conditions under which the above hamiltonian is mapped onto the EHM of \eqref{eq:extended-hubbard-model},
+\[
+	\mathrm{P} \lbrace \hat H \rbrace \stackrel{?}{=}
+	-t \sum_{\langle ij \rangle} \sum_\sigma \hat h_{i\sigma}^\dagger \hat h_{j\sigma}
+	+U \sum_i \hat h_{i\uparrow}^\dagger \hat h_{i\downarrow}^\dagger \hat h_{i\downarrow} \hat h_{i\uparrow}
+	- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'} \hat h_{j\sigma'} \hat h_{i\sigma}
+\]
+
+Before starting the derivation, let us discuss some properties of the hole operators. For the hole operators, due to the presence of the phase factors in the PHS operative definition, the Fermi anticommutation rules hold regardless of the phase factor:
+\[
+\begin{aligned}
+	\lbrace \hat h_{i\sigma}, \hat h_{j\sigma'}^\dagger \rbrace &= e^{i(\eta_i-\eta_j)} \lbrace \hat c_{i\sigma}^\dagger, \hat c_{j\sigma'} \rbrace \\
+	&= e^{i(\eta_i-\eta_j)} \delta_{ij} \delta_{\sigma\sigma'} \\
+	&= \delta_{ij} \delta_{\sigma\sigma'}
+\end{aligned}
+\]
+and evidently:
+\[
+	\hat h_{i\sigma} \hat h_{i\sigma}^\dagger = \hat n_{i\sigma}
+\]
+being $\hat n_{i\sigma}$ the fermionic number operator on site $i$ with spin $\sigma$. It follows, for quartic interactions
+\[
+\begin{aligned}
+	\hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger \hat h_{i\sigma}^\dagger &= -\hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \\
+	&= \hat h_{i\sigma} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma} \hat h_{j\sigma'}^\dagger \delta_{ij}\delta_{\sigma\sigma'} \\
+	&= - \hat h_{i\sigma}^\dagger \hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger + \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma} \hat h_{j\sigma'}^\dagger \delta_{ij}\delta_{\sigma\sigma'} \\
+	&= \hat h_{i\sigma}^\dagger \hat h_{i\sigma} \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} - \hat h_{i\sigma}^\dagger \hat h_{i\sigma} + \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma} \hat h_{j\sigma'}^\dagger \delta_{ij}\delta_{\sigma\sigma'} \\
+	&= - \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{i\sigma} \hat h_{j\sigma'} - \hat h_{i\sigma}^\dagger \hat h_{i\sigma} + \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger - \left(
+		\hat h_{i\sigma} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}
+	\right) \delta_{ij}\delta_{\sigma\sigma'} \\
+	&= \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} + \left(
+		\hat n_{i\sigma} + \hat n_{j\sigma'}
+	\right) - 1 - \left(
+		\hat h_{i\sigma} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}
+	\right) \delta_{ij}\delta_{\sigma\sigma'}
+\end{aligned}
+\]
+The first term of the last passage is mirrored with respect to the starting term. Now, let us deal with the kinetic, local and non-local interactions separately.
+
+\paragraph{Kinetic term.}
+
+Consider the kinetic term,
+\[
+	\mathrm{P} \lbrace \hat H_t \rbrace = -t \sum_{\langle ij \rangle} \sum_\sigma e^{i(\eta_{i\sigma} + \eta_{j\sigma})} \hat h_{i\sigma} \hat h_{j\sigma}^\dagger
+\]
+It suffices to anticommute the two fermionic operators, and exchange site labels $i \leftrightarrow j$, to get
+\[
+	\mathrm{P} \lbrace \hat H_t \rbrace = -t \sum_{\langle ij \rangle} \sum_\sigma e^{i(\eta_{i\sigma} + \eta_{j\sigma}+\pi)} \hat h_{i\sigma}^\dagger \hat h_{j\sigma}
+\]
+A necessary condition on the unitary operation $\mathrm{P}$ is the following,
+\[
+	\eta_{i\sigma} + \eta_{j\sigma} = (2k-1)\pi
+\]
+valid for NN sites.
+
+\paragraph{Local repulsion.}
+
+Substitute in $\hat H_U$ the above derivation,
+\[
+\begin{aligned}
+	\mathrm{P} \lbrace \hat H_U \rbrace &= U \sum_i \hat h_{i\uparrow} \hat h_{i\downarrow} \hat h_{i\downarrow}^\dagger \hat h_{i\uparrow}^\dagger \\
+	&= U \sum_i \hat h_{i\uparrow}^\dagger \hat h_{i\downarrow}^\dagger \hat h_{i\downarrow}\hat h_{i\uparrow} + U \sum_i \left(
+		\hat n_{i\uparrow} + \hat n_{i\downarrow}
+	\right) - U \sum_i (1) \\
+	&= U \sum_i \hat h_{i\uparrow}^\dagger \hat h_{i\downarrow}^\dagger \hat h_{i\downarrow}\hat h_{i\uparrow} + U (\hat N - L_x L_y)
+\end{aligned}
+\]
+having we used in the last passage the inverse $\hat h \to \hat c$ map to recognize a number operator. Thus, a state realizing
+\[
+	\langle \hat N \rangle = L_x L_y
+\]
+preserves PHS in the local sector.
+
+\paragraph{Non-local attraction.}
+
+Proceed identicall for $\hat H_V$,
+\[
+\begin{aligned}
+	\mathrm{P} \lbrace \hat H_V \rbrace &= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger \hat h_{i\sigma}^\dagger \\
+	&= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \left(
+		\hat n_{i\sigma} + \hat n_{j\sigma'}
+	\right) + V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} (1) \\
+	&= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} + 2zV (\hat N - L_x L_y)
+\end{aligned}
+\]
+with $z=4$ the lattice coordination number. As before, an half-filled phase preserves PHS in the non-local sector. In last passage we used the fact that summing over NNs means overcounting each site $z/2$ times, and spin degeneracy.
+
+No other condition on phases is derived, thus we conclude the half-filled EHM preserves PHS if the two sublattices $\mathcal{S}_a$, $\mathcal{S}_b$ the square lattice can be divided into, being a (trivial) bipartite lattice, differ by a $\pi$ phase difference under PHS transform. In other words, if $\mathrm{P}$ is defined by the unitary operation
+\[
+	\mathrm{P}
+	\quad\colon\quad
+	\begin{cases}
+		\hat c_{i\sigma} \to \hat h_{i\sigma}^\dagger
+		&\qq{for}
+		i \in \mathcal{S}_a \\
+		\hat c_{i\sigma} \to -\hat h_{i\sigma}^\dagger
+		&\qq{for}
+		i \in \mathcal{S}_b
+	\end{cases}
+\]
+and the system is half-filled, PHS is respected.
+Any other phase choice, as long as it alternates by $\pi$ on the two sublattices, is good enough. To summarize, we report in Tab.~\ref{tab:symmetry-groups} all identified symmetries.
+
 \begin{table}
 	\centering
 	\begin{tabular}{c l}
-		\textbf{Symmetry group} & \textbf{Operations} \\
+		\textbf{Symmetry} & \textbf{Operations} \\
 		\midrule
-		Point group & Discrete translations on lattice \\
+		\mathrm{T}_\ell & Discrete translations in the $\ell \in \lbrace x,y \rbrace$ directions separately \\
+		\mathrm{C}_4 & Four-fold point group \\
 		$\mathrm{U}^\mathrm{c}(1)$ & Charge-conserving global phase shifts \\
 		$\mathrm{SU}(2)$ & Three-dimensional rotations in spin space \\
+		PHS & Particle-hole exchange (only at half filling) \\
+		\midrule
 		$\mathrm{U}^z(1)$ & Reduced two-dimensional rotations around order parameter after SSB \\
 		\midrule
 	\end{tabular}
-	\caption{Model symmetries and relative group operations. Note that $\mathrm{U}^\mathrm{c}(1)$ represents the charge conserving group, while $\mathrm{U}^z(1)$ represents the subgroup obtained by breaking the $\mathrm{SU}(2)$ symmetry with a vector order parameter and preserving its amplitude.}
+	\caption{Model symmetries and relative group operations. Note that $\mathrm{U}^\mathrm{c}(1)$ represents the charge conserving group, while $\mathrm{U}^z(1)$ represents the subgroup obtained by breaking the $\mathrm{SU}(2)$ symmetry with a vector order parameter and preserving its amplitude. Since the latter is ``derived'' from $\mathrm{SU}(2)$, we write it separated from the four main symmetries of the model.}
 	\label{tab:symmetry-groups}
 \end{table}
 
-Different phases are described by different order parameters, each one exhibiting a specific symmetry subset from the initial set, while the rest are broken. Ferromagnetic state perform $\mathrm{SU}(2) \to \mathrm{U}^z(1)$ spontaneous symmetry breaking (SSB), through the magnetic order parameter acquiring a specific spatial direction. Such SSB process is graphically depicted in Fig.~\ref{fig:su2-u1-domains}. Anti-ferromagnetic ordering breaks also translational invariance (reducing it to a smaller symmetry, relative to double-sized unitary cells). Basic superconducting models do not break translational invariance and can preserve full $\mathrm{SU}(2)$ symmetry, while breaking $\mathrm{U}^\mathrm{c}(1)$ charge conservation. The three phases hereby considered do not completely break translational invariance: the latter either is left untouched or is reduced to a weaker translational invariance. Because of this, it will be rather useful to move the framework to reciprocal space. We will get there in Sec.~\ref{subsec:mft-discussion-reciprocal-non-local}.
-
-\subsection{Particle-hole symmetry at half-filling}
-
-\todo
-
-\subsection{The role of spin}
-\todo
-
-\subsection{Translational invariance}
-\todo
-
 \section{MFT on Hubbard lattices}
-\todo
 
-\subsection{MFT general procedure and self-consistency}
+This section serves as groundwork for everything that follows. We here define the MFT scheme as well as the iterative HF computational scheme we use to estimate parametrically the relevant physical quantities of the various phases. We start by recalling the general features of MFT and then move to the specificity of the EHM, apply Wick's theorem and finally move to algorithic aspects.
 
-The Mean Field Theory approach to a fermionic quartic is given by the following procedure: given the hamiltonian made of the quadratic operators $\hat A$ and $\hat B$
+\subsection{MFT general procedure, self-consistency and Wick's theorem}
+
+The Mean Field Theory approach to any fermionic quartic operator is given by the following procedure: given the hamiltonian made of the quadratic operators $\hat A$ and $\hat B$
 \[
-\hat H = \hat A \hat B
+	\hat H \equiv \hat A \hat B
 \]
 we define the fluctuations
 \[
-\delta \hat A = \hat A - \langle \hat A \rangle 
-\qquad
-\delta \hat B = \hat B - \langle \hat B \rangle
+	\delta \hat A \equiv \hat A - \langle \hat A \rangle
+	\qquad
+	\delta \hat B \equiv \hat B - \langle \hat B \rangle
 \]
 thus the following chain holds:
 \[
@@ -112,12 +276,14 @@ thus the following chain holds:
 \]
 which implies
 \[
-\langle \hat H \rangle = \langle \hat A \rangle \langle \hat B \rangle + \langle \delta \hat A \delta \hat B \rangle
+	\langle \hat H \rangle = \langle \hat A \rangle \langle \hat B \rangle + \langle \delta \hat A \delta \hat B \rangle
 \]
 Thus, if $| \langle \hat A \rangle \langle \hat B \rangle | \gg | \langle \delta \hat A \delta \hat B \rangle |$, in a statistical sense we can neglect the $\mathcal{O}(\delta)^2$ part of the hamiltonian and approximate
-\[
-\hat H \simeq \hat A \langle \hat B \rangle + \langle \hat A \rangle \hat B - \langle \hat A \rangle \langle \hat B \rangle
-\]
+\begin{equation}\label{eq:mft-h-EVh-approx}
+	\hat H \simeq \hat A \langle \hat B \rangle + \langle \hat A \rangle \hat B - \langle \hat A \rangle \langle \hat B \rangle
+	\quad\implies\quad
+	\langle \hat H \rangle \simeq \langle \hat A \rangle \langle \hat B \rangle
+\end{equation}
 Self consistency of MFT procedure is thus embodied by the condition
 \begin{equation}\label{eq:mft-global-self-consistency}
 	\left| \frac{\langle \delta \hat A \delta \hat B \rangle}{\langle \hat A \rangle \langle \hat B \rangle} \right| \ll 1
@@ -126,14 +292,16 @@ Self consistency of MFT procedure is thus embodied by the condition
 \end{equation}
 which essentially states that the least the fluctuations, the better the approximation. This rule of thumb is necessary in order to interpret the physical relevance of numerical MFT results. We will come back to this in the end, for now assuming the validity of MFT approximation and deriving the mathematical results.
 
+\todo
+
 \subsection{MFT treatment of the pure Hubbard model}\label{subsec-mft-treatment-hm}
 
-The pure Hubbard model, $\hat H_t + \hat H_U$, offers a simple framework for MFT analysis of the AF phase: this is described in detail in App.~\ref{appendix:mean-field-hubbard}. The key passage is there given by the MFT approximation
+The pure Hubbard model, $\hat H_t + \hat H_U$, offers a simple framework for MFT analysis of the AF phase: this is described in detail in App.~\ref{antiferromagnetic-phase}. The key passage is there given by the MFT approximation
 \begin{equation}\label{eq:mft-pure-hubbard-wick-decomposition}
 	\hat n_{i\uparrow} \hat n_{i\downarrow} \simeq \hat n_{i\uparrow} \langle \hat n_{i\downarrow} \rangle + \langle \hat n_{i\uparrow} \rangle \hat n_{i\downarrow} + (\mathrm{constants})
 \end{equation}
 from which the AF structure is simply recovered.
-In terms of the discussion of the above paragraph, we have $\hat A \equiv \hat n_{i\uparrow}$ and $\hat B \simeq \hat n_{i\downarrow}$. However the ``full'' operator is given by
+In terms of the discussion of the above paragraph, we have $\hat A \equiv \hat n_{i\uparrow}$ and $\hat B \equiv \hat n_{i\downarrow}$. However the ``full'' operator is given by
 \[
 	\hat n_{i\uparrow} \hat n_{i\downarrow} = \hat c_{i\uparrow}^\dagger \hat c_{j\downarrow}^\dagger \hat c_{j\downarrow} \hat c_{i\uparrow}
 \]
@@ -165,12 +333,12 @@ which contracts in three different ways following Wick's Theorem:
 		\rangle
 	}_{\text{Hartree}}
 \end{equation}
-As a first approximation, the theorem is assumed to hold (which, in a $\mathrm{BCS}$-like fashion, is equivalent to assuming for the ground-state to be a coherent state). The AF ground state breaks translational invariance and reduces rotational symmetry, $\mathrm{SU}(2) \to \mathrm{U}^z(1)$. Thus, of the three terms above, when considering the pure Hubbard model in AF phase: 
+As a first approximation, the theorem is assumed to hold (which, in a $\mathrm{BCS}$-like fashion, is equivalent to assuming for the ground-state to be a coherent state). The AF ground state reduces translational invariance and rotational symmetry, as explained in Tab.~\ref{tab:phases-symmetries}. Thus, of the three terms above, when considering the pure Hubbard model in AF phase:
 \begin{itemize}
 	\item Cooper fluctuations are suppressed, because they break charge conservation;
 	\item Similarly the Fock term is null as well because if $i=j$ and $\sigma'=\overline{\sigma}$ (as is for the local interaction, which contains the operator $\hat n_{i\uparrow} \hat n_{i\downarrow}$) the expectation values involved are describing a process breaking the survivor $\mathrm{U}^z(1)$ spin symmetry. 
 \end{itemize}
-Thus, correctly, the Wick's decomposition of Eq.~\eqref{eq:mft-pure-hubbard-wick-decomposition} only involves Hartree-terms of Eq.~\eqref{eq:mft-extended-hubbard-wick-decomposition}. The distinction between the normal phase and the AF phase id given by whether the Hartree fluctuations break or not translational symmetry: antiferromagnetism is indeed a specific SDW ordering which weakens the latter. In general the three parts of the decomposition (Hartree, Fock, Cooper) need to be considered altogether: this is what is done in the next chapters. What said here extends naturally to the EHM: the relevant contributions for each phase given by the local repulsion $\hat U$ in the EHM are listed in Tab.~\ref{tab:U-wick-terms-phases}.
+Thus, correctly, the Wick's decomposition of pure HM only involves Hartree-terms of Eq.~\eqref{eq:mft-extended-hubbard-wick-decomposition}, getting us back to \eqref{eq:mft-pure-hubbard-wick-decomposition}. The distinction between the normal phase and the AF phase id given by whether the Hartree fluctuations break or not translational symmetry: antiferromagnetism is indeed a specific SDW ordering which weakens the latter. In general the three parts of the decomposition (Hartree, Fock, Cooper) need to be considered altogether: this is what is done in the next chapters. What said here extends naturally to the EHM: the relevant contributions for each phase given by the local repulsion $\hat U$ in the EHM are listed in Tab.~\ref{tab:U-wick-terms-phases}.
 
 \begin{table}
 	\centering
@@ -196,8 +364,20 @@ Thus, correctly, the Wick's decomposition of Eq.~\eqref{eq:mft-pure-hubbard-wick
 
 Let us now extend the discussion to the EHM and consider the NN non-local attraction,
 \begin{equation}\label{eq:extended-hubbard-nonlocal-interaction}
-	\hat H_V \equiv - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat n_{i\sigma} \hat n_{j\sigma'}
+	\hat H_V \equiv - V \sum_{\langle \mathbf{r} \mathbf{r}' \rangle} \sum_{\sigma \sigma'} \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}'\sigma'}
 \end{equation}
+where we changed notation, and replaced the site index $i$ with its 2D position on the lattice
+\[
+	i \quad\to\quad \mathbf{r} = (x,y)
+\]
+Let also the lattice versors,
+\[
+	\underline{\mathbf{x}} \equiv (1,0)
+	\qquad
+	\underline{\mathbf{y}} \equiv (0,1)
+\]
+as in Fig.~\ref{fig:square-nearest-neighbors}.
+
 Evidently the hamiltonian can be decomposed in various spin terms,
 \begin{align}
 	\hat H_V &= \sum_{\sigma \sigma'} \hat H_V^{\sigma\sigma'} \nonumber \\
@@ -211,88 +391,97 @@ The role of said terms is crucial in establishing the pairing channel of the dom
 
 \subsection{Real space description}\label{subsec:mft-discussion-real-non-local}
 
-Let us start from the real space form of Eq.~\eqref{eq:ehm-non-local-ss-os-terms}. To carry out a summation over nearest neighbors $\ev{ij}$ of a square lattice means precisely to sum over all links of the lattice. Then we can identify the generic opposite-spin (o.s.) term $\hat H_V^{\sigma \overline{\sigma}}$ as the one collecting the $\sigma$ operators of sublattice $\mathcal{S}_a$ and $\overline{\sigma}$ operators of sublattice $\mathcal{S}_b$. The o.s. non-local interactions can be written as a sum of terms over just one of the two sublattices $\mathcal{S}_a$ and $\mathcal{S}_b$, oppositely polarized in the AF configuration (see Fig.~\ref{subfig:antiferromagnet-sublattices}). Define the site hamiltonian
+Let us start from the real space form of Eq.~\eqref{eq:ehm-non-local-ss-os-terms}. To carry out a summation over nearest neighbors $\ev{\mathbf{r}\mathbf{r}'}$ of a square lattice means precisely to sum over all links of the lattice. Then we can identify the generic opposite-spin (o.s.) term $\hat H_V^{\sigma \overline{\sigma}}$ as the one collecting the $\sigma$ operators of sublattice $\mathcal{S}_a$ and $\overline{\sigma}$ operators of sublattice $\mathcal{S}_b$. The o.s. non-local interactions can be written as a sum of terms over just one of the two sublattices $\mathcal{S}_a$ and $\mathcal{S}_b$. Define the site hamiltonian
 \begin{equation}\label{eq:ehm-mft-onsite-hamiltonian}
-	\hat h_V^{(i)} = -V \sum_{\ell = x,y} \left(
-		\hat n_{i\uparrow} \hat n_{i+\delta_\ell \downarrow} + \hat n_{i\uparrow} \hat n_{i-\delta_\ell \downarrow} 
+	\hat h_V^{(\mathbf{r})} \equiv -V \sum_{\bm{\delta}} \left(
+		\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}+\bm{\delta}\downarrow} + \hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}-\bm{\delta} \downarrow}
 	\right)
+	\qq{with}
+	\bm{\delta} \in \lbrace
+		\underline{\mathbf{x}},\underline{\mathbf{y}}
+	\rbrace
 \end{equation}
+
 Then, it follows,
 \begin{align}
 	\hat H_V^{(\mathrm{o.s.})} &= \overbrace{
-		\sum_{i \in \mathcal{S}_a} \hat h_V^{(i)}
+		\sum_{\mathbf{r} \in \mathcal{S}_a} \hat h_V^{(\mathbf{r})}
 	}^{\hat H_V^{\uparrow\downarrow}} + \overbrace{
-		\sum_{i \in \mathcal{S}_b} \hat h_V^{(i)}
+		\sum_{\mathbf{r} \in \mathcal{S}_b} \hat h_V^{(\mathbf{r})}
 	}^{\hat H_V^{\downarrow\uparrow}} \nonumber \\
-	&= \sum_{i \in \mathcal{S}} \hat h_V^{(i)} \label{eq:ehm-mft-nonlocal-opposite-spin}
+	&= \sum_{\mathbf{r} \in \mathcal{S}} \hat h_V^{(\mathbf{r})} \label{eq:ehm-mft-nonlocal-opposite-spin}
 \end{align}
-Here the notation of Fig.~\ref{subfig:antiferromagnet-sublattices} is used. The two-dimensional lattice is regular-square. For each site $i$ in a given sublattice, the nearest neighbors sites are four -- all in the other sublattice. The notation used is $i \pm \delta_x$, $i \pm  \delta_y$ as in Fig.~\ref{fig:square-nearest-neighbors}. Similarly, the same-spin (s.s.) hamiltonian decomposes as
+Here the notation of Fig.~\ref{subfig:antiferromagnet-sublattices} is used. For each site $i$ in a given sublattice, the nearest neighbors sites are four -- all in the other sublattice. Similarly, the same-spin (s.s.) hamiltonian decomposes as
 \[
-	\hat H_V^{(\mathrm{s.s.})} = -V \sum_{i \in \mathcal{S}_a} \sum_{\ell = x,y} \sum_\sigma \left(
-		\hat n_{i\sigma} \hat n_{i + \delta_\ell \sigma} + \hat n_{i\sigma} \hat n_{i - \delta_\ell \sigma} 
-	\right) 
+	\hat H_V^{(\mathrm{s.s.})} = -V \sum_{\mathbf{r} \in \mathcal{S}_a} \sum_{\bm{\delta},\sigma} \left(
+		\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}+\bm{\delta} \sigma} + \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}-\bm{\delta}\sigma}
+	\right)
+	\qq{with}
+	\bm{\delta} \in \lbrace
+		\underline{\mathbf{x}},\underline{\mathbf{y}}
+	\rbrace
 \]
-Note here the summation only on one sublattice. The non-local interaction contribution to energy, as a function of the $T=0$ full hamiltonian ground-state\footnote{
-	Extensions to finite temperatures is simple: minimization must be carried out on free energy, while expectation values must be taken in a thermodynamic fashion.
-} $\ket{\Psi}$, is given by
-\begin{align}
-	E_V [\Psi] &= \mel{\Psi}{\hat H_V}{\Psi} \nonumber \\
-	&= -V \sum_{\ev{ij}} \sum_{\sigma\sigma'} \langle
-	\hat n_{i\sigma} \hat n_{j\sigma'}
-	\rangle \nonumber \\
-	&= \underbrace{
-		-V \sum_{\ev{ij}} \sum_{\sigma} \langle
-		\hat n_{i\sigma} \hat n_{j\sigma}
-		\rangle
-	}_{\mathrm{s.s.}} \underbrace{
-		-V \sum_{\ev{ij}} \sum_{\sigma} \langle
-		\hat n_{i\sigma} \hat n_{j\overline{\sigma}}
-		\rangle
-	}_{\mathrm{o.s.}} \label{eq:ehm-non-local-ss-os-terms-2}
-\end{align}
-Shorthand notation has been used: $\mel{\Psi}{\cdot}{\Psi} = \langle \cdot \rangle$. 
-The ground-state must realize the condition
-\[
-\fdv{}{\bra{\Psi}} E[\Psi] = 0
-\]
-being $E[\Psi]$ the total energy (made up of the three terms of couplings $t$, $U$ and $V$). 
-
-{\color{tabred}[ Expand derivation. ]}
-
-The functional derivative must be carried out in a variational fashion including a Lagrange multiplier, the latter accounting for state-norm conservation, as is done normally in deriving the Hartree-Fock approximation for the eigenenergies of the electron liquid \cite{grosso2014solid, giuliani2005quantum}. 
+% Note here the summation only on one sublattice. The non-local interaction contribution to energy, as a function of the $T=0$ full hamiltonian ground-state\footnote{
+% 	Extensions to finite temperatures is simple: minimization must be carried out on free energy, while expectation values must be taken in a thermodynamic fashion.
+% } $\ket{\Psi}$, is given by
+% \begin{align}
+% 	E_V [\Psi] &= \mel{\Psi}{\hat H_V}{\Psi} \nonumber \\
+% 	&= -V \sum_{\ev{ij}} \sum_{\sigma\sigma'} \langle
+% 	\hat n_{i\sigma} \hat n_{j\sigma'}
+% 	\rangle \nonumber \\
+% 	&= \underbrace{
+% 		-V \sum_{\ev{ij}} \sum_{\sigma} \langle
+% 		\hat n_{i\sigma} \hat n_{j\sigma}
+% 		\rangle
+% 	}_{\mathrm{s.s.}} \underbrace{
+% 		-V \sum_{\ev{ij}} \sum_{\sigma} \langle
+% 		\hat n_{i\sigma} \hat n_{j\overline{\sigma}}
+% 		\rangle
+% 	}_{\mathrm{o.s.}} \label{eq:ehm-non-local-ss-os-terms-2}
+% \end{align}
+% Shorthand notation has been used: $\mel{\Psi}{\cdot}{\Psi} = \langle \cdot \rangle$.
+% The ground-state must realize the condition
+% \[
+% \fdv{}{\bra{\Psi}} E[\Psi] = 0
+% \]
+% being $E[\Psi]$ the total energy (made up of the three terms of couplings $t$, $U$ and $V$).
+%
+% {\color{tabred}[ Expand derivation. ]}
+%
+% The functional derivative must be carried out in a variational fashion including a Lagrange multiplier, the latter accounting for state-norm conservation, as is done normally in deriving the Hartree-Fock approximation for the eigenenergies of the electron liquid \cite{grosso2014solid, giuliani2005quantum}.
 
 \paragraph{Opposite-spin terms.}
 
-Consider first the o.s. terms of Eq.~\eqref{eq:ehm-non-local-ss-os-terms-2}: take e.g. the term $\hat n_{i\uparrow} \hat n_{i + \delta_x \downarrow}$. As in Eq.~\eqref{eq:mft-extended-hubbard-wick-decomposition}, Wick's Theorem states that, if the expectation value is performed onto a coherent state,
+Consider first the o.s. terms of Eq.~\eqref{eq:ehm-non-local-ss-os-terms-2}: take e.g. the NNs term $\hat n_{i\uparrow} \hat n_{\mathbf{r} + \bm{\delta} \downarrow}$. As in Eq.~\eqref{eq:mft-extended-hubbard-wick-decomposition}, taking Wick's contractions,
 \[
 \begin{aligned}
 	\langle 
-	\hat n_{i\uparrow} \hat n_{i + \delta_x \downarrow}
-	\rangle &= \langle 
-	\hat c_{i\uparrow}^\dagger \hat c_{i + \delta_x \downarrow}^\dagger \hat c_{i + \delta_x \downarrow} \hat c_{i\uparrow} 
+	\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r} + \bm{\delta} \downarrow}
+	\rangle &= \langle
+	\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r} + \bm{\delta} \downarrow}^\dagger \hat c_{\mathbf{r} + \bm{\delta} \downarrow} \hat c_{\mathbf{r}\uparrow}
 	\rangle \\
-	&= 
+	&\simeq
 	\underbrace{
 		\langle 
-		\hat c_{i\uparrow}^\dagger \hat c_{i + \delta_x \downarrow}^\dagger
+		\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r} + \bm{\delta} \downarrow}^\dagger
 		\rangle \langle	
-		\hat c_{i + \delta_x \downarrow} \hat c_{i\uparrow} 
+		\hat c_{\mathbf{r} + \bm{\delta} \downarrow} \hat c_{\mathbf{r}\uparrow}
 		\rangle 
 	}_{\text{Cooper}}
 	- 
 	\underbrace{
 		\langle 
-		\hat c_{i\uparrow}^\dagger \hat c_{i + \delta_x \downarrow}
+		\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r} + \bm{\delta} \downarrow}
 		\rangle \langle	
-		\hat c_{i + \delta_x \downarrow}^\dagger \hat c_{i\uparrow} 
+		\hat c_{\mathbf{r} + \bm{\delta} \downarrow}^\dagger \hat c_{\mathbf{r}\uparrow}
 		\rangle 
 	}_{\text{Fock}}
 	+ 
 	\underbrace{
 		\langle 
-		\hat c_{i\uparrow}^\dagger \hat c_{i\uparrow}
+		\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\uparrow}
 		\rangle \langle	
-		\hat c_{i + \delta_x \downarrow}^\dagger \hat c_{i + \delta_x \downarrow} 
+		\hat c_{\mathbf{r} + \bm{\delta} \downarrow}^\dagger \hat c_{\mathbf{r} + \bm{\delta} \downarrow}
 		\rangle
 	}_{\text{Hartree}}
 \end{aligned}
@@ -301,45 +490,45 @@ Identical decompositions are given for all others NNs. Of the three terms above:
 \begin{itemize}
 	\item The Coooper term breaks $\mathrm{U}^\mathrm{c}(1)$ charge symmetry, allowing for supeconducting instabilities;
 	\item The Fock term breaks the $\mathrm{U}^z(1)$ symmetry, because it accounts for a site hop \textit{plus} spin flip process;
-	\item The Hartree term can break translational invariance (based on our Ansatz on the expectation value), because the mean-field to interact with is given by the local density. $\mathrm{SU}(2)$ symmetry is also broken, because we do not have spin DoF perfect degeneracy anymore, but $\mathrm{U}^z(1)$ symmetry still holds.
+	\item The Hartree term can reduce both translational invariance and spin rotational symmetry.
 \end{itemize}
-As a general rule of thumb, throughout this text we will discard the o.s. Fock term eveywhere. For the normal state as well as for the AF instability only the Hartree term is to be accounted; in superconducting instability also the Cooper term contributes. Note that for superconducting instabilities, due to superexchange mechanism (as explained in App.~\ref{appendix:mean-field-hubbard}) the o.s. term account for singlet pairing as well as zero-spin triplet pairing. Which channel is preferred, is a matter of thermodynamic advantage.
+As a general rule of thumb, throughout this text we will discard the o.s. Fock term eveywhere, preserving a robust $\mathrm{U}^z(1)$ symmetry. For the normal state as well as for the AF instability only the Hartree term is to be accounted; in superconducting instability also the Cooper term contributes. Note that for superconducting instabilities, due to superexchange mechanism (as explained in App.~\ref{appendix:mean-field-hubbard}) the o.s. term account for singlet pairing as well as zero-projection triplet pairing. Which channel is preferred, is a matter of thermodynamic advantage.
 
-\paragraph{Same-spin terms.} Consider then the same-spin terms: take e.g. the term $\hat n_{i\uparrow} \hat n_{i + \delta_x \uparrow}$. As above,
+\paragraph{Same-spin terms.} Consider then the same-spin terms: take e.g. the term $\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r} + \bm{\delta} \uparrow}$. As above,
 \[
 \begin{aligned}
 	\langle 
-	\hat n_{i\uparrow} \hat n_{i + \delta_x \uparrow}
+	\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r} + \bm{\delta} \uparrow}
 	\rangle &= \langle 
-	\hat c_{i\uparrow}^\dagger \hat c_{i + \delta_x \uparrow}^\dagger \hat c_{i + \delta_x \uparrow} \hat c_{i\uparrow} 
+	\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r} + \bm{\delta} \uparrow}^\dagger \hat c_{\mathbf{r} + \bm{\delta} \uparrow} \hat c_{\mathbf{r}\uparrow}
 	\rangle \\
 	&= 
 	\underbrace{
 		\langle 
-		\hat c_{i\uparrow}^\dagger \hat c_{i + \delta_x \uparrow}^\dagger
+		\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r} + \bm{\delta} \uparrow}^\dagger
 		\rangle \langle	
-		\hat c_{i + \delta_x \uparrow} \hat c_{i\uparrow} 
+		\hat c_{\mathbf{r} + \bm{\delta} \uparrow} \hat c_{\mathbf{r}\uparrow}
 		\rangle 
 	}_{\text{Cooper}}
 	- 
 	\underbrace{
 		\langle 
-		\hat c_{i\uparrow}^\dagger \hat c_{i + \delta_x \uparrow}
+		\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r} + \bm{\delta} \uparrow}
 		\rangle \langle	
-		\hat c_{i + \delta_x \uparrow}^\dagger \hat c_{i\uparrow} 
+		\hat c_{\mathbf{r} + \bm{\delta} \uparrow}^\dagger \hat c_{\mathbf{r}\uparrow}
 		\rangle 
 	}_{\text{Fock}}
 	+ 
 	\underbrace{
 		\langle 
-		\hat c_{i\uparrow}^\dagger \hat c_{i\uparrow}
+		\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\uparrow}
 		\rangle \langle	
-		\hat c_{i + \delta_x \uparrow}^\dagger \hat c_{i + \delta_x \uparrow} 
+		\hat c_{\mathbf{r} + \bm{\delta} \uparrow}^\dagger \hat c_{\mathbf{r} + \bm{\delta} \uparrow}
 		\rangle
 	}_{\text{Hartree}}
 \end{aligned}
 \]
-Identical consideration as in the above paragraph hold for each term. The only difference with the o.s. terms is given by the Fock term: since the spin-flip process is absent, now the Fock fluctuations actually contribute as an effective NN hopping term. In other words, this term does not break $\mathrm{U}^z(1)$ symmetry and thus is perfectly legitimate in each phgase. Tab.~\ref{tab:V-wick-terms-phases} summarizes the selection rules hereby presented.
+Identical consideration as in the above paragraph hold for each term. The only difference with the o.s. terms is given by the Fock term: since the spin-flip process is absent, now the Fock fluctuations actually contribute as an effective NN hopping term. In other words, this term does not break $\mathrm{U}^z(1)$ symmetry and thus is perfectly legitimate in each phase. Tab.~\ref{tab:V-wick-terms-phases} summarizes the selection rules hereby presented.
 
 \begin{table}
 	\centering
@@ -359,58 +548,57 @@ Identical consideration as in the above paragraph hold for each term. The only d
 	\label{tab:V-wick-terms-phases}
 \end{table}
 
-As a final remark, notice that the superconducting instabilities of the s.s. terms account only for triplet pairing. The only possible superconducting ordering established by the means of these terms is odd in real space. Then $s$-wave and $d$-wave superconductivity cannot establish in this channel; $p_\ell$-wave superconductivity, instead, can.
-
 \subsection{Reciprocal space transform of the model interactions}\label{subsec:mft-discussion-reciprocal-interactions}
 
 It is useful to derive analytically the reciprocal-space form of both the $U$ and $V$ interactions. By the sign $\Feq$, we indicate a passage where a Fourier-transform is performed.
 
-\paragraph{Non-local attraction.} Consider a generic bond, say, the one connecting sites $j$ and $j\pm\delta_\ell$ (variable $i$ is here referred to as the imaginary unit to avoid confusion). $\mathbf{x}_j$ is the $2$D notation for the position of site $j$, while $\bm{\delta}_\ell$ is the $2$D notation for the lattice spacing previously indicated as $\delta_\ell$. Fourier transform it according to the convention
+\paragraph{Non-local attraction.} Consider a generic bond, say, the one connecting NNs $\mathbf{r}$ and $\mathbf{r}\pm\bm{\delta}$. Fourier transform it according to the convention
 \[
-	\hat c_{j\sigma} \Feq \frac{1}{\sqrt{L_xL_y}} \sum_{\mathbf{k} \in \mathrm{BZ}} e^{-i \mathbf{k} \cdot \mathbf{x}_j} \hat c_{\mathbf{k}\sigma}
+	\hat c_{\mathbf{r}\sigma} \Feq \frac{1}{\sqrt{L_xL_y}} \sum_{\mathbf{k} \in \mathrm{BZ}} e^{-i \mathbf{k} \cdot \mathbf{r}} \hat c_{\mathbf{k}\sigma}
 \]
 Then:
 \[
 \begin{aligned}
-	\hat n_{j\sigma} \hat n_{j \pm \delta_\ell \sigma'} &= \hat c_{j\sigma}^\dagger \hat c_{j \pm \delta_\ell \sigma'}^\dagger \hat c_{j \pm \delta_\ell \sigma'} \hat c_{j\sigma} \\
-	&\Feq \frac{1}{(L_xL_y)^2} \sum_{\nu=1}^4 \sum_{\mathbf{k}_\nu \in \mathrm{BZ}} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{x}_j} e^{\pm i(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}_\ell}  \hat c_{\mathbf{k}_1 \sigma}^\dagger \hat c_{\mathbf{k}_2 \sigma'}^\dagger \hat c_{\mathbf{k}_3 \sigma'} \hat c_{\mathbf{k}_4\sigma}
+	\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} \pm \bm{\delta} \sigma'} &= \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \sigma'}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \sigma'} \hat c_{\mathbf{r}\sigma} \\
+	&\Feq \frac{1}{(L_xL_y)^2} \sum_{\mathbf{k}_1,\cdots,\mathbf{k}_4}
+	e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} e^{\pm i(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}}  \hat c_{\mathbf{k}_1 \sigma}^\dagger \hat c_{\mathbf{k}_2 \sigma'}^\dagger \hat c_{\mathbf{k}_3 \sigma'} \hat c_{\mathbf{k}_4\sigma}
 \end{aligned}
 \]
-Then, the interaction at site $j$, spin $\sigma$ with its NNs at spin $\sigma'$ -- indicated as $(j\sigma\sigma')$ -- is given by
+Then, the interaction at site $\mathbf{r}$, spin $\sigma$ with its NNs at spin $\sigma'$ -- indicated as $(\mathbf{r}\sigma\sigma')$ -- is given by
 \[
 \begin{aligned}
-	(j\sigma\sigma') &= -V \sum_{\ell = x,y} \sum_{\delta = \pm \delta_\ell} \hat n_{j\sigma} \hat n_{j \pm \delta_\ell \sigma'} \\
-	&\Feq -\frac{V}{(L_xL_y)^2} \sum_{\ell = x,y} \sum_{\nu=1}^4 \sum_{\mathbf{k}_\nu \in \mathrm{BZ}} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{x}_j} \\
+	(\mathbf{r}\sigma\sigma') &= -V \sum_{\bm{\delta}} \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} \pm \bm{\delta} \sigma'} \\
+	&\Feq -\frac{V}{(L_xL_y)^2} \sum_{\bm{\delta}} \sum_{\mathbf{k}_1,\cdots,\mathbf{k}_4} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} \\
 	&\hspace{0.3\textwidth} \times \left(
-	e^{ i(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}_\ell} + e^{ -i(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}_\ell} 
+	e^{ i(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}} + e^{ -i(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}}
 	\right)
 	\hat c_{\mathbf{k}_1 \sigma}^\dagger \hat c_{\mathbf{k}_2 \sigma'}^\dagger \hat c_{\mathbf{k}_3 \sigma'} \hat c_{\mathbf{k}_4\sigma} \\
-	&= -\frac{2V}{(L_xL_y)^2} \sum_{\ell = x,y} \sum_{\nu=1}^4 \sum_{\mathbf{k}_\nu \in \mathrm{BZ}} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{x}_j} \cos\left[
-	(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}_\ell
+	&= -\frac{2V}{(L_xL_y)^2} \sum_{\bm{\delta}} \sum_{\mathbf{k}_1,\cdots,\mathbf{k}_4} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} \cos\left[
+	(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}
 	\right]	\hat c_{\mathbf{k}_1 \sigma}^\dagger \hat c_{\mathbf{k}_2 \sigma'}^\dagger \hat c_{\mathbf{k}_3 \sigma'} \hat c_{\mathbf{k}_4\sigma}
 \end{aligned}
 \]
 The full non-local interaction is given by summing over all sites of $\mathcal{S}_a$ (which is, half the sites of $\mathcal{S}$). This gives back momentum conservation,
 \[
-\frac{1}{L_xL_y} \sum_{j \in \mathcal{S}_a} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{x}_j} = \frac{1}{2} \delta_{\mathbf{k}_1 + \mathbf{k}_2 = \mathbf{k}_3 + \mathbf{k}_4}
+	\frac{1}{L_xL_y} \sum_{\mathbf{r} \in \mathcal{S}_a} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} = \frac{1}{2} \delta_{\mathbf{k}_1 + \mathbf{k}_2 = \mathbf{k}_3 + \mathbf{k}_4}
 \]
 Let $\mathbf{k}_1 + \mathbf{k}_2 = \mathbf{k}_3 + \mathbf{k}_4 = \mathbf{K}$, and define $\mathbf{k}$, $\mathbf{k}'$ such that
 \[
-\mathbf{k}_1 \equiv \mathbf{K} + \mathbf{k} 
-\qquad
-\mathbf{k}_2 \equiv \mathbf{K} - \mathbf{k} 
-\qquad
-\mathbf{k}_3 \equiv \mathbf{K} - \mathbf{k}' 
-\qquad
-\mathbf{k}_4 \equiv \mathbf{K} + \mathbf{k}'
-\qquad
-\delta \mathbf{k} \equiv \mathbf{k}-\mathbf{k}'
+	\mathbf{k}_1 \equiv \mathbf{K} + \mathbf{k}
+	\qquad
+	\mathbf{k}_2 \equiv \mathbf{K} - \mathbf{k}
+	\qquad
+	\mathbf{k}_3 \equiv \mathbf{K} - \mathbf{k}'
+	\qquad
+	\mathbf{k}_4 \equiv \mathbf{K} + \mathbf{k}'
+	\qquad
+	\delta \mathbf{k} \equiv \mathbf{k}-\mathbf{k}'
 \]
 Sums over these variables must be intended as over the Brillouin Zone ($\mathrm{BZ}$). Hence:
 \begin{align}
-	\hat H_V &= \sum_{j \in \mathcal{S}_a} \sum_{\sigma\sigma'} (j\sigma\sigma') \nonumber \\
-	&\Feq - \frac{V}{L_x L_y} \sum_{\sigma\sigma'} \sum_{\ell = x,y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \cos\left(
-		\delta \mathbf{k} \cdot \bm{\delta}_\ell
+	\hat H_V &= \sum_{\mathbf{r} \in \mathcal{S}_a} \sum_{\sigma\sigma'} (\mathbf{r}\sigma\sigma') \nonumber \\
+	&\Feq - \frac{V}{L_x L_y} \sum_{\sigma\sigma'} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \cos\left(
+		\delta \mathbf{k} \cdot \bm{\delta}
 	\right)	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \sigma'}^\dagger \hat c_{\mathbf{K}-\mathbf{k}' \sigma'} \hat c_{\mathbf{K}+\mathbf{k}'\sigma} \nonumber \\
 	&= - \frac{V}{L_x L_y} 	\sum_{\sigma\sigma'}
 	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
@@ -510,17 +698,18 @@ which will be used explicitly later on.
 
 A somewhat identical argument can be carried out for the local interaction,
 \[
-	\hat H_U = U \sum_{i \in \mathcal{S}} \hat n_{i\uparrow} \hat n_{i\downarrow}
+	\hat H_U = U \sum_{\mathbf{r} \in \mathcal{S}} \hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}\downarrow}
 \]
 The only difference here is made by the fact that the interaction is repulsive on-site, thus the final structure factor in the Fourier transform disappears as well as the minus sign,
 \begin{equation} \label{eq:reciprocal-space-local-interaction-explicit}
 	\hat H_U \Feq \frac{U}{L_x L_y}
 	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \downarrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}' \downarrow} \hat c_{\mathbf{K}+\mathbf{k}' \uparrow}
 \end{equation}
-When contracting these fermionic operators, identical considerations as for the non-local counterpart \eqref{eq:HV-fourier} hold. Note the similarity of this Fourier transform with the o.s. sector of the non-local attraction, given in Eq.~\eqref{eq:HV-fourier}.
+When contracting these fermionic operators, identical considerations as for the non-local counterpart \eqref{eq:HV-fourier} hold. Note the similarity of this Fourier transform with the o.s. sector of the non-local attraction, given in Eq.~\eqref{eq:HV-fourier}. With this, we conclude the general introduction to the model and pass to the setup of the Hartree-Fock (HF) algorithm.
 
-\section{General computational approach to MFT}\label{sec:computational-mft}
-\todo
+\section{General approach MFT through iterative Hartree-Fock algorithms}\label{sec:computational-mft}
+
+This section is devoted to the explanation of the general iterative strategy we use to simulate the EHM within MFT. The simplicity of the algorithm is only possible thanks to the violent reduction of complexity MFT is able to reach. We use an iterative self-consistent scheme, thus solving a finite set of equation searching for a fixed point in parameters space for each phase.
 
 \subsection{Sketch of the Hartree-Fock iterative algorithm}\label{subsec:hf-sketch}
 
@@ -570,6 +759,8 @@ A self consistent Hartree-Fock scheme goes as follows:
 		\item Initialize the new effective hamiltonian $\hat H^{(\mathrm{eff})}[C',D']$ and repeat the cycle until the HFPs have converged to stable values.
 	\end{enumerate}
 \end{enumerate}
+The stable values we are referring to in the last point are our solutions. The resulting vector is a fixed point in the parametric recursive map defined by the set of MFT self-consistent equations.
+
 Of course, to work any of these algorithms we need to know how to diagonalize the hamiltonian. In the context of the Extended Hubbad Model at thermal equilibrium, due to the phases we are simulating, we know analytically the diagonalized hamiltonian, and making use of this knowledge we are able to reduce the self consistent scheme to a simple iterative algorithm. An explicit example of HF algorithm used in present text, somewhat simplified due to the presence of a single HFP, is given in App.~\ref{appsubsec:hartree-fock-algorithm}.
 
 \subsection{Self-consistency and RMPs}
@@ -580,10 +771,7 @@ Let us invent a relevant example to explain the concept of RMP. Suppose that und
 \[
 	t \stackrel{V}{\to} \tilde{t}
 \]
-In other words, the decomposition of $\hat H_V$ produces a free Fermionic hamiltonian whose diffusive parameter is $\tilde{t}$. We define $\tilde{t}$ as an RMP, being the result of the original model parameter $t$ plus the effect of interactions. 
-
-\subsection{Algorithm parametrization}
-\todo
+In other words, the decomposition of $\hat H_V$ produces a free Fermionic hamiltonian whose diffusive parameter is $\tilde{t}$. We define $\tilde{t}$ as an RMP, being the result of the original model parameter $t$ plus the effect of interactions.
 
 \subsection{Fixed density simulations and the role of $\mu$}\label{subsec:fixed-density-role-mu}
 
@@ -630,11 +818,12 @@ Of course, in the first line $\mu N$ is derived to zero. The constraint is impos
 \]
 being $\Omega$ the expectation value (EV) of $\hat K$. In the last passage we wrote everything in terms of functionals of the HFPs vector $\mathbf{v}$. Using this relation, when the algorithm has converged, we can estimate the physical energy.
 
-\section{The role of $2$D symmetry channels}
+\section{Square lattice spatial symmetry channels}\label{sec:square-lattice-symmetries}
 
-Looking at $\hat H$, the main difference between its two-body interactions $\hat H_U$ and $\hat H_V$ of course relies in locality (first) and non-locality (second). As any two-body interaction, $\hat H_V$ can be decomposed in harmonics. At a first look one may think that, being the potential symmetric by $\pi/2$ rotations on the lattice, the resulting ground state should exhibit only properties with identical symmetry. However this is not the case: said symmetry is a property of the hamiltonian operator on the square lattice, however the resulting ground state is a composite object living in a many-body Fock space, \todo
+In next sections we introduce spatial symmetry structures and discuss their relation with point groups. We will aways refer to various spatial structures as ``symmetry channels'', throughout the system is able to establish a given order parameter defined in space.
 
-\subsection{Square lattice spatial symmetry structures}
+Looking at $\hat H$, the main difference between its two-body interactions $\hat H_U$ and $\hat H_V$ of course relies in locality (first) and non-locality (second). Both operators in principle are able to break $\mathrm{C}_4$ symmetry, as will later be discussed extensively.
+
 
 \begin{figure}
 	\centering
@@ -665,11 +854,11 @@ Looking at $\hat H$, the main difference between its two-body interactions $\hat
 	\label{fig:x-wave-real-factors}
 \end{figure}
 
-For the $2$D square lattice, various spatial symmetries are possible. Let $i$ be a specific site, and consider a generic function $g_{ij}$ whose domain is given by the site itself and its four NNs (the domain concides with the points of Fig.~\ref{fig:square-nearest-neighbors}). Then it is immediate to see that the function can be written in the following basis
+For the $2$D square lattice, various spatial symmetries are possible. Let $i$ be a specific site, and consider a generic complex function $g_{ij}$ whose domain is given by the site itself and its four NNs (the domain concides with the points of Fig.~\ref{fig:square-nearest-neighbors}). Then it is immediate to see that the function can be written in the following basis
 \[
 	g_{ij} = \sum_\gamma g^{(\gamma)} \varphi_{ij}^{(\gamma)}
 \]
-where $g^{(\gamma)}$ are the $g_{ij}$ symmetries-decomposition coefficients while $\varphi_{ij}^{(\gamma)}$ are the form factors listed in Tab.~\ref{tab:x-wave-real-factors} and plotted in Fig.~\ref{fig:x-wave-reciprocal-factors}, a simple orthonormal rearrangement of the harmonics basis.
+where $g^{(\gamma)} \in \mathbb{C}$ are the $g_{ij}$ symmetries-decomposition coefficients while $\varphi_{ij}^{(\gamma)}$ are the form factors listed in Tab.~\ref{tab:x-wave-real-factors} and plotted in Fig.~\ref{fig:x-wave-reciprocal-factors}, a simple orthonormal rearrangement of the harmonics basis.
 
 \setlength{\extrarowheight}{1em}
 \begin{table}
@@ -699,12 +888,7 @@ where $g^{(\gamma)}$ are the $g_{ij}$ symmetries-decomposition coefficients whil
 \end{table}
 \setlength{\extrarowheight}{0em}
 
-{\color{tabred}
-Antiferromagnetic ordering considered in this text exhibits a perfect $s \oplus s^*$ topological ordering. Instead, superconductivity is established with a given symmetry -- which means, symmetry breaking in the phase transition proceeds in a specific channel. Conventional $\mathrm{BCS}$ superconductivity arises from the only possible spatial structure of the local pairing, $s$-wave -- here appearing as a local term (Fig.~\ref{subfig:s-wave-correlator}) and extended on a non-local term (Fig.~\ref{subfig:s*-wave-correlator}). Cuprates exhibit a tendency towards $d_{x^2-y^2}$ SC, while other materials towards $p$-wave types -- eventually with some chirality, as is the case for $p_x \pm i p_y$ SCs. To establish SC under a certain symmetry $\gamma$ means that Cooper pairs acquire said symmetry.
-}
-\subsection{Symmetry channels structure factors decomposition}\label{subsec:symmetry-channels-decomposition}
-
-When dealing with phases which respect translational symmetry, or at most reduce it to a weaker symmetry by shrinking the Brillouin Zone, it' useful to work in reciprocal space, as discussed in Sec.~\ref{sec:mft-analysis-reciprocal-space}. As said, a particular phase can show specific spatial symmetries, and so will the Hartree Fock parameters. The key point to notice is that self-consistent equations involve sums (or integrals) to be computed over fermionic states, which can be heavily simplified by employing said symmetries. Consider the form factors of Tab.~\ref{tab:x-wave-real-factors}, and their Fourier transforms of Tab.~\ref{tab:x-wave-reciprocal-factors}. They satisfy the relations:
+When dealing with phases which respect translational symmetry, or at most reduce it to a weaker symmetry by shrinking the Brillouin Zone, it' useful to work in reciprocal space, as discussed in Sec.~\ref{sec:mft-discussion-non-local-source}. As said, a particular phase can show specific spatial symmetries, and so will the Hartree Fock parameters. The key point to notice is that self-consistent equations involve sums (or integrals) to be computed over fermionic states, which can be heavily simplified by employing said symmetries. Consider the form factors of Tab.~\ref{tab:x-wave-real-factors}, and their Fourier transforms of Tab.~\ref{tab:x-wave-reciprocal-factors}. They satisfy the relations:
 \[
 	\frac{1}{L_x L_y} \sum_{ij} \varphi_{ij}^{(\gamma)} \varphi_{ij}^{(\gamma)*} = \delta_{\gamma\gamma'}
 	\qquad
