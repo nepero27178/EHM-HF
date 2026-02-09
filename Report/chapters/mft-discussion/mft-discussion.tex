@@ -27,7 +27,7 @@ At the end of this section, in Tab.~\ref{tab:symmetry-groups} we summarize all s
 \subsection{Spatial and topological symmetries}\label{subsec:spatial-syms}
 
 
-Let us start from the trivial topology of the lattice we are working on. The EHM of Eq.~\eqref{eq:extended-hubbard-model} is evidently translational invariant on both the $x$ and $y$ directions. We refer to these groups as $\mathrm{T}_1^{(x)}$, $\mathrm{T}_1^{(x)}$. The $1$ subscript indicates the one-site translations under which the model is symmetric.
+Let us start from the trivial topology of the lattice we are working on. The EHM of Eq.~\eqref{eq:extended-hubbard-model} is evidently translational invariant on both the $x$ and $y$ directions. We refer to these groups as $\mathrm{T}_1^{(x)}$, $\mathrm{T}_1^{(x)}$. The ``$1$'' subscript indicates the one-site translations under which the model is symmetric.
 
 Evidently, the following statement holds:
 \[
@@ -35,13 +35,13 @@ Evidently, the following statement holds:
 	\qquad
 	k\in\mathbb{R}
 \]
-A model which is invariant for $n$-sites translations in the $\ell$ direction, also is for $kn$-sites translations. Then we can break translation symmetry in a given direction reducing it to a smaller group, say
+A model which is invariant for $n$-sites translations in the $\ell$ direction, also is for $kn$-sites translations. Then we can break translation symmetry in a given direction reducing it to a smaller group. For example, the commensurate AF phase we analyze halves translational invariance,
 \[
 	\mathrm{T}_1^{(\ell)}
-	\quad\stackrel{\mathrm{SSB}}{\to}\quad
+	\quad\SSB\quad
 	\mathrm{T}_2^{(\ell)}
 \]
-This is precisely what happens in the AF phase.
+since it deals with two-site periodic spin-density waves (SDWs); insted the SC phase preserves translational invariance.
 
 Another natural symmetry of the EHM is the four-fold point group $\mathrm{C}_4$ of $\pi/2$ rotations, expressing the square lattice property being mapped onto itself under said rotations. A similar property as for the translations hold for point groups,
 \[
@@ -49,13 +49,19 @@ Another natural symmetry of the EHM is the four-fold point group $\mathrm{C}_4$ 
 	\qquad
 	k, n/k \in\mathbb{R}
 \]
-which expresse the fact that, if a system is topologically invariant under $n$-fold rotations and $k \in \mathbb{R}$ exists such that $n/k \in \mathbb{R}$, then the smaller point group is automatically included. As for translations, we can break the point group reducing it to a smaller subgroup, say
+which expresses the fact that, if a system is topologically invariant under $n$-fold rotations and $k \in \mathbb{R}$ exists such that $n/k \in \mathbb{R}$, then the smaller point group is automatically included. As for translations, we can break the point group reducing it to a smaller subgroup, say
 \[
 	\mathrm{C}_4
-	\quad\stackrel{\mathrm{SSB}}{\to}\quad
+	\quad\SSB\quad
 	\mathrm{C}_2
 \]
-This is what happens with the effective arising of anisotropic corrections to the kinetic hamiltonian due to non-local interactions, as will be discussed in Sec.~\ref{sec:normal-phase}.
+This is what happens in general with the effective arising of anisotropic corrections to the kinetic hamiltonian due to non-local interactions, as will be discussed in Sec.~\ref{sec:normal-fock-bands-renormalization}. For our purposes, we will leave $\mathrm{C}_4$ unbroken both in the AF and SC phases.
+
+Finally, the system also is inversion-symmetric: let $\mathrm{I}_2$ be the inversion group on the two-dimensional square lattice, containing trivially just the inversion operator and the identity. In general, rotations and mirroring are different operations from a group-theoretical point of view. However, when it comes to the square lattice, operatively it holds
+\[
+	\mathrm{I}_2 \equiv \mathrm{C}_2
+\]
+To rotate by $\pi$ is the same as to mirror the lattice. The inversion symmetry is then already included in $\mathrm{C}_4$, and we leave it unspecified.
 
 \subsection{Spin and charge symmetries}\label{subsec:spin-charge-syms}
 
@@ -91,11 +97,9 @@ The last point is important: for the AF phase, for example, there is no need for
 		\input{\GraphicsFolder/su2-u1-reduced-symmetry.tex}
 		\label{subfig:u1-domain}
 	}
-	\caption{Graphic representation of the concept of $\mathrm{SU}(2)\to\mathrm{U}(1)$ SSB. The blue color identifies, in both cases, the rotations domain for the current symmetry. When SSB takes place in a magnetic phase, the magnetization order parameter acquires a precise direction which was previously invariant over the full spherical domain. After SSB, the hamiltonian is rotationally invariant only for rotations \textit{around} the selected magnetization vector.}
+	\caption{Graphic representation of the concept of $\mathrm{SU}(2)\to\mathrm{U}^z(1)$ SSB. The blue color identifies, in both cases, the rotations domain for the current symmetry. When SSB takes place in a magnetic phase, the magnetization order parameter acquires a precise direction which was previously invariant over the full spherical domain. After SSB, the hamiltonian is rotationally invariant only for rotations \textit{around} the selected magnetization vector.}
 	\label{fig:su2-u1-domains}
 \end{figure}
-
-Different phases are described by different order parameters, each one exhibiting a specific symmetry subset from the initial set, while the rest are broken. Ferromagnetic state perform $\mathrm{SU}(2) \to \mathrm{U}^z(1)$ spontaneous symmetry breaking (SSB), through the magnetic order parameter acquiring a specific spatial direction. AF ordering breaks also translational invariance (reducing it to a smaller symmetry, relative to double-sized unitary cells). Basic SC models do not break translational invariance and can preserve full $\mathrm{SU}(2)$ symmetry, while breaking $\mathrm{U}^\mathrm{c}(1)$ charge conservation. None of the phases hereby considered do completely break translational invariance: the latter either is left untouched or is reduced to a weaker translational invariance. Because of this, it will be rather useful to move the framework to reciprocal space. We will get there in Sec.~\ref{subsec:mft-discussion-reciprocal-non-local}. This discussion is summarized in Tab.~\ref{tab:phases-symmetries}, where we report the various SSBs for AF and SC phases.
 
 \begin{table}
 	\centering
@@ -113,7 +117,7 @@ Different phases are described by different order parameters, each one exhibitin
 
 \subsection{Particle-hole symmetry at half-filling}\label{subsec:half-filling-ph-sym}
 
-The half-filled EHM is of particular interest due to its particle-hole symmetry (PHS), which is immediately distrupted at infinitesimal doping. Let us prove that for the EHM. Consider the generic unitary operation
+The half-filled EHM is of particular interest due to its particle-hole symmetry (PHS), which is immediately distrupted at infinitesimal doping. Let us prove that. Consider the generic unitary operation
 \[
 	\mathrm{P}
 	\quad\colon\quad
@@ -136,11 +140,11 @@ For the two interactions $\hat H_U$, $\hat H_V$ the phase factors cancelled out.
 	- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'} \hat h_{j\sigma'} \hat h_{i\sigma}
 \]
 
-Before starting the derivation, let us discuss some properties of the hole operators. For the hole operators, due to the presence of the phase factors in the PHS operative definition, the Fermi anticommutation rules hold regardless of the phase factor:
+Before starting the derivation, an extension of the argument of \citeauthor{arovas2022hubbard} \cite{arovas2022hubbard} about the conventional HM, let us discuss some properties of the hole operators. Due to the presence of the phase factors in the PHS operative definition, the Fermi anticommutation rules hold regardless of the phase factor:
 \[
 \begin{aligned}
-	\lbrace \hat h_{i\sigma}, \hat h_{j\sigma'}^\dagger \rbrace &= e^{i(\eta_i-\eta_j)} \lbrace \hat c_{i\sigma}^\dagger, \hat c_{j\sigma'} \rbrace \\
-	&= e^{i(\eta_i-\eta_j)} \delta_{ij} \delta_{\sigma\sigma'} \\
+	\lbrace \hat h_{i\sigma}, \hat h_{j\sigma'}^\dagger \rbrace &= e^{i(\eta_{i\sigma}-\eta_{j\sigma'})} \lbrace \hat c_{i\sigma}^\dagger, \hat c_{j\sigma'} \rbrace \\
+	&= e^{i(\eta_{i\sigma}-\eta_{j\sigma'})} \delta_{ij} \delta_{\sigma\sigma'} \\
 	&= \delta_{ij} \delta_{\sigma\sigma'}
 \end{aligned}
 \]
@@ -180,6 +184,8 @@ It suffices to anticommute the two fermionic operators, and exchange site labels
 A necessary condition on the unitary operation $\mathrm{P}$ is the following,
 \[
 	\eta_{i\sigma} + \eta_{j\sigma} = (2k-1)\pi
+	\qq{with}
+	k\in\mathbb{Z}
 \]
 valid for NN sites.
 
@@ -195,7 +201,7 @@ Substitute in $\hat H_U$ the above derivation,
 	&= U \sum_i \hat h_{i\uparrow}^\dagger \hat h_{i\downarrow}^\dagger \hat h_{i\downarrow}\hat h_{i\uparrow} + U (\hat N - L_x L_y)
 \end{aligned}
 \]
-having we used in the last passage the inverse $\hat h \to \hat c$ map to recognize a number operator. Thus, a state realizing
+Thus, a state realizing
 \[
 	\langle \hat N \rangle = L_x L_y
 \]
@@ -210,10 +216,15 @@ Proceed identicall for $\hat H_V$,
 	&= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \left(
 		\hat n_{i\sigma} + \hat n_{j\sigma'}
 	\right) + V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} (1) \\
-	&= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} + 2zV (\hat N - L_x L_y)
+	&= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} - 2zV (\hat N - L_x L_y)
 \end{aligned}
 \]
-with $z=4$ the lattice coordination number. As before, an half-filled phase preserves PHS in the non-local sector. In last passage we used the fact that summing over NNs means overcounting each site $z/2$ times, and spin degeneracy.
+with $z=4$ the lattice coordination number. In the last passage, we used that on the square lattice
+\begin{align}
+	\sum_{\ev{ij}} (1) &= \sum_{i\in\mathcal{S}/2} \sum_{j\in\mathrm{NN}(i)} (1) \nonumber \\
+	&= \frac{L_x L_y}{2} \times z \label{eq:square-NN-ghost-sum}
+\end{align}
+which will turn out quite often. As before, an half-filled phase preserves PHS in the non-local sector. In last passage we used the fact that summing over NNs means overcounting each site $z/2$ times, and spin degeneracy.
 
 No other condition on phases is derived, thus we conclude the half-filled EHM preserves PHS if the two sublattices $\mathcal{S}_a$, $\mathcal{S}_b$ the square lattice can be divided into, being a (trivial) bipartite lattice, differ by a $\pi$ phase difference under PHS transform. In other words, if $\mathrm{P}$ is defined by the unitary operation
 \[
@@ -236,13 +247,13 @@ Any other phase choice, as long as it alternates by $\pi$ on the two sublattices
 	\begin{tabular}{c l}
 		\textbf{Symmetry} & \textbf{Operations} \\
 		\midrule
-		\mathrm{T}_\ell & Discrete translations in the $\ell \in \lbrace x,y \rbrace$ directions separately \\
-		\mathrm{C}_4 & Four-fold point group \\
+		$\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$ & One-site discrete translations separately in both directions \\
+		$\mathrm{C}_4$ & Four-fold point group (real $\pi/2$ angle rotations) \\
 		$\mathrm{U}^\mathrm{c}(1)$ & Charge-conserving global phase shifts \\
 		$\mathrm{SU}(2)$ & Three-dimensional rotations in spin space \\
 		PHS & Particle-hole exchange (only at half filling) \\
 		\midrule
-		$\mathrm{U}^z(1)$ & Reduced two-dimensional rotations around order parameter after SSB \\
+		$\mathrm{U}^z(1)$ & Reduced two-dimensional rotations in spin space\\
 		\midrule
 	\end{tabular}
 	\caption{Model symmetries and relative group operations. Note that $\mathrm{U}^\mathrm{c}(1)$ represents the charge conserving group, while $\mathrm{U}^z(1)$ represents the subgroup obtained by breaking the $\mathrm{SU}(2)$ symmetry with a vector order parameter and preserving its amplitude. Since the latter is ``derived'' from $\mathrm{SU}(2)$, we write it separated from the four main symmetries of the model.}
@@ -333,12 +344,14 @@ which contracts in three different ways following Wick's Theorem:
 		\rangle
 	}_{\text{Hartree}}
 \end{equation}
+where the $-$ sign in the Fock term comes from fermionic anticommutation rules.
+
 As a first approximation, the theorem is assumed to hold (which, in a $\mathrm{BCS}$-like fashion, is equivalent to assuming for the ground-state to be a coherent state). The AF ground state reduces translational invariance and rotational symmetry, as explained in Tab.~\ref{tab:phases-symmetries}. Thus, of the three terms above, when considering the pure Hubbard model in AF phase:
 \begin{itemize}
 	\item Cooper fluctuations are suppressed, because they break charge conservation;
 	\item Similarly the Fock term is null as well because if $i=j$ and $\sigma'=\overline{\sigma}$ (as is for the local interaction, which contains the operator $\hat n_{i\uparrow} \hat n_{i\downarrow}$) the expectation values involved are describing a process breaking the survivor $\mathrm{U}^z(1)$ spin symmetry. 
 \end{itemize}
-Thus, correctly, the Wick's decomposition of pure HM only involves Hartree-terms of Eq.~\eqref{eq:mft-extended-hubbard-wick-decomposition}, getting us back to \eqref{eq:mft-pure-hubbard-wick-decomposition}. The distinction between the normal phase and the AF phase id given by whether the Hartree fluctuations break or not translational symmetry: antiferromagnetism is indeed a specific SDW ordering which weakens the latter. In general the three parts of the decomposition (Hartree, Fock, Cooper) need to be considered altogether: this is what is done in the next chapters. What said here extends naturally to the EHM: the relevant contributions for each phase given by the local repulsion $\hat U$ in the EHM are listed in Tab.~\ref{tab:U-wick-terms-phases}.
+Thus, correctly, the Wick's decomposition of pure HM only involves Hartree-terms of Eq.~\eqref{eq:mft-extended-hubbard-wick-decomposition}, getting us back to \eqref{eq:mft-pure-hubbard-wick-decomposition}. The distinction between the normal phase and the AF phase is given by whether the Hartree fluctuations break or not translational symmetry: AF is indeed a specific SDW ordering which weakens the latter. In general the three parts of the decomposition (Hartree, Fock, Cooper) need to be considered altogether: this is what is done in the next chapters. What said here extends naturally to the EHM: the relevant contributions for each phase given by the local repulsion $\hat U$ in the EHM are listed in Tab.~\ref{tab:U-wick-terms-phases}.
 
 \begin{table}
 	\centering
@@ -411,7 +424,7 @@ Then, it follows,
 	}^{\hat H_V^{\downarrow\uparrow}} \nonumber \\
 	&= \sum_{\mathbf{r} \in \mathcal{S}} \hat h_V^{(\mathbf{r})} \label{eq:ehm-mft-nonlocal-opposite-spin}
 \end{align}
-Here the notation of Fig.~\ref{subfig:antiferromagnet-sublattices} is used. For each site $i$ in a given sublattice, the nearest neighbors sites are four -- all in the other sublattice. Similarly, the same-spin (s.s.) hamiltonian decomposes as
+Here the notation of Fig.~\ref{subfig:antiferromagnet-sublattices} is used. For each site $\mathbf{r}$ in a given sublattice, the nearest neighbors sites are four -- all in the other sublattice. Similarly, the same-spin (s.s.) hamiltonian decomposes as
 \[
 	\hat H_V^{(\mathrm{s.s.})} = -V \sum_{\mathbf{r} \in \mathcal{S}_a} \sum_{\bm{\delta},\sigma} \left(
 		\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}+\bm{\delta} \sigma} + \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}-\bm{\delta}\sigma}
@@ -548,14 +561,34 @@ Identical consideration as in the above paragraph hold for each term. The only d
 	\label{tab:V-wick-terms-phases}
 \end{table}
 
-\subsection{Reciprocal space transform of the model interactions}\label{subsec:mft-discussion-reciprocal-interactions}
+\subsection{Fourier transform of the model}\label{subsec:ehm-fourier}
 
-It is useful to derive analytically the reciprocal-space form of both the $U$ and $V$ interactions. By the sign $\Feq$, we indicate a passage where a Fourier-transform is performed.
-
-\paragraph{Non-local attraction.} Consider a generic bond, say, the one connecting NNs $\mathbf{r}$ and $\mathbf{r}\pm\bm{\delta}$. Fourier transform it according to the convention
-\[
+It is useful to derive analytically the reciprocal-space form of the three parts of the hamiltonian. By the sign $\Feq$, we indicate a passage where a Fourier-transform is performed. $\mathcal{F}$-transform is obtained according to the convention
+Fourier transform it according to the convention
+\begin{equation}\label{eq:fourier-convention}
 	\hat c_{\mathbf{r}\sigma} \Feq \frac{1}{\sqrt{L_xL_y}} \sum_{\mathbf{k} \in \mathrm{BZ}} e^{-i \mathbf{k} \cdot \mathbf{r}} \hat c_{\mathbf{k}\sigma}
-\]
+\end{equation}
+
+\paragraph{Kinetic part.}
+
+The kinetic part is the easiest to transform. Apply the definition,
+\begin{align}
+	-t \sum_{\langle \mathbf{r}\mathbf{r}' \rangle} \sum_\sigma \left[
+		\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}'\sigma} + \hc
+	\right] &\stackrel{\mathcal{F}}{=} -t \sum_{\langle \mathbf{r}\mathbf{r}' \rangle} \sum_\sigma \frac{1}{\sqrt{L_xL_y}} \sum_{\mathbf{k}\in\mathrm{BZ}} e^{i\mathbf{k}\cdot\mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \frac{1}{\sqrt{L_xL_y}} \sum_{\mathbf{k}'\in\mathrm{BZ}} e^{-i\mathbf{k}'\cdot\mathbf{r}'} \hat c_{\mathbf{k}'\sigma} + \hc \nonumber \\
+	&= -2t\sum_{\mathbf{k},\mathbf{k}'} \sum_\sigma \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{S}/2} e^{i(\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}} \left[
+		e^{i k'_x}+e^{-i k'_x} + e^{i k'_y}+e^{-i k'_y}
+	\right] \nonumber \\
+	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_\mathbf{k} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:Ht-Fourier}
+\end{align}
+where the bare bands were defined, 
+\begin{equation}\label{eq:bare-bands}
+	\epsilon_\mathbf{k} \equiv -2t \left(
+		\cos k_x + \cos k_y
+	\right)
+\end{equation}
+
+\paragraph{Non-local attraction.} Consider a generic bond, say, the one connecting NNs $\mathbf{r}$ and $\mathbf{r}\pm\bm{\delta}$. 
 Then:
 \[
 \begin{aligned}
@@ -701,7 +734,7 @@ A somewhat identical argument can be carried out for the local interaction,
 	\hat H_U = U \sum_{\mathbf{r} \in \mathcal{S}} \hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}\downarrow}
 \]
 The only difference here is made by the fact that the interaction is repulsive on-site, thus the final structure factor in the Fourier transform disappears as well as the minus sign,
-\begin{equation} \label{eq:reciprocal-space-local-interaction-explicit}
+\begin{equation} \label{HU-Fourier}
 	\hat H_U \Feq \frac{U}{L_x L_y}
 	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \downarrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}' \downarrow} \hat c_{\mathbf{K}+\mathbf{k}' \uparrow}
 \end{equation}
@@ -740,7 +773,7 @@ These equations are determined by many-body expectation values, which in general
 \begin{figure}
 	\centering
 	\input{\GraphicsFolder/effective-model-scheme}
-	\caption{Schematization of the self-consistent Hartree Fock method described in Sec.~\ref{sec:computational-mft}. The effective model is solved, the solution is used to estimate self-consistently the Hartree Fock vector, which is then used to update iteratively the model itself. {\color{tabred}[Update including initializer and endpoint.]}}
+	\caption{Schematization of the self-consistent Hartree Fock method described in Sec.~\ref{sec:computational-mft}. The effective model is solved, the solution is used to estimate self-consistently the Hartree Fock vector, which is then used to update iteratively the model itself. $\mathrm{HFP}_\mathrm{i}$ indicates the initialzer HFPs vector, $\mathrm{HFP}_\mathrm{c}$ the converged HFPs vector.}
 	\label{fig:effective-model-scheme}
 \end{figure}
 %
@@ -820,12 +853,7 @@ being $\Omega$ the expectation value (EV) of $\hat K$. In the last passage we wr
 
 \section{Square lattice spatial symmetry channels}\label{sec:square-lattice-symmetries}
 
-In next sections we introduce spatial symmetry structures and discuss their relation with point groups. We will aways refer to various spatial structures as ``symmetry channels'', throughout the system is able to establish a given order parameter defined in space.
-
-Looking at $\hat H$, the main difference between its two-body interactions $\hat H_U$ and $\hat H_V$ of course relies in locality (first) and non-locality (second). Both operators in principle are able to break $\mathrm{C}_4$ symmetry, as will later be discussed extensively.
-
-
-\begin{figure}
+\begin{figure}[t]
 	\centering
 	\subfloat[Local $s$-wave]{
 		\input{\GraphicsFolder/s-wave-correlator}
@@ -854,36 +882,40 @@ Looking at $\hat H$, the main difference between its two-body interactions $\hat
 	\label{fig:x-wave-real-factors}
 \end{figure}
 
+In next sections we introduce spatial symmetry structures and discuss their relation with point groups. We will aways refer to various spatial structures as ``symmetry channels'', throughout the system is able to establish a given order parameter defined in space.
+
+Looking at $\hat H$, the main difference between its two-body interactions $\hat H_U$ and $\hat H_V$ of course relies in locality (first) and non-locality (second). Both operators in principle are able to break $\mathrm{C}_4$ symmetry, as will later be discussed extensively.
+
 For the $2$D square lattice, various spatial symmetries are possible. Let $i$ be a specific site, and consider a generic complex function $g_{ij}$ whose domain is given by the site itself and its four NNs (the domain concides with the points of Fig.~\ref{fig:square-nearest-neighbors}). Then it is immediate to see that the function can be written in the following basis
 \[
 	g_{ij} = \sum_\gamma g^{(\gamma)} \varphi_{ij}^{(\gamma)}
 \]
-where $g^{(\gamma)} \in \mathbb{C}$ are the $g_{ij}$ symmetries-decomposition coefficients while $\varphi_{ij}^{(\gamma)}$ are the form factors listed in Tab.~\ref{tab:x-wave-real-factors} and plotted in Fig.~\ref{fig:x-wave-reciprocal-factors}, a simple orthonormal rearrangement of the harmonics basis.
+where $g^{(\gamma)} \in \mathbb{C}$ are the $g_{ij}$ symmetry channels coefficients while $\varphi_{ij}^{(\gamma)}$ are the form factors listed in Tab.~\ref{tab:x-wave-real-factors} and plotted in Fig.~\ref{fig:x-wave-reciprocal-factors}, a simple orthonormal rearrangement of the harmonics basis.
 
 \setlength{\extrarowheight}{1em}
-\begin{table}
+\begin{table}[t]
 	\centering
 	\begin{tabular}{r E l l}
 		\textbf{Structure} & \multicolumn{2}{c}{\textbf{Form factor}} & \textbf{Graph} \\
 		\midrule
-		$s$-wave & $\varphi^{(s)}_{ij}$ & $\delta_{ij}$ & Fig.~\ref{subfig:s-wave-correlator} \\
-		Extended $s$-wave & $\varphi^{(s^*)}_{ij}$ &
+		$s$-wave & $\varphi^{(s)}_{\mathbf{r}\mathbf{r}'}$ & $\delta_{\mathbf{r}\mathbf{r}'}$ & Fig.~\ref{subfig:s-wave-correlator} \\
+		Extended $s$-wave & $\varphi^{(s^*)}_{\mathbf{r}\mathbf{r}'}$ &
 		$\displaystyle \frac{1}{2} \left[
-			\delta_{j=i+\delta_x} + \delta_{j=i-\delta_x} + \delta_{j=i+\delta_y} + \delta_{j=i-\delta_y}
+			\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
 		\right]$ & Fig.~\ref{subfig:s*-wave-correlator} \\
-		$p_x$-wave & $\varphi^{(p_x)}_{ij}$ & $ 
+		$p_x$-wave & $\varphi^{(p_x)}_{\mathbf{r}\mathbf{r}'}$ & $ 
 		\displaystyle \frac{1}{\sqrt{2}} \left[
-			\delta_{j=i+\delta_x} - \delta_{j=i-\delta_x}
+			\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} - \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}}
 		\right]$ & Fig.~\ref{subfig:px-wave-correlator} \\
-		$p_y$-wave & $\varphi^{(p_y)}_{ij}$ & $ \displaystyle \frac{1}{\sqrt{2}} \left[
-			\delta_{j=i+\delta_y} - \delta_{j=i-\delta_y}
+		$p_y$-wave & $\varphi^{(p_y)}_{\mathbf{r}\mathbf{r}'}$ & $ \displaystyle \frac{1}{\sqrt{2}} \left[
+			\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} - \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
 		\right]$ & Fig.~\ref{subfig:py-wave-correlator} \\
-		$d_{x^2-y^2}$-wave & $\varphi^{(d)}_{ij}$ & $\displaystyle \frac{1}{2} \left[
-			\delta_{j=i+\delta_x} + \delta_{j=i-\delta_x} - \delta_{j=i+\delta_y} - \delta_{j=i-\delta_y}
+		$d_{x^2-y^2}$-wave & $\varphi^{(d)}_{\mathbf{r}\mathbf{r}'}$ & $\displaystyle \frac{1}{2} \left[
+			\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}} - \delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} - \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
 		\right]$ & Fig.~\ref{subfig:d-wave-correlator} \\[0.5em]
 		\midrule
 	\end{tabular}
-	\caption{Form factors for a function defined on a square lattice, with a prefactor included for normalization. The last column indicates the graph representation of each contribution given in Fig.~\ref{fig:wave-correlators}. Subscript $x^2-y^2$ is omitted for notational clarity.}
+	\caption{Form factors for a function defined on a square lattice, with a prefactor included for normalization. We use lattice vector notation here. The last column indicates the graph representation of each contribution given in Fig.~\ref{fig:x-wave-real-factors}. Subscript $x^2-y^2$ is omitted for notational clarity.}
 	\label{tab:x-wave-real-factors}
 \end{table}
 \setlength{\extrarowheight}{0em}
@@ -917,7 +949,7 @@ If these symmetries are developed by the HFPs, it's of no use to integrate over 
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.9\linewidth]{../Project/EHM-HartreeFock/src/labs/structure-factors/plot-structure-factors.pdf}
-	\caption{Representation of the various structure factors listed in Tab.~\ref{tab:x-wave-reciprocal-factors} on the BZ. For the $s^*$ and $d_{x^2-y^2}$-wave factors, the real part is plotted; for the $p_\ell$ factors, the imaginary part is plotted.  {[\color{tabred}Rotate d-wave]}}
+	\caption{Representation of the various structure factors listed in Tab.~\ref{tab:x-wave-reciprocal-factors} on the BZ. For the $s^*$ and $d_{x^2-y^2}$-wave factors, the real part is plotted; for the $p_\ell$ factors, the imaginary part is plotted.}
 	\label{fig:x-wave-reciprocal-factors}
 \end{figure}
 

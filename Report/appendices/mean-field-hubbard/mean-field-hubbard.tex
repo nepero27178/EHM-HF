@@ -13,25 +13,31 @@ In this Appendix the MFT solutions to the conventional Hubbard hamiltonian of Eq
 \end{equation}
 are described. The discussion is limited to the two-dimensional square lattice. The results of ths appendix are relevant and used throughout the text as the groundwork to be extended by the means of MFT applied to the non-local part of the EHM.
 
-\begin{figure}
-	\centering
+%\begin{figure}
+%	\centering
 %	\input{\GraphicsFolder/ferromagnetic-3d-band}
-	\caption{Depiction of the Hubbard square lattice hopping band $\epsilon_{\mathbf{k}} = -2t[\cos(k_x) + \cos(k_y)]$. The red lines mark the zero-energy intersection.}
-	\label{appfig:ferromagnetic-3d-band}
-\end{figure}
+%	\caption{Depiction of the Hubbard square lattice hopping band $\epsilon_{\mathbf{k}} = -2t[\cos(k_x) + \cos(k_y)]$. The red lines mark the zero-energy intersection.}
+%	\label{appfig:ferromagnetic-3d-band}
+%\end{figure}
 
 \section{Antiferromagnetic phase}\label{appsec:antiferromagnetic-phase}
 
-We work in a commensurate AF phase ordering, which is, we explicitly break symmetry by realizing a SDW phase with spin density unevenly distributed on sites with periodicity of two sites, each direction. Recalling the discussion of Sec.~\ref{sec:ehm-symmetries}, AF long-range ordering we deal with here lies within the $\mathrm{SU}(2) \to \mathrm{U}^z(1)$ SSB, represented pictorially in Fig.~\ref{fig:su2-u1-domains}. Recalling Tab.~\ref{tab:U-wick-terms-phases}, for such a physical phase the only Wick contraction channel available is the Hartree one. Let us proceed in such sense.
+We work in a commensurate AF phase ordering, which is, we explicitly break symmetry by realizing a SDW phase with spin density unevenly distributed on sites with periodicity of two sites, each direction. Recalling the discussion of Sec.~\ref{sec:ehm-symmetries}, AF long-range ordering we deal with here is described by the composite SSB
+\[
+\begin{aligned}
+	\mathrm{SU}(2) &\SSB \mathrm{U}^z(1) \\
+	\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)} &\SSB \mathrm{T}_2^{(x)} \otimes \mathrm{T}_2^{(y)}
+\end{aligned}
+\]
+Recalling Tab.~\ref{tab:U-wick-terms-phases}, for such a physical phase the only Wick contraction channel available is the Hartree one. Let us proceed in such sense. As in Eqns.~\eqref{eq:af-ehm-n-def}, \eqref{eq:af-ehm-psi-def}, it is useful to define the density and AF fluctuation operators:
+\begin{align}
+	\hat n_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{appeq:af-hm-n-def} \\
+	\hat \psi_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{appeq:af-hm-psi-def}
+\end{align}
+whose EVs are relevant order parameters for the normal and AF phases. 
 
 \subsection{MFT treatment of the Hartree channel}\label{appsubsec:af-hartree-channel}
 
-Let us change notation, indicating each site as
-\[
-	i \to \mathbf{r} = (x,y)
-	\qquad
-	x,y \in \mathbb{N}
-\]
 In terms of the physical magnetization $m$, the MFT Ansatz is given by
 \begin{equation}\label{appeq:af-mean-field-ansatz}
 	\langle \hat n_{\mathbf{r}\sigma} \rangle = n - (-1)^{x+y+\delta_{\sigma=\uparrow}} m
@@ -88,26 +94,17 @@ Note that the Hartree channel renormalizes chemical potential,
 	\quad\implies\quad
 	\mu \to \tilde{\mu} \equiv \mu - nU
 \]
-an effect that is present also in the EHM.
+an effect that is present also in the EHM. The kinetic part of the hamiltonian transforms as in Eq.~\eqref{eq:Ht-Fourier},
+\[
+	-t \sum_{\langle \mathbf{r}\mathbf{r}' \rangle} \sum_\sigma \left[
+	\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}'\sigma} + \hc
+	\right] \stackrel{\mathcal{F}}{=} \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_\mathbf{k} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
+\]
+being $\epsilon_\mathbf{k}$ the bare bands of Eq.~\eqref{eq:bare-bands}.
 
-\begin{figure}
-	\centering
-%	\subfloat[Alternative band.]{
-%		\input{\GraphicsFolder/alternative-ferromagnetic-3d-band}
-%		\label{appsubfig:alternative-ferromagnetic-3d-band}
-%	}
-%	\subfloat[Contour plot.]{
-%		\input{\GraphicsFolder/ferromagnetic-contour}
-%		\label{appsubfig:ferromagnetic-contour}
-%	}
-	\caption{Alternative depiction of the Hubbard square lattice hopping band previously reported in Fig.~\ref{appfig:ferromagnetic-3d-band}. The Magnetic Brillouin Zone ($\mathrm{MBZ}$) is delimited by the zero-energy contour and is indicated in figure. As it is evident, energy sign flips by taking a $(\pi,\pi)$ translation in $\mathbf{k}$ space.}
-	\label{appfig:alternative-ferromagnetic-band}
-\end{figure}
-
-\subsection{Nambu representation of the AF phase and diagonalization}\label{appsubsec:af-nambu}
-
-Consider the band of Fig.~\ref{appfig:ferromagnetic-3d-band} . As does \citeauthor{fabrizio2022course} \cite{fabrizio2022course}, the area delimited externally by the solid lines at zero energy is denominated ``Magnetic Brillouin Zone'' ($\mathrm{MBZ}$). The periodicity of $\mathbf{k}$ space guarantees that the full $\mathrm{BZ}$ can be taken as well to be the one of Fig.~\ref{appsubfig:alternative-ferromagnetic-3d-band}. Then:
-\begin{align}
+Take everything together. Using the property:
+\[
+\begin{aligned}
 	\sum_{\mathbf{k} \in \mathrm{BZ}}
 	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma} &= \sum_{\mathbf{k} \in \mathrm{MBZ}}
 	\left[
@@ -117,46 +114,44 @@ Consider the band of Fig.~\ref{appfig:ferromagnetic-3d-band} . As does \citeauth
 	\left[
 		\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma} + \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
 	\right] \label{appeq:mixed-cc-term-intermediate-passage}
-\end{align}
-Periodicity by shifts $2\bm{\pi}$ has been used. Now, define the Nambu spinors:
+\end{aligned}
+\]
+and reduce Eq.~\eqref{appeq:af-hm-mft-h} to its reciprocal form
+\[
+	\hat H \simeq \sum_{\mathbf{k}\in\mathrm{MBZ}} \sum_\sigma \epsilon_\mathbf{k} \left[
+		\hat n_{\mathbf{k}\sigma} + \hat n_{\mathbf{k}+\bm{\pi}\sigma}
+	\right] - mU \sum_{\mathbf{k}\in\mathrm{MBZ}} (-1)^{\delta_{\sigma=\downarrow}} \left[
+		\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger
+	\right] + nU \hat N - E_{\mathrm{H}/U}^{(\mathrm{AF})}
+\]
+
+%\begin{figure}
+%	\centering
+%	\subfloat[Alternative band.]{
+%		\input{\GraphicsFolder/alternative-ferromagnetic-3d-band}
+%		\label{appsubfig:alternative-ferromagnetic-3d-band}
+%	}
+%	\subfloat[Contour plot.]{
+%		\input{\GraphicsFolder/ferromagnetic-contour}
+%		\label{appsubfig:ferromagnetic-contour}
+%	}
+%	\caption{Alternative depiction of the Hubbard square lattice hopping band previously reported in Fig.~\ref{appfig:ferromagnetic-3d-band}. The Magnetic Brillouin Zone ($\mathrm{MBZ}$) is delimited by the zero-energy contour and is indicated in figure. As it is evident, energy sign flips by taking a $(\pi,\pi)$ translation in $\mathbf{k}$ space.}
+%	\label{appfig:alternative-ferromagnetic-band}
+%\end{figure}
+
+\subsection{Nambu representation of the AF phase and diagonalization}\label{appsubsec:af-nambu}
+
+We now map the reciprocal version of the HM onto a simpler problem. Throughout this section we use the notation $\epsilon_\mathbf{k} \to \epsilon_{\mathbf{k}\sigma}$ with identical meaning. Let the Nambu spinors:
 \[
 	\hat \Psi_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
 		\hat c_{\mathbf{k}\sigma} \\
 		\hat c_{\mathbf{k}+\bm{\pi}\sigma} 
 	\end{bmatrix}
 \]
-As in Eq.~\mref, it is useful to define the density and AF fluctuation operators:
-\begin{align}
-	\hat n_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{appeq:af-hm-n-def} \\
-	\hat \psi_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{appeq:af-hm-psi-def}
-\end{align}
-whose EVs are relevant order parameters for the normal and AF phases. Let also the gap function:
+Let also the gap function:
 \[
 	\Delta_{\mathbf{k}\sigma} = (-1)^{\delta_{\sigma=\downarrow}} mU
 \]
-
-At fixed filling, the $nU$ term is a pure chemical potential shift, thus will be neglected. The kinetic term transforms as
-\[
-\begin{aligned}
-	-t \sum_{\langle \mathbf{r}\mathbf{r}' \rangle} \sum_\sigma \left[
-		\hat c_{i\sigma}^\dagger \hat c_{j\sigma} + \hc
-	\right] &\stackrel{\mathcal{F}}{=} -t \sum_{\langle \mathbf{r}\mathbf{r}' \rangle} \sum_\sigma \frac{1}{\sqrt{L_xL_y}} \sum_{\mathbf{k}\in\mathrm{BZ}} e^{i\mathbf{k}\cdot\mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \frac{1}{\sqrt{L_xL_y}} \sum_{\mathbf{k}'\in\mathrm{BZ}} e^{-i\mathbf{k}'\cdot\mathbf{r}'} \hat c_{\mathbf{k}'\sigma} +\hc \\
-	&= -2t\sum_{\mathbf{k},\mathbf{k}'} \sum_\sigma \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{S}/2} e^{i(\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}} \left[
-		e^{i k'_x}+e^{-i k'_x} + e^{i k'_y}+e^{-i k'_y}
-	\right]  \\
-	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \\ 
-	&= \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \left[
-		\epsilon_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
-		+ \epsilon_{\mathbf{k}+\bm{\pi}\sigma} \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma}
-	\right] \\
-	&= \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \epsilon_{\mathbf{k}\sigma}
-	\left[
-		\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
-		- \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma}
-	\right] \\ 
-\end{aligned}
-\]
-where $\epsilon_{\mathbf{k}\sigma} \equiv -2t ( \cos k_x + \cos k_y )$. In the fourth passage, the sum over the full $\mathrm{BZ}$ was written considering that the entirety of the zone is given by all the points in the $\mathrm{MBZ}$ plus their conjugates obtained by a $\bm{\pi}$ shift in the flipped band. As depicted in Fig.~\ref{appsubfig:alternative-ferromagnetic-3d-band}, kinetic energy is anti-periodic in $\mathbf{k}$ space by a vector $\bm{\pi}$. This anti-periodicity accounts for the minus sign arising in the last passage. The hamiltonian is then given by:
 \begin{equation}\label{af-hm-bogoliubov-h}
 	\hat H \simeq \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger h_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma} - E_{\mathrm{H}/U}^{(\mathrm{AF})}
 	\qq{being}
@@ -169,7 +164,7 @@ Notice: the Nambu hamiltonian is a $2\times2$ matrix over the $\mathrm{MBZ}$ -- 
 
 \begin{figure}
 	\centering
-	% \input{\GraphicsFolder/pseudo-magnetic-field}
+	 \input{\GraphicsFolder/pseudo-magnetic-field}
 	\caption{Pseudo-magnetic field originating from mean-field treatment of the square Hubbard hamiltonian. Here, only the $\sigma=\uparrow$ situation is plotted.}
 	\label{appfig:pseudo-magnetic-field}
 \end{figure}
@@ -196,7 +191,7 @@ one gets:
 		\hat s_{\mathbf{k}\sigma}^z
 	\end{bmatrix}
 \end{equation}
-The hamiltonian represents a system of spins subject to local magnetic fields, each tilted by an angle $\tan(2\theta_{\mathbf{k}\sigma}) = \Delta_{\mathbf{k}\sigma}/\epsilon_{\mathbf{k}\sigma}$, as sketched in Fig.~\ref{appfig:pseudo-magnetic-field}. Evidently the following relations, also reported in Tab.~\ref{tab:af-pseudospin-map}, hold:
+The hamiltonian represents a system of spins subject to local magnetic fields, each tilted by an angle $\tan 2\theta_{\mathbf{k}\sigma} = \Delta_{\mathbf{k}\sigma}/\epsilon_{\mathbf{k}\sigma}$, as sketched in Fig.~\ref{appfig:pseudo-magnetic-field}. Evidently the following relations, also reported in Tab.~\ref{tab:af-pseudospin-map}, hold:
 \begin{align}
 	\hat s_{\mathbf{k}\sigma}^x &= \hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger \label{appeq:af-hm-x-psi} \\
 	\hat s_{\mathbf{k}\sigma}^y &= i \left(
@@ -209,7 +204,6 @@ Let also:
 	\hat \Id_{\mathbf{k}\sigma} &\equiv \hat \Psi_{\mathbf{k}\sigma}^\dagger \Id_{2\times2} \hat \Psi_{\mathbf{k}\sigma} \nonumber \\
 	&= \hat n_{\mathbf{k}\sigma} + \hat n_{\mathbf{k}+\bm{\pi}\sigma} \label{appeq:af-hm-id-def}
 \end{align}
-which accounts for a chemical potential shift.
 
 Diagonalization of each $h_{\mathbf{k}\sigma}$ is obtained trivially by a simple rotation around the $y$ axis:
 \[
@@ -299,13 +293,6 @@ The $\hat\Gamma$ spinor operators are effectively free fermionic spinor fields a
 		\hat \gamma_{\mathbf{k}\sigma}^{(-)} 
 	\end{bmatrix} \label{appeq:af-hm-gamma-ops-transform}
 \end{align}
-
-\begin{figure}
-	\centering
-	% \input{\GraphicsFolder/antiferromagnetic-3d-bands}
-	\caption{Depiction of the AF bands $\pm E_\mathbf{k}$. \todo}
-	\label{appfig:antiferromagnetic-3d-bands}
-\end{figure}
 
 The consequence of Eq.~\eqref{appeq:af-full-h-diagonalization} is interesting by itself: within this HF solution, the gap opens always at $E=0$. In other words, the bands sketched in Fig.~\ref{appfig:antiferromagnetic-3d-bands} retain the same geometric features regardless of the doping, what changes is the bands width and the gap between them. The very key point here is that, being the two bands symmetric (thus containing each half of the electronic states) and defined over the MBZ, any finite doping $\delta>0$ will produce a metallic behaviour, imposing that the chemical potential crosses the upper band. It is widely observed and confirmed by more refined numerical procedures, however, that AF establishes an insulating phase -- here only reproduced at half-filling, where the chemical potential lies within the gap. As will be detailed in \ref{appsubsec:instability-af-commensurate}, the commensurate nature of AF SSB at wavevector $\bm{\pi}$ of this self-consistent solution is highly unstable and atypical at finite doping \cite{singh1990collective}.
 
@@ -896,7 +883,7 @@ We now move to Cooper channel.
 
 \subsection{MFT treatment of the Cooper channel}\label{appsubsec:sc-cooper-channel}
 
-Recall the result of Eq.~\eqref{eq:reciprocal-space-local-interaction-explicit} which gave the Fourier-transformed version of the local repulsion, and perform a Cooper class Wick's contraction on it,
+Recall the result of Eq.~\eqref{HU-Fourier} which gave the Fourier-transformed version of the local repulsion, and perform a Cooper class Wick's contraction on it,
 \begin{multline}
 	\hat H_U \simeq \text{(Hartree channel)} + \frac{U}{L_x L_y}
 	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \Big[
@@ -959,8 +946,6 @@ We finally reduce $\hat H_U$ to
 \end{equation}
 which can be easily mapped on a pseudospin model.
 
-\subsection{Nambu representation of the SC phase and diagonalization}\label{appsubsec:sc-nambu}
-
 Composing Eqns.~\eqref{appeq:sc-hm-U-int-1} and \eqref{appeq:sc-hm-U-int-4}, we get the full MFT hamiltonian
 \begin{multline}
 	\hat H \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_{\mathbf{k}\sigma}
@@ -976,6 +961,8 @@ Composing Eqns.~\eqref{appeq:sc-hm-U-int-1} and \eqref{appeq:sc-hm-U-int-4}, we 
 	\right]
 	\label{appeq:sc-hm-mft-h} 
 \end{multline}
+
+\subsection{Nambu representation of the SC phase and diagonalization}\label{appsubsec:sc-nambu}
 
 We now proceed precisely as in Sec.~\ref{appsubsec:af-nambu}. Define the SC Nambu spinor
 \[

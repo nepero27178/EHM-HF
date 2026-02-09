@@ -1,14 +1,14 @@
 \def\GraphicsFolder{chapters/superconducting-instability/pictures}
 \chapter{Superconducting instability}\label{chap:mft-sc-instability}
 
-This chapter is devoted to studying the superconducting phase of the system. The only symmetry we assume to break is the $\mathrm{U}^\mathrm{c}(1)$ charge symmetry, thus allowing for superconducting fluctuations. As is described thoroughly in Sec.~\ref{subsec:sc-fock-analytical}, the hopping amplitude is renormalized because of the non-local attraction. The symmetry structure of the pairing mechanism determines the contributing Cooper fluctuations: for $s$-wave and $d$-wave superconductivity, only the o.s. Cooper term contributes; for $p_\ell$-wave superconductivity, the s.s. term contributes as well. In the following sections, a derivation containing both Cooper terms is proposed.
+This chapter is devoted to studying the superconducting phase of the system. The only symmetry we assume to break is the $\mathrm{U}^\mathrm{c}(1)$ charge symmetry, thus allowing for superconducting fluctuations. As is described thoroughly in Sec.~\ref{subsec:sc-fock-analytic}, the hopping amplitude is renormalized because of the non-local attraction. The symmetry structure of the pairing mechanism determines the contributing Cooper fluctuations: for $s$-wave and $d$-wave superconductivity, only the o.s. Cooper term contributes; for $p_\ell$-wave superconductivity, the s.s. term contributes as well. In the following sections, a derivation containing both Cooper terms is proposed.
 
 \section{The SC phase and its symmetries}\label{sec:sc-phase-theory}
 
 The starting point is, as done for the other phases, the discussion of the symmetries of the SC phase. We said in introduction we are studying the 
 \[
 	\mathrm{SU}(2) \times \mathrm{U}^\mathrm{c}(1) \times (\text{Point group})
-	\quad\stackrel{\mathrm{SSB}}{\to}\quad
+	\quad\SSB\quad
 	\mathrm{SU}(2) \times (\text{Point group})
 \]
 symmetry breaking. Therefore the system density we assume to be uniform across all sites, similarly to the normal phase discussed in Chap.~\ref{chap:normal-phase}. \todo
@@ -226,9 +226,9 @@ From Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, we k
 
 As always, let us start with a very brief section about the Hartree effects on the MFT decomposition of the hamiltonian. We will not delve in the detailed calculations of the Hartree channel MFT effects, already described in previous chapter as well as in Sec.~\ref{appsec:superconducting-phase}. The only effect here is the chemical potential renormalization.
 
-\subsection{Hartree channel in the SC phase: analytical derivation}\label{subsec:sc-hartree-analytical}
+\subsection{Hartree channel in the SC phase: analytic derivation}\label{subsec:sc-hartree-analytic}
 
-The Hartree fluctuations are density-density couplings in the MFT hamiltonian. Knowing the deal with a uniform-density phase, we can re-use as it is the derivation of Sec.~\ref{subsec:normal-hartree-analytical}. Without repeating the calculations, the $\hat H_V$ is reduced in the Hartree channel to
+The Hartree fluctuations are density-density couplings in the MFT hamiltonian. Knowing the deal with a uniform-density phase, we can re-use as it is the derivation of Sec.~\ref{subsec:normal-hartree-analytic}. Without repeating the calculations, the $\hat H_V$ is reduced in the Hartree channel to
 \[
 	\hat H_V \simeq -2nzV \times \hat N - E_{\mathrm{H}/V}^{(\mathrm{SC})} + 
 	(\text{all the rest})
@@ -257,7 +257,7 @@ Now we move to the more interesting Fock sector.
 \section{Fock effects: bare bands renormalization}\label{sec:sc-fock}
 \todo
 
-\subsection{Fock channel in the SC phase: analytical derivation}\label{subsec:sc-fock-analytical}
+\subsection{Fock channel in the SC phase: analytic derivation}\label{subsec:sc-fock-analytic}
 
 When it comes to the Fock RWCs, being the SC phase density-uniform we can re-use almost the entirety of the derivation of Sec.~\ref{sec:normal-fock-bands-renormalization}. Setting as in Eq.~\eqref{eq:normal-uqsigma-def}
 \begin{equation}
@@ -436,7 +436,7 @@ with the only obvious difference that the $u^{(\gamma)}$ are computed on the SC 
 
 Anisotropic pairing in superconducting fluctuations is induced by the Cooper RWCs. The two sectors of $\hat H_V$ (o.s., s.s.) are Fourier-transformed respectively in Eqns.~\eqref{eq:HV-os-fourier}, \eqref{eq:HV-ss-fourier}. In Tab.~\ref{tab:sc-pairings-symmetry-structures} we identified the correct RWCs for singlet and triplet pairing channels, noting that the o.s. sector contributes to both while the s.s. to just the triplet channel.
 
-\subsection{Cooper o.s. channel in the SC phase: analytical derivation}\label{subsec:sc-cooper-os-analytical}
+\subsection{Cooper o.s. channel in the SC phase: analytic derivation}\label{subsec:sc-cooper-os-analytic}
 
 This section deals with Cooper fluctuations induced by the o.s. part of the non-local hamiltonian --referring to the notation of Eq.~\eqref{eq:ehm-non-local-ss-os-terms}-- somewhat the simplest form of Cooper pairing. This sector contributes both to singlet pairing and triplet pairing. Considering Cooper fluctuations in the singlet channel, we need to break $\mathrm{U}^\mathrm{c}(1)$ symmetry imposing space inversion symmetry, while for the triplet anti-symmetry is required. Set as in Eq.~\eqref{eq:sc-wq-def} the EV
 \[
@@ -645,6 +645,7 @@ For the $\gamma$-wave component of the superconducting order parameter, the foll
 	&= - \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta] \label{sc-hm-wgamma-self-consistency}
 \end{align}
 where $\tau^+ \equiv \tau^x + i \tau^y$. We used Eqns.~\eqref{eq:sc-x-expectation-non-local}, \eqref{eq:sc-y-expectation-non-local} and \eqref{eq:sc-rot-z-expectation} as well as the thermal factor defined in Eq.~\eqref{eq:sc-ren-thermal-factors-def}. The derivation above holds for all symmetries, including the $s$ one as testifies Eq.~\eqref{appeq:sc-hm-ws-self-consistency-2}. Explicitly, five self-consitency equations are then derived and listed in Tab.~\ref{tab:sc-ehm-wgamma-self-consistencies}. 
+
 \setlength{\extrarowheight}{1.5em}
 \begin{table}
 	\centering
@@ -1140,7 +1141,7 @@ discussed for the conventional HM in Eq.~\eqref{appeq:sc-hm-hartree-C-Ec}.
 %	E_\mathbf{k} \to \tilde{E}_\mathbf{k}
 %\]}
 
-\subsection{Cooper s.s. channel in the SC phase: analytical considerations}\label{subsec:sc-cooper-ss-analytical}
+\subsection{Cooper s.s. channel in the SC phase: analytical considerations}\label{subsec:sc-cooper-ss-analytic}
 
 Consider Eq.~\eqref{eq:HV-ss-fourier} in the Cooper channel,
 \begin{multline*}

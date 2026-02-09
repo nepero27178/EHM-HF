@@ -5,7 +5,13 @@ This chapter is devoted to the MFT analysis of the ``normal phase'', which is, t
 
 \section{The ``normal'' phase and its symmetries}\label{sec:normal-phase-theory}
 
-The normal phase is simply the one where no symmetry is broken, and the many-body ground state preserves the entire $\mathrm{U}(2)$ structure of Eq.~\eqref{eq:ehm-global-u2-symmetry-u1-su2} as well as translational symmetry. Thus, the normal phase is essentially given by the null gap limit of both the antiferromagnetic and superconducting phases. By discussing it separately now, we highlight a MFT feature of the EHM of particular interest, namely, the insurgence of a new, self-consistent hopping parameter. From Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, we know that the relevant Wick's contractions (RWCs) for this phase are
+The normal phase is simply the one where no symmetry is broken, and the many-body ground state preserves the entire $\mathrm{U}(2)$ structure of Eq.~\eqref{eq:ehm-global-u2-symmetry-u1-su2} as well as full translational symmetry $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$. In terms of spatial symmetries, we here theoretically allow for
+\[
+	\mathrm{C}_4 \SSB \mathrm{C}_2
+\]
+symmetry reduction and extract the mathematical interesting consequences. While this implies immediately inversion symmetry preservation, full $\mathrm{C}_4$ symmetry will be imposed later.
+
+The normal phase is essentially given by the null gap limit of both the AF and SC phases. By discussing it separately now, we highlight a MFT feature of the EHM of particular interest, namely, the insurgence of a new, self-consistent hopping parameter. From Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, we know that the relevant Wick's contractions (RWCs) for this phase are
 \[
 \begin{aligned}
 	&\hat H_U 
@@ -16,15 +22,30 @@ The normal phase is simply the one where no symmetry is broken, and the many-bod
 	&&\text{Hartree and Fock contractions} \\
 \end{aligned}	
 \]
-and since the phase we are establishing obeys translational symmetry, we also know Hartree terms are essentially chemical potential shifts. Next section derives this effect in detail.
+We anticipate the final effects of all RWCs. As we will see in detail and is reported in Tab.~\ref{tab:normal-RWCs}, the Hartree contractions account essentially for chemical potential shifts, while the only Fock contraction for a renormalization effects on the bare bands.
 
-In the normal phase, the state retains its full $\mathrm{SU}(2) \times \mathrm{U}^\mathrm{c}(1) \times (\mathrm{Lattice})$ symmetry discussed in Sec.~\ref{sec:ehm-symmetries}. Spin is a pure physical degeneracy, being the $\uparrow$ and $\downarrow$ sectors separated, and $\hat H$ is $\mathbb{Z}_2$ invariant with respect to spin inversion, $\sigma \leftrightarrow \overline{\sigma}$. This implies that all physical quantities, as is for the normal phase, should not depend on the spin index. As for the normal phase, we will perform all computations leaving $\sigma$ explicit and using this consideration at the end.
+\begin{table}[t]
+	\centering
+	\begin{tabular}{c c c l}
+		\textbf{Operator} & \textbf{Sector} & \textbf{RWCs} & \textbf{Net effect} \\
+		\midrule
+		$\hat H_U$ && Hartree & $\mu$ shift by $-nU$ \\[0.5em]
+		$\hat H_V$ & o.s. & Hartree & $\mu$ shift by $nzV$ \\[0.5em]
+		\multirow{2}{*}{$\hat H_V$} & \multirow{2}{*}{s.s.} & Hartree & $\mu$ shift by $nzV$\\
+		&& Fock & Bands renormalization and resymmetrization \\
+		\midrule
+	\end{tabular}
+	\caption{Relevant Wick's contractions and net effect in the normal phase.}
+	\label{tab:normal-RWCs}
+\end{table}
+
+In the normal phase, spin is a pure physical degeneracy, being the $\uparrow$ and $\downarrow$ sectors separated; moreover, $\hat H$ is $\mathbb{Z}_2$ invariant with respect to spin inversion, $\sigma \leftrightarrow \overline{\sigma}$. This implies that all physical quantities, as is for the normal phase, should not depend on the spin index. We will perform all computations leaving $\sigma$ explicit and using this consideration at the end.
 
 \section{Hartree effects: chemical potential renormalization}\label{sec:normal-hartree-mu}
 
 The first RMP we discuss is $\mu$, whose numerical value is renormalized by Hartree channel interactions within MFT. As is discussed in Sec.~\ref{subsec:fixed-density-role-mu}, in the context of numerical simulations at fixed density, the chemical potential is determined self-consistently; thus any net effect that shifts $\mu$ is effectively ignored within (and limitedly to) the iterative algorithm. Renormalization effects become relevant when computing free energy.
 
-\subsection{Hartree channel in the normal phase: analytical derivation}\label{subsec:normal-hartree-analytical}
+\subsection{Hartree channel in the normal phase: analytic derivation}\label{subsec:normal-hartree-analytic}
 
 Within this section we discuss analytically the effects of MFT on the Hartree channel, separating the local and non-local interactions and obtaining a set of HFPs needed to setup an interative HF algorithm.
 
@@ -60,7 +81,7 @@ which gives immediately
 	&= nU \times \hat N - E_{\mathrm{H}/U}^{(\mathrm{N})}
 \end{aligned}
 \]
-being $\hat N$ the total number operator and $ E_{\mathrm{H}/U}^{(\mathrm{N})}$ the ``contraction energy'' (also known as double counting term) due to the Hartree (H) contraction of the $U$ repulsion. The chemical potential is corrected by
+being $\hat N$ the total number operator and $ E_{\mathrm{H}/U}^{(\mathrm{N})}$ the ``contraction energy'' (also known as double counting term) due to the Hartree (H) contraction of the $U$ repulsion, discussed in Sec.~\ref{subsec:normal-hartree-energy}. The chemical potential is corrected by
 \begin{equation}\label{eq:local-hartree-mu-shift}
 	\mu \to \mu - nU
 \end{equation}
@@ -116,7 +137,7 @@ where ``all the rest'' collects all non-Hartree RWCs. Recalling the Ansatz of Eq
 	- E_{\mathrm{H}/V}^{(\mathrm{N})}
 	+ (\text{all the rest})
 \]
-with $E_{\mathrm{H}/V}^{(\mathrm{N})}$ the normal state shift to energy brought by $\hat H_V$. Now, evidently both sums above are just a number operator,
+with $E_{\mathrm{H}/V}^{(\mathrm{N})}$ the normal state shift to energy brought by $\hat H_V$. Now, evidently both sums above are just a number operator, thus including the degeneracies introduced by the summations
 \[
 	\hat H_V \simeq -2nzV \times \hat N - E_{\mathrm{H}/V}^{(\mathrm{N})} + 
 	(\text{all the rest})
@@ -126,11 +147,11 @@ This accounts for the final Hartree shift of $\mu$,
 	\mu \to \mu + 2znV
 \end{equation}
 
-Considering the net shift to $\mu$ due to both interactions by combining Eqns.~\eqref{eq:local-hartree-mu-shift}, \eqref{eq:non-local-hartree-mu-shift}, we get
+Considering the net shift to $\mu$ due to both interactions by combining Eqns.~\eqref{eq:local-hartree-mu-shift}, \eqref{eq:non-local-hartree-mu-shift}, we get the final RMP anticipated in Tab.~\ref{tab:normal-RWCs},
 \begin{equation}\label{eq:normal-mu-shift}
 	\tilde{\mu} \equiv \mu + n(2zV-U)
 \end{equation}
-This result remains valid throughout all phases discussed in this text: for the AF phase, the SDW character leaves this shift untouched, while the superconducting phase we are discussion is inherently translational invariant.
+This result remains valid throughout all phases discussed in this text: for the AF phase, the SDW character leaves this shift untouched, while the SC phase we will discuss is inherently translational invariant.
 
 \subsection{Hartree contraction energy}\label{subsec:normal-hartree-energy}
 
@@ -161,14 +182,7 @@ for the local repulsion and
 	&= -2V \sum_{\ev{ij}} \sum_\sigma n^2 \nonumber \\
 	&= - L_x L_y \times 2zn^2 V \label{eq:normal-hartree-V-contraction-energy}
 \end{align}
-for the non-local attraction, being $z=4$ the coordination number for the $2$D square lattice. In the last passage, we used that
-\[
-\begin{aligned}
-	\sum_{\ev{ij}} (1) &= \sum_{i\in\mathcal{S}/2} \sum_{j\in\mathrm{NN}(i)} (1) \\
-	&= \frac{L_x L_y}{2} \times z
-\end{aligned}
-\]
-as well as spin degeneracy. Note that, correctly, the contraction energy is an extensive quantity. This implies that we can define a contraction energy per site -- something we will do later when computing total free energy density.
+for the non-local attraction. In the last passage, we used Eq.~\eqref{eq:square-NN-ghost-sum}, as well as spin degeneracy. Note that, correctly, the contraction energy is an extensive quantity. This implies that we can define a contraction energy per site -- something we will do later when computing total free energy density.
 
 \section{Fock effects: bare bands renormalization}\label{sec:normal-fock-bands-renormalization}
 
@@ -176,7 +190,7 @@ Up to now, no relevant changes have been made to the starting situation of the c
 
 From Wick's decomposition of $\hat H_V$, the only allowed Fock term comes from the same-spin part due to $\mathrm{SU}(2)$ symmetry selection rules. Let us focus only on this term when decomposing $\hat H$:
 \begin{equation}\label{eq:real-space-non-local-interaction-fock}
-	\hat H_V \simeq 
+	\hat H_V \simeq (\text{Hartree channel}) + 
 	V \sum_{\ev{ij}} \sum_\sigma \left[
 		\langle
 		\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
@@ -184,7 +198,7 @@ From Wick's decomposition of $\hat H_V$, the only allowed Fock term comes from t
 		\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
 		\langle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle - \langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
 		\rangle \langle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle
-	\right] + (\text{all the rest})
+	\right]
 \end{equation}
 (note the $+$ sign in front of the displayed term). A bond-wise hopping amplitude can be defined,
 \[
@@ -192,7 +206,7 @@ From Wick's decomposition of $\hat H_V$, the only allowed Fock term comes from t
 	\hat c_{j\sigma}^\dagger \hat c_{i\sigma}
 	\rangle
 \]
-The effective diffusive hamiltonian is given by
+The effective kinetic hamiltonian is given by
 \[
 \begin{aligned}
 	\hat H_{\tilde{t}} &= \hat H_t + V \sum_{\ev{ij}} \sum_\sigma \left[
@@ -208,7 +222,7 @@ The effective diffusive hamiltonian is given by
 \]
 To proceed, it is useful to move to reciprocal space.
 
-\subsection{Fock channel in the normal phase: analytical derivation}\label{subsec:normal-fock-analytical}
+\subsection{Fock channel in the normal phase: analytic derivation}\label{subsec:normal-fock-analytic}
 
 In reciprocal space, the effective hopping must be transformed as well. Consider the Fourier Transform $\mathcal{F}$ given in Eq.~\eqref{eq:HV-fourier}, applied to the displayed part of Eq.~\eqref{eq:real-space-non-local-interaction-fock},
 \begin{multline}
@@ -251,14 +265,14 @@ Here, the $2$ prefactor comes from recognizing that the first two operators in s
 \end{equation}
 
 Up to this point, this derivation is general and will be re-used in next chapters. Here the specificity of the physical phase settles in: if we assume the normal state to be a free degenerate Fermi gas with renormalized bands, we get
-\[
+\begin{equation}\label{eq:normal-cc-EV}
 	\langle \hat c_{\mathbf{k}_1\sigma_1}^\dagger \hat c_{\mathbf{k}_2 \sigma_2} \rangle = \delta_{\mathbf{k}_1=\mathbf{k}_2} \delta_{\sigma_1=\sigma_2} f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-\]
+\end{equation}
 being $f$ the Fermi-Dirac distribution,
 \[
 	f(\epsilon;\beta,\mu) \equiv \frac{1}{e^{\beta(\epsilon-\mu)}+1}
 \]
-It follows that Eq.~\eqref{eq:normal-V-fock-int1} becomes
+In other words, we are assuming a solution to exist, we call ``normal'', such that the net effect of the interactions is to generate an effective correction to bands such that the final hamiltonian is just $\hat H \simeq \hat H_{\tilde{t}} + (\text{shifts})$. It follows that Eq.~\eqref{eq:normal-V-fock-int1} becomes
 \begin{multline}
 	V \sum_{\ev{ij}} \sum_\sigma \left[
 		\langle
@@ -317,7 +331,8 @@ we reduce Eq.~\eqref{eq:normal-V-fock-int1} to
 	\rangle
 	\hat c_{\mathbf{q}'\sigma}^\dagger  \hat c_{\mathbf{q}'\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \label{eq:normal-V-fock-int3}
 \end{multline}
-Recall now the result of Eq.~\eqref{eq:coscos-symmetries-decomposition},
+
+Recall now the result of the symmetry channels decomposition of Eq.~\eqref{eq:coscos-symmetries-decomposition},
 \[
 	\cos \left( \delta q_x \right)	+ \cos \left( \delta q_y  \right) = \frac 1 2 \sum_\gamma \varphi_\mathbf{q}^{(\gamma)} \varphi_{\mathbf{q}'}^{(\gamma)*}
 	\qq{for $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$}
@@ -344,9 +359,11 @@ Thanks to this handy property, we reduce Eq.~\eqref{eq:normal-V-fock-int3} to
 where we defined the EV:
 \begin{equation}\label{eq:normal-uqsigma-def}
 	u_{\mathbf{q}\sigma} \equiv \langle
-	\hat c_{\mathbf{q}\sigma}^\dagger
-	\hat c_{\mathbf{q}\sigma}
+		\hat c_{\mathbf{q}\sigma}^\dagger
+		\hat c_{\mathbf{q}\sigma}
 	\rangle
+	\qquad
+	u_{\mathbf{q}\sigma} = u_{\mathbf{q}\sigma}^*
 \end{equation}
 Of course, the numerical value of $u_{\mathbf{q}\sigma}$ is given by the Fermi-Dirac distribution; however, for the sake of reproducibility of this derivation in next chapters, we omit that for a moment. Let $u^{(\gamma)}_\sigma$ be its $\gamma$-wave component,
 \[
@@ -357,7 +374,7 @@ Of course, the numerical value of $u_{\mathbf{q}\sigma}$ is given by the Fermi-D
 	\rangle
 \]
 
-Now, the bare bands $\epsilon_\mathbf{k}$ are $s^*$-wave symmetric, but in general $\tilde{\epsilon}_\mathbf{k}$ can exhibit a more complex symmetry. Surely, due to spatial inversion invariance, it must be
+Now, the bare bands $\epsilon_\mathbf{k}$ are $s^*$-wave symmetric, but in general $\tilde{\epsilon}_\mathbf{k}$ can exhibit a more complex symmetry. We assume respected spatial inversion invariance, so it must be
 \[
 	u_{\mathbf{q}\sigma} = u_{-\mathbf{q}\sigma}
 \]
@@ -367,7 +384,24 @@ thus
 	\qq{for}
 	\ell\in\lbrace x,y \rbrace
 \]
-recalling the antisymmetric form factors of Tab~\ref{tab:x-wave-reciprocal-factors}. However, $u_\sigma^{(s^*)}$ and $u_\sigma^{(d)}$ are in general non-zero. Eq.~\eqref{eq:normal-V-fock-int4} becomes
+recalling the antisymmetric form factors of Tab~\ref{tab:x-wave-reciprocal-factors}. The remaining $s^*$ and $d$ symmetries are legitimate HFPs with relative self-consistency equations, reported in Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies} using spin degeneracy.
+
+\setlength{\extrarowheight}{1.5em}
+\begin{table}
+	\centering
+	\begin{tabular}{r E l l}
+		\textbf{Symmetry} & \multicolumn{2}{c}{\textbf{Self-consistency equation}} & \textbf{Graph} \\
+		\midrule
+		$s^*$-wave & $u^{(s^*)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) $ & Fig.~\ref{subfig:s*-wave-correlator} \\
+		$d_{x^2-y^2}$-wave & $u^{(d)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) $ & Fig.~\ref{subfig:d-wave-correlator} \\
+		\midrule
+	\end{tabular}
+	\caption{Symmetry resolved self-consistency equations for the harmonics of $u_\mathbf{k}$.}
+	\label{tab:normal-ehm-ugamma-self-consistencies}
+\end{table}
+\setlength{\extrarowheight}{0em}
+
+However, $u_\sigma^{(s^*)}$ and $u_\sigma^{(d)}$ are in general non-zero, since we are allowing theoretically the possibility for $\mathrm{C}_4 \to \mathrm{C}_2$ SSB. Hence Eq.~\eqref{eq:normal-V-fock-int4} becomes
 \begin{multline}
 	V \sum_{\ev{ij}} \sum_\sigma \left[
 	\langle
@@ -387,26 +421,11 @@ recalling the antisymmetric form factors of Tab~\ref{tab:x-wave-reciprocal-facto
 	\hat c_{\mathbf{q}\sigma}^\dagger
 	\hat c_{\mathbf{q}\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \label{eq:normal-V-fock-int5}
 \end{multline}
-Let
+Let 
 \begin{equation}\label{eq:normal-bands-renormalization}
 	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv \epsilon_{\mathbf{k}\sigma} + u^{(s^*)}_\sigma V (\cos q_x + \cos q_y) + u^{(d)}_\sigma V (\cos q_x - \cos q_y)
 \end{equation}
-This equation defines the bands renormalization. The fact that both a $s^*$ and a $d$-wave component appear introduces an interesting anisotropy that is discusses in next section. Tab.~\ref{tab:normal-RWCs} lists the various RWCs and their net effect on the MFT hamiltonian.
-
-\begin{table}
-	\centering
-	\begin{tabular}{c c c l}
-		\textbf{Operator} & \textbf{Sector} & \textbf{RWCs} & \textbf{Net effect} \\
-		\midrule
-		$\hat H_U$ && Hartree & $\mu$ shift by $-nU$ \\[0.5em]
-		$\hat H_V$ & o.s. & Hartree & $\mu$ shift by $nzV$ \\[0.5em]
-		\multirow{2}{*}{$\hat H_V$} & \multirow{2}{*}{s.s.} & Hartree & $\mu$ shift by $nzV$\\
-		&& Fock & Bands renormalization and resymmetrization \\
-		\midrule
-	\end{tabular}
-	\caption{Relevant Wick's contractions for the normal phase.}
-	\label{tab:normal-RWCs}
-\end{table}
+This equation defines the bands renormalization and resymmetrization anticipated in Tab.~\ref{tab:normal-RWCs}, and is actually spin-independent. The fact that both a $s^*$ and a $d$-wave component appear introduces an interesting anisotropy that is discusses in next section.
 
 \subsection{Fock contraction energy}\label{subsec:normal-fock-energy}
 
@@ -427,7 +446,7 @@ Finally, let us derive the Fock contraction energy by expanding Eq.~\eqref{eq:no
 	&= L_x L_y \times \frac{V}{2} \sum_{\gamma,\sigma} \left[
 		\frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}} \varphi_\mathbf{q}^{(\gamma)} u_{\mathbf{q}\sigma}
 	\right] \left[
-		\frac{1}{L_x L_y} \sum_{\mathbf{q}'\in\mathrm{BZ}} \varphi_\mathbf{q}'^{(\gamma)*} u_{\mathbf{q}'\sigma}
+		\frac{1}{L_x L_y} \sum_{\mathbf{q}'\in\mathrm{BZ}} \varphi_\mathbf{q}'^{(\gamma)*} u_{\mathbf{q}'\sigma}^*
 	\right] \nonumber \\
 	&= L_x L_y \times \frac{V}{2} \sum_\sigma \left[
 		\big|
@@ -458,7 +477,17 @@ with
 	\qquad
 	t^{(d)}_\sigma = - \frac{u_\sigma^{(d)} V}{2}
 \]
-Interestingly enough, in principle an anisotropy in the normal diffusion between $x$ and $y$ direction emerges. A schematics of anisotropic mixed symmetry hopping is depicted in Fig.~\ref{fig:anisotropic-hopping}: as is evident, for each bond linking two sites the hopping parameter can be a positive or negative combination of the two components whether the link direction is vertical or horizontal. \todo
+Interestingly enough, in principle an anisotropy in the normal diffusion between $x$ and $y$ direction emerges. A schematics of anisotropic mixed symmetry hopping is depicted in Fig.~\ref{fig:anisotropic-hopping}: as is evident, for each bond linking two sites the hopping parameter can be a positive or negative combination of the two components whether the link direction is vertical or horizontal. Naturally, the solution needs to be invariant under exchange $x \leftrightarrow y$, making the actual SSB of the class $\mathrm{C}_4 \to \mathrm{C}_4 / \mathbb{Z}_2$.
+
+The fact that hopping is here anisotropic does not break full translational invariance $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_2^{(x)}$. In fact, the fact itself that we are imposing a free degenerate Fermi gas ground state in Eq.~\eqref{eq:normal-cc-EV} necessarily gives a uniform density, whatever the shape of the band. In fact, Fourier-transforming the site number operator,
+\[
+	\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \stackrel{\mathcal{F}}{=} \frac{1}{L_x L_y} \sum_{\mathbf{k}, \mathbf{k}'} e^{i (\mathbf{k}-\mathbf{k}') \cdot\mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma}
+\]
+which obviously implies
+\[
+	\ev{\hat n_{i\sigma}} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+\]
+Whatever the shape of the bands, a perfectly degenerate Fermi gas is always translational invariant and thus exhibits uniform symmetry. The fact that hopping is allowed to be anisotropic does not interfere with that: $\mathrm{C}_4$ breaking is not manifested this way.
 
 Note that for null HFPs,
 \[
@@ -466,10 +495,10 @@ Note that for null HFPs,
 	\qquad
 	u_\sigma^{(d)} = 0
 \]
-we have:
+we have, in vector notation and recalling Tab.~\ref{tab:x-wave-real-factors}:
 \[
-	\tilde{t}_{ij\sigma} = \frac{t}{2} \left[
-		\delta_{j=i+\delta_x} + \delta_{j=i-\delta_x} + \delta_{j=i+\delta_y} + \delta_{j=i-\delta_y}
+	\tilde{t}_{\mathbf{r}\mathbf{r}'\sigma} = \frac{t}{2} \left[
+		\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
 	\right]
 \]
 The fact that $t/2$ appears here instead of $t$ is not inconsistent, it's just a consequence of the equivalence:
@@ -527,7 +556,7 @@ Let us now take together all terms. From now on, we will omit spin index $\sigma
 		\right]
 	\end{aligned}
 	\]
-	\item The entropic free energy
+	\item The entropic contribution to free energy
 	\[
 		e_s^{(\mathrm{N})} \equiv -Ts
 	\]
@@ -597,12 +626,7 @@ We are finally able to move to the computational part of this chapter. The aim i
 		u^{(s^*)} \\ u^{(d)}
 	\end{bmatrix}
 \]
-As before, we treat spin as a pure degeneracy. The HFPs are characterized by the self-consistency equations
-\begin{align}
-	u^{(s^*)} &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \\
-	u^{(d)} &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-\end{align}
-The resulting model has two RMPs:
+As before, we treat spin as a pure degeneracy. The HFPs are characterized by the self-consistency equations of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}. The resulting model has two RMPs:
 \begin{align}
 	\tilde{t}_{ij} &\equiv \left(
 		t - \frac{u^{(s^*)}V}{2}
@@ -614,4 +638,18 @@ the second one being only dependent on the model parameters and not on HFPs. We 
 	\tilde{t}^{(x)} &\equiv t - \frac{u^{(s^*)} - u^{(d)}}{2} V \\
 	\tilde{t}^{(y)} &\equiv t - \frac{u^{(s^*)} + u^{(d)}}{2} V
 \end{align}
-Both components are controlled by $V$. Evidently $u^{(s^*)}$ is a measure of the direction-averaged hopping shift with respect to $V$, while $u^{(d)}$ measures the hopping anisotropy with respect to $V$. Finally, the phase free energy is given by Eq.~\eqref{eq:normal-fMFT}. \todo
+Both components are controlled by $V$. Evidently $u^{(s^*)}$ is a measure of the direction-averaged hopping shift with respect to $V$, 
+\[
+	u^{(s^*)} = \frac{
+		\left(
+			t-\tilde{t}^{(x)}
+		\right) + \left(
+			t-\tilde{t}^{(y)}
+		\right)
+	}{V}
+\]
+while $u^{(d)}$ measures the hopping anisotropy with respect to $V$,
+\[
+	u^{(d)} = \frac{\tilde{t}^{(y)} - \tilde{t}^{(x)}}{V}
+\]
+Finally, the phase free energy is given by Eq.~\eqref{eq:normal-fMFT}. \todo
