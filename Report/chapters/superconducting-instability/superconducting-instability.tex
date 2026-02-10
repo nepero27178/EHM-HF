@@ -1,17 +1,49 @@
 \def\GraphicsFolder{chapters/superconducting-instability/pictures}
 \chapter{Superconducting instability}\label{chap:mft-sc-instability}
 
-This chapter is devoted to studying the superconducting phase of the system. The only symmetry we assume to break is the $\mathrm{U}^\mathrm{c}(1)$ charge symmetry, thus allowing for superconducting fluctuations. As is described thoroughly in Sec.~\ref{subsec:sc-fock-analytic}, the hopping amplitude is renormalized because of the non-local attraction. The symmetry structure of the pairing mechanism determines the contributing Cooper fluctuations: for $s$-wave and $d$-wave superconductivity, only the o.s. Cooper term contributes; for $p_\ell$-wave superconductivity, the s.s. term contributes as well. In the following sections, a derivation containing both Cooper terms is proposed.
+This chapter is devoted to studying the superconducting (SC) phase of the system. Superconductivity is obtained essentially by allowing for Cooper fluctuations, obtaining then a phase much different from normal and AF. The conventional, locally repulsive HM, cannot exhibit a BCS-like superconducting phase, an argument discussed in Sec.~\ref{appsubsec:sc-hm-impossible}. The $2$D EHM, supplied with non-local attraction, fixes this and makes a SC phase possible, by the means of a slightly more complex Cooper pairing mechanism. Not only, various SC topological classes are possible based on the competition between isotropic and anisotropic pairing. Finally, spin pairing algebra plays a role in the competition defining singlet and triplet pairing channels.
+
+The most interesting effects with respect to conventional HM are the insurgence of a BCS-like superconducting phase, as well as the already discussed bands renormalization and resymmetrization and the extension of the gap function symmetry structure.
 
 \section{The SC phase and its symmetries}\label{sec:sc-phase-theory}
 
-The starting point is, as done for the other phases, the discussion of the symmetries of the SC phase. We said in introduction we are studying the 
+The starting point is, as done for the other phases, the discussion of the symmetries of the SC phase. The BCS-like phase we are dealing with is described by the full $\mathrm{U}^\mathrm{c}(1)$ SSB. All other symmetries are preserved, but as for the normal and AF phases we allow for 
 \[
-	\mathrm{SU}(2) \times \mathrm{U}^\mathrm{c}(1) \times (\text{Point group})
-	\quad\SSB\quad
-	\mathrm{SU}(2) \times (\text{Point group})
+	\mathrm{C}_4 \SSB \mathrm{C}_2
 \]
-symmetry breaking. Therefore the system density we assume to be uniform across all sites, similarly to the normal phase discussed in Chap.~\ref{chap:normal-phase}. \todo
+without breaking inversion symmetry. Therefore, being translational invariance fully preserved, the system density we assume to be uniform across all sites, similarly to the normal phase discussed in Chap.~\ref{chap:normal-phase}.
+
+Recall Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, collecting the RWCs for the AF phase,
+\[
+\begin{aligned}
+	&\hat H_U 
+	&&\text{Hartree and Cooper contractions} \\
+	&\hat H_V \text{ (o.s. sector)}
+	&&\text{Hartree and Cooper contractions} \\
+	&\hat H_V \text{ (s.s. sector)}
+	&&\text{Hartree, Fock and Cooper contractions} \\
+\end{aligned}	
+\]
+We anticipate the role of all RWCs in Tab.~\ref{tab:sc-RWCs}.
+
+\begin{table}[t]
+	\centering
+	\begin{tabular}{c c c l}
+		\textbf{Operator} & \textbf{Sector} & \textbf{RWCs} & \textbf{Net effect} \\
+		\midrule
+		\multirow{2}{*}{$\hat H_U$} && Hartree & $\mu$ shift by $-nU$ \\
+		&& Cooper & Isotropic pairing in singlet channel \\
+		\midrule
+		\multirow{5}{*}{$\hat H_V$} & \multirow{2}{*}{o.s.} & Hartree & $\mu$ shift by $nzV$ \\
+		&& Cooper & Anisotropic pairing in singlet and triplet channels \\[0.5em]
+		& \multirow{3}{*}{s.s.} & Hartree & $\mu$ shift by $nzV$ \\
+		&& Fock & Band renormalization and resymmetrization \\
+		&& Cooper & Anisotropic pairing in triplet channel \\
+		\midrule
+	\end{tabular}
+	\caption{Relevant Wick's contractions and net effect in the SC phase. This RWCs table is more structured than Tabs.~\ref{tab:normal-RWCs} and \ref{tab:af-RWCs}.}
+	\label{tab:sc-RWCs}
+\end{table}
 
 Let us highlight now an important point regarding the Cooper class Wick's contractions performed on the general EHM of Eq.~\eqref{eq:extended-hubbard-model},
 \[
@@ -255,7 +287,8 @@ and together with the local counterpart of  Eq.~\eqref{eq:normal-hartree-U-contr
 Now we move to the more interesting Fock sector.
 
 \section{Fock effects: bare bands renormalization}\label{sec:sc-fock}
-\todo
+
+As done for the other phases, we here include rapidly the bands renormalization effect derived from the Fock sector of the non-local attraction. This discussion is essentially analogous the one done for the normal phase in Sec.~\ref{sec:normal-fock-bands-renormalization}.
 
 \subsection{Fock channel in the SC phase: analytic derivation}\label{subsec:sc-fock-analytic}
 
@@ -646,16 +679,15 @@ For the $\gamma$-wave component of the superconducting order parameter, the foll
 \end{align}
 where $\tau^+ \equiv \tau^x + i \tau^y$. We used Eqns.~\eqref{eq:sc-x-expectation-non-local}, \eqref{eq:sc-y-expectation-non-local} and \eqref{eq:sc-rot-z-expectation} as well as the thermal factor defined in Eq.~\eqref{eq:sc-ren-thermal-factors-def}. The derivation above holds for all symmetries, including the $s$ one as testifies Eq.~\eqref{appeq:sc-hm-ws-self-consistency-2}. Explicitly, five self-consitency equations are then derived and listed in Tab.~\ref{tab:sc-ehm-wgamma-self-consistencies}. 
 
-\setlength{\extrarowheight}{1.5em}
 \begin{table}
 	\centering
 	\begin{tabular}{r E l l}
 		\textbf{Symmetry} & \multicolumn{2}{c}{\textbf{Self-consistency equation}} & \textbf{Graph} \\
 		\midrule
-		$s$-wave & $w^{(s)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:s-wave-correlator} \\
-		$s^*$-wave & $w^{(s^*)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:s*-wave-correlator} \\
-		$p_x$-wave & $w^{(p_x)}$ & $\displaystyle \frac{i\sqrt{2}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \sin k_x \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:px-wave-correlator} \\
-		$p_y$-wave & $w^{(p_y)}$ & $\displaystyle \frac{i\sqrt{2}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \sin k_y \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:py-wave-correlator} \\
+		$s$-wave & $w^{(s)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:s-wave-correlator} \\[1.5em]
+		$s^*$-wave & $w^{(s^*)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:s*-wave-correlator} \\[1.5em]
+		$p_x$-wave & $w^{(p_x)}$ & $\displaystyle \frac{i\sqrt{2}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \sin k_x \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:px-wave-correlator} \\[1.5em]
+		$p_y$-wave & $w^{(p_y)}$ & $\displaystyle \frac{i\sqrt{2}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \sin k_y \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:py-wave-correlator} \\[1.5em]
 		$d_{x^2-y^2}$-wave & $w^{(d)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:d-wave-correlator} \\
 		\midrule
 	\end{tabular}

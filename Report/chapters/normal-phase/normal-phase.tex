@@ -29,9 +29,10 @@ We anticipate the final effects of all RWCs. As we will see in detail and is rep
 	\begin{tabular}{c c c l}
 		\textbf{Operator} & \textbf{Sector} & \textbf{RWCs} & \textbf{Net effect} \\
 		\midrule
-		$\hat H_U$ && Hartree & $\mu$ shift by $-nU$ \\[0.5em]
-		$\hat H_V$ & o.s. & Hartree & $\mu$ shift by $nzV$ \\[0.5em]
-		\multirow{2}{*}{$\hat H_V$} & \multirow{2}{*}{s.s.} & Hartree & $\mu$ shift by $nzV$\\
+		$\hat H_U$ && Hartree & $\mu$ shift by $-nU$ \\
+		\midrule
+		\multirow{3}{*}{$\hat H_V$} & o.s. & Hartree & $\mu$ shift by $nzV$ \\[0.5em]
+		 & \multirow{2}{*}{s.s.} & Hartree & $\mu$ shift by $nzV$\\
 		&& Fock & Bands renormalization and resymmetrization \\
 		\midrule
 	\end{tabular}
@@ -386,13 +387,12 @@ thus
 \]
 recalling the antisymmetric form factors of Tab~\ref{tab:x-wave-reciprocal-factors}. The remaining $s^*$ and $d$ symmetries are legitimate HFPs with relative self-consistency equations, reported in Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies} using spin degeneracy.
 
-\setlength{\extrarowheight}{1.5em}
 \begin{table}
 	\centering
 	\begin{tabular}{r E l l}
 		\textbf{Symmetry} & \multicolumn{2}{c}{\textbf{Self-consistency equation}} & \textbf{Graph} \\
 		\midrule
-		$s^*$-wave & $u^{(s^*)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) $ & Fig.~\ref{subfig:s*-wave-correlator} \\
+		$s^*$-wave & $u^{(s^*)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) $ & Fig.~\ref{subfig:s*-wave-correlator} \\[1.5em]
 		$d_{x^2-y^2}$-wave & $u^{(d)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) $ & Fig.~\ref{subfig:d-wave-correlator} \\
 		\midrule
 	\end{tabular}

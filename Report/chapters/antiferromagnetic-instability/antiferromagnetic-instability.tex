@@ -50,9 +50,10 @@ We anticipate the role of all RWCs in Tab.~\ref{tab:af-RWCs}.
 	\begin{tabular}{c c c l}
 		\textbf{Operator} & \textbf{Sector} & \textbf{RWCs} & \textbf{Net effect} \\
 		\midrule
-		$\hat H_U$ && Hartree & $\mu$ shift by $-nU$ \\[0.5em]
-		$\hat H_V$ & o.s. & Hartree & $\mu$ shift by $nzV$ \\[0.5em]
-		\multirow{3}{*}{$\hat H_V$} & \multirow{3}{*}{s.s.} & Hartree & $\mu$ shift by $nzV$\\
+		$\hat H_U$ && Hartree & $\mu$ shift by $-nU$ \\
+		\midrule
+		\multirow{4}{*}{$\hat H_V$} & o.s. & Hartree & $\mu$ shift by $nzV$ \\[0.5em]
+		& \multirow{3}{*}{s.s.} & Hartree & $\mu$ shift by $nzV$\\
 		&& \multirow{2}{*}{Fock} & Bands renormalization and resymmetrization,\\
 		& & & gap complexification \\
 		\midrule
@@ -68,7 +69,11 @@ In this short section we recall the principal features of the AF phase establish
 	\hat n_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:af-ehm-n-def} \\
 	\hat \psi_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:af-ehm-psi-def}
 \end{align}
-which represent the two essential fermionic quadratic operators of the analytic MFT derivation. Within the pure HM, the AF phase is specified by the Ansatz \eqref{appeq:af-mean-field-ansatz} which is explicitly breaking translational invariance in each spin sector, while preserving $\mathrm{U}^z(1)$ and $\mathrm{U}^c(1)$ symmetries. As reported in Tab.~\ref{tab:U-wick-terms-phases}, the only RWC comes in Hartree channel, since the local two-body interaction couples operators at opposite spin index. The hamiltonian $\hat H$ is reduced thereby to the form of Eq.~\eqref{appeq:af-hm-mft-h}
+which represent the two essential fermionic quadratic operators of the analytic MFT derivation. Within the pure HM, the AF phase is specified by the Ansatz \eqref{appeq:af-mean-field-ansatz},
+\begin{equation}\label{eq:af-mean-field-ansatz}
+	\langle \hat n_{\mathbf{r}\sigma} \rangle = n - (-1)^{x+y+\delta_{\sigma=\uparrow}} m
+\end{equation}
+which is explicitly breaking translational invariance in each spin sector, while preserving $\mathrm{U}^z(1)$ and $\mathrm{U}^c(1)$ symmetries. As reported in Tab.~\ref{tab:U-wick-terms-phases}, the only RWC comes in Hartree channel, since the local two-body interaction couples operators at opposite spin index. The hamiltonian $\hat H$ is reduced thereby to the form of Eq.~\eqref{appeq:af-hm-mft-h}
 \begin{multline*}
 	\hat H_t + \hat H_U \stackrel{\mathrm{MFT}}{\simeq} -t \sum_{\langle \mathbf{r}\mathbf{r}' \rangle} \sum_\sigma 
 	\left[
@@ -83,7 +88,7 @@ which represent the two essential fermionic quadratic operators of the analytic 
 \end{multline*}
 with $E_{\mathrm{H}/U}^{(\mathrm{AF})}$ the contraction energy resulting from double counting terms, given explicitly in Eq.~\eqref{appeq:af-hm-hartree-U-Ec}. In reciprocal space, the hamiltonian decomposes as in Eq.~\eqref{af-hm-bogoliubov-h},
 \[
-	\hat H_t + \hat H_U \stackrel{\mathrm{MFT}}{\simeq} \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger h_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma} - E_{\mathrm{H}/U}^{(\mathrm{AF})}
+	\hat H_t + \hat H_U \stackrel{\mathrm{MFT}}{\simeq} \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger h_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma} + nU \times \hat N - E_{\mathrm{H}/U}^{(\mathrm{AF})}
 	\qq{being}
 	h_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
 		\epsilon_{\mathbf{k}\sigma} & -\Delta_{\mathbf{k}\sigma}^* \\
@@ -103,7 +108,7 @@ and the free electrons energy is simply the tight binding energy of Eq.~\eqref{e
 		\cos k_x + \cos k_y
 	\right)
 \]
-which is spin-invariant. The MFT description of the model reduces to a gas of free ``$\gamma$-fermions'', described by the Nambu spinor of Eq.~\eqref{appeq:af-diagonalized-nambu-spinor},
+which is spin-invariant. The MFT description of the model reduces to a gas of free ``$\gamma$-fermions'', described by the Nambu spinor of Eq.~\eqref{appeq:af-hm-Gamma-WPsi},
 \[
 	\hat\Gamma_{\mathbf{k}\sigma} = W_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma} = \begin{bmatrix}
 		\hat \gamma_{\mathbf{k}\sigma}^{(+)} \\ \hat \gamma_{\mathbf{k}\sigma}^{(-)}
@@ -145,11 +150,7 @@ These fermions populate the two bands $\pm E_{\mathbf{k}\sigma} = \sqrt{\epsilon
 
 \subsection{Extension to the EHM}\label{subsec:af-ehm}
 
-Consider now the non-local interaction $\hat H_V$. Being the RWCs the same as for the normal phase, the discussion is essentially the same of Chap.~\ref{chap:normal-phase}, with the only relevant difference being the Ansatz we use in Eq.~\eqref{eq:normal-density-ansatz}, substituted by the commensurate oscillatory Ansatz of Eq.~\eqref{appeq:af-mean-field-ansatz},
-\begin{equation}\label{eq:af-mean-field-ansatz}
-	\langle \hat n_{\mathbf{r}\sigma} \rangle = n - (-1)^{x+y+\delta_{\sigma=\uparrow}} m
-\end{equation}
-As for the normal phase, by design the MFT solution to the model for the given phase is described by a redefinition of the various physical quantities and mathematical objects,
+Consider now the non-local interaction $\hat H_V$. Being the RWCs the same as for the normal phase, the discussion is essentially the same of Chap.~\ref{chap:normal-phase}, with the only relevant difference being the Ansatz we use in Eq.~\eqref{eq:normal-density-ansatz}, substituted by the commensurate oscillatory Ansatz of Eq.~\eqref{eq:af-mean-field-ansatz}. {\color{tabred} By itself, even if it may seem the contrary, the Ansatz does not imply $\mathrm{C}_4$ symmetry preservation. It is possible to reduce point group symmetry having still a rotation-symmetric magnetization, as well as it was possible to do in the normal phase with keeping a uniform density.} As for the normal phase, by design the MFT solution to the model for the given phase is described by a redefinition of the various physical quantities and mathematical objects,
 \[
 	\epsilon_{\mathbf{k}\sigma} \to \tilde{\epsilon}_{\mathbf{k}\sigma}
 	\qquad
@@ -189,15 +190,15 @@ Let us define the (renormalized) thermal factors as in Eq.~\eqref{appeq:af-therm
 	\right)
 \end{equation}
 The angles satisfy: \begin{equation}\label{eq:af-bogoliubov-angle-relations}
-	\sin \normalfont(2\tilde{\xi}_{\mathbf{k}\sigma}) = \frac{\Re\{\tilde{\Delta}_{\mathbf{k}\sigma}\}}{|\tilde{\Delta}_{\mathbf{k}\sigma}|}
+	\sin 2\tilde{\xi}_{\mathbf{k}\sigma} = \frac{\Re\{\tilde{\Delta}_{\mathbf{k}\sigma}\}}{|\tilde{\Delta}_{\mathbf{k}\sigma}|}
 	\quad
-	\cos \normalfont(2\tilde{\xi}_{\mathbf{k}\sigma}) = \frac{\Im\{\tilde{\Delta}_{\mathbf{k}\sigma}\}}{|\tilde{\Delta}_{\mathbf{k}\sigma}|}
+	\cos 2\tilde{\xi}_{\mathbf{k}\sigma} = \frac{\Im\{\tilde{\Delta}_{\mathbf{k}\sigma}\}}{|\tilde{\Delta}_{\mathbf{k}\sigma}|}
 	\quad
-	\sin \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) = \frac{|\tilde{\Delta}_{\mathbf{k}\sigma}|}{\tilde{E}_{\mathbf{k}\sigma}}
+	\sin 2\tilde{\theta}_{\mathbf{k}\sigma} = \frac{|\tilde{\Delta}_{\mathbf{k}\sigma}|}{\tilde{E}_{\mathbf{k}\sigma}}
 	\quad
-	\cos \normalfont(2\tilde{\theta}_{\mathbf{k}\sigma}) = \frac{\tilde{\epsilon}_{\mathbf{k}\sigma}}{\tilde{E}_{\mathbf{k}\sigma}}
+	\cos 2\tilde{\theta}_{\mathbf{k}\sigma} = \frac{\tilde{\epsilon}_{\mathbf{k}\sigma}}{\tilde{E}_{\mathbf{k}\sigma}}
 \end{equation}
-The physical behaviour is the same as for the pure HM. In terms of MFT discussion, the AF phase is similar enough to the normal phase of Chap.~\ref{chap:normal-phase}: the RWCs are the same of Sec.~\ref{sec:normal-phase-theory}, listed in Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}. All three Hartree contractions, responsible in the normal phase of the chemical potential shift, and the s.s. Fock contraction, that originated the hopping renormalization. Let us start by the Hartree terms: due to the ``staggered'' nature of the commensurate AF phase, their role is here more complex. Then we will move to the Fock term, discussing the MFT approximations effect on bands. Next sections are basically an extension of the calculations of Chap.~\ref{chap:normal-phase}.
+The physical behaviour is the same as for the pure HM. In terms of MFT discussion, the AF phase is similar enough to the normal phase of Chap.~\ref{chap:normal-phase}: the RWCs are the same of Sec.~\ref{sec:normal-phase-theory}, listed in Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}. All three Hartree contractions, responsible in the normal phase for the chemical potential shift, and the s.s. Fock contraction, that originated the hopping renormalization. Let us start by the Hartree terms: due to the ``staggered'' nature of the commensurate AF phase, their role is here more complex. Then we will move to the Fock term, discussing the MFT approximations effect on bands. Next sections are basically an extension of the calculations of Chap.~\ref{chap:normal-phase}.
 
 \begin{figure}
 	\centering
@@ -240,11 +241,7 @@ As in Eq.~\eqref{eq:normal-V-wick-decomposition}, the same-spin and opposite-spi
 	}_{\mathrm{o.s.}} \, +\,
 	(\text{all the rest})
 \end{multline*}
-Let $i \to \mathbf{r} = (x,y)$ and $j \to \mathbf{r}' = (x',y')$. The key difference in the present derivation, with respect to the normal phase, is the single-site density Ansatz: instead of Eq.~\eqref{eq:normal-density-ansatz}, we use Eq.~\eqref{eq:af-mean-field-ansatz}, which describes an oscillatory density for each spin sector,
-\[
-	\langle \hat n_{\mathbf{r}\sigma} \rangle = n - (-1)^{x+y+\delta_{\sigma=\uparrow}} m
-\]
-This Ansatz is composed of two parts: the offset $n$, and the oscillatory part $m$. The algebraic derivation relative to the $n$ part is, of course, the same as for the normal phase. We now treat separately the ``operatorial'' part of the braced terms of Eq.~\eqref{eq:normal-V-wick-decomposition},
+Let $i \to \mathbf{r} = (x,y)$ and $j \to \mathbf{r}' = (x',y')$. We use Eq.~\eqref{eq:af-mean-field-ansatz}, which describes an oscillatory density for each spin sector. This Ansatz is composed of two parts: the offset $n$, and the oscillatory part $m$. The algebraic derivation relative to the $n$ part is, of course, the same as for the normal phase. We now treat separately the ``operatorial'' part of the braced terms of Eq.~\eqref{eq:normal-V-wick-decomposition},
 \begin{equation}\label{eq:af-V-wick-decomposition-operatorial}
 	-V \sum_{\ev{\mathbf{r}\mathbf{r}'}} \sum_\sigma \left[
 		\langle
@@ -404,7 +401,7 @@ Let us now move to the last part of the Hartree effects on the AF phase originat
 
 \subsection{Hartree contraction energy}\label{subsec:af-hartree-energy}
 
-Consider the scalar Expr.~\eqref{eq:af-V-wick-decomposition-double-counting}: it's the sum of two parts, the first coming from s.s. sector, the second from o.s. sector.
+Consider the scalar Expr.~\eqref{eq:af-V-wick-decomposition-double-counting}: it's the sum of two parts, the first coming from s.s. sector, the second from o.s. sector. In computing the contractyion energy from Hartree channel, being the operatorial result identical to the one obtained for the normal phase, we expect the saeme to happen for double counting terms.
 
 \paragraph{s.s. sector double counting energy.}
 
@@ -530,7 +527,7 @@ The commensurate AF phase is essentially described by two EVs being in principle
 		\rangle
 	\big| \ge 0
 \]
-The AF ground state is a degenerate Fermi gas of $\gamma^{(\pm)}$ quasiparticles, and for null temperature acquires the simple form of Eq.~\eqref{appeq:af-hm-gs-4}. Going back to Eq.~\eqref{eq:af-V-fock-int1}, this implies only two contributions are non-zero:
+Because of this, for the conventional HM the AF ground state is a degenerate Fermi gas of $\gamma^{(\pm)}$ quasiparticles, and for null temperature acquires the simple form of Eq.~\eqref{appeq:af-hm-gs-4}. Assuming the new ground state to be similar and going back to Eq.~\eqref{eq:af-V-fock-int1}, this implies only two contributions are non-zero:
 \[
 	\mathbf{k} = -\mathbf{k}'
 	\qq{or}
@@ -669,14 +666,13 @@ where, in the last passage, Eqns.~\eqref{eq:af-z-expectation-non-local}, \eqref{
 \]
 The renormalized bands need to be symmetric functions of the moment. Hence for $\gamma\in\lbrace p_x, p_y \rbrace$ the above sum vanishes. The remaining $s^*$ and $d$ symmetries are legitimate HFPs with relative self-consistency equations, reported in Tab.~\ref{tab:af-ehm-ugamma-self-consistencies} using spin degeneracy. 
 
-\setlength{\extrarowheight}{1.5em}
 \begin{table}
 	\centering
 	\begin{tabular}{r E l l}
 		\textbf{Symmetry} & \multicolumn{2}{c}{\textbf{Self-consistency equation}} & \textbf{Graph} \\
 		\midrule
 		$s^*$-wave & $u^{(s^*)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{q}\in\mathrm{MBZ}} (\cos q_x + \cos q_y)
-		\frac{\tilde{\epsilon}_{\mathbf{q}\sigma}}{\tilde{E}_{\mathbf{q}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{q}\sigma}^{(-)}[\beta,\tilde{\mu}] $ & Fig.~\ref{subfig:s*-wave-correlator} \\
+		\frac{\tilde{\epsilon}_{\mathbf{q}\sigma}}{\tilde{E}_{\mathbf{q}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{q}\sigma}^{(-)}[\beta,\tilde{\mu}] $ & Fig.~\ref{subfig:s*-wave-correlator} \\[1.5em]
 		$d_{x^2-y^2}$-wave & $u^{(d)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{q}\in\mathrm{MBZ}} (\cos q_x - \cos q_y)
 		\frac{\tilde{\epsilon}_{\mathbf{q}\sigma}}{\tilde{E}_{\mathbf{q}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{q}\sigma}^{(-)}[\beta,\tilde{\mu}] $ & Fig.~\ref{subfig:d-wave-correlator} \\
 		\midrule
@@ -684,9 +680,8 @@ The renormalized bands need to be symmetric functions of the moment. Hence for $
 	\caption{Symmetry resolved self-consistency equations for the harmonics of $u_\mathbf{k}$.}
 	\label{tab:af-ehm-ugamma-self-consistencies}
 \end{table}
-\setlength{\extrarowheight}{0em}
 
-Eq.~\eqref{eq:af-V-fock-int3} becomes
+Recognizing the harmonics, Eq.~\eqref{eq:af-V-fock-int3-diag} becomes
 \begin{multline}
 		\frac{2V}{L_x L_y} \sum_{\mathbf{q}, \mathbf{q}'} \sum_\sigma \left[
 			\cos \left(
@@ -775,24 +770,22 @@ Proceed as done previously: define the expectation value
 	&= \frac{1}{2L_x L_y} \sum_{\mathbf{q}\in\mathrm{MBZ}} \varphi_\mathbf{q}^{(\gamma)}
 	\frac{\Im\lbrace\tilde{\Delta}_{\mathbf{q}\sigma}\rbrace}{\tilde{E}_{\mathbf{q}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{q}\sigma}^{(-)}[\beta,\tilde{\mu}] \label{eq:af-vgamma-chain}
 \end{align}
-where we made use of the relations of Tab.~\ref{tab:af-pseudospin-map} as well as Eq.~\eqref{eq:af-y-expectation-non-local}. We also used the obvious facts that $\langle \hat \psi_{\mathbf{q}+\bm{\pi}\sigma} \rangle = \langle \hat \psi_{\mathbf{k}\sigma}^\dagger \rangle$ and $\varphi_{\mathbf{q}+\bm{\pi}}^{(\gamma)} = -\varphi_\mathbf{q}^{(\gamma)}$. There is no particular reason to exclude one component or another. In Tab.~\ref{tab:af-ehm-vgamma-self-consistencies} the four derived self-consistency equations are reported.
+where we made use of the relations of Tab.~\ref{tab:af-pseudospin-map} as well as Eq.~\eqref{eq:af-y-expectation-non-local}. We also used the obvious facts that $\langle \hat \psi_{\mathbf{q}+\bm{\pi}\sigma} \rangle = \langle \hat \psi_{\mathbf{k}\sigma}^\dagger \rangle$ and $\varphi_{\mathbf{q}+\bm{\pi}}^{(\gamma)} = -\varphi_\mathbf{q}^{(\gamma)}$. There is no particular reason to exclude one component or another. In Tab.~\ref{tab:af-ehm-vgamma-self-consistencies} the four derived self-consistency equations are reported (already ignoring spin index).
 
-\setlength{\extrarowheight}{1.5em}
 \begin{table}
 	\centering
 	\begin{tabular}{r E l l}
 		\textbf{Symmetry} & \multicolumn{2}{c}{\textbf{Self-consistency equation}} & \textbf{Graph} \\
 		\midrule
-		$s^*$-wave & $v^{(s^*)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) \frac{\Im\lbrace\tilde{\Delta}_{\mathbf{q}\sigma}\rbrace}{\tilde{E}_{\mathbf{q}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{q}\sigma}^{(-)}[\beta,\tilde{\mu}] $ & Fig.~\ref{subfig:s*-wave-correlator} \\
-		$p_x$-wave & $v^{(p_x)}$ & $\displaystyle \frac{i\sqrt{2}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \sin k_x \frac{\Im\lbrace\tilde{\Delta}_{\mathbf{q}\sigma}\rbrace}{\tilde{E}_{\mathbf{q}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{q}\sigma}^{(-)}[\beta,\tilde{\mu}] $ & Fig.~\ref{subfig:px-wave-correlator} \\
-		$p_y$-wave & $v^{(p_y)}$ & $\displaystyle \frac{i\sqrt{2}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \sin k_y \frac{\Im\lbrace\tilde{\Delta}_{\mathbf{q}\sigma}\rbrace}{\tilde{E}_{\mathbf{q}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{q}\sigma}^{(-)}[\beta,\tilde{\mu}] $ & Fig.~\ref{subfig:py-wave-correlator} \\
+		$s^*$-wave & $v^{(s^*)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) \frac{\Im\lbrace\tilde{\Delta}_{\mathbf{q}\sigma}\rbrace}{\tilde{E}_{\mathbf{q}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{q}\sigma}^{(-)}[\beta,\tilde{\mu}] $ & Fig.~\ref{subfig:s*-wave-correlator} \\[1.5em]
+		$p_x$-wave & $v^{(p_x)}$ & $\displaystyle \frac{i\sqrt{2}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \sin k_x \frac{\Im\lbrace\tilde{\Delta}_{\mathbf{q}\sigma}\rbrace}{\tilde{E}_{\mathbf{q}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{q}\sigma}^{(-)}[\beta,\tilde{\mu}] $ & Fig.~\ref{subfig:px-wave-correlator} \\[1.5em]
+		$p_y$-wave & $v^{(p_y)}$ & $\displaystyle \frac{i\sqrt{2}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \sin k_y \frac{\Im\lbrace\tilde{\Delta}_{\mathbf{q}\sigma}\rbrace}{\tilde{E}_{\mathbf{q}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{q}\sigma}^{(-)}[\beta,\tilde{\mu}] $ & Fig.~\ref{subfig:py-wave-correlator} \\[1.5em]
 		$d_{x^2-y^2}$-wave & $v^{(d)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) \frac{\Im\lbrace\tilde{\Delta}_{\mathbf{q}\sigma}\rbrace}{\tilde{E}_{\mathbf{q}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{q}\sigma}^{(-)}[\beta,\tilde{\mu}] $ & Fig.~\ref{subfig:d-wave-correlator} \\
 		\midrule
 	\end{tabular}
 	\caption{Symmetry resolved self-consistency equations for the harmonics of $v_\mathbf{k}$.}
 	\label{tab:af-ehm-vgamma-self-consistencies}
 \end{table}
-\setlength{\extrarowheight}{0em}
 
 From the definitions of the structure factors of Tab.~\ref{tab:x-wave-reciprocal-factors}, it's immediate to see that:
 \[
@@ -1086,7 +1079,7 @@ Since the form factors satisfy $\varphi_{\mathbf{q}+\bm{\pi}}^{(\gamma)} = -\var
 	&= v^{(\gamma)}_\sigma \left[
 		\frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_{\mathbf{k}}^{(\gamma)*} v_{\mathbf{k}\sigma}^*
 	\right] \\
-	&= v^{(\gamma)}_\sigma \times v^{(\gamma)*}_\sigma
+	&= \big| v^{(\gamma)}_\sigma \big|^2
 \end{aligned}
 \]
 where in the second passage we employed the change of variables $\mathbf{q}'=\mathbf{k}+\bm{\pi}$ and used BZ periodicity to map the original sum onto a new sum for $\mathbf{k}\in\mathrm{BZ}$. Inserting the above results in Eq.~\eqref{eq:af-V-fock-double-counting-int2}, this last becomes:
@@ -1101,13 +1094,14 @@ Interestingly enough, the new HFPs amplitudes contribute negatively to the contr
 
 Finally, it is time to collect everything in a single hamiltonian operator. The MFT model is approximated by:
 \begin{multline*}
-	\hat H \simeq \sum_\sigma \sum_{\mathbf{k}\in\mathrm{MBZ}} \tilde{\epsilon}_{\mathbf{k}\sigma} \left[
+	\hat H - \mu \hat N \simeq \sum_\sigma \sum_{\mathbf{k}\in\mathrm{MBZ}} \tilde{\epsilon}_{\mathbf{k}\sigma} \left[
 		\hat n_{\mathbf{k}\sigma} - \hat n_{\mathbf{k}+\bm{\pi}\sigma}
-	\right] \\
+	\right]
 	- \sum_\sigma \sum_{\mathbf{k}\in\mathrm{MBZ}} \left[
 		\tilde{\Delta}_{\mathbf{k}\sigma}
 		\hat \psi_{\mathbf{k}\sigma} + \tilde{\Delta}_{\mathbf{k}\sigma}^* \hat \psi_{\mathbf{k}\sigma}^\dagger
-	\right] - \left[
+	\right] \\
+	- \tilde{\mu} \hat N - \left[
 		E_{\mathrm{H}/U}^{(\mathrm{AF})} + 
 		E_{\mathrm{H}/V}^{(\mathrm{AF})} + E_{\mathrm{F}/V}^{(\mathrm{AF})}
 	\right]
@@ -1120,6 +1114,7 @@ and the full gap function by
 \[
 	\tilde{\Delta}_{\mathbf{k}\sigma} = \Delta_{\mathbf{k}\sigma} + iV \sum_{\gamma,\sigma} v^{(\gamma)}_\sigma \varphi_\mathbf{k}^{(\gamma)*}
 \]
+
 The gap correction is purely imaginary, compared to the HM gap $\Delta_{\mathbf{k}\sigma} = (-1)^{\delta_{\sigma=\downarrow}} mU$. This has two obvious consequences: being no other contribution to the $x$ pseudospin projections other than the pure HM ones, spin antisymmetry is preserved within such direction
 \[
 	\left\langle \hat s_{\mathbf{k}\sigma}^x \right\rangle = -\left\langle \hat s_{\mathbf{k}\overline{\sigma}}^x \right\rangle
@@ -1155,7 +1150,7 @@ while for the HM the $y$ pseudospin component was identically null.
 
 In Sec.~\ref{appsubsec:af-zero-T-half-filling-gs}, we derive analytically the AF ground state on the conventional HM at zero temperature, as a simple Bloch's transform of a polarized (tilted) pseudospins collective pure state. Eq.~\eqref{appeq:af-hm-gs-3} reports the final form of said ground-state. Said quantum state is in general pretty similar to the conventional BCS state.
 
-At half-filling and zero temperature, it is rather easy to extended that state to the new complexified gap. By performing an identical calculation as in Sec.~\ref{appsubsec:af-zero-T-half-filling-gs} we here omit, it's easy to show that the new ground state for the EHM in the AF phase is identical, with RMPs in the various amplitudes and a relative phase taking care of the gap function complex phase,
+At half-filling and zero temperature, it is rather easy to extend that state to the new complexified gap. By performing an identical calculation as in Sec.~\ref{appsubsec:af-zero-T-half-filling-gs} we here omit, it's easy to show that the new ground state for the EHM in the AF phase is identical, with RMPs in the various amplitudes and a relative phase taking care of the gap function complex phase,
 \begin{equation}\label{eq:af-hm-gs}
 	\ket{\Psi} = \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \left[
 		\sin\tilde{\theta}_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma}^\dagger + e^{2i\tilde{\zeta}_{\mathbf{k}\sigma}} \cos \tilde{\theta}_{\mathbf{k}\sigma} \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger
@@ -1165,7 +1160,7 @@ which is identical to Eq.~\eqref{appeq:af-hm-gs-3}. The angles appearing in the 
 
 \subsection{AF phase flavours and spin degeneracy}\label{subsec:eaf-hm-flavours}
 
-The AF phase we are studying cannot break inversion symmetry, a core property of the system which is respected from all our approximations. This translates in the simple requirement that:
+The AF phase we are studying is not allowed to break inversion symmetry, a core property of the system which is respected from all our approximations. This translates in the simple requirement that:
 \[
 	\tilde{E}_{\mathbf{k}\sigma} \stackrel{!}{=} \tilde{E}_{-\mathbf{k}\sigma}
 \]
@@ -1185,7 +1180,7 @@ hence inversion symmetry is respected only if
 \[
 	\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace = \pm\Im\lbrace \tilde{\Delta}_{-\mathbf{k}\sigma}\rbrace
 \]
-which is: either the imaginary part of the gap is inversion symmetric, or is antisymmetric. Based on this trivial consideration, we are able two discard two of the four self-consistency equations for the $v$-related HFPs: $s^*$ and $d$-wave symmetries HFPs -- Eqns.~\eqref{eq:af-vS-self-consistency} and \eqref{eq:af-vd-self-consistency}, respectively -- are nonzero if $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is momentum-even; $p_x$ and $p_y$-wave symmetries HFPs -- Eqns.~\eqref{eq:af-vpx-self-consistency} and \eqref{eq:af-vpy-self-consistency}, respectively -- are nonzero if $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is momentum-odd. The two option cannot coexist, and separate simulations can be implemented in the two symmetry sectors. We name the two possible symmetries ``sAF'' (symmetric antiferromagnet) and ``aAF'' (antisymmetric antiferromagnet). The set of HFPs then restricts in these AF structures, and is reported for both cases in Tab.~\ref{tab:saf-aaf-hfps}.
+which is: either the imaginary part of the gap is inversion symmetric, or is antisymmetric. Based on this trivial consideration, we are able two discard two of the four self-consistency equations for the $v$-related HFPs liseted in Tab.~\ref{tab:af-ehm-vgamma-self-consistencies}: $s^*$ and $d$-wave symmetries HFPs are nonzero if $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is momentum-even; $p_x$ and $p_y$-wave symmetries HFPs are nonzero if $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is momentum-odd. The two option cannot coexist, and separate simulations can be implemented in the two symmetry sectors. We name the two possible symmetries ``sAF'' (symmetric antiferromagnet) and ``aAF'' (antisymmetric antiferromagnet). The set of HFPs then restricts in these AF structures, and is reported for both cases in Tab.~\ref{tab:saf-aaf-hfps}.
 
 \begin{table}
 	\centering
@@ -1204,7 +1199,7 @@ which is: either the imaginary part of the gap is inversion symmetric, or is ant
 	\label{tab:saf-aaf-hfps}
 \end{table}
 
-Moreover, from now on we will omit the $\sigma$ index, working just in the $\uparrow$ sector. As said in Sec.~\ref{subsec:af-symmetry-considerations}, the AF phase does not break $\mathbb{Z}_2$ spin inversion symmetry, being the SDW ordering generated by a staggered but symmetric spin density distribution among sites. The MFT hamiltonian is invariant by a $\sigma \leftrightarrow \overline{\sigma}$ exchange, thus all measurable physical quantities must be. What is unmeasurable and has no effect on Physics is free to be $\sigma$-dependent, as for the sign of $\Re\lbrace\Delta_{\mathbf{k}\sigma}\rbrace$. Since all it's relevant of both the complex components of the gap function is their magnitude, we can safely treat $\sigma$ as a pure degeneracy. This gives a simple equation for the last HFP,
+Moreover, from now on we will omit the $\sigma$ index, working just in the $\uparrow$ sector. As said in Sec.~\ref{sec:af-phase-theory}, the AF phase does not break $\mathbb{Z}_2$ spin inversion symmetry, being the SDW ordering generated by a staggered but symmetric spin density distribution among sites. The MFT hamiltonian is invariant by a $\sigma \leftrightarrow \overline{\sigma}$ exchange, thus all measurable physical quantities must be. What is unmeasurable and has no effect on Physics is free to be $\sigma$-dependent, as for the sign of $\Re\lbrace\Delta_{\mathbf{k}\sigma}\rbrace$. Since all it's relevant of both the complex components of the gap function is their magnitude, we can safely treat $\sigma$ as a pure degeneracy. This gives a simple equation for the last HFP,
 \begin{align}
 	m &= \frac{1}{L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \left\langle
 	\hat s_{\mathbf{k}\uparrow}^x
@@ -1213,7 +1208,7 @@ Moreover, from now on we will omit the $\sigma$ index, working just in the $\upa
 		\Re\lbrace\tilde{\Delta}_\mathbf{k}\rbrace
 	}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}] \label{eq:af-m-self-consistency}
 \end{align}
-\todo
+which is the actual physical magnetization. From the first line we see that it can be interpreted as the average transverse pseudospin value.
 
 %\subsection{Renormalized hamiltonian behavior}
 %
