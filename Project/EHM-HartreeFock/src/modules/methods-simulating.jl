@@ -147,7 +147,7 @@ function PerformHFStep(
 			k = q .* pi # Important: multiply k by pi
 			if in(wk,[1,2,4]) # Allowed weights
 				# Renormalized bands
-				εk::Float64 = GetHoppingEnergy(t,k)
+				εk::Float64 = GetBareBands(t,k)
 
 				# Renormalized gap
 				reΔk::Float64 = v["m"] * (Parameters["U"] + 8*Parameters["V"])
@@ -191,7 +191,7 @@ function PerformHFStep(
 			k = q .* pi # Important: multiply k by pi
 			if in(wk,[1,2,4]) # Allowed weights
 				# Free bands
-				ξk = GetHoppingEnergy(t,k) - μ
+				ξk = GetBareBands(t,k) - μ
 				if RenormalizeBands && "gd" in keys(v)
 					ξk += Parameters["V"] * v["gd"] * StructureFactor("d",k)
 				end

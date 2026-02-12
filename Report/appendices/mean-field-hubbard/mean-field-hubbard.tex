@@ -125,6 +125,43 @@ and reduce Eq.~\eqref{appeq:af-hm-mft-h} to its reciprocal form
 	\right] + nU \hat N - E_{\mathrm{H}/U}^{(\mathrm{AF})}
 \]
 
+\subsection{More on AF Ansatz}
+
+Before moving on, let us give a little detail on the AF Ansatz. The decoupling in Hartree sector of the density-density interaction can be treated with more care: denoting by d.c. the double counting terms we ignore,
+\[
+\begin{aligned}
+	\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}\downarrow} - \mathrm{d.c.} &=
+	\hat n_{\mathbf{r}\uparrow} \ev{\hat n_{\mathbf{r}\downarrow}} + \ev{\hat n_{\mathbf{r}\uparrow}} \hat n_{\mathbf{r}\downarrow} \\
+	&= 
+	\hat n_{\mathbf{r}\uparrow} \frac{\ev{\hat n_{\mathbf{r}\downarrow}} + \ev{\hat n_{\mathbf{r}\uparrow}}}{2} + \hat n_{\mathbf{r}\uparrow} \frac{\ev{\hat n_{\mathbf{r}\downarrow}} - \ev{\hat n_{\mathbf{r}\uparrow}}}{2} 
+	+
+	\frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\uparrow}}}{2} \hat n_{\mathbf{r}\downarrow} + \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\uparrow}}}{2} \hat n_{\mathbf{r}\downarrow} \\
+	&= \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\uparrow}}}{2} \left(
+		\hat n_{\mathbf{r}\uparrow} + \hat n_{\mathbf{r}\downarrow}
+	\right) - \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\uparrow}}}{2} \left(
+		\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
+	\right)
+\end{aligned}
+\]
+Our commensurate AF Ansatz essentially states that each site has the same spin-averaged density,
+\[
+	n \equiv \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\uparrow}}}{2}
+	\qquad
+	\text{is $\mathbf{r}$-independent}
+\]
+while the spin averaged unbalance has a two-sites periodicity
+\[
+	m \equiv (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\uparrow}}}{2}
+	\qquad
+	\text{is $\mathbf{r}$-independent}
+\]
+This way we reduce translational invariance. Of course, if the two quantities above are $\mathbf{r}$-independent indeed, it must hold
+\begin{align}
+	n &= \frac{1}{L_x L_y} \sum_\mathbf{r} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\uparrow}}}{2} \label{appeq:af-hm-n-self-consistency-implicit}\\
+	m &= \frac{1}{L_x L_y} \sum_\mathbf{r} (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\uparrow}}}{2} \label{appeq:af-hm-m-self-consistency-implicit} \\
+\end{align}
+While from the first equation we gain an operational method to compute density, from the second we get a magnetization self-consistency equation.
+
 %\begin{figure}
 %	\centering
 %	\subfloat[Alternative band.]{
@@ -234,32 +271,17 @@ At any finite temperature, the ground-state of such a system is well-known: a th
 \begin{equation}\label{appeq:af-thermal-factors-def}
 	\mathrm{Th}_{\mathbf{k}\sigma}^{(\pm)}[\beta,\mu] \equiv 
 	f\left(
-		E_{\mathbf{k}\sigma};\beta,\mu
-	\right) \pm f\left(
 		-E_{\mathbf{k}\sigma};\beta,\mu
+	\right) \pm f\left(
+		E_{\mathbf{k}\sigma};\beta,\mu
 	\right)
 \end{equation}
 that will appear quite often. Then it's immediate to derive the various expectation values.
 \begin{align}
-	\ev{\hat s_{\mathbf{k}\sigma}^x} &= -\frac{\Re\lbrace\Delta_{\mathbf{k}\sigma}\rbrace}{2E_{\mathbf{k}\sigma}} \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{appeq:af-hm-sx}\\
-	\ev{\hat s_{\mathbf{k}\sigma}^y} &= -\frac{\Im\lbrace\Delta_{\mathbf{k}\sigma}\rbrace}{2E_{\mathbf{k}\sigma}}  \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{appeq:af-hm-sy}\\
-	\ev{\hat s_{\mathbf{k}\sigma}^z} &=  \frac{\epsilon_{\mathbf{k}\sigma}}{2E_{\mathbf{k}\sigma}}  \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{appeq:af-hm-sz}
+	\ev{\hat s_{\mathbf{k}\sigma}^x} &= \frac{\Re\lbrace\Delta_{\mathbf{k}\sigma}\rbrace}{E_{\mathbf{k}\sigma}} \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{appeq:af-hm-sx}\\
+	\ev{\hat s_{\mathbf{k}\sigma}^y} &= \frac{\Im\lbrace\Delta_{\mathbf{k}\sigma}\rbrace}{E_{\mathbf{k}\sigma}}  \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{appeq:af-hm-sy}\\
+	\ev{\hat s_{\mathbf{k}\sigma}^z} &=  -\frac{\epsilon_{\mathbf{k}\sigma}}{E_{\mathbf{k}\sigma}}  \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{appeq:af-hm-sz}
 \end{align}
-
-%Note that rotation is taken to be of an angle $2\theta_{\mathbf{k}\sigma} - \pi$ in order to anti-align the pseudo-spin with the magnetic field of Fig.~\ref{appfig:pseudo-magnetic-field} and thus order the eigenvalues as in $d_{\mathbf{k}\sigma}$, with the smaller one in the top-left corner of the matrix and the larger one in the bottom-right corner. The explicit form of the transformation matrix is thus
-%\begin{equation}\label{appeq:W-explicit-form}
-%	W_{\mathbf{k}\sigma} = \begin{bmatrix}
-%		\cos \theta_{\mathbf{k}\sigma} & - \sin \theta_{\mathbf{k}\sigma} \\
-%		\sin \theta_{\mathbf{k}\sigma} & \cos \theta_{\mathbf{k}\sigma}
-%	\end{bmatrix} \begin{bmatrix}
-%		& -1 \\
-%		1 &
-%	\end{bmatrix} = \begin{bmatrix}
-%		- \sin \theta_{\mathbf{k}\sigma} & - \cos \theta_{\mathbf{k}\sigma} \\ 
-%		\cos \theta_{\mathbf{k}\sigma} & - \sin \theta_{\mathbf{k}\sigma}
-%	\end{bmatrix}
-%\end{equation}
-
 
 Note that considering the gran canonical hamiltonian $\hat K \equiv \hat H - \mu\hat N$ and using Eq.~\eqref{appeq:af-hm-id-def} the diagonalizing matrix remains the same, being
 \begin{equation}\label{appeq:af-full-h-diagonalization}
@@ -406,7 +428,7 @@ Using the fact that
 		\hat\Psi_{\mathbf{k}\sigma}
 	\right\rangle
 \]
-due to the $W_{\mathbf{k}\sigma}$ unitarity properties, the total number of electrons is given by
+due to the $W_{\mathbf{k}\sigma}$ unitarity properties, the total number of electrons is given by (also recalling Eq.~\eqref{appeq:af-hm-n-self-consistency-implicit})
 \begin{align}
 	N &= \sum_{\mathbf{k}\sigma} \ev{\hat n_{\mathbf{k}\sigma}} \nonumber \\
 	&= \sum_\sigma \sum_{\mathbf{k} \in \mathrm{MBZ}} \left\langle
@@ -449,7 +471,7 @@ A convergence algorithm can be designed to find the Hartree-Fock solution to the
 		\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger
 	\right]
 \]
-thus
+thus employing Eq.~\eqref{appeq:af-hm-m-self-consistency-implicit}
 \[
 \begin{aligned}
 	m &= \frac{1}{2L_xL_y} \sum_\mathbf{r} (-1)^{x+y} \langle
@@ -471,8 +493,8 @@ Using now Eq.~\eqref{appeq:af-hm-x-psi} we get the self-consistency equation for
 			 \hat s_{\mathbf{k}\downarrow}^x
 		 \rangle
 	\right] \nonumber \\
-	&= -\frac{1}{2L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Re\lbrace\Delta_{\mathbf{k}\uparrow}\rbrace-\Re\lbrace\Delta_{\mathbf{k}\downarrow}\rbrace}{2E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta,\mu] \nonumber \\
-	&= -\frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta}{2E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta,\mu] \label{appeq:af-hm-m-self-consistency}
+	&= \frac{1}{2L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Re\lbrace\Delta_{\mathbf{k}\uparrow}\rbrace-\Re\lbrace\Delta_{\mathbf{k}\downarrow}\rbrace}{E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta,\mu] \nonumber \\
+	&= \frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta}{E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta,\mu] \label{appeq:af-hm-m-self-consistency}
 \end{align}
 
 The magnetization $m$ is the physical order parameter of the phase transition from the normal phase to the antiferromagnetic one. Within such phase transition, in fact, it is the expectation value
@@ -602,7 +624,7 @@ Consider specifically the half-filled situation and multiply Eq.~\eqref{appeq:af
 \]
 where we used the relation
 \[
-	\mathrm{Th}_\mathbf{k}^{(-)}[\beta,0] = -\tanh(\frac{\beta E_\mathbf{k}}{2})
+	\mathrm{Th}_\mathbf{k}^{(-)}[\beta,0] = \tanh(\frac{\beta E_\mathbf{k}}{2})
 \]
 In thermodynamic limit $L \to \infty$
 \[
@@ -899,11 +921,11 @@ Recall the result of Eq.~\eqref{HU-Fourier} which gave the Fourier-transformed v
 		\big\rangle
 	\Big] \label{appeq:sc-hm-U-int-2}
 \end{multline}
-We are not breaking translational invariance, thus only Cooper fluctuations with net zero total momentum are allowed. This means only $\mathbf{K}=\mathbf{0}$ contributes. Define as in Eq.~\eqref{eq:su-ehm-phi-def} the pairing operator 
+We are not breaking translational invariance, thus only Cooper fluctuations with net zero total momentum are allowed. This means only $\mathbf{K}=\mathbf{0}$ contributes. Define as in Eq.~\eqref{eq:sc-ehm-phi-def} the pairing operator 
 \begin{equation}\label{appeq:sc-hm-phi-def}
-	\hat \phi_{\mathbf{k}\uparrow} \equiv \hat c_{-\mathbf{k}\downarrow} \hat c_{\mathbf{k} \uparrow}
+	\hat \phi_\mathbf{k} \equiv \hat c_{-\mathbf{k}\downarrow} \hat c_{\mathbf{k} \uparrow}
 \end{equation}
-and define $w_\mathbf{q}$ as in Eq.~\eqref{eq:sc-wqsigma-def},
+and define $w_\mathbf{q}$ as in Eq.~\eqref{eq:sc-wq-def},
 \[
 	w_\mathbf{q} \equiv \big\langle
 		\phi_\mathbf{q}^\dagger
@@ -1138,16 +1160,16 @@ while the analogous of Eq.~\eqref{appeq:af-hm-z-psi} was given in Eq.~\eqref{app
 \begin{equation}\label{appeq:sc-thermal-factors-def}
 	\mathrm{Th}_\mathbf{k}^{(\pm)}[\beta] \equiv 
 	f\left(
-		E_\mathbf{k};\beta,0
-	\right) \pm f\left(
 		-E_\mathbf{k};\beta,0
+	\right) \pm f\left(
+		E_\mathbf{k};\beta,0
 	\right)
 \end{equation}
 and the EVs:
 \begin{align}
-	\ev{\hat s_\mathbf{k}^x} &= -\frac{\Re\lbrace\Delta_\mathbf{k}\rbrace}{2E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta] \label{appeq:sc-hm-sx}\\
-	\ev{\hat s_\mathbf{k}^y} &= -\frac{\Im\lbrace\Delta_\mathbf{k}\rbrace}{2E_\mathbf{k}}  \mathrm{Th}_\mathbf{k}^{(-)}[\beta] \label{appeq:sc-hm-sy}\\
-	\ev{\hat s_\mathbf{k}^z} &=  \frac{\xi_\mathbf{k}}{2E_\mathbf{k}}  \mathrm{Th}_\mathbf{k}^{(-)}[\beta] \label{appeq:sc-hm-sz}
+	\ev{\hat s_\mathbf{k}^x} &= \frac{\Re\lbrace\Delta_\mathbf{k}\rbrace}{E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta] \label{appeq:sc-hm-sx}\\
+	\ev{\hat s_\mathbf{k}^y} &= \frac{\Im\lbrace\Delta_\mathbf{k}\rbrace}{E_\mathbf{k}}  \mathrm{Th}_\mathbf{k}^{(-)}[\beta] \label{appeq:sc-hm-sy}\\
+	\ev{\hat s_\mathbf{k}^z} &=  -\frac{\xi_\mathbf{k}}{E_\mathbf{k}}  \mathrm{Th}_\mathbf{k}^{(-)}[\beta] \label{appeq:sc-hm-sz}
 \end{align}
 
 Up to now, the derivation was general. However, it is immediate to show that for the pure HM the SC phase can never establish. Recall Eq.~\eqref{appeq:sc-hm-ws-self-consistency}: explicitly
@@ -1161,12 +1183,12 @@ Up to now, the derivation was general. However, it is immediate to show that for
 	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{	
 		\ev{\hat s_\mathbf{k}^x} + i \ev{\hat s_\mathbf{k}^y}
 	}{2} \nonumber \\
-	&= - \frac{1}{2 L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\Delta_\mathbf{k}}{E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta] \label{appeq:sc-hm-ws-self-consistency-2}
+	&= \frac{1}{2 L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\Delta_\mathbf{k}}{E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta] \label{appeq:sc-hm-ws-self-consistency-2}
 \end{align}
 Now: $\Delta_\mathbf{k} = \Delta^{(s)} = -U w^{(s)}$, thus if we define
 \[
 	U_\mathrm{c}[\beta] \equiv \left[
-		- \frac{1}{2 L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\mathrm{Th}_\mathbf{k}^{(-)}[\beta]}{E_\mathbf{k}}
+		\frac{1}{2 L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\mathrm{Th}_\mathbf{k}^{(-)}[\beta]}{E_\mathbf{k}}
 	\right]^{-1}
 \]
 (the reason for this notation will be clear in Sec.~\mref) we end with the equation:

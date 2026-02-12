@@ -109,7 +109,7 @@ function GetUc(
 
         u::Float64 = 0.0
         for k in K .* pi
-            ξk = GetHoppingEnergy(t,k) - μ
+            ξk = GetBareBands(t,k) - μ
             if ξk != 0.0
                 u += tanh(β/2 * ξk) / ξk
             elseif ξk == 0.0 # Handle correctly the zero limit

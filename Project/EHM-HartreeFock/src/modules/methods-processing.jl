@@ -49,7 +49,7 @@ function FindFS(
 				δE::Vector{Float64} = zeros(2)
 				for (i,k) in enumerate([[x1, y1], [x2, y2]])
 					# Renormalized bands
-					εk::Float64 = GetHoppingEnergy(t,k)
+					εk::Float64 = GetBareBands(t,k)
 
 					# Renormalized gap
 					imΔk::Float64 = 2 * v["wp"] * Parameters["V"] * StructureFactor("S",k)
@@ -68,7 +68,7 @@ function FindFS(
 
 					# Functional to be minimized
 					F(g) = Float64(sqrt(
-							( GetHoppingEnergy(t,k(g)) )^2 +
+							( GetBareBands(t,k(g)) )^2 +
 							( reΔk )^2 +
 							( 2 * v["wp"] * Parameters["V"] * StructureFactor("S",k(g)) )^2
 						)) - μ

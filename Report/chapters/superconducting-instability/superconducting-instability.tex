@@ -99,15 +99,7 @@ In Sec.~\ref{appsec:superconducting-phase}, we discuss in detail the (impossibil
 	\hat n_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:sc-ehm-n-def} \\
 	\hat \phi_\mathbf{k} &\equiv \hat c_{-\mathbf{k}\downarrow} \hat c_{\mathbf{k}\uparrow}\label{eq:sc-ehm-phi-def}
 \end{align}
-whose EVs are relevant for the SC phase. Let:
-\begin{align}
-	u_{\mathbf{k}\sigma} &\equiv \langle
-	\hat n_{\mathbf{q}\sigma}
-	\rangle \label{eq:sc-uqsigma-def} \\
-	w_\mathbf{k} &\equiv \langle
-	\hat \phi_\mathbf{k}^\dagger
-	\rangle \label{eq:sc-wq-def}
-\end{align}
+whose EVs are relevant for the SC phase.
 
 The MFT hamiltonian is given explicitly for the HM in Eq.~\eqref{appeq:sc-hm-mft-h},
 \begin{multline*}
@@ -215,13 +207,12 @@ and as for the AF phase:
 \end{align}
 These equations are identical to the ones for the pure HM, Eqns.~\eqref{appeq:sc-hm-sx}, \eqref{appeq:sc-hm-sy} and \eqref{appeq:sc-hm-sz}. In the tilted frame, we have the analogous of Eq.~\eqref{eq:af-rot-z-expectation} with the important exception that the chemical potential in the Fermi-Dirac factors is zero,
 \begin{equation}\label{eq:sc-rot-z-expectation}
-	\langle \hat \Gamma_\mathbf{k}^\dagger \tau^z \hat \Gamma_\mathbf{k} \rangle = \frac{1}{2} \left[
-		f\left(
-			\tilde{E}_\mathbf{k};\beta,0
-		\right) - f\left(
-			-\tilde{E}_\mathbf{k};\beta,0
-		\right)
-	\right]
+	\langle \hat \Gamma_\mathbf{k}^\dagger \tau^z \hat \Gamma_\mathbf{k} \rangle = 
+	f\left(
+		\tilde{E}_\mathbf{k};\beta,0
+	\right) - f\left(
+		-\tilde{E}_\mathbf{k};\beta,0
+	\right)
 \end{equation}
 This is because all the chemical potential operatorial contributions were absorbed in the bare bands $\tilde{\xi}_\mathbf{k}$, thus the pseudospin state is thermally described by an effective null chemical potential.
 
@@ -229,28 +220,28 @@ The (renormalized) thermal factors as in Eq.~\eqref{appeq:sc-thermal-factors-def
 \begin{equation}\label{eq:sc-ren-thermal-factors-def}
 	\tilde{\mathrm{Th}}_\mathbf{k}^{(\pm)}[\beta,\tilde{\mu}] \equiv
 	f\left(
-		\tilde{E}_\mathbf{k};\beta,0
-	\right) \pm f\left(
 		-\tilde{E}_\mathbf{k};\beta,0
+	\right) \pm f\left(
+		\tilde{E}_\mathbf{k};\beta,0
 	\right)
 \end{equation}
 which simply reduce to
 \[
 \begin{aligned}
 	\tilde{\mathrm{Th}}_\mathbf{k}^{(+)} &= 1 \\
-	\tilde{\mathrm{Th}}_\mathbf{k}^{(-)} &= - \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
+	\tilde{\mathrm{Th}}_\mathbf{k}^{(-)} &= \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
 \end{aligned}
 \]
 
 For the angles it holds
 \begin{equation}\label{eq:sc-bogoliubov-angle-relations}
-	\sin \normalfont(2\tilde{\xi}_\mathbf{k}) = \frac{\Re\{\tilde{\Delta}_\mathbf{k}\}}{|\tilde{\Delta}_\mathbf{k}|}
+	\sin 2\tilde{\xi}_\mathbf{k} = \frac{\Re\{\tilde{\Delta}_\mathbf{k}\}}{|\tilde{\Delta}_\mathbf{k}|}
 	\quad
-	\cos \normalfont(2\tilde{\xi}_\mathbf{k}) = \frac{\Im\{\tilde{\Delta}_\mathbf{k}\}}{|\tilde{\Delta}_\mathbf{k}|}
+	\cos 2\tilde{\xi}_\mathbf{k} = \frac{\Im\{\tilde{\Delta}_\mathbf{k}\}}{|\tilde{\Delta}_\mathbf{k}|}
 	\quad
-	\sin \normalfont(2\tilde{\theta}_\mathbf{k}) = \frac{|\tilde{\Delta}_\mathbf{k}|}{\tilde{E}_\mathbf{k}}
+	\sin 2\tilde{\theta}_\mathbf{k} = \frac{|\tilde{\Delta}_\mathbf{k}|}{\tilde{E}_\mathbf{k}}
 	\quad
-	\cos \normalfont(2\tilde{\theta}_\mathbf{k}) = \frac{\tilde{\xi}_\mathbf{k}}{\tilde{E}_\mathbf{k}}
+	\cos 2\tilde{\theta}_\mathbf{k} = \frac{\tilde{\xi}_\mathbf{k}}{\tilde{E}_\mathbf{k}}
 \end{equation}
 From Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, we know all channel contribute. It is already known the effect of the Fock contractions, responsible as for the normal phase (Chap.~\ref{chap:normal-phase}) of the bare bands renormalization. Cooper terms are to be handled more carefully, since can contribute to superconductivity both in the s.s. and in the o.s. spin sectors.
 
@@ -292,8 +283,8 @@ As done for the other phases, we here include rapidly the bands renormalization 
 
 \subsection{Fock channel in the SC phase: analytic derivation}\label{subsec:sc-fock-analytic}
 
-When it comes to the Fock RWCs, being the SC phase density-uniform we can re-use almost the entirety of the derivation of Sec.~\ref{sec:normal-fock-bands-renormalization}. Setting as in Eq.~\eqref{eq:normal-uqsigma-def}
-\begin{equation}
+When it comes to the Fock RWCs, being the SC phase density-uniform we can re-use almost the entirety of the derivation of Sec.~\ref{sec:normal-fock-bands-renormalization}. Setting as in Eqns.~\eqref{eq:normal-uqsigma-def}, \eqref{eq:af-uqsigma-def},
+\begin{equation}\label{eq:sc-uqsigma-def}
 	u_{\mathbf{k}\sigma} \equiv \langle
 	\hat c_{\mathbf{k}\sigma}^\dagger
 	\hat c_{\mathbf{k}\sigma}
@@ -343,7 +334,7 @@ To get to this point, we employed the assumption
 \[
 	\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}' \sigma'} \rangle = \delta_{\mathbf{k}=\mathbf{k}'} \delta_{\sigma=\sigma'} \langle \hat c_{\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{k} \sigma} \rangle
 \]
-which essentially states translational invariance and spin degeneracy. This assumption is obviously well-verified by the BCS ground state of Eq.~\mref. Recognising the symmetry decomposition
+which essentially states translational invariance and spin degeneracy. This assumption is obviously well-verified by the BCS ground state of Eq.~\ref{appeq:sc-hm-gs}. Recognising the symmetry decomposition
 \[
 	u^{(\gamma)}_\sigma = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}
 	\langle
@@ -368,7 +359,7 @@ In order to estimate the $\gamma$-wave components renormalizing the bare bands, 
 		} + \ev{\hat s_\mathbf{k}^z}
 	\right] \nonumber \\
 	&= \frac{1}{2} \left[
-		\tilde{\mathrm{Th}}_\mathbf{k}^{(+)} [\beta] + 
+		\tilde{\mathrm{Th}}_\mathbf{k}^{(+)} [\beta] - 
 		\cos 2 \tilde{\theta}_\mathbf{k} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)} [\beta]
 	\right] \nonumber \\
 	&= \frac{1}{2} \left[
@@ -388,7 +379,7 @@ having we used Eq.~\eqref{eq:sc-ren-thermal-factors-def} and following. For the 
 	} - \ev{\hat s_\mathbf{k}^z}
 	\right] \nonumber \\
 	&= 1 - \frac{1}{2} \left[
-		\tilde{\mathrm{Th}}_\mathbf{k}^{(+)} [\beta] - 
+		\tilde{\mathrm{Th}}_\mathbf{k}^{(+)} [\beta] + 
 		\cos 2 \tilde{\theta}_\mathbf{k} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)} [\beta]
 	\right] \nonumber \\
 	&= 1 - \frac{1}{2} \left[
@@ -432,15 +423,14 @@ We can then derive the $u_\mathbf{k}$-related HFPs self-consistency equations. I
 \end{align}
 reported explicitly for the only two inversion symmetric structures in Tab.~\ref{tab:sc-ehm-ugamma-self-consistencies}.
 
-\setlength{\extrarowheight}{1.5em}
 \begin{table}
 	\centering
 	\begin{tabular}{r E l l}
-		\textbf{Symmetry} & \multicolumn{2}{c}{\textbf{Self-consistency equation}} & \textbf{Graph} \\
+		\textbf{Symmetry} & \multicolumn{2}{c}{\textbf{Self-consistency equation}} & \textbf{Graph}\\
 		\midrule
 		$s^*$-wave & $u^{(s^*)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) \left[
 			1 - \frac{\tilde{\xi}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
-		\right] $ & Fig.~\ref{subfig:s*-wave-correlator} \\
+		\right] $ & Fig.~\ref{subfig:s*-wave-correlator} \\[1.5em]
 		$d_{x^2-y^2}$-wave & $u^{(d)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) \left[
 			1 - \frac{\tilde{\xi}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
 		\right] $ & Fig.~\ref{subfig:d-wave-correlator} \\
@@ -471,12 +461,12 @@ Anisotropic pairing in superconducting fluctuations is induced by the Cooper RWC
 
 \subsection{Cooper o.s. channel in the SC phase: analytic derivation}\label{subsec:sc-cooper-os-analytic}
 
-This section deals with Cooper fluctuations induced by the o.s. part of the non-local hamiltonian --referring to the notation of Eq.~\eqref{eq:ehm-non-local-ss-os-terms}-- somewhat the simplest form of Cooper pairing. This sector contributes both to singlet pairing and triplet pairing. Considering Cooper fluctuations in the singlet channel, we need to break $\mathrm{U}^\mathrm{c}(1)$ symmetry imposing space inversion symmetry, while for the triplet anti-symmetry is required. Set as in Eq.~\eqref{eq:sc-wq-def} the EV
-\[
+This section deals with Cooper fluctuations induced by the o.s. part of the non-local hamiltonian --referring to the notation of Eq.~\eqref{eq:ehm-non-local-ss-os-terms}-- somewhat the simplest form of Cooper pairing. This sector contributes both to singlet pairing and triplet pairing. Considering Cooper fluctuations in the singlet channel, we need to break $\mathrm{U}^\mathrm{c}(1)$ symmetry imposing space inversion symmetry, while for the triplet anti-symmetry is required. Set the EV
+\begin{equation}\label{eq:sc-wq-def}
 	w_\mathbf{k} = \langle
 		\hat \phi_\mathbf{k}^\dagger
 	\rangle
-\]
+\end{equation}
 Let us now break down the MFT discussion for the local and non-local interactions.
 
 \paragraph{Local repulsion.}
@@ -672,23 +662,21 @@ For the $\gamma$-wave component of the superconducting order parameter, the foll
 	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}  \big\langle
 		\hat \Phi_\mathbf{k}^\dagger \tau^+ \hat \Phi_\mathbf{k}
 	\big\rangle \nonumber \\
-	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}  \left[
-		\ev{\hat s_\mathbf{k}^x} + i \ev{\hat s_\mathbf{k}^y}
-	\right] \nonumber \\
-	&= - \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta] \label{sc-hm-wgamma-self-consistency}
+	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \frac{\ev{\hat s_\mathbf{k}^x} + i \ev{\hat s_\mathbf{k}^y} }{2} \nonumber \\
+	&= \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta] \label{sc-hm-wgamma-self-consistency}
 \end{align}
-where $\tau^+ \equiv \tau^x + i \tau^y$. We used Eqns.~\eqref{eq:sc-x-expectation-non-local}, \eqref{eq:sc-y-expectation-non-local} and \eqref{eq:sc-rot-z-expectation} as well as the thermal factor defined in Eq.~\eqref{eq:sc-ren-thermal-factors-def}. The derivation above holds for all symmetries, including the $s$ one as testifies Eq.~\eqref{appeq:sc-hm-ws-self-consistency-2}. Explicitly, five self-consitency equations are then derived and listed in Tab.~\ref{tab:sc-ehm-wgamma-self-consistencies}. 
+where $\tau^+ \equiv (\tau^x + i \tau^y)/2$. We used Eqns.~\eqref{eq:sc-x-expectation-non-local}, \eqref{eq:sc-y-expectation-non-local} and \eqref{eq:sc-rot-z-expectation} as well as the thermal factor defined in Eq.~\eqref{eq:sc-ren-thermal-factors-def}. The derivation above holds for all symmetries, including the $s$ one as testifies Eq.~\eqref{appeq:sc-hm-ws-self-consistency-2}. Explicitly, five self-consitency equations are then derived and listed in Tab.~\ref{tab:sc-ehm-wgamma-self-consistencies}. 
 
 \begin{table}
 	\centering
 	\begin{tabular}{r E l l}
 		\textbf{Symmetry} & \multicolumn{2}{c}{\textbf{Self-consistency equation}} & \textbf{Graph} \\
 		\midrule
-		$s$-wave & $w^{(s)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:s-wave-correlator} \\[1.5em]
-		$s^*$-wave & $w^{(s^*)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:s*-wave-correlator} \\[1.5em]
-		$p_x$-wave & $w^{(p_x)}$ & $\displaystyle \frac{i\sqrt{2}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \sin k_x \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:px-wave-correlator} \\[1.5em]
-		$p_y$-wave & $w^{(p_y)}$ & $\displaystyle \frac{i\sqrt{2}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \sin k_y \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:py-wave-correlator} \\[1.5em]
-		$d_{x^2-y^2}$-wave & $w^{(d)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:d-wave-correlator} \\
+		$s$-wave & $w^{(s)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:s-wave-correlator} \\[1.5em]
+		$s^*$-wave & $w^{(s^*)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:s*-wave-correlator} \\[1.5em]
+		$p_x$-wave & $w^{(p_x)}$ & $\displaystyle \frac{i\sqrt{2}}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \sin k_x \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:px-wave-correlator} \\[1.5em]
+		$p_y$-wave & $w^{(p_y)}$ & $\displaystyle \frac{i\sqrt{2}}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \sin k_y \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:py-wave-correlator} \\[1.5em]
+		$d_{x^2-y^2}$-wave & $w^{(d)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:d-wave-correlator} \\
 		\midrule
 	\end{tabular}
 	\caption{Symmetry resolved self-consistency equations for the harmonics of $w_\mathbf{k}$.}
@@ -1241,13 +1229,13 @@ having we included the ``anticommutation energy'' also defined for the conventio
 	E_\mathrm{a}^{(\mathrm{SC})} \equiv \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{\xi}_\mathbf{k}
 \]
 coming from fermionic anticommutation relations that are employed in order to get the kinetic term. The renormalized bands are
-\[
+\begin{equation}\label{eq:sc-ehm-full-bands}
 	\tilde{\xi}_\mathbf{k} = \epsilon_\mathbf{k} + V \sum_{\gamma\in\lbrace s^*,d \rbrace} u^{(\gamma)} \varphi_{\mathbf{k}}^{(\gamma)*} - \tilde{\mu}
-\]
+\end{equation}
 and the full gap function by
-\[
-	\tilde{\Delta}_{\mathbf{k}\sigma} = -Uw^{(s)} + V \sum_{\gamma} w^{(\gamma)} \varphi_\mathbf{k}^{(\gamma)*}
-\]
+\begin{equation}\label{eq:sc-ehm-full-gap}
+	\tilde{\Delta}_\mathbf{k} = -Uw^{(s)} + V \sum_{\gamma} w^{(\gamma)} \varphi_\mathbf{k}^{(\gamma)*}
+\end{equation}
 We can identify the gap harmonics by
 \[
 	\tilde{\Delta}^{(s)} = -U w^{(s)}
@@ -1285,18 +1273,15 @@ a BCS state described by the RMPs. Within this short section, we just illustrate
 \[
 \begin{aligned}
 	\mel{\Psi}{\hat s_\mathbf{k}^x}{\Psi} &= \mel{\Psi}{\hat \phi_\mathbf{k} + \hat \phi_\mathbf{k}^\dagger}{\Psi} \\
-	&= i \sin \tilde{\theta}_\mathbf{k} \cos \tilde{\theta}_\mathbf{k} \left(
+	&= \sin \tilde{\theta}_\mathbf{k} \cos \tilde{\theta}_\mathbf{k} \left(
 		e^{2i \tilde{\zeta}_\mathbf{k}} + e^{-2i \tilde{\zeta}_\mathbf{k}}
 	\right) \\
-	&= - \sin \normalfont(2\tilde{\theta}_\mathbf{k}) \cos \normalfont(2 \tilde{\zeta}_\mathbf{k})
-\end{aligned}
-\qquad
-\begin{aligned}
+	&= \sin \normalfont(2\tilde{\theta}_\mathbf{k}) \cos \normalfont(2 \tilde{\zeta}_\mathbf{k}) \\[1em]
 	\mel{\Psi}{\hat s_\mathbf{k}^y}{\Psi} &= i \mel{\Psi}{\hat \phi_\mathbf{k} - \hat \phi_\mathbf{k}^\dagger}{\Psi} \\
 	&= i \sin \tilde{\theta}_\mathbf{k} \cos \tilde{\theta}_\mathbf{k} \left(
-	e^{2i \tilde{\zeta}_\mathbf{k}} - e^{-2i \tilde{\zeta}_\mathbf{k}}
+	e^{-2i \tilde{\zeta}_\mathbf{k}} - e^{2i \tilde{\zeta}_\mathbf{k}}
 	\right) \\
-	&= - \sin \normalfont(2\tilde{\theta}_\mathbf{k}) \sin \normalfont(2 \tilde{\zeta}_\mathbf{k})
+	&= \sin \normalfont(2\tilde{\theta}_\mathbf{k}) \sin \normalfont(2 \tilde{\zeta}_\mathbf{k})
 \end{aligned}
 \]
 results that are coherent with Eqns.~\eqref{eq:sc-x-expectation-non-local} as well as \eqref{eq:sc-y-expectation-non-local} and allow us to identify the phase with the pseudofield $xy$ angle.
@@ -1326,9 +1311,7 @@ it's immediate to conclude that
 	\quad\implies\quad
 	s \equiv s^{(-)} + s^{(+)} = 2 s^{(+)}
 \]
-being $s$ the total entropy density.
-
-The five contributions to free energy are:
+being $s$ the total entropy density. The five contributions to free energy are:
 \begin{enumerate}
 	\item Quasiparticles energy:
 	\[
@@ -1366,141 +1349,231 @@ The five contributions to free energy are:
 	\]
 	\item Chemical potential correction
 	\[
-	e_n^{(\mathrm{SC})} = \mu n
+		e_n^{(\mathrm{SC})} = \mu n
 	\]
 \end{enumerate}
 Compose everything
 \[
 	f_\mathrm{MFT}^{(\mathrm{SC})} \equiv e_\mathrm{g}^{(\mathrm{SC})} + e_\mathrm{a}^{(\mathrm{SC})} + e_\mathrm{c}^{(\mathrm{SC})} + e_s^{(\mathrm{SC})} + e_n^{(\mathrm{SC})}
 \]
-noting that
-
-We get
+and use that:
+\[
+	\tanh(\frac{x}{2}) + \frac{2}{e^x + 1} = 1
+\]
+In the end we get:
+\begin{multline*}
+	f_\mathrm{MFT}^{(\mathrm{SC})} = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \left[
+		\tilde{\xi}_\mathbf{k} - \tilde{E}_\mathbf{k}
+	\right] + \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
+		1- f( \tilde{E}_\mathbf{k}; \beta,0) 
+	\right) \\
+	-U \left[
+		n^2 + \big|
+			w^{(s)}
+		\big|^2
+	\right] + V \left[
+		2zn^2 - \sum_\gamma \big|
+			u^{(\gamma)}
+		\big|^2 + \sum_\gamma \big|
+			w^{(\gamma)}
+		\big|^2
+	\right] + \mu 
+\end{multline*}
+As was for the normal and AF phases, we recognize the chemical potential shift of Eq.~\eqref{eq:sc-mu-shift},
 \begin{multline}
-	f_\mathrm{MFT}^{(\mathrm{SC})} = ...
+	f_\mathrm{MFT}^{(\mathrm{SC})} = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \left[
+	\tilde{\xi}_\mathbf{k} - \tilde{E}_\mathbf{k}
+	\right] + \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
+	1- f( \tilde{E}_\mathbf{k}; \beta,0) 
+	\right) \\
+	-U \big|
+		w^{(s)}
+	\big|^2 - V \left[
+		\sum_\gamma \big|
+			u^{(\gamma)}
+		\big|^2 - \sum_\gamma \big|
+			w^{(\gamma)}
+		\big|^2
+	\right] + \tilde{\mu} n
+	\label{eq:sc-fMFT}
 \end{multline}
 
-{\color{tabred}
-BCS essentially relies on the insurgence of an effective free fermionic field, described by the Bogoliubov bands, and the condensation of Cooper pairs. Superconducting state is favored by the lowering of free energy granted by the shifting of much of the spectral weight to a lower-energy maximum \cite{zhou1992density}. ``Condensation energy'' is simply the energy difference between the superconducting state and the normal state, and its negativity indicates instability towards superconducting order. It's pretty straightforward to derive the ground state energy for the standard BCS state. When performing Wick's contractions,
+\subsection{The gap energy}\label{subsec:sc-gap-energy}
+
+Similarly to Sec.~\ref{subsec:af-gap-energy}, let us prove the following equation about the gap energy:
+\begin{equation}\label{eq:sc-ehm-gap-energy}
+	-U \big|
+		w^{(s)}
+	\big|^2 + V \sum_\gamma \big|
+		w^{(\gamma)}
+	\big|^2 = \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\big| \tilde{\Delta}_\mathbf{k} \big|^2 }{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})
+\end{equation}
+Expand the right-hand side through Eq.~\eqref{eq:sc-ehm-full-gap},
 \[
 \begin{aligned}
-	\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta \rangle 
-	&\sim 
-	\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \rangle  \hat c_\gamma \hat c_\delta
-	+
-	\hat c_\alpha^\dagger \hat c_\beta^\dagger \langle \hat c_\gamma \hat c_\delta \rangle 
-	-
-	\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \rangle 
-	\langle \hat c_\gamma \hat c_\delta \rangle
-	&&\text{Cooper terms}
-	\\
-	&-
-	\langle \hat c_\alpha^\dagger \hat c_\gamma \rangle \hat c_\beta^\dagger \hat c_\delta
-	-
-	\hat c_\alpha^\dagger \hat c_\gamma \langle \hat c_\beta^\dagger \hat c_\delta \rangle 
-	+
-	\langle \hat c_\alpha^\dagger \hat c_\gamma \rangle 
-	\langle \hat c_\beta^\dagger \hat c_\delta \rangle
-	&&\text{Fock terms} \\
-	&+
-	\langle \hat c_\alpha^\dagger \hat c_\delta \rangle \hat c_\beta^\dagger \hat c_\gamma
-	+
-	\hat c_\alpha^\dagger \hat c_\delta \langle \hat c_\beta^\dagger \hat c_\gamma \rangle 
-	-
-	\langle \hat c_\alpha^\dagger \hat c_\delta \rangle 
-	\langle \hat c_\beta^\dagger \hat c_\gamma \rangle
-	&&\text{Hartree terms}
+	\frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \frac{\big|
+		\tilde{\Delta}_\mathbf{k}
+	\big|^2}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})
+	&= \frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \left[
+		-Uw^{(s)*} + V \sum_{\gamma} w^{(\gamma)*} \varphi_\mathbf{k}^{(\gamma)} 
+	\right]
+	\frac{
+		\tilde{\Delta}_\mathbf{k}
+	}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) \\
+	&= -Uw^{(s)*} \times \overbrace{
+		\frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \frac{
+			\tilde{\Delta}_\mathbf{k}
+		}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})
+	}^{w^{(s)}} \\
+	&\hspace{5.5em} + V \sum_{\gamma} w^{(\gamma)*} \times \underbrace{
+		\frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \frac{
+		\tilde{\Delta}_\mathbf{k}
+		}{\tilde{E}_\mathbf{k}} 	\tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})
+	}_{w^{(\gamma)}}
 \end{aligned}
 \]
-Form each of the three rows above, the last term is the "leftover" part which shifts energy. Thus it can be ignored in derivation, but becomes important when considering the energy in the end. The EHM hamiltonian can be written as:
-\begin{multline}
-	\hat H = \sum_{\mathbf{k}} \xi_\mathbf{k} \left[
-		\hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}\uparrow} + \Id - 
-		\hat c_{-\mathbf{k}\downarrow} \hat c_{-\mathbf{k}\downarrow}^\dagger 
-	\right] - \sum_{\mathbf{k},\mathbf{k}'} \left[ 
-		V^{(s)} + V_{\mathbf{k}\mathbf{k}'}
-	\right] \hat \phi_\mathbf{k}^\dagger \hat \phi_{\mathbf{k}'} \\
-	- \frac{2V}{L_x L_y} \sum_{\mathbf{k}, \mathbf{k}'} \sum_\sigma \left[
-	\cos \left( \delta k_x \right) + \cos \left( \delta k_y \right)	
-	\right] \hat n_{\mathbf{k}\sigma} \hat n_{\mathbf{k}'\sigma} \label{eq:pre-mft-ehm-cooper-filtered}
-\end{multline}
-as in Eq.~\eqref{eq:self-consistency-equation}. Following the scheme above, the ``leftovers'' of the MFT hamiltonian are just
+having we used the self-consistency equations of Tab.~\ref{tab:sc-ehm-wgamma-self-consistencies}. This proves Eq.\eqref{eq:sc-ehm-gap-energy}, which is pretty similar to Eq.~\eqref{eq:af-ehm-gap-energy} with one important exception. Since the right-hand side of Eq.\eqref{eq:sc-ehm-gap-energy} is positive by definition, for $V>0$ we have the constraint
 \[
-	\sum_{\mathbf{k},\mathbf{k}'} \Delta_\mathbf{k} \langle \hat \phi_{\mathbf{k}'} \rangle - \frac{2V}{L_x L_y} \sum_{\mathbf{k}, \mathbf{k}'} \sum_\sigma \left[
-	\cos \left( \delta k_x \right) + \cos \left( \delta k_y \right)	
-	\right] g_\mathbf{k} g_{\mathbf{k}'}
+	\sum_{\gamma} \big| v^{(\gamma)} \big|^2 \ge M
+	\qq{being}
+	M^{(\mathrm{SC})} \equiv \big| w^{(s)} \big|^2 \frac U V
 \]
-Further developing this result and applying Eqns.~\eqref{eq:pairing-dagger-expectation-theoretical}, \eqref{eq:coscos-symmetries-decomposition}, these last terms can be written as:
-\begin{equation}\label{eq:sc-free-energy-leftovers}
-	\sum_\mathbf{k} \frac{\abs{\Delta_\mathbf{k}}^2}{2\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) - 2V L_x L_y \sum_\gamma \big| g^{(\gamma)} \big|^2
-	\qquad
-	\gamma\in\lbrace s^*, d_{x^2-y^2} \rbrace
-\end{equation}
-as for Eq.~\eqref{eq:reciprocal-space-non-local-interaction-fock-dd-intermediate-sc-4}. Notice the presence of a volume factor in the $\mathcal{O}\left(g^2\right)$ correction.
+Now, as we state in Sec.~\ref{appsubsec:sc-hm-impossible}, for the pure HM we have identically $w^{(s)}=0$. The pure HM cannot express BCS-like superconductivity. For the EHM instead we see that:
+\begin{itemize}
+	\item In the strong coupling limit $U \ll V$, even small $s$-wave gaps impose larger $\gamma \neq s$ components;
+	\item The $s$-wave gap $w^{(s)}$ cannot rise without the contributions of more complex gap topologies, which translates in (with an uncivil abuse of notation)
+	\[
+		\bigotimes_{\gamma \neq s}
+		\lim_{w^{(\gamma)}\to0} 
+		w^{(s)} = 0
+	\]
+	The unconventional limit notation indicates a limit being taken contemporarily on all symmetries except the $s$-wave one.
+\end{itemize}
+Of course, Eq.~\eqref{eq:sc-ehm-gap-energy} is also solved by a null gap on both sides: this indicates that when the constraint is impossible to fulfil self-consistently, the gap closes.
 
-Now, we retrieve the expression for the MFT free energy density \cite{hutchinson2021mixed} simply by adding four contributions:
-\begin{enumerate}
-	\item Bogoliubov free quasiparticles thermal ground state energy density,
-	\[
-	\begin{aligned}
-		\frac{1}{L_x L_y} \sum_\mathbf{k} \tilde{E}_\mathbf{k} \left[
-			 f( \tilde{E}_\mathbf{k}; \beta,0 ) - f( - \tilde{E}_\mathbf{k}; \beta,0 )
-		\right] &= \frac{1}{L_x L_y} \sum_\mathbf{k} \tilde{E}_\mathbf{k} \left[
-			f( \tilde{E}_\mathbf{k}; \beta,0 ) - \left( 
-				1-  f( \tilde{E}_\mathbf{k}; \beta,0 )
-			\right)
-		\right] \\
-		&= \frac{2}{L_x L_y} \sum_\mathbf{k} \tilde{E}_\mathbf{k}
-		f( \tilde{E}_\mathbf{k}; \beta,0 ) - \frac{1}{L_x L_y} \sum_\mathbf{k} \tilde{E}_\mathbf{k}
-	\end{aligned}
-	\]
-	having used the simple property of the Fermi-Dirac distribution $f(-x;\beta,0) = 1-f(-x;\beta,0)$.
-	\item The term originated by the identity produced by fermionic anticommutation rules in Eq.~\eqref{eq:pre-mft-ehm-cooper-filtered},
-	\[
-		\frac{1}{L_x L_y} \sum_\mathbf{k} \tilde{\xi}_\mathbf{k}
-	\]
-	averaged on the lattice.
-	\item The ``leftovers'' of Eq.~\eqref{eq:sc-free-energy-leftovers}, divided by $L_x L_y$.
-	\item The entropic free energy
-	\[
-		-Ts
-	\]
-	with $T = 1/k_B \beta$ and $s$ the free Fermi gas entropy density for the Bogoliubov quasiparticles,
-	\[
-		s = -\frac{2 k_B}{L_x L_y} \sum_\mathbf{k} \left[
-			\left(
-				1- f( \tilde{E}_\mathbf{k}; \beta,0)
-			\right) \ln \left(
-			1- f( \tilde{E}_\mathbf{k}; \beta,0)
-			\right) + f( \tilde{E}_\mathbf{k}; \beta,0)
-			\ln f( \tilde{E}_\mathbf{k}; \beta,0)
-		\right]
-	\]
-	We use the identity:
-	\[
-		\ln \left(1-\frac{1}{e^x+1}\right) = x+\ln \left(\frac{1}{e^x+1}\right)
-	\]
-	and reduce the above expression to:
-	\begin{multline*}
-		s = -\frac{2 k_B}{L_x L_y} \sum_\mathbf{k} \Big[ \ln \left(
-			1- f( \tilde{E}_\mathbf{k}; \beta,0) \right) + f( \tilde{E}_\mathbf{k}; \beta,0) \ln f( \tilde{E}_\mathbf{k}; \beta,0) \\
-			- \beta \tilde{E}_\mathbf{k} f( \tilde{E}_\mathbf{k}; \beta,0) - f( \tilde{E}_\mathbf{k}; \beta,0) \ln f( \tilde{E}_\mathbf{k}; \beta,0)
-		\Big]
-	\end{multline*}
-	Second and fourth terms cancel out, while the third compensates the first one of contribution 1.
-\end{enumerate}
-All together, the MFT averaged free energy looks like this:
-\begin{multline}\label{eq:sc-free-energy}
-	f_\mathrm{MFT} [\Delta_\mathbf{k}, g_\mathbf{k}] = \frac{1}{L_x L_y} \sum_\mathbf{k} \left[
-		\tilde{\xi}_\mathbf{k} - \tilde{E}_\mathbf{k} + \frac{\abs{\Delta_\mathbf{k}}^2}{2\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
-	\right] \\
-	- 2V \sum_{\gamma\in\lbrace s^*,d \rbrace} \big| g^{(\gamma)} \big|^2 + \frac{2}{\beta L_x L_y} \sum_\mathbf{k} \ln \left(
-	1- f( \tilde{E}_\mathbf{k}; \beta,0) \right)
-\end{multline}
-The two main differences with the commonly known expressions for $f_\mathrm{MFT}$ \cite{hutchinson2021mixed, senarath2025mixed} are the presence of bands renormalization 
-	{\color{tabred}, the absence of $-\mu n$ [Why?],} 
-and the $\mathcal{O}\left(g^2\right)$ correction. The latter, not only is negative for attractive $V$, a feature that can lead to superconducting phase energy lowering and stabilisation, but also it depends explicitly on the spectral amplitude of the $s^*$ and $d$-wave components of $g_\mathbf{k}$. Since as seen the $d$-wave part of $g_\mathbf{k}$ arises for mixed symmetries, this details seems to indicate an energetic preference for multi-symmetry phases.
-}
+
+%{\color{tabred}
+%BCS essentially relies on the insurgence of an effective free fermionic field, described by the Bogoliubov bands, and the condensation of Cooper pairs. Superconducting state is favored by the lowering of free energy granted by the shifting of much of the spectral weight to a lower-energy maximum \cite{zhou1992density}. ``Condensation energy'' is simply the energy difference between the superconducting state and the normal state, and its negativity indicates instability towards superconducting order. It's pretty straightforward to derive the ground state energy for the standard BCS state. When performing Wick's contractions,
+%\[
+%\begin{aligned}
+%	\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta \rangle 
+%	&\sim 
+%	\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \rangle  \hat c_\gamma \hat c_\delta
+%	+
+%	\hat c_\alpha^\dagger \hat c_\beta^\dagger \langle \hat c_\gamma \hat c_\delta \rangle 
+%	-
+%	\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \rangle 
+%	\langle \hat c_\gamma \hat c_\delta \rangle
+%	&&\text{Cooper terms}
+%	\\
+%	&-
+%	\langle \hat c_\alpha^\dagger \hat c_\gamma \rangle \hat c_\beta^\dagger \hat c_\delta
+%	-
+%	\hat c_\alpha^\dagger \hat c_\gamma \langle \hat c_\beta^\dagger \hat c_\delta \rangle 
+%	+
+%	\langle \hat c_\alpha^\dagger \hat c_\gamma \rangle 
+%	\langle \hat c_\beta^\dagger \hat c_\delta \rangle
+%	&&\text{Fock terms} \\
+%	&+
+%	\langle \hat c_\alpha^\dagger \hat c_\delta \rangle \hat c_\beta^\dagger \hat c_\gamma
+%	+
+%	\hat c_\alpha^\dagger \hat c_\delta \langle \hat c_\beta^\dagger \hat c_\gamma \rangle 
+%	-
+%	\langle \hat c_\alpha^\dagger \hat c_\delta \rangle 
+%	\langle \hat c_\beta^\dagger \hat c_\gamma \rangle
+%	&&\text{Hartree terms}
+%\end{aligned}
+%\]
+%Form each of the three rows above, the last term is the "leftover" part which shifts energy. Thus it can be ignored in derivation, but becomes important when considering the energy in the end. The EHM hamiltonian can be written as:
+%\begin{multline}
+%	\hat H = \sum_{\mathbf{k}} \xi_\mathbf{k} \left[
+%		\hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}\uparrow} + \Id - 
+%		\hat c_{-\mathbf{k}\downarrow} \hat c_{-\mathbf{k}\downarrow}^\dagger 
+%	\right] - \sum_{\mathbf{k},\mathbf{k}'} \left[ 
+%		V^{(s)} + V_{\mathbf{k}\mathbf{k}'}
+%	\right] \hat \phi_\mathbf{k}^\dagger \hat \phi_{\mathbf{k}'} \\
+%	- \frac{2V}{L_x L_y} \sum_{\mathbf{k}, \mathbf{k}'} \sum_\sigma \left[
+%	\cos \left( \delta k_x \right) + \cos \left( \delta k_y \right)	
+%	\right] \hat n_{\mathbf{k}\sigma} \hat n_{\mathbf{k}'\sigma} \label{eq:pre-mft-ehm-cooper-filtered}
+%\end{multline}
+%as in Eq.~\eqref{eq:self-consistency-equation}. Following the scheme above, the ``leftovers'' of the MFT hamiltonian are just
+%\[
+%	\sum_{\mathbf{k},\mathbf{k}'} \Delta_\mathbf{k} \langle \hat \phi_{\mathbf{k}'} \rangle - \frac{2V}{L_x L_y} \sum_{\mathbf{k}, \mathbf{k}'} \sum_\sigma \left[
+%	\cos \left( \delta k_x \right) + \cos \left( \delta k_y \right)	
+%	\right] g_\mathbf{k} g_{\mathbf{k}'}
+%\]
+%Further developing this result and applying Eqns.~\eqref{eq:pairing-dagger-expectation-theoretical}, \eqref{eq:coscos-symmetries-decomposition}, these last terms can be written as:
+%\begin{equation}\label{eq:sc-free-energy-leftovers}
+%	\sum_\mathbf{k} \frac{\abs{\Delta_\mathbf{k}}^2}{2\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) - 2V L_x L_y \sum_\gamma \big| g^{(\gamma)} \big|^2
+%	\qquad
+%	\gamma\in\lbrace s^*, d_{x^2-y^2} \rbrace
+%\end{equation}
+%as for Eq.~\eqref{eq:reciprocal-space-non-local-interaction-fock-dd-intermediate-sc-4}. Notice the presence of a volume factor in the $\mathcal{O}\left(g^2\right)$ correction.
+%
+%Now, we retrieve the expression for the MFT free energy density \cite{hutchinson2021mixed} simply by adding four contributions:
+%\begin{enumerate}
+%	\item Bogoliubov free quasiparticles thermal ground state energy density,
+%	\[
+%	\begin{aligned}
+	%		\frac{1}{L_x L_y} \sum_\mathbf{k} \tilde{E}_\mathbf{k} \left[
+	%			 f( \tilde{E}_\mathbf{k}; \beta,0 ) - f( - \tilde{E}_\mathbf{k}; \beta,0 )
+	%		\right] &= \frac{1}{L_x L_y} \sum_\mathbf{k} \tilde{E}_\mathbf{k} \left[
+	%			f( \tilde{E}_\mathbf{k}; \beta,0 ) - \left( 
+	%				1-  f( \tilde{E}_\mathbf{k}; \beta,0 )
+	%			\right)
+	%		\right] \\
+	%		&= \frac{2}{L_x L_y} \sum_\mathbf{k} \tilde{E}_\mathbf{k}
+	%		f( \tilde{E}_\mathbf{k}; \beta,0 ) - \frac{1}{L_x L_y} \sum_\mathbf{k} \tilde{E}_\mathbf{k}
+	%	\end{aligned}
+%	\]
+%	having used the simple property of the Fermi-Dirac distribution $f(-x;\beta,0) = 1-f(-x;\beta,0)$.
+%	\item The term originated by the identity produced by fermionic anticommutation rules in Eq.~\eqref{eq:pre-mft-ehm-cooper-filtered},
+%	\[
+%		\frac{1}{L_x L_y} \sum_\mathbf{k} \tilde{\xi}_\mathbf{k}
+%	\]
+%	averaged on the lattice.
+%	\item The ``leftovers'' of Eq.~\eqref{eq:sc-free-energy-leftovers}, divided by $L_x L_y$.
+%	\item The entropic free energy
+%	\[
+%		-Ts
+%	\]
+%	with $T = 1/k_B \beta$ and $s$ the free Fermi gas entropy density for the Bogoliubov quasiparticles,
+%	\[
+%		s = -\frac{2 k_B}{L_x L_y} \sum_\mathbf{k} \left[
+%			\left(
+%				1- f( \tilde{E}_\mathbf{k}; \beta,0)
+%			\right) \ln \left(
+%			1- f( \tilde{E}_\mathbf{k}; \beta,0)
+%			\right) + f( \tilde{E}_\mathbf{k}; \beta,0)
+%			\ln f( \tilde{E}_\mathbf{k}; \beta,0)
+%		\right]
+%	\]
+%	We use the identity:
+%	\[
+%		\ln \left(1-\frac{1}{e^x+1}\right) = x+\ln \left(\frac{1}{e^x+1}\right)
+%	\]
+%	and reduce the above expression to:
+%	\begin{multline*}
+	%		s = -\frac{2 k_B}{L_x L_y} \sum_\mathbf{k} \Big[ \ln \left(
+	%			1- f( \tilde{E}_\mathbf{k}; \beta,0) \right) + f( \tilde{E}_\mathbf{k}; \beta,0) \ln f( \tilde{E}_\mathbf{k}; \beta,0) \\
+	%			- \beta \tilde{E}_\mathbf{k} f( \tilde{E}_\mathbf{k}; \beta,0) - f( \tilde{E}_\mathbf{k}; \beta,0) \ln f( \tilde{E}_\mathbf{k}; \beta,0)
+	%		\Big]
+	%	\end{multline*}
+%	Second and fourth terms cancel out, while the third compensates the first one of contribution 1.
+%\end{enumerate}
+%All together, the MFT averaged free energy looks like this:
+%\begin{multline}\label{eq:sc-free-energy}
+%	f_\mathrm{MFT} [\Delta_\mathbf{k}, g_\mathbf{k}] = \frac{1}{L_x L_y} \sum_\mathbf{k} \left[
+%		\tilde{\xi}_\mathbf{k} - \tilde{E}_\mathbf{k} + \frac{\abs{\Delta_\mathbf{k}}^2}{2\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
+%	\right] \\
+%	- 2V \sum_{\gamma\in\lbrace s^*,d \rbrace} \big| g^{(\gamma)} \big|^2 + \frac{2}{\beta L_x L_y} \sum_\mathbf{k} \ln \left(
+%	1- f( \tilde{E}_\mathbf{k}; \beta,0) \right)
+%\end{multline}
+%The two main differences with the commonly known expressions for $f_\mathrm{MFT}$ \cite{hutchinson2021mixed, senarath2025mixed} are the presence of bands renormalization 
+%	{\color{tabred}, the absence of $-\mu n$ [Why?],} 
+%and the $\mathcal{O}\left(g^2\right)$ correction. The latter, not only is negative for attractive $V$, a feature that can lead to superconducting phase energy lowering and stabilisation, but also it depends explicitly on the spectral amplitude of the $s^*$ and $d$-wave components of $g_\mathbf{k}$. Since as seen the $d$-wave part of $g_\mathbf{k}$ arises for mixed symmetries, this details seems to indicate an energetic preference for multi-symmetry phases.
+%}
+
 \section{Numerical simulations}\label{sec:sc-numerical}
 
 \todo

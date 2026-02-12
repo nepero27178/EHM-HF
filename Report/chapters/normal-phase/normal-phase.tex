@@ -517,7 +517,7 @@ The diffusion RMP $\tilde{t}_{ij\sigma}$ is to be interpreted like the right-han
 \]
 To limit the sum to NNs is a matter of the symmetry structure of the function $\tilde{t}_{ij\sigma}$.
 
-\section{Normal free energy density}\label{sec:normal-free-energy}
+	\section{Normal free energy density}\label{sec:normal-free-energy}
 
 An important quantity to derive in order to compare different phases is free energy density, defined as
 \[
@@ -600,19 +600,33 @@ Let us now take together all terms. From now on, we will omit spin index $\sigma
 	Note here that we are using the ``physical'' value of $\mu$, not its RMP counterpart $\tilde{\mu}$. The reason for this is discussed in Sec.~\ref{subsec:fixed-density-role-mu}.
 \end{enumerate}
 Thus, composing everything
-\begin{align}
+\[
+\begin{aligned}
 	f_\mathrm{MFT}^{(\mathrm{N})} &\equiv e_\mathrm{g}^{(\mathrm{N})} + e_\mathrm{c}^{(\mathrm{N})} + e_s^{(\mathrm{N})} + e_n^{(\mathrm{N})} \nonumber \\
 	&= \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
-	1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - n^2 U + V \left[
-		2zn^2 - 
+	1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - V \left[ 
 		\big|
 			u^{(s^*)}
-		\big|^2 - \big|
+		\big|^2 + \big|
 			u^{(d)}
 		\big|^2
-	\right] + \mu n \label{eq:normal-fMFT}
-\end{align}
-When it comes to algorithmic computation of this quantity, it is important to express $\mu$ in terms of its RMP counterpart $\tilde{\mu}$, as discussed in Sec.~\ref{subsec:fixed-density-role-mu}. By doing this we are considering all the effects of MFT decomposition of $\hat H$.
+	\right] + \left[
+		\mu + n(2zV-U)
+	\right] n 
+	\label{eq:normal-fMFT}
+\end{aligned}
+\]
+When it comes to algorithmic computation of this quantity, it is important to express $\mu$ in terms of its RMP counterpart $\tilde{\mu}$, as discussed in Sec.~\ref{subsec:fixed-density-role-mu}. By doing this we are considering all the effects of MFT decomposition of $\hat H$. However, as was predicted, the RMP $\tilde{\mu} = \mu + n(2zV-U)$ presented in Eq.~\eqref{eq:normal-mu-shift} appears because of contraction energy corrections, giving finally
+\begin{equation}
+	f_\mathrm{MFT}^{(\mathrm{N})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
+	1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - V \left[ 
+		\big|
+			u^{(s^*)}
+		\big|^2 + \big|
+			u^{(d)}
+		\big|^2
+	\right] + \tilde{\mu} n 
+\end{equation}
 
 \section{Numerical simulations}\label{sec:normal-numerical}
 

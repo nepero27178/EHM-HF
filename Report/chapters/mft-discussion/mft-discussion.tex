@@ -115,7 +115,7 @@ The last point is important: for the AF phase, for example, there is no need for
 	\label{tab:phases-symmetries}
 \end{table}
 
-\subsection{Particle-hole symmetry at half-filling}\label{subsec:half-filling-ph-sym}
+\subsection{Particle-hole symmetry at half-filling}\label{subsec:phs}
 
 The half-filled EHM is of particular interest due to its particle-hole symmetry (PHS), which is immediately distrupted at infinitesimal doping. Let us prove that. Consider the generic unitary operation
 \[
@@ -600,7 +600,10 @@ Then:
 Then, the interaction at site $\mathbf{r}$, spin $\sigma$ with its NNs at spin $\sigma'$ -- indicated as $(\mathbf{r}\sigma\sigma')$ -- is given by
 \[
 \begin{aligned}
-	(\mathbf{r}\sigma\sigma') &= -V \sum_{\bm{\delta}} \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} \pm \bm{\delta} \sigma'} \\
+	(\mathbf{r}\sigma\sigma') &= -V \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} 
+	\left[
+		\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} + \bm{\delta} \sigma'} + \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} - \bm{\delta} \sigma'}
+	\right] \\
 	&\Feq -\frac{V}{(L_xL_y)^2} \sum_{\bm{\delta}} \sum_{\mathbf{k}_1,\cdots,\mathbf{k}_4} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} \\
 	&\hspace{0.3\textwidth} \times \left(
 	e^{ i(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}} + e^{ -i(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}}
