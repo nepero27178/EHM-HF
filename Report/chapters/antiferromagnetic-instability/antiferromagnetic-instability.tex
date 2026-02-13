@@ -303,11 +303,10 @@ Let us start from the operator of Expr.~\eqref{eq:af-V-wick-decomposition-operat
 \end{multline*}
 For a square lattice, if $\mathbf{r} = (x,y)$ and $\mathbf{r}' = (x',y')$ are NNs, evidently
 \[
-	(-1)^{x'+y'} = (-1)^{x+y+1}
-\]
-Moreover,
-\[
-	(-1)^{\delta_{\overline{\sigma}=\uparrow}} = (-1)^{\delta_{\sigma=\uparrow}+1}
+\begin{aligned}
+	(-1)^{x'+y'} &= (-1)^{x+y+1} \\
+	(-1)^{\delta_{\overline{\sigma}=\uparrow}} &= (-1)^{\delta_{\sigma=\uparrow}+1}
+\end{aligned}
 \]
 We obtain
 \begin{multline}
@@ -347,7 +346,7 @@ The discussion is identical to the one of Sec.~\ref{subsec:normal-hartree-analyt
 \begin{equation}\label{eq:af-mu-shift}
 	\tilde{\mu} \equiv \mu + n(2zV-U)
 \end{equation}
-Within this equation we are also already implicitly considering the $\mu$ shift effect due to $\hat H_U$.
+Within this equation we are also already implicitly considering the $\mu$ shift effect due to $\hat H_U$., discussed both in Sec.~\ref{sec:normal-hartree-mu} and Sec.~\ref{appsubsec:af-hartree-channel}.
 
 \paragraph{Magnetization terms.}
 
@@ -499,7 +498,7 @@ Hence, the total ``contraction energy'', given by the sum of both contributions,
 \begin{equation}\label{eq:af-hartree-V-contraction-energy}
 	E_{\mathrm{H}/V}^{(\mathrm{AF})} = - 2V \sum_{\ev{ij}} \sum_\sigma n^2 = 4n^2 V \times \frac{z}{2} L_x L_y
 \end{equation}
-the minus sign coming from the fact that we are subtracting this energy shift. This implies that, when comparing normal and AF phase, we can rule out this energy contribution, being equal for both free energy densities.
+the minus sign coming from the fact that we are subtracting this energy shift.
 
 \section{Fock effects: gap and bands renormalization}\label{sec:af-fock-bands-renormalization}
 
@@ -581,29 +580,7 @@ Now, the above equation presents \textit{diagonal} and \textit{off-diagonal} ter
 
 \paragraph{Diagonal terms.}
 
-\begin{figure}
-	\def\Kx{0.5}
-	\def\Ky{0.2}
-	\def\kx{0.1}
-	\def\ky{0.7}
-	\centering
-	\subfloat[
-	Generic vectors.
-	]{
-		\label{subfig:af-bz-fock-terms-generic}
-		\input{\GraphicsFolder/af-bz-fock-terms-generic}
-	}
-	\subfloat[
-	Change of variables.
-	]{
-		\label{subfig:af-bz-fock-terms-newvariables}
-		\input{\GraphicsFolder/af-bz-fock-terms-newvariables}
-	}
-	\caption{Representation of the vectors involved in the diagonal terms of Eq.~\eqref{eq:reciprocal-space-non-local-interaction-fock-intermediate-2}. In Fig.~\ref{subfig:af-bz-fock-terms-generic} generic vectors are considered, cycling over all values of $\mathbf{K},\mathbf{k}\in\mathrm{BZ}$. In Fig.~\ref{subfig:af-bz-fock-terms-newvariables} is depicted the variables change to the new vectors $\mathbf{q},\mathbf{q}'$.}
-	\label{fig:af-bz-fock-terms}
-\end{figure}
-
-The diagonal terms of Eq.~\eqref{eq:af-V-fock-int2} are simple density interactions with the mean density field. Consider Fig.~\ref{subfig:af-bz-fock-terms-generic}: density at vector $\mathbf{q}\equiv\mathbf{K}+\mathbf{k}$ interacts with the mean density at vector $\mathbf{q}'\equiv\mathbf{K}-\mathbf{k}$. These variables are depicted in Fig.~\ref{subfig:af-bz-fock-terms-newvariables}. Apply in the diagonal part of Eq.~\eqref{eq:af-V-fock-int2} this variables change (which is the same of Eq.~\eqref{eq:normal-V-fock-int3})
+The diagonal terms of Eq.~\eqref{eq:af-V-fock-int2} are simple density interactions with the mean density field. Consider Fig.~\ref{subfig:Kk-qq'-generic}: density at vector $\mathbf{q}\equiv\mathbf{K}+\mathbf{k}$ interacts with the mean density at vector $\mathbf{q}'\equiv\mathbf{K}-\mathbf{k}$. These variables are depicted in Fig.~\ref{subfig:Kk-qq'-newvariables}. Apply in the diagonal part of Eq.~\eqref{eq:af-V-fock-int2} this variables change (which is the same of Eq.~\eqref{eq:normal-V-fock-int3})
 \begin{align}
 	\frac{2V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}} \sum_\sigma [
 		\cos \left(
@@ -623,7 +600,7 @@ The diagonal terms of Eq.~\eqref{eq:af-V-fock-int2} are simple density interacti
 	\rangle
 	\hat c_{\mathbf{q}'\sigma}^\dagger \hat c_{\mathbf{q}'\sigma}
 	\nonumber \\
-	&\stackrel{*}{=} \sum_{\gamma,\sigma} \left[
+	&= \sum_{\gamma,\sigma} \left[
 		\frac{1}{L_x L_y} \sum_\mathbf{q} \varphi_\mathbf{q}^{(\gamma)}
 		\langle
 			\hat n_{\mathbf{q}\sigma}
@@ -633,7 +610,7 @@ The diagonal terms of Eq.~\eqref{eq:af-V-fock-int2} are simple density interacti
 	\varphi_{\mathbf{q}'}^{(\gamma)*}
 	\hat n_{\mathbf{q}'\sigma} \label{eq:af-V-fock-int3-diag}
 \end{align}
-where the sign $\stackrel{*}{=}$ indicates that we have substituted the decomposition of Eq.~\eqref{eq:coscos-symmetries-decomposition}. Define as in Eq.~\eqref{eq:normal-uqsigma-def} the EV
+where in the last passage we substituted the decomposition of Eq.~\eqref{eq:coscos-symmetries-decomposition}. Define as in Eq.~\eqref{eq:normal-uqsigma-def} the EV
 \begin{equation}\label{eq:af-uqsigma-def}
 	u_{\mathbf{q}\sigma} \equiv \langle
 		\hat n_{\mathbf{q}\sigma}
@@ -672,7 +649,7 @@ The expression in square brackets of Eq.~\eqref{eq:af-V-fock-int3-diag} is just 
 	&= -\frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{MBZ}} \varphi_\mathbf{q}^{(\gamma)}
 	\frac{\tilde{\epsilon}_{\mathbf{q}\sigma}}{\tilde{E}_{\mathbf{q}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{q}\sigma}^{(-)}[\beta,\tilde{\mu}] \label{eq:af-ugamma-chain}
 \end{align}
-where, in the last passage, Eqns.~\eqref{eq:af-z-expectation-non-local}, \eqref{eq:af-rot-z-expectation} and \eqref{eq:af-ren-thermal-factors-def} have been used. Now, the AF phase does not break inversion symmetry: this implies that, whatever the shape of the renormalized bands, it must be
+where, in the last passage, Eqns.~\eqref{eq:af-z-expectation-non-local}, \eqref{eq:af-rot-z-expectation} and \eqref{eq:af-ren-thermal-factors-def} have been used. Now, the AF phase we realize does not break inversion symmetry (and as a consequence, neither $\mathrm{C}_2$): this implies that, whatever the shape of the renormalized bands, it must be
 \[
 	\tilde{\epsilon}_{\mathbf{q}\sigma} = \tilde{\epsilon}_{-\mathbf{q}\sigma}
 	\quad\implies\quad
@@ -723,7 +700,13 @@ as was for the normal phase in Eq.~\eqref{eq:normal-bands-renormalization}. In S
 
 \paragraph{Off-diagonal terms.}
 
-Consider the off-diagonal terms of Eq.~\eqref{eq:af-V-fock-int2}. These contribute instead to the full gap, being out of diagonal in the $2\times2$ hamiltonian matrix. In terms of the pseudospin picture, they account for a transverse field. Define $\mathbf{q}$, $\mathbf{q}'$ as in Fig.~\ref{subfig:af-bz-fock-terms-newvariables}, and rewrite as for Eq.~\eqref{eq:af-V-fock-int3-diag}
+Consider the off-diagonal terms of Eq.~\eqref{eq:af-V-fock-int2}. These contribute instead to the full gap, being out of diagonal in the $2\times2$ hamiltonian matrix. In terms of the pseudospin picture, they account for a transverse field. Define $\mathbf{q}$, $\mathbf{q}'$ as in Fig.~\ref{subfig:Kk-qq'-newvariables}, 
+\[
+	\mathbf{q} \equiv \mathbf{K}+\mathbf{k}
+	\qquad
+	\mathbf{q}' \equiv \mathbf{K}-\mathbf{k}
+\]
+and rewrite as for Eq.~\eqref{eq:af-V-fock-int3-diag}
 \begin{multline*}
 	-\frac{2V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}} \sum_\sigma [
 		\cos \left(
@@ -941,6 +924,8 @@ Therefore, we conclude
 	\right]
 	\label{eq:af-V-fock-int5-offdiag}
 \end{multline}
+which is obvious, being the hamiltonian operator hermitian from the beginning.
+
 %Four more real HFPs are then identified, with their self-consistency equations,
 %\begin{align}
 %	v^{(s^*)}_\sigma &= \frac{1}{2L_x L_y} \sum_{\mathbf{q}\in\mathrm{MBZ}} (\cos q_x + \cos q_y)
@@ -1078,7 +1063,7 @@ Let us now get back to $E_{\mathrm{F}/V}^{(\mathrm{AF})}$, the double counting e
 		\hat c_{\mathbf{K}-\mathbf{k} \sigma}^\dagger  \hat c_{\mathbf{K}+\mathbf{k}'\sigma} 
 	\rangle
 \end{equation}
-Proceeding exactly as in Eq.~\eqref{eq:af-V-fock-int2} and making the change of variables of Fig.~\ref{fig:af-bz-fock-terms}, we get
+Proceeding exactly as in Eq.~\eqref{eq:af-V-fock-int2} and making the change of variables of Fig.~\ref{fig:Kk-qq'}, we get
 \[
 	E_{\mathrm{F}/V}^{(\mathrm{AF})} = \frac{V}{L_x L_y} \sum_{\mathbf{q}, \mathbf{q}'} \sum_\sigma \left[
 		\cos \left(
@@ -1165,7 +1150,7 @@ where in the second passage we employed the change of variables $\mathbf{q}'=\ma
 		\big|u^{(\gamma)}_\sigma\big|^2 + \big|v^{(\gamma)}_\sigma\big|^2
 	\right]
 \end{equation}
-Interestingly enough, the new HFPs amplitudes contribute negatively to the contraction energy.
+Interestingly enough, the new HFPs amplitudes contribute positively to the contraction energy. This fact is non-trivial and has consequences we will discuss in Sec.~\mref.
 
 \section{Full MFT hamiltonian and gap complexification}\label{sec:af-full-hamiltonian}
 
@@ -1280,7 +1265,7 @@ hence inversion symmetry is respected only if
 \[
 	\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace = \pm\Im\lbrace \tilde{\Delta}_{-\mathbf{k}\sigma}\rbrace
 \]
-which is: either the imaginary part of the gap is inversion symmetric, or is antisymmetric. Based on this trivial consideration, we are able two discard two of the four self-consistency equations for the $v$-related HFPs liseted in Tab.~\ref{tab:af-ehm-vgamma-self-consistencies}: $s^*$ and $d$-wave symmetries HFPs are nonzero if $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is momentum-even; $p_x$ and $p_y$-wave symmetries HFPs are nonzero if $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is momentum-odd. The two option cannot coexist, and separate simulations can be implemented in the two symmetry sectors. We name the two possible symmetries ``sAF'' (symmetric antiferromagnet) and ``aAF'' (antisymmetric antiferromagnet). The set of HFPs then restricts in these AF structures, and is reported for both cases in Tab.~\ref{tab:saf-aaf-hfps}.
+which is: either the imaginary part of the gap is inversion symmetric, or is antisymmetric. Based on this trivial consideration, we are able two discard two of the four self-consistency equations for the $v$-related HFPs listed in Tab.~\ref{tab:af-ehm-vgamma-self-consistencies}: $s^*$ and $d$-wave symmetries HFPs are nonzero if $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is momentum-even; $p_x$ and $p_y$-wave symmetries HFPs are nonzero if $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is momentum-odd. The two options cannot coexist, and separate simulations can be implemented in the two symmetry sectors. We name the two possible symmetries ``sAF'' (symmetric antiferromagnet) and ``aAF'' (antisymmetric antiferromagnet). The set of HFPs then restricts in these AF structures, and is reported for both cases in Tab.~\ref{tab:saf-aaf-hfps}.
 
 \begin{table}
 	\centering
@@ -1299,7 +1284,7 @@ which is: either the imaginary part of the gap is inversion symmetric, or is ant
 	\label{tab:saf-aaf-hfps}
 \end{table}
 
-Moreover, from now on we will omit the $\sigma$ index, working just in the $\uparrow$ sector. As said in Sec.~\ref{sec:af-phase-theory}, the AF phase does not break $\mathbb{Z}_2$ spin inversion symmetry, being the SDW ordering generated by a staggered but symmetric spin density distribution among sites. The MFT hamiltonian is invariant by a $\sigma \leftrightarrow \overline{\sigma}$ exchange, thus all measurable physical quantities must be. What is unmeasurable and has no effect on Physics is free to be $\sigma$-dependent, as for the sign of $\Re\lbrace\Delta_{\mathbf{k}\sigma}\rbrace$. Since all it's relevant of both the complex components of the gap function is their magnitude, we can safely treat $\sigma$ as a pure degeneracy. This gives a simple equation for the last HFP,
+Moreover, from now on we will omit the $\sigma$ index, working just in the $\uparrow$ sector. As said in Sec.~\ref{sec:af-phase-theory}, the AF phase does not break $\mathbb{Z}_2$ spin inversion symmetry, being the SDW ordering generated by a staggered but globally symmetric spin density distribution among sites. The MFT hamiltonian is invariant by a $\sigma \leftrightarrow \overline{\sigma}$ exchange, thus all measurable physical quantities must be. What is unmeasurable and has no effect on Physics is free to be $\sigma$-dependent, as for the sign of $\Re\lbrace\Delta_{\mathbf{k}\sigma}\rbrace$. Since all it's relevant of both the complex components of the gap function is their magnitude, we can safely treat $\sigma$ as a pure degeneracy. This gives a simple equation for the last HFP,
 \begin{align}
 	m &= \frac{1}{L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \left\langle
 	\hat s_{\mathbf{k}\uparrow}^x
@@ -1366,6 +1351,8 @@ which is the actual physical magnetization. From the first line we see that it c
 
 \section{Stability of the AF phase}
 
+{\color{tabred}[Re-write and move up.]}
+
 The discussion above is formally correct and self-consistent, thus a HF algorithm can be sketched to extract the HFPs. However we cannot proceed without considering the instability effects of Sec.~\ref{appsubsec:instability-af-commensurate}. As is known (and we would have liked to notice earlier) the AF-SSB at wavevector $\bm{\pi}$ we are studying here, responsible of halving the BZ down to the MBZ, can produce a stable phase on pure Hubbard lattices only at half filling \cite{singh1990collective}. For the EHM the situation is even worse than that: repeating the simple Linear Reponse Theory (LRT) computations of Sec.~\ref{appsubsec:instability-af-commensurate} and mimicking Eq.~\eqref{appeq:af-commensurate-proper-response}, we get a proper response function
 \begin{equation}\label{eq:af-commensurate-proper-response}
 	\tilde{\chi}_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega) = \frac{\chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega)}{1 - \left[ 
@@ -1385,6 +1372,8 @@ As is well documented in literature \cite{wietek2021stripes}, AF can establish i
 Of course the sketched procedure can lead to a lot of complications, first the fact that at incommensurate wavevector $\mathbf{k} \neq \bm{\pi}$ the unit cell is not as simple as a pair of sites, but can become much larger requiring more refined computational solutions.
 
 In this text we will show the self consistent result for AF-SSB at wavevector $\bm{\pi}$ even at finite doping as a first step in the above sketched procedure. The presented results are self-consistent, but unfortunately deeply unstable and unphysical at finite doping, a situation where an incommensurate and insulating AF phase is preferred to this commensurate metallic counterpart. Nevertheless we present them anyway.
+
+Let us gather some more informations on the HFPs we identified.\todo
 
 \section{AF free energy density}\label{sec:af-free-energy}
 
@@ -1431,7 +1420,7 @@ With identical meaning of the notation with respect to Sec.~\ref{sec:normal-free
 	\begin{multline*}
 		e_s^{(\mathrm{AF})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \ln \left(
 		1- f( \tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \right) - \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\tilde{E}_\mathbf{k}-\tilde{\mu}) f( \tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \\
-		\frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \ln \left(
+		+ \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \ln \left(
 		1- f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \right) + \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\tilde{E}_\mathbf{k}+\tilde{\mu}) f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
 	\end{multline*}
 	\item Chemical potential correction
@@ -1556,6 +1545,68 @@ Hence we get the half-filling free energy density substituting ,
 Starting from the full expression of the free energy density, we recovered the intuitive expression of the energy of a fully (double) occupied band at $-\tilde{E}_\mathbf{k}$, with HFPs correction.
 
 {\color{tabred}[Expand: interesting situation for bands with nodes. At low temperature, where band nodes are present, the function behaves differently because its argument goes to zero. What is the behaviour there?]}
+
+\section{Theoretical constraints on the AF phase HFPs}\label{sec:af-constraints}
+\todo
+
+\subsection{Pure-symmetry gap and bands isotropy}
+
+A very important point can be made about the relations between bands resymmetrization and the insurgence of an anisotropic gap. Consider the Bogoliubov band
+\[
+	\tilde{E}_\mathbf{k} = \sqrt{\tilde{\epsilon}_\mathbf{k}^2 + \big| \tilde{\Delta}_\mathbf{k} \big|^2}
+\]
+\todo
+
+\subsection{Robust $\mathrm{C}_4$ bands shrinking extension}
+
+For the normal phase, we saw that hen $\mathrm{C}_4$ symmetry is preserved (Sec.~\ref{subsec:normal-bands-shrinking}) we can conclude immediately the bands renormalization is actually a shrinking. An identical result holds here: if $\mathrm{C}_4$ symmetry is imposed onto the renormalized bands,
+\[
+	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv (u^{(s^*)} V - 2t) (\cos k_x + \cos k_y)
+	\]
+with a single self-consistency equation
+\[
+	u^{(s^*)} = - \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) \frac{\tilde{\epsilon}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}[\beta,\tilde{\mu}]
+\]
+As we did for the normal phase:
+\begin{enumerate}
+	\item If $t>0$ and $u^{(s^*)} \le 0$
+	\[
+		\forall \mathbf{k} \in \mathrm{MBZ}
+		\quad\colon\quad
+		\tilde{\epsilon}_\mathbf{k} \le 0
+	\]
+	the equality only holding on the MBZ contour. Looking at the self-consistency equation, all other objects inside the sum are positive-defined. Which gives
+	\[
+		u^{(s^*)} \le 0
+		\quad\implies\quad
+		u^{(s^*)} \ge 0
+	\]
+	But $u^{(s^*)} \neq 0$ as long as $t>0$, as can be seen by the self-consistency equation. We conclude necessarily
+	\[
+		u^{(s^*)} > 0
+	\]
+	\item If $t>0$ and $u^{(s^*)} \ge 2t/V$
+	\[
+		\forall \mathbf{k} \in \mathrm{MBZ}
+		\quad\colon\quad
+		\tilde{\epsilon}_\mathbf{k} \ge 0
+	\]
+	the equality only holding on the MBZ contour. Looking at the self-consistency equation, all other objects inside the sum are positive-defined. Which gives
+	\[
+		u^{(s^*)} \ge 2t/V
+		\quad\implies\quad
+		u^{(s^*)} \le 0
+	\]
+	We conclude necessarily
+	\[
+		u^{(s^*)} < 2t/V
+	\]
+\end{enumerate}
+The final result,
+\[
+	0 < u^{(s^*)} < 2t/V
+\]
+is identical to the constraint obtained for the normal phase. Also in AF phase the bare bands are effectively shrunk by $\hat H_V$.
 
 %\section{HF algorithm, computational strategy and results}
 %

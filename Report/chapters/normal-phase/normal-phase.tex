@@ -9,7 +9,7 @@ The normal phase is simply the one where no symmetry is broken, and the many-bod
 \[
 	\mathrm{C}_4 \SSB \mathrm{C}_2
 \]
-symmetry reduction and extract the mathematical interesting consequences. While this implies immediately inversion symmetry preservation, full $\mathrm{C}_4$ symmetry will be imposed later.
+symmetry reduction and extract the mathematical interesting consequences. {\color{tabred} While this implies immediately inversion symmetry preservation, full $\mathrm{C}_4$ symmetry will be imposed later.}
 
 The normal phase is essentially given by the null gap limit of both the AF and SC phases. By discussing it separately now, we highlight a MFT feature of the EHM of particular interest, namely, the insurgence of a new, self-consistent hopping parameter. From Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, we know that the relevant Wick's contractions (RWCs) for this phase are
 \[
@@ -138,7 +138,7 @@ where ``all the rest'' collects all non-Hartree RWCs. Recalling the Ansatz of Eq
 	- E_{\mathrm{H}/V}^{(\mathrm{N})}
 	+ (\text{all the rest})
 \]
-with $E_{\mathrm{H}/V}^{(\mathrm{N})}$ the normal state shift to energy brought by $\hat H_V$. Now, evidently both sums above are just a number operator, thus including the degeneracies introduced by the summations
+with $E_{\mathrm{H}/V}^{(\mathrm{N})}$ the normal state shift to energy brought by $\hat H_V$. Now, evidently both sums above are just a number operator, thus including the degeneracies introduced by the summations on NNs for a square lattice with coordination number $z=4$
 \[
 	\hat H_V \simeq -2nzV \times \hat N - E_{\mathrm{H}/V}^{(\mathrm{N})} + 
 	(\text{all the rest})
@@ -187,7 +187,7 @@ for the non-local attraction. In the last passage, we used Eq.~\eqref{eq:square-
 
 \section{Fock effects: bare bands renormalization}\label{sec:normal-fock-bands-renormalization}
 
-Up to now, no relevant changes have been made to the starting situation of the conventional degenerate Fermi gas. The scenario changes now, with the analysis of the Fock RWCs. Even if no gap opens, in the normal phase the particles interact by the means of a non-local attraction, a feature that effectively redefines the bare fermionic bands.
+Up to now, no relevant changes have been made to the starting situation of the conventional degenerate Fermi gas. The scenario changes now, with the analysis of the Fock RWCs. Even if no gap opens, in the normal phase particles interact by the means of the non-local attraction $\hat H_V$, a feature that effectively redefines the bare fermionic bands.
 
 From Wick's decomposition of $\hat H_V$, the only allowed Fock term comes from the same-spin part due to $\mathrm{SU}(2)$ symmetry selection rules. Let us focus only on this term when decomposing $\hat H$:
 \begin{equation}\label{eq:real-space-non-local-interaction-fock}
@@ -248,7 +248,7 @@ In reciprocal space, the effective hopping must be transformed as well. Consider
 	\rangle
 	\hat c_{\mathbf{K}-\mathbf{k} \sigma}^\dagger  \hat c_{\mathbf{K}+\mathbf{k}'\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \label{eq:normal-V-fock-int1}
 \end{multline}
-Here, the $2$ prefactor comes from recognizing that the first two operators in square brackets in the first line generate identical contributions to the full sum; the double counting energy shift is given by
+Here, the $2$ prefactor comes from recognizing that the first two operators in square brackets in the first line generate identical contributions to the full sum (as is easy to see by performing trivial variables changes); the double counting energy shift is given by
 \begin{equation}\label{eq:normal-V-fock-double-counting}
 	E_{\mathrm{F}/V}^{(\mathrm{N})} \equiv \frac{V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left[
 		\cos \left(
@@ -301,7 +301,31 @@ In other words, we are assuming a solution to exist, we call ``normal'', such th
 	\rangle
 	\hat c_{\mathbf{K}-\mathbf{k} \sigma}^\dagger  \hat c_{\mathbf{K}-\mathbf{k}\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \label{eq:normal-V-fock-int2}
 \end{multline}
-since the only contribution comes from $\mathbf{k}'=-\mathbf{k}$. Let now $\mathbf{q}\equiv\mathbf{K}+\mathbf{k}$, $\mathbf{q}'\equiv\mathbf{K}-\mathbf{k}$. Being for $\ell=x,y$
+since the only contribution comes from $\mathbf{k}'=-\mathbf{k}$.
+
+\begin{figure}
+	\def\Kx{0.5}
+	\def\Ky{0.2}
+	\def\kx{0.1}
+	\def\ky{0.7}
+	\centering
+	\subfloat[
+		Generic vectors.
+	]{
+		\label{subfig:Kk-qq'-generic}
+		\input{\GraphicsFolder/Kk}
+	}
+	\subfloat[
+		Change of variables.
+	]{
+		\label{subfig:Kk-qq'-newvariables}
+		\input{\GraphicsFolder/qq'}
+	}
+	\caption{Representation of the variable change employed to pass from Eq.~\eqref{eq:normal-V-fock-int2} to \eqref{eq:normal-V-fock-int3}. In Fig.~\ref{subfig:Kk-qq'-generic} generic vectors are considered, cycling over all values of $\mathbf{K},\mathbf{k}\in\mathrm{BZ}$. In Fig.~\ref{subfig:Kk-qq'-newvariables} is depicted the variables change to the new vectors $\mathbf{q},\mathbf{q}'$.}
+	\label{fig:Kk-qq'}
+\end{figure}
+
+Let now $\mathbf{q}\equiv\mathbf{K}+\mathbf{k}$, $\mathbf{q}'\equiv\mathbf{K}-\mathbf{k}$. A representation of this variables change is given in Fig.~\ref{fig:Kk-qq'}. Being for $\ell=x,y$
 \[
 \begin{aligned}
 	\delta q_\ell &\equiv q_\ell - q_\ell' \\
@@ -401,7 +425,7 @@ recalling the antisymmetric form factors of Tab~\ref{tab:x-wave-reciprocal-facto
 \end{table}
 \setlength{\extrarowheight}{0em}
 
-However, $u_\sigma^{(s^*)}$ and $u_\sigma^{(d)}$ are in general non-zero, since we are allowing theoretically the possibility for $\mathrm{C}_4 \to \mathrm{C}_2$ SSB. Hence Eq.~\eqref{eq:normal-V-fock-int4} becomes
+The two HFPs $u_\sigma^{(s^*)}$ and $u_\sigma^{(d)}$ are in general non-zero, since we are allowing theoretically the possibility for $\mathrm{C}_4 \to \mathrm{C}_2$ SSB. Note that when imposing $\mathrm{C}_4$ invariance the $u_\sigma^{(d)}$ HFP vanishes, while in general $u_\sigma^{(s^*)}$ is non-zero. From these considerations Eq.~\eqref{eq:normal-V-fock-int4} becomes
 \begin{multline}
 	V \sum_{\ev{ij}} \sum_\sigma \left[
 	\langle
@@ -423,7 +447,7 @@ However, $u_\sigma^{(s^*)}$ and $u_\sigma^{(d)}$ are in general non-zero, since 
 \end{multline}
 Let 
 \begin{equation}\label{eq:normal-bands-renormalization}
-	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv \epsilon_{\mathbf{k}\sigma} + u^{(s^*)}_\sigma V (\cos q_x + \cos q_y) + u^{(d)}_\sigma V (\cos q_x - \cos q_y)
+	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv \epsilon_{\mathbf{k}\sigma} + u^{(s^*)}_\sigma V (\cos k_x + \cos k_y) + u^{(d)}_\sigma V (\cos k_x - \cos k_y)
 \end{equation}
 This equation defines the bands renormalization and resymmetrization anticipated in Tab.~\ref{tab:normal-RWCs}, and is actually spin-independent. The fact that both a $s^*$ and a $d$-wave component appear introduces an interesting anisotropy that is discusses in next section.
 
@@ -467,9 +491,9 @@ This expression gives the Fock contraction energy coming from the $\hat H_V$ ope
 	\label{fig:anisotropic-hopping}
 \end{figure}
 
-From Tabs.~\ref{tab:x-wave-real-factors} and \ref{tab:x-wave-reciprocal-factors} we can inverse Fourier transform the form factors to get the full effective hopping,
+From Tabs.~\ref{tab:x-wave-real-factors} and \ref{tab:x-wave-reciprocal-factors} we can inverse-Fourier transform the form factors to get the full effective hopping,
 \[
-	\tilde{t}_{ij\sigma} = \sum_{\gamma\in\lbrace s^*,s \rbrace} t^{(\gamma)}_\sigma \varphi_{ij}^{(\gamma)}
+	\tilde{t}_{ij\sigma} = \sum_{\gamma\in\lbrace s^*,d \rbrace} t^{(\gamma)}_\sigma \varphi_{ij}^{(\gamma)}
 \]
 with
 \[
@@ -477,9 +501,9 @@ with
 	\qquad
 	t^{(d)}_\sigma = - \frac{u_\sigma^{(d)} V}{2}
 \]
-Interestingly enough, in principle an anisotropy in the normal diffusion between $x$ and $y$ direction emerges. A schematics of anisotropic mixed symmetry hopping is depicted in Fig.~\ref{fig:anisotropic-hopping}: as is evident, for each bond linking two sites the hopping parameter can be a positive or negative combination of the two components whether the link direction is vertical or horizontal. Naturally, the solution needs to be invariant under exchange $x \leftrightarrow y$, making the actual SSB of the class $\mathrm{C}_4 \to \mathrm{C}_4 / \mathbb{Z}_2$.
+Interestingly enough, in principle an anisotropy in the normal diffusion between $x$ and $y$ direction emerges. A schematics of anisotropic mixed symmetry hopping is depicted in Fig.~\ref{fig:anisotropic-hopping}: as is evident, for each bond linking two sites the hopping parameter can be a positive or negative combination of the two components, whether the link direction is vertical or horizontal. Naturally, the solution needs to be invariant under exchange $x \leftrightarrow y$, making the actual SSB of the class $\mathrm{C}_4 \to \mathrm{C}_2 / \mathbb{Z}_2$.
 
-The fact that hopping is here anisotropic does not break full translational invariance $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_2^{(x)}$. In fact, the fact itself that we are imposing a free degenerate Fermi gas ground state in Eq.~\eqref{eq:normal-cc-EV} necessarily gives a uniform density, whatever the shape of the band. In fact, Fourier-transforming the site number operator,
+The fact that hopping is here anisotropic does not break full translational invariance $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$. Imposing a free degenerate Fermi gas ground state in Eq.~\eqref{eq:normal-cc-EV} necessarily gives a uniform density indeed, whatever the shape of the band. By Fourier-transforming the site number operator according to the convention of Eq.~\eqref{eq:fourier-convention},
 \[
 	\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \stackrel{\mathcal{F}}{=} \frac{1}{L_x L_y} \sum_{\mathbf{k}, \mathbf{k}'} e^{i (\mathbf{k}-\mathbf{k}') \cdot\mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma}
 \]
@@ -487,7 +511,7 @@ which obviously implies
 \[
 	\ev{\hat n_{i\sigma}} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
 \]
-Whatever the shape of the bands, a perfectly degenerate Fermi gas is always translational invariant and thus exhibits uniform symmetry. The fact that hopping is allowed to be anisotropic does not interfere with that: $\mathrm{C}_4$ breaking is not manifested this way.
+A perfectly degenerate Fermi gas is always translational invariant and thus cannot exhibit non-uniform symmetry. The fact that hopping is allowed to be anisotropic does not interfere with that: $\mathrm{C}_4$ SSB is not manifested this way.
 
 Note that for null HFPs,
 \[
@@ -517,15 +541,15 @@ The diffusion RMP $\tilde{t}_{ij\sigma}$ is to be interpreted like the right-han
 \]
 To limit the sum to NNs is a matter of the symmetry structure of the function $\tilde{t}_{ij\sigma}$.
 
-	\section{Normal free energy density}\label{sec:normal-free-energy}
+\section{Normal free energy density}\label{sec:normal-free-energy}
 
-An important quantity to derive in order to compare different phases is free energy density, defined as
+An important quantity to derive in order to compare different phases is free energy density. The mere existence of a MFT solution to a given phase is not enough to understand if the latter is physically established. To compare energy is instead the correct method to understand what phase is dominant. Within this section we sketch a procedure to extract free energy density we will use identically everywhere. Let
 \[
 	f_\mathrm{MFT}^{(\mathrm{N})} \equiv \frac{F_\mathrm{MFT}^{(\mathrm{N})}}{L_x L_y}
 \]
 being $F_\mathrm{MFT}$ the total free energy. Consider the complete hamiltonian
 \[
-	\hat H \simeq \sum_{\mathbf{k},\sigma} \tilde{\epsilon}_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} + E_\mathrm{c}^{(\mathrm{N})} - \tilde{\mu} \hat N
+	\hat H -\mu \hat N \simeq \sum_{\mathbf{k},\sigma} \tilde{\epsilon}_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} + E_\mathrm{c}^{(\mathrm{N})} - \tilde{\mu} \hat N
 \]
 where $E_\mathrm{c}^{(\mathrm{N})}$ is the (negative) total contraction energy for the normal phase,
 \[
@@ -581,7 +605,7 @@ Let us now take together all terms. From now on, we will omit spin index $\sigma
 			\frac{1}{e^x+1}
 		\right) 
 	\]
-	and reduce the above expression to:
+	and, substituting $x=\beta (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu})$, reduce the above expression to:
 	\begin{multline*}
 		s = -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[ \ln \left(
 		1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) + f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \ln f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \\
@@ -627,6 +651,94 @@ When it comes to algorithmic computation of this quantity, it is important to ex
 		\big|^2
 	\right] + \tilde{\mu} n 
 \end{equation}
+
+\section{Theoretical constraints on the normal phase HFPs}\label{sec:normal-constraints}
+
+Within this section we discuss some theoretical constraints on the two HFPs identified in this section. These last are useful in later numerical considerations. The discussion is hereby divided in two parts: first we consider the simpler case of unviolated $\mathrm{C}_4$ symmetry, then we move to anisotropic hopping and SSB.
+
+\subsection{Constraints in presence of a robust $\mathrm{C}_4$ symmetry and bands shrinking}\label{subsec:normal-bands-shrinking}
+
+Consider the simpler situation where $\mathrm{C}_4$ symmetry is imposed. This implies that the renormalized bands are
+\[
+	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv (u^{(s^*)} V - 2t) (\cos k_x + \cos k_y)
+\]
+with a single self-consistency equation
+\[
+	u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+\]
+Just by looking at these two equations we can conclude:
+\begin{enumerate}
+	\item For $t>0$, there is no stable solution admitting $u^{(s^*)}\le0$. Let us prove this: suppose instead $u^{(s^*)}\le0$. A generic sum over the BZ is identically written as
+	\[
+		\sum_{\mathbf{k}\in\mathrm{BZ}} g_\mathbf{k} = \sum_{\mathbf{k}\in\mathrm{MBZ}} \left[
+		g_\mathbf{k} + g_{\mathbf{k}+\bm{\pi}}
+		\right]
+	\]
+	where we defined the Magnetic Brillouin Zone (MBZ), sketched in Fig.~\mref, which will become mostly important for the AF phase and whose contour is given by the set of zeros of the $s^*$-wave form factor of Fig.~\ref{fig:x-wave-reciprocal-factors}. We also defined the AF vector $\bm{\pi}\equiv(\pi,\pi)$. The self-consistency equation thus reads
+	\[
+	\begin{aligned}
+		u^{(s^*)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \left[
+			f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) + f(\tilde{\epsilon}_{\mathbf{k}+\bm{\pi}};\beta,\tilde{\mu})
+		\right] \\
+		&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \left[
+			f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+		\right] \\
+	\end{aligned}
+	\]
+	having we used the antisymmetry of $s^*$-wave functions by $\bm{\pi}$ shifts. Now, if $u^{(s^*)}\le0$ the renormalized band $\tilde{\epsilon}_\mathbf{k}$ is negative inside the MBZ and positive outside, implying
+	\[
+		\forall \mathbf{k} \in \mathrm{MBZ}
+		\quad\colon\quad
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \ge f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+	\]
+	the equality only being satisfied on the MBZ contour. Then, since inside the MBZ it holds by definition $\cos k_x + \cos k_y \ge 0$, the above equations imply
+	\[
+		u^{(s^*)} \le 0 
+		\quad\implies\quad
+		u^{(s^*)} \ge 0
+	\]
+	To exclude the possibility of $u^{(s^*)}=0$, it suffices to notice that from the argument above such a situation only arises when the MBZ contour degenerates to the entirety of the MBZ itself -- which is, when the band is flat. But that cannot be the case for $u^{(s^*)} = 0$, as long as $t>0$. Thus we have proven that
+	\[
+		u^{(s^*)} > 0
+	\]
+	\item For $t>0$, there is no stable solution admitting $u^{(s^*)} \ge 2t/V$. We proceed exactly as did for the previous point, up to the passage:
+	\[
+		u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \left[
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+		\right]
+	\]
+	Now, if $u^{(s^*)} \ge 2t/V$ this means the prefactor in front of the renormalized bands is positive. This implies the renormalized band $\tilde{\epsilon}_\mathbf{k}$ is positive inside the MBZ and negative outside, implying
+	\[
+		\forall \mathbf{k} \in \mathrm{MBZ}
+		\quad\colon\quad
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \le f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+	\]
+	thus we have
+	\[
+		u^{(s^*)} \ge 2t/V
+		\quad\implies\quad
+		u^{(s^*)} \le 0
+	\]
+	which is absurd. Thus
+	\[
+		u^{(s^*)} < 2t/V
+	\]
+\end{enumerate}
+Collecting the two points above, we have the constraint on $u^{(s^*)}$
+\begin{equation}\label{eq:normal-us*-constraint}
+	\mathrm{C}_4
+	\quad\implies\quad
+	0 < u^{(s^*)} < 2t/V
+\end{equation}
+Interestingly enough, the self-consistent procedure predicts a positive convergence value for the simplest HFP, excluding the possibility of nullifying the effective hopping as well as bands sign inversion. We can denominate this net effect ``bands shrinking''.
+
+\subsection{Extension to a $\mathrm{C}_2/\mathbb{Z}_2$ symmetry}
+
+Let us extend the arguments above to a weaker symmetry, allowing for
+\[
+	\mathrm{C}_4 \SSB \mathrm{C}_2/\mathbb{Z}_2
+\]
+We work with the full, anisotropic band of Eq.~\eqref{eq:normal-bands-renormalization}. \todo
 
 \section{Numerical simulations}\label{sec:normal-numerical}
 

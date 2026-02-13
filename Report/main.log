@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  12 FEB 2026 19:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  14 FEB 2026 00:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1709,7 +1709,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.101 ...and system density}{69}{subsection.B.1.6}
+l.101 ...Antiferromagnetic phase}{63}{section.B.1}
                                                   % [2])
 
 
@@ -1847,10 +1847,6 @@ Overfull \hbox (56.04416pt too wide) in paragraph at lines 143--144
 
 [7]
 
-LaTeX Warning: Reference `antiferromagnetic-phase' on page 8 undefined on input
- line 310.
-
-
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 369.
 
@@ -1877,11 +1873,6 @@ Overfull \vbox (13.07225pt too high) has occurred while \output is active []
 
 
 [9]
-
-LaTeX Warning: Reference `eq:ehm-non-local-ss-os-terms-2' on page 10 undefined 
-on input line 468.
-
-
 
 [10]
 
@@ -1924,7 +1915,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [16]
 <../Project/EHM-HartreeFock/src/labs/structure-factors/plot-structure-factors.p
-df, id=738, 602.25pt x 526.96875pt>
+df, id=770, 602.25pt x 526.96875pt>
 File: ../Project/EHM-HartreeFock/src/labs/structure-factors/plot-structure-fact
 ors.pdf Graphic file (type pdf)
 <use ../Project/EHM-HartreeFock/src/labs/structure-factors/plot-structure-facto
@@ -1945,28 +1936,31 @@ rs.pdf>]) (./chapters/normal-phase/normal-phase.tex
 
 [20]
 
-[21]
+[21] (./chapters/normal-phase/pictures/Kk.tex)
+(./chapters/normal-phase/pictures/qq'.tex)
 
 [22]
 
 [23]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 461.
+(hyperref)                removing `math shift' on input line 485.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 461.
+(hyperref)                removing `math shift' on input line 485.
 
 (./chapters/normal-phase/pictures/anisotropic-hopping.tex)
 
 [24]
 
-LaTeX Warning: Citation 'grosso2014solid' on page 25 undefined on input line 56
-3.
+[25]
+
+LaTeX Warning: Citation 'grosso2014solid' on page 26 undefined on input line 58
+7.
 
 
-Overfull \hbox (24.13512pt too wide) in paragraph at lines 562--564
+Overfull \hbox (24.13512pt too wide) in paragraph at lines 586--588
 \OT1/cmr/m/n/10 with $\OML/cmm/m/it/10 T \OT1/cmr/m/n/10 = 1\OML/cmm/m/it/10 =k
 []^^L$ \OT1/cmr/m/n/10 and $\OML/cmm/m/it/10 s$ \OT1/cmr/m/n/10 the free Fermi 
 gas en-tropy den-sity for a sin-gle spin sec-tor [[]], 
@@ -1974,18 +1968,45 @@ gas en-tropy den-sity for a sin-gle spin sec-tor [[]],
 
 
 
-[25]
+[26]
 
-[26])
-(./chapters/antiferromagnetic-instability/antiferromagnetic-instability.tex
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 659.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 659.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 659.
+
+
 
 [27]
 
-[28
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 735.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 735.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 735.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 735.
+
+) (./chapters/antiferromagnetic-instability/antiferromagnetic-instability.tex
+
+[28]
+
+[29
 
 ]
-
-[29]
 Overfull \hbox (4.73033pt too wide) in paragraph at lines 100--102
 \OT1/cmr/m/n/10 with $\OML/cmm/m/it/10 E[]$ \OT1/cmr/m/n/10 the con-trac-tion e
 n-ergy re-sult-ing from dou-ble count-ing terms, given ex-plic-itly in Eq. [], 
@@ -2004,22 +2025,6 @@ n-ergy re-sult-ing from dou-ble count-ing terms, given ex-plic-itly in Eq. [],
 [33]
 
 [34]
-(./chapters/antiferromagnetic-instability/pictures/af-bz-fock-terms-generic.tex
-)
-(./chapters/antiferromagnetic-instability/pictures/af-bz-fock-terms-newvariable
-s.tex)
-
-LaTeX Warning: Reference `eq:reciprocal-space-non-local-interaction-fock-interm
-ediate-2' on page 35 undefined on input line 602.
-
-
-LaTeX Warning: Reference `eq:reciprocal-space-non-local-interaction-fock-interm
-ediate-2' on page 35 undefined on input line 602.
-
-
-Underfull \vbox (badness 1484) has occurred while \output is active []
-
-
 
 [35]
 
@@ -2033,35 +2038,48 @@ Underfull \vbox (badness 1484) has occurred while \output is active []
 
 [40]
 
+LaTeX Warning: Citation 'singh1990collective' on page 41 undefined on input lin
+e 1356.
+
+
+LaTeX Warning: Citation 'wietek2021stripes' on page 41 undefined on input line 
+1364.
+
+
+
 [41]
-
-LaTeX Warning: Citation 'singh1990collective' on page 42 undefined on input lin
-e 1369.
-
-
-LaTeX Warning: Citation 'wietek2021stripes' on page 42 undefined on input line 
-1377.
-
-
 
 [42]
 
 [43]
 
-[44]) (./chapters/superconducting-instability/superconducting-instability.tex
+[44]
 
-[45]
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1559.
 
-[46
 
-]
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 1559.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1559.
+
+
+
+[45]) (./chapters/superconducting-instability/superconducting-instability.tex
+
+[46]
 LaTeX Font Info:    Trying to load font information for U+euf on input line 70.
 
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 
-[47]
+[47
+
+]
 
 [48]
 
@@ -2160,7 +2178,7 @@ e 319.
 [67]
 
 [68]
-<../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.pdf, id=1498, 451.6875pt
+<../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.pdf, id=1547, 451.6875pt
  x 301.125pt>
 File: ../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.pdf Graphic file (t
 ype pdf)
@@ -2171,10 +2189,6 @@ pdf  used on input line 459.
 
 
 [69 <../Project/HM-HartreeFock/src/labs/n_AF_U=10.0_Δ=1.0.pdf>]
-
-LaTeX Warning: Reference `appeq:af-hm-Delta-self-consistency' on page 70 undefi
-ned on input line 621.
-
 
 LaTeX Warning: Citation 'singh1990collective' on page 70 undefined on input lin
 e 641.
@@ -2192,7 +2206,7 @@ e 650.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 733.
 <../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOrderP
-arameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf, id=1566, 482.80273pt x 2
+arameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf, id=1615, 482.80273pt x 2
 98.89566pt>
 File: ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotO
 rderParameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf Graphic file (type p
@@ -2204,7 +2218,7 @@ Package pdftex.def Info: ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup
 used on input line 749.
 (pdftex.def)             Requested size: 213.39568pt x 132.10739pt.
 <../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOrderP
-arameter/xVar=δ/pVar=U/m_t=1.0_Lx=128.0_β=100.0.pdf, id=1567, 485.6283pt x 29
+arameter/xVar=δ/pVar=U/m_t=1.0_Lx=128.0_β=100.0.pdf, id=1616, 485.6283pt x 29
 9.00809pt>
 File: ../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotO
 rderParameter/xVar=δ/pVar=U/m_t=1.0_Lx=128.0_β=100.0.pdf Graphic file (type p
@@ -2259,7 +2273,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 53E4A280ECA89CD0941A06931EB668DA;23998.
+(rerunfilecheck)             Checksum: 71F87EA94DCD619818C06BF197C8BED0;25753.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -2270,13 +2284,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 54594 strings out of 475076
- 1232116 string characters out of 5763687
- 2251496 words of memory out of 5000000
- 76294 multiletter control sequences out of 15000+600000
+ 54611 strings out of 475076
+ 1231614 string characters out of 5763687
+ 2251824 words of memory out of 5000000
+ 76300 multiletter control sequences out of 15000+600000
  580889 words of font info for 117 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 92i,18n,96p,1297b,2205s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 92i,18n,96p,1297b,2186s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/tex
@@ -2315,10 +2329,10 @@ bols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></us
 r/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/
 type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-supe
 r/sfrm1000.pfb>
-Output written on main.pdf (81 pages, 1526278 bytes).
+Output written on main.pdf (81 pages, 1536853 bytes).
 PDF statistics:
- 1984 PDF objects out of 2073 (max. 8388607)
- 1733 compressed objects within 18 object streams
- 448 named destinations out of 1000 (max. 500000)
- 895 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2035 PDF objects out of 2073 (max. 8388607)
+ 1782 compressed objects within 18 object streams
+ 459 named destinations out of 1000 (max. 500000)
+ 943 words of extra memory for PDF output out of 10000 (max. 10000000)
 
