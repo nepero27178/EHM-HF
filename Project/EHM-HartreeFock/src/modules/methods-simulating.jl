@@ -15,292 +15,230 @@ include(PROJECT_METHODS_DIR * "/methods-physics.jl")
 include(PROJECT_METHODS_DIR * "/methods-optimizations.jl")
 include(PROJECT_METHODS_DIR * "/methods-IO.jl")
 
-@doc raw"""
 function FindRootμ(
 	Phase::String,
-	Parameters::Dict{String,Float64},
-	K::Matrix{Vector{Float64}}
+	Syms::Vector{String},
+	Pars::Dict{String,Float64},
 	v::Dict{String,Float64},
-	nt::Float64,
-	β::Float64;
-	Δn::Float64=0.0,
+	n::Float64;
+	Δn::Float64=1e-3,
 	μ0::Float64=0.0,
-	RenormalizeBands::Bool=true,
-	OptimizeBZ::Bool=true,
-	debug::Bool=false
+	RBS::Bool=true,
+	RBd::Bool=false,
+	OptBZ::Bool=true
 )::Float64
 
-Returns: optimal chemical potential.
-"""
-function FindRootμ(
-	Phase::String,						# Mean field phase
-	Parameters::Dict{String,Float64},	# Model parameters t,U,V
-	K::Matrix{Vector{Float64}},			# BZ grid
-	v::Dict{String,Float64},				# HF parameters
-	nt::Float64,							# Target density
-	β::Float64;							# Inverse temperature
-	Δn::Float64=1e-3,					# Density tolerance
-	μ0::Float64=0.0,						# Initial guess
-	RenormalizeBands::Bool=true,			# Conditional renormalization of t
-	OptimizeBZ::Bool=true,				# Conditional BZ optimization
-	debug::Bool=false,					# Debug mode
-)::Float64
-
-	if nt < 0 || nt > 1
-		@error "Invalid target density. Choose 0 ≤ nt ≤ 1." nt
+	if n <= 0 || n >= 1
+		@error "Invalid target density. Choose 0 < n < 1." n
 		return
 	end
 
 	μ::Float64 = 0.0
-	if nt != 0.5 # Speed up at half-filling
+	if n != 0.5 # Speed up at half-filling
 
-		D::Int64 = 2 * prod(size(K))
-		# Define function to be minimized
-		δn(μ::Float64) = sum(
-				GetKPopulation(Phase,Parameters,K,v,μ,β;RenormalizeBands,OptimizeBZ)
-			)/D - nt
+		# Find root of function:
+		δn(x::Float64) = GetDensity(Phase,Syms,Pars,v,x,debug,RBS,RBd,OptBZ) - n
 
 		LowerBoundary::Float64 = μ0-0.5
 		UpperBoundary::Float64 = μ0+0.5
-		if abs(δn(LowerBoundary)) > Δn
-			if δn(LowerBoundary) > 0
-				while δn(LowerBoundary) > 0
-					if debug
-						@warn "Moving down lower boundary"
-					end
-					LowerBoundary -= 1.0
+		if δn(LowerBoundary) > 0
+			while δn(LowerBoundary) > 0
+				if debug
+					@warn "Moving down lower boundary" LowerBoundary
 				end
-				UpperBoundary = LowerBoundary + 1.0
-			elseif δn(UpperBoundary) < 0
-				while δn(UpperBoundary) < 0
-					if debug
-						@warn "Moving up upper boundary"
-					end
-					UpperBoundary += 1.0
-				end
-				LowerBoundary = UpperBoundary - 1.0
+				LowerBoundary -= 1.0
 			end
+			UpperBoundary = LowerBoundary + 1.0
 			μ = find_zero(δn, (LowerBoundary, UpperBoundary))
+
+		elseif δn(LowerBoundary) == 0.0
+			μ = LowerBoundary
+
+		elseif δn(UpperBoundary) < 0
+			while δn(UpperBoundary) < 0
+				if debug
+					@warn "Moving up upper boundary" UpperBoundary
+				end
+				UpperBoundary += 1.0
+			end
+			LowerBoundary = UpperBoundary - 1.0
+			μ = find_zero(δn, (LowerBoundary, UpperBoundary))
+
+		elseif δn(UpperBoundary) == 0.0
+			μ = UpperBoundary
+
 		end
 
 	end
 
 	if debug
-		n = sum( GetKPopulation(Phase,Parameters,K,v,μ,β;OptimizeBZ) )/D
+		n = GetDensity(Phase,Syms,Pars,v,μ,debug,RBS,RBd,OptBZ)
 		@info "Optimal chemical potential and density:" μ n
 	end
 
 	return μ
 end
 
-@doc raw"""
-function PerformHFStep(
-	Phase::String,
-	Parameters::Dict{String,Float64}
-	K::Matrix{Vector{Float64}},
-	v0::Dict{String,Float64},
-	n::Float64,
-	β::Float64;
-	Syms::Vector{String}=[\"d\"],
-	RenormalizeBands::Bool=true,
-	OptimizeBZ::Bool=true,
-	μ0::Float64=0.0,
-	debug::Bool=false
-)::Tuple{Dict{String,Float64},Float64}
 
-Returns: (HF dictionary, chemical potential).
-"""
-function PerformHFStep(
-	Phase::String,						# Mean field phase
-	Parameters::Dict{String,Float64},	# Model parameters t,U,V
-	K::Matrix{Vector{Float64}},			# BZ grid
-	v0::Dict{String,Float64},			# HF initializers
-	n::Float64,							# Density
-	β::Float64;							# Inverse temperature
-	Syms::Vector{String}=["s"],			# Gap function symmetries
-	RenormalizeBands::Bool=true,			# Conditional renormalization of t
-	OptimizeBZ::Bool=true,				# Conditional optimization of BZ
-	Δn::Float64=1e-3,					# Density tolerance
-	μ0::Float64=0.0,						# Initial guess for μ calculation
-	debug::Bool=false,					# Debug mode
-)::Tuple{Dict{String,Float64},Float64}
+
+function HFStep(
+	Phase::String,
+	Syms::Vector{String},
+	Pars::DataFrame,
+	v0::DataFrame,
+	Δn::Float64=1e-3,
+	μ0::Float64=0.0,
+	RBS::Bool=true,
+	RBd::Bool=false,
+	OptBZ::Bool=true,
+	debug::Bool=false
+)::Tuple{DataFrame,Float64}
 
 	v = copy(v0)	
-	LxLy = prod(size(K))	
-	μ = FindRootμ(Phase,Parameters,K,v0,n,β;Δn,μ0,RenormalizeBands,OptimizeBZ,debug)
-	wk::Int64=0
+	μ = FindRootμ(Phase,Syms,Pars,v,n;Δn,μ0,RBS,RBd,OptBZ)
 
-	# Antiferromagnet
-	if in(Phase, ["AF", "FakeAF"])
-		m::Float64 = 0.0
-		w0::Float64 = 0.0
-		wpi::Float64 = 0.0
-		
-		t = Parameters["t"]
-		if RenormalizeBands
-			# Conditional renormalization of bands
-			t -= v["w0"] * Parameters["V"]
-		end
-		
-		for (i,q) in enumerate(K)
-			wk = GetWeight(q; Sym="S-MBZ",OptimizeBZ) # Avoid computational redundance
-			k = q .* pi # Important: multiply k by pi
-			if in(wk,[1,2,4]) # Allowed weights
-				# Renormalized bands
-				εk::Float64 = GetBareBands(t,k)
+	# Get pars
+	t::Float64 = first(Pars.t)
+	U::Float64 = first(Pars.U)
+	V::Float64 = first(Pars.V)
+	L::Int64 = first(Pars.L)
+	β::Float64 = first(Pars.β)
 
-				# Renormalized gap
-				reΔk::Float64 = v["m"] * (Parameters["U"] + 8*Parameters["V"])
-				imΔk::Float64 = 2*v["wp"]*Parameters["V"] * StructureFactor("S",k)
+	# Get BZ
+	K::Matrix{Vector{Float64}}, _, _ = GetK([L, L])
+	LxLy::Int64 = L^2
 
-				# Renormalized gapped bands
-				Ek::Float64 = sqrt( εk^2 + reΔk^2 + imΔk^2 )
+	# Kinetics
+	uS0::Float64 = Readv(v0,:uS;Cnd=RBS) # Read s*-wave
+	ud0::Float64 = Readv(v0,:ud;Cnd=RBd) # Read d-wave
+	εε::Dict{String,Float64} = Dict(
+		"S" => -2*t + V*uS0,
+		"d" => V*ud0
+	)
+	Getεk(k::Vector{Float64})::Float64 = GetFk(εε,k) # Function
+	εK::Matrix{Float64} = Getεk.(K) # Get bare bands
+	EK::Matrix{Float64} = zeros(size(εK)) # Initialize quasibands
 
-				# Fermi-Dirac factor
-				FDk = FermiDirac(-Ek,μ,β) - FermiDirac(Ek,μ,β)
+	# Gap
+	reΔΔ, imΔΔ = GetΔΔ(Phase,Syms,Pars,v) # Get real and imaginary dicts
+	GetreΔk(k::Vector{Float64})::Float64 = GetFk(reΔΔ,k) # Function
+	GetimΔk(k::Vector{Float64})::Float64 = GetFk(imΔΔ,k) # Function
+	reΔK::Matrix{Float64} = GetreΔk.(K) # Real gap function
+	imΔK::Matrix{Float64} = GetimΔk.(K) # Imaginary gap function
 
-				if Ek!=0.0 # Otherwise add nothing
-					m += wk * reΔk/Ek * FDk
-					w0 -= wk * εk/Ek * FDk * StructureFactor("S",k)
-					wpi += wk * imΔk/Ek * FDk * StructureFactor("S",k)
-				end
-			end
-			wk = 0
-		end
-		
-		v["m"] = m/(2*LxLy)
-		v["w0"] = w0/(4*LxLy)
-		v["wp"] = wpi/(4*LxLy)
+	# Normal phase
+	if Phase=="Normal"
 
-	elseif in(Phase, ["SU-Singlet", "FakeSU-Singlet"])
+		# Self-consistency equations
+		RBS ? v.uS .= sum( StructureFactor.("S",K).*FermiDirac.(εK,β,μ) )/LxLy : false
+		RBd ? v.ud .= sum( StructureFactor.("d",K).*FermiDirac.(εK,β,μ) )/LxLy : false
 
-		Δs::Float64 = 0.0 # s-wave
-		ΔS::Float64 = 0.0 # s*-wave
-		Δd::Float64 = 0.0 # d-wave
-		gS::Float64 = 0.0 # s-wave part of g
-		gd::Float64 = 0.0 # d-wave part of g
-
-		t = Parameters["t"]
-		if RenormalizeBands && "gS" in keys(v)
-			# Conditional renormalization of bands
-			t -= v["gS"]/2 * Parameters["V"]
+	if Phase=="AF-Symmetric"
+		EK = sqrt.(εK.^2 .+ reΔK.^2 .+ imΔK.^2)
+		m0::Float64 = try
+			first(v.m0)
+		catch
+			@error "Magnetization not found in v0 @ HFStep" v0
+			exit()
 		end
 
-		for (i,q) in enumerate(K)
-			wk = GetWeight(q;OptimizeBZ) # Avoid computational redundance
-			k = q .* pi # Important: multiply k by pi
-			if in(wk,[1,2,4]) # Allowed weights
-				# Free bands
-				ξk = GetBareBands(t,k) - μ
-				if RenormalizeBands && "gd" in keys(v)
-					ξk += Parameters["V"] * v["gd"] * StructureFactor("d",k)
-				end
+		eK::Matrix{Float64} = εK./Ek
+		replace!(eK, NaN => 0.0) # Null field: <sz>=0
 
-				# Gap
-				Δk::Float64 = 0.0
-				for (key, value) in v
-					if !in(key, ["gS", "gd"])
-						key = String(key)
-						key = String(chop(key, head=1, tail=0))
-						Δk += value * StructureFactor(key,k)
-					end
-				end
+		rK::Matrix{Float64} = reΔK./Ek
+		replace!(rK, NaN => 0.0) # Null field: <sy>=0
 
-				# Renormalized gapped bands
-				Ek::Float64 = sqrt( ξk^2 + abs(Δk)^2 )
+		iK::Matrix{Float64} = imΔK./Ek
+		replace!(iK, NaN => 0.0) # Null field: <sy>=0
 
-				# Gap factor
-				sk::Float64 = 0.0
-				ck::Float64 = 0.0
-				if Ek!=0.0 # Otherwise add nothing
-					sk = Δk/Ek * tanh(β*Ek/2)
-					ck = ξk/Ek * tanh(β*Ek/2)
-				end
-				Δs -= wk * sk
-				ΔS += wk * sk * StructureFactor("S",k)
-				Δd += wk * sk * StructureFactor("d",k)
-				gS += wk * (1-ck)/2 * StructureFactor("S",k)
-				gd += wk * (1-ck)/2 * StructureFactor("d",k)
-			end
+		# Self-consistency equations
+		RBS ? v.uS .= sum( StructureFactor.("S",K).*eK.*Th("-",EK,β,μ) )/LxLy : false
+		RBd ? v.ud .= sum( StructureFactor.("d",K).*eK.*Th("-",EK,β,μ) )/LxLy : false
+		v.m .= sum( rK.*Th("-",EK,β,μ) )/(2*LxLy)
+		"S" in Syms ? v.vS .= sum( StructureFactor.("S",K).*iK.*Th("-",EK,β,μ) )/(2*LxLy) : false
+		"d" in Syms ? v.vd .= sum( StructureFactor.("d",K).*iK.*Th("-",EK,β,μ) )/(2*LxLy) : false
+
+	elseif Phase=="AF-Antisymmetric"
+		EK = sqrt.(εK.^2 .+ reΔK.^2 .+ imΔK.^2)
+		m0::Float64 = try
+			first(v.m0)
+		catch
+			@error "Magnetization not found in v0 @ HFStep" v0
+			exit()
 		end
 
-		Δs *= Parameters["U"] / (2*LxLy)
-		ΔS *= Parameters["V"] / LxLy
-		Δd *= Parameters["V"] / LxLy
-		gS /= LxLy
-		gd /= LxLy
+		eK::Matrix{Float64} = εK./Ek
+		replace!(eK, NaN => 0.0) # Null field: <sz>=0
 
-		"Δs" in keys(v0) ? v["Δs"] = Δs : 0
-		"ΔS" in keys(v0) ? v["ΔS"] = ΔS : 0
-		"Δd" in keys(v0) ? v["Δd"] = Δd : 0
-		"gS" in keys(v0) ? v["gS"] = gS : 0
-		"gd" in keys(v0) ? v["gd"] = gd : 0
+		rK::Matrix{Float64} = reΔK./Ek
+		replace!(rK, NaN => 0.0) # Null field: <sz>=0
 
+		iK::Matrix{Float64} = imΔK./Ek
+		replace!(iK, NaN => 0.0) # Null field: <sz>=0
 
-	elseif Phase=="SU-Triplet"
-		@error "Under construction"
-		return
-	end
+		# Self-consistency equations
+		RBS ? v.uS .= sum( StructureFactor.("S",K).*eK.*Th("-",EK,β,μ) )/LxLy : false
+		RBd ? v.ud .= sum( StructureFactor.("d",K).*eK.*Th("-",EK,β,μ) )/LxLy : false
+		v.m .= sum( rK.*Th("-",EK,β,μ) )/(2*LxLy)
+		"px" in Syms ? v.vpx .= sum( StructureFactor.("px",K).*rK.*Th("-",EK,β,μ) )/(2*LxLy) : false
+		"py" in Syms ? v.vpy .= sum( StructureFactor.("py",K).*rK.*Th("-",EK,β,μ) )/(2*LxLy) : false
+
+	elseif Phase=="SC-Singlet"
+		ξK::Matrix{Float64} = εK .- μ
+		EK = sqrt.(ξK.^2 .+ reΔK.^2)
+
+		tK::Matrix{Float64} = tanh(EK .* β/2) ./ EK
+		replace!(tK, NaN => β/2) # @ x~0 : tanh(x)/x~1
+
+		# Self-consistency equations
+		RBS ? v.uS .= sum( StructureFactor.("S",K).*(1 .- ξK.*tK) )/LxLy : false
+		RBd ? v.ud .= sum( StructureFactor.("d",K).*(1 .- ξK.*tK) )/LxLy : false
+		"s" in Syms ? v.wS .= sum( reΔK.*tK )/(2*LxLy) : false
+		"S" in Syms ? v.wS .= sum( StructureFactor.("S",K).*reΔK.*tK )/(2*LxLy) : false
+		"d" in Syms ? v.wd .= sum( StructureFactor.("d",K).*reΔK.*tK )/(2*LxLy) : false
+
+	elseif Phase=="SC-Triplet"
+		ξK::Matrix{Float64} = εK .- μ
+		EK = sqrt.(ξK.^2 .+ reΔK.^2)
+
+		tK::Matrix{Float64} = tanh(EK .* β/2) ./ EK
+		replace!(tK, NaN => β/2) # @ x~0 : tanh(x)/x~1
+
+		# Self-consistency equations
+		RBS ? v.uS .= sum( StructureFactor.("S",K).*(1 .- ξK.*tK) )/LxLy : false
+		RBd ? v.ud .= sum( StructureFactor.("d",K).*(1 .- ξK.*tK) )/LxLy : false
+		"px" in Syms ? v.px .= sum( StructureFactor.("px",K).*reΔK.*tK )/(2*LxLy) : false
+		"py" in Syms ? v.py .= sum( StructureFactor.("py",K).*reΔK.*tK )/(2*LxLy) : false
 
 	return v, μ
 end
 
-@doc raw"""
-function RunHFAlgorithm(
-	Phase::String,
-	Parameters::Dict{String,Float64},
-	L::Vector{Int64},
-	n::Float64,
-	β::Float64,
-	p::Int64,
-	Δv::Dict{String,Float64},
-	Δn::Float64,
-	g::Float64;
-	v0::Dict{String,Float64}=Dict([]),
-	Syms::Vector{String}=[\"d\"],
-	verbose::Bool=false,
-	debug::Bool=false,
-	record::Bool=false,
-	RenormalizeBands::Bool=true,
-	OptimizeBZ::Bool=true
-)::Tuple{Dict{String,Any}, Dict{String,Any}}
 
-Returns: (results dictionary, performance dictionary).
-"""
-function RunHFAlgorithm(
-	Phase::String,						# Mean field phase
-	Parameters::Dict{String,Float64},	# Model parameters t,U,V
-	L::Vector{Int64},					# [Lx, Ly]
-	n::Float64,							# Density
-	β::Float64,							# Inverse temperature
-	p::Int64,							# Number of iterations
-	Δv::Dict{String,Float64},			# Tolerance on each order parameter
-	Δn::Float64,							# Tolerance on density difference
-	g::Float64;							# Mixing parameter
-	v0i::Dict=Dict([]),					# Initializers
-	Syms::Vector{String}=["s"],			# Gap function symmetries
+
+function HFRun(
+	Phase::String,
+	Syms::Vector{String},
+	ModPars::DataFrame,
+	AlgPars::DataFrame,
+	v0i::DataFrame,
+	Δn::Float64=1e-3,
+	μ0::Float64=0.0,
+	RBS::Bool=true,
+	RBd::Bool=false,
+	OptBZ::Bool=true,
 	verbose::Bool=false,
 	debug::Bool=false,
-	record::Bool=false,
-	RenormalizeBands::Bool=true,			# Conditional renormalization of t
-	OptimizeBZ::Bool=true				# Conditional optimizatio of BZ
+	record::Bool=false
 )::Tuple{Dict{String,Any}, Dict{String,Any}}
 
 	if verbose
-		@info "Running HF convergence algorithm" Phase Syms Parameters L n β
-		@info "Convergence parameters" p Δv Δn g
+		@info "Running HF convergence algorithm" Phase Syms Pars AlgPars
 	end
 
-	# Reciprocal space discretization (normalized to 1)
-	# Kx::Vector{Float64} = [kx for kx in -1:2/L[1]:1]
-	# popfirst!(Kx)
-	# Ky::Vector{Float64} = [ky for ky in -1:2/L[2]:1]
-	# popfirst!(Ky)
-	# K::Matrix{Vector{Float64}} = [ [kx,ky] for kx in Kx, ky in Ky ]
-	K, Kx, Ky = GetKGrid(L)
-
-	# Get Hartree Fock Parameters labels
-	HFPs = GetHFPs(Phase;Syms)
+	# Initialize HFPs
+	HFPs::Vector{String} = GetHFPs(Phase;Syms)
+	v0::DataFrame = DataFrame(Dict(HFPs .=> 0.1))
+	# GO ON FROM HERE...
 
 	# Initialize HF dictionaries
 	v0::Dict{String,Float64} = Dict([])
@@ -339,7 +277,7 @@ function RunHFAlgorithm(
 				K,v0,n,β;
 				Syms,
 				RenormalizeBands,
-				OptimizeBZ,
+				OptBZ,
 				Δn,μ0=μ,
 				debug,
 			)
@@ -386,7 +324,7 @@ function RunHFAlgorithm(
 		if verbose
 			@info "Algorithm has converged." v Qs
 		end
-		fMFT = GetFreeEnergy(Phase,Parameters,K,v0,n,μ,β;RenormalizeBands,OptimizeBZ)
+		fMFT = GetFreeEnergy(Phase,Parameters,K,v0,n,μ,β;RenormalizeBands,OptBZ)
 
 	elseif any([Qs[key] for key in keys(v0)] .> 1)
 
