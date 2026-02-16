@@ -41,7 +41,7 @@ function StructureFactor(
 end
 
 
-
+#TODO Move to IO
 function GetFk(
 	FF::Dict{String,Float64},
 	k::Vector{Float64};
@@ -80,7 +80,7 @@ function Th(
 	ε::Float64,							# Single-particle energy
 	μ::Float64,							# Chemical potential
 	β::Float64,							# Inverse temperature
-)::Vector{Float64}
+)::Float64
 
 	if Sign=="+"
 		return FermiDirac(-ε,μ,β) + FermiDirac(ε,μ,β)
@@ -94,6 +94,8 @@ function Th(
 end
 
 
+
+#TODO Move to IO
 function Readv(
 	v::DataFrame,
 	x::Symbol;
@@ -113,7 +115,7 @@ end
 
 function GetΔΔ(
 	Phase::String,
-	Syms::Vector{String},
+	Syms::Set{String},
 	Pars::DataFrame,
 	v::DataFrame,
 )::Tuple{Dict{String,Float64},Dict{String,Float64}}
@@ -188,7 +190,7 @@ end
 function GetObj(
 	Obj::String,
 	Phase::String,
-	Syms::Vector{String},
+	Syms::Set{String},
 	Pars::DataFrame,
 	v::DataFrame,
 	μ::Float64;
@@ -228,7 +230,7 @@ function GetObj(
 	reΔK::Matrix{Float64} = GetreΔk.(K) # Real gap function
 	imΔK::Matrix{Float64} = GetimΔk.(K) # Real gap function
 
-	# Initialize
+	# Initializers
 	f::Float64 = 0.0
 	NK::Matrix{Float64} = zeros(size(εK))
 	if Obj=="f"
@@ -236,6 +238,9 @@ function GetObj(
 		n::Float64 = 0.5 + first(Pars.δ)
 		f += μ*n - V*sum(vu.^2)
 	end
+
+	# Custom xlogx function to handle numeric Inf
+	xlogx(x::Float64) = x==0.0 ? 0.0 : x*log(x)
 
 	# Normal phase
 	if Phase=="Normal"
@@ -264,14 +269,22 @@ function GetObj(
 
 		# Density
 		if Obj=="n"
-			NK = Th.("+",Ek,μ,β)
+			NK = Th.("+",EK,μ,β)
 			return sum(NK)/(2*LxLy)
 
 		# Free energy
 		elseif Obj=="f"
+			# Free energy from HFPs
 			vv::Vector{Float64} = [ select(v, Cols(contains.("v")))[1,:]... ]
 			f += U*m^2 - V*sum(vv.^2)
-			esK = log.( 1 .- FermiDirac.(EK,μ,β) ) +  log.( 1 .- FermiDirac.(-EK,μ,β) ) # Entropic part
+
+			# Free energy from bands
+			Fp::Matrix{Float64} = FermiDirac.(EK,μ,β)
+			Fm::Matrix{Float64} = FermiDirac.(-EK,μ,β)
+			f += sum((EK.-μ).*Fp - (EK.+μ).*Fm)/LxLy
+
+			# Free energy from entropy
+			esK = xlogx.(Fp) + xlogx.(1 .- Fp) + xlogx.(Fm) + xlogx.(1 .- Fm)
 			f += sum(esK)/LxLy * 1/β
 			return f
 
@@ -310,7 +323,7 @@ end
 
 function GetDensity(
 	Phase::String,
-	Syms::Vector{String},
+	Syms::Set{String},
 	Pars::DataFrame,
 	v::DataFrame,
 	μ::Float64;
@@ -325,7 +338,7 @@ end
 
 function GetFreeEnergy(
 	Phase::String,
-	Syms::Vector{String},
+	Syms::Set{String},
 	Pars::DataFrame,
 	v::DataFrame,
 	μ::Float64;

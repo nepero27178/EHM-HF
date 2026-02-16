@@ -17,15 +17,16 @@ include(PROJECT_METHODS_DIR * "/methods-IO.jl")
 
 function FindRootμ(
 	Phase::String,
-	Syms::Vector{String},
-	Pars::Dict{String,Float64},
-	v::Dict{String,Float64},
+	Syms::Set{String},
+	Pars::DataFrame,
+	v::DataFrame,
 	n::Float64;
 	Δn::Float64=1e-3,
 	μ0::Float64=0.0,
 	RBS::Bool=true,
 	RBd::Bool=false,
-	OptBZ::Bool=true
+	OptBZ::Bool=true,
+	debug::Bool=false
 )::Float64
 
 	if n <= 0 || n >= 1
@@ -37,7 +38,7 @@ function FindRootμ(
 	if n != 0.5 # Speed up at half-filling
 
 		# Find root of function:
-		δn(x::Float64) = GetDensity(Phase,Syms,Pars,v,x,debug,RBS,RBd,OptBZ) - n
+		δn(x::Float64) = GetDensity(Phase,Syms,Pars,v,x;RBS,RBd,OptBZ,debug) - n
 
 		LowerBoundary::Float64 = μ0-0.5
 		UpperBoundary::Float64 = μ0+0.5
@@ -81,21 +82,18 @@ end
 
 
 
-function HFStep(
+function GetHFStep(
 	Phase::String,
-	Syms::Vector{String},
+	Syms::Set{String},
 	Pars::DataFrame,
-	v0::DataFrame,
+	v0::DataFrame;
 	Δn::Float64=1e-3,
 	μ0::Float64=0.0,
 	RBS::Bool=true,
 	RBd::Bool=false,
 	OptBZ::Bool=true,
 	debug::Bool=false
-)::Tuple{DataFrame,Float64}
-
-	v = copy(v0)	
-	μ = FindRootμ(Phase,Syms,Pars,v,n;Δn,μ0,RBS,RBd,OptBZ)
+)::HFStep
 
 	# Get pars
 	t::Float64 = first(Pars.t)
@@ -103,6 +101,11 @@ function HFStep(
 	V::Float64 = first(Pars.V)
 	L::Int64 = first(Pars.L)
 	β::Float64 = first(Pars.β)
+	n::Float64 = 0.5+first(Pars.δ)
+
+	# Initialize HFPs and find chemical potential
+	v = copy(v0)
+	μ = FindRootμ(Phase,Syms,Pars,v0,n;Δn,μ0,RBS,RBd,OptBZ)
 
 	# Get BZ
 	K::Matrix{Vector{Float64}}, _, _ = GetK([L, L])
@@ -120,7 +123,7 @@ function HFStep(
 	EK::Matrix{Float64} = zeros(size(εK)) # Initialize quasibands
 
 	# Gap
-	reΔΔ, imΔΔ = GetΔΔ(Phase,Syms,Pars,v) # Get real and imaginary dicts
+	reΔΔ, imΔΔ = GetΔΔ(Phase,Syms,Pars,v0) # Get real and imaginary dicts
 	GetreΔk(k::Vector{Float64})::Float64 = GetFk(reΔΔ,k) # Function
 	GetimΔk(k::Vector{Float64})::Float64 = GetFk(imΔΔ,k) # Function
 	reΔK::Matrix{Float64} = GetreΔk.(K) # Real gap function
@@ -133,55 +136,55 @@ function HFStep(
 		RBS ? v.uS .= sum( StructureFactor.("S",K).*FermiDirac.(εK,β,μ) )/LxLy : false
 		RBd ? v.ud .= sum( StructureFactor.("d",K).*FermiDirac.(εK,β,μ) )/LxLy : false
 
-	if Phase=="AF-Symmetric"
+	elseif Phase=="AF-Symmetric"
 		EK = sqrt.(εK.^2 .+ reΔK.^2 .+ imΔK.^2)
 		m0::Float64 = try
-			first(v.m0)
+			first(v0.m)
 		catch
 			@error "Magnetization not found in v0 @ HFStep" v0
 			exit()
 		end
 
-		eK::Matrix{Float64} = εK./Ek
+		eK::Matrix{Float64} = εK./EK
 		replace!(eK, NaN => 0.0) # Null field: <sz>=0
 
-		rK::Matrix{Float64} = reΔK./Ek
+		rK::Matrix{Float64} = reΔK./EK
 		replace!(rK, NaN => 0.0) # Null field: <sy>=0
 
-		iK::Matrix{Float64} = imΔK./Ek
+		iK::Matrix{Float64} = imΔK./EK
 		replace!(iK, NaN => 0.0) # Null field: <sy>=0
 
 		# Self-consistency equations
-		RBS ? v.uS .= sum( StructureFactor.("S",K).*eK.*Th("-",EK,β,μ) )/LxLy : false
-		RBd ? v.ud .= sum( StructureFactor.("d",K).*eK.*Th("-",EK,β,μ) )/LxLy : false
-		v.m .= sum( rK.*Th("-",EK,β,μ) )/(2*LxLy)
-		"S" in Syms ? v.vS .= sum( StructureFactor.("S",K).*iK.*Th("-",EK,β,μ) )/(2*LxLy) : false
-		"d" in Syms ? v.vd .= sum( StructureFactor.("d",K).*iK.*Th("-",EK,β,μ) )/(2*LxLy) : false
+		RBS ? v.uS .= sum( StructureFactor.("S",K).*eK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
+		RBd ? v.ud .= sum( StructureFactor.("d",K).*eK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
+		v.m .= sum( rK.*Th.("-",EK,μ,β) )/(2*LxLy)
+		"S" in Syms ? v.vS .= sum( StructureFactor.("S",K).*iK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
+		"d" in Syms ? v.vd .= sum( StructureFactor.("d",K).*iK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
 
 	elseif Phase=="AF-Antisymmetric"
 		EK = sqrt.(εK.^2 .+ reΔK.^2 .+ imΔK.^2)
-		m0::Float64 = try
+		m0 = try # Pre-assigned data type
 			first(v.m0)
 		catch
 			@error "Magnetization not found in v0 @ HFStep" v0
 			exit()
 		end
 
-		eK::Matrix{Float64} = εK./Ek
+		eK = εK./EK # Pre-assigned data type
 		replace!(eK, NaN => 0.0) # Null field: <sz>=0
 
-		rK::Matrix{Float64} = reΔK./Ek
+		rK = reΔK./EK # Pre-assigned data type
 		replace!(rK, NaN => 0.0) # Null field: <sz>=0
 
-		iK::Matrix{Float64} = imΔK./Ek
+		iK = imΔK./EK # Pre-assigned data type
 		replace!(iK, NaN => 0.0) # Null field: <sz>=0
 
 		# Self-consistency equations
-		RBS ? v.uS .= sum( StructureFactor.("S",K).*eK.*Th("-",EK,β,μ) )/LxLy : false
-		RBd ? v.ud .= sum( StructureFactor.("d",K).*eK.*Th("-",EK,β,μ) )/LxLy : false
-		v.m .= sum( rK.*Th("-",EK,β,μ) )/(2*LxLy)
-		"px" in Syms ? v.vpx .= sum( StructureFactor.("px",K).*rK.*Th("-",EK,β,μ) )/(2*LxLy) : false
-		"py" in Syms ? v.vpy .= sum( StructureFactor.("py",K).*rK.*Th("-",EK,β,μ) )/(2*LxLy) : false
+		RBS ? v.uS .= sum( StructureFactor.("S",K).*eK.*Th.("-",EK,μ,β) )/LxLy : false
+		RBd ? v.ud .= sum( StructureFactor.("d",K).*eK.*Th.("-",EK,μ,β) )/LxLy : false
+		v.m .= sum( rK.*Th.("-",EK,μ,β) )/(2*LxLy)
+		"px" in Syms ? v.vpx .= sum( StructureFactor.("px",K).*rK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
+		"py" in Syms ? v.vpy .= sum( StructureFactor.("py",K).*rK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
 
 	elseif Phase=="SC-Singlet"
 		ξK::Matrix{Float64} = εK .- μ
@@ -198,30 +201,31 @@ function HFStep(
 		"d" in Syms ? v.wd .= sum( StructureFactor.("d",K).*reΔK.*tK )/(2*LxLy) : false
 
 	elseif Phase=="SC-Triplet"
-		ξK::Matrix{Float64} = εK .- μ
+		ξK = εK .- μ # Pre-assigned data type
 		EK = sqrt.(ξK.^2 .+ reΔK.^2)
 
-		tK::Matrix{Float64} = tanh(EK .* β/2) ./ EK
+		tK = tanh(EK .* β/2) ./ EK # Pre-assigned data type
 		replace!(tK, NaN => β/2) # @ x~0 : tanh(x)/x~1
 
 		# Self-consistency equations
 		RBS ? v.uS .= sum( StructureFactor.("S",K).*(1 .- ξK.*tK) )/LxLy : false
 		RBd ? v.ud .= sum( StructureFactor.("d",K).*(1 .- ξK.*tK) )/LxLy : false
-		"px" in Syms ? v.px .= sum( StructureFactor.("px",K).*reΔK.*tK )/(2*LxLy) : false
-		"py" in Syms ? v.py .= sum( StructureFactor.("py",K).*reΔK.*tK )/(2*LxLy) : false
+		"px" in Syms ? v.wpx .= sum( StructureFactor.("px",K).*reΔK.*tK )/(2*LxLy) : false
+		"py" in Syms ? v.wpy .= sum( StructureFactor.("py",K).*reΔK.*tK )/(2*LxLy) : false
+	end
 
-	return v, μ
+	S::HFStep = HFStep(v,μ)
+	return S
 end
 
 
 
-function HFRun(
+function GetHFRun(
 	Phase::String,
-	Syms::Vector{String},
+	Syms::Set{String},
 	ModPars::DataFrame,
-	AlgPars::DataFrame,
-	v0i::DataFrame,
-	Δn::Float64=1e-3,
+	AlgPars::DataFrame;
+	v0::DataFrame=DataFrame(),
 	μ0::Float64=0.0,
 	RBS::Bool=true,
 	RBd::Bool=false,
@@ -229,129 +233,96 @@ function HFRun(
 	verbose::Bool=false,
 	debug::Bool=false,
 	record::Bool=false
-)::Tuple{Dict{String,Any}, Dict{String,Any}}
+)::HFRun
 
 	if verbose
-		@info "Running HF convergence algorithm" Phase Syms Pars AlgPars
+		@info "Running HF convergence algorithm" Phase Syms ModPars AlgPars
 	end
 
-	# Initialize HFPs
-	HFPs::Vector{String} = GetHFPs(Phase;Syms)
-	v0::DataFrame = DataFrame(Dict(HFPs .=> 0.1))
-	# GO ON FROM HERE...
+	# Get model pars
+	t::Float64 = first(ModPars.t)
+	U::Float64 = first(ModPars.U)
+	V::Float64 = first(ModPars.V)
+	L::Int64 = first(ModPars.L)
+	β::Float64 = first(ModPars.β)
 
-	# Initialize HF dictionaries
-	v0::Dict{String,Float64} = Dict([])
-	μ::Float64 = 0.0
+	# Get algorithm pars
+	p::Int64 = first(AlgPars.p)
+	Δv::DataFrame = first(AlgPars.Δv)
+	Δn::Float64 = first(AlgPars.Δn)
+	g::Float64 = first(AlgPars.g)
 
-	if v0i==Dict([])
-		for HFP in HFPs
-			v0[HFP] = rand()
-		end
-	elseif issubset(keys(v0i), HFPs)
-		for HFP in HFPs
-			v0[HFP] = copy(v0i[HFP])
+	# Read or build v0
+	Ns::Set{String} = Set(names(v0)) # Read names
+	HFPs::Set{String} = GetHFPs(Phase,Syms,RBS,RBd) # Get phase HFPs
+	if isempty(v0)
+		v0::DataFrame = DataFrame(Dict(HFPs .=> 0.1)) # Full initialization
+	elseif !isempty(v0)
+		if issubset(Ns,HFPs)
+			Ns = filter(!in(Ns),HFPs) # Filter missing entries
+			v0 = hcat(v0,DataFrame(Dict(Ns .=> 0.1))) # Partial initialization
+		elseif !issubset(Set(names(v0)),HFPs)
+			@error "Invalid v0 columns" v0
+			exit()
 		end
 	end
-	v = copy(v0) # Shallow copy of values
-	Qs = copy(v0) # Copy NaN keys
+	select!(Δv,Cols(in(HFPs))) # Filter tolerances
+	Q::DataFrame = DataFrame(Dict(names(v0) .=> 0.0)) # Initialize qualities
+	Track = record ? copy(v0) : false # Initialize record track
 
-	# Initialize record matrix
-	Record::Dict{String,Vector{Float64}} = Dict([
-		key => [ v0[key] ] for key in HFPs
-	])
+	# Prepare dataframes outside of while loop
+	v::DataFrame = copy(v0) # Otherwise chaos with pointers
+	w::DataFrame = copy(v0) # Otherwise chaos with pointers
 
 	# Recursive run
+	μ::Float64 = 0.0
 	i::Int64 = 1
 	I::Int64 = p
+	Cvd::Bool = false # Cvd="Converged" switch
 	ΔT = @elapsed begin
-		while i<=p
+		while true
+			debug ? printstyled("\n[ Step $(i) ]\n", color=:yellow) : false
+			S = GetHFStep(Phase,Syms,ModPars,v0;Δn,μ0=μ,RBS,RBd,OptBZ,debug) # Single step
+			v = copy(S.v) # Otherwise chaos with pointers
+			μ = S.μ
+			Q .= abs.(v.-v0)./Δv # Get qualities
+			Cvd = all(first(Q.<=1)) # Compute converged switch
+			record ? Track = vcat(Track,v) : false # Get record
 
-			if debug
-				printstyled("\n---Step $i---\n", color=:yellow)
-			end
-
-			CurrentResults = PerformHFStep(
-				Phase,
-				Parameters,
-				K,v0,n,β;
-				Syms,
-				RenormalizeBands,
-				OptBZ,
-				Δn,μ0=μ,
-				debug,
-			)
-			v = copy(CurrentResults[1])
-			μ = CurrentResults[2]
-			for key in keys(v0)
-				current = v[key]
-				previous = v0[key]
-				tolerance = Δv[key]
-				Qs[key] = abs(current-previous) / tolerance
-			end
-
-			if all([Qs[key] for key in keys(v0)] .< 1)
-
-				if verbose
-					printstyled("\n---Converged at step $i---\n", color=:green)
-				end
+			if Cvd
 				I = i
-				i = p+1
+				verbose ? printstyled("\n[ Converged at step $I ]\n", color=:green) : false
+				break  # Exit while
 
-			elseif any([Qs[key] for key in keys(v0)] .>= 1)
-				for key in keys(v0)
-					current = v[key]
-					previous = v0[key]
-					if record
-						Record[key] = vcat(Record[key],g*current + (1-g)*previous)
-					end
-					v[key] = g*current + (1-g)*previous
-				end
-
+			elseif !Cvd
+				w .= g.*v .+ (1-g).*v0
 				if debug
-					@info "Initializer and current step after mixing" v0 v
+					Tab::DataFrame = hcat(DataFrame(Dict("Object" => ["Initializer", "Current step", "Mix"])),vcat(v0,v,w))
+					@info "Current step dataframes" Tab
 				end
 				i += 1
-
+				i > p && break # Exit while
 			end
-			v0 = copy(v)
+			v0 = copy(w) # Otherwise chaos with pointers
 		end
 	end
 
-	fMFT::Float64 = 0.0
-	if all([Qs[key] for key in keys(v0)] .<= 1)
-
+	Tab = hcat(DataFrame(Dict("Object" => ["Final HFPs", "Qualities"])),vcat(v,Q)) # Pre-assigned data type
+	f::Float64 = 0.0
+	if Cvd
 		if verbose
-			@info "Algorithm has converged." v Qs
+			@info "All converged" Tab
 		end
-		fMFT = GetFreeEnergy(Phase,Parameters,K,v0,n,μ,β;RenormalizeBands,OptBZ)
+		f = GetFreeEnergy(Phase,Syms,ModPars,v,μ;RBS,RBd,OptBZ,debug)
 
-	elseif any([Qs[key] for key in keys(v0)] .> 1)
-
+	elseif !Cvd
 		if verbose
-			@info "Algorithm has not converged - v saved as NaN." v Qs Phase
+			@info "Not converged values saved as NaN" Tab
 		end
-
-		# Substitute with NaN in order to plot blank points
-		fMFT = NaN
-		for key in keys(v0)
-			v[key] = NaN
-		end
-
+		v = v .+ NaN.*(Q.>1.0) # Filter non-converged values and save as NaN
+		f = NaN # Save free-energy as NaN
 	end
 
-	Results::Dict{String,Any} = Dict([
-		"HFPs" => v,
-		"Record" => Record,
-		"ChemicalPotential" => μ,
-		"FreeEnergy" => fMFT
-	])
-
-	Performance::Dict{String,Any} = Dict([
-		"Quality" => Qs,
-		"Runtime" => ΔT,
-		"Steps" => I
-	])
-
-	return Results, Performance
+	R::HFRun = HFRun(HFPs,v,Q,Track,Cvd,μ,f,ΔT,I)
+	return R
 end

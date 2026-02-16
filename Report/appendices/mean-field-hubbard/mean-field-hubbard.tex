@@ -158,7 +158,7 @@ while the spin averaged unbalance has a two-sites periodicity
 This way we reduce translational invariance. Of course, if the two quantities above are $\mathbf{r}$-independent indeed, it must hold
 \begin{align}
 	n &= \frac{1}{L_x L_y} \sum_\mathbf{r} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\uparrow}}}{2} \label{appeq:af-hm-n-self-consistency-implicit}\\
-	m &= \frac{1}{L_x L_y} \sum_\mathbf{r} (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\uparrow}}}{2} \label{appeq:af-hm-m-self-consistency-implicit} \\
+	m &= \frac{1}{L_x L_y} \sum_\mathbf{r} (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\uparrow}}}{2} \label{appeq:af-hm-m-self-consistency-implicit}
 \end{align}
 While from the first equation we gain an operational method to compute density, from the second we get a magnetization self-consistency equation.
 
@@ -467,7 +467,7 @@ In Fig.~\ref{appfig:af-density-various-betas} the density $n(\mu)$ is plotted as
 
 A convergence algorithm can be designed to find the Hartree-Fock solution to the model. Ultimately, we aim to extract $m$ self-consistently. Combining Eqns.~\eqref{appeq:af-hm-staggered-n-transform}, \eqref{appeq:mixed-cc-term-intermediate-passage} and the definition of Eq.~\eqref{appeq:af-hm-psi-def}, we get
 \[
-	\frac{1}{2L_xL_y} \sum_\mathbf{r} (-1)^{x+y} \hat n_{\mathbf{r}\sigma} = \sum_{\mathbf{k}\in\mathrm{MBZ}} \left[
+	\frac{1}{2L_xL_y} \sum_\mathbf{r} (-1)^{x+y} \hat n_{\mathbf{r}\sigma} = \frac{1}{2L_xL_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \left[
 		\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger
 	\right]
 \]
@@ -494,7 +494,7 @@ Using now Eq.~\eqref{appeq:af-hm-x-psi} we get the self-consistency equation for
 		 \rangle
 	\right] \nonumber \\
 	&= \frac{1}{2L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Re\lbrace\Delta_{\mathbf{k}\uparrow}\rbrace-\Re\lbrace\Delta_{\mathbf{k}\downarrow}\rbrace}{E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta,\mu] \nonumber \\
-	&= \frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta}{E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta,\mu] \label{appeq:af-hm-m-self-consistency}
+	&= \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta}{E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta,\mu] \label{appeq:af-hm-m-self-consistency}
 \end{align}
 
 The magnetization $m$ is the physical order parameter of the phase transition from the normal phase to the antiferromagnetic one. Within such phase transition, in fact, it is the expectation value
@@ -620,7 +620,7 @@ that goes from zero (normal phase, free Fermi gas) to a non-zero value (AF). As 
 
 Consider specifically the half-filled situation and multiply Eq.~\eqref{appeq:af-hm-m-self-consistency} on both sides by $U$. Since due to symmetry $\mu=0$, we have the finite-temperature self-consistent equation
 \[
-	\Delta = \frac{U}{2L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta}{\sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2})
+	\Delta = \frac{U}{L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta}{\sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2})
 \]
 where we used the relation
 \[
@@ -628,11 +628,11 @@ where we used the relation
 \]
 In thermodynamic limit $L \to \infty$
 \[
-	\frac{1}{U} \simeq \frac 1 2 \int_\mathrm{MBZ} \frac{\mathrm{d}\mathbf{k}}{(2\pi)^2} \frac{1}{\sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2})
+	\frac{1}{U} \simeq \int_\mathrm{MBZ} \frac{\mathrm{d}\mathbf{k}}{(2\pi)^2} \frac{1}{\sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2})
 \]
 Substitute the momentum integral with an integral over energies, in the low temperature limit, $\beta\to\infty$ (thus approximate the hyperbolic tangent with $1$)
 \[
-	\frac{1}{U} \simeq \frac 1 2 \int_\mathrm{bands}  \frac{\mathrm{d}\epsilon \rho(\epsilon)}{\sqrt{\epsilon^2 + \Delta^2}}
+	\frac{1}{U} \simeq  \int_\mathrm{bands}  \frac{\mathrm{d}\epsilon \rho(\epsilon)}{\sqrt{\epsilon^2 + \Delta^2}}
 \]
 \todo
 
@@ -674,7 +674,7 @@ For any finite doping, the commensurate AF phase becomes unstable and is destroy
 The above sections offer a self-consistency equation for the only HFP $m$; $W$ is determined by $\Delta = mU$ indeed. In an iterative HF fashion, Eq.~\eqref{appeq:af-hm-m-self-consistency} reads:
 \begin{equation}\label{appeq:af-hm-m-self-consistency-iterative}
 	m_{i+1} =
-	\frac{U}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{m_i}{2E_\mathbf{k}[\Delta_i]} \left[
+	\frac{U}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{m_i}{2E_\mathbf{k}[\Delta_i]} \left[
 	f(-E_\mathbf{k}[m_i];\beta,\mu)-f(E_\mathbf{k}[m_i];\beta,\mu)
 	\right]
 \end{equation}

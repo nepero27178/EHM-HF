@@ -78,50 +78,42 @@ function EnlargeDF!(
 	
 end
 
-
-
+@doc raw"""
 function GetHFPs(
-	Phase::String,
-	Syms::Set{String},
-	RBS::Bool,
-	RBd::Bool
-)::Set{String}
+	Phase::String;
+	Syms::Vector{String}=["s"]
+)::Vector{String}
 
-	HFPs::Set{String} = Set()
-	RBS ? push!(HFPs,"uS") : false
-	RBd ? push!(HFPs,"ud") : false
-	if Phase=="AF-Symmetric" || Phase=="AF-Antisymmetric"
-		push!(HFPs,"m")
+Returns: Hartree Fock Parameters labels for the given Phase.
+"""
+function GetHFPs(
+	Phase::String;						# Mean field phase
+	Syms::Vector{String}=["s"]			# Gap function symmetries
+)::Vector{String}
 
-		if Phase=="AF-Symmetric" && !issubset(Syms,["S","d"])
-			@error "Inconsistent Phase/Syms @ GetHFPs" Phase Syms
-			exit()
-		elseif Phase=="AF-Antisymmetric" && !issubset(Syms,["px","py"])
-			@error "Inconsistent Phase/Syms @ GetHFPs" Phase Syms
-			exit()
-		end
-
-		for Sym in Syms
-			push!(HFPs,"v"*Sym)
-		end
-
-	elseif Phase=="SC-Singlet" || Phase=="SC-Triplet"
-
-		if Phase=="SC-Singlet" && !issubset(Syms,["s","S","d"])
-			@error "Inconsistent Phase/Syms @ GetHFPs" Phase Syms
-			exit()
-		elseif Phase=="SC-Triplet" && !issubset(Syms,["px","py"])
-			@error "Inconsistent Phase/Syms @ GetHFPs" Phase Syms
-			exit()
-		end
-
-		for Sym in Syms
-			push!(HFPs,"w"*Sym)
-		end
-
+	AF = false
+	Singlet = false
+	Triplet = false
+	SymErr = "Invalid symmetries. $(Syms) is incoherent with $(Phase)."
+	if in(Phase, ["AF", "FakeAF"])
+		AF = true
+	elseif in(Phase, ["SU-Singlet", "FakeSU-Singlet"])
+		issubset(Syms, ["s", "S", "d"]) ? Singlet = true : throw(SymErr)
+	elseif in(Phase, ["SU-Triplet", "FakeSU-Triplet"])
+		issubset(Syms, ["px", "py", "p+", "p-"]) ? Triplet = true : throw(SymErr)
 	end
 
-	return HFPs
+	KeysList::Vector{String} = []
+	AF ? KeysList = ["m", "w0", "wp"] : 0
+	Singlet ? KeysList = vcat(["Δ$(Sym)" for Sym in Syms], "gS", "gd") : 0
+	Triplet ? KeysList = vcat(["Δ$(Sym)" for Sym in Syms], "gS", "gd") : 0
+
+	# Pure symmetry drop TODO Extension to Triplet
+	if Singlet && (sort(Syms) == ["S", "s"] || Syms == ["d"])
+		pop!(KeysList) # Pop last: gd
+	end
+
+	return KeysList
 
 end
 
