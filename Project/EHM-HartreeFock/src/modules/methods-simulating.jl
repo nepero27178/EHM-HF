@@ -5,8 +5,8 @@ using LinearAlgebra
 using Roots
 using Random
 LinearAlgebra.BLAS.set_num_threads(Threads.nthreads()) # Parallel optimization
-using Integrals
-using Elliptic
+# using Integrals
+# using Elliptic
 using DataFrames
 using DelimitedFiles
 
@@ -42,7 +42,7 @@ function FindRootμ(
 
 		LowerBoundary::Float64 = μ0-0.5
 		UpperBoundary::Float64 = μ0+0.5
-		if δn(LowerBoundary) > 0
+		if δn(LowerBoundary) >= 0
 			while δn(LowerBoundary) > 0
 				if debug
 					@warn "Moving down lower boundary" LowerBoundary
@@ -52,10 +52,10 @@ function FindRootμ(
 			UpperBoundary = LowerBoundary + 1.0
 			μ = find_zero(δn, (LowerBoundary, UpperBoundary))
 
-		elseif δn(LowerBoundary) == 0.0
-			μ = LowerBoundary
+		# elseif δn(LowerBoundary) == 0.0
+		# 	μ = LowerBoundary
 
-		elseif δn(UpperBoundary) < 0
+		elseif δn(UpperBoundary) <= 0
 			while δn(UpperBoundary) < 0
 				if debug
 					@warn "Moving up upper boundary" UpperBoundary
@@ -65,15 +65,15 @@ function FindRootμ(
 			LowerBoundary = UpperBoundary - 1.0
 			μ = find_zero(δn, (LowerBoundary, UpperBoundary))
 
-		elseif δn(UpperBoundary) == 0.0
-			μ = UpperBoundary
+		# elseif δn(UpperBoundary) == 0.0
+		# 	μ = UpperBoundary
 
 		end
 
 	end
 
 	if debug
-		n = GetDensity(Phase,Syms,Pars,v,μ,debug,RBS,RBd,OptBZ)
+		n = GetDensity(Phase,Syms,Pars,v,μ;RBS,RBd,OptBZ,debug)
 		@info "Optimal chemical potential and density:" μ n
 	end
 
@@ -105,7 +105,7 @@ function GetHFStep(
 
 	# Initialize HFPs and find chemical potential
 	v = copy(v0)
-	μ = FindRootμ(Phase,Syms,Pars,v0,n;Δn,μ0,RBS,RBd,OptBZ)
+	μ = FindRootμ(Phase,Syms,Pars,v0,n;Δn,μ0,RBS,RBd,OptBZ,debug)
 
 	# Get BZ
 	K::Matrix{Vector{Float64}}, _, _ = GetK([L, L])
@@ -284,7 +284,6 @@ function GetHFRun(
 			debug ? printstyled("\n[ Step $(i) ]\n", color=:yellow) : false
 			S = GetHFStep(Phase,Syms,ModPars,v0;Δn,μ0=μ,RBS,RBd,OptBZ,debug) # Single step
 			v = copy(S.v) # Otherwise chaos with pointers
-			μ = S.μ
 			Q .= abs.(v.-v0)./Δv # Get qualities
 			Cvd = all(first(Q.<=1)) # Compute converged switch
 			record ? Track = vcat(Track,v) : false # Get record

@@ -103,8 +103,7 @@ an effect that is present also in the EHM. The kinetic part of the hamiltonian t
 being $\epsilon_\mathbf{k}$ the bare bands of Eq.~\eqref{eq:bare-bands}.
 
 Take everything together. Using the property:
-\[
-\begin{aligned}
+\begin{align}
 	\sum_{\mathbf{k} \in \mathrm{BZ}}
 	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma} &= \sum_{\mathbf{k} \in \mathrm{MBZ}}
 	\left[
@@ -114,13 +113,12 @@ Take everything together. Using the property:
 	\left[
 		\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma} + \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
 	\right] \label{appeq:mixed-cc-term-intermediate-passage}
-\end{aligned}
-\]
+\end{align}
 and reduce Eq.~\eqref{appeq:af-hm-mft-h} to its reciprocal form
 \[
 	\hat H \simeq \sum_{\mathbf{k}\in\mathrm{MBZ}} \sum_\sigma \epsilon_\mathbf{k} \left[
 		\hat n_{\mathbf{k}\sigma} + \hat n_{\mathbf{k}+\bm{\pi}\sigma}
-	\right] - mU \sum_{\mathbf{k}\in\mathrm{MBZ}} (-1)^{\delta_{\sigma=\downarrow}} \left[
+	\right] - mU \sum_{\mathbf{k}\in\mathrm{MBZ}} \sum_\sigma (-1)^{\delta_{\sigma=\downarrow}} \left[
 		\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger
 	\right] + nU \hat N - E_{\mathrm{H}/U}^{(\mathrm{AF})}
 \]
@@ -136,29 +134,29 @@ Before moving on, let us give a little detail on the AF Ansatz. The decoupling i
 	\hat n_{\mathbf{r}\uparrow} \frac{\ev{\hat n_{\mathbf{r}\downarrow}} + \ev{\hat n_{\mathbf{r}\uparrow}}}{2} + \hat n_{\mathbf{r}\uparrow} \frac{\ev{\hat n_{\mathbf{r}\downarrow}} - \ev{\hat n_{\mathbf{r}\uparrow}}}{2} 
 	+
 	\frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\uparrow}}}{2} \hat n_{\mathbf{r}\downarrow} + \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\uparrow}}}{2} \hat n_{\mathbf{r}\downarrow} \\
-	&= \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\uparrow}}}{2} \left(
+	&= \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \left(
 		\hat n_{\mathbf{r}\uparrow} + \hat n_{\mathbf{r}\downarrow}
-	\right) - \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\uparrow}}}{2} \left(
+	\right) - \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \left(
 		\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
 	\right)
 \end{aligned}
 \]
 Our commensurate AF Ansatz essentially states that each site has the same spin-averaged density,
 \[
-	n \equiv \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\uparrow}}}{2}
+	n \equiv \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\downarrow}}}{2}
 	\qquad
 	\text{is $\mathbf{r}$-independent}
 \]
 while the spin averaged unbalance has a two-sites periodicity
 \[
-	m \equiv (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\uparrow}}}{2}
+	m \equiv (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\downarrow}}}{2}
 	\qquad
 	\text{is $\mathbf{r}$-independent}
 \]
 This way we reduce translational invariance. Of course, if the two quantities above are $\mathbf{r}$-independent indeed, it must hold
 \begin{align}
-	n &= \frac{1}{L_x L_y} \sum_\mathbf{r} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\uparrow}}}{2} \label{appeq:af-hm-n-self-consistency-implicit}\\
-	m &= \frac{1}{L_x L_y} \sum_\mathbf{r} (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\uparrow}}}{2} \label{appeq:af-hm-m-self-consistency-implicit}
+	n &= \frac{1}{L_x L_y} \sum_\mathbf{r} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \label{appeq:af-hm-n-self-consistency-implicit}\\
+	m &= \frac{1}{L_x L_y} \sum_\mathbf{r} (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \label{appeq:af-hm-m-self-consistency-implicit}
 \end{align}
 While from the first equation we gain an operational method to compute density, from the second we get a magnetization self-consistency equation.
 
