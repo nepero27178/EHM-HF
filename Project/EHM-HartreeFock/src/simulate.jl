@@ -1,7 +1,8 @@
 #!/usr/bin/julia
-using DelimitedFiles
+using CSV
 using Dates
 using DataFrames
+using Term
 
 # Arguments handler
 if length(ARGS) != 1
@@ -27,162 +28,103 @@ include(PROJECT_SRC_DIR * "/modules/methods-physics.jl")
 include(PROJECT_SRC_DIR * "/modules/methods-optimizations.jl")
 include(PROJECT_SRC_DIR * "/modules/methods-IO.jl")
 
-# Routines
-@doc raw"""
+
+
 function RunHFScan(
+	Phase::String,
+	Syms::Set{String},
+	tt::Vector{Float64},
 	UU::Vector{Float64},
 	VV::Vector{Float64},
 	LL::Vector{Int64},
 	δδ::Vector{Float64},
 	ββ::Vector{Float64},
 	p::Int64,
-	Δm::Dict{String,Float64},
+	Δv::DataFrame,
 	Δn::Float64,
-	g::Float64;
+	g0::Float64;
 	FilePathOut::String="",
-	RenormalizeBands::Bool=true
-)
-
-Returns: none if `FilePathOut` is specified.
-
-`RunHFScan` takes as input `UU` (vector of local repulsions), `VV` (vector of
-non local attractions), `LL` (vector of the square lattice dimensions), `δδ` 
-(vector of dopings with respect to the half filled lattice), `ββ` (vector of 
-inverse temperatures), `p` (maximum number of HF iterations), `Δm` (tolerance on
-each order parameter) and `Δn` (tolerance on density in chemical potential
-estimation), `g` (mixing parameter). It performs an iterative HF analysis over a
-sequence of 2D square lattices for all the possible combinations of the 
-specified parameters. Check the source files in the `/modules` folder for more
-informations on the algorithm. The boolean option `RenormalizeBands' allows
-for choosing to renormalize or not the hopping parameter.
-"""
-function RunHFScan(
-	Phase::String,						# Mean field phase
-	tt::Vector{Float64},				# Hopping amplitude
-	UU::Vector{Float64},				# Local repulsion
-	VV::Vector{Float64},				# Non-local attraction
-	LL::Vector{Int64},					# Lattice size
-	δδ::Vector{Float64},				# Doping
-	ββ::Vector{Float64},				# Inverse temperature
-	p::Int64,							# Number of iterations
-	Δv::Dict{String,Float64},			# Tolerance on magnetization
-	Δn::Float64,						# Tolerance on density
-	g0::Float64;						# Mixing parameter
-	Syms::Vector{String}=["s"],			# Gap function symmetries
-	FilePathOut::String="",				# Output file
-	InitializeFile::Bool=true,			# Initialize file at FilePathOut
-	RenormalizeBands::Bool=true,		# Conditional renormalization of t
-	OptimizeBZ::Bool=true,				# Conditional optimization of BZ
-	Optimizeg::Bool=true				# Conditional optimization of g
+	RBS::Bool=true,
+	RBd::Bool=true,
+	OptBZ::Bool=true,
+	Optg::Bool=true,
+	record::Bool=false
 )
 
 	# Warn user of memory-heavy simulations detection
-	Iterations = length(UU) * length(VV) * length(LL) * length(ββ) * length(δδ)
-	if FilePathOut == "" && Iterations > 200
-		@warn "No output file specified and more than 200 simulations " *
-			"request detected. Simulations results are going to be stored " *
-			"in your memory. Consider specifying a `FilePathOut` and " *
-			"unloading your memory."
+	I::Int64 = length(UU) * length(VV) * length(LL) * length(ββ) * length(δδ)
+	C::Int64 = length(Syms) + RBS + RBd + occursin("AF-",Phase)
+	@info "Total iterations and algorithmic complexity" I C
+
+	if FilePathOut == "" && I > 200
+		@warn "Large simulation detected and no FilePathOut" I
 	end
 
 	# Get Hartree Fock Parameters labels
-	HFPs = GetHFPs(Phase;Syms)
-
-	# File coditional initialization (otherwise, just append)
-	if FilePathOut != "" && InitializeFile
-		Header = "t;U;V;Lx;β;δ;v;Q;ΔT;I;μ;g0;g;fMFT\n"
-		write(FilePathOut, Header)
-	end
+	HFPs::Set{String} = GetHFPs(Phase,Syms,RBS,RBd)
 
 	# Initializers
-	v0::Dict{String,Float64} = Dict([
-		key => 0.1 for key in HFPs
-	])
+	v0::DataFrame = DataFrame(Dict([
+		HFP => 0.1 for HFP in HFPs
+	]))
 
 	# HF iterations
 	i = 1
 	for t in tt,
-		Lx in LL,
-		δ in δδ,
-		β in ββ
+	L in LL,
+	δ in δδ,
+	β in ββ
 
 		Uc::Float64 = 0.0
-		if Optimizeg && occursin("SU", Phase)
-			Uc = GetUc(t,[Lx,Lx],δ,β)
+		if Optg && occursin("SU", Phase)
+			Uc = GetUc(t,[L,L],δ,β)
 		end
 
 		g = g0
 		for U in UU # TODO Evaluate possibility of computing dynamically g with the bare bands
 
-			if U>(2/g0-1)*Uc && Optimizeg && occursin("SU", Phase)
-				Og = GetOptimalg(U,Uc)
+			if U>(2/g0-1)*Uc && Optg
+				Og = GetOptimalg(U,Uc) #TODO phase extension
 				Og<g0 ? g=Og : 0
 			end
 
-			for V in VV
-			#NOTE Due to order inversion here (Vδ) => (δV), heatmap now gets: xVar=δ, yVar=V
+			AlgPars::DataFrame = DataFrame(Dict(
+				"p" => p,
+				"Δv" => Δv,
+				"Δn" => Δn,
+				"g" => g
+			))
 
-				Parameters::Dict{String,Float64} = Dict([
+			for V in VV
+
+				ModPars::DataFrame = DataFrame(Dict(
 					"t" => t,
 					"U" => U,
-					"V" => V
-				])
+					"V" => V,
+					"L" => L,
+					"β" => β,
+					"δ" => δ
+				))
 
-				L = [Lx, Lx]
-				printstyled(
-					"\e[2K\e[1GRun ($i/$Iterations): " *
-					"$Phase HF at t=$t, U=$U, V=$V, L=$Lx, β=$β, δ=$δ",
-					color=:yellow
-				)
-				ResultsVector::Matrix{Any} = [0 0]  # Dummy placeholder
-				ResultsVector = hcat(ResultsVector, [t U V 0 β δ]) # Lx later
+				Progress = @bold@yellow "[ Progress: $(round(i/I*100,digits=3))% ]"
+				Setting = @default@white " @$Phase  t=$t  U=$U  V=$V  L=$L  β=$β  δ=$δ"
+				print(Panel(Progress * Setting;style="yellow",title="Run ($(i)/$(I))",title_justify=:right,width=200))
+				print("\r\e[3A") # Carriage return and three lines up to overwrite
 
-				# Run routine, all positional arguments here must be false
-				Run, Performance = RunHFAlgorithm(
-					Phase,Parameters,L,0.5+δ,β,
-					p,Δv,Δn,g;
-					# v0i=v0,
-					Syms,
-					RenormalizeBands,
-					OptimizeBZ
-				)
-
-				v::Dict{String,Float64} = Dict([
-					key => Run["HFPs"][key] for key in HFPs
-				])
-				fMFT::Float64 = Run["FreeEnergy"]
-				Qs::Dict{String,Float64} = Dict([
-					key => Performance["Quality"][key] for key in HFPs
-				])
-				ResultsVector = hcat(
-					ResultsVector[:,3:end],
-					[v Qs Performance["Runtime"] Performance["Steps"] Run["ChemicalPotential"] g0 g fMFT]
-				)
-				ResultsVector[4] = Lx # Add here to get correct Int64 formatting
-
+				# Main run
+				R::HFRun = GetHFRun(Phase,Syms,ModPars,AlgPars;v0,RBS,RBd,OptBZ,record)
+				Q::DataFrame = DataFrame(Dict(["Q"*x => first(R.Q[!,x]) for x in names(R.Q)]))
+				Row::DataFrame = hcat(ModPars,R.v,Q,R.ΔT,R.I,R.μ,g0,g,R.f)
+				append = i==1 ? false : true # Header only for first write
+				CSV.write(FilePathOut,Row,append)
 				i += 1
-
-				# Append to initialized or existing file
-				if FilePathOut != ""
-					open(FilePathOut, "a") do io
-						writedlm(io, ResultsVector, ';')
-					end
-				end
-
-				# Use current step as initializer coherently (no NaN and no 0)
-				if any(isnan.(values(v)) .|| values(v).==0.0)
-					0 # println(v0)
-				else
-					v0 = copy(v)
-				end
 			end
 		end
 	end
 
-	printstyled(
-		"\e[2K\e[1GDone! Data saved at " * FilePathOut * "\n", color=:green
-	)
-
+	Completed = @bold@green "[ Completed ] "
+	Location = "The data have been saved at:"
+	print(Panel(Completed * Location * "\n" * FilePathOut;style="green",width=200))
 end
 
 # Main run
@@ -196,28 +138,35 @@ function main()
 	mkpath(dirname(FilePathOut))
 
 	# Filter out non half-filled simulations from AF phase
-	occursin("AF", Phase) ? filter!(==(0),δδ) : 0
+	occursin("AF-", Phase) ? filter!(==(0),δδ) : 0
 
 	TotalRunTime = @elapsed begin
 		RunHFScan(
-			Phase,
+			Phase,Syms,
 			tt,UU,VV,
 			LL,δδ,ββ,
 			p,Δv,Δn,g;
-			Syms,
 			FilePathOut,
-			RenormalizeBands,
-			OptimizeBZ=false # For now
+			RBS,RBd,
+			OptBZ=false,Optg=false,record=false
 		)
 	end
 
 	LogPathOut = DirPathOut * "/Syms=$(Syms...).log"
-	Header = "tt;UU;VV;LL;ββ;δδ;p;Δv;Δn;TotalRunTime;Machine\n"
-	write(LogPathOut, Header)
-	Log = [[tt] [UU] [VV] [LL] [ββ] [δδ] p Δv Δn TotalRunTime gethostname()]
-	open(LogPathOut, "a") do io
-		writedlm(io, Log, ';')
-	end
+	Log::DataFrame = DataFrame(Dict(
+		"tt" => tt,
+		"UU" => UU,
+		"VV" => VV,
+		"LL" => LL,
+		"ββ" => ββ,
+		"δδ" => δδ,
+		"p" => p,
+		"Δv" => Δv,
+		"Δn" => Δn,
+		"TotalRunTime" => TotalRunTime,
+		"Machine" => gethostname()
+	))
+	CSV.write(LogPathOut,Log)
 end
 
 if abspath(PROGRAM_FILE) == @__FILE__

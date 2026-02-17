@@ -52,10 +52,7 @@ function FindRootμ(
 			UpperBoundary = LowerBoundary + 1.0
 			μ = find_zero(δn, (LowerBoundary, UpperBoundary))
 
-		# elseif δn(LowerBoundary) == 0.0
-		# 	μ = LowerBoundary
-
-		elseif δn(UpperBoundary) <= 0
+			elseif δn(UpperBoundary) <= 0
 			while δn(UpperBoundary) < 0
 				if debug
 					@warn "Moving up upper boundary" UpperBoundary
@@ -64,9 +61,6 @@ function FindRootμ(
 			end
 			LowerBoundary = UpperBoundary - 1.0
 			μ = find_zero(δn, (LowerBoundary, UpperBoundary))
-
-		# elseif δn(UpperBoundary) == 0.0
-		# 	μ = UpperBoundary
 
 		end
 
