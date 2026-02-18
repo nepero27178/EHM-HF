@@ -7,7 +7,6 @@ using Random
 # using Integrals
 # using Elliptic
 using DataFrames
-# using DelimitedFiles
 using CSV
 
 LinearAlgebra.BLAS.set_num_threads(Threads.nthreads()) # Parallel optimization
@@ -73,8 +72,6 @@ function FindRootμ(
 	return μ
 end
 
-
-
 function GetHFStep(
 	Phase::String,
 	Syms::Set{String},
@@ -126,9 +123,10 @@ function GetHFStep(
 	if Phase=="Normal"
 
 		# Self-consistency equations
-		RBS ? v.uS .= sum( StructureFactor.("S",K).*FermiDirac.(εK,β,μ) )/LxLy : false
-		RBd ? v.ud .= sum( StructureFactor.("d",K).*FermiDirac.(εK,β,μ) )/LxLy : false
+		RBS ? v.uS .= sum( StructureFactor.("S",K).*FermiDirac.(εK,μ,β) )/LxLy : false
+		RBd ? v.ud .= sum( StructureFactor.("d",K).*FermiDirac.(εK,μ,β) )/LxLy : false
 
+	# Symmetric AF phase
 	elseif Phase=="AF-Symmetric"
 		EK = sqrt.(εK.^2 .+ reΔK.^2 .+ imΔK.^2)
 		m0::Float64 = try
@@ -142,7 +140,7 @@ function GetHFStep(
 		replace!(eK, NaN => 0.0) # Null field: <sz>=0
 
 		rK::Matrix{Float64} = reΔK./EK
-		replace!(rK, NaN => 0.0) # Null field: <sy>=0
+		replace!(rK, NaN => 0.0) # Null field: <sx>=0
 
 		iK::Matrix{Float64} = imΔK./EK
 		replace!(iK, NaN => 0.0) # Null field: <sy>=0
@@ -154,10 +152,11 @@ function GetHFStep(
 		"S" in Syms ? v.vS .= sum( StructureFactor.("S",K).*iK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
 		"d" in Syms ? v.vd .= sum( StructureFactor.("d",K).*iK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
 
+	# Antisymmetric AF phase
 	elseif Phase=="AF-Antisymmetric"
 		EK = sqrt.(εK.^2 .+ reΔK.^2 .+ imΔK.^2)
 		m0 = try # Pre-assigned data type
-			first(v.m0)
+			first(v0.m)
 		catch
 			@error "Magnetization not found in v0 @ HFStep" v0
 			exit()
@@ -167,18 +166,19 @@ function GetHFStep(
 		replace!(eK, NaN => 0.0) # Null field: <sz>=0
 
 		rK = reΔK./EK # Pre-assigned data type
-		replace!(rK, NaN => 0.0) # Null field: <sz>=0
+		replace!(rK, NaN => 0.0) # Null field: <sx>=0
 
 		iK = imΔK./EK # Pre-assigned data type
-		replace!(iK, NaN => 0.0) # Null field: <sz>=0
+		replace!(iK, NaN => 0.0) # Null field: <sy>=0
 
 		# Self-consistency equations
 		RBS ? v.uS .= sum( StructureFactor.("S",K).*eK.*Th.("-",EK,μ,β) )/LxLy : false
 		RBd ? v.ud .= sum( StructureFactor.("d",K).*eK.*Th.("-",EK,μ,β) )/LxLy : false
 		v.m .= sum( rK.*Th.("-",EK,μ,β) )/(2*LxLy)
-		"px" in Syms ? v.vpx .= sum( StructureFactor.("px",K).*rK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
-		"py" in Syms ? v.vpy .= sum( StructureFactor.("py",K).*rK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
+		"x" in Syms ? v.vx .= sum( StructureFactor.("x",K).*rK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
+		"y" in Syms ? v.vy .= sum( StructureFactor.("y",K).*rK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
 
+	# Singlet SC phase
 	elseif Phase=="SC-Singlet"
 		ξK::Matrix{Float64} = εK .- μ
 		EK = sqrt.(ξK.^2 .+ reΔK.^2)
@@ -193,6 +193,7 @@ function GetHFStep(
 		"S" in Syms ? v.wS .= sum( StructureFactor.("S",K).*reΔK.*tK )/(2*LxLy) : false
 		"d" in Syms ? v.wd .= sum( StructureFactor.("d",K).*reΔK.*tK )/(2*LxLy) : false
 
+	# Triplet SC phase
 	elseif Phase=="SC-Triplet"
 		ξK = εK .- μ # Pre-assigned data type
 		EK = sqrt.(ξK.^2 .+ reΔK.^2)
@@ -203,8 +204,8 @@ function GetHFStep(
 		# Self-consistency equations
 		RBS ? v.uS .= sum( StructureFactor.("S",K).*(1 .- ξK.*tK) )/LxLy : false
 		RBd ? v.ud .= sum( StructureFactor.("d",K).*(1 .- ξK.*tK) )/LxLy : false
-		"px" in Syms ? v.wpx .= sum( StructureFactor.("px",K).*reΔK.*tK )/(2*LxLy) : false
-		"py" in Syms ? v.wpy .= sum( StructureFactor.("py",K).*reΔK.*tK )/(2*LxLy) : false
+		"x" in Syms ? v.wx .= sum( StructureFactor.("x",K).*reΔK.*tK )/(2*LxLy) : false
+		"y" in Syms ? v.wy .= sum( StructureFactor.("y",K).*reΔK.*tK )/(2*LxLy) : false
 	end
 
 	S::HFStep = HFStep(v,μ)

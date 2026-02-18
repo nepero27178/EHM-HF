@@ -12,17 +12,17 @@ include(PROJECT_MODULES_DIR * "/methods-IO.jl")
 include(PROJECT_MODULES_DIR * "/structs.jl")
 
 function Plot2D(
-	FilePathIn::String;					# Data filepath
-	Print::Bool=false,					# Set true to format for savefig
-	xVar::String="V",					# Specify x variable
-	yVar::String="m",					# Specify y variable
-	pVar::String="δ",					# Specify parametric variable
-	cs::Symbol=:imola50,					# Custom colorscheme
-	Skip::Int64=0,						# pVar skip parameter
+	FilePathIn::String;
+	Print::Bool=false,
+	xVar::String="V",
+	yVar::String="m",
+	pVar::String="δ",
+	cs::Symbol=:imola50,
+	Skip::Int64=0,
 )::Vector{GroupedPlot}
 
 	# List vars and pars
-	xVars = ["t", "U", "V", "Lx", "δ", "β"]
+	xVars = ["t", "U", "V", "L", "δ", "β"]
 	Pars = filter(!=(pVar), filter(!=(xVar), xVars))
 
 	# Input safecheck
@@ -31,14 +31,14 @@ function Plot2D(
 	xVar==pVar ? error("You have chosen xVar=pVar!") : 0
 
 	# Unpack filepath
-	Setup, Phase, Syms = UnpackFilePath(FilePathIn)
+	Setup, Phase, Syms, RB = UnpackFilePath(FilePathIn)
 	RenormalizeBands::Bool=true
 	occursin("Fake",Phase) ? RenormalizeBands=false : 0
 
 	# Load data
-	DF = ImportData(FilePathIn)
-	Sim::Simulation = Simulation(DF,Setup,Phase,Syms)
-	DF = EnlargeDF!(Sim) # Unpack dictionaries, compute RMPs
+	DF::DataFrame = CSV.read(FilePathIn,DataFrame)
+	Sim::Simulation = Simulation(DF,Setup,Phase,Syms,RB)
+	DF = EnlargeDF!(Sim) # Compute RMPs
 	yVars = filter(!in(xVars), names(DF))
 	!in(yVar,yVars) ? error("Invalid y variable, choose one of $(yVars)") : 0
 
@@ -123,7 +123,7 @@ function Plot2D(
 		end
 
 		# Handle infinities
-		Print ? rawTitle = replace(rawTitle, "Inf" => "\\infty") : 0
+		Print ? rawTitle = replace(rawTitle, "Inf" => "\\infty") : false
 		if Print
 			ax.title = L"%$(rawTitle)"
 		elseif !Print
@@ -133,7 +133,7 @@ function Plot2D(
 		Groupeddf = groupby(df,pVar)
 		I = length(Groupeddf)
 		C = floor(Int64, length(colorschemes[cs]) / I)
-		C==0.0 ? error("Your cs (ColorScheme) is not large enough.") : 0
+		C==0.0 ? error("Your cs (ColorScheme) is not large enough.") : false
 		for (i,pdf) in enumerate(Groupeddf)
 			p = pdf[!,pVar][1]
 			xx = pdf[!,xVar]
@@ -146,7 +146,7 @@ function Plot2D(
 			end
 
 			# Plot parametrically
-			in(yVar, GetHFPs(Phase;Syms)) ? yy = abs.(yy) : 0
+			in(yVar, GetHFPs(Phase,Syms,RBS,RBd)) ? yy = abs.(yy) : false
 			scatter!(
 				ax, xx, yy,
 				marker = :circle,
@@ -189,13 +189,13 @@ function Plot2D(
 end
 
 function SavePlot2D(
-	FilePathIn::String,					# Data filepath
-	DirPathOut::String;					# Output directory
-	xVar::String="V",					# Specify x variable
-	yVar::String="m",					# Specify y variable
-	pVar::String="δ",					# Specify parametric variable
-	cs::Symbol=:imola50,					# Custom colorscheme
-	Extension::String="pdf"				# File extension
+	FilePathIn::String,
+	DirPathOut::String;
+	xVar::String="V",
+	yVar::String="m",
+	pVar::String="δ",
+	cs::Symbol=:imola50,
+	Extension::String="pdf"
 )
 
 	# Assert printing

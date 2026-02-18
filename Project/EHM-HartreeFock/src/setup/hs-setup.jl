@@ -11,7 +11,7 @@ end
 
 # Syms
 const SymmetricStructures::Set{String} = Set(["s", "S", "d"])
-const AntisymmetricStructures::Set{String} = Set(["px", "py"])
+const AntisymmetricStructures::Set{String} = Set(["x", "y"])
 const Syms::Set{String} = Set(["s", "S", "d"]) # ← Change here
 
 Err::Bool = false
@@ -30,8 +30,7 @@ const RB::Set{String} = Set(["S", "d"]) # ← Change here
 const RBS::Bool = "S" in RB ? true : false
 const RBd::Bool = "d" in RB ? true : false
 
-#------------------------------------ SETUP ------------------------------------
-
+# Setup
 const Setup::String = "Test[20]" # ← Change here
 const AvailableSetups::Set{String} = Set([
 	"Test[20]", # Test setup
@@ -42,15 +41,15 @@ const AvailableSetups::Set{String} = Set([
 const TestΔv::DataFrame = DataFrame(Dict([
 	key => 5e-3 for key in [
 		"uS","ud",
-		"m","vS","vd","vpx","vpy",
-		"ws","wS","wd","wpx","wpy"
+		"m","vS","vd","vx","vy",
+		"ws","wS","wd","wx","wy"
 	]
 ]))
 const MainΔv::DataFrame = DataFrame(Dict([
 	key => 5e-4 for key in [
 		"uS","ud",
-		"m","vS","vd","vpx","vpy",
-		"ws","wS","wd","wpx","wpy"
+		"m","vS","vd","vx","vy",
+		"ws","wS","wd","wx","wy"
 	]
 ]))
 

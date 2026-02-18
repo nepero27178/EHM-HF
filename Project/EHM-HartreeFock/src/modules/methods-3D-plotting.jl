@@ -12,38 +12,38 @@ include(PROJECT_METHODS_DIR * "/methods-IO.jl")
 include(PROJECT_METHODS_DIR * "/structs.jl")
 
 function Plot3D(
-	FilePathIn::String;					# Data filepath
-	Print::Bool=false,					# Set true to format for savefig
-	Mode::String="heatmap",				# Specify plot method
-	xVar::String="U",					# Specify x variable
-	yVar::String="V",					# Specify y variable
-	zVar::String="fMFT",					# Specify z variable
-	cs::Symbol=:imola50,					# Custom colorscheme
+	FilePathIn::String;
+	Print::Bool=false,
+	Mode::String="heatmap",
+	xVar::String="U",
+	yVar::String="V",
+	zVar::String="fMFT",
+	cs::Symbol=:imola50,
 )::Vector{GroupedPlot}
 
 	# Define plot function (heatmap, surface, mesh)
 	PlotFunction = eval(Meta.parse("CairoMakie." * Mode * "!"))
 
 	# List vars and pars
-	xyVars = ["t", "U", "V", "Lx", "δ", "β"]
+	xyVars = ["t", "U", "V", "L", "δ", "β"]
 	Pars = filter(!=(yVar), filter(!=(xVar), xyVars))
 
 	# Input safecheck
-	!in(xVar, xyVars) ? error("Invalid x variable, choose one of $(xyVars)") : 0
-	!in(yVar, xyVars) ? error("Invalid y variable, choose one of $(xyVars)") : 0
-	xVar==yVar ? error("You have chosen xVar=yVar!") : 0
+	!in(xVar, xyVars) ? error("Invalid x variable, choose one of $(xyVars)") : false
+	!in(yVar, xyVars) ? error("Invalid y variable, choose one of $(xyVars)") : false
+	xVar==yVar ? error("You have chosen xVar=yVar!") : false
 
 	# Unpack filepath
-	Setup, Phase, Syms = UnpackFilePath(FilePathIn)
+	Setup, Phase, Syms, RB = UnpackFilePath(FilePathIn)
 	RenormalizeBands::Bool=true
-	occursin("Fake",Phase) ? RenormalizeBands=false : 0
+	occursin("Fake",Phase) ? RenormalizeBands=false : false
 
 	# Load data
-	DF = ImportData(FilePathIn)
-	Sim::Simulation = Simulation(DF,Setup,Phase,Syms)
-	EnlargeDF!(Sim) # Unpack dictionaries, compute RMPs
+	DF::DataFrame = CSV.read(FilePathIn,DataFrame)
+	Sim::Simulation = Simulation(DF,Setup,Phase,Syms,RB)
+	EnlargeDF!(Sim) # Compute RMPs
 	zVars = filter(!in(xyVars), names(DF))
-	!in(zVar,zVars) ? error("Invalid z variable, choose one of $(zVars)") : 0
+	!in(zVar,zVars) ? error("Invalid z variable, choose one of $(zVars)") : false
 
 	if Print
 		# Activate backend
@@ -128,7 +128,7 @@ function Plot3D(
 		end
 
 		# Handle infinities
-		Print ? rawTitle = replace(rawTitle, "Inf" => "\\infty") : 0
+		Print ? rawTitle = replace(rawTitle, "Inf" => "\\infty") : false
 		if Print
 			ax.title = L"%$(rawTitle)"
 		elseif !Print
@@ -136,7 +136,7 @@ function Plot3D(
 		end
 
 		# Plot parametrically
-		in(zVar, GetHFPs(Phase;Syms)) ? zz = abs.(zz) : 0
+		in(zVar, GetHFPs(Phase,Syms,RBS,RBd)) ? zz = abs.(zz) : false
 		h = PlotFunction(
 			xx, yy, zz',
 			colormap=cs
@@ -150,14 +150,14 @@ function Plot3D(
 end
 
 function SavePlot3D(
-	FilePathIn::String,					# Data filepath
-	DirPathOut::String;					# Output directory
-	Mode::String="heatmap",				# Specify plot method
-	xVar::String="U",					# Specify x variable
-	yVar::String="V",					# Specify y variable
-	zVar::String="fMFT",					# Specify z variable
-	cs::Symbol=:imola50,					# Custom colorscheme
-	Extension::String="pdf"				# File extension
+	FilePathIn::String,
+	DirPathOut::String;
+	Mode::String="heatmap",
+	xVar::String="U",
+	yVar::String="V",
+	zVar::String="fMFT",
+	cs::Symbol=:imola50,
+	Extension::String="pdf"
 )
 
 	# Assert printing

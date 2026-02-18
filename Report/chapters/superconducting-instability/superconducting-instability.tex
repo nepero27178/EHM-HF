@@ -390,7 +390,17 @@ From the above results, note first that
 \[
 	u_{\mathbf{k}\uparrow} = 	u_{-\mathbf{k}\downarrow}
 \]
-which is coherent with our requirement of a uniform-density, spin uniform and inversion symmetric phase. Moreover,
+which is coherent with our requirement of a uniform-density, spin uniform and inversion symmetric phase. From the above results we have a simple expression for the system density,
+\[
+\begin{aligned}
+	n &= \frac{N}{2L_x L_y} \\
+	&= \frac{1}{2L_x L_y} \sum_\sigma \sum_{\mathbf{k} \in \mathrm{BZ}} u_{\mathbf{k}\sigma} \\
+	&= \frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \left[
+		1 + \cos \normalfont(2 \tilde{\theta}_\mathbf{k}) \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
+	\right] 
+\end{aligned}
+\]
+Moreover,
 \[
 \begin{aligned}
 	\lim_{\tilde{\theta}_\mathbf{k} \to 0} u_{\mathbf{k}\sigma} &= \frac{1}{2} \left[

@@ -5,10 +5,11 @@ using CairoMakie
 using LaTeXStrings
 using ColorSchemes
 using DataFrames
-using DelimitedFiles
+using CSV
 
 # Includer
 PROJECT_SRC_DIR = @__DIR__
+include(PROJECT_SRC_DIR * "/modules/structs.jl")
 include(PROJECT_SRC_DIR * "/modules/methods-IO.jl")
 
 # Arguments handler
@@ -21,8 +22,8 @@ Where:
 	exit()
 else
 	UserInput = ARGS
-	Mode = UserInput[1][3:end]
-	Obj = UserInput[2][3:end]
+	Mode::String = UserInput[1][3:end]
+	Obj::String = UserInput[2][3:end]
 end
 
 # Process mode
@@ -37,11 +38,13 @@ end
 
 # Process obj
 if Obj=="HFPs"
-	objList = GetHFPs(Phase;Syms)
+	objList = GetHFPs(Phase,Syms,RBS,RBd)
 elseif Obj=="RMPs"
-	objList = [key for key in keys(GetRMPs(Phase;Syms))]
+	objList = []
+	RBS ? push!(objList,"tS") : false
+	RBd ? push!(objList,"td") : false
 elseif Obj=="Qs"
-	QsList = ["Q$(HFP)" for HFP in GetHFPs(Phase;Syms)]
+	QsList = ["Q$(HFP)" for HFP in GetHFPs(Phase,Syms,RBS,RBd)]
 	RunList = ["ΔT", "I", "g0", "g"]
 	objList = vcat(QsList, RunList)
 elseif Obj=="phys"
@@ -54,12 +57,12 @@ end
 function main()
 
 	# Read files
-	FilePathIn = PROJECT_SRC_DIR * "/../simulations/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)/Syms=$(Syms...).csv"
+	FilePathIn = replace(PROJECT_SRC_DIR,"/src"=>"/simulations") * "/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)/RB=$(RB...)_Syms=$(Syms...).csv"
 
 	# Create output directory
-	# For simulations: Setup > Phase > Syms (to make comparable data in the same folder)
-	# For plots: Phase > Setup > Syms (to make same-phase plots in the same folder)
-	DirPathOut = PROJECT_SRC_DIR * "/../analysis/Mode=$(Mode)/Phase=$(Phase)/Setup=$(Setup)/Syms=$(Syms...)/Obj=$(Obj)"
+	# For simulations: Setup > Phase > RB+Syms (to make comparable data in the same folder)
+	# For plots: Phase > Setup > Syms > RB (to make same-phase plots in the same folder)
+	DirPathOut = replace(PROJECT_SRC_DIR,"/src"=>"/analysis") * "/Mode=$(Mode)/Phase=$(Phase)/Setup=$(Setup)/Syms=$(Syms...)/RB=$(RB...)/Obj=$(Obj)"
 	mkpath(DirPathOut)
 
 	for obj in objList

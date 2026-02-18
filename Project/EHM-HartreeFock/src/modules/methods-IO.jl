@@ -27,24 +27,9 @@ function Readv(
 
 end
 
-function ImportData(
-    FilePathIn::String
-)::DataFrame
-
-	# Read data and create DataFrame
-	DataIn = open(FilePathIn) do io
-		readdlm(FilePathIn, ';', comments=false, '\n')
-	end
-	DF = DataFrame(DataIn[2:end,:], DataIn[1,:])
-    DF = identity.(DF) # Format columns type
-    # DF.Lx = Int64.(DF.Lx)
-
-	return DF
-end
-
 function UnpackFilePath(
 	FilePathIn::String
-)::Simulation
+)::Tuple{String,String,Set{String},Set{String}}
 
 	Str::String = replace(FilePathIn, ['.','_']=>'/')
 	GetVal(x::String)::String = String(split(split(Str,"$(x)=")[2],"/")[1])
@@ -54,7 +39,7 @@ function UnpackFilePath(
 	Syms::Set{String} = Set([string(s) for s in GetVal("Syms")])
 	RB::Set{String} = Set([string(s) for s in GetVal("RB")])
 
-	return Simulation(DataFrame(),Setup,Phase,Syms,RB)
+	return Setup,Phase,Syms,RB
 end
 
 function ReshapeData(
@@ -74,32 +59,23 @@ end
 function EnlargeDF!(
 	Sim::Simulation
 )::DataFrame
-	
-	DF = Sim.DF
 
-	# List HF parameters
-	ListHFPs::Vector{String} = [key for key in keys(
-		eval(Meta.parse(
-			DF.v[1]
-		))
-	)]
-	vv = eval.(Meta.parse.(DF.v))
-	QQ = eval.(Meta.parse.(DF.Q))
-	for HF in ListHFPs
-		DF[!,HF] = get.(vv,HF,"N/A")
-		DF[!,"Q" * HF] = get.(QQ,HF,"N/A")
-	end
-	
-	for (RMP,F) in GetRMPs(Sim.Phase;Sim.Syms)
-		DF[!,RMP] = F(DF)
+	DF::DataFrame = Sim.DF
+	# HFPs::Set{String} = GetHFPs(Sim.Phase,Sim.Syms,RBS,RBd)
+	# Consider the possibility of enlarging the DataFrame to left-out HFPs
+
+	if "S" in Sim.RB
+		DF.tS .= DF.t .- DF.V/2 .* DF.uS
 	end
 
-	return select!(DF, Not(:v, :Q))
-	
+	if "d" in Sim.RB
+		DF.td .= -DF.V/2 .* DF.ud
+	end
+
+	return DF
+
 end
 
-
-#TODO Move to physics.jl
 function GetHFPs(
 	Phase::String,
 	Syms::Set{String},
@@ -116,7 +92,7 @@ function GetHFPs(
 		if Phase=="AF-Symmetric" && !issubset(Syms,["S","d"])
 			@error "Inconsistent Phase/Syms @ GetHFPs" Phase Syms
 			exit()
-		elseif Phase=="AF-Antisymmetric" && !issubset(Syms,["px","py"])
+		elseif Phase=="AF-Antisymmetric" && !issubset(Syms,["x","y"])
 			@error "Inconsistent Phase/Syms @ GetHFPs" Phase Syms
 			exit()
 		end
@@ -130,7 +106,7 @@ function GetHFPs(
 		if Phase=="SC-Singlet" && !issubset(Syms,["s","S","d"])
 			@error "Inconsistent Phase/Syms @ GetHFPs" Phase Syms
 			exit()
-		elseif Phase=="SC-Triplet" && !issubset(Syms,["px","py"])
+		elseif Phase=="SC-Triplet" && !issubset(Syms,["x","y"])
 			@error "Inconsistent Phase/Syms @ GetHFPs" Phase Syms
 			exit()
 		end
@@ -145,62 +121,7 @@ function GetHFPs(
 
 end
 
-@doc raw"""
-function GetRMPs(
-	Phase::String,
-	Syms::Vector{String}=["s"]
-)::Vector{String}
 
-Returns: Renormalized Model Parameters labels for the given Phase.
-"""
-function GetRMPs(
-	Phase::String;						# Mean field phase
-	Syms::Vector{String}=["s"]			# Gap function symmetries
-)::Dict{String,Any}
-
-	AF = false
-	Singlet = false
-	Triplet = false
-	SymErr = "Invalid symmetries. $(Syms) is incoherent with $(Phase)."
-	if in(Phase, ["AF", "FakeAF"])
-		AF = true
-	elseif Phase=="SU-Singlet"
-		issubset(Syms, ["s", "S", "d"]) ? Singlet = true : throw(SymErr)
-	elseif Phase=="SU-Triplet"
-		issubset(Syms, ["px", "py", "p+", "p-"]) ? Triplet = true : throw(SymErr)
-	end
-
-	AF ? KeysList = ["reΔ_tilde", "imΔ_tilde", "t_tilde"] : 0
-	Singlet || Triplet ? KeysList = ["t_tilde"] : 0 #TODO Add bands renormalization
-	if AF
-		# Hopping renormalization
-		RtAF(df) = df.t .- df.w0 .* df.V
-		RReΔ(df) = df.m .* (df.U .+ 8*df.V)
-		RImΔ(df) = 2 * df.wp .* df.V
-		RMPs = Dict(
-			"Rt" => df -> RtAF(df),
-			"RReΔ" => df -> RReΔ(df),
-			"RImΔ" => df -> RImΔ(df),
-		)
-		return RMPs
-	elseif Singlet || Triplet
-		# Hopping renormalization
-		RtSU(df) = df.t .- df.gS/2 .* df.V
-		RMPs = Dict(
-			"Rt" => df -> RtSU(df)
-		)
-		return RMPs
-	end
-
-end
-
-@doc raw"""
-function GetLabels(
-	Phase::String
-)::Dict{String,String}
-
-Returns: LaTeX formatted variable labels.
-"""
 function GetLabels(
 	Phase::String
 )::Dict{String,String}
@@ -210,7 +131,7 @@ function GetLabels(
 		"t" => "t",
 		"U" => "U",
 		"V" => "V",
-		"Lx" => "L_x",
+		"L" => "L",
 		"δ" => "\\delta",
 		"β" => "\\beta",
 		# Other
@@ -219,60 +140,59 @@ function GetLabels(
 		"μ" => "\\mu",
 		"g0" => "g_0",
 		"g" => "g",
-		"fMFT" => "f_\\mathrm{MFT}"
+		"fMFT" => "f_\\mathrm{MFT}",
+		# Shared HFPs
+		"uS" => "u^{(s^*)}",
+		"ud" => "u^{(d)}",
+		# RMPs
+		"tS" => "\\tilde{t}^{(s^*)}",
+		"td" => "\\tilde{t}^{(d)}"
 	])
 
-	if in(Phase, ["AF", "FakeAF"])
-		PhaseLabels::Dict{String,String} = Dict([
+	PhaseLabels::Dict{String,String} = Dict()
+	if Phase=="AF-Symmetric"
+		PhaseLabels = Dict([
 			# HFPs
 			"m" => "m",
-			"w0" => "w^{(\\mathbf{0})}",
-			"wp" => "w^{(\\pi)}",
+			"vS" => "v^{(s^*)}",
+			"vd" => "v^{(d)}",
 			# Convergence
-			"Qm" => "Q(m)",
-			"Qw0" => "Q(w^{(\\mathbf{0})})",
-			"Qwp" => "Q(w^{(\\pi)})",
-			# RMPs
-			"RReΔ" => "\\mathrm{Re}\\{\\tilde{\\Delta}_\\mathbf{k}\\}",
-			"RImΔ" => "\\mathrm{Im}\\{\\tilde{\\Delta}_\\mathbf{k}\\}",
-			"Rt" => "\\tilde{t}"
+			"Qm" => "Q_m",
+			"QvS" => "Q_{v^{(s^*)}}",
+			"Qvd" => "Q_{v^{(d)}}",
 		])
-	elseif in(Phase, ["SU-Singlet", "FakeSU-Singlet"])
+	elseif Phase=="AF-Antisymmetric"
 		PhaseLabels = Dict([
 			# HFPs
-			"Δs" => "|\\Delta^{(s)}|",
-			"ΔS" => "|\\Delta^{(s*)}|",
-			"Δd" => "|\\Delta^{(d)}|",
-			"gS" => "g^{(s*)}",
-			"gd" => "g^{(d)}",
+			"m" => "m",
+			"vx" => "v^{(p_x)}",
+			"vy" => "v^{(p_y)}",
 			# Convergence
-			"QΔs" => "Q(\\Delta^{(s)})",
-			"QΔS" => "Q(\\Delta^{(s*)})",
-			"QΔd" => "Q(\\Delta^{(d)})",
-			"QgS" => "Q(g^{(s*)})",
-			"Qgd" => "Q(g^{(d)})",
-			# RMPs
-			"Rt" => "\\tilde{t}"
+			"Qm" => "Q_m",
+			"Qvx" => "Q_{v^{(p_x)}}",
+			"Qvy" => "Q_{v^{(p_y)}}",
 		])
-	elseif in(Phase, ["SU-Triplet", "FakeSU-Triplet"])
+	elseif Phase=="SC-Singlet"
 		PhaseLabels = Dict([
 			# HFPs
-			"Δpx" => "|\\Delta_{p_x}",
-			"Δpy" => "\\Delta_{p_y}",
-			"Δp+" => "\\Delta_{p_+}",
-			"Δp-" => "\\Delta_{p_-}",
-			"gS" => "g^{(s^*)}",
-			"gd" => "g^{(d)}",
+			"ws" => "w^{(s)}",
+			"wS" => "w^{(s^*)}",
+			"wd" => "w^{(d)}",
 			# Convergence
-			"QΔpx" => "Q(|\\Delta_{p_x})",
-			"QΔpy" => "Q(\\Delta_{p_y})",
-			"QΔp+" => "Q(\\Delta_{p_+})",
-			"QΔp-" => "Q(\\Delta_{p_-})",
-			"QgS" => "Q(g^{(s^*)})",
-			"Qgd" => "Q(g^{(d)})",
-			# RMPs
-			"Rt" => "\\tilde{t}"
+			"Qws" => "Q_{w^{(s)}}",
+			"QwS" => "Q_{w^{(s^*)}}",
+			"Qwd" => "Q_{w^{(d)}}",
 		])
+	elseif Phase=="SC-Triplet"
+		PhaseLabels = Dict([
+			# HFPs
+			"wx" => "w^{(p_x)}",
+			"wy" => "w^{(p_y)}",
+			# Convergence
+			"Qwx" => "Q_{w^{(p_x)}}",
+			"Qwy" => "Q_{w^{(p_y)}}",
+		])
+
 	end
 
 	return merge(VarLabels, PhaseLabels)

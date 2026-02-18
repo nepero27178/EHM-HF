@@ -3,7 +3,7 @@ const SetupFilePath::String = @__FILE__
 
 # Phase
 const AllPhases::Set{String} = Set(["Normal","AF-Symmetric","AF-Antisymmetric","SC-Singlet","SC-Triplet"])
-const Phase::String = "SC-Singlet" # ← Change here
+const Phase::String = "AF-Symmetric" # ← Change here
 if !in(Phase, AllPhases)
 	@error "Invalid phase, please modify at: " * SetupFilePath
 	exit()
@@ -11,8 +11,8 @@ end
 
 # Syms
 const SymmetricStructures::Set{String} = Set(["s", "S", "d"])
-const AntisymmetricStructures::Set{String} = Set(["px", "py"])
-const Syms::Set{String} = Set(["s","S","d"]) # ← Change here
+const AntisymmetricStructures::Set{String} = Set(["x", "y"])
+const Syms::Set{String} = Set(["s","S"]) # ← Change here
 
 Err::Bool = false # Handle assignment error
 (Phase=="Normal" && length(Syms)>0) ? Err = true : false
@@ -26,12 +26,11 @@ end
 
 # RB
 const AllRB::Set{String} = Set(["S","d"])
-const RB::Set{String} = Set(["S", "d"]) # ← Change here
+const RB::Set{String} = Set(["S"]) # ← Change here
 const RBS::Bool = "S" in RB ? true : false
 const RBd::Bool = "d" in RB ? true : false
 
-#------------------------------------ SETUP ------------------------------------
-
+# Setup
 const Setup::String = "Test[30]" # ← Change here
 const AvailableSetups::Set{String} = Set([
 	"Test[30]",
@@ -42,15 +41,15 @@ const AvailableSetups::Set{String} = Set([
 const TestΔv::DataFrame = DataFrame(Dict([
 	key => 5e-3 for key in [
 		"uS","ud",
-		"m","vS","vd","vpx","vpy",
-		"ws","wS","wd","wpx","wpy"
+		"m","vS","vd","vx","vy",
+		"ws","wS","wd","wx","wy"
 	]
 ]))
 const MainΔv::DataFrame = DataFrame(Dict([
 	key => 5e-4 for key in [
 		"uS","ud",
-		"m","vS","vd","vpx","vpy",
-		"ws","wS","wd","wpx","wpy"
+		"m","vS","vd","vx","vy",
+		"ws","wS","wd","wx","wy"
 	]
 ]))
 

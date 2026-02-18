@@ -16,7 +16,7 @@ function StructureFactor(
 	k::Vector{Float64}
 )::Float64
 
-	AllSyms = ["s", "S", "px", "py", "d"]
+	AllSyms = ["s", "S", "x", "y", "d"]
 	if !in(Sym, AllSyms)
 		@error "Invalid Sym @ StructureFactor" Sym
 		return
@@ -27,9 +27,9 @@ function StructureFactor(
 		return 1
 	elseif Sym=="S"
 		return cos(kx) + cos(ky)
-	elseif Sym=="px"
+	elseif Sym=="x"
 		return sqrt(2) * sin(kx)
-	elseif Sym=="py"
+	elseif Sym=="y"
 		return sqrt(2) * sin(ky)
 	elseif Sym=="d"
 		return cos(kx) - cos(ky)
@@ -109,11 +109,11 @@ function GetΔΔ(
 		end
 
 		# Imaginary gap
-		vpx::Float64 = Readv(v,:vpx;Cnd="px" in Syms)
-		vpy::Float64 = Readv(v,:vpy;Cnd="py" in Syms)
+		vx::Float64 = Readv(v,:vx;Cnd="x" in Syms)
+		vy::Float64 = Readv(v,:vy;Cnd="y" in Syms)
 
-		imΔΔ["px"] = -V * first(vpx)
-		imΔΔ["py"] = -V * first(vpy)
+		imΔΔ["x"] = -V * vx
+		imΔΔ["y"] = -V * vy
 
 	elseif Phase == "SC-Singlet"
 
@@ -129,11 +129,11 @@ function GetΔΔ(
 	elseif Phase == "SC-Triplet"
 
 		# Imaginary gap
-		wpx::Float64 = Readv(v,:wpx;Cnd="px" in Syms)
-		wpy::Float64 = Readv(v,:wpy;Cnd="py" in Syms)
+		wx::Float64 = Readv(v,:wx;Cnd="x" in Syms)
+		wy::Float64 = Readv(v,:wy;Cnd="y" in Syms)
 
-		imΔΔ["px"] = V * wpx
-		imΔΔ["py"] = V * wpy
+		imΔΔ["x"] = V * wx
+		imΔΔ["y"] = V * wy
 
 	elseif Phase != "Normal"
 
@@ -206,11 +206,12 @@ function GetObj(
 
 		# Density
 		if Obj=="n"
-			NK = 2 * FermiDirac.(εK,μ,β)
-			return sum(NK)/(2*LxLy)
+			# Ignore spin degeneracy: it leads to *2 /2
+			NK = FermiDirac.(εK,μ,β)
+			return sum(NK)/LxLy
 
 		# Free energy
-		elseif Obj=="f" # Use explicit for to correct for numeric errors
+		elseif Obj=="f" # Use explicit form to correct for numeric errors
 			# Free energy from bands
 			FK::Matrix{Float64} = FermiDirac.(εK,μ,β)
 			f += sum((εK.-μ).*FK)/LxLy
@@ -238,7 +239,7 @@ function GetObj(
 			return sum(NK)/(2*LxLy)
 
 		# Free energy
-		elseif Obj=="f" # Use explicit for to correct for numeric errors
+		elseif Obj=="f" # Use explicit form to correct for numeric errors
 			# Free energy from HFPs
 			vv::Vector{Float64} = [ select(v, Cols(contains.("v")))[1,:]... ]
 			f += U*m^2 - V*sum(vv.^2)
@@ -246,11 +247,11 @@ function GetObj(
 			# Free energy from bands
 			FpK::Matrix{Float64} = FermiDirac.(EK,μ,β)
 			FmK::Matrix{Float64} = FermiDirac.(-EK,μ,β)
-			f += sum((EK.-μ).*FpK - (EK.+μ).*FmK)/LxLy
+			f += sum((EK.-μ).*FpK - (EK.+μ).*FmK)/LxLy # MBZ to BZ => /2, spin => *2
 
 			# Free energy from entropy
 			esK = xlogx.(FpK) + xlogx.(1 .- FpK) + xlogx.(FmK) + xlogx.(1 .- FmK)
-			f += sum(esK)/LxLy * 1/β
+			f += sum(esK)/LxLy * 1/β # MBZ to BZ => /2, spin => *2
 			return f
 
 		end

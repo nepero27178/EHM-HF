@@ -70,12 +70,12 @@ function RunHFScan(
 	# HF iterations
 	i = 1
 	for t in tt,
-	L in LL,
-	δ in δδ,
-	β in ββ
+		L in LL,
+		δ in δδ,
+		β in ββ
 
 		Uc::Float64 = 0.0
-		if Optg && occursin("SU", Phase)
+		if Optg  occursin("SC-", Phase)
 			Uc = GetUc(t,[L,L],δ,β)
 		end
 
@@ -150,6 +150,7 @@ function main()
 	# Filter out non half-filled simulations from AF phase
 	# occursin("AF-", Phase) ? filter!(==(0),δδ) : 0
 
+	RunStart::DateTime = now()
 	TotalRunTime = @elapsed begin
 		RunHFScan(
 			Phase,Syms,
@@ -174,7 +175,9 @@ function main()
 	)), Δv, DataFrame(Dict(
 		"Δn" => Δn,
 		"TotalRunTime" => TotalRunTime,
-		"Machine" => gethostname()
+		"Machine" => gethostname(),
+		"RunStart" => RunStart,
+		"RunStop" => now()
 	)))
 	CSV.write(LogPathOut,Log)
 end
