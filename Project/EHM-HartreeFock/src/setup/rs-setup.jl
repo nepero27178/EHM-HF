@@ -3,7 +3,7 @@ const SetupFilePath::String = @__FILE__
 
 # Phase
 const AllPhases::Set{String} = Set(["Normal","AF-Symmetric","AF-Antisymmetric","SC-Singlet","SC-Triplet"])
-const Phase::String = "AF-Symmetric" # Choose your phase
+const Phase::String = "SC-Singlet" # ← Change here
 if !in(Phase, AllPhases)
 	@error "Invalid phase, please modify at: " * SetupFilePath
 	exit()

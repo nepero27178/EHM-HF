@@ -43,8 +43,10 @@ function FermiDirac(
 )::Float64
 
 	if β==Inf # Zero temperature distribution
-		if ε<=μ
+		if ε<μ
 			return 1
+		elseif ε==μ
+			return 0.5
 		elseif ε>μ
 			return 0
 		end
@@ -208,10 +210,16 @@ function GetObj(
 			return sum(NK)/(2*LxLy)
 
 		# Free energy
-		elseif Obj=="f"
-			esK = log.( 1 .- FermiDirac.(εK,μ,β) ) # Entropic part #TODO FIX
+		elseif Obj=="f" # Use explicit for to correct for numeric errors
+			# Free energy from bands
+			FK::Matrix{Float64} = FermiDirac.(εK,μ,β)
+			f += sum((εK.-μ).*FK)/LxLy
+
+			# Free energy from entropy
+			esK = xlogx.(FK) + xlogx.(1 .- FK)
 			f += sum(esK)/LxLy * 2/β
 			return f
+
 		end
 
 	# Antiferromagnetic phases
@@ -230,18 +238,18 @@ function GetObj(
 			return sum(NK)/(2*LxLy)
 
 		# Free energy
-		elseif Obj=="f"
+		elseif Obj=="f" # Use explicit for to correct for numeric errors
 			# Free energy from HFPs
 			vv::Vector{Float64} = [ select(v, Cols(contains.("v")))[1,:]... ]
 			f += U*m^2 - V*sum(vv.^2)
 
 			# Free energy from bands
-			Fp::Matrix{Float64} = FermiDirac.(EK,μ,β)
-			Fm::Matrix{Float64} = FermiDirac.(-EK,μ,β)
-			f += sum((EK.-μ).*Fp - (EK.+μ).*Fm)/LxLy
+			FpK::Matrix{Float64} = FermiDirac.(EK,μ,β)
+			FmK::Matrix{Float64} = FermiDirac.(-EK,μ,β)
+			f += sum((EK.-μ).*FpK - (EK.+μ).*FmK)/LxLy
 
 			# Free energy from entropy
-			esK = xlogx.(Fp) + xlogx.(1 .- Fp) + xlogx.(Fm) + xlogx.(1 .- Fm)
+			esK = xlogx.(FpK) + xlogx.(1 .- FpK) + xlogx.(FmK) + xlogx.(1 .- FmK)
 			f += sum(esK)/LxLy * 1/β
 			return f
 
@@ -254,17 +262,17 @@ function GetObj(
 
 		# Density
 		if Obj=="n"
-			tK::Matrix{Float64} = tanh(EK .* β/2) ./ EK
+			tK::Matrix{Float64} = tanh.(EK .* β/2) ./ EK
 			replace!(tK, NaN => β/2) # @ x~0 : tanh(x)/x~1
 			NK = 1 .- ξK.*tK
 			return sum(NK)/(2*LxLy)
 
 		# Free energy
-		elseif Obj=="f"
+		elseif Obj=="f" # Use equivalent form since numeric errors are avoided by construction
 			ws::Float64 = Readv(v,:ws;Cnd="s" in Syms)
 			vw = [ select(select(v, Cols(contains("w"))), Cols(!contains("S")))[1,:]... ]
-			f += -U*wS^2 + V*(vw.^2)
-			esK = log.( 1-FermiDirac.(EK,0.0,β) ) # Entropic part #TODO FIX
+			f += -U*ws^2 + V*sum(vw.^2)
+			esK = log.( 1 .- FermiDirac.(EK,0.0,β) ) # Entropic part
 			ecK::Matrix{Float64} = ξK .- EK # Contraction part
 			f += ( sum(esK)*2/β + sum(ecK) )/LxLy
 			return f

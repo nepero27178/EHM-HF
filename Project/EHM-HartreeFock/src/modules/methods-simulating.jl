@@ -183,13 +183,13 @@ function GetHFStep(
 		ξK::Matrix{Float64} = εK .- μ
 		EK = sqrt.(ξK.^2 .+ reΔK.^2)
 
-		tK::Matrix{Float64} = tanh(EK .* β/2) ./ EK
+		tK::Matrix{Float64} = tanh.(EK .* β/2) ./ EK
 		replace!(tK, NaN => β/2) # @ x~0 : tanh(x)/x~1
 
 		# Self-consistency equations
 		RBS ? v.uS .= sum( StructureFactor.("S",K).*(1 .- ξK.*tK) )/LxLy : false
 		RBd ? v.ud .= sum( StructureFactor.("d",K).*(1 .- ξK.*tK) )/LxLy : false
-		"s" in Syms ? v.wS .= sum( reΔK.*tK )/(2*LxLy) : false
+		"s" in Syms ? v.ws .= sum( reΔK.*tK )/(2*LxLy) : false
 		"S" in Syms ? v.wS .= sum( StructureFactor.("S",K).*reΔK.*tK )/(2*LxLy) : false
 		"d" in Syms ? v.wd .= sum( StructureFactor.("d",K).*reΔK.*tK )/(2*LxLy) : false
 
@@ -197,7 +197,7 @@ function GetHFStep(
 		ξK = εK .- μ # Pre-assigned data type
 		EK = sqrt.(ξK.^2 .+ reΔK.^2)
 
-		tK = tanh(EK .* β/2) ./ EK # Pre-assigned data type
+		tK = tanh.(EK .* β/2) ./ EK # Pre-assigned data type
 		replace!(tK, NaN => β/2) # @ x~0 : tanh(x)/x~1
 
 		# Self-consistency equations
