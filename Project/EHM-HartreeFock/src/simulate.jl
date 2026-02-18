@@ -23,12 +23,11 @@ if in(Mode, ["rs", "hs"])
 else
 	@error "Invalid argument. Use: mode = hs / rs"
 end
+include(PROJECT_SRC_DIR * "/modules/structs.jl")
 include(PROJECT_SRC_DIR * "/modules/methods-simulating.jl")
 include(PROJECT_SRC_DIR * "/modules/methods-physics.jl")
 include(PROJECT_SRC_DIR * "/modules/methods-optimizations.jl")
 include(PROJECT_SRC_DIR * "/modules/methods-IO.jl")
-
-
 
 function RunHFScan(
 	Phase::String,
@@ -106,25 +105,36 @@ function RunHFScan(
 					"δ" => δ
 				))
 
-				Progress = @bold@yellow "[ Progress: $(round(i/I*100,digits=3))% ]"
-				Setting = @default@white " @$Phase  t=$t  U=$U  V=$V  L=$L  β=$β  δ=$δ"
-				print(Panel(Progress * Setting;style="yellow",title="Run ($(i)/$(I))",title_justify=:right,width=200))
-				print("\r\e[3A") # Carriage return and three lines up to overwrite
+				Progress = @bold@yellow "[ Progress: $(round(i/I*100,digits=1))% ]"
+				Setting = @default@white " Phase=$(Phase)  RB=$(RB...)  Syms=$(Syms...)  t=$t  U=$U  V=$V  L=$L  β=$β  δ=$δ"
+				print(Panel(Progress * Setting;style="yellow",title="Run ($(i)/$(I))",title_justify=:right,fit=true))
 
 				# Main run
 				R::HFRun = GetHFRun(Phase,Syms,ModPars,AlgPars;v0,RBS,RBd,OptBZ,record)
 				Q::DataFrame = DataFrame(Dict(["Q"*x => first(R.Q[!,x]) for x in names(R.Q)]))
-				Row::DataFrame = hcat(ModPars,R.v,Q,R.ΔT,R.I,R.μ,g0,g,R.f)
+				Row::DataFrame = hcat( # Horizontal concatenation of:
+					ModPars,R.v,Q, # Already structured dfs
+					DataFrame(Dict( # All the rest
+						"ΔT" => R.ΔT,
+						"I" => R.I,
+						"μ" => R.μ,
+						"g0" => g0,
+						"g" => g,
+						"f" => R.f
+					))
+				)
 				append = i==1 ? false : true # Header only for first write
-				CSV.write(FilePathOut,Row,append)
+				CSV.write(FilePathOut,Row;append)
 				i += 1
+				cl::String = "\r\e[0K\e[1A"
+				print(cl*cl*cl) # Carriage return and three lines up to overwrite
 			end
 		end
 	end
 
 	Completed = @bold@green "[ Completed ] "
-	Location = "The data have been saved at:"
-	print(Panel(Completed * Location * "\n" * FilePathOut;style="green",width=200))
+	Message = "The data have been saved at:"
+	print(Panel(Completed * Message * "\n" * FilePathOut;style="green",fit=true))
 end
 
 # Main run
@@ -133,12 +143,12 @@ function main()
 	# Create output directory
 	# For simulations: Setup > Phase > Syms (to make comparable data in the same folder)
 	# For plots: Phase > Setup > Syms (to make same-phase plots in the same folder)
-	DirPathOut = PROJECT_SRC_DIR * "/../simulations/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)"
-	FilePathOut = DirPathOut * "/Syms=$(Syms...).csv"
+	DirPathOut = replace(PROJECT_SRC_DIR,"/src"=>"/simulations") * "/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)"
+	FilePathOut = DirPathOut * "/RB=$(RB...)_Syms=$(Syms...).csv"
 	mkpath(dirname(FilePathOut))
 
 	# Filter out non half-filled simulations from AF phase
-	occursin("AF-", Phase) ? filter!(==(0),δδ) : 0
+	# occursin("AF-", Phase) ? filter!(==(0),δδ) : 0
 
 	TotalRunTime = @elapsed begin
 		RunHFScan(
@@ -152,20 +162,20 @@ function main()
 		)
 	end
 
-	LogPathOut = DirPathOut * "/Syms=$(Syms...).log"
-	Log::DataFrame = DataFrame(Dict(
-		"tt" => tt,
-		"UU" => UU,
-		"VV" => VV,
-		"LL" => LL,
-		"ββ" => ββ,
-		"δδ" => δδ,
-		"p" => p,
-		"Δv" => Δv,
+	LogPathOut = DirPathOut * "/RB=$(RB...)_Syms=$(Syms...).log"
+	Log::DataFrame = hcat(DataFrame(Dict(
+		"tt" => [tt],
+		"UU" => [UU],
+		"VV" => [VV],
+		"LL" => [LL],
+		"ββ" => [ββ],
+		"δδ" => [δδ],
+		"p" => p
+	)), Δv, DataFrame(Dict(
 		"Δn" => Δn,
 		"TotalRunTime" => TotalRunTime,
 		"Machine" => gethostname()
-	))
+	)))
 	CSV.write(LogPathOut,Log)
 end
 

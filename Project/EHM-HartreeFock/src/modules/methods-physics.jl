@@ -1,5 +1,3 @@
-using DataFrames
-
 function GetK(
 	L::Vector{Int64}
 )::Tuple{Matrix{Vector{Float64}},Vector{Float64},Vector{Float64}}
@@ -13,11 +11,9 @@ function GetK(
 	return [ [kx,ky] for kx in Kx, ky in Ky ], Kx, Ky
 end
 
-
-
 function StructureFactor(
-	Sym::String,                        # Symmetry
-	k::Vector{Float64}                  # [kx, ky]
+	Sym::String,
+	k::Vector{Float64}
 )::Float64
 
 	AllSyms = ["s", "S", "px", "py", "d"]
@@ -40,23 +36,6 @@ function StructureFactor(
 	end
 end
 
-
-#TODO Move to IO
-function GetFk(
-	FF::Dict{String,Float64},
-	k::Vector{Float64};
-)::Float64
-
-	Fk::Float64 = 0.0
-	for (Sym,FSym) in FF
-		Fk += FSym * StructureFactor(Sym,k)
-	end
-
-	return Fk
-end
-
-
-
 function FermiDirac(
 	ε::Float64,							# Single-particle energy
 	μ::Float64,							# Chemical potential
@@ -73,7 +52,6 @@ function FermiDirac(
 		return 1 / ( exp(β * (ε-μ)) + 1 )
 	end
 end
-
 
 function Th(
 	Sign::String,
@@ -92,26 +70,6 @@ function Th(
 	end
 
 end
-
-
-
-#TODO Move to IO
-function Readv(
-	v::DataFrame,
-	x::Symbol;
-	Cnd::Bool=true
-)::Float64
-
-	x::Float64 = try v[!,x]
-		Cnd ? first(v[!,x]) : 0.0
-	catch
-		0.0
-	end
-
-	return x
-
-end
-
 
 function GetΔΔ(
 	Phase::String,
@@ -186,7 +144,6 @@ function GetΔΔ(
 
 end
 
-
 function GetObj(
 	Obj::String,
 	Phase::String,
@@ -252,7 +209,7 @@ function GetObj(
 
 		# Free energy
 		elseif Obj=="f"
-			esK = log.( 1 .- FermiDirac.(εK,μ,β) ) # Entropic part
+			esK = log.( 1 .- FermiDirac.(εK,μ,β) ) # Entropic part #TODO FIX
 			f += sum(esK)/LxLy * 2/β
 			return f
 		end
@@ -307,7 +264,7 @@ function GetObj(
 			ws::Float64 = Readv(v,:ws;Cnd="s" in Syms)
 			vw = [ select(select(v, Cols(contains("w"))), Cols(!contains("S")))[1,:]... ]
 			f += -U*wS^2 + V*(vw.^2)
-			esK = log.( 1-FermiDirac.(EK,0.0,β) ) # Entropic part
+			esK = log.( 1-FermiDirac.(EK,0.0,β) ) # Entropic part #TODO FIX
 			ecK::Matrix{Float64} = ξK .- EK # Contraction part
 			f += ( sum(esK)*2/β + sum(ecK) )/LxLy
 			return f

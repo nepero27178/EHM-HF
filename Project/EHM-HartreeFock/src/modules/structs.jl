@@ -7,7 +7,8 @@ struct Simulation
 	DF::DataFrame
 	Setup::String
 	Phase::String
-	Syms::Vector{String}
+	Syms::Set{String}
+	RB::Set{String}
 end
 
 struct GroupedPlot
@@ -22,7 +23,7 @@ struct HFStep
 end
 
 struct HFRun
-	HFPs::Set{String} 	# Hartree-Fock parameters
+	HFPs::Set{String} 		# Hartree-Fock parameters
 	v::DataFrame			# Hartree-Fock vector
 	Q::DataFrame			# Convergence quality
 	Track::DataFrame		# Tracked evolution
@@ -30,5 +31,5 @@ struct HFRun
 	μ::Float64			# Chemical potential
 	f::Float64			# Free energy density
 	ΔT::Float64			# Runtime
-	I::Int64				# Total steps
+	I::Int64			# Total steps
 end

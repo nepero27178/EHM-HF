@@ -4,16 +4,19 @@
 using LinearAlgebra
 using Roots
 using Random
-LinearAlgebra.BLAS.set_num_threads(Threads.nthreads()) # Parallel optimization
 # using Integrals
 # using Elliptic
 using DataFrames
-using DelimitedFiles
+# using DelimitedFiles
+using CSV
+
+LinearAlgebra.BLAS.set_num_threads(Threads.nthreads()) # Parallel optimization
 
 PROJECT_METHODS_DIR = @__DIR__
 include(PROJECT_METHODS_DIR * "/methods-physics.jl")
 include(PROJECT_METHODS_DIR * "/methods-optimizations.jl")
 include(PROJECT_METHODS_DIR * "/methods-IO.jl")
+include(PROJECT_METHODS_DIR * "/structs.jl")
 
 function FindRootμ(
 	Phase::String,
@@ -50,9 +53,7 @@ function FindRootμ(
 				LowerBoundary -= 1.0
 			end
 			UpperBoundary = LowerBoundary + 1.0
-			μ = find_zero(δn, (LowerBoundary, UpperBoundary))
-
-			elseif δn(UpperBoundary) <= 0
+		elseif δn(UpperBoundary) <= 0
 			while δn(UpperBoundary) < 0
 				if debug
 					@warn "Moving up upper boundary" UpperBoundary
@@ -60,10 +61,8 @@ function FindRootμ(
 				UpperBoundary += 1.0
 			end
 			LowerBoundary = UpperBoundary - 1.0
-			μ = find_zero(δn, (LowerBoundary, UpperBoundary))
-
 		end
-
+		μ = find_zero(δn, (LowerBoundary, UpperBoundary))
 	end
 
 	if debug
@@ -262,7 +261,7 @@ function GetHFRun(
 	end
 	select!(Δv,Cols(in(HFPs))) # Filter tolerances
 	Q::DataFrame = DataFrame(Dict(names(v0) .=> 0.0)) # Initialize qualities
-	Track = record ? copy(v0) : false # Initialize record track
+	Track::DataFrame =  copy(v0) # Initialize record track
 
 	# Prepare dataframes outside of while loop
 	v::DataFrame = copy(v0) # Otherwise chaos with pointers
@@ -281,6 +280,7 @@ function GetHFRun(
 			Q .= abs.(v.-v0)./Δv # Get qualities
 			Cvd = all(first(Q.<=1)) # Compute converged switch
 			record ? Track = vcat(Track,v) : false # Get record
+			μ = S.μ
 
 			if Cvd
 				I = i
@@ -316,6 +316,7 @@ function GetHFRun(
 		f = NaN # Save free-energy as NaN
 	end
 
+	!record ? Track = v : false
 	R::HFRun = HFRun(HFPs,v,Q,Track,Cvd,μ,f,ΔT,I)
 	return R
 end

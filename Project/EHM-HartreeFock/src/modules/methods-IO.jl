@@ -1,9 +1,31 @@
-using DataFrames
-using DelimitedFiles
+function GetFk(
+	FF::Dict{String,Float64},
+	k::Vector{Float64};
+)::Float64
 
-PROJECT_METHODS_DIR = @__DIR__
-include(PROJECT_METHODS_DIR * "/structs.jl")
-include(PROJECT_METHODS_DIR * "/methods-physics.jl")
+	Fk::Float64 = 0.0
+	for (Sym,FSym) in FF
+		Fk += FSym * StructureFactor(Sym,k)
+	end
+
+	return Fk
+end
+
+function Readv(
+	v::DataFrame,
+	x::Symbol;
+	Cnd::Bool=true
+)::Float64
+
+	x::Float64 = try v[!,x]
+		Cnd ? first(v[!,x]) : 0.0
+	catch
+		0.0
+	end
+
+	return x
+
+end
 
 function ImportData(
     FilePathIn::String
@@ -20,23 +42,21 @@ function ImportData(
 	return DF
 end
 
-	
 function UnpackFilePath(
 	FilePathIn::String
-)::Tuple{String,String,Vector{String}}
+)::Simulation
 
-	SubStrs = split(FilePathIn,'/')
-	SetupStr = SubStrs[end-2]
-	PhaseStr = SubStrs[end-1]
-	SymsStr = SubStrs[end]
-	
-	Setup = split(SetupStr,'=')[2]
-	Phase = split(PhaseStr,'=')[2]
-	Syms = split(split(SymsStr,'=')[2],'.')[1]
+	Str::String = replace(FilePathIn, ['.','_']=>'/')
+	GetVal(x::String)::String = String(split(split(Str,"$(x)=")[2],"/")[1])
 
-	return String(Setup), String(Phase), [string(s) for s in Syms]
+	Setup::String = GetVal("Setup")
+	Phase::String = GetVal("Phase")
+	Syms::Set{String} = Set([string(s) for s in GetVal("Syms")])
+	RB::Set{String} = Set([string(s) for s in GetVal("RB")])
+
+	return Simulation(DataFrame(),Setup,Phase,Syms,RB)
 end
-	
+
 function ReshapeData(
 	DF::DataFrame;
 	xVar::String="U",
