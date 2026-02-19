@@ -146,8 +146,8 @@ function GetHFStep(
 		replace!(iK, NaN => 0.0) # Null field: <sy>=0
 
 		# Self-consistency equations
-		RBS ? v.uS .= sum( StructureFactor.("S",K).*eK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
-		RBd ? v.ud .= sum( StructureFactor.("d",K).*eK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
+		RBS ? v.uS .= -sum( StructureFactor.("S",K).*eK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
+		RBd ? v.ud .= -sum( StructureFactor.("d",K).*eK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
 		v.m .= sum( rK.*Th.("-",EK,μ,β) )/(2*LxLy)
 		"S" in Syms ? v.vS .= sum( StructureFactor.("S",K).*iK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
 		"d" in Syms ? v.vd .= sum( StructureFactor.("d",K).*iK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
@@ -172,8 +172,8 @@ function GetHFStep(
 		replace!(iK, NaN => 0.0) # Null field: <sy>=0
 
 		# Self-consistency equations
-		RBS ? v.uS .= sum( StructureFactor.("S",K).*eK.*Th.("-",EK,μ,β) )/LxLy : false
-		RBd ? v.ud .= sum( StructureFactor.("d",K).*eK.*Th.("-",EK,μ,β) )/LxLy : false
+		RBS ? v.uS .= -sum( StructureFactor.("S",K).*eK.*Th.("-",EK,μ,β) )/LxLy : false
+		RBd ? v.ud .= -sum( StructureFactor.("d",K).*eK.*Th.("-",EK,μ,β) )/LxLy : false
 		v.m .= sum( rK.*Th.("-",EK,μ,β) )/(2*LxLy)
 		"x" in Syms ? v.vx .= sum( StructureFactor.("x",K).*rK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
 		"y" in Syms ? v.vy .= sum( StructureFactor.("y",K).*rK.*Th.("-",EK,μ,β) )/(2*LxLy) : false

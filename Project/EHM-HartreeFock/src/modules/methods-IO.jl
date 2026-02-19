@@ -140,10 +140,13 @@ function GetLabels(
 		"μ" => "\\mu",
 		"g0" => "g_0",
 		"g" => "g",
-		"fMFT" => "f_\\mathrm{MFT}",
+		"f" => "f_\\mathrm{MFT}",
 		# Shared HFPs
 		"uS" => "u^{(s^*)}",
 		"ud" => "u^{(d)}",
+		# Convergence
+		"QuS" => "Q[u^{(s^*)}]",
+		"Qud" => "Q[u^{(d)}]",
 		# RMPs
 		"tS" => "\\tilde{t}^{(s^*)}",
 		"td" => "\\tilde{t}^{(d)}"
@@ -157,9 +160,9 @@ function GetLabels(
 			"vS" => "v^{(s^*)}",
 			"vd" => "v^{(d)}",
 			# Convergence
-			"Qm" => "Q_m",
-			"QvS" => "Q_{v^{(s^*)}}",
-			"Qvd" => "Q_{v^{(d)}}",
+			"Qm" => "Q[m]",
+			"QvS" => "Q[v^{(s^*)}]",
+			"Qvd" => "Q[v^{(d)}]",
 		])
 	elseif Phase=="AF-Antisymmetric"
 		PhaseLabels = Dict([
@@ -168,9 +171,9 @@ function GetLabels(
 			"vx" => "v^{(p_x)}",
 			"vy" => "v^{(p_y)}",
 			# Convergence
-			"Qm" => "Q_m",
-			"Qvx" => "Q_{v^{(p_x)}}",
-			"Qvy" => "Q_{v^{(p_y)}}",
+			"Qm" => "Q[m]",
+			"Qvx" => "Q[v^{(p_x)}]",
+			"Qvy" => "Q[v^{(p_y)}]",
 		])
 	elseif Phase=="SC-Singlet"
 		PhaseLabels = Dict([
@@ -179,9 +182,9 @@ function GetLabels(
 			"wS" => "w^{(s^*)}",
 			"wd" => "w^{(d)}",
 			# Convergence
-			"Qws" => "Q_{w^{(s)}}",
-			"QwS" => "Q_{w^{(s^*)}}",
-			"Qwd" => "Q_{w^{(d)}}",
+			"Qws" => "Q[w^{(s)}]",
+			"QwS" => "Q[w^{(s^*)}]",
+			"Qwd" => "Q[w^{(d)}]",
 		])
 	elseif Phase=="SC-Triplet"
 		PhaseLabels = Dict([
@@ -189,8 +192,8 @@ function GetLabels(
 			"wx" => "w^{(p_x)}",
 			"wy" => "w^{(p_y)}",
 			# Convergence
-			"Qwx" => "Q_{w^{(p_x)}}",
-			"Qwy" => "Q_{w^{(p_y)}}",
+			"Qwx" => "Q[w^{(p_x)}]",
+			"Qwy" => "Q[w^{(p_y)}]",
 		])
 
 	end

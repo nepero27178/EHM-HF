@@ -48,7 +48,7 @@ elseif Obj=="Qs"
 	RunList = ["ΔT", "I", "g0", "g"]
 	objList = vcat(QsList, RunList)
 elseif Obj=="phys"
-	objList = ["μ", "fMFT"]
+	objList = ["μ", "f"]
 else
 	@error "Invalid obj. Use obj = HFPs / RMPs / Qs / phys"
 	exit()
@@ -88,7 +88,7 @@ function main()
 			SavePlot3D(
 				FilePathIn,
 				DirPathOut;
-				xVar="U",
+				xVar="U", # Setup: A=>U, B=>δ
 				yVar="V",
 				zVar=obj,
 				# cs=:winter

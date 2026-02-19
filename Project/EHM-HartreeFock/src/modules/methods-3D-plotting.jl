@@ -35,8 +35,6 @@ function Plot3D(
 
 	# Unpack filepath
 	Setup, Phase, Syms, RB = UnpackFilePath(FilePathIn)
-	RenormalizeBands::Bool=true
-	occursin("Fake",Phase) ? RenormalizeBands=false : false
 
 	# Load data
 	DF::DataFrame = CSV.read(FilePathIn,DataFrame)
@@ -118,13 +116,10 @@ function Plot3D(
 		end
 		rawTitle *= join(ParTitle, ", ") * ")"
 
-		# Include RenormalizeBands specifications
-		if !RenormalizeBands && Print
-			r = split(rawTitle, "t=")
-			rawTitle = r[1] * "t=\\tilde{t}=" * r[2]
-		elseif !Print
+		# Include RB specifications
+		if !Print
 			r = split(rawTitle, ")")
-			rawTitle = r[1] * ", rb=$(RenormalizeBands))"
+			rawTitle = r[1] * ", RB=$(RB...))"
 		end
 
 		# Handle infinities
@@ -136,7 +131,7 @@ function Plot3D(
 		end
 
 		# Plot parametrically
-		in(zVar, GetHFPs(Phase,Syms,RBS,RBd)) ? zz = abs.(zz) : false
+		# in(zVar, GetHFPs(Phase,Syms,"S" in RB,"d" in RB)) ? zz = abs.(zz) : false
 		h = PlotFunction(
 			xx, yy, zz',
 			colormap=cs
