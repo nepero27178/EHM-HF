@@ -172,11 +172,11 @@ function GetHFStep(
 		replace!(iK, NaN => 0.0) # Null field: <sy>=0
 
 		# Self-consistency equations
-		RBS ? v.uS .= -sum( StructureFactor.("S",K).*eK.*Th.("-",EK,μ,β) )/LxLy : false
-		RBd ? v.ud .= -sum( StructureFactor.("d",K).*eK.*Th.("-",EK,μ,β) )/LxLy : false
+		RBS ? v.uS .= -sum( StructureFactor.("S",K).*eK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
+		RBd ? v.ud .= -sum( StructureFactor.("d",K).*eK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
 		v.m .= sum( rK.*Th.("-",EK,μ,β) )/(2*LxLy)
-		"x" in Syms ? v.vx .= sum( StructureFactor.("x",K).*rK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
-		"y" in Syms ? v.vy .= sum( StructureFactor.("y",K).*rK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
+		"x" in Syms ? v.vx .= sum( StructureFactor.("x",K).*iK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
+		"y" in Syms ? v.vy .= sum( StructureFactor.("y",K).*iK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
 
 	# Singlet SC phase
 	elseif Phase=="SC-Singlet"
@@ -187,8 +187,8 @@ function GetHFStep(
 		replace!(tK, NaN => β/2) # @ x~0 : tanh(x)/x~1
 
 		# Self-consistency equations
-		RBS ? v.uS .= sum( StructureFactor.("S",K).*(1 .- ξK.*tK) )/LxLy : false
-		RBd ? v.ud .= sum( StructureFactor.("d",K).*(1 .- ξK.*tK) )/LxLy : false
+		RBS ? v.uS .= sum( StructureFactor.("S",K).*(1 .- ξK.*tK) )/(2*LxLy) : false
+		RBd ? v.ud .= sum( StructureFactor.("d",K).*(1 .- ξK.*tK) )/(2*LxLy) : false
 		"s" in Syms ? v.ws .= sum( reΔK.*tK )/(2*LxLy) : false
 		"S" in Syms ? v.wS .= sum( StructureFactor.("S",K).*reΔK.*tK )/(2*LxLy) : false
 		"d" in Syms ? v.wd .= sum( StructureFactor.("d",K).*reΔK.*tK )/(2*LxLy) : false
@@ -202,8 +202,8 @@ function GetHFStep(
 		replace!(tK, NaN => β/2) # @ x~0 : tanh(x)/x~1
 
 		# Self-consistency equations
-		RBS ? v.uS .= sum( StructureFactor.("S",K).*(1 .- ξK.*tK) )/LxLy : false
-		RBd ? v.ud .= sum( StructureFactor.("d",K).*(1 .- ξK.*tK) )/LxLy : false
+		RBS ? v.uS .= sum( StructureFactor.("S",K).*(1 .- ξK.*tK) )/(2*LxLy) : false
+		RBd ? v.ud .= sum( StructureFactor.("d",K).*(1 .- ξK.*tK) )/(2*LxLy) : false
 		"x" in Syms ? v.wx .= sum( StructureFactor.("x",K).*reΔK.*tK )/(2*LxLy) : false
 		"y" in Syms ? v.wy .= sum( StructureFactor.("y",K).*reΔK.*tK )/(2*LxLy) : false
 	end

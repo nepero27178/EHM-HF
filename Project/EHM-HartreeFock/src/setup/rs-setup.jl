@@ -3,7 +3,7 @@ const SetupFilePath::String = @__FILE__
 
 # Phase
 const AllPhases::Set{String} = Set(["Normal","AF-Symmetric","AF-Antisymmetric","SC-Singlet","SC-Triplet"])
-const Phase::String = "Normal" # ← Change here
+const Phase::String = "SC-Singlet" # ← Change here
 if !in(Phase, AllPhases)
 	@error "Invalid phase, please modify at: " * SetupFilePath
 	exit()
@@ -12,7 +12,7 @@ end
 # Syms
 const SymmetricStructures::Set{String} = Set(["s", "S", "d"])
 const AntisymmetricStructures::Set{String} = Set(["x", "y"])
-const Syms::Set{String} = Set([]) # ← Change here
+const Syms::Set{String} = Set(["s","S"]) # ← Change here
 
 Err::Bool = false # Handle assignment error
 (Phase=="Normal" && length(Syms)>0) ? Err = true : false
@@ -26,7 +26,7 @@ end
 
 # RB
 const AllRB::Set{String} = Set(["S","d"])
-const RB::Set{String} = Set(["S","d"]) # ← Change here
+const RB::Set{String} = Set(["S"]) # ← Change here
 const RBS::Bool = "S" in RB ? true : false
 const RBd::Bool = "d" in RB ? true : false
 

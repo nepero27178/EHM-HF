@@ -120,7 +120,8 @@ function RunHFScan(
 						"μ" => R.μ,
 						"g0" => g0,
 						"g" => g,
-						"f" => R.f
+						"f" => R.f,
+						"Converged" => R.Cvd
 					))
 				)
 				append = i==1 ? false : true # Header only for first write
@@ -159,7 +160,7 @@ function main()
 			p,Δv,Δn,g;
 			FilePathOut,
 			RBS,RBd,
-			OptBZ=false,Optg=false,record=false
+			OptBZ=false,Optg=true,record=false
 		)
 	end
 

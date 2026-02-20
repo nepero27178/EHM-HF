@@ -17,7 +17,7 @@ function Plot3D(
 	Mode::String="heatmap",
 	xVar::String="U",
 	yVar::String="V",
-	zVar::String="fMFT",
+	zVar::String="f",
 	cs::Symbol=:imola50,
 )::Vector{GroupedPlot}
 
@@ -150,7 +150,7 @@ function SavePlot3D(
 	Mode::String="heatmap",
 	xVar::String="U",
 	yVar::String="V",
-	zVar::String="fMFT",
+	zVar::String="f",
 	cs::Symbol=:imola50,
 	Extension::String="pdf"
 )

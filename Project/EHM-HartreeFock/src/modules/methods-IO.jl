@@ -46,7 +46,7 @@ function ReshapeData(
 	DF::DataFrame;
 	xVar::String="U",
 	yVar::String="V",
-	zVar::String="fMFT"
+	zVar::String="f"
 )::Tuple{Any, Any, Any}
 	
 	xx = unique(DF[!,xVar])
