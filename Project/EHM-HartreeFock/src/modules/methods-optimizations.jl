@@ -1,12 +1,3 @@
-@doc raw"""
-function GetWeight(
-	k::Vector{Float64};
-	Sym::String="S",
-	OptimizeBZ::Bool=true
-)::Int64
-
-Returns: symmetry-structured weight for vector k (expressed in pi units!) in BZ.
-"""
 function GetWeight(
 	k::Vector{Float64};					# [kx, ky] in pi units
 	Sym::String="S",						# Symmetry structure
@@ -53,100 +44,75 @@ function GetWeight(
 
 end
 
-@doc raw"""
 function GetUc(
-    t::Float64,
-    L::Vector{Int64},
-    δ::Float64,
-    β::Float64;
-    Method::String=\"DisSum\",
-    RenormalizeBands::Bool=true,
-	OptimizeBZ::Bool=true
+	Pars::DataFrame,
+	v::DataFrame;
+	how::String="DisSum",
+	Δn::Float64=1e-3,
+	μ0::Float64=0.0,
+	RBS::Bool=true,
+	RBd::Bool=true,
+	OptBZ::Bool=false
 )::Float64
 
-[...]
-"""
-function GetUc(
-    t::Float64,							# Hopping amplitude
-    # V::Float64,						# Non-local attraction
-    L::Vector{Int64},					# [Lx, Ly]
-    δ::Float64,							# Doping
-    β::Float64;							# Inverse temperature
-    Method::String="DisSum",				# Computational method
-    RenormalizeBands::Bool=true,			# Conditional renormalization of t
-	OptimizeBZ::Bool=true				# Conditional BZ optimization
-)::Float64
+	# Get pars
+	t::Float64 = first(Pars.t)
+	L::Int64 = first(Pars.L)
+	β::Float64 = first(Pars.β)
 
-    # Reciprocal space discretization (normalized to 1)
-    Kx::Vector{Float64} = [kx for kx in -1:2/L[1]:1]
-    popfirst!(Kx)
-    Ky::Vector{Float64} = [ky for ky in -1:2/L[2]:1]
-    popfirst!(Ky)
-    K::Matrix{Vector{Float64}} = [ [kx,ky] for kx in Kx, ky in Ky ]
+	# Find normal chemical potential
+	μ = FindRootμ("Normal",Set{String}(),Pars,v;Δn,μ0,RBS,RBd,OptBZ,debug)
 
-	Parameters::Dict{String,Float64} = Dict("t" => t)
-	Fakev::Dict{String,Float64} = Dict("F" => 4.)
-	μ = FindRootμ("Free",Parameters,K,Fakev,0.5+δ,β;RenormalizeBands,OptimizeBZ)
+	if !in(Method, ["NumInt", "DisSum"])
+		@error "Wrong method. Acceptable: \"NumInt\", \"DisSum\"."
 
-    if !in(Method, ["NumInt", "DisSum"])
-        @error "Wrong method. Acceptable: \"NumInt\", \"DisSum\"."
+	# Numerical integration
+	elseif Method=="NumInt"
 
-    # Numerical integration
-    elseif Method=="NumInt"
+		F(x,m) = Elliptic.K( sqrt(1-x^2) ) * tanh( β/2 * (4*t*x - m) ) / (x -m/(4*t))
+		DomainDown = (-1,0)
+		ProblemDown = IntegralProblem(F, DomainDown, μ)
+		SolutionDown = solve(ProblemDown, HCubatureJL())
 
-        F(x,m) = Elliptic.K( sqrt(1-x^2) ) * tanh( β/2 * (4*t*x - m) ) / (x -m/(4*t))
-        DomainDown = (-1,0)
-        ProblemDown = IntegralProblem(F, DomainDown, μ)
-        SolutionDown = solve(ProblemDown, HCubatureJL())
+		DomainUp = (0,1)
+		ProblemUp = IntegralProblem(F, DomainUp, μ)
+		SolutionUp = solve(ProblemUp, HCubatureJL())
+		Uc = (2*pi)^2 / (SolutionUp.u + SolutionDown.u)
 
-        DomainUp = (0,1)
-        ProblemUp = IntegralProblem(F, DomainUp, μ)
-        SolutionUp = solve(ProblemUp, HCubatureJL())
-        Uc = (2*pi)^2 / (SolutionUp.u + SolutionDown.u)
+	# Discrete sum
+	elseif Method=="DisSum"
 
-    # Discrete sum
-    elseif Method=="DisSum"
+		# Get BZ
+		K::Matrix{Vector{Float64}}, _, _ = GetK([L, L])
+		LxLy::Int64 = L^2
 
-        u::Float64 = 0.0
-        for k in K .* pi
-            ξk = GetBareBands(t,k) - μ
-            if ξk != 0.0
-                u += tanh(β/2 * ξk) / ξk
-            elseif ξk == 0.0 # Handle correctly the zero limit
-                u += β/2
-            end
-        end
-        Uc = 2*prod(size(K)) / u
+		# Kinetics
+		uS::Float64 = Readv(v,:uS;Cnd=RBS) # Read s*-wave
+		ud::Float64 = Readv(v,:ud;Cnd=RBd) # Read d-wave
+		εε::Dict{String,Float64} = Dict(
+			"S" => -2*t + V*uS,
+			"d" => V*ud
+		)
+		Getξk(k::Vector{Float64})::Float64 = GetFk(εε,k)-μ # Function
+		ξK::Matrix{Float64} = Getξk.(K)
+		tK::Matrix{Float64} = tanh.(ξK .* β/2) ./ ξK
+		replace!(tK, NaN => β/2) # @ x~0 : tanh(x)/x~1
+		Uc = 2*LxLy / sum(tK)
 
-    end
+	end
 
     return Uc
 
 end
 
-@doc raw"""
 function GetOptimalg(
     U::Float64,
     Uc::Float64;
-    Δ::Float64=0.1
-)::Float64
-
-[...]
-"""
-function GetOptimalg(
-    U::Float64,						# Local repulsion
-    Uc::Float64;						# Critical U
-    ΔU::Float64=1.0 					# U tolerance
+    ΔU::Float64=1.0
 )::Float64
 
     u::Float64 = U/Uc
     gc::Float64 = 2/(u+1)
-#     if gc > Δ
-#         return gc-Δ
-#     elseif gc <= Δ
-#         @warn "Δ=$(Δ) too large, tolerance ignored. Consider reducing Δ or U."
-#         return gc/2
-#     end
     return gc * (1-gc/2 * ΔU/Uc)
 
 end

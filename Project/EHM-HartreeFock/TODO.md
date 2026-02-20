@@ -34,6 +34,7 @@ ALGORITHM
 - [x] Clean up setups
 - [x] Add coherent neighbors initializer
 - [ ] Debug BZ optimization module
+- [ ] New Optg module
 
 HM: AF
 - [ ] heatmaps

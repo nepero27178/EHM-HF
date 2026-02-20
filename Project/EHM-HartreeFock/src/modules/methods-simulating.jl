@@ -21,8 +21,7 @@ function FindRootμ(
 	Phase::String,
 	Syms::Set{String},
 	Pars::DataFrame,
-	v::DataFrame,
-	n::Float64;
+	v::DataFrame;
 	Δn::Float64=1e-3,
 	μ0::Float64=0.0,
 	RBS::Bool=true,
@@ -31,6 +30,7 @@ function FindRootμ(
 	debug::Bool=false
 )::Float64
 
+	n::Float64 = 0.5+first(Pars.δ)
 	if n <= 0 || n >= 1
 		@error "Invalid target density. Choose 0 < n < 1." n
 		return
@@ -91,11 +91,10 @@ function GetHFStep(
 	V::Float64 = first(Pars.V)
 	L::Int64 = first(Pars.L)
 	β::Float64 = first(Pars.β)
-	n::Float64 = 0.5+first(Pars.δ)
 
 	# Initialize HFPs and find chemical potential
 	v = copy(v0)
-	μ = FindRootμ(Phase,Syms,Pars,v0,n;Δn,μ0,RBS,RBd,OptBZ,debug)
+	μ = FindRootμ(Phase,Syms,Pars,v0;Δn,μ0,RBS,RBd,OptBZ,debug)
 
 	# Get BZ
 	K::Matrix{Vector{Float64}}, _, _ = GetK([L, L])

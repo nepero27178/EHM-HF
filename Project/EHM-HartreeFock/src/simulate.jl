@@ -75,17 +75,17 @@ function RunHFScan(
 		β in ββ
 
 		Uc::Float64 = 0.0
-		if Optg  occursin("SC-", Phase)
-			Uc = GetUc(t,[L,L],δ,β)
-		end
+		# if Optg  occursin("SC-", Phase)
+		# 	Uc = GetUc(Pars,v0;how="DisSum",RBS,RBd,OptBZ)
+		# end
 
 		g = g0
-		for U in UU # TODO Evaluate possibility of computing dynamically g with the bare bands
+		for U in UU
 
-			if U>(2/g0-1)*Uc && Optg
-				Og = GetOptimalg(U,Uc) #TODO phase extension
-				Og<g0 ? g=Og : 0
-			end
+			# if U>(2/g0-1)*Uc && Optg
+			# 	Og = GetOptimalg(U,Uc)
+			# 	Og<g0 ? g=Og : 0
+			# end
 
 			AlgPars::DataFrame = DataFrame(Dict(
 				"p" => p,
