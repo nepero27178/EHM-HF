@@ -1,7 +1,62 @@
+function GetContour(
+	Zone::String,
+	L::Int64
+)::Vector{Vector{Float64}}
+
+	# A specific method is needed to avoid numeric error in filtering
+	xx::Vector{Float64} = [x for x in -1:2/L:1]
+	popfirst!(xx)
+	Contour::Vector{Vector{Float64}} = []
+
+	if Zone=="MBZ"
+		push!(Contour,[0.0,1.0])
+		push!(Contour,[1.0,0.0])
+		for x in xx
+			if x<0
+				push!(Contour,[x,1+x])
+				push!(Contour,[x,-1-x])
+			elseif x>0
+				push!(Contour,[x,1-x])
+				x<1 ? push!(Contour,[x,-1+x]) : false
+			end
+		end
+	elseif Zone=="NBZ"
+		push!(Contour,[0.0,0.0])
+		for x in xx
+			if x!=0
+				push!(Contour,[x,x])
+				x<1 ? push!(Contour,[x,-x]) : false
+			end
+		end
+	end
+	return Contour
+
+end
+
+function GetBZ(
+	L::Int64
+)::BrillouinZone
+	# A specific method is needed to avoid numeric error in filtering
+	xx::Vector{Float64} = [x for x in -1:2/L:1]
+	popfirst!(xx)
+	yy::Vector{Float64} = [y for y in -1:2/L:1]
+	popfirst!(yy)
+
+	K::Matrix{Vector{Float64}} = [[kx,ky] for kx in Kx, ky in Ky]
+
+	BZ::Vector{Vector{Float64}} = [K...]
+	MBZContour::Vector{Vector{Float64}} = GetContour("MBZ",L)
+	NBZContour::Vector{Vector{Float64}} = GetContour("NBZ",L)
+	MBZBulk::Vector{Vector{Float64}} = filter(v -> sum(abs.(v))<1, filter(!in(MC),BZ))
+
+	return BrillouinZone(K,MBZContour,NBZContour,MBZBulk)
+
+end
+
 function GetWeight(
 	k::Vector{Float64};					# [kx, ky] in pi units
 	Sym::String="S",						# Symmetry structure
-	OptimizeBZ::Bool=true				# Option to disable optimization
+	OptBZ::Bool=true				# Option to disable optimization
 )::Int64
 
 	# Weights

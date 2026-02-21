@@ -66,6 +66,7 @@ function RunHFScan(
 	v0::DataFrame = DataFrame(Dict([
 		HFP => 0.1 for HFP in HFPs
 	]))
+	g = g0
 
 	# HF iterations
 	i = 1
@@ -74,36 +75,29 @@ function RunHFScan(
 		δ in δδ,
 		β in ββ
 
+		AlgPars::DataFrame = DataFrame(Dict(
+			"p" => p,
+			"Δv" => Δv,
+			"Δn" => Δn,
+			"g" => g
+		))
+
+		ModPars::DataFrame = DataFrame(Dict(
+			"t" => t,
+			"U" => 0.0,
+			"V" => 0.0,
+			"L" => L,
+			"β" => β,
+			"δ" => δ
+		))
+
 		Uc::Float64 = 0.0
-		# if Optg  occursin("SC-", Phase)
-		# 	Uc = GetUc(Pars,v0;how="DisSum",RBS,RBd,OptBZ)
-		# end
 
-		g = g0
 		for U in UU
+			ModPars.U .= U
 
-			# if U>(2/g0-1)*Uc && Optg
-			# 	Og = GetOptimalg(U,Uc)
-			# 	Og<g0 ? g=Og : 0
-			# end
-
-			AlgPars::DataFrame = DataFrame(Dict(
-				"p" => p,
-				"Δv" => Δv,
-				"Δn" => Δn,
-				"g" => g
-			))
-
-			for V in VV
-
-				ModPars::DataFrame = DataFrame(Dict(
-					"t" => t,
-					"U" => U,
-					"V" => V,
-					"L" => L,
-					"β" => β,
-					"δ" => δ
-				))
+			for 	V in VV
+				ModPars.U .= U
 
 				Progress = @bold@yellow "[ Progress: $(round(i/I*100,digits=1))% ]"
 				Setting = @default@white " Phase=$(Phase)  RB=$(RB...)  Syms=$(Syms...)  t=$t  U=$U  V=$V  L=$L  β=$β  δ=$δ"
@@ -119,13 +113,25 @@ function RunHFScan(
 						"I" => R.I,
 						"μ" => R.μ,
 						"g0" => g0,
-						"g" => g,
+						"g" => AlgPars.g,
 						"f" => R.f,
 						"Converged" => R.Cvd
 					))
 				)
+
+				# Write on file
 				append = i==1 ? false : true # Header only for first write
 				CSV.write(FilePathOut,Row;append)
+
+				# Optimize g for next run
+				if Optg && Phase=="SC-Singlet" && "s" in Syms
+					Uc = GetUc(Pars,R.v;how="DisSum",RBS,RBd,OptBZ)
+					if U>(2/g0-1)*Uc
+						Og = GetOptimalg(U,Uc)
+						Og<g0 ? AlgPars.g .= Og : 0
+					end
+				end
+
 				i += 1
 				cl::String = "\r\e[0K\e[1A"
 				print(cl*cl*cl) # Carriage return and three lines up to overwrite
@@ -149,7 +155,7 @@ function main()
 	mkpath(dirname(FilePathOut))
 
 	# Filter out non half-filled simulations from AF phase
-	# occursin("AF-", Phase) ? filter!(==(0),δδ) : 0
+	occursin("AF-", Phase) ? filter!(==(0),δδ) : 0
 
 	RunStart::DateTime = now()
 	TotalRunTime = @elapsed begin

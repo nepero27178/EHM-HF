@@ -3,6 +3,13 @@ using CairoMakie
 using DataFrames
 using DelimitedFiles
 
+struct BrillouinZone
+	K::Matrix{Vector{Float64}}
+	MC::Vector{Vector{Float64}}
+	NC::Vector{Vector{Float64}}
+	MB::Vector{Vector{Float64}}
+end
+
 struct Simulation
 	DF::DataFrame
 	Setup::String
@@ -23,7 +30,7 @@ struct HFStep
 end
 
 struct HFRun
-	HFPs::Set{String} 		# Hartree-Fock parameters
+	HFPs::Set{String} 	# Hartree-Fock parameters
 	v::DataFrame			# Hartree-Fock vector
 	Q::DataFrame			# Convergence quality
 	Track::DataFrame		# Tracked evolution
@@ -31,5 +38,5 @@ struct HFRun
 	μ::Float64			# Chemical potential
 	f::Float64			# Free energy density
 	ΔT::Float64			# Runtime
-	I::Int64			# Total steps
+	I::Int64				# Total steps
 end

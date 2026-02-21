@@ -88,7 +88,7 @@ function main()
 			SavePlot3D(
 				FilePathIn,
 				DirPathOut;
-				xVar="U", # Setup: A=>U, B=>δ
+				xVar="δ", # Setup: A=>U, B=>δ
 				yVar="V",
 				zVar=obj,
 				# cs=:winter
