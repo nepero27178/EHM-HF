@@ -3,7 +3,7 @@ SetupFilePath::String = @__FILE__
 
 # Phase
 AllPhases::Set{String} = Set(["Normal","AF-Symmetric","AF-Antisymmetric","SC-Singlet","SC-Triplet"])
-Phase::String = "AF-Symmetric" # Choose your phase
+Phase::String = "Normal" # Choose your phase
 if !in(Phase, AllPhases)
 	@error "Invalid phase, please modify at: " * SetupFilePath
 	exit()
@@ -12,7 +12,7 @@ end
 # Syms
 SymmetricStructures::Set{String} = Set(["s", "S", "d"])
 AntisymmetricStructures::Set{String} = Set(["x", "y"])
-Syms::Set{String} = Set(["s", "S", "d"]) # ← Change here
+Syms::Set{String} = Set([]) # ← Change here
 
 Err::Bool = false
 (Phase=="Normal" && length(Syms)>0) ? Err = true : false
@@ -26,16 +26,17 @@ end
 
 # RB
 AllRB::Set{String} = Set(["S", "d"])
-RB::Set{String} = Set(["S", "d"]) # ← Change here
+RB::Set{String} = Set(["S"]) # ← Change here
 RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "Test[20]" # ← Change here
+Setup::String = "beta[128]" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test[20]", # Test setup
 	"A[256]", # UV plane
 	"B[256]", # δV plane
+	"beta[128]" # TODO Trash
 ])
 
 TestΔv::DataFrame = DataFrame(Dict([
@@ -93,4 +94,17 @@ elseif Setup=="B[256]"
 	Δv = MainΔv
 	Δn = 1e-2
 	g = 0.2
+
+# --- MAIN beta RUN ---
+elseif Setup=="beta[128]"
+	tt = [1.0]
+	UU = [4.0]
+	VV = [V for V in 0.0:0.2:6.0]
+	LL = [128]
+	δδ = [0.0, 0.2, 0.4]
+	ββ = [1.0, 2.0, 10.0, 20.0, 100.0]
+	p = 100
+	Δv = MainΔv
+	Δn = 1e-2
+	g = 0.1
 end

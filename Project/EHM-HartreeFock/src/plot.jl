@@ -91,7 +91,8 @@ function main()
 				xVar="δ", # Setup: A=>U, B=>δ
 				yVar="V",
 				zVar=obj,
-				# cs=:winter
+				cs=:winter,
+				Extension="png"
 			)
 		end
 	end

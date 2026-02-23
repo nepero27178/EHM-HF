@@ -5,11 +5,11 @@ using CairoMakie
 using LaTeXStrings
 using ColorSchemes
 using DataFrames
-using DelimitedFiles
+using CSV
 
 PROJECT_METHODS_DIR = @__DIR__
-include(PROJECT_METHODS_DIR * "/methods-IO.jl")
 include(PROJECT_METHODS_DIR * "/structs.jl")
+include(PROJECT_METHODS_DIR * "/methods-IO.jl")
 
 function Plot3D(
 	FilePathIn::String;

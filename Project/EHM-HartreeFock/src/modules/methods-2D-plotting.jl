@@ -5,11 +5,11 @@ using CairoMakie
 using LaTeXStrings
 using ColorSchemes
 using DataFrames
-using DelimitedFiles
+using CSV
 
 PROJECT_MODULES_DIR = @__DIR__
-include(PROJECT_MODULES_DIR * "/methods-IO.jl")
 include(PROJECT_MODULES_DIR * "/structs.jl")
+include(PROJECT_MODULES_DIR * "/methods-IO.jl")
 
 function Plot2D(
 	FilePathIn::String;
@@ -26,21 +26,19 @@ function Plot2D(
 	Pars = filter(!=(pVar), filter(!=(xVar), xVars))
 
 	# Input safecheck
-	!in(xVar, xVars) ? error("Invalid x variable, choose one of $(xVars)") : 0
-	!in(pVar, xVars) ? error("Invalid p variable, choose one of $(xVars)") : 0
-	xVar==pVar ? error("You have chosen xVar=pVar!") : 0
+	!in(xVar, xVars) ? error("Invalid x variable, choose one of $(xVars)") : false
+	!in(pVar, xVars) ? error("Invalid p variable, choose one of $(xVars)") : false
+	xVar==pVar ? error("You have chosen xVar=pVar!") : false
 
 	# Unpack filepath
 	Setup, Phase, Syms, RB = UnpackFilePath(FilePathIn)
-	RenormalizeBands::Bool=true
-	occursin("Fake",Phase) ? RenormalizeBands=false : 0
 
 	# Load data
 	DF::DataFrame = CSV.read(FilePathIn,DataFrame)
 	Sim::Simulation = Simulation(DF,Setup,Phase,Syms,RB)
 	DF = EnlargeDF!(Sim) # Compute RMPs
 	yVars = filter(!in(xVars), names(DF))
-	!in(yVar,yVars) ? error("Invalid y variable, choose one of $(yVars)") : 0
+	!in(yVar,yVars) ? error("Invalid y variable, choose one of $(yVars)") : false
 
 	if Print
 		# Activate backend
@@ -62,7 +60,7 @@ function Plot2D(
 	end
 
 	# Group data
-	GroupedDF = groupby(DF,Pars) #TODO Add skip
+	GroupedDF = groupby(DF,Pars)
 	J = length(GroupedDF)
 	C = floor(Int64, length(colorschemes[cs]) / J)
 	PlotVec = GroupedPlot[]
@@ -113,13 +111,10 @@ function Plot2D(
 		end
 		rawTitle *= join(ParTitle, ", ") * ")"
 
-		# Include RenormalizeBands specifications
-		if !RenormalizeBands && Print
-			r = split(rawTitle, "t=")
-			rawTitle = r[1] * "t=\\tilde{t}=" * r[2]
-		elseif !Print
+		# Include RB specifications
+		if !Print
 			r = split(rawTitle, ")")
-			rawTitle = r[1] * ", rb=$(RenormalizeBands))"
+			rawTitle = r[1] * ", RB=$(RB...))"
 		end
 
 		# Handle infinities
@@ -130,10 +125,11 @@ function Plot2D(
 			ax.title = rawTitle
 		end
 
-		Groupeddf = groupby(df,pVar)
+		Groupeddf = groupby(df,pVar)[1:(Skip+1):end]
 		I = length(Groupeddf)
 		C = floor(Int64, length(colorschemes[cs]) / I)
 		C==0.0 ? error("Your cs (ColorScheme) is not large enough.") : false
+
 		for (i,pdf) in enumerate(Groupeddf)
 			p = pdf[!,pVar][1]
 			xx = pdf[!,xVar]
@@ -146,17 +142,13 @@ function Plot2D(
 			end
 
 			# Plot parametrically
-			in(yVar, GetHFPs(Phase,Syms,RBS,RBd)) ? yy = abs.(yy) : false
-			scatter!(
+			# in(yVar, GetHFPs(Phase,Syms,RBS,RBd)) ? yy = abs.(yy) : false
+			scatterlines!(
 				ax, xx, yy,
 				marker = :circle,
 				color = colorschemes[cs][C*i],
 				markersize = 8,
 				label = label
-			)
-			lines!(
-				ax, xx, yy,
-				color = colorschemes[cs][C*i]
 			)
 		end
 

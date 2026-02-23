@@ -8,14 +8,15 @@ using Random
 # using Elliptic
 using DataFrames
 using CSV
+using Term
 
 LinearAlgebra.BLAS.set_num_threads(Threads.nthreads()) # Parallel optimization
 
 PROJECT_METHODS_DIR = @__DIR__
+include(PROJECT_METHODS_DIR * "/structs.jl")
 include(PROJECT_METHODS_DIR * "/methods-physics.jl")
 include(PROJECT_METHODS_DIR * "/methods-optimizations.jl")
 include(PROJECT_METHODS_DIR * "/methods-IO.jl")
-include(PROJECT_METHODS_DIR * "/structs.jl")
 
 function FindRootμ(
 	Phase::String,
@@ -260,8 +261,12 @@ function GetHFRun(
 		end
 	end
 	select!(Δv,Cols(in(HFPs))) # Filter tolerances
-	Q::DataFrame = DataFrame(Dict(names(v0) .=> 0.0)) # Initialize qualities
-	Track::DataFrame =  copy(v0) # Initialize record track
+	Q::DataFrame = DataFrame(Dict(HFPs .=> 0.0)) # Initialize qualities
+	Track = hcat( # Initialize record track
+		rename(v0, HFPs .=> "I" .* HFPs),
+		DataFrame(Dict( "C" .* HFPs .=> NaN)),
+		DataFrame(Dict( "M" .* HFPs .=> NaN))
+	)
 
 	# Prepare dataframes outside of while loop
 	v::DataFrame = copy(v0) # Otherwise chaos with pointers
@@ -274,17 +279,37 @@ function GetHFRun(
 	Cvd::Bool = false # Cvd="Converged" switch
 	ΔT = @elapsed begin
 		while true
-			debug ? printstyled("\n[ Step $(i) ]\n", color=:yellow) : false
+
+			if debug
+				StepMsg::String = @bold@yellow "\n[ Step: $(i) ]\n"
+				print(StepMsg)
+			end
 			S = GetHFStep(Phase,Syms,ModPars,v0;Δn,μ0=μ,RBS,RBd,OptBZ,debug) # Single step
 			v = copy(S.v) # Otherwise chaos with pointers
-			Q .= abs.(v.-v0)./Δv # Get qualities
-			Cvd = all(first(Q.<=1)) # Compute converged switch
-			record ? Track = vcat(Track,v) : false # Get record
+			# Q .= abs.(v.-v0)./Δv # Get qualities
+			# Cvd = all(first(Q.<=1)) # Compute converged switch
+			Q .= abs.(v.-v0)./v0 # Get qualities
+			Cvd = all(first(Q.<=Δv)) # Compute converged switch
 			μ = S.μ
 
 			if Cvd
 				I = i
-				verbose ? printstyled("\n[ Converged at step $I ]\n", color=:green) : false
+				if verbose
+					CvdMsg::String = @bold@green "\n[ Converged at step: $(i) ]\n"
+					print(CvdMsg)
+				end
+
+				if record
+					for HFP in HFPs
+						Row::DataFrame = DataFrame(Dict(
+							"I" * HFP => v0[!,HFP],
+							"C" * HFP => v[!,HFP],
+							"M" * HFP => NaN
+						))
+						Track = vcat(Track, Row)
+					end
+				end
+
 				break  # Exit while
 
 			elseif !Cvd
@@ -296,6 +321,18 @@ function GetHFRun(
 				i += 1
 				i > p && break # Exit while
 			end
+
+			if record
+				for HFP in HFPs
+					Row::DataFrame = DataFrame(Dict(
+						"I" * HFP => v0[!,HFP],
+						"C" * HFP => v[!,HFP],
+						"M" * HFP => w[!,HFP]
+					))
+					Track = vcat(Track, Row)
+				end
+			end
+
 			v0 = copy(w) # Otherwise chaos with pointers
 		end
 	end
@@ -312,11 +349,12 @@ function GetHFRun(
 		if verbose
 			@info "Not converged values saved as NaN" Tab
 		end
-		v = v .+ NaN.*(Q.>1.0) # Filter non-converged values and save as NaN
+		# v = v .+ NaN.*(Q.>1.0) # Filter non-converged values and save as NaN
+		v = v .+ NaN.*(Q.>Δv) # Filter non-converged values and save as NaN
 		f = NaN # Save free-energy as NaN
 	end
 
-	!record ? Track = v : false
+	record ? popfirst!(Track) : false
 	R::HFRun = HFRun(HFPs,v,Q,Track,Cvd,μ,f,ΔT,I)
 	return R
 end

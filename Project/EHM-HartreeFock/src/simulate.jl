@@ -97,7 +97,7 @@ function RunHFScan(
 			ModPars.U .= U
 
 			for 	V in VV
-				ModPars.U .= U
+				ModPars.V .= V
 
 				Progress = @bold@yellow "[ Progress: $(round(i/I*100,digits=1))% ]"
 				Setting = @default@white " Phase=$(Phase)  RB=$(RB...)  Syms=$(Syms...)  t=$t  U=$U  V=$V  L=$L  β=$β  δ=$δ"
