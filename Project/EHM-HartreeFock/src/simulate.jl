@@ -155,7 +155,8 @@ function main()
 	mkpath(dirname(FilePathOut))
 
 	# Filter out non half-filled simulations from AF phase
-	occursin("AF-", Phase) ? filter!(==(0),δδ) : 0
+	occursin("AF-", Phase) ? filter!(==(0.0),δδ) : false
+	Phase=="Normal" ? filter!(==(0.0),UU) : false
 
 	RunStart::DateTime = now()
 	TotalRunTime = @elapsed begin

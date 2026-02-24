@@ -262,11 +262,12 @@ function GetHFRun(
 	end
 	select!(Δv,Cols(in(HFPs))) # Filter tolerances
 	Q::DataFrame = DataFrame(Dict(HFPs .=> 0.0)) # Initialize qualities
-	Track = hcat( # Initialize record track
+	Row::DataFrame = hcat( # Initialize row
 		rename(v0, HFPs .=> "I" .* HFPs),
 		DataFrame(Dict( "C" .* HFPs .=> NaN)),
 		DataFrame(Dict( "M" .* HFPs .=> NaN))
 	)
+	Track = copy(Row) # Initialize record
 
 	# Prepare dataframes outside of while loop
 	v::DataFrame = copy(v0) # Otherwise chaos with pointers
@@ -299,13 +300,11 @@ function GetHFRun(
 
 				if record
 					for HFP in HFPs
-						Row::DataFrame = DataFrame(Dict(
-							"I" * HFP => v0[!,HFP],
-							"C" * HFP => v[!,HFP],
-							"M" * HFP => NaN
-						))
-						Track = vcat(Track, Row)
+						Row[!,"I" * HFP] .= v0[!,HFP]
+						Row[!,"C" * HFP] .= v[!,HFP]
+						Row[!,"M" * HFP] .= NaN
 					end
+					Track = vcat(Track, Row)
 				end
 
 				break  # Exit while
@@ -322,13 +321,11 @@ function GetHFRun(
 
 			if record
 				for HFP in HFPs
-					Row::DataFrame = DataFrame(Dict(
-						"I" * HFP => v0[!,HFP],
-						"C" * HFP => v[!,HFP],
-						"M" * HFP => w[!,HFP]
-					))
-					Track = vcat(Track, Row)
+					Row[!,"I" * HFP] .= v0[!,HFP]
+					Row[!,"C" * HFP] .= v[!,HFP]
+					Row[!,"M" * HFP] .= w[!,HFP]
 				end
+				Track = vcat(Track, Row)
 			end
 
 			v0 = copy(w) # Otherwise chaos with pointers

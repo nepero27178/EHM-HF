@@ -3,7 +3,7 @@ SetupFilePath::String = @__FILE__
 
 # Phase
 AllPhases::Set{String} = Set(["Normal","AF-Symmetric","AF-Antisymmetric","SC-Singlet","SC-Triplet"])
-Phase::String = "AF-Antisymmetric" # ← Change here
+Phase::String = "Normal" # ← Change here
 if !in(Phase, AllPhases)
 	@error "Invalid phase, please modify at: " * SetupFilePath
 	exit()
@@ -12,7 +12,7 @@ end
 # Syms
 SymmetricStructures::Set{String} = Set(["s", "S", "d"])
 AntisymmetricStructures::Set{String} = Set(["x", "y"])
-Syms::Set{String} = Set(["x","y"]) # ← Change here
+Syms::Set{String} = Set([]) # ← Change here
 
 Err::Bool = false # Handle assignment error
 (Phase=="Normal" && length(Syms)>0) ? Err = true : false
@@ -93,4 +93,18 @@ elseif Setup=="B[128]"
 	Δv = MainΔv
 	Δn = 1e-2
 	g = 0.5
+
+# --- a EXTENDED B RUN ---
+elseif Setup=="B[128]a"
+	tt = [1.0]
+	UU = [0.0]
+	VV = [V for V in 4.0:0.1:8.0]
+	LL = [128]
+	δδ = [δ for δ in 0.0:0.01:0.49]
+	ββ = [100.0]
+	p = 250
+	Δv = MainΔv
+	Δn = 1e-2
+	g = 0.05
+
 end

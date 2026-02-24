@@ -24,7 +24,7 @@ ALGORITHM
 - [ ] SC/xy A[128]
 
 # EHM/C2 (x on pipeline run)
-- [x] Normal A[128] => Stubborn UP
+- [x] Normal A[128] => Stubborn UP [ALMOST]
 - [x] Normal B[128] => Stubborn UP
 - [x] AF/Sd A[128] => MetNum UP => [DONE]
 - [x] AF/S A[128] => MetNum UP => [DONE]
