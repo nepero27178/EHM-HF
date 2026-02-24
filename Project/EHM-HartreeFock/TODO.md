@@ -16,15 +16,19 @@ ALGORITHM
 # EHM/C4 (x on pipeline run)
 - [x] Normal A[128] => Aspire UP => [DONE]
 - [x] Normal B[128] => MetNum UP => [DONE]
-- [ ] AF/Sd A[128]
-- [ ] AF/xy A[128]
+- [x] AF/Sd A[128] => Aspire UP => [DONE]
+- [x] AF/S A[128] => Aspire UP => [DONE]
+- [x] AF/d A[128] => Aspire UP => [DONE]
+- [x] AF/xy A[128] => Aspire UP => [DONE]
 - [ ] SC/sSd A[128]
 - [ ] SC/xy A[128]
 
 # EHM/C2 (x on pipeline run)
-- [ ] Normal A[128]
-- [ ] Normal B[128]
-- [ ] AF/Sd A[128]
-- [ ] AF/xy A[128]
+- [x] Normal A[128] => Stubborn UP
+- [x] Normal B[128] => Stubborn UP
+- [x] AF/Sd A[128] => MetNum UP => [DONE]
+- [x] AF/S A[128] => MetNum UP => [DONE]
+- [x] AF/d A[128] => Aspire UP => [DONE]
+- [x] AF/xy A[128] => MetNum UP => [DONE]
 - [ ] SC/sSd A[128]
 - [ ] SC/xy A[128]
