@@ -57,13 +57,18 @@ end
 function main()
 
 	# Read files
-	FilePathIn = replace(PROJECT_SRC_DIR,"/src"=>"/simulations") * "/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)/RB=$(RB...)_Syms=$(Syms...).csv"
+	FilePathIn::String = replace(PROJECT_SRC_DIR,"/src"=>"/simulations") * "/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)/RB=$(RB...)_Syms=$(Syms...).csv"
 
 	# Create output directory
 	# For simulations: Setup > Phase > RB+Syms (to make comparable data in the same folder)
 	# For plots: Phase > Setup > Syms > RB (to make same-phase plots in the same folder)
-	DirPathOut = replace(PROJECT_SRC_DIR,"/src"=>"/analysis") * "/Mode=$(Mode)/Phase=$(Phase)/Setup=$(Setup)/Syms=$(Syms...)/RB=$(RB...)/Obj=$(Obj)"
+	DirPathOut::String = replace(PROJECT_SRC_DIR,"/src"=>"/analysis") * "/Mode=$(Mode)/Phase=$(Phase)/Setup=$(Setup)/Syms=$(Syms...)/RB=$(RB...)/Obj=$(Obj)"
 	mkpath(DirPathOut)
+
+	JumpToData::String = "#!/usr/bin/bash\n\ncd $(dirname(FilePathIn))"
+	open(dirname(DirPathOut) * "/jump-to-data.sh","w") do io
+		write(io,JumpToData)
+	end
 
 	for obj in objList
 		# Run plot modules for each HFP
@@ -88,11 +93,11 @@ function main()
 			SavePlot3D(
 				FilePathIn,
 				DirPathOut;
-				xVar="δ", # Setup: A=>U, B=>δ
+				xVar="U", # Setup: A=>U, B=>δ
 				yVar="V",
 				zVar=obj,
 				cs=:winter,
-				Extension="png"
+				# Extension="png"
 			)
 		end
 	end

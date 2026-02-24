@@ -286,10 +286,8 @@ function GetHFRun(
 			end
 			S = GetHFStep(Phase,Syms,ModPars,v0;Δn,μ0=μ,RBS,RBd,OptBZ,debug) # Single step
 			v = copy(S.v) # Otherwise chaos with pointers
-			# Q .= abs.(v.-v0)./Δv # Get qualities
-			# Cvd = all(first(Q.<=1)) # Compute converged switch
-			Q .= abs.(v.-v0)./v0 # Get qualities
-			Cvd = all(first(Q.<=Δv)) # Compute converged switch
+			Q .= abs.(v.-v0)./Δv # Get qualities
+			Cvd = all(first(Q.<=1)) # Compute converged switch
 			μ = S.μ
 
 			if Cvd
