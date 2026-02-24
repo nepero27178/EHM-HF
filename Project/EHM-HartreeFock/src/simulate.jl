@@ -69,7 +69,8 @@ function RunHFScan(
 	g = g0
 
 	# HF iterations
-	i = 1
+	i::Int64 = 1
+	c::Int64 = 1
 	for t in tt,
 		L in LL,
 		δ in δδ,
@@ -99,7 +100,7 @@ function RunHFScan(
 			for 	V in VV
 				ModPars.V .= V
 
-				Progress = @bold@yellow "[ Progress: $(round(i/I*100,digits=1))% ]"
+				Progress = @bold@yellow "[ Progress: $(round(i/I*100,digits=1))% | Convergence rate: $(round(c/i*100,digits=1))% ]"
 				Setting = @default@white " Phase=$(Phase)  RB=$(RB...)  Syms=$(Syms...)  t=$t  U=$U  V=$V  L=$L  β=$β  δ=$δ"
 				print(Panel(Progress * Setting;style="yellow",title="Run ($(i)/$(I))",title_justify=:right,fit=true))
 
@@ -119,8 +120,14 @@ function RunHFScan(
 					))
 				)
 
+				R.Cvd ? c += 1 : false
+				append::Bool = true
+				if i == 1
+					!R.Cvd ? c -= 1 : false
+					append = false
+				end
+
 				# Write on file
-				append = i==1 ? false : true # Header only for first write
 				CSV.write(FilePathOut,Row;append)
 
 				# Optimize g for next run
