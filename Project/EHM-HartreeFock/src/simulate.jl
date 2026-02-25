@@ -132,7 +132,7 @@ function RunHFScan(
 
 				# Optimize g for next run
 				if Optg && Phase=="SC-Singlet" && "s" in Syms
-					Uc = GetUc(Pars,R.v;how="DisSum",RBS,RBd,OptBZ)
+					Uc = GetUc(ModPars,R.v;how="DisSum",RBS,RBd,OptBZ)
 					if U>(2/g0-1)*Uc
 						Og = GetOptimalg(U,Uc)
 						Og<g0 ? AlgPars.g .= Og : 0

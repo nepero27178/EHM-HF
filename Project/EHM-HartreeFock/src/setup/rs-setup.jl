@@ -26,12 +26,12 @@ end
 
 # RB
 AllRB::Set{String} = Set(["S","d"])
-RB::Set{String} = Set(["S"]) # ← Change here
+RB::Set{String} = Set(["S","d"]) # ← Change here
 RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "A[128]a" # ← Change here
+Setup::String = "A[128]" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test[30]",
 	"A[128]", # UV plane
