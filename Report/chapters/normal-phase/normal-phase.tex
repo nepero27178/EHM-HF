@@ -449,7 +449,7 @@ Let
 \begin{equation}\label{eq:normal-bands-renormalization}
 	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv \epsilon_{\mathbf{k}\sigma} + u^{(s^*)}_\sigma V (\cos k_x + \cos k_y) + u^{(d)}_\sigma V (\cos k_x - \cos k_y)
 \end{equation}
-This equation defines the bands renormalization and resymmetrization anticipated in Tab.~\ref{tab:normal-RWCs}, and is actually spin-independent. The fact that both a $s^*$ and a $d$-wave component appear introduces an interesting anisotropy that is discusses in next section.
+This equation defines the bands renormalization and resymmetrization anticipated in Tab.~\ref{tab:normal-RWCs}, and is actually spin-independent. The fact that both a $s^*$ and a $d$-wave component appear introduces an interesting anisotropy that is discussed in next section.
 
 \subsection{Fock contraction energy}\label{subsec:normal-fock-energy}
 
@@ -482,7 +482,7 @@ Finally, let us derive the Fock contraction energy by expanding Eq.~\eqref{eq:no
 \end{align}
 This expression gives the Fock contraction energy coming from the $\hat H_V$ operator. The particularly relevant result, here, is the fact that the full spectral amplitude of $u_{\mathbf{k}\sigma}$ here is weighted and contributes to contraction energy with a $V$ linear prefactor. This suggests that a mixed-symmetry band could be energetically preferred.
 
-\subsection{Extending hopping to $d$-wave bands}\label{subsec:normal-d-wave-hopping}
+\subsection{Nematicity: extending hopping to $d$-wave bands}\label{subsec:normal-d-wave-hopping}
 
 \begin{figure}
 	\centering
@@ -501,7 +501,7 @@ with
 	\qquad
 	t^{(d)}_\sigma = - \frac{u_\sigma^{(d)} V}{2}
 \]
-Interestingly enough, in principle an anisotropy in the normal diffusion between $x$ and $y$ direction emerges. A schematics of anisotropic mixed symmetry hopping is depicted in Fig.~\ref{fig:anisotropic-hopping}: as is evident, for each bond linking two sites the hopping parameter can be a positive or negative combination of the two components, whether the link direction is vertical or horizontal. Naturally, the solution needs to be invariant under exchange $x \leftrightarrow y$, making the actual SSB of the class $\mathrm{C}_4 \to \mathrm{C}_2 / \mathbb{Z}_2$.
+Interestingly enough, in principle an anisotropy in the normal diffusion between $x$ and $y$ direction emerges: such a feature is referred to as ``nematicity''. A schematics of anisotropic mixed symmetry hopping is depicted in Fig.~\ref{fig:anisotropic-hopping}: as is evident, for each bond linking two sites the hopping parameter can be a positive or negative combination of the two components, whether the link direction is vertical or horizontal. Naturally, the solution needs to be invariant under exchange $x \leftrightarrow y$, making the actual SSB of the class $\mathrm{C}_4 \to \mathrm{C}_2 / \mathbb{Z}_2$. For the normal phase, the physical expectation is that nematicity is suppressed; this does not make this discussion somwhat less relevant for more complex phases, such as the superconducting one, for which it is known nematicity in $2$D planar lattices can arise as a source of superconducting long-range ordering \cite{bohmer2022nematicity}.
 
 The fact that hopping is here anisotropic does not break full translational invariance $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$. Imposing a free degenerate Fermi gas ground state in Eq.~\eqref{eq:normal-cc-EV} necessarily gives a uniform density indeed, whatever the shape of the band. By Fourier-transforming the site number operator according to the convention of Eq.~\eqref{eq:fourier-convention},
 \[
@@ -738,7 +738,18 @@ Let us extend the arguments above to a weaker symmetry, allowing for
 \[
 	\mathrm{C}_4 \SSB \mathrm{C}_2/\mathbb{Z}_2
 \]
-We work with the full, anisotropic band of Eq.~\eqref{eq:normal-bands-renormalization}. \todo
+We work with the full, anisotropic band of Eq.~\eqref{eq:normal-bands-renormalization}. The proofs of this section are somewhat more involuted, and lead to the conclusion that within the normal phase the $\mathrm{C}_4$ structure must be preserved.
+
+Before starting, it is useful to spend a few words on the spatial structure of a mixed $s^* \otimes d$-wave band.
+
+\begin{enumerate}
+	\item Let for instance
+	\[
+		u^{(s^*)} > 2t/V > 0
+		\qquad
+		u^{(d)} > 0
+	\]
+\end{enumerate}
 
 \section{Numerical simulations}\label{sec:normal-numerical}
 
