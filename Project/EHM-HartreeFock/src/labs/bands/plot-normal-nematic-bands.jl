@@ -3,37 +3,17 @@ using Colors
 using ColorSchemes
 using Contour
 
-# Get color scheme
-TabColors = ColorSchemes.tab20 # .tab10
-tabblue = TabColors[1]
-tabgreen = TabColors[5] # TabColors[3] # tab10 -> 3; tab20 -> 5
-tabred = TabColors[7] # TabColors[4] # tab10 -> 4; tab20 -> 7
-
-# Convert to Lab color space
-StartLab = Colors.convert(Lab{Float64}, tabblue)
-StopLab = Colors.convert(Lab{Float64}, tabred)
-MidLab = Colors.convert(Lab{Float64}, RGB(0.8,0.8,0.8))
-
-# Interpolate in Lab space using the range syntax
-n = 100  # number of colors in the colormap
-Cool = [Colors.convert(RGB, c) for c in range(StartLab, stop=MidLab, length=n)]
-Warm = [Colors.convert(RGB, c) for c in range(MidLab, stop=StopLab, length=n)]
-cmap = vcat(Cool,Warm)
-# cmap = :coolwarm
-
-LAB_ROOT = @__DIR__
-FilePathOut = LAB_ROOT * "/tmp.pdf"
-
-# Activate backend
 CairoMakie.activate!()
-
 MT = Makie.MathTeXEngine
 MT_DIR = dirname(pathof(MT)) * "/../assets/fonts/NewComputerModern"
-
 set_theme!(fonts = (
 	regular = MT_DIR * "/NewCM10-Regular.otf",
 	bold = MT_DIR * "/NewCM10-Bold.otf"
 ))
+
+LAB_ROOT = @__DIR__
+include(LAB_ROOT * "/../../setup/graphic-setup.jl")
+FilePathOut = LAB_ROOT * "/normal-nematic-bands.pdf"
 
 function StructureFactor(
 	Sym::String,
@@ -87,7 +67,6 @@ lines!(ax, Kx, -Kx, color=tabred)
 text!(ax,pi*0.75,pi*0.25,text="MBZ",color=tabblue,align=(:right,:top))
 text!(ax,pi*0.75,pi*0.75,text="NBZ",color=tabred,align=(:right,:bottom))
 
-ax.title = "MBZ and NBZ"
 ax.xlabel = L"$k_x$"
 ax.ylabel = L"$k_y$"
 ax.xticks = ([-pi, -pi/2, 0, pi/2, pi], [L"$-\pi$", L"$-\pi/2$", L"$0$", L"$\pi/2$", L"$\pi$"])
@@ -104,7 +83,7 @@ for cl in Contour.levels(c)
    lvl = Contour.level(cl) # the z-value of this contour level
    for line in Contour.lines(cl)
        xs, ys = coordinates(line) # coordinates of this line segment
-       lines!(ax, xs, ys, color="yellow")
+       lines!(ax, xs, ys, color="white")
    end
 end
 
@@ -125,7 +104,7 @@ for cl in Contour.levels(c)
    lvl = Contour.level(cl) # the z-value of this contour level
    for line in Contour.lines(cl)
        xs, ys = coordinates(line) # coordinates of this line segment
-       lines!(ax, xs, ys, color="yellow")
+       lines!(ax, xs, ys, color="white")
    end
 end
 
@@ -146,7 +125,7 @@ for cl in Contour.levels(c)
    lvl = Contour.level(cl) # the z-value of this contour level
    for line in Contour.lines(cl)
        xs, ys = coordinates(line) # coordinates of this line segment
-       lines!(ax, xs, ys, color="yellow")
+       lines!(ax, xs, ys, color="white")
    end
 end
 
