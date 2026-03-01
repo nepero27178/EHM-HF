@@ -5,11 +5,24 @@ using Contour
 
 CairoMakie.activate!()
 MT = Makie.MathTeXEngine
-MT_DIR = dirname(pathof(MT)) * "/../assets/fonts/NewComputerModern"
+# MT_DIR = dirname(pathof(MT)) * "/../assets/fonts/NewComputerModern"
+# set_theme!(fonts = (
+# 	regular = MT_DIR * "/NewCM10-Regular.otf",
+# 	bold = MT_DIR * "/NewCM10-Bold.otf"
+# ))
+MT_DIR = dirname(pathof(MT)) * "/../assets/fonts/ComputerModern"
 set_theme!(fonts = (
-	regular = MT_DIR * "/NewCM10-Regular.otf",
-	bold = MT_DIR * "/NewCM10-Bold.otf"
-))
+		regular = MT_DIR * "/cmr10.ttf",
+		bold = MT_DIR * "/cmb10.ttf",
+		italic = MT_DIR * "/cmmi10.ttf",
+		math = MT_DIR * "/cmsy10.ttf",
+    ),
+	latex_preamble = raw"""
+	\usepackage{amsmath}
+	\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+	"""
+)
+
 
 LAB_ROOT = @__DIR__
 include(LAB_ROOT * "/../../setup/graphic-setup.jl")
@@ -64,6 +77,10 @@ lines!(ax, Kx./2, -Kx./2, color="white")
 scatter!(ax, [-0.1*pi, -0.8*pi], [0.8*pi, -0.1*pi], color="white")
 text!(ax,-0.1*pi,0.8*pi,text=L"$\mathbf{k}$",color="white",align=(:left,:top))
 text!(ax,-0.8*pi,-0.1*pi,text=L"$\mathcal{R}\mathbf{k}$",color="white",align=(:left,:top))
+text!(ax,0,0.5*pi,text=L"$\mathcal{A}$",color="white",align=(:center,:center))
+text!(ax,0,-0.5*pi,text=L"$\mathcal{A}$",color="white",align=(:center,:center))
+text!(ax,0.5*pi,0,text=L"$\mathcal{B}$",color="white",align=(:center,:center))
+text!(ax,-0.5*pi,0,text=L"$\mathcal{B}$",color="white",align=(:center,:center))
 
 ax.title = L"$\epsilon^{(s^*)} = 1$, $\epsilon^{(d)} = 1/2$"
 ax.xlabel = L"$k_x$"
@@ -93,9 +110,13 @@ lines!(ax, Kx, -abs.(Kx).+pi, color="white")
 lines!(ax, Kx./2, Kx./2, color="white")
 lines!(ax, Kx./2, -Kx./2, color="white")
 
-scatter!(ax, [-0.1*pi, -0.8*pi], [0.8*pi, -0.1*pi], color="white")
-text!(ax,-0.1*pi,0.8*pi,text=L"$\mathbf{k}$",color="white",align=(:left,:top))
-text!(ax,-0.8*pi,-0.1*pi,text=L"$\mathcal{R}\mathbf{k}$",color="white",align=(:left,:top))
+scatter!(ax, [-0.1*pi, 0.8*pi], [0.8*pi, 0.1*pi], color="white")
+text!(ax,-0.1*pi,0.8*pi,text=L"$\mathcal{R}\mathbf{k}$",color="white",align=(:left,:top))
+text!(ax,0.8*pi,0.1*pi,text=L"$\mathbf{k}$",color="white",align=(:right,:top))
+text!(ax,0,0.5*pi,text=L"$\mathcal{A}$",color="white",align=(:center,:center))
+text!(ax,0,-0.5*pi,text=L"$\mathcal{A}$",color="white",align=(:center,:center))
+text!(ax,0.5*pi,0,text=L"$\mathcal{B}$",color="white",align=(:center,:center))
+text!(ax,-0.5*pi,0,text=L"$\mathcal{B}$",color="white",align=(:center,:center))
 
 ax.title = L"$\epsilon^{(s^*)} = -1$, $\epsilon^{(d)} = 1/2$"
 ax.xlabel = L"$k_x$"
