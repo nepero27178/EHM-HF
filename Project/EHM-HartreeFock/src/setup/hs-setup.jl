@@ -31,12 +31,12 @@ RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "beta[128]" # ← Change here
+Setup::String = "B[256]" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test[20]", # Test setup
 	"A[256]", # UV plane
 	"B[256]", # δV plane
-	"beta[128]" # TODO Trash
+	"C[256]", # βV plane
 ])
 
 TestΔv::DataFrame = DataFrame(Dict([
@@ -69,7 +69,7 @@ elseif Setup=="Test[20]"
 	Δn = 1e-2
 	g = 0.1
 
-# --- MAIN A RUN ---
+# --- MAIN UV plane RUN ---
 elseif Setup=="A[256]"
 	tt = [1.0]
 	UU = [U for U in 0.0:0.25:5.0]
@@ -82,7 +82,7 @@ elseif Setup=="A[256]"
 	Δn = 1e-2
 	g = 0.2
 
-# --- MAIN B RUN ---
+# --- MAIN δV plane RUN ---
 elseif Setup=="B[256]"
 	tt = [1.0]
 	UU = [0.0, 5.0, 10.0]
@@ -95,12 +95,12 @@ elseif Setup=="B[256]"
 	Δn = 1e-2
 	g = 0.2
 
-# --- MAIN beta RUN ---
-elseif Setup=="beta[128]"
+# --- MAIN βV plane RUN ---
+elseif Setup=="C[256]"
 	tt = [1.0]
-	UU = [4.0]
+	UU = [0.0]
 	VV = [V for V in 0.0:0.2:6.0]
-	LL = [128]
+	LL = [256]
 	δδ = [0.0, 0.2, 0.4]
 	ββ = [1.0, 2.0, 10.0, 20.0, 100.0]
 	p = 100

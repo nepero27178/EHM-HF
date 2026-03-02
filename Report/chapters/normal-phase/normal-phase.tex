@@ -409,7 +409,7 @@ thus
 	\qq{for}
 	\ell\in\lbrace x,y \rbrace
 \]
-recalling the antisymmetric form factors of Tab~\ref{tab:x-wave-reciprocal-factors}. The remaining $s^*$ and $d$ symmetries are legitimate HFPs with relative self-consistency equations, reported in Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies} using spin degeneracy.
+recalling the antisymmetric form factors of Tab~\ref{tab:x-wave-reciprocal-factors}. The remaining $s^*$ and $d$ symmetries are legitimate HFPs with relative self-consistency equations, reported in Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies} using spin degeneracy. It is useful to anticipate here that, as will result from Sec.~\ref{subsec:normal-bands-shrinking-C2}, that the $d$-wave component will be suppressed. To prove this statement requires a little space, thus we will deal with it later on. For now we keep this component ignoring these anticipations, for reasons that will become clear in Sec.~\ref{subsec:normal-d-wave-hopping}.
 
 \begin{table}
 	\centering
@@ -491,7 +491,7 @@ This expression gives the Fock contraction energy coming from the $\hat H_V$ ope
 	\label{fig:anisotropic-hopping}
 \end{figure}
 
-From Tabs.~\ref{tab:x-wave-real-factors} and \ref{tab:x-wave-reciprocal-factors} we can inverse-Fourier transform the form factors to get the full effective hopping,
+This section serves as a zoom on the subject of the topologies of free band structures, and to justify the interest in a $\mathrm{C}_4 \to \mathrm{C}_2$ SSB apparently pretty arbitrary. {\color{tabred}[Insert: nematicity is a common feature in many materials, so on and so forth...]} From Tabs.~\ref{tab:x-wave-real-factors} and \ref{tab:x-wave-reciprocal-factors} we can inverse-Fourier transform the form factors to get the full effective hopping,
 \[
 	\tilde{t}_{ij\sigma} = \sum_{\gamma\in\lbrace s^*,d \rbrace} t^{(\gamma)}_\sigma \varphi_{ij}^{(\gamma)}
 \]
@@ -540,6 +540,25 @@ The diffusion RMP $\tilde{t}_{ij\sigma}$ is to be interpreted like the right-han
 	\right]
 \]
 To limit the sum to NNs is a matter of the symmetry structure of the function $\tilde{t}_{ij\sigma}$.
+
+We can define the direction-dependent hopping as
+\begin{align}
+	\tilde{t}^{(x)} &\equiv t - \frac{u^{(s^*)} - u^{(d)}}{2} V \\
+	\tilde{t}^{(y)} &\equiv t - \frac{u^{(s^*)} + u^{(d)}}{2} V
+\end{align}
+Both components are controlled by $V$. Evidently $u^{(s^*)}$ is a measure of the direction-averaged hopping shift with respect to $V$, while $u^{(d)}$ measures the hopping anisotropy,
+\[
+	u^{(s^*)} = \frac{
+		\left(
+		t-\tilde{t}^{(x)}
+		\right) + \left(
+		t-\tilde{t}^{(y)}
+		\right)
+	}{V}
+	\qquad
+	u^{(d)} = \frac{\tilde{t}^{(y)} - \tilde{t}^{(x)}}{V}
+\]
+Theoretical introduction to nematicity is over, and we will get back to this later. To complete the phase overview, we move to the computation of the ground-state free energt density.
 
 \section{Normal free energy density}\label{sec:normal-free-energy}
 
@@ -651,6 +670,7 @@ When it comes to algorithmic computation of this quantity, it is important to ex
 		\big|^2
 	\right] + \tilde{\mu} n 
 \end{equation}
+a simple enough formula including all effects. Note that, in computational therms, logarithmic divergences at null argument (occurring in the formula above at energies deep in the Fermi sea) can be difficult to handle. It is then useful to implement some algebraic manipulation to overcome this difficulty in numerical computations.
 
 \section{Theoretical constraints on the normal phase HFPs}\label{sec:normal-constraints}
 
@@ -831,7 +851,7 @@ Collecting the two points above, we have the constraint on $u^{(s^*)}$
 \end{equation}
 Interestingly enough, the self-consistent procedure predicts a positive convergence value for the simplest HFP, excluding the possibility of nullifying the effective hopping as well as bands sign inversion. We can denominate this net effect ``bands shrinking''.
 
-\subsection{Extension to a $\mathrm{C}_2/\mathbb{Z}_2$ symmetry}
+\subsection{Extension to a $\mathrm{C}_2/\mathbb{Z}_2$ symmetry}\label{subsec:normal-bands-shrinking-C2}
 
 Let us extend the arguments above to a weaker symmetry, allowing for
 \[
@@ -1034,44 +1054,85 @@ These last two facts were the missing informations. Importantly, self-consistenc
 \end{equation}
 A consequence of this is that there is no need at all to bother using $u^{(d)}$ as an HFP. This is physically expected but non trivial.
 
-Now, in principle 
-
 \section{Numerical simulations}\label{sec:normal-numerical}
 
-\todo
-
-\subsection{HF iterative algorithm sketch}\label{subsec:normal-hf-sketch}
-
-We are finally able to move to the computational part of this chapter. The aim is to write down an algorithm of the kind of Sec.~\ref{subsec:hf-sketch}. For the normal phase, the HFPs vector has two components:
+In this section we present and discuss the numerical results, the physical relevance of the found phenomena and the boundaries of the algorithm. Let us start by sketching the algorithm used to determine self-consistently the mean-field structure of the normal phase in parameter space. The current objective is to write down an algorithm of the kind of Sec.~\ref{subsec:hf-sketch}. For the normal phase, the HFPs ``vector'' has just one component:
 \[
 	\mathbf{v} = \begin{bmatrix}
-		u^{(s^*)} \\ u^{(d)}
+		u^{(s^*)}
 	\end{bmatrix}
 \]
-As before, we treat spin as a pure degeneracy. The HFPs are characterized by the self-consistency equations of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}. The resulting model has two RMPs:
+As before, we treat spin as a pure degeneracy. The only HFP is characterized by the first self-consistency equation of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}. The resulting model has two RMPs:
 \begin{align}
 	\tilde{t}_{ij} &\equiv \left(
 		t - \frac{u^{(s^*)}V}{2}
-	\right) \varphi_{ij}^{(s^*)} - \frac{u^{(d)}V}{2} \varphi_{ij}^{(d)} \\
+	\right) \varphi_{ij}^{(s^*)} \\
 	\tilde{\mu} &\equiv \mu + n (2zV-U)
 \end{align}
-the second one being only dependent on the model parameters and not on HFPs. We can define the direction-dependent hopping as
-\begin{align}
-	\tilde{t}^{(x)} &\equiv t - \frac{u^{(s^*)} - u^{(d)}}{2} V \\
-	\tilde{t}^{(y)} &\equiv t - \frac{u^{(s^*)} + u^{(d)}}{2} V
-\end{align}
-Both components are controlled by $V$. Evidently $u^{(s^*)}$ is a measure of the direction-averaged hopping shift with respect to $V$, 
+the second one being only dependent on the model parameters and not on HFPs. 
+Finally, the phase free energy is given by Eq.~\eqref{eq:normal-fMFT}. Evidently the normal phase is completely independent of $U$, since the local repulsion cannot develop any RWC other than those renormalizing the chemical potential. Because of this we present the results varying the other parameters, keeping everywhere $U=0$. \todo
+
+\subsection{Results discussion}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{../Project/EHM-HartreeFock/analysis/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf}
+	\caption{}
+	\label{fig:normal-B128}
+\end{figure}
+
+Being the results by construction $U$-independent, we ran simulations in the $(V, \delta)$ plane, setting up the following general parameters:
 \[
-	u^{(s^*)} = \frac{
-		\left(
-			t-\tilde{t}^{(x)}
-		\right) + \left(
-			t-\tilde{t}^{(y)}
-		\right)
-	}{V}
+	\Delta n = 10^{-2}
+	\qquad
+	\Delta \mathbf{v} = \begin{bmatrix}
+		u^{(s^*)} \colon 5 \times 10^{-3}
+	\end{bmatrix}
 \]
-while $u^{(d)}$ measures the hopping anisotropy with respect to $V$,
+meaning that we consider a simulation to have converged when the following logic condition is satisfied for each component of $\mathbf{v}$:
 \[
-	u^{(d)} = \frac{\tilde{t}^{(y)} - \tilde{t}^{(x)}}{V}
+	\forall v_j
+	\quad\colon\quad
+	\abs{v_j-\mathrm{A}_j(\mathbf{v})} \le \Delta v_j
 \]
-Finally, the phase free energy is given by Eq.~\eqref{eq:normal-fMFT}. \todo
+being $\mathrm{A}(\mathbf{v})$ the algorithmic image of the HFP vector $\mathbf{v}$, and $\mathrm{A}_j$ its $j$-th component. {\color{tabred}[Move this consideration up to general HF sketch, together with a concrete explanation of the iterative algorithm.]}
+
+In Fig.~\ref{fig:normal-B128} are reported the results obtained on a $128 \times 128$ lattice and ``low'' temperature $\beta=100$, varying the non-local attraction and the doping level
+\[
+	V = 0,~0.1,~0.2~\dots,~4.0
+	\qquad
+	\delta = 0,~0.01,~0.02~\dots,~0.49
+\]
+The most evident feature of the plot is the strong negative dependence on doping of the HFP $u^{(s^*)}$. This is expected, at least in the $\beta +\infty$ limit. Consider the self-consistency equation of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies} seen as a functional of temperature and chemical potential,
+\[
+	u^{(s^*)}[\beta,\tilde{\mu}] = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+\]
+in the zero-temperature limit the above equation reduces to
+\[
+	\lim_{\beta \to \infty} u^{(s^*)}[\beta,\tilde{\mu}] = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{FS}} (\cos k_x + \cos k_y)
+\]
+with FS the Fermi surface. While at half filling, because of PHS,
+\[
+	\delta = 0
+	\quad\implies\quad
+	\mathrm{FS} = \partial \mathrm{MBZ}
+\]
+at $\delta>0$ the FS expands over the MBZ boundary, where the form factor $\cos k_x + \cos k_y$ becomes negative. This holds as long as the effective hopping is non-zero, a condition implying together
+\[
+	\delta_1 > \delta_2
+	\quad\implies\quad
+	\text{$\mathrm{FS}_1$ encircles $\mathrm{FS}_2$} 
+\]
+with obvious meaning of the notation. Using this property we conclude
+\[
+	\tilde{t} > 0
+	\qq{and}
+	\delta_1 > \delta_2
+	\quad\implies\quad
+	\lim_{\beta \to \infty} u^{(s^*)}[\beta,\tilde{\mu}] \Big|_{\delta_1} < 
+	\lim_{\beta \to \infty} u^{(s^*)}[\beta,\tilde{\mu}] \Big|_{\delta_2}
+\]
+\todo
+
+\subsection{Mott localization effect}
+\todo

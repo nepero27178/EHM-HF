@@ -14,6 +14,9 @@ ALGORITHM
 3. SC phase
 
 # EHM/C4 (x on pipeline run)
+- [ ] Normal B[256] => Stubborn DOWN
+- [ ] Normal B[128]a => Stubborn DOWN
+- [ ] Normal C[128] => Stubborn DOWN
 - [x] Normal A[128] => Aspire UP => [DONE]
 - [x] Normal B[128] => MetNum UP => [DONE]
 - [x] AF/Sd A[128] => Aspire UP => [DONE]

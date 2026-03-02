@@ -20,6 +20,8 @@ CairoMakie.set_theme!(fonts = (
 
 LAB_ROOT = @__DIR__
 include(LAB_ROOT * "/../../setup/graphic-setup.jl")
+cmap = CoolWarm
+
 FilePathOut = LAB_ROOT * "/normal-nematic-bands-pp.pdf"
 
 function StructureFactor(

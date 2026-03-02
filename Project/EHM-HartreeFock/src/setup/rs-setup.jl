@@ -26,18 +26,18 @@ end
 
 # RB
 AllRB::Set{String} = Set(["S","d"])
-RB::Set{String} = Set(["S"]) # ← Change here
+RB::Set{String} = Set(["S","d"]) # ← Change here
 RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "B[128]" # ← Change here
+Setup::String = "B[128]a" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test[30]",
 	"A[128]", # UV plane
-	"A[128]a",
+	"A[128]a",# UV plane
 	"B[128]", # δV plane
-	"B[128]a"
+	"B[128]a",# δV plane
 ])
 
 TestΔv::DataFrame = DataFrame(Dict([
@@ -70,7 +70,7 @@ elseif Setup=="Test[30]"
 	Δn = 1e-2
 	g = 0.2
 
-# --- MAIN A RUN ---
+# --- MAIN UV plane RUN ---
 elseif Setup=="A[128]"
 	tt = [1.0]
 	UU = [U for U in 0.0:0.5:20.0]
@@ -83,7 +83,7 @@ elseif Setup=="A[128]"
 	Δn = 1e-2
 	g = 0.5
 
-# --- MAIN A RUN ---
+# --- EXTENDED UV plane RUN ---
 elseif Setup=="A[128]a"
 	tt = [1.0]
 	UU = [U for U in 0.0:0.5:20.0]
@@ -91,12 +91,12 @@ elseif Setup=="A[128]a"
 	LL = [128]
 	δδ = [0.0, 0.2, 0.4]
 	ββ = [100.0]
-	p = 250
+	p = 250 # Difference with A[128]
 	Δv = MainΔv
 	Δn = 1e-2
-	g = 0.05
+	g = 0.05 # Difference with A[128]
 
-# --- MAIN B RUN ---
+# --- MAIN δV plane RUN ---
 elseif Setup=="B[128]"
 	tt = [1.0]
 	UU = [0.0, 4.0, 12.0]
@@ -109,17 +109,17 @@ elseif Setup=="B[128]"
 	Δn = 1e-2
 	g = 0.5
 
-# --- a EXTENDED B RUN ---
+# --- EXTENDED δV plane RUN ---
 elseif Setup=="B[128]a"
 	tt = [1.0]
 	UU = [0.0]
-	VV = [V for V in 4.0:0.1:8.0]
+	VV = [V for V in 4.0:0.1:8.0] # Difference with A[128]
 	LL = [128]
 	δδ = [δ for δ in 0.0:0.01:0.49]
 	ββ = [100.0]
-	p = 250
+	p = 250 # Difference with A[128]
 	Δv = MainΔv
 	Δn = 1e-2
-	g = 0.05
+	g = 0.05 # Difference with A[128]
 
 end
