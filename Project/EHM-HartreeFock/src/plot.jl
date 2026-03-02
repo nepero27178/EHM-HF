@@ -9,6 +9,7 @@ using CSV
 
 # Includer
 PROJECT_SRC_DIR = @__DIR__
+include(PROJECT_SRC_DIR * "/setup/graphic-setup.jl")
 include(PROJECT_SRC_DIR * "/modules/structs.jl")
 include(PROJECT_SRC_DIR * "/modules/methods-IO.jl")
 
@@ -93,10 +94,10 @@ function main()
 			SavePlot3D(
 				FilePathIn,
 				DirPathOut;
-				xVar="U", # Setup: A=>U, B=>δ
+				xVar="δ", # Setup: A=>U, B=>δ
 				yVar="V",
 				zVar=obj,
-				cs=:winter,
+				cs=:imola,
 				# Extension="png"
 			)
 		end

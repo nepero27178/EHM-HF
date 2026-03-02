@@ -131,10 +131,14 @@ function Plot3D(
 		end
 
 		# Plot parametrically
-		# in(zVar, GetHFPs(Phase,Syms,"S" in RB,"d" in RB)) ? zz = abs.(zz) : false
+		clims::Tuple{Float64,Float64} = (minimum(filter(!isnan,zz)), maximum(filter(!isnan,zz)))
+		if Mode=="heatmap" && zVar=="tS"
+			clims = (0.0,1.0)
+		end
 		h = PlotFunction(
 			xx, yy, zz',
-			colormap=cs
+			colormap=colorschemes[cs],
+			colorrange=clims
 		)
 		Colorbar(H[1,2], h)
 
@@ -157,7 +161,7 @@ function SavePlot3D(
 
 	# Assert printing
 	Print::Bool=true
-	PlotVec = Plot3D(FilePathIn;Mode,xVar,yVar,zVar,Print)
+	PlotVec = Plot3D(FilePathIn;Print,Mode,xVar,yVar,zVar,cs)
 
 	# Initialize directory structure
 	Setup, Phase, Syms = UnpackFilePath(FilePathIn)

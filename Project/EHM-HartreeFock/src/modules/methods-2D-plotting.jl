@@ -187,12 +187,13 @@ function SavePlot2D(
 	yVar::String="m",
 	pVar::String="δ",
 	cs::Symbol=:imola50,
+	Skip::Int64=0,
 	Extension::String="pdf"
 )
 
 	# Assert printing
 	Print::Bool=true
-	PlotVec = Plot2D(FilePathIn;xVar,yVar,pVar,Print)
+	PlotVec = Plot2D(FilePathIn;Print,xVar,yVar,pVar,cs,Skip)
 
 	# Initialize directory structure
 	Setup, Phase, Syms = UnpackFilePath(FilePathIn)

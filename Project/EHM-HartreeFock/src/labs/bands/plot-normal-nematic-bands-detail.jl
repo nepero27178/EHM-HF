@@ -5,13 +5,8 @@ using Contour
 
 CairoMakie.activate!()
 MT = Makie.MathTeXEngine
-# MT_DIR = dirname(pathof(MT)) * "/../assets/fonts/NewComputerModern"
-# set_theme!(fonts = (
-# 	regular = MT_DIR * "/NewCM10-Regular.otf",
-# 	bold = MT_DIR * "/NewCM10-Bold.otf"
-# ))
 MT_DIR = dirname(pathof(MT)) * "/../assets/fonts/ComputerModern"
-set_theme!(fonts = (
+CairoMakie.set_theme!(fonts = (
 		regular = MT_DIR * "/cmr10.ttf",
 		bold = MT_DIR * "/cmb10.ttf",
 		italic = MT_DIR * "/cmmi10.ttf",
@@ -22,7 +17,6 @@ set_theme!(fonts = (
 	\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
 	"""
 )
-
 
 LAB_ROOT = @__DIR__
 include(LAB_ROOT * "/../../setup/graphic-setup.jl")
