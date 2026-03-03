@@ -31,7 +31,7 @@ function Plot2D(
 	xVar==pVar ? error("You have chosen xVar=pVar!") : false
 
 	# Unpack filepath
-	Setup, Phase, Syms, RB = UnpackFilePath(FilePathIn)
+	Setup, Phase, Syms, RB, _ = UnpackFilePath(FilePathIn)
 
 	# Load data
 	DF::DataFrame = CSV.read(FilePathIn,DataFrame)
@@ -196,7 +196,7 @@ function SavePlot2D(
 	PlotVec = Plot2D(FilePathIn;Print,xVar,yVar,pVar,cs,Skip)
 
 	# Initialize directory structure
-	Setup, Phase, Syms = UnpackFilePath(FilePathIn)
+	Setup, Phase, Syms, RB, _ = UnpackFilePath(FilePathIn)
 	DirPathOut *= "/xVar=" * xVar * "_pVar=" * pVar * "/"
 	mkpath(DirPathOut)
 

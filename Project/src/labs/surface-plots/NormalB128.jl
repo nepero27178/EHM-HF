@@ -17,14 +17,14 @@ include(PROJECT_SRC_DIR * "/setup/graphic-setup.jl")
 include(PROJECT_SRC_DIR * "/modules/methods-3D-plotting.jl")
 
 FilePathIn = dirname(PROJECT_SRC_DIR) * "/simulations/Mode=rs/Setup=B[128]/Phase=Normal/RB=S_Syms=.csv"
-Setup, Phase, Syms, RB = UnpackFilePath(FilePathIn)
+Setup, Phase, Syms, RB, Layer = UnpackFilePath(FilePathIn)
 DF::DataFrame = CSV.read(FilePathIn,DataFrame)
 filter!([:U,:V] => (x,y) -> x==0.0 && y!=4.0, DF)
 Sim::Simulation = Simulation(DF,Setup,Phase,Syms,RB)
 xx, yy, zz = ReshapeData(DF; xVar="δ", yVar="V", zVar="uS")
 
 FilePathIn = dirname(PROJECT_SRC_DIR) * "/simulations/Mode=rs/Setup=B[128]a/Phase=Normal/RB=S_Syms=.csv"
-Setup, Phase, Syms, RB = UnpackFilePath(FilePathIn)
+Setup, Phase, Syms, RB, Layer = UnpackFilePath(FilePathIn)
 DFa::DataFrame = CSV.read(FilePathIn,DataFrame)
 Sim::Simulation = Simulation(DF,Setup,Phase,Syms,RB)
 xxa, yya, zza = ReshapeData(DF; xVar="δ", yVar="V", zVar="uS")

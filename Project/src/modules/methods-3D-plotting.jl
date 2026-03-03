@@ -36,7 +36,7 @@ function Plot3D(
 	xVar==yVar ? error("You have chosen xVar=yVar!") : false
 
 	# Unpack filepath
-	Setup, Phase, Syms, RB = UnpackFilePath(FilePathIn)
+	Setup, Phase, Syms, RB, _ = UnpackFilePath(FilePathIn)
 
 	# Load data
 	DF::DataFrame = CSV.read(FilePathIn,DataFrame)
@@ -167,26 +167,26 @@ function Plot3D(
 		if Mode=="heatmap"
 			h = CairoMakie.heatmap!(
 				ax,
-				xx, yy, zz',
+				xx, yy, zz,
 				colormap=colorschemes[cs],
 				colorrange=clims
 			)
 		elseif Mode=="surface"
 			h = CairoMakie.surface!(
 				ax,
-				xx, yy, zz',
+				xx, yy, zz,
 				colormap=colorschemes[cs],
 				shading=false
 			)
 			w = CairoMakie.wireframe!(
 				ax,
-				xx, yy, zz',
+				xx, yy, zz,
 				color=:black,
 				linewidth=0.1
 			)
 			s = CairoMakie.scatter!(
 				ax,
-				xx, yy, zz',
+				xx, yy, zz,
 				color=:black,
 				markersize=1.5
 			)
@@ -219,7 +219,7 @@ function SavePlot3D(
 	PlotVec = Plot3D(FilePathIn;Print,Mode,xVar,yVar,zVar,cs)
 
 	# Initialize directory structure
-	Setup, Phase, Syms = UnpackFilePath(FilePathIn)
+	Setup, Phase, Syms, RB, _ = UnpackFilePath(FilePathIn)
 	DirPathOut *= "/xVar=" * xVar * "_yVar=" * yVar * "/"
 	mkpath(DirPathOut)
 

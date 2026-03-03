@@ -32,8 +32,9 @@ end
 # Files IO
 
 function UnpackFilePath(
-	FilePathIn::String
-)::Tuple{String,String,Set{String},Set{String}}
+	FilePathIn::String;
+	Layered::Bool=false
+)::Tuple{String,String,Set{String},Set{String},Int64}
 
 	Str::String = replace(FilePathIn, ['.','_']=>'/')
 	GetVal(x::String)::String = String(split(split(Str,"$(x)=")[2],"/")[1])
@@ -42,8 +43,9 @@ function UnpackFilePath(
 	Phase::String = GetVal("Phase")
 	Syms::Set{String} = Set([string(s) for s in GetVal("Syms")])
 	RB::Set{String} = Set([string(s) for s in GetVal("RB")])
+	Layer::Int64 = Layered ? parse(Int64,GetVal("Layer")) : 0
 
-	return Setup,Phase,Syms,RB
+	return Setup,Phase,Syms,RB,Layer
 end
 
 function ReshapeData(
@@ -52,12 +54,15 @@ function ReshapeData(
 	yVar::String="V",
 	zVar::String="f"
 )::Tuple{Any, Any, Any}
+
+	# Sort DataFrame to avoid inconsistencies
+	SDF::DataFrame = sort(DF, [xVar, yVar])
+
+	xx = unique(SDF[!,xVar])
+	yy = unique(SDF[!,yVar])
+	zz = reshape(SDF[!,zVar],length(yy),length(xx))
 	
-	xx = unique(DF[!,xVar])
-	yy = unique(DF[!,yVar])
-	zz = reshape(DF[!,zVar],length(yy),length(xx))
-	
-	return xx, yy, zz
+	return xx, yy, zz'
 end
 
 function EnlargeDF!(
