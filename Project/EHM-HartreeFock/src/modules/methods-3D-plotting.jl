@@ -22,7 +22,7 @@ function Plot3D(
 )::Vector{GroupedPlot}
 
 	# Define plot function (heatmap, surface, mesh)
-	PlotFunction = eval(Meta.parse("CairoMakie." * Mode * "!"))
+	# PlotFunction = eval(Meta.parse("CairoMakie." * Mode * "!"))
 
 	# List vars and pars
 	xyVars = ["t", "U", "V", "L", "δ", "β"]
@@ -76,7 +76,7 @@ function Plot3D(
 		InfoPars[!,"x"] .= xVar
 		InfoPars[!,"y"] .= yVar
 		InfoPars[!,"z"] .= zVar
-		@info "\e[1;36mHeatmap plot $(j)/$(J)\e[0m" InfoPars
+		@info "\e[1;36m3D $(Mode) plot $(j)/$(J)\e[0m" InfoPars
 		println()
 
 		# Reshape local data
@@ -92,19 +92,44 @@ function Plot3D(
 		end
 
 		# Initialize plot
-		H = Figure(size=(600,400),figure_padding = 1)
-		ax = Axis(H[1, 1])
+		H::Figure = Figure(size=(600,400),figure_padding = 1)
+		ax = nothing
+
+		if Mode=="heatmap"
+			ax = Axis(
+				H[1, 1],
+				xlabelrotation = 0, # Horizontal xlabel
+				ylabelrotation = 0, # Horizontal ylabel
+			)
+		elseif Mode=="surface"
+			ax = Axis3(
+				H[1, 1],
+				xlabelalign = (:center, :center),
+				ylabelalign = (:center, :center),
+				zlabelalign = (:center, :center),
+				xlabelrotation = 0, # Horizontal xlabel
+				ylabelrotation = 0, # Horizontal ylabel
+				zlabelrotation = 0, # Horizontal zlabel
+				azimuth=0.3*pi
+			)
+		else
+			@error "Invalid Mode @ Plot3D" Mode
+			return
+		end
+
 		if Print
 			ax.xlabel = L"$%$(VarLabels[xVar])$"
 			ax.ylabel = L"$%$(VarLabels[yVar])$"
+			Mode=="surface" ? ax.zlabel = L"$%$(VarLabels[zVar])$" : false
 		elseif !Print
 			ax.xlabel = xVar
 			ax.ylabel = yVar
+			Mode=="surface" ? ax.zlabel = zVar : false
 		end
 
 		# Create filename
-		FileName = join( ["$(Pars[i])=$(df[!,Pars[i]][1])" for i in 1:length(Pars)], '_' )
-		FileName = zVar * "_" * FileName
+		FileName = zVar * "_" * join( ["$(Pars[i])=$(df[!,Pars[i]][1])" for i in 1:length(Pars)], '_' )
+		Mode=="surface" ? FileName *= "_SurfacePlot" : false
 
 		# Create raw title string, either for printing or local plotting
 		rawTitle::String = zLabel * " ("
@@ -132,17 +157,45 @@ function Plot3D(
 
 		# Plot parametrically
 		clims::Tuple{Float64,Float64} = (minimum(filter(!isnan,zz)), maximum(filter(!isnan,zz)))
-		if Mode=="heatmap" && zVar=="tS"
+		if zVar=="tS"
 			clims = (0.0,1.0)
 		end
-		h = PlotFunction(
-			xx, yy, zz',
-			colormap=colorschemes[cs],
-			colorrange=clims
-		)
+
+		h = nothing
+		if Mode=="heatmap"
+			h = CairoMakie.heatmap!(
+				ax,
+				xx, yy, zz',
+				colormap=colorschemes[cs],
+				colorrange=clims
+			)
+		elseif Mode=="surface"
+			h = CairoMakie.surface!(
+				ax,
+				xx, yy, zz',
+				colormap=colorschemes[cs],
+				shading=false
+			)
+			w = CairoMakie.wireframe!(
+				ax,
+				xx, yy, zz',
+				color=:black,
+				linewidth=0.1
+			)
+			s = CairoMakie.scatter!(
+				ax,
+				xx, yy, zz',
+				color=:black,
+				markersize=1.5
+			)
+		else
+			@error "Invalid Mode @ Plot3D" Mode
+			return
+		end
 		Colorbar(H[1,2], h)
 
 		push!(PlotVec, GroupedPlot(H,df,FileName))
+
 	end
 
 	return PlotVec

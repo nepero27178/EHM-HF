@@ -33,7 +33,7 @@ function FindRootμ(
 
 	n::Float64 = 0.5+first(Pars.δ)
 	if n <= 0 || n >= 1
-		@error "Invalid target density. Choose 0 < n < 1." n
+		@error "Invalid target density @ FindRootμ" n
 		return
 	end
 
