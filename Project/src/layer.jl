@@ -50,6 +50,7 @@ function LayerHFScan(
 
 	# HF iterations
 	i::Int64 = 1
+	j::Int64 = 1
 	c::Int64 = 1
 	for (r,Row) in enumerate(eachrow(DF))
 
@@ -69,7 +70,6 @@ function LayerHFScan(
 				"δ" => Row.δ
 			))
 
-			k::Int64 = 2 # Half mixing, double max (does this make any sense?)
 			AlgPars::DataFrame = DataFrame(Dict(
 				"p" => p*k, # From setup
 				"Δv" => Δv, # From setup
@@ -77,8 +77,9 @@ function LayerHFScan(
 				"g" => Row.g/k
 			))
 
-			# Initializers
-			v0 = DataFrame(Row[[HFP for HFP in HFPs]]) # Set{String} => Vector{String}
+			# Initializers (use last converged value)
+			LastRow = DF[j,:]
+			v0 = DataFrame(LastRow[[HFP for HFP in HFPs]]) # Set{String} => Vector{String}
 
 			# Main run
 			R::HFRun = GetHFRun(Phase,Syms,ModPars,AlgPars;v0,RBS,RBd)
@@ -101,7 +102,7 @@ function LayerHFScan(
 
 			R.Cvd ? c += 1 : false
 			append::Bool = true
-			if i == 1
+			if r == 1
 				!R.Cvd ? c -= 1 : false
 				append = false
 			end
@@ -110,6 +111,20 @@ function LayerHFScan(
 				# Write on file
 				CSV.write(FilePathOut,LayeredRow;append)
 			end
+
+		elseif Row.Converged
+
+			j = r # Advance to last converged row
+			append = true
+			if r == 1
+				append = false
+			end
+
+			if FilePathOut != "" #TODO Add no FilePathOut possibility
+				# Write on file
+				CSV.write(FilePathOut,DataFrame(Row);append)
+			end
+
 		end
 
 		cl::String = "\r\e[0K\e[1A"
