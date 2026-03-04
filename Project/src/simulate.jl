@@ -101,7 +101,7 @@ function RunHFScan(
 				ModPars.V .= V
 
 				Progress = @bold@yellow "[ Progress: $(round(i/I*100,digits=1))% | Convergence rate: $(round(c/i*100,digits=1))% ]"
-				Setting = @default@white " Phase=$(Phase)  RB=$(RB...)  Syms=$(Syms...)  t=$t  U=$U  V=$V  L=$L  β=$β  δ=$δ"
+				Setting = @default@white " Phase=$(Phase)  RB=$(RB...)  Syms=$(Syms...)  t=$(t)  U=$(U)  V=$(V)  L=$(L)  β=$(β)  δ=$(δ)"
 				print(Panel(Progress * Setting;style="yellow",title="Run ($(i)/$(I))",title_justify=:right,fit=true))
 
 				# Main run
@@ -127,8 +127,10 @@ function RunHFScan(
 					append = false
 				end
 
-				# Write on file
-				CSV.write(FilePathOut,Row;append)
+				if FilePathOut != "" #TODO Add no FilePathOut possibility
+					# Write on file
+					CSV.write(FilePathOut,Row;append)
+				end
 
 				# Optimize g for next run
 				if Optg && Phase=="SC-Singlet" && "s" in Syms
@@ -155,7 +157,7 @@ end
 function main()
 
 	# Create output directory
-	# For simulations: Setup > Phase > Syms (to make comparable data in the same folder)
+	# For data: Setup > Phase > Syms (to make comparable data in the same folder)
 	# For plots: Phase > Setup > Syms (to make same-phase plots in the same folder)
 	DirPathOut = dirname(PROJECT_SRC_DIR) * "/data/raw/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)"
 	FilePathOut = DirPathOut * "/RB=$(RB...)_Syms=$(Syms...).csv"
@@ -178,7 +180,7 @@ function main()
 		)
 	end
 
-	LogPathOut = DirPathOut * "/RB=$(RB...)_Syms=$(Syms...).log"
+	LogPathOut::String = replace(FilePathOut, ".csv" => ".log")
 	Log::DataFrame = hcat(DataFrame(Dict(
 		"tt" => [tt],
 		"UU" => [UU],
