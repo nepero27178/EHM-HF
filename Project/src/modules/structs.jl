@@ -1,7 +1,7 @@
 using GLMakie
 using CairoMakie
 using DataFrames
-using DelimitedFiles
+using CSV
 
 struct BrillouinZone
 	K::Matrix{Vector{Float64}}

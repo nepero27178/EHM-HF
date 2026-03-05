@@ -36,6 +36,11 @@ function UnpackFilePath(
 	Layered::Bool=false
 )::Tuple{String,String,Set{String},Set{String},Int64}
 
+	# Handle user forgetting to specify Layered
+	if !Layered
+		Layered = occursin("Layer=", FilePathIn) ? true : false
+	end
+
 	Str::String = replace(FilePathIn, ['.','_']=>'/')
 	GetVal(x::String)::String = String(split(split(Str,"$(x)=")[2],"/")[1])
 
@@ -82,6 +87,61 @@ function EnlargeDF!(
 	end
 
 	return DF
+
+end
+
+function MergeData(
+	FilePathsIn::Vector{String}
+)::Simulation
+
+	UDF::DataFrame = DataFrame(UnpackFilePath.(FilePathsIn), ["Setup", "Phase", "Syms", "RB", "Layer"])
+	Uniform::Bool = allequal(UDF.Phase) && allequal(UDF.Syms) && allequal(UDF.RB) && allequal([s[1] for s in split.(UDF.Setup,'-')])
+	if !Uniform
+		@error "Non uniform FilePathsIn @ MergeData" UDF
+		return
+
+	elseif Uniform
+		SetupClass = split(first(UDF.Setup),"-")[1]
+		Phase = first(UDF.Phase)
+		Syms = first(UDF.Syms)
+		RB = first(UDF.RB)
+
+		RBS::Bool = "S" in RB ? true : false
+		RBd::Bool = "d" in RB ? true : false
+
+		HFPs::Set{String} = GetHFPs(Phase,Syms,RBS,RBd) # Get phase HFPs
+		QNames::Vector{String} = ["Q" * HFP for HFP in HFPs]
+
+		DFs = CSV.read.(FilePathsIn, DataFrame)
+		for i in 1:length(DFs) # Add layer information
+			DFs[i].Layer .= fill(UDF.Layer[i], size(DFs[i],1))
+		end
+
+		DF = vcat(DFs...)
+
+		# Find duplicated simulations => dDF = duplicates DataFrame
+		ModPars::Vector{String} = ["L", "U", "V", "t", "β", "δ"]
+		dDF = DF[ findall(nonunique(DF, ModPars)),: ][!,ModPars]
+
+		# Check each duplicate
+		for Row in eachrow(dDF)
+
+			# Find repetitions and filter out non-converged values
+			ii = findall( r==Row for r in eachrow(DF[!,ModPars]) )
+			fDF = filter( :Converged => x -> x,DF[ii,:] )
+
+			# Filter based on total quality (arbitrary)
+			fDF.TotalQ .= sum([ fDF[!,Q] for Q in QNames ])
+			_, j = findmin(fDF.TotalQ)
+			fDF = select( DataFrame(fDF[j,:]), Not(:TotalQ) )
+
+			# Map on the original dataframe and keep only the best
+			i = findall( r==fDF[1,:] for r in eachrow(DF) )
+			deleteat!(DF, filter( !=(only(i)),ii ))
+		end
+
+		return Simulation(DF,SetupClass,Phase,Syms,RB)
+	end
 
 end
 

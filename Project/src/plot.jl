@@ -57,6 +57,9 @@ end
 
 function main()
 	Level::String = "raw"
+	if Level=="refined"
+		global Setup = split(Setup,'-')[1]
+	end
 
 	# Read files
 	FilePathIn::String = dirname(PROJECT_SRC_DIR) * "/data/$(Level)/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)/RB=$(RB...)_Syms=$(Syms...).csv"
@@ -81,7 +84,7 @@ function main()
 				xVar="V",
 				yVar=obj,
 				pVar="δ",
-				# cs=:winter
+				cs=:tabwarm,
 			)
 			SavePlot2D(
 				FilePathIn,
@@ -89,14 +92,15 @@ function main()
 				xVar="δ",
 				yVar=obj,
 				pVar="V",
-				# cs=:winter
+				cs=:tabwarm,
+				Skip=4
 			)
 		elseif Mode=="rs"
 			SavePlot3D(
 				FilePathIn,
 				DirPathOut;
-				xVar="δ", # Setup: A=>U, B=>δ
-				yVar="V",
+				xVar,
+				yVar,
 				zVar=obj,
 				cs=:imola,
 				# Extension="png"

@@ -211,12 +211,13 @@ function SavePlot3D(
 	yVar::String="V",
 	zVar::String="f",
 	cs::Symbol=:imola50,
+	azm=false,
 	Extension::String="pdf"
 )
 
 	# Assert printing
 	Print::Bool=true
-	PlotVec = Plot3D(FilePathIn;Print,Mode,xVar,yVar,zVar,cs)
+	PlotVec = Plot3D(FilePathIn;Print,Mode,xVar,yVar,zVar,cs,azm)
 
 	# Initialize directory structure
 	Setup, Phase, Syms, RB, _ = UnpackFilePath(FilePathIn)
