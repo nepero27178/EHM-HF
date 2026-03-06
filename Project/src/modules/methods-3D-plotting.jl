@@ -158,7 +158,10 @@ function Plot3D(
 		end
 
 		# Plot parametrically
-		clims::Tuple{Float64,Float64} = (minimum(filter(!isnan,zz)), maximum(filter(!isnan,zz)))
+		clims::Tuple{Float64,Float64} = (
+			minimum( vcat(0.0,filter(!isnan,zz)) ),
+			maximum( vcat(0.0,filter(!isnan,zz)) )
+		)
 		if zVar=="tS"
 			clims = (0.0,1.0)
 		end

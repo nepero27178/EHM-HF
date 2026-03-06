@@ -11,14 +11,17 @@ const tabred::RGB{Float64} = TabColors[4]
 const StartLab::Lab{Float64} = Colors.convert(Lab{Float64}, tabblue)
 const StopLab::Lab{Float64} = Colors.convert(Lab{Float64}, tabred)
 const MidLab::Lab{Float64} = Colors.convert(Lab{Float64}, RGB(0.85,0.85,0.85))
+const Whiter::Lab{Float64} = Colors.convert(Lab{Float64}, RGB(0.95,0.95,0.95))
 
 # Interpolate in Lab space to gain perceptual uniformity
 const TotalLabSteps::Int64 = 100
 const Cool::Vector{RGB{Float64}} = [Colors.convert(RGB, c) for c in range(StartLab, stop=MidLab, length=TotalLabSteps)]
+const Cooler::Vector{RGB{Float64}} = [Colors.convert(RGB, c) for c in range(StartLab, stop=Whiter, length=TotalLabSteps)]
 const Warm::Vector{RGB{Float64}} = [Colors.convert(RGB, c) for c in range(MidLab, stop=StopLab, length=TotalLabSteps)]
 const CoolWarm::Vector{RGB{Float64}} = vcat(Cool,Warm)
 
 # Add to full dictionary
 colorschemes[:tabcool] = ColorScheme(Cool, "custom cool from matplotlib", "perceptually uniform sequential")
+colorschemes[:tabcoolerrev] = ColorScheme(reverse(Cooler), "custom cool from matplotlib", "perceptually uniform sequential")
 colorschemes[:tabwarm] = ColorScheme(Warm, "custom warm from matplotlib", "perceptually uniform sequential")
 colorschemes[:tabcoolwarm] = ColorScheme(CoolWarm, "custom coolwarm from matplotlib with grey midpoint", "two-tones perceptually uniform sequential")
