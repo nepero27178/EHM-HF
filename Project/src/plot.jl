@@ -56,7 +56,7 @@ else
 end
 
 function main()
-	Level::String = "refined"
+	Level::String = "raw"
 	if Level=="refined"
 		global Setup = split(Setup,'-')[1]
 	end
@@ -84,7 +84,7 @@ function main()
 				xVar="V",
 				yVar=obj,
 				pVar="δ",
-				cs=:tabwarm,
+				cs=:tabquiet,
 			)
 			SavePlot2D(
 				FilePathIn,
@@ -92,7 +92,7 @@ function main()
 				xVar="δ",
 				yVar=obj,
 				pVar="V",
-				cs=:tabwarm,
+				cs=:tabquiet,
 				Skip=4
 			)
 		elseif Mode=="rs"
@@ -103,6 +103,8 @@ function main()
 				yVar,
 				zVar=obj,
 				cs=:tabcoolerrev,
+				Mode="surface",
+				azm=0.3*pi
 				# Extension="png"
 			)
 		end
