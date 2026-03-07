@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.10)  6 MAR 2026 16:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.10)  7 MAR 2026 21:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1697,12 +1697,20 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (./main.toc)
+) (./main.toc
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
-dvips/cm-super/cm-super-ts1.enc}] (./misc/abbreviations.tex
+dvips/cm-super/cm-super-ts1.enc}])
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.41 \clearpage
+                [2] (./misc/abbreviations.tex
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1742,23 +1750,23 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.35 \restoregeometry
-                      [2]) (./chapters/normal-phase/normal-phase.tex
+l.38 \restoregeometry
+                      [3]) (./chapters/mft-discussion/mft-discussion.tex
 
-LaTeX Warning: Reference `eq:ehm-global-u2-symmetry-u1-su2' on page 1 undefined
- on input line 8.
-
-
-LaTeX Warning: Reference `tab:U-wick-terms-phases' on page 1 undefined on input
- line 14.
+LaTeX Warning: Reference `eq:extended-hubbard-model' on page 1 undefined on inp
+ut line 4.
 
 
-LaTeX Warning: Reference `tab:V-wick-terms-phases' on page 1 undefined on input
- line 14.
+LaTeX Warning: Reference `chap:mft-af-instability' on page 1 undefined on input
+ line 19.
 
 
-LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 1 undefined on 
-input line 47.
+LaTeX Warning: Reference `chap:mft-sc-instability' on page 1 undefined on input
+ line 19.
+
+
+LaTeX Warning: Reference `eq:extended-hubbard-model' on page 1 undefined on inp
+ut line 30.
 
 
 
@@ -1768,43 +1776,156 @@ input line 47.
 
 
 
-]
+] (./chapters/mft-discussion/pictures/su2-full-symmetry.tex
+\pgf@layerbox@back=\box79
+\pgf@layerboxsaved@back=\box80
+\pgf@layerbox@front=\box81
+\pgf@layerboxsaved@front=\box82
+
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+)
+Underfull \hbox (badness 1286) in paragraph at lines 94--94
+[]|$[]\OT1/cmr/m/n/9 (2)$ ro-ta-tions do-main be-fore
+ []
+
+(./chapters/mft-discussion/pictures/su2-u1-reduced-symmetry.tex
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+Missing character: There is no ; in font nullfont!
+)
 
 [2]
 
-LaTeX Warning: Reference `eq:square-NN-ghost-sum' on page 3 undefined on input 
-line 186.
-
-
-LaTeX Warning: Reference `eq:HV-fourier' on page 3 undefined on input line 228.
+LaTeX Warning: Reference `eq:extended-hubbard-model' on page 3 undefined on inp
+ut line 135.
 
 
 
-
-[3] (./chapters/normal-phase/pictures/Kk.tex)
-(./chapters/normal-phase/pictures/qq'.tex)
-
-LaTeX Warning: Reference `eq:coscos-symmetries-decomposition' on page 4 undefin
-ed on input line 360.
-
-
+[3]
 
 [4]
 
-LaTeX Warning: Reference `tab:x-wave-reciprocal-factors' on page 5 undefined on
- input line 412.
-
-
-LaTeX Warning: Reference `subfig:s*-wave-correlator' on page 5 undefined on inp
-ut line 419.
-
-
-LaTeX Warning: Reference `subfig:d-wave-correlator' on page 5 undefined on inpu
-t line 420.
-
-
-
 [5]
+
+LaTeX Warning: Reference `appsec:antiferromagnetic-phase' on page 6 undefined o
+n input line 310.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 369.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 369.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 369.
+
+(./chapters/mft-discussion/pictures/square-nearest-neighbors.tex)
+
+[6]
+
+LaTeX Warning: Reference `subfig:antiferromagnet-sublattices' on page 7 undefin
+ed on input line 427.
+
+
+
+
+Class memoir Warning: The material used in the headers is too large
+(25.07225pt) for the given head height (12.0pt), it is recommended to
+either increase the head height or redesign the header
+(in both cases you will find help in the memoir manual). on input line 436.
+
+
+Overfull \vbox (13.07225pt too high) has occurred while \output is active []
+
+
+[7]
+
+LaTeX Warning: Reference `appendix:mean-field-hubbard' on page 8 undefined on i
+nput line 508.
+
+
+
+[8]
+
+
+Overfull \vbox (13.07225pt too high) has occurred while \output is active []
+
+
+[9]
+
+[10] (./chapters/mft-discussion/pictures/effective-model-scheme.tex)
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [11]
+
+LaTeX Warning: Reference `appsubsec:hartree-fock-algorithm' on page 12 undefine
+d on input line 800.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 812.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mu' on input line 812.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 812.
+
+
+
+[12]
+
+
+Overfull \vbox (12.0pt too high) has occurred while \output is active []
+
+ [13]
+(./chapters/mft-discussion/pictures/s-wave-correlator.tex)
+(./chapters/mft-discussion/pictures/s*-wave-correlator.tex)
+(./chapters/mft-discussion/pictures/px-wave-correlator.tex)
+(./chapters/mft-discussion/pictures/py-wave-correlator.tex)
+(./chapters/mft-discussion/pictures/d-wave-correlator.tex)
+
+[14]
+<../Project/src/labs/structure-factors/plot-structure-factors.pdf, id=419, 602.
+25pt x 526.96875pt>
+File: ../Project/src/labs/structure-factors/plot-structure-factors.pdf Graphic 
+file (type pdf)
+<use ../Project/src/labs/structure-factors/plot-structure-factors.pdf>
+Package pdftex.def Info: ../Project/src/labs/structure-factors/plot-structure-f
+actors.pdf  used on input line 972.
+(pdftex.def)             Requested size: 384.1096pt x 336.109pt.
+
+
+[15]) (./chapters/normal-phase/normal-phase.tex
+
+[16 <../Project/src/labs/structure-factors/plot-structure-factors.pdf>]
+
+[17
+
+]
+
+[18]
+
+[19] (./chapters/normal-phase/pictures/Kk.tex)
+(./chapters/normal-phase/pictures/qq'.tex)
+
+[20]
+
+[21]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 485.
@@ -1815,38 +1936,12 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 (./chapters/normal-phase/pictures/anisotropic-hopping.tex)
 
-LaTeX Warning: Reference `tab:x-wave-real-factors' on page 6 undefined on input
- line 494.
+[22]
 
+[23]
 
-LaTeX Warning: Reference `tab:x-wave-reciprocal-factors' on page 6 undefined on
- input line 494.
-
-
-
-[6]
-
-LaTeX Warning: Reference `eq:fourier-convention' on page 7 undefined on input l
-ine 506.
-
-
-LaTeX Warning: Reference `tab:x-wave-real-factors' on page 7 undefined on input
- line 522.
-
-
-
-[7]
-
-[8]
-
-LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 9 undefined on 
-input line 643.
-
-
-LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 9 undefined on 
-input line 662.
-
-<../Project/src/labs/bands/normal-nematic-bands.pdf, id=268, 602.25pt x 526.968
+[24]
+<../Project/src/labs/bands/normal-nematic-bands.pdf, id=588, 602.25pt x 526.968
 75pt>
 File: ../Project/src/labs/bands/normal-nematic-bands.pdf Graphic file (type pdf
 )
@@ -1855,32 +1950,26 @@ Package pdftex.def Info: ../Project/src/labs/bands/normal-nematic-bands.pdf  us
 ed on input line 681.
 (pdftex.def)             Requested size: 384.1096pt x 336.109pt.
 
-LaTeX Warning: Reference `fig:x-wave-reciprocal-factors' on page 9 undefined on
- input line 690.
+
+[25]
+
+LaTeX Warning: Reference `fig:MBZ-sectors' on page 26 undefined on input line 7
+09.
 
 
-LaTeX Warning: Reference `fig:MBZ-sectors' on page 9 undefined on input line 70
-9.
+LaTeX Warning: Reference `fig:MBZ-sectors' on page 26 undefined on input line 7
+11.
 
 
-LaTeX Warning: Reference `fig:MBZ-sectors' on page 9 undefined on input line 71
-1.
+LaTeX Warning: Reference `fig:MBZ-sectors' on page 26 undefined on input line 7
+13.
 
-
-LaTeX Warning: Reference `fig:MBZ-sectors' on page 9 undefined on input line 71
-3.
-
-
-
-[9] (./chapters/normal-phase/pictures/MBZ-sectors.tex)
+(./chapters/normal-phase/pictures/MBZ-sectors.tex)
 (./chapters/normal-phase/pictures/NBZ-sectors.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
+[26 <../Project/src/labs/bands/normal-nematic-bands.pdf>]
 
-
-[10 <../Project/src/labs/bands/normal-nematic-bands.pdf>]
-
-LaTeX Warning: Reference `fig:MBZ-sectors' on page 11 undefined on input line 7
+LaTeX Warning: Reference `fig:MBZ-sectors' on page 27 undefined on input line 7
 78.
 
 
@@ -1897,7 +1986,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-[11]
+[27]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 854.
@@ -1916,8 +2005,8 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-[12]
-<../Project/src/labs/bands/normal-nematic-bands-pp.pdf, id=345, 376.40625pt x 3
+[28]
+<../Project/src/labs/bands/normal-nematic-bands-pp.pdf, id=665, 376.40625pt x 3
 01.125pt>
 File: ../Project/src/labs/bands/normal-nematic-bands-pp.pdf Graphic file (type 
 pdf)
@@ -1927,8 +2016,8 @@ Package pdftex.def Info: ../Project/src/labs/bands/normal-nematic-bands-pp.pdf
 (pdftex.def)             Requested size: 298.75264pt x 239.02104pt.
 
 
-[13]
-<../Project/src/labs/bands/normal-nematic-bands-mp.pdf, id=359, 376.40625pt x 3
+[29]
+<../Project/src/labs/bands/normal-nematic-bands-mp.pdf, id=679, 376.40625pt x 3
 01.125pt>
 File: ../Project/src/labs/bands/normal-nematic-bands-mp.pdf Graphic file (type 
 pdf)
@@ -1938,11 +2027,11 @@ Package pdftex.def Info: ../Project/src/labs/bands/normal-nematic-bands-mp.pdf
 (pdftex.def)             Requested size: 298.75264pt x 239.02104pt.
 
 
-[14 <../Project/src/labs/bands/normal-nematic-bands-pp.pdf>]
+[30 <../Project/src/labs/bands/normal-nematic-bands-pp.pdf>]
 \c@enumTemp=\count565
 
 
-[15 <../Project/src/labs/bands/normal-nematic-bands-mp.pdf>]
+[31 <../Project/src/labs/bands/normal-nematic-bands-mp.pdf>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1059.
@@ -1957,17 +2046,9 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-[16]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1127.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1127.
-
+[32]
 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=HFPs
-/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf, id=471, 451.6875pt x 301.125
+/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf, id=792, 451.6875pt x 301.125
 pt>
 File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
 =HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf Graphic file (type pdf)
@@ -1975,30 +2056,64 @@ File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
 HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf>
 Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[
 128]/Syms=/RB=S/Obj=HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf  used
- on input line 1153.
+ on input line 1157.
 (pdftex.def)             Requested size: 298.75264pt x 199.17961pt.
 
 
-[17]
+[33]
 <../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVa
-r=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf, id=485, 451.6875pt x 301.125pt>
+r=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf, id=808, 451.6875pt x 301.125pt>
 File: ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFP
 s/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
 <use ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs
 /xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf>
 Package pdftex.def Info: ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]
 /Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf  used on 
-input line 1186.
+input line 1172.
 (pdftex.def)             Requested size: 298.75264pt x 199.17961pt.
+
+
+[34 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
+HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf> <../Project/plots/raw/Mo
+de=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0
+.0_L=256_β=100.0.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/raw/Mode=hs/Phase=Norm
+al/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.
+0.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+<../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=RMPs
+/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf, id=879, 451.6875
+pt x 376.40625pt>
+File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
+=RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf Graphic file
+ (type pdf)
+<use ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
+RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[
+128]/Syms=/RB=S/Obj=RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePl
+ot.pdf  used on input line 1199.
+(pdftex.def)             Requested size: 192.0548pt x 160.04807pt.
+<../Project/src/labs/mott-localization/normal-mott-boundary.pdf, id=880, 451.68
+75pt x 301.125pt>
+File: ../Project/src/labs/mott-localization/normal-mott-boundary.pdf Graphic fi
+le (type pdf)
+<use ../Project/src/labs/mott-localization/normal-mott-boundary.pdf>
+Package pdftex.def Info: ../Project/src/labs/mott-localization/normal-mott-boun
+dary.pdf  used on input line 1203.
+(pdftex.def)             Requested size: 213.39568pt x 142.26393pt.
 )
 
-[18 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
-HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf>]
+[35 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
+RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf> <../Project/
+src/labs/mott-localization/normal-mott-boundary.pdf
 
-[19 <../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs
-/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf>]
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/mott-localization/n
+ormal-mott-boundary.pdf): PDF inclusion: multiple pdfs with page group included
+ in a single page
+>]
 
-[20
+[36
 
 ]
 Overfull \hbox (3.53458pt too wide) in paragraph at lines 65--65
@@ -2009,9 +2124,16 @@ Overfull \hbox (3.53458pt too wide) in paragraph at lines 65--65
 
 
 
-[21]
+[37]
 
-[22]
+Class memoir Warning: The material used in the headers is too large
+(25.07225pt) for the given head height (12.0pt), it is recommended to
+either increase the head height or redesign the header
+(in both cases you will find help in the memoir manual). on input line 67.
+
+
+
+[38]
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
@@ -2025,7 +2147,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E51C1DC6E38A8FF0DADB06B9BDDC6E34;4594.
+(rerunfilecheck)             Checksum: C7D8896F5B43713E9D254A2612D10531;8992.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -2036,11 +2158,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 52513 strings out of 473197
- 1189992 string characters out of 5718605
- 2207987 words of memory out of 5000000
- 74853 multiletter control sequences out of 15000+600000
- 577176 words of font info for 102 fonts, out of 8000000 for 9000
+ 53606 strings out of 473197
+ 1216997 string characters out of 5718605
+ 2226765 words of memory out of 5000000
+ 75823 multiletter control sequences out of 15000+600000
+ 579371 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  92i,16n,96p,2640b,2174s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -2051,31 +2173,38 @@ f-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></us
-r/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/
-type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-supe
-r/sfrm0900.pfb>
-Output written on main.pdf (24 pages, 1681446 bytes).
+c/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm060
+0.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/te
+xmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/publ
+ic/cm-super/sfrm1000.pfb>
+Output written on main.pdf (41 pages, 5993153 bytes).
 PDF statistics:
- 784 PDF objects out of 1000 (max. 8388607)
- 604 compressed objects within 7 object streams
- 120 named destinations out of 1000 (max. 500000)
- 298 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16984 PDF objects out of 18468 (max. 8388607)
+ 8809 compressed objects within 89 object streams
+ 209 named destinations out of 1000 (max. 500000)
+ 445 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -24,6 +24,8 @@ const Quiet::Vector{RGB{Float64}} = [Colors.convert(RGB, c) for c in range(TabGr
 
 # Add to full dictionary
 colorschemes[:tabcool] = ColorScheme(Cool, "custom cool from matplotlib", "perceptually uniform sequential")
+colorschemes[:tabcooler] = ColorScheme(Cooler, "custom cool from matplotlib", "perceptually uniform sequential")
+colorschemes[:tabcoolrev] = ColorScheme(reverse(Cool), "custom cool from matplotlib", "perceptually uniform sequential")
 colorschemes[:tabcoolerrev] = ColorScheme(reverse(Cooler), "custom cool from matplotlib", "perceptually uniform sequential")
 colorschemes[:tabwarm] = ColorScheme(Warm, "custom warm from matplotlib", "perceptually uniform sequential")
 colorschemes[:tabcoolwarm] = ColorScheme(CoolWarm, "custom coolwarm from matplotlib with grey midpoint", "two-tones perceptually uniform sequential")

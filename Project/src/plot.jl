@@ -56,7 +56,7 @@ else
 end
 
 function main()
-	Level::String = "raw"
+	Level::String = "refined"
 	if Level=="refined"
 		global Setup = split(Setup,'-')[1]
 	end
@@ -102,9 +102,9 @@ function main()
 				xVar,
 				yVar,
 				zVar=obj,
-				cs=:tabcoolerrev,
+				cs=:tabcoolrev,
 				Mode="surface",
-				azm=0.3*pi
+				azm=0.7*pi
 				# Extension="png"
 			)
 		end

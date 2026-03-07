@@ -5,8 +5,17 @@ include(LAB_ROOT * "/../../setup/graphic-setup.jl")
 cmap = CoolWarm
 FilePathOut = LAB_ROOT * "/plot-structure-factors.pdf"
 
-# Activate backend
 CairoMakie.activate!()
+MT = Makie.MathTeXEngine
+MT_DIR = dirname(pathof(MT)) * "/../assets/fonts/NewComputerModern"
+set_theme!(fonts = (
+	regular = MT_DIR * "/NewCM10-Regular.otf",
+	bold = MT_DIR * "/NewCM10-Bold.otf"
+))
+
+LAB_ROOT = @__DIR__
+include(LAB_ROOT * "/../../setup/graphic-setup.jl")
+cmap = CoolWarm
 
 function StructureFactor(
 	Sym::String,

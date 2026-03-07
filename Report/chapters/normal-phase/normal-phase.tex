@@ -9,7 +9,7 @@ The normal phase is simply the one where no symmetry is broken, and the many-bod
 \[
 	\mathrm{C}_4 \SSB \mathrm{C}_2
 \]
-symmetry reduction and extract the mathematical interesting consequences. {\color{tabred} While this implies immediately inversion symmetry preservation, full $\mathrm{C}_4$ symmetry will be imposed later.}
+symmetry reduction and extract the mathematical interesting consequences. While this implies immediately inversion symmetry preservation, full $\mathrm{C}_4$ symmetry will be recovered later. Many materials show interactions-driven nematicity, which is the capability of partially breaking rotational symmetry.
 
 The normal phase is essentially given by the null gap limit of both the AF and SC phases. By discussing it separately now, we highlight a MFT feature of the EHM of particular interest, namely, the insurgence of a new, self-consistent hopping parameter. From Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, we know that the relevant Wick's contractions (RWCs) for this phase are
 \[
@@ -1056,9 +1056,9 @@ A consequence of this is that there is no need at all to bother using $u^{(d)}$ 
 
 At this point, bands shrinking is a guaranteed effect, and the point to be asked is where the converged value of $u^{(s^*)}$ will be positioned in its admissibility range, based on the model parameter. This question is the subject of next sections.
 
-\subsection{Expected dependence on $\delta$}\label{subsec:normal-uS-doping}
+\subsection{Expected dependence on $\delta$ at low temperature}\label{subsec:normal-uS-doping}
 
-Let us start this analysis about the physical dependence of the normal phase HFP dependence on doping in the low-temperature limit, namely $\beta \gg 1$. Consider the self-consistency equation of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies} seen as a functional of temperature and chemical potential,
+By looking once again at the self-consistency equation, we can infer roughly the physical expectation for $u^{(s^*)}$ when the system is subject to electronic doping. Consider the low-temperature limit, namely $\beta \gg 1$. Consider the self-consistency equation of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies} seen as a functional of temperature and chemical potential,
 \[
 	u^{(s^*)}[\beta,\tilde{\mu}] = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
 \]
@@ -1105,30 +1105,26 @@ Following this line of reasoning, we can extract easily the two limits of $u^{(s
 \begin{enumerate}
 	\item At half-filling, the self-consistency equation reduces to
 	\[
-		u^{(s^*)}[\beta,\tilde{\mu}] \big|_{\beta \gg 1} \simeq \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y)
+		u^{(s^*)}[\beta,0] \big|_{\beta \gg 1} \simeq \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y)
 	\]
 	In thermodynamic limit, performing integration on the MBZ shown in the top-left panel of Fig.~\ref{fig:normal-nematic-bands}:
-	\[
-	\begin{aligned}
-		u^{(s^*)}[\beta,\tilde{\mu}] \big|_{\beta \gg 1} &\simeq \frac{1}{(2\pi)^2} \int_{-\pi}^{\pi} \mathrm{d} k_y \int_{-\pi+\abs{k_y}}^{\pi-\abs{k_y}} \mathrm{d} k_x \cos k_x + \frac{1}{(2\pi)^2} \int_{-\pi}^{\pi} \mathrm{d} k_x \int_{-\pi+\abs{k_x}}^{\pi-\abs{k_x}} \mathrm{d} k_y \cos k_y \\
-		&= \frac{1}{2\pi^2} \int_{-\pi}^{0} \mathrm{d} k_y \int_{-\pi-k_y}^{\pi+k_y} \mathrm{d} k_x \cos k_x + \frac{1}{2\pi^2} \int_{0}^{\pi} \mathrm{d} k_y \int_{-\pi+k_y}^{\pi-k_y} \mathrm{d} k_x \cos k_x \\
-		&= \frac{1}{\pi^2} \int_{-\pi}^{0} \mathrm{d} k_y \sin (\pi+k_y) + \frac{1}{\pi^2} \int_{0}^{\pi} \mathrm{d} k_y \sin (\pi-k_y) \\
-		&= \left( \frac{2}{\pi} \right)^2 \approx 0.405
-	\end{aligned}
-	\]
+	\begin{align}
+		u^{(s^*)}[\beta,0] \big|_{\beta \gg 1} &\simeq \frac{1}{(2\pi)^2} \int_{-\pi}^{\pi} \mathrm{d} k_y \int_{-\pi+\abs{k_y}}^{\pi-\abs{k_y}} \mathrm{d} k_x \cos k_x + \frac{1}{(2\pi)^2} \int_{-\pi}^{\pi} \mathrm{d} k_x \int_{-\pi+\abs{k_x}}^{\pi-\abs{k_x}} \mathrm{d} k_y \cos k_y \nonumber \\
+		&= \frac{1}{2\pi^2} \int_{-\pi}^{0} \mathrm{d} k_y \int_{-\pi-k_y}^{\pi+k_y} \mathrm{d} k_x \cos k_x + \frac{1}{2\pi^2} \int_{0}^{\pi} \mathrm{d} k_y \int_{-\pi+k_y}^{\pi-k_y} \mathrm{d} k_x \cos k_x \nonumber \\
+		&= \frac{1}{\pi^2} \int_{-\pi}^{0} \mathrm{d} k_y \sin (\pi+k_y) + \frac{1}{\pi^2} \int_{0}^{\pi} \mathrm{d} k_y \sin (\pi-k_y) \nonumber \\
+		&= \left( \frac{2}{\pi} \right)^2 \approx 0.405 \label{eq:normal-uS-half-filling}
+	\end{align}
 	\item At unitary filling we have
 	\[
-		u^{(s^*)}[\beta,\tilde{\mu}] \big|_{\beta \gg 1} \simeq \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y)
+		u^{(s^*)}\left[
+			\beta,2\tilde{t}^{(s^*)}
+		\right] \Big|_{\beta \gg 1} \simeq \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y)
 	\]
 	which vanishes due to the structure factor periodicity by $\bm{\pi}$.
 \end{enumerate}
 To summarize: around $V=0$, $u^{(s^*)}$ is expected to descend monotonically from $4/\pi^2$ to $0$ at increasing doping.
 
-\subsection{Expected dependence on $V$}
-
-\todo
-
-\section{Numerical simulations}\label{sec:normal-numerical}
+\section{Discussion of numeric results}\label{sec:normal-numerical}
 
 In this section we present and discuss the numerical results, the physical relevance of the found phenomena and the boundaries of the algorithm. Let us start by sketching the algorithm used to determine self-consistently the mean-field structure of the normal phase in parameter space. For the normal phase, the HFPs ``vector'' has just one component:
 \[
@@ -1144,18 +1140,7 @@ As before, we treat spin as a pure degeneracy. The only HFP is characterized by 
 	\tilde{\mu} &\equiv \mu + n (2zV-U)
 \end{align}
 the second one being only dependent on the model parameters and not on HFPs. 
-Finally, the phase free energy is given by Eq.~\eqref{eq:normal-fMFT}. Evidently the normal phase is completely independent of $U$, since the local repulsion cannot develop any RWC other than those renormalizing the chemical potential. Because of this we present the results varying the other parameters, keeping everywhere $U=0$. \todo
-
-\subsection{Low-temperature results discussion}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf}
-	\caption{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase.}
-	\label{fig:normal-B128}
-\end{figure}
-
-Being the results by construction $U$-independent, we ran simulations in the $(V, \delta)$ plane, setting up the following general parameters:
+Finally, the phase free energy is given by Eq.~\eqref{eq:normal-fMFT}. Evidently the normal phase is completely independent of $U$, since the local repulsion cannot develop any RWC other than those renormalizing the chemical potential. Because of this we present the results varying the other parameters, keeping everywhere $U=0$. We ran simulations in the $(V, \delta)$ plane, setting up the following general parameters:
 \[
 	U=0
 	\qquad
@@ -1165,30 +1150,65 @@ Being the results by construction $U$-independent, we ran simulations in the $(V
 		u^{(s^*)} \colon 5 \times 10^{-3}
 	\end{bmatrix}
 \]
-meaning that we consider a simulation to have converged when the following logic condition is satisfied for each component of $\mathbf{v}$:
-\[
-	\forall v_j
-	\quad\colon\quad
-	\abs{v_j-\mathrm{A}_j(\mathbf{v})} \le \Delta v_j
-\]
-being $\mathrm{A}(\mathbf{v})$ the algorithmic image of the HFP vector $\mathbf{v}$, and $\mathrm{A}_j$ its $j$-th component.
+with $\Delta \mathbf{v}$ the tolerance vector defined as in Sec.~\ref{subsec:reject-mix-iterate}.
 
-In Fig.~\ref{fig:normal-B128} are reported the results obtained for the HFP $u^{(s^*)}$ on a $128 \times 128$ lattice and ``low'' temperature $\beta=100$, varying the non-local attraction and the doping level
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf}
+	\caption{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase.}
+	\label{fig:normal-B128-uS}
+\end{figure}
+
+In Fig.~\ref{fig:normal-B128-uS} are reported the results obtained for the HFP $u^{(s^*)}$ on a $128 \times 128$ lattice and ``low'' temperature $\beta=100$, varying the non-local attraction and the doping level
 \[
 	V = 0,~0.1,~0.2,~\dots,~4.0
 	\qquad
 	\delta = 0,~0.01,~0.02,~\dots,~0.49
 \]
-The expectations of Sec.~\ref{subsec:normal-uS-doping} are satisfied: at low $V$ (indicatively $V \lesssim 5$) the trend is monotonically descendent at increasing doping. As $V$ gets bigger, however, $u^{(s^*)}$ starts decreasing in the top-left corner of Fig.~\ref{fig:normal-B128}. This effect is more visible in Fig.~\ref{fig:normal-A256-V}, where we doubled $L$ and ran simulations in the range $0 < V < 5$: the convergence value of $u^{(s^*)}$ is approximately independent of $V$ up to some point, where this behaviour is broken.
+The expectations of Sec.~\ref{subsec:normal-uS-doping} are satisfied: at low $V$ (indicatively $V \lesssim 5$) the trend is monotonically descendent at increasing doping. As $V$ gets bigger, however, $u^{(s^*)}$ starts decreasing in the top-left corner of Fig.~\ref{fig:normal-B128-uS}. This effect is more visible in Fig.~\ref{fig:normal-A256-uS-V}, where we doubled $L$ and ran simulations in the range $0 < V < 5$: the convergence value of $u^{(s^*)}$ is approximately independent of $V$ up to some point, where this behaviour is broken. Note that, as was expected from the discussion of Sec.~\ref{subsec:normal-uS-doping}, the half-filled convergence value of $u^{(s^*)}$ in the $V$-independent region is approximately given by Eq.~\eqref{eq:normal-uS-half-filling}.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf}
 	\caption{}
-	\label{fig:normal-A256-V}
+	\label{fig:normal-A256-uS-V}
 \end{figure}
 
 This effect can only be interpreted in one way, as we discuss in next section: $u^{(s^*)}$ maintains a constant value at fixed doping, as is described in Sec.~\ref{subsec:normal-uS-doping}, as long as $\tilde{t}^{(s^*)}>0$. When $V$ gets large enough,  $u^{(s^*)}$ starts decreasing because of its constraints. The net effect is the nullification of $\tilde{t}^{(s^*)}$, which is, a total localization effect.
 
 \subsection{Mott localization effect}
-\todo
+
+As is evident from Fig.~\ref{fig:normal-A256-uS-V}, at low $V$ the convergence value of $u^{(s^*)}$ is approximately $V$-independent at sufficiently low temperatures. Let $V_\mathrm{c}[\beta,\delta]$ be the critical value such that
+\[
+	\forall V \mid
+	0 \le V < V_\mathrm{c}[\beta,\delta]
+	\quad\implies\quad
+	\text{$u^{(s^*)}$ is $V$ independent.}
+\]
+Then within the entire segment $[0,V_\mathrm{c}]$ the convergence value is the same obtained for $V=0$, hence we can define in first instance the critical $V$ as the value such that the hopping correction is maximized,
+\[
+	V_\mathrm{c}[\beta,\delta] \equiv \frac{2t}{u^{(s^*)}[\beta,\tilde{\mu}(\delta)] \big|_{V=0}}
+\]
+When $V$ becomes larger than this critical value, the resulting RMP $\tilde{t}^{(s^*)}$ drops to $0$ and due to the constraint of Eq.~\eqref{eq:normal-us*-constraint} the convergence value of $u^{(s^*)}$ is forced to decrease. Note that the constraint of Eq.~\eqref{eq:normal-us*-constraint} does not prevent $u^{(s^*)}$ from saturating to its upper boundary from below. In Fig.~\ref{fig:normal-B128-tS-surface} the converged values of $\tilde{t}^{(s^*)}$, extracted immediately from the same data of Fig.~\ref{fig:normal-B128-uS}, are plotted in parametric space.
+
+\begin{figure}
+	\centering
+	\subfloat[Simulated values of $\tilde{t}^{(s^*)}$]{
+		\includegraphics[width=0.45\linewidth]{../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf}
+		\label{fig:normal-B128-tS-surface}
+	}
+	\subfloat[Critical Mott boundary.]{
+		\includegraphics[width=0.5\linewidth]{../Project/src/labs/mott-localization/normal-mott-boundary.pdf}
+		\label{fig:normal-B128-tS-mott}
+	}
+	\caption{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase and the Mott-boundary $V_\mathrm{c}$, computed as is described in text. In the right panel, the tick $V=4.93$ is specified explicitly as a graphic confirm of the computation of Eq.~\eqref{eq:normal-Vc-half-filling}.}
+	\label{fig:normal-B128-tS}
+\end{figure}
+
+While to extract the value of $V_\mathrm{c}[\beta,\delta]$ is a non-trivial analytic problem due to the insurgence of elliptic integrals and the smearing effects of temperature, for the high-$\beta$ half-filled case it is immediate from Eq.~\eqref{eq:normal-uS-half-filling} to see that
+\begin{equation}
+	V_\mathrm{c}[\beta \gg 1,0] = \frac{2t}{(2/\pi)^2} \approx 4.93 t \label{eq:normal-Vc-half-filling}
+\end{equation}
+which makes the real interesting point of this section and the whole bands-shrinking effect. At half-filling, the effective bands amplitude reduction is so strong that already around relatively small values of $V$ (compared to $t$) the band is completely flattened and all electrons are localized.
+
+In Fig.~\ref{fig:normal-B128-tS-mott} we report, superimposed, the convergence values of the RMP $\tilde{t}^{(s^*)}$ and $V_\mathrm{c}[\beta=100,\delta]$ computed with the simple procedure described. As is evident from the plot itself, even if not so accurate, our prediction of the critical value for $V$ gives reasonably a sort of phase boundary delimiting a region where bands are flattened and electrons are localized.

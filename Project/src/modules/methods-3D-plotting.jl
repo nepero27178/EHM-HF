@@ -94,7 +94,11 @@ function Plot3D(
 		end
 
 		# Initialize plot
-		H::Figure = Figure(size=(600,400),figure_padding = 1)
+		sz::Tuple{Float64,Float64} = (600,400)
+		if Mode=="surface"
+			sz = (600,500)
+		end
+		H::Figure = Figure(size = sz,figure_padding = 1)
 		ax = nothing
 
 		if Mode=="heatmap"
@@ -174,6 +178,7 @@ function Plot3D(
 				colormap=colorschemes[cs],
 				colorrange=clims
 			)
+			Colorbar(H[1,2], h)
 		elseif Mode=="surface"
 			h = CairoMakie.surface!(
 				ax,
@@ -184,7 +189,7 @@ function Plot3D(
 			w = CairoMakie.wireframe!(
 				ax,
 				xx, yy, zz,
-				color=:black,
+				color=tabblue,
 				linewidth=0.1
 			)
 			s = CairoMakie.scatter!(
@@ -197,7 +202,6 @@ function Plot3D(
 			@error "Invalid Mode @ Plot3D" Mode
 			return
 		end
-		Colorbar(H[1,2], h)
 
 		push!(PlotVec, GroupedPlot(H,df,FileName))
 
@@ -231,7 +235,7 @@ function SavePlot3D(
 	for GP in PlotVec
 		FilePathOut = DirPathOut * "/" * GP.FileName * "." * Extension
 		with_theme(theme_latexfonts()) do #TODO Redundant?
-			save(FilePathOut,GP.H.scene)
+			save(FilePathOut,GP.H)
 		end
 	end
 

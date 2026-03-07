@@ -83,10 +83,10 @@ elseif Setup=="A[256]"
 	g = 0.2
 
 # --- MAIN δV plane RUN ---
-elseif Setup=="B[256]"
+elseif Setup=="B[256]-a"
 	tt = [1.0]
 	UU = [0.0, 5.0, 10.0]
-	VV = [V for V in 0.0:0.1:5.0]
+	VV = [V for V in 0.0:0.4:4.0]
 	LL = [256]
 	δδ = [δ for δ in 0.0:0.05:0.45]
 	ββ = [100.0]
@@ -94,6 +94,19 @@ elseif Setup=="B[256]"
 	Δv = MainΔv
 	Δn = 1e-2
 	g = 0.2
+
+# --- MAIN δV plane RUN ---
+elseif Setup=="B[256]-b"
+	tt = [1.0]
+	UU = [0.0, 5.0, 10.0]
+	VV = [V for V in 4.0:0.4:8.0]
+	LL = [256]
+	δδ = [δ for δ in 0.0:0.05:0.45]
+	ββ = [100.0]
+	p = 400
+	Δv = MainΔv
+	Δn = 1e-2
+	g = 0.05
 
 # --- MAIN βV plane RUN ---
 elseif Setup=="C[256]"

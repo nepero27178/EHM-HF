@@ -854,6 +854,24 @@ Of course, in the first line $\mu N$ is derived to zero. The constraint is impos
 \]
 being $\Omega$ the expectation value (EV) of $\hat K$. In the last passage we wrote everything in terms of functionals of the HFPs vector $\mathbf{v}$. Using this relation, when the algorithm has converged, we can estimate the physical energy.
 
+\subsection{The reject-mix-iterate convergence scheme}\label{subsec:reject-mix-iterate}
+
+Up to now, we did not specify when we consider the algorithm to ``have converged''. Explicitly, this is considered true whenever the following logic condition is satisfied for each component of $\mathbf{v}$:
+\[
+	\forall v_j
+	\quad\colon\quad
+	\abs{v_j-\mathrm{A}_j(\mathbf{v})} \le \Delta v_j
+\]
+being $\mathrm{A}(\mathbf{v})$ the algorithmic image of the HFP vector $\mathbf{v}$, and $\mathrm{A}_j$ its $j$-th component. The specification of $\Delta v_j$ is clearly arbitrary. We are dealing in general with quantities of order $10^{-1}$, so convergence values of order $10^{-3} \divisionsymbol 10^{-4}$ will be generally sufficient.
+
+When the acceptance condition is not satisfied, which is, when at least one component of $\mathbf{v}$ is mapped by the HF algorithm to a new image value for a total displacement larger than the respective component of $\Delta \mathbf{v}$, the step is rejected and iteration continues. This lets us define the mixing parameter $g \in [0,1]$, which represents the deterministic fractional combination of the current step with its image value to obtain a new step,
+\[
+	\mathbf{v} (i+1) \equiv g \mathrm{A} \left( \mathbf{v} (i) \right) + (1-g) \mathbf{v} (i)
+\]
+and becomes a simple but useful knob to tune the algorithmic evolution. Its usefulness comes from the core concept that, even if physically there exists a unique solution to the model (thus just one self-consistent HFP vector, eventually of all zeros) such a fixed point could be hard to reach following a pure iterative numeric scheme on a given map (which would be the $g=1$ case of the above equation) for a variety of reasons. By moving ``slower'' (low $g$) with an accurate optimization of the mixing, as will be seen concretely in Sec.~\mref, it is possible to reach convergence in a controlled way.
+
+When it comes to HF iterative scheme of this kind, it can happen with some frequency that the algorithm remains stuck in an infinite loop between a set of points mathematically linked by the self-consistent map but not representing a physical solution because of their reciprocal absolute distance in HFP space. In some other situations, evolutions could turn out to be rather slow. Because of this it is reasonable to define a parameter $p$, such that the number of iterations is kept $i \le p$. If the algorithm failed to converge in $p$ steps, the point is saved as ``\texttt{NaN}'' (Not a number) and the algorithm moves to another simulation. Introducing this simple rule, runtime is kept under control and we gain an easy method to identify the regions of parameter space requiring more care -- just read from the raw data where \texttt{NaN}s have been saved.
+
 \section{Square lattice spatial symmetry channels}\label{sec:square-lattice-symmetries}
 
 \begin{figure}[t]
@@ -951,7 +969,7 @@ If these symmetries are developed by the HFPs, it's of no use to integrate over 
 
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=0.9\linewidth]{../Project/EHM-HartreeFock/src/labs/structure-factors/plot-structure-factors.pdf}
+	\includegraphics[width=0.9\linewidth]{../Project/src/labs/structure-factors/plot-structure-factors.pdf}
 	\caption{Representation of the various structure factors listed in Tab.~\ref{tab:x-wave-reciprocal-factors} on the BZ. For the $s^*$ and $d_{x^2-y^2}$-wave factors, the real part is plotted; for the $p_\ell$ factors, the imaginary part is plotted.}
 	\label{fig:x-wave-reciprocal-factors}
 \end{figure}
