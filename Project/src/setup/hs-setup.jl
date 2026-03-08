@@ -31,12 +31,13 @@ RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "B[256]" # ← Change here
+Setup::String = "C[256]-a" # ← Change here
 AvailableSetups::Set{String} = Set([
-	"Test[20]", # Test setup
-	"A[256]", # UV plane
-	"B[256]", # δV plane
-	"C[256]", # βV plane
+	"Test", # Test setup
+	"A[256]-a", # UV plane
+	"B[256]-a", # δV plane
+	"B[256]-b", # δV plane
+	"C[256]-a", # βV plane
 ])
 
 TestΔv::DataFrame = DataFrame(Dict([
@@ -54,9 +55,10 @@ MainΔv::DataFrame = DataFrame(Dict([
 	]
 ]))
 
+xScale = identity
 if !in(Setup, AvailableSetups)
 	@error "Invalid Setup=$(Setup), please modify at:" SetupFilePath
-elseif Setup=="Test[20]"
+elseif Setup=="Test"
 	# TEST-SETUP
 	tt = [1.0]
 	UU = [0.0]
@@ -68,9 +70,11 @@ elseif Setup=="Test[20]"
 	Δv = TestΔv
 	Δn = 1e-2
 	g = 0.1
+	xVar = "V"
+	pVar = "δ"
 
 # --- MAIN UV plane RUN ---
-elseif Setup=="A[256]"
+elseif Setup=="A[256]-a"
 	tt = [1.0]
 	UU = [U for U in 0.0:0.25:5.0]
 	VV = [V for V in 0.0:0.25:5.0]
@@ -81,6 +85,8 @@ elseif Setup=="A[256]"
 	Δv = MainΔv
 	Δn = 1e-2
 	g = 0.2
+	xVar = "U"
+	pVar = "V"
 
 # --- MAIN δV plane RUN ---
 elseif Setup=="B[256]-a"
@@ -94,6 +100,8 @@ elseif Setup=="B[256]-a"
 	Δv = MainΔv
 	Δn = 1e-2
 	g = 0.2
+	xVar = "V"
+	pVar = "δ"
 
 # --- MAIN δV plane RUN ---
 elseif Setup=="B[256]-b"
@@ -107,9 +115,11 @@ elseif Setup=="B[256]-b"
 	Δv = MainΔv
 	Δn = 1e-2
 	g = 0.05
+	xVar = "V"
+	pVar = "δ"
 
 # --- MAIN βV plane RUN ---
-elseif Setup=="C[256]"
+elseif Setup=="C[256]-a"
 	tt = [1.0]
 	UU = [0.0]
 	VV = [V for V in 0.0:0.2:6.0]
@@ -120,4 +130,7 @@ elseif Setup=="C[256]"
 	Δv = MainΔv
 	Δn = 1e-2
 	g = 0.1
+	xVar = "V"
+	pVar = "β"
+	xScale = identity
 end

@@ -103,9 +103,7 @@ function Plot3D(
 
 		if Mode=="heatmap"
 			ax = Axis(
-				H[1, 1],
-				xlabelrotation = 0, # Horizontal xlabel
-				ylabelrotation = 0, # Horizontal ylabel
+				H[1, 1]
 			)
 		elseif Mode=="surface"
 			ax = Axis3(

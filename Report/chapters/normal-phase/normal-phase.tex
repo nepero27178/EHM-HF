@@ -895,9 +895,17 @@ We work with the full, anisotropic band of Eq.~\eqref{eq:normal-bands-renormaliz
 	%
 	\begin{figure}[t]
 		\centering
-		\includegraphics[width=0.7\linewidth]{../Project/src/labs/bands/normal-nematic-bands-pp.pdf}
-		\caption{Theoretical example of a band with $u^{(s^*)} > 2t/V$ and $u^{(d)}>0$. Two example points are reported, connected by a $\pi/2$ rotation as given in Eq.~\eqref{eq:normal-k'=Rk}.}
-		\label{fig:normal-nematic-bands-pp}
+		\subfloat[Same-sign mixed bands.]{
+			\includegraphics[width=0.45\linewidth]{../Project/src/labs/bands/normal-nematic-bands-pp.pdf}
+			\label{subfig:normal-nematic-bands-detail-pp}
+		}
+		\hspace{0.5em}
+		\subfloat[Opposite-sign mixed bands.]{
+			\includegraphics[width=0.45\linewidth]{../Project/src/labs/bands/normal-nematic-bands-mp.pdf}
+			\label{subfig:normal-nematic-bands-detail-mp}
+		}
+		\caption{Theoretical example of bands with $u^{(s^*)} > 2t/V$, $u^{(d)}>0$ (top-left) and $u^{(s^*)} < 0$, $u^{(d)}>0$ (top right). Two example points are reported, connected by a $\pi/2$ rotation as given in Eq.~\eqref{eq:normal-k'=Rk}.}
+		\label{fig:normal-nematic-bands-detail}
 	\end{figure}
 	%
 	The sum with $\mathcal{B}$ requires a little care: in fact, as is evident from the bottom-left panel of Fig.~\ref{fig:normal-nematic-bands}, such a region contains nodal curves across which bands change sign.	
@@ -906,7 +914,7 @@ We work with the full, anisotropic band of Eq.~\eqref{eq:normal-bands-renormaliz
 		\forall \mathbf{k}' \in \mathcal{B} 
 		\quad\exists\quad \mathbf{k} \in \mathcal{A} \mid \mathbf{k}' = \mathcal{R} \mathbf{k}
 	\end{equation}
-	A graphical rendition of this idea is given in Fig.~\ref{fig:normal-nematic-bands-pp}.
+	A graphical rendition of this idea is given in Fig.~\ref{subfig:normal-nematic-bands-detail-pp}.
 	
 	Now: both $\epsilon^{(s^*)}$ and $\epsilon^{(d)}$ are positive by construction, then it holds
 	\[
@@ -966,15 +974,8 @@ We work with the full, anisotropic band of Eq.~\eqref{eq:normal-bands-renormaliz
 		\quad\colon\quad
 		\tilde{\epsilon}_\mathbf{k} \ge 0
 	\]
-	Proceed exactly as before, with identical meaning of the notation and inverted roles for $\mathcal{A}$ and $\mathcal{B}$, as drawn in Fig.~\ref{fig:normal-nematic-bands-mp}.
-	%
-	\begin{figure}[t]
-		\centering
-		\includegraphics[width=0.7\linewidth]{../Project/src/labs/bands/normal-nematic-bands-mp.pdf}
-		\caption{Theoretical example of a band with $u^{(s^*)} < 0$ and $u^{(d)}>0$. Two example points are reported, connected by a $\pi/2$ rotation.}
-		\label{fig:normal-nematic-bands-mp}
-	\end{figure}
-	%
+	Proceed exactly as before, with identical meaning of the notation and inverted roles for $\mathcal{A}$ and $\mathcal{B}$, as drawn in Fig.~\ref{subfig:normal-nematic-bands-detail-mp}.
+	
 	First, we have
 	\[
 		\forall \mathbf{k} \in \mathcal{B}
@@ -1118,7 +1119,7 @@ Following this line of reasoning, we can extract easily the two limits of $u^{(s
 	\[
 		u^{(s^*)}\left[
 			\beta,2\tilde{t}^{(s^*)}
-		\right] \Big|_{\beta \gg 1} \simeq \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y)
+		\right] \Big|_{\beta \gg 1} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) = 0
 	\]
 	which vanishes due to the structure factor periodicity by $\bm{\pi}$.
 \end{enumerate}
@@ -1154,31 +1155,31 @@ with $\Delta \mathbf{v}$ the tolerance vector defined as in Sec.~\ref{subsec:rej
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf}
-	\caption{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase.}
-	\label{fig:normal-B128-uS}
+	\subfloat[Heatmap of $u^{(s^*)}$ in $V\delta$ plane.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf}
+		\label{subfig:normal-uS-data-B128}
+	}
+	\subfloat[$V$-dependency of $u^{(s^*)}$ varying $\delta$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]-a/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf}
+		\label{subfig:normal-uS-data-B256}
+	}
+	\caption{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase. To extract the data on the right side coarse-graining precision of the left-hand side data has been exchanged with higher lattice dimensions. As is evident, based on doping level $u^{(s^*)}$ exhibits non-trivial regions of $V$-independence. {\color{tabred}[Refine right side data and use TabBlue colorscheme.]}}
+	\label{fig:normal-uS-data}
 \end{figure}
 
-In Fig.~\ref{fig:normal-B128-uS} are reported the results obtained for the HFP $u^{(s^*)}$ on a $128 \times 128$ lattice and ``low'' temperature $\beta=100$, varying the non-local attraction and the doping level
+In Fig.~\ref{subfig:normal-uS-data-B128} are reported the results obtained for the HFP $u^{(s^*)}$ on a $128 \times 128$ lattice and ``low'' temperature $\beta=100$, varying the non-local attraction and the doping level
 \[
 	V = 0,~0.1,~0.2,~\dots,~4.0
 	\qquad
 	\delta = 0,~0.01,~0.02,~\dots,~0.49
 \]
-The expectations of Sec.~\ref{subsec:normal-uS-doping} are satisfied: at low $V$ (indicatively $V \lesssim 5$) the trend is monotonically descendent at increasing doping. As $V$ gets bigger, however, $u^{(s^*)}$ starts decreasing in the top-left corner of Fig.~\ref{fig:normal-B128-uS}. This effect is more visible in Fig.~\ref{fig:normal-A256-uS-V}, where we doubled $L$ and ran simulations in the range $0 < V < 5$: the convergence value of $u^{(s^*)}$ is approximately independent of $V$ up to some point, where this behaviour is broken. Note that, as was expected from the discussion of Sec.~\ref{subsec:normal-uS-doping}, the half-filled convergence value of $u^{(s^*)}$ in the $V$-independent region is approximately given by Eq.~\eqref{eq:normal-uS-half-filling}.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf}
-	\caption{}
-	\label{fig:normal-A256-uS-V}
-\end{figure}
+The expectations of Sec.~\ref{subsec:normal-uS-doping} are satisfied: at low $V$ (indicatively $V \lesssim 5$) the trend is monotonically descendent at increasing doping. As $V$ gets bigger, however, $u^{(s^*)}$ starts decreasing in the top-left corner of Fig.~\ref{subfig:normal-uS-data-B128}. This effect is more visible in Fig.~\ref{subfig:normal-uS-data-B256}, where {\color{tabred} we doubled $L$ and ran simulations in the range $0 < V < 5$}: the convergence value of $u^{(s^*)}$ is approximately independent of $V$ up to some point, where this behaviour is broken. Note that, as was expected from the discussion of Sec.~\ref{subsec:normal-uS-doping}, the half-filled convergence value of $u^{(s^*)}$ in the $V$-independent region is approximately given by Eq.~\eqref{eq:normal-uS-half-filling}.
 
 This effect can only be interpreted in one way, as we discuss in next section: $u^{(s^*)}$ maintains a constant value at fixed doping, as is described in Sec.~\ref{subsec:normal-uS-doping}, as long as $\tilde{t}^{(s^*)}>0$. When $V$ gets large enough,  $u^{(s^*)}$ starts decreasing because of its constraints. The net effect is the nullification of $\tilde{t}^{(s^*)}$, which is, a total localization effect.
 
 \subsection{Mott localization effect}
 
-As is evident from Fig.~\ref{fig:normal-A256-uS-V}, at low $V$ the convergence value of $u^{(s^*)}$ is approximately $V$-independent at sufficiently low temperatures. Let $V_\mathrm{c}[\beta,\delta]$ be the critical value such that
+As is evident from Fig.~\ref{subfig:normal-uS-data-B256}, at low $V$ the convergence value of $u^{(s^*)}$ is approximately $V$-independent at sufficiently low temperatures. Let $V_\mathrm{c}[\beta,\delta]$ be the critical value such that
 \[
 	\forall V \mid
 	0 \le V < V_\mathrm{c}[\beta,\delta]
@@ -1189,19 +1190,19 @@ Then within the entire segment $[0,V_\mathrm{c}]$ the convergence value is the s
 \[
 	V_\mathrm{c}[\beta,\delta] \equiv \frac{2t}{u^{(s^*)}[\beta,\tilde{\mu}(\delta)] \big|_{V=0}}
 \]
-When $V$ becomes larger than this critical value, the resulting RMP $\tilde{t}^{(s^*)}$ drops to $0$ and due to the constraint of Eq.~\eqref{eq:normal-us*-constraint} the convergence value of $u^{(s^*)}$ is forced to decrease. Note that the constraint of Eq.~\eqref{eq:normal-us*-constraint} does not prevent $u^{(s^*)}$ from saturating to its upper boundary from below. In Fig.~\ref{fig:normal-B128-tS-surface} the converged values of $\tilde{t}^{(s^*)}$, extracted immediately from the same data of Fig.~\ref{fig:normal-B128-uS}, are plotted in parametric space.
+When $V$ becomes larger than this critical value, the resulting RMP $\tilde{t}^{(s^*)}$ drops to $0$ and due to the constraint of Eq.~\eqref{eq:normal-us*-constraint} the convergence value of $u^{(s^*)}$ is forced to decrease. Note that the constraint of Eq.~\eqref{eq:normal-us*-constraint} does not prevent $u^{(s^*)}$ from saturating to its upper boundary from below. In Fig.~\ref{subfig:normal-tS-data-B128} the converged values of $\tilde{t}^{(s^*)}$, extracted immediately from the same data of Fig.~\ref{subfig:normal-uS-data-B128}, are plotted in parametric space.
 
 \begin{figure}
 	\centering
 	\subfloat[Simulated values of $\tilde{t}^{(s^*)}$]{
 		\includegraphics[width=0.45\linewidth]{../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf}
-		\label{fig:normal-B128-tS-surface}
+		\label{subfig:normal-tS-data-B128}
 	}
 	\subfloat[Critical Mott boundary.]{
 		\includegraphics[width=0.5\linewidth]{../Project/src/labs/mott-localization/normal-mott-boundary.pdf}
-		\label{fig:normal-B128-tS-mott}
+		\label{subfig:normal-tS-data-B128-mott}
 	}
-	\caption{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase and the Mott-boundary $V_\mathrm{c}$, computed as is described in text. In the right panel, the tick $V=4.93$ is specified explicitly as a graphic confirm of the computation of Eq.~\eqref{eq:normal-Vc-half-filling}.}
+	\caption{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase and the Mott-boundary $V_\mathrm{c}$, computed as is described in text. In the right panel, the tick $V=4.93$ is specified explicitly as a graphic confirm of the computation of Eq.~\eqref{eq:normal-Vc-half-filling}. For graphic reasons the points at $V_\mathrm{c} > 8$ have been omitted.}
 	\label{fig:normal-B128-tS}
 \end{figure}
 
@@ -1209,6 +1210,12 @@ While to extract the value of $V_\mathrm{c}[\beta,\delta]$ is a non-trivial anal
 \begin{equation}
 	V_\mathrm{c}[\beta \gg 1,0] = \frac{2t}{(2/\pi)^2} \approx 4.93 t \label{eq:normal-Vc-half-filling}
 \end{equation}
-which makes the real interesting point of this section and the whole bands-shrinking effect. At half-filling, the effective bands amplitude reduction is so strong that already around relatively small values of $V$ (compared to $t$) the band is completely flattened and all electrons are localized.
+which makes the real interesting point of this section and the whole bands-shrinking effect. At half-filling, the effective bands amplitude reduction is so strong that already around relatively small values of $V$ (compared to $t$) electronic kinetics is nullified. In Fig.~\ref{subfig:normal-tS-data-B128-mott} we report, superimposed, the convergence values of the RMP $\tilde{t}^{(s^*)}$ and $V_\mathrm{c}[\beta=100,\delta]$ computed with the simple procedure described. As is evident from the plot itself, even if not so accurate, our prediction of the critical value for $V$ gives reasonably a sort of phase boundary delimiting a region where bands are flattened and electrons are localized.
 
-In Fig.~\ref{fig:normal-B128-tS-mott} we report, superimposed, the convergence values of the RMP $\tilde{t}^{(s^*)}$ and $V_\mathrm{c}[\beta=100,\delta]$ computed with the simple procedure described. As is evident from the plot itself, even if not so accurate, our prediction of the critical value for $V$ gives reasonably a sort of phase boundary delimiting a region where bands are flattened and electrons are localized.
+This phenomenon is largely studied in solid-state physics and falls within the large class of Mott physics. \todo
+
+Increasing temperature, predictably, Mott localization is suppressed. \todo
+
+\subsection{Convergence problems and mixing fine-tuning}
+
+Although extremely simple and characterised by a single HFP, this framework is ideal for us to describe some of the typical convergence problems arising in HF iterative schemes anticipated in Sec.~\ref{subsec:reject-mix-iterate}. Bands flattening is a source of algorithmic instability: numeric fluctuations can lead to values of $u^{(s^*)}$, during iterations, slightly out of bounds with respect to Eq.~\eqref{eq:normal-us*-constraint}. Even if the numeric effect is small, the consequence is vast due to the subsequent band sign inversion. An example of this is given in Fig.~\mref, representing the evolution of a simulation \todo

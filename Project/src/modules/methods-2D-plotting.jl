@@ -19,6 +19,8 @@ function Plot2D(
 	pVar::String="δ",
 	cs::Symbol=:imola50,
 	Skip::Int64=0,
+	xScale=identity,
+	legend::Bool=true
 )::Vector{GroupedPlot}
 
 	# List vars and pars
@@ -171,9 +173,17 @@ function Plot2D(
 		MinYLim = MinY - Pad*(MaxY-MinY)
 		MaxYLim = MaxY + Pad*(MaxY-MinY)
 
+		if occursin("log", string(xScale))
+			MinXLim = Pad
+			if MinXLim >= MaxXLim
+				@error "Impossible to plot these data on log scale @ Plot2D" MinXLim MaxXLim
+				return
+			end
+		end
 		xlims!(ax, MinXLim, MaxXLim)
 		ylims!(ax, MinYLim, MaxYLim)
-		Fig[1, 2] = Legend(Fig, ax, LegendLabel, framevisible = false)
+		legend ? Fig[1, 2] = Legend(Fig, ax, LegendLabel, framevisible = false) : false
+		ax.xscale = xScale
 		push!(PlotVec, GroupedPlot(Fig,df,FileName))
 	end
 
@@ -188,12 +198,14 @@ function SavePlot2D(
 	pVar::String="δ",
 	cs::Symbol=:imola50,
 	Skip::Int64=0,
+	xScale=identity,
+	legend::Bool=true,
 	Extension::String="pdf"
 )
 
 	# Assert printing
 	Print::Bool=true
-	PlotVec = Plot2D(FilePathIn;Print,xVar,yVar,pVar,cs,Skip)
+	PlotVec = Plot2D(FilePathIn;Print,xVar,yVar,pVar,cs,Skip,xScale,legend)
 
 	# Initialize directory structure
 	Setup, Phase, Syms, RB, _ = UnpackFilePath(FilePathIn)

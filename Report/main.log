@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.10)  7 MAR 2026 21:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.10)  8 MAR 2026 15:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1900,7 +1900,7 @@ Overfull \vbox (12.0pt too high) has occurred while \output is active []
 (./chapters/mft-discussion/pictures/d-wave-correlator.tex)
 
 [14]
-<../Project/src/labs/structure-factors/plot-structure-factors.pdf, id=419, 602.
+<../Project/src/labs/structure-factors/plot-structure-factors.pdf, id=424, 602.
 25pt x 526.96875pt>
 File: ../Project/src/labs/structure-factors/plot-structure-factors.pdf Graphic 
 file (type pdf)
@@ -1941,7 +1941,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [23]
 
 [24]
-<../Project/src/labs/bands/normal-nematic-bands.pdf, id=588, 602.25pt x 526.968
+<../Project/src/labs/bands/normal-nematic-bands.pdf, id=593, 602.25pt x 526.968
 75pt>
 File: ../Project/src/labs/bands/normal-nematic-bands.pdf Graphic file (type pdf
 )
@@ -2006,49 +2006,54 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 [28]
-<../Project/src/labs/bands/normal-nematic-bands-pp.pdf, id=665, 376.40625pt x 3
+<../Project/src/labs/bands/normal-nematic-bands-pp.pdf, id=670, 376.40625pt x 3
 01.125pt>
 File: ../Project/src/labs/bands/normal-nematic-bands-pp.pdf Graphic file (type 
 pdf)
 <use ../Project/src/labs/bands/normal-nematic-bands-pp.pdf>
 Package pdftex.def Info: ../Project/src/labs/bands/normal-nematic-bands-pp.pdf 
- used on input line 898.
-(pdftex.def)             Requested size: 298.75264pt x 239.02104pt.
-
-
-[29]
-<../Project/src/labs/bands/normal-nematic-bands-mp.pdf, id=679, 376.40625pt x 3
+ used on input line 901.
+(pdftex.def)             Requested size: 192.0548pt x 153.64981pt.
+<../Project/src/labs/bands/normal-nematic-bands-mp.pdf, id=671, 376.40625pt x 3
 01.125pt>
 File: ../Project/src/labs/bands/normal-nematic-bands-mp.pdf Graphic file (type 
 pdf)
 <use ../Project/src/labs/bands/normal-nematic-bands-mp.pdf>
 Package pdftex.def Info: ../Project/src/labs/bands/normal-nematic-bands-mp.pdf 
- used on input line 973.
-(pdftex.def)             Requested size: 298.75264pt x 239.02104pt.
+ used on input line 906.
+(pdftex.def)             Requested size: 192.0548pt x 153.64981pt.
 
 
-[30 <../Project/src/labs/bands/normal-nematic-bands-pp.pdf>]
+[29 <../Project/src/labs/bands/normal-nematic-bands-pp.pdf> <../Project/src/lab
+s/bands/normal-nematic-bands-mp.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/bands/normal-nemati
+c-bands-mp.pdf): PDF inclusion: multiple pdfs with page group included in a sin
+gle page
+>]
 \c@enumTemp=\count565
 
 
-[31 <../Project/src/labs/bands/normal-nematic-bands-mp.pdf>]
+[30]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1059.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\delta' on input line 1059.
+(hyperref)                removing `math shift' on input line 1060.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1059.
+(hyperref)                removing `\delta' on input line 1060.
 
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1060.
+
+
+
+[31]
 
 [32]
 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=HFPs
-/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf, id=792, 451.6875pt x 301.125
+/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf, id=798, 451.6875pt x 301.125
 pt>
 File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
 =HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf Graphic file (type pdf)
@@ -2056,34 +2061,38 @@ File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
 HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf>
 Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[
 128]/Syms=/RB=S/Obj=HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf  used
- on input line 1157.
-(pdftex.def)             Requested size: 298.75264pt x 199.17961pt.
-
-
-[33]
-<../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVa
-r=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf, id=808, 451.6875pt x 301.125pt>
-File: ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFP
-s/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
-<use ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs
-/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf>
+ on input line 1161.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]-a/Syms=/RB=S/Obj=HFPs/x
+Var=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf, id=799, 451.6875pt x 301.125pt
+>
+File: ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]-a/Syms=/RB=S/Obj=H
+FPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]-a/Syms=/RB=S/Obj=HF
+Ps/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf>
 Package pdftex.def Info: ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]
-/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf  used on 
-input line 1172.
-(pdftex.def)             Requested size: 298.75264pt x 199.17961pt.
+-a/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf  used o
+n input line 1165.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 1161--1166
+ [][][] 
+ []
 
 
-[34 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
+
+[33 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
 HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf> <../Project/plots/raw/Mo
-de=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0
-.0_L=256_β=100.0.pdf
+de=hs/Phase=Normal/Setup=B[256]-a/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U
+=0.0_L=256_β=100.0.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/raw/Mode=hs/Phase=Norm
-al/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.
-0.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+al/Setup=B[256]-a/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=10
+0.0.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
+e
 >]
 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=RMPs
-/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf, id=879, 451.6875
+/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf, id=876, 451.6875
 pt x 376.40625pt>
 File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
 =RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf Graphic file
@@ -2092,26 +2101,28 @@ File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
 RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf>
 Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[
 128]/Syms=/RB=S/Obj=RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePl
-ot.pdf  used on input line 1199.
+ot.pdf  used on input line 1200.
 (pdftex.def)             Requested size: 192.0548pt x 160.04807pt.
-<../Project/src/labs/mott-localization/normal-mott-boundary.pdf, id=880, 451.68
+<../Project/src/labs/mott-localization/normal-mott-boundary.pdf, id=877, 451.68
 75pt x 301.125pt>
 File: ../Project/src/labs/mott-localization/normal-mott-boundary.pdf Graphic fi
 le (type pdf)
 <use ../Project/src/labs/mott-localization/normal-mott-boundary.pdf>
 Package pdftex.def Info: ../Project/src/labs/mott-localization/normal-mott-boun
-dary.pdf  used on input line 1203.
+dary.pdf  used on input line 1204.
 (pdftex.def)             Requested size: 213.39568pt x 142.26393pt.
-)
 
-[35 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
+
+[34 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
 RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf> <../Project/
 src/labs/mott-localization/normal-mott-boundary.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/mott-localization/n
 ormal-mott-boundary.pdf): PDF inclusion: multiple pdfs with page group included
  in a single page
->]
+>])
+
+[35]
 
 [36
 
@@ -2147,7 +2158,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C7D8896F5B43713E9D254A2612D10531;8992.
+(rerunfilecheck)             Checksum: 9D0C4D61C5A715E6258FB3BF05402E12;9281.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -2158,10 +2169,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53606 strings out of 473197
- 1216997 string characters out of 5718605
- 2226765 words of memory out of 5000000
- 75823 multiletter control sequences out of 15000+600000
+ 53612 strings out of 473197
+ 1217264 string characters out of 5718605
+ 2227521 words of memory out of 5000000
+ 75830 multiletter control sequences out of 15000+600000
  579371 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  92i,16n,96p,2640b,2174s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2201,10 +2212,10 @@ sfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm060
 0.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/te
 xmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/publ
 ic/cm-super/sfrm1000.pfb>
-Output written on main.pdf (41 pages, 5993153 bytes).
+Output written on main.pdf (41 pages, 5994732 bytes).
 PDF statistics:
- 16984 PDF objects out of 18468 (max. 8388607)
- 8809 compressed objects within 89 object streams
- 209 named destinations out of 1000 (max. 500000)
- 445 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16988 PDF objects out of 18468 (max. 8388607)
+ 8813 compressed objects within 89 object streams
+ 208 named destinations out of 1000 (max. 500000)
+ 453 words of extra memory for PDF output out of 10000 (max. 10000000)
 
