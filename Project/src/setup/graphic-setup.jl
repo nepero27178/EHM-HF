@@ -20,15 +20,19 @@ const Cool::Vector{RGB{Float64}} = [Colors.convert(RGB, c) for c in range(TabBlu
 const Cooler::Vector{RGB{Float64}} = [Colors.convert(RGB, c) for c in range(TabBlueLab, stop=WhiterLab, length=TotalLabSteps)]
 const Warm::Vector{RGB{Float64}} = [Colors.convert(RGB, c) for c in range(WhiteLab, stop=TabRedLab, length=TotalLabSteps)]
 const CoolWarm::Vector{RGB{Float64}} = vcat(Cool,Warm)
+const WarmCool::Vector{RGB{Float64}} = reverse(CoolWarm)
 const Quiet::Vector{RGB{Float64}} = [Colors.convert(RGB, c) for c in range(TabGreenLab, stop=WhiteLab, length=TotalLabSteps)]
 const CoolQuiet::Vector{RGB{Float64}} = [Colors.convert(RGB, c) for c in range(TabBlueLab, stop=TabGreenLab, length=TotalLabSteps)]
 
-# Add to full dictionary
+# Add colorschemes
 colorschemes[:tabcool] = ColorScheme(Cool, "custom cool from matplotlib", "perceptually uniform sequential")
 colorschemes[:tabcooler] = ColorScheme(Cooler, "custom cool from matplotlib", "perceptually uniform sequential")
-colorschemes[:tabcoolrev] = ColorScheme(reverse(Cool), "custom cool from matplotlib", "perceptually uniform sequential")
-colorschemes[:tabcoolerrev] = ColorScheme(reverse(Cooler), "custom cool from matplotlib", "perceptually uniform sequential")
 colorschemes[:tabwarm] = ColorScheme(Warm, "custom warm from matplotlib", "perceptually uniform sequential")
 colorschemes[:tabcoolwarm] = ColorScheme(CoolWarm, "custom coolwarm from matplotlib with grey midpoint", "two-tones perceptually uniform sequential")
-colorschemes[:tabquiet] = ColorScheme(Quiet, "custom cool from matplotlib", "perceptually uniform sequential")
-colorschemes[:tabcoolquiet] = ColorScheme(CoolQuiet, "custom cool from matplotlib", "perceptually uniform sequential")
+colorschemes[:tabquiet] = ColorScheme(Quiet, "custom greens from matplotlib", "perceptually uniform sequential")
+colorschemes[:tabcoolquiet] = ColorScheme(CoolQuiet, "custom blues-greens from matplotlib", "perceptually uniform sequential")
+
+# Add reversed colorschemes
+colorschemes[:tabcoolrev] = ColorScheme(reverse(Cool), "custom reversed cool from matplotlib", "perceptually uniform sequential")
+colorschemes[:tabcoolerrev] = ColorScheme(reverse(Cooler), "custom reversed cool from matplotlib", "perceptually uniform sequential")
+colorschemes[:tabwarmcool] = ColorScheme(WarmCool, "custom coolwarm from matplotlib with grey midpoint", "two-tones perceptually uniform sequential")

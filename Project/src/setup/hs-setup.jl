@@ -72,6 +72,11 @@ elseif Setup=="Test"
 	g = 0.1
 	xVar = "V"
 	pVar = "δ"
+	xScale = identity
+	compared = false
+	cVar = ""
+	exchange = true
+	cs = :tabwarm
 
 # --- MAIN UV plane RUN ---
 elseif Setup=="A[256]-a"
@@ -87,6 +92,11 @@ elseif Setup=="A[256]-a"
 	g = 0.2
 	xVar = "U"
 	pVar = "V"
+	xScale = identity
+	compared = false
+	cVar = ""
+	exchange = true
+	cs = :tabwarm
 
 # --- MAIN δV plane RUN ---
 elseif Setup=="B[256]-a"
@@ -102,6 +112,11 @@ elseif Setup=="B[256]-a"
 	g = 0.2
 	xVar = "V"
 	pVar = "δ"
+	xScale = identity
+	compared = false
+	cVar = ""
+	exchange = true
+	cs = :tabwarm
 
 # --- MAIN δV plane RUN ---
 elseif Setup=="B[256]-b"
@@ -117,6 +132,11 @@ elseif Setup=="B[256]-b"
 	g = 0.05
 	xVar = "V"
 	pVar = "δ"
+	xScale = identity
+	compared = false
+	cVar = ""
+	exchange = true
+	cs = :tabwarm
 
 # --- MAIN βV plane RUN ---
 elseif Setup=="C[256]-a"
@@ -133,4 +153,8 @@ elseif Setup=="C[256]-a"
 	xVar = "V"
 	pVar = "β"
 	xScale = identity
+	compared = true
+	cVar = "δ"
+	exchange = false
+	cs = :tabwarmcool
 end

@@ -655,12 +655,11 @@ Thus, composing everything
 		\big|^2
 	\right] + \left[
 		\mu + n(2zV-U)
-	\right] n 
-	\label{eq:normal-fMFT}
+	\right] n
 \end{aligned}
 \]
 When it comes to algorithmic computation of this quantity, it is important to express $\mu$ in terms of its RMP counterpart $\tilde{\mu}$, as discussed in Sec.~\ref{subsec:fixed-density-role-mu}. By doing this we are considering all the effects of MFT decomposition of $\hat H$. However, as was predicted, the RMP $\tilde{\mu} = \mu + n(2zV-U)$ presented in Eq.~\eqref{eq:normal-mu-shift} appears because of contraction energy corrections, giving finally
-\begin{equation}
+\begin{equation}\label{eq:normal-fMFT}
 	f_\mathrm{MFT}^{(\mathrm{N})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
 	1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - V \left[ 
 		\big|
@@ -1199,7 +1198,7 @@ When $V$ becomes larger than this critical value, the resulting RMP $\tilde{t}^{
 		\label{subfig:normal-tS-data-B128}
 	}
 	\subfloat[Critical Mott boundary.]{
-		\includegraphics[width=0.5\linewidth]{../Project/src/labs/mott-localization/normal-mott-boundary.pdf}
+		\includegraphics[width=0.5\linewidth]{../Project/src/labs/mott-localization/normal-mott-boundary-uS.pdf}
 		\label{subfig:normal-tS-data-B128-mott}
 	}
 	\caption{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase and the Mott-boundary $V_\mathrm{c}$, computed as is described in text. In the right panel, the tick $V=4.93$ is specified explicitly as a graphic confirm of the computation of Eq.~\eqref{eq:normal-Vc-half-filling}. For graphic reasons the points at $V_\mathrm{c} > 8$ have been omitted.}
@@ -1214,7 +1213,52 @@ which makes the real interesting point of this section and the whole bands-shrin
 
 This phenomenon is largely studied in solid-state physics and falls within the large class of Mott physics. \todo
 
-Increasing temperature, predictably, Mott localization is suppressed. \todo
+\begin{figure}
+	\centering
+	\subfloat[Temperature-dependence of $u^{(s^*)}$ plots at various dopings.]{
+		\includegraphics[width=\linewidth]{../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf}
+		\label{subfig:normal-data-uS-C256-compared}
+	}\\
+	\subfloat[Temperature-dependence of $\tilde{t}^{(s^*)}$ plots at various dopings.]{
+		\includegraphics[width=\linewidth]{../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf}
+		\label{subfig:normal-data-tS-C256-compared}
+	}
+	\caption{Comparative plots of the HFP $u^{(s^*)}$ (top panel) and RMP $\tilde{t}^{(s^*)}$ (bottom panel) in null-doped (left plots), ``medium-doped'' ($\delta=0.2$, central plots) and ``heavy-doped'' ($\delta=0.4$, right plots) contexts. Increasing temperature progressively destroys Mott localization, reducing the bands shrinking effect.}
+	\label{fig:normal-data-C256-compared}
+\end{figure}
+
+Increasing temperature, predictably, Mott localization is suppressed. In Fig.~\ref{subfig:normal-data-uS-C256-compared} we report results for the HFP $u^{(s^*)}$ computed at decreasingly lower temperature and three example doping levels,
+\[
+	\beta = 1.0, 2.0, 10.0, 20.0, 100.0
+	\qquad
+	\delta = 0.0, 0.2, 0.4
+\]
+At high temperature the $V$-independence region completely disappears, making $u^{(s^*)}$ a monotonically descendent function. This is no surprise, since all our derivation was performed at low temperature. In Fig.~\ref{subfig:normal-data-uS-C256-compared} the same dataset is plotted with focus on the RMP $\tilde{t}^{(s^*)}$. Temperature increase disrupts localization effects, at least at small values of $V$. Interestingly enough, however, the bands shrinking effect is still relevant at $\beta=1.0$, the hopping parameter approximately halving at $V=5 \divisionsymbol 6$.
+
+\subsection{Solution free energy}
+
+\begin{figure}
+	\centering
+	\subfloat[Heatmap of $f_\mathrm{MFT}$ in $V\delta$ plane.]{
+		\includegraphics[height=0.32\linewidth]{../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf}
+		\label{subfig:normal-f-data-B128}
+	}
+	\subfloat[$V$-dependency of $f_\mathrm{MFT}$ varying $\delta$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]-a/Syms=/RB=S/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf}
+		\label{subfig:normal-f-data-B256}
+	}
+	\caption{Free energy of the normal phase. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref{subfig:normal-tS-data-B128-mott}, indicating the Mott transition. {\color{tabred}[Refine right side data and use TabGreen colorscheme.]}}
+	\label{fig:normal-f-data}
+\end{figure}
+
+The plots of Fig.~\ref{fig:normal-f-data} report our findings on the Normal phase free energy, computed based on Eq.~\eqref{eq:normal-fMFT}. Doping induced energy increase is simply due to the simultaneous entropy decrease and band filling (the first being a consequence of the second, because less and less room is available for electron scattering). By looking the data of Fig.~\ref{subfig:normal-f-data-B256}, at fixed $\delta$ free energy remains pretty much constant up to the Mott boundary. This is simply because as long as a band with non-zero amplitude is present, the HFP correction of Eq.~\eqref{eq:normal-fMFT} compensates the free energy increase due to bands shrinking,
+\[
+\begin{aligned}
+	- V \big| u^{(s^*)} \big|^2 &= - \frac{V u^{(s^*)*}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \\
+	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left( \epsilon_\mathbf{k} - \tilde{\epsilon}_\mathbf{k} \right)  f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+\end{aligned}
+\]
+In other words: bands shrinking increases single-states energies, thus the entire free energy. But including the aforementioned correction, correctly, gives a total free energy density that is indistinguishable from the one of the Normal phase for the HM. This holds, as all the rest, at low temperature: by lowering $\beta$, finite-temperature effects become more and more relevant and the statements above need to be corrected.
 
 \subsection{Convergence problems and mixing fine-tuning}
 

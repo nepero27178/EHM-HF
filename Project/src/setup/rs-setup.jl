@@ -69,6 +69,8 @@ elseif Setup=="Test[30]"
 	Δv = TestΔv
 	Δn = 1e-2
 	g = 0.2
+	xVar = "U"
+	yVar = "V"
 
 # --- MAIN UV plane RUN ---
 elseif Setup=="A[128]-a"

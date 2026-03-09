@@ -27,24 +27,16 @@ function Plot3D(
 	end
 
 	# List vars and pars
-	xyVars = ["t", "U", "V", "L", "δ", "β"]
-	Pars = filter(!=(yVar), filter(!=(xVar), xyVars))
+	xyVars::Vector{String} = ["t", "U", "V", "L", "δ", "β"]
+	Pars::Vector{String} = filter(!in([xVar,yVar]),xyVars)
 
 	# Input safecheck
 	!in(xVar, xyVars) ? error("Invalid x variable, choose one of $(xyVars)") : false
 	!in(yVar, xyVars) ? error("Invalid y variable, choose one of $(xyVars)") : false
 	xVar==yVar ? error("You have chosen xVar=yVar!") : false
 
-	# Unpack filepath
+	# Unpack filepath and set graphics
 	Setup, Phase, Syms, RB, _ = UnpackFilePath(FilePathIn)
-
-	# Load data
-	DF::DataFrame = CSV.read(FilePathIn,DataFrame)
-	Sim::Simulation = Simulation(DF,Setup,Phase,Syms,RB)
-	EnlargeDF!(Sim) # Compute RMPs
-	zVars = filter(!in(xyVars), names(DF))
-	!in(zVar,zVars) ? error("Invalid z variable, choose one of $(zVars)") : false
-
 	if Print
 		# Activate backend
 		CairoMakie.activate!()
@@ -64,16 +56,33 @@ function Plot3D(
 		GLMakie.activate!()
 	end
 
+	# Load data
+	DF::DataFrame = CSV.read(FilePathIn,DataFrame)
+	Sim::Simulation = Simulation(DF,Setup,Phase,Syms,RB)
+	EnlargeDF!(Sim) # Compute RMPs
+	zVars = filter(!in(xyVars), names(DF))
+	!in(zVar,zVars) ? error("Invalid z variable, choose one of $(zVars)") : false
+
+	# Initialize z label
+	zLabel::String = ""
+	if zVar=="m"
+		zLabel = "Magnetization"
+	elseif Print
+		zLabel = "\$" * VarLabels[zVar] * "\$"
+	elseif !Print
+		zLabel = zVar
+	end
+
 	# Group data
 	GroupedDF = groupby(DF,Pars)
-	J = length(GroupedDF)
-	PlotVec = GroupedPlot[]
+	J::Int64 = length(GroupedDF)
+	PlotVec::Vector{GroupedPlot} = GroupedPlot[]
 
 	# Cycle over simulated points
 	for (j,df) in enumerate(GroupedDF)
 
 		# Select plot parameters and print on terminal
-		PltPars = DataFrame(select(df, Symbol.(Pars))[1,:])
+		PltPars::DataFrame = unique( select(df, Symbol.(Pars)) )
 		InfoPars = copy(PltPars)
 		InfoPars[!,"x"] .= xVar
 		InfoPars[!,"y"] .= yVar
@@ -83,15 +92,6 @@ function Plot3D(
 
 		# Reshape local data
 		xx, yy, zz = ReshapeData(DataFrame(df);xVar,yVar,zVar)
-
-		zLabel::String = ""
-		if zVar=="m"
-			zLabel = "Magnetization"
-		elseif Print
-			zLabel = "\$" * VarLabels[zVar] * "\$"
-		elseif !Print
-			zLabel = zVar
-		end
 
 		# Initialize plot
 		sz::Tuple{Float64,Float64} = (600,400)
