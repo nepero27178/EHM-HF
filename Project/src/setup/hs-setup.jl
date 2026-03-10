@@ -38,6 +38,7 @@ AvailableSetups::Set{String} = Set([
 	"B[256]-a", # δV plane
 	"B[256]-b", # δV plane
 	"C[256]-a", # βV plane
+	"C[256]-b", # βV plane
 ])
 
 TestΔv::DataFrame = DataFrame(Dict([
@@ -157,4 +158,21 @@ elseif Setup=="C[256]-a"
 	cVar = "δ"
 	exchange = false
 	cs = :tabwarmcool
+
+# --- MAIN βV plane RUN ---
+elseif Setup=="C[256]-b"
+        tt = [1.0]
+        UU = [0.0]
+        VV = [V for V in 0.0:0.2:6.0]
+        LL = [256]
+        δδ = [0.0, 0.2, 0.4]
+        ββ = [0.1, 4.0, 6.0, 8.0, 15.0]
+        p = 100
+        Δv = MainΔv
+        Δn = 1e-2
+        g = 0.1
+        xVar = "V"
+        pVar = "β"
+        xScale = identity
+
 end

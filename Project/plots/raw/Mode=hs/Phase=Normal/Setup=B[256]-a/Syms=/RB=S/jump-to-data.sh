@@ -1,3 +1,3 @@
 #!/usr/bin/bash
 
-cd /home/nepero27178/Thesis/EHM-HF/Project/data/raw/Mode=hs/Setup=B[256]/Phase=Normal
+cd /home/nepero27178/Thesis/EHM-HF/Project/data/raw/Mode=hs/Setup=B[256]-a/Phase=Normal

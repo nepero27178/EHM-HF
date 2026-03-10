@@ -1159,10 +1159,10 @@ with $\Delta \mathbf{v}$ the tolerance vector defined as in Sec.~\ref{subsec:rej
 		\label{subfig:normal-uS-data-B128}
 	}
 	\subfloat[$V$-dependency of $u^{(s^*)}$ varying $\delta$.]{
-		\includegraphics[height=0.32\linewidth]{../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]-a/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf}
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf}
 		\label{subfig:normal-uS-data-B256}
 	}
-	\caption{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase. To extract the data on the right side coarse-graining precision of the left-hand side data has been exchanged with higher lattice dimensions. As is evident, based on doping level $u^{(s^*)}$ exhibits non-trivial regions of $V$-independence. {\color{tabred}[Refine right side data and use TabBlue colorscheme.]}}
+	\caption{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase. To extract the data on the right side coarse-graining precision of the left-hand side data has been exchanged with higher lattice dimensions. As is evident, based on doping level $u^{(s^*)}$ exhibits non-trivial regions of $V$-independence.}
 	\label{fig:normal-uS-data}
 \end{figure}
 
@@ -1237,6 +1237,19 @@ At high temperature the $V$-independence region completely disappears, making $u
 
 \subsection{Solution free energy}
 
+The plots of Fig.~\ref{fig:normal-f-data} report our findings on the Normal phase free energy, computed based on Eq.~\eqref{eq:normal-fMFT}. Doping induced energy increase is simply due to the simultaneous entropy decrease and band filling (the first being a consequence of the second, because less and less room is available for electron scattering). By looking the data of Fig.~\ref{subfig:normal-f-data-B128}, at fixed $\delta$ free energy remains pretty much constant up to the Mott boundary. This is simply because as long as a band with non-zero amplitude is present, the HFP correction of Eq.~\eqref{eq:normal-fMFT} compensates the free energy increase due to bands shrinking,
+\[
+\begin{aligned}
+	- V \big| u^{(s^*)} \big|^2 &= - \frac{V u^{(s^*)*}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \\
+	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left( \epsilon_\mathbf{k} - \tilde{\epsilon}_\mathbf{k} \right)  f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+\end{aligned}
+\]
+having we used in the second passage
+\[
+	\tilde{\epsilon}_\mathbf{k} = \tilde{\epsilon}_\mathbf{k} + u^{(s^*)*} V (\cos k_x + \cos k_y)
+\]
+Recalling the first point of the derivation of Sec.~\ref{sec:normal-free-energy}, to add said correction to free energy is the same as removing the \textit{tilde} sign from single-state energies, thus using the free model ($V=0$) free energy density expression.
+
 \begin{figure}
 	\centering
 	\subfloat[Heatmap of $f_\mathrm{MFT}$ in $V\delta$ plane.]{
@@ -1244,21 +1257,22 @@ At high temperature the $V$-independence region completely disappears, making $u
 		\label{subfig:normal-f-data-B128}
 	}
 	\subfloat[$V$-dependency of $f_\mathrm{MFT}$ varying $\delta$.]{
-		\includegraphics[height=0.32\linewidth]{../Project/plots/raw/Mode=hs/Phase=Normal/Setup=B[256]-a/Syms=/RB=S/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf}
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf}
 		\label{subfig:normal-f-data-B256}
 	}
-	\caption{Free energy of the normal phase. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref{subfig:normal-tS-data-B128-mott}, indicating the Mott transition. {\color{tabred}[Refine right side data and use TabGreen colorscheme.]}}
+	\caption{Free energy of the normal phase. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref{subfig:normal-tS-data-B128-mott}, indicating the Mott transition.}
 	\label{fig:normal-f-data}
 \end{figure}
 
-The plots of Fig.~\ref{fig:normal-f-data} report our findings on the Normal phase free energy, computed based on Eq.~\eqref{eq:normal-fMFT}. Doping induced energy increase is simply due to the simultaneous entropy decrease and band filling (the first being a consequence of the second, because less and less room is available for electron scattering). By looking the data of Fig.~\ref{subfig:normal-f-data-B256}, at fixed $\delta$ free energy remains pretty much constant up to the Mott boundary. This is simply because as long as a band with non-zero amplitude is present, the HFP correction of Eq.~\eqref{eq:normal-fMFT} compensates the free energy increase due to bands shrinking,
+From Fig.~\ref{subfig:normal-f-data-B256}, the energy cost of Mott localization is made evident. The lower the doping, the higher the energetic cost for total bands shrinking. At low doping levels, hopping renormalization is the largest, as discussed in previous sections; at low temperatures the band is full below $\tilde{\mu}$, thus by shrinking it we just ``move up'' single-state energies, but as long as a FS is well-defined (which is, as long as the band is not flattened enough) the Fermi sea is essentially the same, and the including the aforementioned correction, correctly, gives a total free energy density that is indistinguishable from the one of the Normal phase for the HM. On a flat band a FS is not well defined, and because of this energy must rise: in the Mott-localized region the Fermi-Dirac factors of Eq.~\eqref{eq:normal-fMFT} degenerate to
 \[
-\begin{aligned}
-	- V \big| u^{(s^*)} \big|^2 &= - \frac{V u^{(s^*)*}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \\
-	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left( \epsilon_\mathbf{k} - \tilde{\epsilon}_\mathbf{k} \right)  f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-\end{aligned}
+	\text{Mott localized}
+	\quad\implies\quad
+	\lim_{\beta \to \infty} f(0;\beta,\tilde{\mu}(\delta)) = \frac 1 2
 \]
-In other words: bands shrinking increases single-states energies, thus the entire free energy. But including the aforementioned correction, correctly, gives a total free energy density that is indistinguishable from the one of the Normal phase for the HM. This holds, as all the rest, at low temperature: by lowering $\beta$, finite-temperature effects become more and more relevant and the statements above need to be corrected.
+since for the chemical potential $\tilde{\mu}(\delta)=0$. Entropy is maximized, while the decrease of $u^{(s^*)}$ visible in Fig.~\ref{subfig:normal-uS-data-B256} \todo
+
+All of this holds, as all the rest, at low temperature: by lowering $\beta$, finite-temperature effects become more and more relevant and the statements above need to be corrected.
 
 \subsection{Convergence problems and mixing fine-tuning}
 

@@ -49,14 +49,14 @@ elseif Obj=="Qs"
 	RunList = ["ΔT", "I", "g0", "g"]
 	objList = vcat(QsList, RunList)
 elseif Obj=="phys"
-	objList = ["μ", "f"]
+	objList = ["f", "μ"]
 else
 	@error "Invalid obj. Use obj = HFPs / RMPs / Qs / phys"
 	exit()
 end
 
 function main()
-	Level::String = "refined"
+	Level::String = "raw"
 	if Level=="refined"
 		global Setup = split(Setup,'-')[1]
 	end
@@ -90,7 +90,7 @@ function main()
 				cVar,
 			)
 			if exchange
-				Skip::Int64 = xVar=="V" ? 4 : 0 # Adjust
+				Skip::Int64 = xVar=="V" ? 1 : 0 # Adjust
 				SavePlot2D(
 					FilePathIn,
 					DirPathOut;
