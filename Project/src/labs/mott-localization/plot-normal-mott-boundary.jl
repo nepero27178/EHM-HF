@@ -33,9 +33,25 @@ FilePathIn = "/home/nepero27178/Thesis/EHM-HF/Project/data/refined/Mode=rs/Setup
 
 # save(FilePathOut, H)
 
-FilePathOut = LAB_ROOT * "/normal-mott-boundary-f.pdf"
+# FilePathOut = LAB_ROOT * "/normal-mott-boundary-f.pdf"
 
-P = Plot3D(FilePathIn;Print=true,xVar="δ",yVar="V",zVar="f",cs=:tabcoolwarm)
+# P = Plot3D(FilePathIn;Print=true,xVar="δ",yVar="V",zVar="f",cs=:tabcoolwarm)
+# H = P[1].H
+# df = filter(:V => x -> x==0.0, P[1].DF)
+# xx = vcat(-0.05,df.δ)
+# yy = vcat(4.93, 2 ./ df.uS)
+
+# ax = H.content[1]
+# text!(ax,0.1,7.0,text="Mott localization",color=:white,align=(:center,:center))
+# lines!(ax,xx,yy,color=:white,linestyle=(:dash,:dense),linewidth=1)
+# xlims!(ax,0.0,0.49)
+# ylims!(ax,0.0,8.0)
+
+# save(FilePathOut, H)
+
+FilePathOut = LAB_ROOT * "/normal-mott-boundary-s.pdf"
+
+P = Plot3D(FilePathIn;Print=true,xVar="δ",yVar="V",zVar="s",cs=:tabwarm)
 H = P[1].H
 df = filter(:V => x -> x==0.0, P[1].DF)
 xx = vcat(-0.05,df.δ)

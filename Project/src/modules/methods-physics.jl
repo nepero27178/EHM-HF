@@ -191,6 +191,7 @@ function GetObj(
 
 	# Initializers
 	f::Float64 = 0.0
+	s::Float64 = 0.0
 	NK::Matrix{Float64} = zeros(size(εK))
 	if Obj=="f"
 		vu = RBS || RBd ? [ select( v, Cols(contains.("u")) )[1,:]... ] : false
@@ -211,15 +212,24 @@ function GetObj(
 			return sum(NK)/LxLy
 
 		# Free energy
-		elseif Obj=="f" # Use explicit form to correct for numeric errors
-			# Free energy from bands
-			FK::Matrix{Float64} = FermiDirac.(εK,μ,β)
-			f += sum((εK.-μ).*FK)/LxLy
+		elseif Obj=="f" || Obj=="s" # Use explicit form to correct for numeric errors
 
-			# Free energy from entropy
+			FK::Matrix{Float64} = FermiDirac.(εK,μ,β)
 			esK = xlogx.(FK) + xlogx.(1 .- FK)
-			f += sum(esK)/LxLy * 2/β
-			return f
+
+			if Obj=="f"
+				# Free energy from entropy
+				f += sum(esK)/LxLy * 2/β
+
+				# Free energy from bands
+				f += sum((εK.-μ).*FK)/LxLy
+				return f
+
+			elseif Obj=="s"
+				# Entropy density
+				s -= sum(esK)/LxLy
+				return s
+			end
 
 		end
 
@@ -239,20 +249,29 @@ function GetObj(
 			return sum(NK)/(2*LxLy)
 
 		# Free energy
-		elseif Obj=="f" # Use explicit form to correct for numeric errors
-			# Free energy from HFPs
-			vv::Vector{Float64} = [ select(v, Cols(contains.("v")))[1,:]... ]
-			f += U*m^2 - V*sum(vv.^2)
+		elseif Obj=="f" || Obj=="s" # Use explicit form to correct for numeric errors
 
-			# Free energy from bands
 			FpK::Matrix{Float64} = FermiDirac.(EK,μ,β)
 			FmK::Matrix{Float64} = FermiDirac.(-EK,μ,β)
-			f += sum((EK.-μ).*FpK - (EK.+μ).*FmK)/LxLy # MBZ to BZ => /2, spin => *2
-
-			# Free energy from entropy
 			esK = xlogx.(FpK) + xlogx.(1 .- FpK) + xlogx.(FmK) + xlogx.(1 .- FmK)
-			f += sum(esK)/LxLy * 1/β # MBZ to BZ => /2, spin => *2
-			return f
+
+			if Obj=="f"
+				# Free energy from HFPs
+				vv::Vector{Float64} = [ select(v, Cols(contains.("v")))[1,:]... ]
+				f += U*m^2 - V*sum(vv.^2)
+
+				# Free energy from bands
+				f += sum((EK.-μ).*FpK - (EK.+μ).*FmK)/LxLy # MBZ to BZ => /2, spin => *2
+
+				# Free energy from entropy
+				f += sum(esK)/LxLy * 1/β # MBZ to BZ => /2, spin => *2
+				return f
+
+			elseif Obj=="s"
+				# Entropy density
+				s -= sum(esK)/LxLy
+				return s
+			end
 
 		end
 
@@ -277,6 +296,10 @@ function GetObj(
 			ecK::Matrix{Float64} = ξK .- EK # Contraction part
 			f += ( sum(esK)*2/β + sum(ecK) )/LxLy
 			return f
+
+		elseif Obj=="s"
+			@error "Under construction"
+			return
 
 		end
 
@@ -315,4 +338,19 @@ function GetFreeEnergy(
 )::Float64
 
 	return GetObj("f",Phase,Syms,Pars,v,μ;RBS,RBd,OptBZ,debug)
+end
+
+function GetEntropy(
+	Phase::String,
+	Syms::Set{String},
+	Pars::DataFrame,
+	v::DataFrame,
+	μ::Float64;
+	RBS::Bool=true,
+	RBd::Bool=false,
+	OptBZ::Bool=true,
+	debug::Bool=false
+)::Float64
+
+	return GetObj("s",Phase,Syms,Pars,v,μ;RBS,RBd,OptBZ,debug)
 end

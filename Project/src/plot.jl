@@ -12,6 +12,7 @@ PROJECT_SRC_DIR = @__DIR__
 include(PROJECT_SRC_DIR * "/setup/graphic-setup.jl")
 include(PROJECT_SRC_DIR * "/modules/structs.jl")
 include(PROJECT_SRC_DIR * "/modules/methods-IO.jl")
+include(PROJECT_SRC_DIR * "/modules/methods-physics.jl")
 
 # Arguments handler
 if length(ARGS) != 2
@@ -49,14 +50,14 @@ elseif Obj=="Qs"
 	RunList = ["ΔT", "I", "g0", "g"]
 	objList = vcat(QsList, RunList)
 elseif Obj=="phys"
-	objList = ["f", "μ"]
+	objList = ["s"] #["f", "s", "μ"]
 else
 	@error "Invalid obj. Use obj = HFPs / RMPs / Qs / phys"
 	exit()
 end
 
 function main()
-	Level::String = "raw"
+	Level::String = "refined"
 	if Level=="refined"
 		global Setup = split(Setup,'-')[1]
 	end

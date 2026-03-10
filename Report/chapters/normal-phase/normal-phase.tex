@@ -1202,7 +1202,7 @@ When $V$ becomes larger than this critical value, the resulting RMP $\tilde{t}^{
 		\label{subfig:normal-tS-data-B128-mott}
 	}
 	\caption{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase and the Mott-boundary $V_\mathrm{c}$, computed as is described in text. In the right panel, the tick $V=4.93$ is specified explicitly as a graphic confirm of the computation of Eq.~\eqref{eq:normal-Vc-half-filling}. For graphic reasons the points at $V_\mathrm{c} > 8$ have been omitted.}
-	\label{fig:normal-B128-tS}
+	\label{fig:normal-tS-data}
 \end{figure}
 
 While to extract the value of $V_\mathrm{c}[\beta,\delta]$ is a non-trivial analytic problem due to the insurgence of elliptic integrals and the smearing effects of temperature, for the high-$\beta$ half-filled case it is immediate from Eq.~\eqref{eq:normal-uS-half-filling} to see that
@@ -1235,7 +1235,7 @@ Increasing temperature, predictably, Mott localization is suppressed. In Fig.~\r
 \]
 At high temperature the $V$-independence region completely disappears, making $u^{(s^*)}$ a monotonically descendent function. This is no surprise, since all our derivation was performed at low temperature. In Fig.~\ref{subfig:normal-data-uS-C256-compared} the same dataset is plotted with focus on the RMP $\tilde{t}^{(s^*)}$. Temperature increase disrupts localization effects, at least at small values of $V$. Interestingly enough, however, the bands shrinking effect is still relevant at $\beta=1.0$, the hopping parameter approximately halving at $V=5 \divisionsymbol 6$.
 
-\subsection{Solution free energy}
+\subsection{Solution free energy and entropy densities}
 
 The plots of Fig.~\ref{fig:normal-f-data} report our findings on the Normal phase free energy, computed based on Eq.~\eqref{eq:normal-fMFT}. Doping induced energy increase is simply due to the simultaneous entropy decrease and band filling (the first being a consequence of the second, because less and less room is available for electron scattering). By looking the data of Fig.~\ref{subfig:normal-f-data-B128}, at fixed $\delta$ free energy remains pretty much constant up to the Mott boundary. This is simply because as long as a band with non-zero amplitude is present, the HFP correction of Eq.~\eqref{eq:normal-fMFT} compensates the free energy increase due to bands shrinking,
 \[
@@ -1260,7 +1260,7 @@ Recalling the first point of the derivation of Sec.~\ref{sec:normal-free-energy}
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf}
 		\label{subfig:normal-f-data-B256}
 	}
-	\caption{Free energy of the normal phase. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref{subfig:normal-tS-data-B128-mott}, indicating the Mott transition.}
+	\caption{Free energy density of the normal phase. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref{subfig:normal-tS-data-B128-mott}, indicating the Mott transition.}
 	\label{fig:normal-f-data}
 \end{figure}
 
@@ -1270,10 +1270,51 @@ From Fig.~\ref{subfig:normal-f-data-B256}, the energy cost of Mott localization 
 	\quad\implies\quad
 	\lim_{\beta \to \infty} f(0;\beta,\tilde{\mu}(\delta)) = \frac 1 2
 \]
-since for the chemical potential $\tilde{\mu}(\delta)=0$. Entropy is maximized, while the decrease of $u^{(s^*)}$ visible in Fig.~\ref{subfig:normal-uS-data-B256} \todo
+since for the chemical potential $\tilde{\mu}(\delta)=0$. From a free, single band Fermi gas the contribution to entropy given by a state with occupation $f$ is \cite{grosso2014solid}
+\[
+	s(f) = -k_\mathrm{B} \left[ f \log f + (1-f) \log (1-f) \right]
+\]
+represented in Fig.~\ref{subfig:normal-entropy}. The maximum is precisely located at $f=1/2$, which from the limit above we know is the limiting expression for the Fermi-Dirac population of each single-particle state for a flat band. This implies that the key free energy non-trivial contribution is entropic, represented in Fig.~\ref{subfig:normal-s-data-B128}. Correctly entropy is low all around the Mott insulating phase, which is coherent with a normal Fermi gas at low temperature, for which the FS interface (the region where the Fermi-Dirac factor varies continuously from $1$, inside, to $0$, outside) is narrow. For said model almost all single-particle state are approximately full or empty, which as is represented in Fig.~\ref{subfig:normal-entropy} are two symmetric low-entropy conditions. The Mott insulating region can be seen as a degeneration of the FS interface to the entire BZ, a process that maximises entropy.
+
+\begin{figure}
+	\centering
+	\subfloat[Heatmap of $s_\mathrm{MFT}$ in $V\delta$ plane.]{
+		\includegraphics[height=0.32\linewidth]{../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf}
+		\label{subfig:normal-s-data-B128}
+	}
+	\subfloat[$V$-dependency of $f_\mathrm{MFT}$ varying $\delta$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/src/labs/bin/entropy.pdf}
+		\label{subfig:normal-entropy}
+	}
+	\caption{Entropy density of the normal phase (left panel) and theoretical contribution to entropy for a state with occupation $f$. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref{subfig:normal-tS-data-B128-mott}, indicating the Mott transition.}
+	\label{fig:normal-s-data}
+\end{figure}
 
 All of this holds, as all the rest, at low temperature: by lowering $\beta$, finite-temperature effects become more and more relevant and the statements above need to be corrected.
 
 \subsection{Convergence problems and mixing fine-tuning}
 
-Although extremely simple and characterised by a single HFP, this framework is ideal for us to describe some of the typical convergence problems arising in HF iterative schemes anticipated in Sec.~\ref{subsec:reject-mix-iterate}. Bands flattening is a source of algorithmic instability: numeric fluctuations can lead to values of $u^{(s^*)}$, during iterations, slightly out of bounds with respect to Eq.~\eqref{eq:normal-us*-constraint}. Even if the numeric effect is small, the consequence is vast due to the subsequent band sign inversion. An example of this is given in Fig.~\mref, representing the evolution of a simulation \todo
+Although extremely simple and characterised by a single HFP, this framework is ideal for us to describe some of the typical convergence problems arising in HF iterative schemes anticipated in Sec.~\ref{subsec:reject-mix-iterate}. Bands flattening is a source of algorithmic instability: numeric fluctuations can lead to values of $u^{(s^*)}$, during iterations, slightly out of bounds with respect to Eq.~\eqref{eq:normal-us*-constraint}. Even if the numeric effect is small, the consequence is vast due to the subsequent band sign inversion. To heal this effect and extract converged values, it is necessary to pay a little care with the choice of the mixing parameter $g \in [0,1]$. We defined it in Sec.~\ref{subsec:reject-mix-iterate}, and operatively in Eq.~\eqref{eq:mix}. This parameter controls deterministically how, from an initializer (the HFPs vector we plug in the algorithm) and an output (the HFPs vector we get back from the algorithm) the new initializer for the following step is generated. As a general rule, it is pretty safe to use $g \approx 0.5$; this rule of thumb, however, breaks in situations like the one plotted comparatively in Fig.~\ref{fig:normal-tracks-compared}, representing the evolutions at different mixing parameters of a simulation at
+\[
+	V = 6.0
+	\qquad
+	\delta = 0.1
+	\qquad
+	\beta = 100.0
+\]
+As we have shown in Fig.~\ref{subfig:normal-uS-data-B128} this is a point well inside the Mott region. Localization, as we see in Fig.~\ref{fig:normal-tS-data}, is already pretty intense and to sustain bands flattening $u^{(s^*)}$ needs to converge at $2t/V=t/3$. Let us follow the evolution of the algorithm starting from the arbitrary initializer
+\[
+	\text{Step $1$}
+	\quad\colon\quad
+	u^{(s^*)} = 0.1
+\]
+In each panel of Fig.~\ref{fig:normal-tracks-compared}, the red track represent the value of $u^{(s^*)}$ we plug in the self-consistency equations, the blue one the result, the green one the mixed value of the two based on different $g$s. The gray dashed line is the theoretical convergence target. In the first two panels, there is an evident infinite loop occurring whenever the green line crosses the threshold $2t/V$, which as we know is out of bounds with respect to Eq.~\eqref{eq:normal-us*-constraint}. When this happens, the next red point (initializer of following step) gives a band with inverted sign, a feature that ``breaks'' the self-consistency equation and generates a blue point with no physical significance.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{../Project/src/labs/tracks/tracks.pdf}
+	\caption{Comparison of three example tracks for the single-valued HFPs vector of the normal phase, simulated at a Mott-deep point.}
+	\label{fig:normal-tracks-compared}
+\end{figure}
+
+To overcome this problem it is necessary to move ``slowly''. As is shown in the right panel, the choice of a small enough mixing parameter ensures convergence, implementing the idea that -- within a given tolerance -- even if the blue line is systematically above the convergence value (in the region of band sign inversion) our mixing is careful enough to make up for this, and generate a green track systematically below the convergence value. This kind of problems can turn out to be pretty common for iterative HF schemes, and to understand how to knob the algorithmic parameters without sacrificing accurateness and precision and avoiding computationally costly and frustrating infinite loops was an essential part of this algorithm design.

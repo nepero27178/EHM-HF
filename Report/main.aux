@@ -104,6 +104,7 @@
 \newlabel{eq:mu-numerical-minimization}{{1.24}{12}{Fixed density simulations and the role of $\mu $}{equation.1.24}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.4.4}The reject-mix-iterate convergence scheme}{13}{subsection.1.4.4}\protected@file@percent }
 \newlabel{subsec:reject-mix-iterate}{{1.4.4}{13}{The reject-mix-iterate convergence scheme}{subsection.1.4.4}{}}
+\newlabel{eq:mix}{{1.25}{13}{The reject-mix-iterate convergence scheme}{equation.1.25}{}}
 \newlabel{subfig:s-wave-correlator}{{1.4a}{14}{Local $s$-wave\caption@thelabel }{figure.caption.18}{}}
 \newlabel{sub@subfig:s-wave-correlator}{{a}{14}{Local $s$-wave\caption@thelabel }{figure.caption.18}{}}
 \newlabel{subfig:s*-wave-correlator}{{1.4b}{14}{Extended $s$-wave.\caption@thelabel }{figure.caption.18}{}}
@@ -122,10 +123,10 @@
 \newlabel{tab:x-wave-real-factors}{{1.5}{15}{Form factors for a function defined on a square lattice, with a prefactor included for normalization. We use lattice vector notation here. The last column indicates the graph representation of each contribution given in Fig.~\ref {fig:x-wave-real-factors}. Subscript $x^2-y^2$ is omitted for notational clarity}{table.caption.19}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {1.6}{\ignorespaces Structure factors derived from the correlation structures of Tab.~\ref {tab:x-wave-real-factors}. The functions hereby defined are orthonormal, and are plotted in Fig-~\ref {fig:x-wave-reciprocal-factors}.}}{15}{table.caption.20}\protected@file@percent }
 \newlabel{tab:x-wave-reciprocal-factors}{{1.6}{15}{Structure factors derived from the correlation structures of Tab.~\ref {tab:x-wave-real-factors}. The functions hereby defined are orthonormal, and are plotted in Fig-~\ref {fig:x-wave-reciprocal-factors}}{table.caption.20}{}}
-\newlabel{eq:sym-asym-couplings-gap}{{1.25}{15}{Square lattice spatial symmetry channels}{equation.1.25}{}}
+\newlabel{eq:sym-asym-couplings-gap}{{1.26}{15}{Square lattice spatial symmetry channels}{equation.1.26}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces Representation of the various structure factors listed in Tab.~\ref {tab:x-wave-reciprocal-factors} on the BZ. For the $s^*$ and $d_{x^2-y^2}$-wave factors, the real part is plotted; for the $p_\ell $ factors, the imaginary part is plotted.}}{16}{figure.caption.21}\protected@file@percent }
 \newlabel{fig:x-wave-reciprocal-factors}{{1.5}{16}{Representation of the various structure factors listed in Tab.~\ref {tab:x-wave-reciprocal-factors} on the BZ. For the $s^*$ and $d_{x^2-y^2}$-wave factors, the real part is plotted; for the $p_\ell $ factors, the imaginary part is plotted}{figure.caption.21}{}}
-\newlabel{eq:coscos-symmetries-decomposition}{{1.26}{16}{Square lattice spatial symmetry channels}{equation.1.26}{}}
+\newlabel{eq:coscos-symmetries-decomposition}{{1.27}{16}{Square lattice spatial symmetry channels}{equation.1.27}{}}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
 \@writefile{toc}{\contentsline {chapter}{\chapternumberline {2}The normal phase}{17}{chapter.2}\protected@file@percent }
@@ -226,7 +227,7 @@
 \newlabel{subfig:normal-tS-data-B128-mott}{{2.7b}{34}{Critical Mott boundary.\caption@thelabel }{figure.caption.32}{}}
 \newlabel{sub@subfig:normal-tS-data-B128-mott}{{b}{34}{Critical Mott boundary.\caption@thelabel }{figure.caption.32}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase and the Mott-boundary $V_\mathrm  {c}$, computed as is described in text. In the right panel, the tick $V=4.93$ is specified explicitly as a graphic confirm of the computation of Eq.~\eqref  {eq:normal-Vc-half-filling}. For graphic reasons the points at $V_\mathrm  {c} > 8$ have been omitted.}}{34}{figure.caption.32}\protected@file@percent }
-\newlabel{fig:normal-B128-tS}{{2.7}{34}{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase and the Mott-boundary $V_\mathrm {c}$, computed as is described in text. In the right panel, the tick $V=4.93$ is specified explicitly as a graphic confirm of the computation of Eq.~\eqref {eq:normal-Vc-half-filling}. For graphic reasons the points at $V_\mathrm {c} > 8$ have been omitted}{figure.caption.32}{}}
+\newlabel{fig:normal-tS-data}{{2.7}{34}{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase and the Mott-boundary $V_\mathrm {c}$, computed as is described in text. In the right panel, the tick $V=4.93$ is specified explicitly as a graphic confirm of the computation of Eq.~\eqref {eq:normal-Vc-half-filling}. For graphic reasons the points at $V_\mathrm {c} > 8$ have been omitted}{figure.caption.32}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.6.1}Mott localization effect}{34}{subsection.2.6.1}\protected@file@percent }
 \newlabel{eq:normal-Vc-half-filling}{{2.30}{34}{Mott localization effect}{equation.2.30}{}}
 \newlabel{subfig:normal-data-uS-C256-compared}{{2.8a}{35}{Temperature-dependence of $u^{(s^*)}$ plots at various dopings.\caption@thelabel }{figure.caption.33}{}}
@@ -235,18 +236,28 @@
 \newlabel{sub@subfig:normal-data-tS-C256-compared}{{b}{35}{Temperature-dependence of $\tilde {t}^{(s^*)}$ plots at various dopings.\caption@thelabel }{figure.caption.33}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Comparative plots of the HFP $u^{(s^*)}$ (top panel) and RMP $\tilde  {t}^{(s^*)}$ (bottom panel) in null-doped (left plots), ``medium-doped'' ($\delta =0.2$, central plots) and ``heavy-doped'' ($\delta =0.4$, right plots) contexts. Increasing temperature progressively destroys Mott localization, reducing the bands shrinking effect.}}{35}{figure.caption.33}\protected@file@percent }
 \newlabel{fig:normal-data-C256-compared}{{2.8}{35}{Comparative plots of the HFP $u^{(s^*)}$ (top panel) and RMP $\tilde {t}^{(s^*)}$ (bottom panel) in null-doped (left plots), ``medium-doped'' ($\delta =0.2$, central plots) and ``heavy-doped'' ($\delta =0.4$, right plots) contexts. Increasing temperature progressively destroys Mott localization, reducing the bands shrinking effect}{figure.caption.33}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.2}Solution free energy}{35}{subsection.2.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.6.2}Solution free energy and entropy densities}{35}{subsection.2.6.2}\protected@file@percent }
+\abx@aux@cite{0}{grosso2014solid}
+\abx@aux@segm{0}{0}{grosso2014solid}
 \newlabel{subfig:normal-f-data-B128}{{2.9a}{36}{Heatmap of $f_\mathrm {MFT}$ in $V\delta $ plane.\caption@thelabel }{figure.caption.34}{}}
 \newlabel{sub@subfig:normal-f-data-B128}{{a}{36}{Heatmap of $f_\mathrm {MFT}$ in $V\delta $ plane.\caption@thelabel }{figure.caption.34}{}}
 \newlabel{subfig:normal-f-data-B256}{{2.9b}{36}{$V$-dependency of $f_\mathrm {MFT}$ varying $\delta $.\caption@thelabel }{figure.caption.34}{}}
 \newlabel{sub@subfig:normal-f-data-B256}{{b}{36}{$V$-dependency of $f_\mathrm {MFT}$ varying $\delta $.\caption@thelabel }{figure.caption.34}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2.9}{\ignorespaces Free energy of the normal phase. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref {subfig:normal-tS-data-B128-mott}, indicating the Mott transition.}}{36}{figure.caption.34}\protected@file@percent }
-\newlabel{fig:normal-f-data}{{2.9}{36}{Free energy of the normal phase. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref {subfig:normal-tS-data-B128-mott}, indicating the Mott transition}{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.9}{\ignorespaces Free energy density of the normal phase. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref {subfig:normal-tS-data-B128-mott}, indicating the Mott transition.}}{36}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:normal-f-data}{{2.9}{36}{Free energy density of the normal phase. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref {subfig:normal-tS-data-B128-mott}, indicating the Mott transition}{figure.caption.34}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.6.3}Convergence problems and mixing fine-tuning}{36}{subsection.2.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{37}{section*.36}\protected@file@percent }
+\newlabel{subfig:normal-s-data-B128}{{2.10a}{37}{Heatmap of $s_\mathrm {MFT}$ in $V\delta $ plane.\caption@thelabel }{figure.caption.35}{}}
+\newlabel{sub@subfig:normal-s-data-B128}{{a}{37}{Heatmap of $s_\mathrm {MFT}$ in $V\delta $ plane.\caption@thelabel }{figure.caption.35}{}}
+\newlabel{subfig:normal-entropy}{{2.10b}{37}{$V$-dependency of $f_\mathrm {MFT}$ varying $\delta $.\caption@thelabel }{figure.caption.35}{}}
+\newlabel{sub@subfig:normal-entropy}{{b}{37}{$V$-dependency of $f_\mathrm {MFT}$ varying $\delta $.\caption@thelabel }{figure.caption.35}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.10}{\ignorespaces Entropy density of the normal phase (left panel) and theoretical contribution to entropy for a state with occupation $f$. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref {subfig:normal-tS-data-B128-mott}, indicating the Mott transition.}}{37}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:normal-s-data}{{2.10}{37}{Entropy density of the normal phase (left panel) and theoretical contribution to entropy for a state with occupation $f$. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref {subfig:normal-tS-data-B128-mott}, indicating the Mott transition}{figure.caption.35}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.11}{\ignorespaces Comparison of three example tracks for the single-valued HFPs vector of the normal phase, simulated at a Mott-deep point.}}{37}{figure.caption.36}\protected@file@percent }
+\newlabel{fig:normal-tracks-compared}{{2.11}{37}{Comparison of three example tracks for the single-valued HFPs vector of the normal phase, simulated at a Mott-deep point}{figure.caption.36}{}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{39}{section*.38}\protected@file@percent }
 \abx@aux@nociteall
-\memsetcounter{lastsheet}{41}
-\memsetcounter{lastpage}{38}
+\memsetcounter{lastsheet}{43}
+\memsetcounter{lastpage}{40}
 \abx@aux@read@bbl@mdfivesum{B4E20DEA3DCA89948113EC97C61F1932}
 \abx@aux@defaultrefcontext{0}{annett1990symmetry}{nty/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{arovas2022hubbard}{nty/global//global/global/global}
@@ -266,4 +277,4 @@
 \abx@aux@defaultrefcontext{0}{vishwanath2002dirac}{nty/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{wietek2021stripes}{nty/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{zhou1992density}{nty/global//global/global/global}
-\gdef \@abspage@last{41}
+\gdef \@abspage@last{43}

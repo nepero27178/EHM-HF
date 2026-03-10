@@ -75,15 +75,20 @@ function EnlargeDF!(
 )::DataFrame
 
 	DF::DataFrame = Sim.DF
-	# HFPs::Set{String} = GetHFPs(Sim.Phase,Sim.Syms,RBS,RBd)
-	# Consider the possibility of enlarging the DataFrame to left-out HFPs
+	RBS::Bool = "S" in Sim.RB
+	RBd::Bool = "d" in Sim.RB
 
-	if "S" in Sim.RB
-		DF.tS .= DF.t .- DF.V/2 .* DF.uS
-	end
+	HFPs::Set{String} = GetHFPs(Sim.Phase,Sim.Syms,RBS,RBd)
+	#TODO Consider the possibility of enlarging the DataFrame to left-out HFPs
 
-	if "d" in Sim.RB
-		DF.td .= -DF.V/2 .* DF.ud
+	RBS ? DF.tS .= DF.t .- DF.V/2 .* DF.uS : false
+	RBd ? DF.td .= -DF.V/2 .* DF.ud : false
+	DF.s .= fill(0.0,size(DF,1))
+	for Row in eachrow(DF)
+		Pars::DataFrame = select(DataFrame(Row), [:L, :U, :V, :t, :β, :δ])
+		v::DataFrame = select(DataFrame(Row), HFPs...)
+		μ::Float64 = Row.μ
+		Row.s = GetEntropy(Sim.Phase,Sim.Syms,Pars,v,μ;RBS,RBd)
 	end
 
 	return DF
@@ -212,6 +217,7 @@ function GetLabels(
 		"g0" => "g_0",
 		"g" => "g",
 		"f" => "f_\\mathrm{MFT}",
+		"s" => "s_\\mathrm{MFT}",
 		# Shared HFPs
 		"uS" => "u^{(s^*)}",
 		"ud" => "u^{(d)}",

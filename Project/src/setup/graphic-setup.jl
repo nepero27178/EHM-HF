@@ -1,5 +1,6 @@
 using Colors
 using ColorSchemes
+using LaTeXStrings
 
 # Get MatPlotLib base colors
 const TabColors::ColorScheme{Vector{RGB{Float64}},String,String}  = ColorSchemes.tab10

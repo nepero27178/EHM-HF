@@ -10,6 +10,7 @@ using CSV
 PROJECT_METHODS_DIR = @__DIR__
 include(PROJECT_METHODS_DIR * "/structs.jl")
 include(PROJECT_METHODS_DIR * "/methods-IO.jl")
+include(PROJECT_METHODS_DIR * "/methods-physics.jl")
 
 function Plot3D(
 	FilePathIn::String;
