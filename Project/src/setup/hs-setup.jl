@@ -31,7 +31,7 @@ RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "B[256]-a" # ← Change here
+Setup::String = "C[256]-b" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test", # Test setup
 	"A[256]-a", # UV plane
@@ -174,5 +174,9 @@ elseif Setup=="C[256]-b"
         xVar = "V"
         pVar = "β"
         xScale = identity
+	compared = true
+	cVar = "δ"
+        exchange = false
+	cs = :tabcoolwarm
 
 end

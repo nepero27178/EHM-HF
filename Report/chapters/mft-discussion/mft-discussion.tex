@@ -16,7 +16,7 @@ This chapter is devoted to develop a Mean Field Theory (MFT) framework of the Ex
 		- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat n_{i\sigma} \hat n_{j\sigma'}
 	}_{\hat H_V}
 \]
-Mean Field Theory (MFT) is a widely used and simple theoretical tool, often sufficient to describe the leading orders in phase transition phenomena of Many-Body Physics. Here MFT is employed generically, in order to later discuss both the effects of the non-local term $\hat H_V$ onto the AF phase (Chap.~\ref{chap:mft-af-instability}), as well as the insurgence of anisotropic superconductivity (Chap.~\ref{chap:mft-sc-instability}). The latter, following the path of Bardeen-Cooper-Schrieffer (BCS) theory in describing conventional $s$-wave superconductivity. As will be thoroughly described, the lattice spatial structure directly influences the topology of the gap function, giving rise to anisotropic pairing.
+Mean Field Theory (MFT) is a widely used and simple theoretical tool, often sufficient to describe the leading orders in phase transition phenomena of Many-Body Physics. Here MFT is employed generically, in order to later discuss the effects of the non-local term $\hat H_V$. The latter, following the path of Bardeen-Cooper-Schrieffer (BCS) theory in describing conventional $s$-wave superconductivity. As will be thoroughly described, the lattice spatial structure directly influences the topology of the gap function, giving rise to anisotropic pairing.
 
 \section{Extended Hubbard model symmetries and Wick's theorem}\label{sec:ehm-symmetries}
 
@@ -33,23 +33,23 @@ Evidently, the following statement holds:
 \[
 	\mathrm{T}_n^{(\ell)} \supset \mathrm{T}_{kn}^{(\ell)}
 	\qquad
-	k\in\mathbb{R}
+	k\in\mathbb{N}
 \]
 A model which is invariant for $n$-sites translations in the $\ell$ direction, also is for $kn$-sites translations. Then we can break translation symmetry in a given direction reducing it to a smaller group. For example, the commensurate AF phase we analyze halves translational invariance,
 \[
-	\mathrm{T}_1^{(\ell)}
+	\bigotimes_{\ell = x,y} \mathrm{T}_1^{(\ell)}
 	\quad\SSB\quad
-	\mathrm{T}_2^{(\ell)}
+	\bigotimes_{\ell = x,y} \mathrm{T}_2^{(\ell)}
 \]
 since it deals with two-site periodic spin-density waves (SDWs); insted the SC phase preserves translational invariance.
 
-Another natural symmetry of the EHM is the four-fold point group $\mathrm{C}_4$ of $\pi/2$ rotations, expressing the square lattice property being mapped onto itself under said rotations. A similar property as for the translations hold for point groups,
+Another natural symmetry of the EHM is the four-fold point group $\mathrm{C}_4$ of $\pi/2$ rotations, expressing the square lattice property being mapped onto itself under said rotations. A similar property as for the translations holds for point groups,
 \[
 	\mathrm{C}_n \supset \mathrm{C}_{n/k}
 	\qquad
-	k, n/k \in\mathbb{R}
+	k, n/k \in\mathbb{N}
 \]
-which expresses the fact that, if a system is topologically invariant under $n$-fold rotations and $k \in \mathbb{R}$ exists such that $n/k \in \mathbb{R}$, then the smaller point group is automatically included. As for translations, we can break the point group reducing it to a smaller subgroup, say
+which expresses the fact that, if a system is topologically invariant under $n$-fold rotations and $k \in \mathbb{N}$ exists such that $n/k \in \mathbb{R}$, then the smaller point group is automatically included. As for translations, we can break the point group reducing it to a smaller subgroup, say
 \[
 	\mathrm{C}_4
 	\quad\SSB\quad
@@ -61,23 +61,23 @@ Finally, the system also is inversion-symmetric: let $\mathrm{I}_2$ be the inver
 \[
 	\mathrm{I}_2 \equiv \mathrm{C}_2
 \]
-To rotate by $\pi$ is the same as to mirror the lattice. The inversion symmetry is then already included in $\mathrm{C}_4$, and we leave it unspecified.
+{\color{tabred} To rotate by $\pi$ is the same as to mirror the lattice}. The inversion symmetry is then already included in $\mathrm{C}_4$, and we leave it unspecified.
 
 \subsection{Spin and charge symmetries}\label{subsec:spin-charge-syms}
 
-When it comes to Fermi algebra and operators, an evident symmetry of the EHM is a global $\mathrm{U}(2)$ symmetry \cite{arovas2022hubbard} given by the transformation
+When it comes to Fermi algebra and operators, a large symmetry of the EHM is a global $\mathrm{U}(2)$ symmetry \cite{arovas2022hubbard} given by the transformation
 \begin{equation}\label{eq:ehm-global-u2-symmetry}
 	\hat c_{i\sigma} \to \sum_{\sigma'} \mathcal{U}_{\sigma \sigma'} \hat c_{i\sigma'}
 	\qq{with}
 	\mathcal{U}_{\sigma \sigma'} \in \mathrm{U}(2)
 \end{equation}
-The proof is trivial and follows from the fact that $\mathcal{U}^\dagger \mathcal{U} = \mathcal{U} \mathcal{U}^\dagger = \Id$. Note that the the following decomposition holds,
+The proof is trivial and follows from the fact that $\mathcal{U}^\dagger \mathcal{U} = \mathcal{U} \mathcal{U}^\dagger = \Id$ {\color{tabred}[add proof?]}. Note that the the following decomposition holds,
 \begin{equation}\label{eq:ehm-global-u2-symmetry-u1-su2}
 	\mathrm{U}(2) = \mathrm{SU}(2) \otimes \mathrm{U}^\mathrm{c}(1)
 \end{equation}
 which expresses the separate charge conservation and spin rotational symmetries. In detail:
 \begin{itemize}
-	\item $\mathrm{U}^\mathrm{c}(1)$ charge conservation, coming from Eq.~\eqref{eq:ehm-global-u2-symmetry-u1-su2} decomposition. By breaking this symmetry, we allow for the total charge to fluctuate in the ground state. This fluctuation is only allowed in the SC phase in the present text;
+	\item $\mathrm{U}^\mathrm{c}(1)$ charge conservation, coming from Eq.~\eqref{eq:ehm-global-u2-symmetry-u1-su2} decomposition. By breaking this symmetry, we allow for the total charge to fluctuate in the ground state. These fluctuations are only allowed in the SC phase in the present text;
 	\item $\mathrm{SU}(2)$ spin rotation symmetry, also , coming from Eq.~\eqref{eq:ehm-global-u2-symmetry-u1-su2} decomposition. Note that:
 	\[
 		\mathrm{SU}(2) \supset \mathrm{U}^z(1)
@@ -97,7 +97,7 @@ The last point is important: for the AF phase, for example, there is no need for
 		\input{\GraphicsFolder/su2-u1-reduced-symmetry.tex}
 		\label{subfig:u1-domain}
 	}
-	\caption{Graphic representation of the concept of $\mathrm{SU}(2)\to\mathrm{U}^z(1)$ SSB. The blue color identifies, in both cases, the rotations domain for the current symmetry. When SSB takes place in a magnetic phase, the magnetization order parameter acquires a precise direction which was previously invariant over the full spherical domain. After SSB, the hamiltonian is rotationally invariant only for rotations \textit{around} the selected magnetization vector.}
+	\caption{Graphic representation of the concept of $\mathrm{SU}(2)\to\mathrm{U}^z(1)$ SSB. The solid color identifies, in both cases, the rotations domain for the current symmetry. When SSB takes place in a magnetic phase, the magnetization order parameter acquires a precise direction which was previously invariant over the full spherical domain. After SSB, the hamiltonian is rotationally invariant only for rotations \textit{around} the selected magnetization vector.}
 	\label{fig:su2-u1-domains}
 \end{figure}
 
@@ -140,7 +140,7 @@ For the two interactions $\hat H_U$, $\hat H_V$ the phase factors cancelled out.
 	- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'} \hat h_{j\sigma'} \hat h_{i\sigma}
 \]
 
-Before starting the derivation, an extension of the argument of \citeauthor{arovas2022hubbard} \cite{arovas2022hubbard} about the conventional HM, let us discuss some properties of the hole operators. Due to the presence of the phase factors in the PHS operative definition, the Fermi anticommutation rules hold regardless of the phase factor:
+Before starting the derivation, which is an extension of the argument of \citeauthor{arovas2022hubbard} \cite{arovas2022hubbard} about the conventional HM, let us discuss some properties of the hole operators. Due to the presence of the phase factors in the PHS operative definition, the Fermi anticommutation rules hold regardlessly of the phase factor:
 \[
 \begin{aligned}
 	\lbrace \hat h_{i\sigma}, \hat h_{j\sigma'}^\dagger \rbrace &= e^{i(\eta_{i\sigma}-\eta_{j\sigma'})} \lbrace \hat c_{i\sigma}^\dagger, \hat c_{j\sigma'} \rbrace \\
@@ -201,7 +201,7 @@ Substitute in $\hat H_U$ the above derivation,
 	&= U \sum_i \hat h_{i\uparrow}^\dagger \hat h_{i\downarrow}^\dagger \hat h_{i\downarrow}\hat h_{i\uparrow} + U (\hat N - L_x L_y)
 \end{aligned}
 \]
-Thus, a state realizing
+Thus, being for the half-filled state
 \[
 	\langle \hat N \rangle = L_x L_y
 \]
@@ -209,7 +209,7 @@ preserves PHS in the local sector.
 
 \paragraph{Non-local attraction.}
 
-Proceed identicall for $\hat H_V$,
+Proceed identically for $\hat H_V$,
 \[
 \begin{aligned}
 	\mathrm{P} \lbrace \hat H_V \rbrace &= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger \hat h_{i\sigma}^\dagger \\
@@ -256,7 +256,7 @@ Any other phase choice, as long as it alternates by $\pi$ on the two sublattices
 		$\mathrm{U}^z(1)$ & Reduced two-dimensional rotations in spin space\\
 		\midrule
 	\end{tabular}
-	\caption{Model symmetries and relative group operations. Note that $\mathrm{U}^\mathrm{c}(1)$ represents the charge conserving group, while $\mathrm{U}^z(1)$ represents the subgroup obtained by breaking the $\mathrm{SU}(2)$ symmetry with a vector order parameter and preserving its amplitude. Since the latter is ``derived'' from $\mathrm{SU}(2)$, we write it separated from the four main symmetries of the model.}
+	\caption{Model symmetries and relative group operations. Note that $\mathrm{U}^\mathrm{c}(1)$ represents the charge conserving group, while $\mathrm{U}^z(1)$ represents the subgroup obtained by breaking the $\mathrm{SU}(2)$ symmetry with a vector order parameter and preserving its amplitude. Since the latter is ``derived'' from $\mathrm{SU}(2)$, we separate it from the four main symmetries of the model.}
 	\label{tab:symmetry-groups}
 \end{table}
 
@@ -303,8 +303,6 @@ Self consistency of MFT procedure is thus embodied by the condition
 \end{equation}
 which essentially states that the least the fluctuations, the better the approximation. This rule of thumb is necessary in order to interpret the physical relevance of numerical MFT results. We will come back to this in the end, for now assuming the validity of MFT approximation and deriving the mathematical results.
 
-\todo
-
 \subsection{MFT treatment of the pure Hubbard model}\label{subsec-mft-treatment-hm}
 
 The pure Hubbard model, $\hat H_t + \hat H_U$, offers a simple framework for MFT analysis of the AF phase: this is described in detail in App.~\ref{appsec:antiferromagnetic-phase}. The key passage is there given by the MFT approximation
@@ -316,7 +314,7 @@ In terms of the discussion of the above paragraph, we have $\hat A \equiv \hat n
 \[
 	\hat n_{i\uparrow} \hat n_{i\downarrow} = \hat c_{i\uparrow}^\dagger \hat c_{j\downarrow}^\dagger \hat c_{j\downarrow} \hat c_{i\uparrow}
 \]
-which contracts in three different ways following Wick's Theorem:
+whose terms we can contract in three different ways following Wick's Theorem:
 \begin{equation}\label{eq:mft-extended-hubbard-wick-decomposition}
 	\langle
 	\hat c_{i\uparrow}^\dagger \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow} \hat c_{i\uparrow}
@@ -501,11 +499,11 @@ Consider first the o.s. terms of Eq.~\eqref{eq:ehm-mft-onsite-hamiltonian}: take
 \]
 Identical decompositions are given for all others NNs. Of the three terms above:
 \begin{itemize}
-	\item The Coooper term breaks $\mathrm{U}^\mathrm{c}(1)$ charge symmetry, allowing for supeconducting instabilities;
-	\item The Fock term breaks the $\mathrm{U}^z(1)$ symmetry, because it accounts for a site hop \textit{plus} spin flip process;
+	\item The Cooper term breaks $\mathrm{U}^\mathrm{c}(1)$ charge symmetry, allowing for supeconducting instabilities;
+	\item The Fock term breaks $\mathrm{U}^z(1)$ symmetry, because it accounts for a site hop \textit{plus} spin flip process;
 	\item The Hartree term can reduce both translational invariance and spin rotational symmetry.
 \end{itemize}
-As a general rule of thumb, throughout this text we will discard the o.s. Fock term eveywhere, preserving a robust $\mathrm{U}^z(1)$ symmetry. For the normal state as well as for the AF instability only the Hartree term is to be accounted; in superconducting instability also the Cooper term contributes. Note that for superconducting instabilities, due to superexchange mechanism (as explained in App.~\ref{appendix:mean-field-hubbard}) the o.s. term account for singlet pairing as well as zero-projection triplet pairing. Which channel is preferred, is a matter of thermodynamic advantage.
+As a general rule of thumb, throughout this text we will discard the o.s. Fock term eveywhere, preserving a robust $\mathrm{U}^z(1)$ symmetry. For the normal state as well as for the AF instability only the Hartree term is to be accounted; for the SC phase also the Cooper term contributes. Note that for superconducting instabilities, due to superexchange mechanism (as explained in App.~\ref{appendix:mean-field-hubbard}) the o.s. term accounts for singlet pairing as well as zero-projection triplet pairing. Which channel is preferred, is a matter of thermodynamic advantage.
 
 \paragraph{Same-spin terms.} Consider then the same-spin terms: take e.g. the term $\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r} + \bm{\delta} \uparrow}$. As above,
 \[
@@ -557,13 +555,13 @@ Identical consideration as in the above paragraph hold for each term. The only d
 		& Cooper & Prohibited & Prohibited & \\
 		\midrule
 	\end{tabular}
-	\caption{Summary of Wick's terms selection rules and relevant contributions to the effective hamiltonian for each phase limitedly to $\hat H_V$.}
+	\caption{Summary of Wick's terms selection rules and relevant contributions to the effective hamiltonian for each phase limitedly to $\hat H_V$, assuming preservation of $\mathrm{U}^z(1)$ symmetry.}
 	\label{tab:V-wick-terms-phases}
 \end{table}
 
 \subsection{Fourier transform of the model}\label{subsec:ehm-fourier}
 
-It is useful to derive analytically the reciprocal-space form of the three parts of the hamiltonian. By the sign $\Feq$, we indicate a passage where a Fourier-transform is performed. $\mathcal{F}$-transform is obtained according to the convention
+It is useful to derive analytically the reciprocal-space form of the three hamiltonian parts. By the sign $\Feq$, we indicate a passage where a Fourier-transform is performed. $\mathcal{F}$-transform is obtained according to the convention
 Fourier transform it according to the convention
 \begin{equation}\label{eq:fourier-convention}
 	\hat c_{\mathbf{r}\sigma} \Feq \frac{1}{\sqrt{L_xL_y}} \sum_{\mathbf{k} \in \mathrm{BZ}} e^{-i \mathbf{k} \cdot \mathbf{r}} \hat c_{\mathbf{k}\sigma}
@@ -614,9 +612,9 @@ Then, the interaction at site $\mathbf{r}$, spin $\sigma$ with its NNs at spin $
 	\right]	\hat c_{\mathbf{k}_1 \sigma}^\dagger \hat c_{\mathbf{k}_2 \sigma'}^\dagger \hat c_{\mathbf{k}_3 \sigma'} \hat c_{\mathbf{k}_4\sigma}
 \end{aligned}
 \]
-The full non-local interaction is given by summing over all sites of $\mathcal{S}_a$ (which is, half the sites of $\mathcal{S}$). This gives back momentum conservation,
+The full non-local interaction is given by summing over all sites of $\mathcal{S}/2$ (which is, one sublattice of $\mathcal{S}$). This gives back momentum conservation,
 \[
-	\frac{1}{L_xL_y} \sum_{\mathbf{r} \in \mathcal{S}_a} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} = \frac{1}{2} \delta_{\mathbf{k}_1 + \mathbf{k}_2 = \mathbf{k}_3 + \mathbf{k}_4}
+	\frac{1}{L_xL_y} \sum_{\mathbf{r} \in \mathcal{S}/2} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} = \frac{1}{2} \delta_{\mathbf{k}_1 + \mathbf{k}_2 = \mathbf{k}_3 + \mathbf{k}_4}
 \]
 Let $\mathbf{k}_1 + \mathbf{k}_2 = \mathbf{k}_3 + \mathbf{k}_4 = \mathbf{K}$, and define $\mathbf{k}$, $\mathbf{k}'$ such that
 \[
@@ -669,7 +667,6 @@ which decomposes in s.s. and o.s. channels as:
 		\right]	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\overline{\sigma}}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\overline{\sigma}} \hat c_{\mathbf{K}+\mathbf{k}'\sigma}
 	}_{\mathrm{o.s.}}
 \end{multline*}
-
 The o.s. part can be simplified: since
 \[
 	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\overline{\sigma}}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\overline{\sigma}} \hat c_{\mathbf{K}+\mathbf{k}'\sigma} = \hat c_{\mathbf{K}-\mathbf{k}\overline{\sigma}}^\dagger \hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}+\mathbf{k}'\sigma} \hat c_{\mathbf{K}-\mathbf{k}'\overline{\sigma}} 
@@ -691,7 +688,7 @@ leaves the form factor $\cos \left( \delta k_x \right)	+ \cos \left( \delta k_y 
 		\right)	
 	\right]	\hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\downarrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\downarrow} \hat c_{\mathbf{K}+\mathbf{k}'\uparrow}
 \end{equation}
-whil the explicit s.s. sector is given immediately by:
+whiel the explicit s.s. sector is given immediately by:
 \begin{multline}\label{eq:HV-ss-fourier}
 	\hat H_V^{(\mathrm{s.s.})} = - \frac{V}{L_x L_y}
 	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
@@ -705,7 +702,7 @@ whil the explicit s.s. sector is given immediately by:
 	\hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\uparrow} \hat c_{\mathbf{K}+\mathbf{k}'\uparrow} + \hat c_{\mathbf{K}+\mathbf{k} \downarrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\downarrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\downarrow} \hat c_{\mathbf{K}+\mathbf{k}'\downarrow}
 	\right]
 \end{multline}
-The result here obtained will be used various times in next chapters. Note that different Wick contraction schemes lead to different results:
+The result here obtained will be used various times in next chapters. Note that different Wick contraction schemes will be referred to as:
 \begin{align}
 	&\wick{
 		\c
@@ -728,7 +725,7 @@ The result here obtained will be used various times in next chapters. Note that 
 		c_{\mathbf{K}+\mathbf{k}'\sigma}
 	} &&\text{Hartree contraction} \label{eq:reciprocal-space-hartree-contraction}
 \end{align}
-which will be used explicitly later on.
+When contracting in the Fock channel, a minus sign must be included.
 
 \paragraph{Local repulsion.}\label{subsec:mft-discussion-reciprocal-local}
 
@@ -743,9 +740,9 @@ The only difference here is made by the fact that the interaction is repulsive o
 \end{equation}
 When contracting these fermionic operators, identical considerations as for the non-local counterpart \eqref{eq:HV-fourier} hold. Note the similarity of this Fourier transform with the o.s. sector of the non-local attraction, given in Eq.~\eqref{eq:HV-fourier}. With this, we conclude the general introduction to the model and pass to the setup of the Hartree-Fock (HF) algorithm.
 
-\section{General approach MFT through iterative Hartree-Fock algorithms}\label{sec:computational-mft}
+\section{Iterative computational approach to MFT}\label{sec:computational-mft}
 
-This section is devoted to the explanation of the general iterative strategy we use to simulate the EHM within MFT. The simplicity of the algorithm is only possible thanks to the violent reduction of complexity MFT is able to reach. We use an iterative self-consistent scheme, thus solving a finite set of equation searching for a fixed point in parameters space for each phase.
+This section is devoted to the explanation of the general iterative strategy we use to simulate the EHM through iterative Mean-Field Theory (iMFT). The simplicity of the algorithm is only possible thanks to the violent reduction of complexity MFT is able to reach. We use an iterative self-consistent scheme, thus solving a finite set of equation searching for a fixed point in parameters space for each phase.
 
 \subsection{Sketch of the Hartree-Fock iterative algorithm}\label{subsec:hf-sketch}
 
@@ -771,7 +768,7 @@ where now the new parameters, which we will refer to as Hartree-Fock parameters 
 	}
 \end{aligned}
 \]
-These equations are determined by many-body expectation values, which in general are computed by the means of thermal averages over the lowest energy density matrix.
+These equations are determined by many-body expectation values, which in general are computed by the means of thermal averages.
 %
 \begin{figure}
 	\centering
@@ -783,13 +780,11 @@ These equations are determined by many-body expectation values, which in general
 A self consistent Hartree-Fock scheme goes as follows:
 \begin{enumerate}
 	\item Apply MFT to the quartic hamiltonian, recovering its general theoretic effective form;
-	\item Impose selection rules on the parameters $C_{\alpha\beta}$, $D_{\alpha\beta}$, eventually eliminating those not respecting the symmetry sector we are working in\footnote{
-		As an example: if we choose not to break charge conservation, set $\forall\alpha,\beta\,\colon\,D_{\alpha\beta}=0$.
-	};
+	\item Impose selection rules on the parameters $C_{\alpha\beta}$, $D_{\alpha\beta}$, eventually eliminating those not respecting the symmetry sector we are working in.	As an example: if we choose not to break charge conservation, set $\forall\alpha,\beta\,\colon\,D_{\alpha\beta}=0$;
 	\item Choose a starting value and a coherent symmetry structure for the remaining parameters;
-	\item Enter iterative scheme of Fig.~\ref{fig:effective-model-scheme}:
+	\item Enter the iterative scheme of Fig.~\ref{fig:effective-model-scheme}:
 	\begin{enumerate}
-		\item Based on the current HFPs, determine $\mu [C,D]$ that gives the correct density;
+		\item Based on the current HFPs, determine the value $\mu [C,D]$ giving the correct density;
 		\item Diagonalize the effective hamiltonian $\hat H^{(\mathrm{eff})}[C,D] - \mu[C,D] \hat N$ and recover the ground-state $\ket{\Psi [C,D]}$;
 		\item Compute the new HFPs $C_{\alpha\beta}'$, $D_{\alpha\beta}'$ via the self consistent equations;
 		\item Initialize the new effective hamiltonian $\hat H^{(\mathrm{eff})}[C',D']$ and repeat the cycle until the HFPs have converged to stable values.
@@ -797,21 +792,21 @@ A self consistent Hartree-Fock scheme goes as follows:
 \end{enumerate}
 The stable values we are referring to in the last point are our solutions. The resulting vector is a fixed point in the parametric recursive map defined by the set of MFT self-consistent equations.
 
-Of course, to work any of these algorithms we need to know how to diagonalize the hamiltonian. In the context of the Extended Hubbad Model at thermal equilibrium, due to the phases we are simulating, we know analytically the diagonalized hamiltonian, and making use of this knowledge we are able to reduce the self consistent scheme to a simple iterative algorithm. An explicit example of HF algorithm used in present text, somewhat simplified due to the presence of a single HFP, is given in App.~\ref{appsubsec:hartree-fock-algorithm}.
+Of course, to work with any of these algorithms we need to know how to diagonalize the hamiltonian. In the context of the EHM at thermal equilibrium, being the phases we are simulating simple enough, we know analytically the diagonalized hamiltonian, and making use of this knowledge we are able to reduce the self consistent scheme to a simple iterative algorithm. An explicit example of HF algorithm used in present text, somewhat simplified due to the presence of a single HFP, is given in App.~\ref{appsubsec:hartree-fock-algorithm}.
 
 \subsection{Self-consistency and RMPs}
 
-As will be thoroughly discussed in the following derivations for each physical phase we treat, treating the EHM via MFT keeping under strict control the effects of Wick's theorem produces ground states whose parametric properties (band structures, gap functions, chemical potential) are controlled parametrically and self-consistently by the model two-body interactions $\hat H_U$ and $\hat H_V$. Let us define the concept of Renormalized model parameter (RMP), meaning one model that is effectively renormalized via interactions. 
+As will be thoroughly discussed in the following derivations for each physical phase we treat, treating the EHM via MFT keeping under strict control the effects of Wick's theorem produces ground states whose parametric properties (band structures, gap functions, chemical potential) are controlled self-consistently by the model two-body interactions $\hat H_U$ and $\hat H_V$. Let us define the concept of Renormalized model parameter (RMP), indicating any of the model parameters that is effectively renormalized via interactions. 
 
-Let us invent a relevant example to explain the concept of RMP. Suppose that under MFT, for a given phase the decomposition $\hat H_V$ has a net effect of defining the RMP $\tilde{t}$,
+Let us propose a relevant example of RMP. Suppose that under MFT, for a given phase, the decomposition $\hat H_V$ has a net effect of renormalizing the hopping amplitude
 \[
-	t \stackrel{V}{\to} \tilde{t}
+	t \stackrel{\hat H_V}{\to} \tilde{t}
 \]
 In other words, the decomposition of $\hat H_V$ produces a free Fermionic hamiltonian whose diffusive parameter is $\tilde{t}$. We define $\tilde{t}$ as an RMP, being the result of the original model parameter $t$ plus the effect of interactions.
 
 \subsection{Fixed density simulations and the role of $\mu$}\label{subsec:fixed-density-role-mu}
 
-In the context of the present text, all simulations are performed at fixed density, determining self-consistently the value of the chemical potential. This means that, for a given step $i$ and the relative HFPs vector $\mathbf{v}_i$, and for a fixed density $n\in[0,1]$, $\mu_i$ (the chemical potential at the current step) is determined as
+In the context of the present text, all simulations are performed at fixed density, determining self-consistently the value of the chemical potential. This means that, for a given step $i$ and the relative HFPs vector $\mathbf{v}_i$, and for a fixed density $n\in[0,1]$, $\mu_i$ (the chemical potential at current step) is determined as
 \begin{equation}\label{eq:mu-numerical-minimization}
 	\mu_i
 	\quad\colon\quad
@@ -819,7 +814,7 @@ In the context of the present text, all simulations are performed at fixed densi
 		\frac{1}{2L_x L_y} \sum_\mathbf{k} \sum_\sigma \ev{\hat n_{\mathbf{k}\sigma}} \big|_{\mathbf{v}=\mathbf{v}_i} - n
 	\right\rbrace
 \end{equation}
-being $\mathbf{v}=\mathbf{v}_i$ and indication that the averaging operation is performed over the ground state determined parametrically by the current value of the HFPs.
+being $\mathbf{v}=\mathbf{v}_i$ the HFPs vector at current step. Averaging is performed over the ground state determined parametrically by the current value of the HFPs.
 
 Hence, if we are able to perform averages and know both $\mathbf{v}_i$ and $n$, at step $i$ we infer the correct chemical potential. Now, as we will discuss $\tilde{\mu}$ will turn out to be an RMP itself, meaning that theoretically
 \[
@@ -845,7 +840,7 @@ being $\mu$ the Lagrange multiplier, $\hat N$ the number operator and $\hat K \e
 		\mel{\Psi [\mathbf{v}]}{\hat N}{\Psi [\mathbf{v}]} = N
 	\end{cases}
 \]
-Of course, in the first line $\mu N$ is derived to zero. The constraint is imposed in the second line. This means that, when it comes to determining the parametric ground state, $\hat K$ is functionally minimized. If in this context $\mu$ (the Lagrange multiplier) sums with other effective terms arisen from algebraic manipulations of $\hat H$ giving a grand total of $\tilde{\mu}$, the number operator $\hat N$ average is performed over the many-body ground state $\ket{\Psi [\mathbf{v}]}$ with the total effective chemical potential $\tilde{\mu}$, not $\mu$. However, when it comes to computing energy,
+In the first line $\mu N$ is derived to zero. The constraint is imposed in the second line. This means that, when it comes to determining the parametric ground state, $\hat K$ is functionally minimized. In this context $\mu$ (the Lagrange multiplier) sums with other effective terms arisen from algebraic manipulations of $\hat H$ giving a grand total of $\tilde{\mu}$. The number operator $\hat N$ average is performed over the many-body ground state $\ket{\Psi [\mathbf{v}]}$ with the total effective chemical potential being $\tilde{\mu}$, not $\mu$. However, when it comes to computing energy,
 \[
 \begin{aligned}
 	\langle \hat H \rangle &= \mel{\Psi[\mathbf{v}]}{\hat K}{\Psi[\mathbf{v}]} + \mu N \\
@@ -866,11 +861,11 @@ being $\mathrm{A}(\mathbf{v})$ the algorithmic image of the HFP vector $\mathbf{
 
 When the acceptance condition is not satisfied, which is, when at least one component of $\mathbf{v}$ is mapped by the HF algorithm to a new image value for a total displacement larger than the respective component of $\Delta \mathbf{v}$, the step is rejected and iteration continues. This lets us define the mixing parameter $g \in [0,1]$, which represents the deterministic fractional combination of the current step with its image value to obtain a new step,
 \begin{equation}\label{eq:mix}
-	\mathbf{v} (i+1) \equiv g \mathrm{A} \left( \mathbf{v} (i) \right) + (1-g) \mathbf{v} (i)
+	\mathbf{v}_{i+1} \equiv g \mathrm{A} \left( \mathbf{v}_{i} \right) + (1-g) \mathbf{v}_{i}
 \end{equation}
-and becomes a simple but useful knob to tune the algorithmic evolution. Its usefulness comes from the core concept that, even if physically there exists a unique solution to the model (thus just one self-consistent HFP vector, eventually of all zeros) such a fixed point could be hard to reach following a pure iterative numeric scheme on a given map (which would be the $g=1$ case of the above equation) for a variety of reasons. By moving ``slower'' (low $g$) with an accurate optimization of the mixing, as will be seen concretely in Sec.~\mref, it is possible to reach convergence in a controlled way.
+and becomes a simple but useful knob to tune the algorithmic evolution. Its usefulness comes from the core concept that, even if physically there exists a unique solution to the model (thus just one self-consistent HFP vector, eventually of all zeros) such a fixed point could be hard to reach following a pure iterative numeric scheme on a given map (which would be the $g=1$ case of the above equation) for a variety of reasons. By moving ``slower'' (low $g$) with an accurate optimization of the mixing, as will be seen concretely in Sec.~\ref{subsec:normal-g-optimization}, it is possible to reach convergence in a controlled way.
 
-When it comes to HF iterative scheme of this kind, it can happen with some frequency that the algorithm remains stuck in an infinite loop between a set of points mathematically linked by the self-consistent map but not representing a physical solution because of their reciprocal absolute distance in HFP space. In some other situations, evolutions could turn out to be rather slow. Because of this it is reasonable to define a parameter $p$, such that the number of iterations is kept $i \le p$. If the algorithm failed to converge in $p$ steps, the point is saved as ``\texttt{NaN}'' (Not a number) and the algorithm moves to another simulation. Introducing this simple rule, runtime is kept under control and we gain an easy method to identify the regions of parameter space requiring more care -- just read from the raw data where \texttt{NaN}s have been saved.
+When it comes to HF iterative schemes of this kind, it can happen with some frequency that the algorithm remains stuck in an infinite loop between a set of points mathematically linked by the self-consistent map but not representing a physical solution (because of their reciprocal absolute distance in HFP space). In some other situations, evolutions could turn out to be rather slow. Because of this it is reasonable to define a parameter $p$, such that the number of iterations is kept $i \le p$. If the algorithm failed to converge in $p$ steps, the point is saved as ``\texttt{NaN}'' (Not a number) and the algorithm moves to another simulation. Introducing this simple rule, runtime is kept under control and we gain an easy method to identify the regions of parameter space requiring more care -- just read from the raw data where \texttt{NaN}s have been saved.
 
 \section{Square lattice spatial symmetry channels}\label{sec:square-lattice-symmetries}
 
@@ -907,11 +902,11 @@ In next sections we introduce spatial symmetry structures and discuss their rela
 
 Looking at $\hat H$, the main difference between its two-body interactions $\hat H_U$ and $\hat H_V$ of course relies in locality (first) and non-locality (second). Both operators in principle are able to break $\mathrm{C}_4$ symmetry, as will later be discussed extensively.
 
-For the $2$D square lattice, various spatial symmetries are possible. Let $i$ be a specific site, and consider a generic complex function $g_{ij}$ whose domain is given by the site itself and its four NNs (the domain concides with the points of Fig.~\ref{fig:square-nearest-neighbors}). Then it is immediate to see that the function can be written in the following basis
+For the $2$D square lattice, various spatial symmetries are possible. Let $i$ be a specific site, and consider a generic complex function $g_{ij}$ whose domain is given by the site itself and its four NNs (the domain concides with the points of Fig.~\ref{fig:square-nearest-neighbors}). The function can be written in the $\mathrm{C}_4$ basis
 \[
 	g_{ij} = \sum_\gamma g^{(\gamma)} \varphi_{ij}^{(\gamma)}
 \]
-where $g^{(\gamma)} \in \mathbb{C}$ are the $g_{ij}$ symmetry channels coefficients while $\varphi_{ij}^{(\gamma)}$ are the form factors listed in Tab.~\ref{tab:x-wave-real-factors} and plotted in Fig.~\ref{fig:x-wave-reciprocal-factors}, a simple orthonormal rearrangement of the harmonics basis.
+where $g^{(\gamma)} \in \mathbb{C}$ are the $g_{ij}$ symmetry channels coefficients, while $\varphi_{ij}^{(\gamma)}$ are the form factors listed in Tab.~\ref{tab:x-wave-real-factors} and plotted in Fig.~\ref{fig:x-wave-reciprocal-factors}, a simple orthonormal rearrangement of the harmonics basis.
 
 \setlength{\extrarowheight}{1em}
 \begin{table}[t]
@@ -941,7 +936,7 @@ where $g^{(\gamma)} \in \mathbb{C}$ are the $g_{ij}$ symmetry channels coefficie
 \end{table}
 \setlength{\extrarowheight}{0em}
 
-When dealing with phases which respect translational symmetry, or at most reduce it to a weaker symmetry by shrinking the Brillouin Zone, it' useful to work in reciprocal space, as discussed in Sec.~\ref{sec:mft-discussion-non-local-source}. As said, a particular phase can show specific spatial symmetries, and so will the Hartree Fock parameters. The key point to notice is that self-consistent equations involve sums (or integrals) to be computed over fermionic states, which can be heavily simplified by employing said symmetries. Consider the form factors of Tab.~\ref{tab:x-wave-real-factors}, and their Fourier transforms of Tab.~\ref{tab:x-wave-reciprocal-factors}. They satisfy the relations:
+When dealing with phases which respect translational symmetry, or at most reduce it to a weaker symmetry by shrinking the Brillouin Zone, it's useful to work in reciprocal space, as discussed in Sec.~\ref{sec:mft-discussion-non-local-source}. As said, a particular phase can show specific spatial symmetries, and so will the Hartree-Fock parameters. The key point to notice is that self-consistency equations involve sums (or integrals) to be computed over fermionic states, which can be heavily simplified by employing said symmetries. Consider the form factors of Tab.~\ref{tab:x-wave-real-factors}, and their Fourier transforms of Tab.~\ref{tab:x-wave-reciprocal-factors}. They satisfy the relations:
 \[
 	\frac{1}{L_x L_y} \sum_{ij} \varphi_{ij}^{(\gamma)} \varphi_{ij}^{(\gamma)*} = \delta_{\gamma\gamma'}
 	\qquad

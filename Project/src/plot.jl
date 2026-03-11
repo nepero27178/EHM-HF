@@ -57,7 +57,7 @@ else
 end
 
 function main()
-	Level::String = "refined"
+	Level::String = "raw"
 	if Level=="refined"
 		global Setup = split(Setup,'-')[1]
 	end

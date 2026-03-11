@@ -11,7 +11,7 @@ The normal phase is simply the one where no symmetry is broken, and the many-bod
 \]
 symmetry reduction and extract the mathematical interesting consequences. While this implies immediately inversion symmetry preservation, full $\mathrm{C}_4$ symmetry will be recovered later. Many materials show interactions-driven nematicity, which is the capability of partially breaking rotational symmetry.
 
-The normal phase is essentially given by the null gap limit of both the AF and SC phases. By discussing it separately now, we highlight a MFT feature of the EHM of particular interest, namely, the insurgence of a new, self-consistent hopping parameter. From Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, we know that the relevant Wick's contractions (RWCs) for this phase are
+The normal phase is essentially given by the null gap limit of both the AF and SC phases. By discussing it separately now, we highlight a MFT feature of the EHM of particular interest, namely, the insurgence of a new, self-consistent hopping amplitude. From Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, we know that the relevant Wick's contractions (RWCs) for this phase are
 \[
 \begin{aligned}
 	&\hat H_U 
@@ -409,7 +409,7 @@ thus
 	\qq{for}
 	\ell\in\lbrace x,y \rbrace
 \]
-recalling the antisymmetric form factors of Tab~\ref{tab:x-wave-reciprocal-factors}. The remaining $s^*$ and $d$ symmetries are legitimate HFPs with relative self-consistency equations, reported in Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies} using spin degeneracy. It is useful to anticipate here that, as will result from Sec.~\ref{subsec:normal-bands-shrinking-C2}, that the $d$-wave component will be suppressed. To prove this statement requires a little space, thus we will deal with it later on. For now we keep this component ignoring these anticipations, for reasons that will become clear in Sec.~\ref{subsec:normal-d-wave-hopping}.
+recalling the antisymmetric form factors of Tab~\ref{tab:x-wave-reciprocal-factors}. The remaining $s^*$ and $d$ symmetries are legitimate HFPs with relative self-consistency equations, reported in Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies} using spin degeneracy. We anticipate here that, as will result from Sec.~\ref{subsec:normal-bands-shrinking-C2}, that the $d$-wave component will be suppressed. To prove this statement requires a little space, thus we will deal with it later on. For now we keep this component ignoring these anticipations, for reasons that will become clear in Sec.~\ref{subsec:normal-d-wave-hopping}.
 
 \begin{table}
 	\centering
@@ -470,7 +470,7 @@ Finally, let us derive the Fock contraction energy by expanding Eq.~\eqref{eq:no
 	&= L_x L_y \times \frac{V}{2} \sum_{\gamma,\sigma} \left[
 		\frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}} \varphi_\mathbf{q}^{(\gamma)} u_{\mathbf{q}\sigma}
 	\right] \left[
-		\frac{1}{L_x L_y} \sum_{\mathbf{q}'\in\mathrm{BZ}} \varphi_\mathbf{q}'^{(\gamma)*} u_{\mathbf{q}'\sigma}^*
+		\frac{1}{L_x L_y} \sum_{\mathbf{q}'\in\mathrm{BZ}} \varphi_{\mathbf{q}'}^{(\gamma)*} u_{\mathbf{q}'\sigma}^*
 	\right] \nonumber \\
 	&= L_x L_y \times \frac{V}{2} \sum_\sigma \left[
 		\big|
@@ -491,7 +491,7 @@ This expression gives the Fock contraction energy coming from the $\hat H_V$ ope
 	\label{fig:anisotropic-hopping}
 \end{figure}
 
-This section serves as a zoom on the subject of the topologies of free band structures, and to justify the interest in a $\mathrm{C}_4 \to \mathrm{C}_2$ SSB apparently pretty arbitrary. {\color{tabred}[Insert: nematicity is a common feature in many materials, so on and so forth...]} From Tabs.~\ref{tab:x-wave-real-factors} and \ref{tab:x-wave-reciprocal-factors} we can inverse-Fourier transform the form factors to get the full effective hopping,
+This section serves as a zoom on the subject of free band structures topologies, and to justify the interest in a $\mathrm{C}_4 \to \mathrm{C}_2$ SSB apparently pretty arbitrary. {\color{tabred}[Insert: nematicity is a common feature in many materials, so on and so forth...]} From Tabs.~\ref{tab:x-wave-real-factors} and \ref{tab:x-wave-reciprocal-factors} we can inverse-Fourier transform the form factors to get the full effective hopping,
 \[
 	\tilde{t}_{ij\sigma} = \sum_{\gamma\in\lbrace s^*,d \rbrace} t^{(\gamma)}_\sigma \varphi_{ij}^{(\gamma)}
 \]
@@ -501,7 +501,7 @@ with
 	\qquad
 	t^{(d)}_\sigma = - \frac{u_\sigma^{(d)} V}{2}
 \]
-Interestingly enough, in principle an anisotropy in the normal diffusion between $x$ and $y$ direction emerges: such a feature is referred to as ``nematicity''. A schematics of anisotropic mixed symmetry hopping is depicted in Fig.~\ref{fig:anisotropic-hopping}: as is evident, for each bond linking two sites the hopping parameter can be a positive or negative combination of the two components, whether the link direction is vertical or horizontal. Naturally, the solution needs to be invariant under exchange $x \leftrightarrow y$, making the actual SSB of the class $\mathrm{C}_4 \to \mathrm{C}_2 / \mathbb{Z}_2$. For the normal phase, the physical expectation is that nematicity is suppressed; this does not make this discussion somwhat less relevant for more complex phases, such as the superconducting one, for which it is known nematicity in $2$D planar lattices can arise as a source of superconducting long-range ordering \cite{bohmer2022nematicity}.
+Interestingly enough, in principle an anisotropy in the normal diffusion between $x$ and $y$ direction emerges: such a feature is referred to as ``nematicity''. A schematics of anisotropic mixed symmetry hopping is in Fig.~\ref{fig:anisotropic-hopping}: as is evident, for each bond linking two sites the hopping parameter can be a positive or negative combination of the two components, whether the link direction is vertical or horizontal. Naturally, the solution needs to be invariant under exchange $x \leftrightarrow y$, making the actual SSB of the class $\mathrm{C}_4 \to \mathrm{C}_2 / \mathbb{Z}_2$. For the normal phase, the physical expectation is that nematicity is suppressed; this does not make this discussion somewhat less relevant for more complex phases, such as the superconducting one, for which it is known nematicity in $2$D planar lattices can arise as a source of superconducting long-range ordering \cite{bohmer2022nematicity}.
 
 The fact that hopping is here anisotropic does not break full translational invariance $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$. Imposing a free degenerate Fermi gas ground state in Eq.~\eqref{eq:normal-cc-EV} necessarily gives a uniform density indeed, whatever the shape of the band. By Fourier-transforming the site number operator according to the convention of Eq.~\eqref{eq:fourier-convention},
 \[
@@ -558,11 +558,11 @@ Both components are controlled by $V$. Evidently $u^{(s^*)}$ is a measure of the
 	\qquad
 	u^{(d)} = \frac{\tilde{t}^{(y)} - \tilde{t}^{(x)}}{V}
 \]
-Theoretical introduction to nematicity is over, and we will get back to this later. To complete the phase overview, we move to the computation of the ground-state free energt density.
+Theoretical introduction to nematicity is over, and we will get back to this later. To complete the phase overview, we move to the computation of the ground-state free energy density.
 
 \section{Normal free energy density}\label{sec:normal-free-energy}
 
-An important quantity to derive in order to compare different phases is free energy density. The mere existence of a MFT solution to a given phase is not enough to understand if the latter is physically established. To compare energy is instead the correct method to understand what phase is dominant. Within this section we sketch a procedure to extract free energy density we will use identically everywhere. Let
+An important quantity to derive in order to compare different phases is free energy density. The mere existence of a MFT solution to a given phase is not enough to understand if the latter is physically established. To compare energy is instead the correct method to understand what phase is dominant within a given set. In this section we sketch a procedure to extract free energy density we will use identically everywhere. Let
 \[
 	f_\mathrm{MFT}^{(\mathrm{N})} \equiv \frac{F_\mathrm{MFT}^{(\mathrm{N})}}{L_x L_y}
 \]
@@ -669,7 +669,7 @@ When it comes to algorithmic computation of this quantity, it is important to ex
 		\big|^2
 	\right] + \tilde{\mu} n 
 \end{equation}
-a simple enough formula including all effects. Note that, in computational therms, logarithmic divergences at null argument (occurring in the formula above at energies deep in the Fermi sea) can be difficult to handle. It is then useful to implement some algebraic manipulation to overcome this difficulty in numerical computations.
+a simple enough formula including all effects. Note that, in computational therms, logarithmic divergences at null argument (occurring in the formula above at energies deep in the Fermi sea) can be difficult to handle. It is then useful to implement some algebraic manipulation to overcome this difficulty in numeric computations.
 
 \section{Theoretical constraints on the normal phase HFPs}\label{sec:normal-constraints}
 
@@ -705,11 +705,11 @@ represented in the top-left panel of Fig.~\ref{fig:normal-nematic-bands}. In the
 \[
 \begin{aligned}
 	\epsilon^{(s^*)} < 0 \qq{and} \epsilon^{(d)} < 0
-	\quad&\implies\quad \text{Invert colours in Fig.~\ref{fig:MBZ-sectors}} \\
+	\quad&\implies\quad \text{Invert colors in Fig.~\ref{fig:normal-nematic-bands}} \\
 	\epsilon^{(s^*)} > 0 \qq{and} \epsilon^{(d)} < 0
-	\quad&\implies\quad \text{Rotate plots by $\pi/2$ in Fig.~\ref{fig:MBZ-sectors}} \\
+	\quad&\implies\quad \text{Rotate plots by $\pi/2$ in Fig.~\ref{fig:normal-nematic-bands}} \\
 	\epsilon^{(s^*)} < 0 \qq{and} \epsilon^{(d)} > 0
-	\quad&\implies\quad \text{Rotate plots by $\pi/2$ and invert colours in Fig.~\ref{fig:MBZ-sectors}} \\
+	\quad&\implies\quad \text{Rotate plots by $\pi/2$ and invert colors in Fig.~\ref{fig:normal-nematic-bands}} \\
 \end{aligned}
 \]
 
@@ -774,7 +774,7 @@ and will be used later on. Importantly, whatever the shape of the mixed band, th
 	\quad\implies\quad
 	\tilde{\epsilon}_{(k_x,k_y)} = 0
 \]
-since only cosines are involved. This identifies four node points, represented as black dots in Fig.~\ref{fig:MBZ-sectors}.
+since only cosines are involved. This identifies four node points, represented as black dots in Fig.~\ref{fig:BZ-sectors}.
 
 \subsection{Constraints in presence of a robust $\mathrm{C}_4$ symmetry and bands shrinking}\label{subsec:normal-bands-shrinking}
 
@@ -974,7 +974,6 @@ We work with the full, anisotropic band of Eq.~\eqref{eq:normal-bands-renormaliz
 		\tilde{\epsilon}_\mathbf{k} \ge 0
 	\]
 	Proceed exactly as before, with identical meaning of the notation and inverted roles for $\mathcal{A}$ and $\mathcal{B}$, as drawn in Fig.~\ref{subfig:normal-nematic-bands-detail-mp}.
-	
 	First, we have
 	\[
 		\forall \mathbf{k} \in \mathcal{B}
@@ -1058,7 +1057,7 @@ At this point, bands shrinking is a guaranteed effect, and the point to be asked
 
 \subsection{Expected dependence on $\delta$ at low temperature}\label{subsec:normal-uS-doping}
 
-By looking once again at the self-consistency equation, we can infer roughly the physical expectation for $u^{(s^*)}$ when the system is subject to electronic doping. Consider the low-temperature limit, namely $\beta \gg 1$. Consider the self-consistency equation of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies} seen as a functional of temperature and chemical potential,
+By looking once again at the self-consistency equation, we can infer roughly the physical expectation for $u^{(s^*)}$ when the system is subject to electronic doping. Consider first the low-temperature limit, namely $\beta \gg 1$. Consider the self-consistency equation of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies} seen as a functional of temperature and chemical potential,
 \[
 	u^{(s^*)}[\beta,\tilde{\mu}] = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
 \]
@@ -1072,13 +1071,13 @@ Let us assume the latter, which means we assume it holds
 \[
 	u^{(s^*)}[\beta,\tilde{\mu}] \big|_{\beta \gg 1} \simeq \frac{1}{L_x L_y} \sum_{\epsilon_\mathbf{k} \le \tilde{\mu}} (\cos k_x + \cos k_y)
 \]
-which, at this point, will be true only in an unspecified region of parameters space. Of course, the ``not-so-strong'' shrinking assumption implies the fact that a FS is well-defined, being the band non-flat. While at half filling, because of PHS,
+which, at this point, will be true only in an unspecified region of parameters space. Of course, the ``not-so-strong'' shrinking assumption implies the fact that a FS is well-defined, being the band non-flat. At half filling, because of PHS,
 \[
 	\delta = 0
 	\quad\implies\quad
 	\mathrm{FS} = \partial \mathrm{MBZ}
 \]
-at $\delta>0$ the FS expands over the MBZ boundary, where the form factor $\cos k_x + \cos k_y$ becomes negative. This gives the self-consistency equation
+With $\partial \Gamma$ we indicate the contour of the simply connected domain $\Gamma$. At $\delta>0$ the FS expands over the MBZ boundary, where the form factor $\cos k_x + \cos k_y$ becomes negative. This gives the self-consistency equation
 \[
 	u^{(s^*)}[\beta,\tilde{\mu}] \big|_{\beta \gg 1} \simeq \frac{1}{L_x L_y} \sum_{\epsilon_\mathbf{k} \le 0} \abs{\cos k_x + \cos k_y} - \frac{1}{L_x L_y} \sum_{0<\epsilon_\mathbf{k} \le \tilde{\mu}} \abs{\cos k_x + \cos k_y}
 \]
@@ -1099,7 +1098,7 @@ with obvious meaning of the notation. Using this property we conclude
 	\lim_{\beta \to \infty} u^{(s^*)}[\beta,\tilde{\mu}] \Big|_{\delta_1} < 
 	\lim_{\beta \to \infty} u^{(s^*)}[\beta,\tilde{\mu}] \Big|_{\delta_2}
 \]
-This is the first expected behaviour of the self-consistent functional $u^{(s^*)}$: if there exists a region of parametric space where the shrinking effect is ``not-so-strong'' to rise the doping level must lower $u^{(s^*)}$. Such a region must exist: at least all the segment $(V=0,\delta)$ is included, since on said region of parametric space the model is just the common free electrons model.
+This is the first expected behaviour of the self-consistent functional $u^{(s^*)}$: if there exists a region of parametric space where the shrinking effect is ``not-so-strong'' to rise the doping level must lower $u^{(s^*)}$. Such a region must exist: at least all the segment $(V=0,\delta)$ is included, since on said region of parametric space the model is just the common free electronic model.
 
 Following this line of reasoning, we can extract easily the two limits of $u^{(s^*)}$ at half-filling and unitary filling.
 \begin{enumerate}
@@ -1126,7 +1125,7 @@ To summarize: around $V=0$, $u^{(s^*)}$ is expected to descend monotonically fro
 
 \section{Discussion of numeric results}\label{sec:normal-numerical}
 
-In this section we present and discuss the numerical results, the physical relevance of the found phenomena and the boundaries of the algorithm. Let us start by sketching the algorithm used to determine self-consistently the mean-field structure of the normal phase in parameter space. For the normal phase, the HFPs ``vector'' has just one component:
+In this section we present and discuss the numeric results, the physical relevance of the found phenomena and the boundaries of the algorithm. Let us start by sketching the algorithm used to determine self-consistently the mean-field structure of the normal phase in parameter space. For the normal phase, the HFPs ``vector'' defined in Sec.~\ref{subsec:reject-mix-iterate} has just one component:
 \[
 	\mathbf{v} = \begin{bmatrix}
 		u^{(s^*)}
@@ -1172,7 +1171,7 @@ In Fig.~\ref{subfig:normal-uS-data-B128} are reported the results obtained for t
 	\qquad
 	\delta = 0,~0.01,~0.02,~\dots,~0.49
 \]
-The expectations of Sec.~\ref{subsec:normal-uS-doping} are satisfied: at low $V$ (indicatively $V \lesssim 5$) the trend is monotonically descendent at increasing doping. As $V$ gets bigger, however, $u^{(s^*)}$ starts decreasing in the top-left corner of Fig.~\ref{subfig:normal-uS-data-B128}. This effect is more visible in Fig.~\ref{subfig:normal-uS-data-B256}, where {\color{tabred} we doubled $L$ and ran simulations in the range $0 < V < 5$}: the convergence value of $u^{(s^*)}$ is approximately independent of $V$ up to some point, where this behaviour is broken. Note that, as was expected from the discussion of Sec.~\ref{subsec:normal-uS-doping}, the half-filled convergence value of $u^{(s^*)}$ in the $V$-independent region is approximately given by Eq.~\eqref{eq:normal-uS-half-filling}.
+The expectations of Sec.~\ref{subsec:normal-uS-doping} are satisfied: at low $V$ (indicatively $V \lesssim 5$) the trend is monotonically descendent at increasing doping. As $V$ gets bigger, however, $u^{(s^*)}$ starts decreasing in the top-left corner of Fig.~\ref{subfig:normal-uS-data-B128}. This effect is more visible in Fig.~\ref{subfig:normal-uS-data-B256}, where we doubled $L$ and ran simulations with a smaller $\delta$ resolution: the convergence value of $u^{(s^*)}$ is approximately independent of $V$ up to some point, where this behaviour is broken. Note that, as was expected from the discussion of Sec.~\ref{subsec:normal-uS-doping}, the half-filled convergence value of $u^{(s^*)}$ in the $V$-independent region is approximately given by Eq.~\eqref{eq:normal-uS-half-filling}.
 
 This effect can only be interpreted in one way, as we discuss in next section: $u^{(s^*)}$ maintains a constant value at fixed doping, as is described in Sec.~\ref{subsec:normal-uS-doping}, as long as $\tilde{t}^{(s^*)}>0$. When $V$ gets large enough,  $u^{(s^*)}$ starts decreasing because of its constraints. The net effect is the nullification of $\tilde{t}^{(s^*)}$, which is, a total localization effect.
 
@@ -1209,21 +1208,21 @@ While to extract the value of $V_\mathrm{c}[\beta,\delta]$ is a non-trivial anal
 \begin{equation}
 	V_\mathrm{c}[\beta \gg 1,0] = \frac{2t}{(2/\pi)^2} \approx 4.93 t \label{eq:normal-Vc-half-filling}
 \end{equation}
-which makes the real interesting point of this section and the whole bands-shrinking effect. At half-filling, the effective bands amplitude reduction is so strong that already around relatively small values of $V$ (compared to $t$) electronic kinetics is nullified. In Fig.~\ref{subfig:normal-tS-data-B128-mott} we report, superimposed, the convergence values of the RMP $\tilde{t}^{(s^*)}$ and $V_\mathrm{c}[\beta=100,\delta]$ computed with the simple procedure described. As is evident from the plot itself, even if not so accurate, our prediction of the critical value for $V$ gives reasonably a sort of phase boundary delimiting a region where bands are flattened and electrons are localized.
+which makes the real interesting point of this section and the whole bands-shrinking effect. At half-filling, the effective bands amplitude reduction is so strong that already around relatively small values of $V$ (compared to $t$) electronic kinetics is nullified. In Fig.~\ref{subfig:normal-tS-data-B128-mott} we report, superimposed, the convergence values of the RMP $\tilde{t}^{(s^*)}$ and $V_\mathrm{c}[\beta=100,\delta]$ computed with the simple procedure described. As is evident from the plot itself, even if a little rough, our prediction of the critical value for $V$ gives reasonably a sort of phase boundary delimiting a region where bands are flattened and electrons are localized.
 
-This phenomenon is largely studied in solid-state physics and falls within the large class of Mott physics. \todo
+{\color{tabred} This phenomenon is largely studied in solid-state physics and falls within the large class of Mott physics. [Blabla about Mott physics...]}
 
 \begin{figure}
 	\centering
-	\subfloat[Temperature-dependence of $u^{(s^*)}$ plots at various dopings.]{
+	\subfloat[Temperature dependence of $u^{(s^*)}$ plots at various dopings.]{
 		\includegraphics[width=\linewidth]{../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf}
 		\label{subfig:normal-data-uS-C256-compared}
 	}\\
-	\subfloat[Temperature-dependence of $\tilde{t}^{(s^*)}$ plots at various dopings.]{
+	\subfloat[Temperature dependence of $\tilde{t}^{(s^*)}$ plots at various dopings.]{
 		\includegraphics[width=\linewidth]{../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf}
 		\label{subfig:normal-data-tS-C256-compared}
 	}
-	\caption{Comparative plots of the HFP $u^{(s^*)}$ (top panel) and RMP $\tilde{t}^{(s^*)}$ (bottom panel) in null-doped (left plots), ``medium-doped'' ($\delta=0.2$, central plots) and ``heavy-doped'' ($\delta=0.4$, right plots) contexts. Increasing temperature progressively destroys Mott localization, reducing the bands shrinking effect.}
+	\caption{Comparative plots of the HFP $u^{(s^*)}$ (top panel) and RMP $\tilde{t}^{(s^*)}$ (bottom panel) in null-doped (left plots), ``medium-doped'' ($\delta=0.2$, central plots) and ``heavily-doped'' ($\delta=0.4$, right plots) contexts. Increasing temperature progressively destroys Mott localization, reducing the bands shrinking effect.}
 	\label{fig:normal-data-C256-compared}
 \end{figure}
 
@@ -1233,11 +1232,12 @@ Increasing temperature, predictably, Mott localization is suppressed. In Fig.~\r
 	\qquad
 	\delta = 0.0, 0.2, 0.4
 \]
+{\color{tabred}[Evaluate inserting more temperatures.]}
 At high temperature the $V$-independence region completely disappears, making $u^{(s^*)}$ a monotonically descendent function. This is no surprise, since all our derivation was performed at low temperature. In Fig.~\ref{subfig:normal-data-uS-C256-compared} the same dataset is plotted with focus on the RMP $\tilde{t}^{(s^*)}$. Temperature increase disrupts localization effects, at least at small values of $V$. Interestingly enough, however, the bands shrinking effect is still relevant at $\beta=1.0$, the hopping parameter approximately halving at $V=5 \divisionsymbol 6$.
 
 \subsection{Solution free energy and entropy densities}
 
-The plots of Fig.~\ref{fig:normal-f-data} report our findings on the Normal phase free energy, computed based on Eq.~\eqref{eq:normal-fMFT}. Doping induced energy increase is simply due to the simultaneous entropy decrease and band filling (the first being a consequence of the second, because less and less room is available for electron scattering). By looking the data of Fig.~\ref{subfig:normal-f-data-B128}, at fixed $\delta$ free energy remains pretty much constant up to the Mott boundary. This is simply because as long as a band with non-zero amplitude is present, the HFP correction of Eq.~\eqref{eq:normal-fMFT} compensates the free energy increase due to bands shrinking,
+The plots of Fig.~\ref{fig:normal-f-data} report our findings on the Normal phase free energy, computed based on Eq.~\eqref{eq:normal-fMFT}. Doping induced energy increase is simply due to the simultaneous entropy decrease and band filling (the first being a consequence of the second, because less and less room is available for electron scattering). By looking the data of Fig.~\ref{subfig:normal-f-data-B128}, at fixed $\delta$ free energy density remains pretty much constant up to the Mott boundary. This is simply because as long as a band with non-zero amplitude is present, the HFP correction of Eq.~\eqref{eq:normal-fMFT} compensates the free energy increase due to bands shrinking,
 \[
 \begin{aligned}
 	- V \big| u^{(s^*)} \big|^2 &= - \frac{V u^{(s^*)*}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \\
@@ -1264,7 +1264,7 @@ Recalling the first point of the derivation of Sec.~\ref{sec:normal-free-energy}
 	\label{fig:normal-f-data}
 \end{figure}
 
-From Fig.~\ref{subfig:normal-f-data-B256}, the energy cost of Mott localization is made evident. The lower the doping, the higher the energetic cost for total bands shrinking. At low doping levels, hopping renormalization is the largest, as discussed in previous sections; at low temperatures the band is full below $\tilde{\mu}$, thus by shrinking it we just ``move up'' single-state energies, but as long as a FS is well-defined (which is, as long as the band is not flattened enough) the Fermi sea is essentially the same, and the including the aforementioned correction, correctly, gives a total free energy density that is indistinguishable from the one of the Normal phase for the HM. On a flat band a FS is not well defined, and because of this energy must rise: in the Mott-localized region the Fermi-Dirac factors of Eq.~\eqref{eq:normal-fMFT} degenerate to
+From Fig.~\ref{subfig:normal-f-data-B256}, energy cost of Mott localization is made evident. The lower the doping, the higher the energetic cost for total bands shrinking. At low doping levels, hopping renormalization is the largest, as discussed in previous sections; at low temperatures the band is full below $\tilde{\mu}$, thus by shrinking it we just ``move up'' single-state energies, but as long as a FS is well-defined (which is, as long as the band is not flattened enough) the Fermi sea is essentially the same. Including the aforementioned correction, correctly, gives a total free energy density that is indistinguishable from the one of the Normal phase for the HM. On a flat band a FS is not well defined, and because of this energy must rise: in the Mott-localized region the Fermi-Dirac factors of Eq.~\eqref{eq:normal-fMFT} degenerate to
 \[
 	\text{Mott localized}
 	\quad\implies\quad
@@ -1274,7 +1274,7 @@ since for the chemical potential $\tilde{\mu}(\delta)=0$. From a free, single ba
 \[
 	s(f) = -k_\mathrm{B} \left[ f \log f + (1-f) \log (1-f) \right]
 \]
-represented in Fig.~\ref{subfig:normal-entropy}. The maximum is precisely located at $f=1/2$, which from the limit above we know is the limiting expression for the Fermi-Dirac population of each single-particle state for a flat band. This implies that the key free energy non-trivial contribution is entropic, represented in Fig.~\ref{subfig:normal-s-data-B128}. Correctly entropy is low all around the Mott insulating phase, which is coherent with a normal Fermi gas at low temperature, for which the FS interface (the region where the Fermi-Dirac factor varies continuously from $1$, inside, to $0$, outside) is narrow. For said model almost all single-particle state are approximately full or empty, which as is represented in Fig.~\ref{subfig:normal-entropy} are two symmetric low-entropy conditions. The Mott insulating region can be seen as a degeneration of the FS interface to the entire BZ, a process that maximises entropy.
+represented in Fig.~\ref{subfig:normal-entropy}. The maximum is precisely located at $f=1/2$, which from the limit above we know is the limiting expression for the Fermi-Dirac population of each single-particle state for a flat band. This implies that the key free energy non-trivial contribution is entropic, represented in Fig.~\ref{subfig:normal-s-data-B128}. Correctly entropy is low all around the Mott insulating phase, which is coherent with a normal Fermi gas at low temperature, for which the FS interface (the region where the Fermi-Dirac factor varies continuously from $\sim 1$, inside, to $\sim 0$, outside) is narrow. For said model almost all single-particle state are approximately full or empty, which as is represented in Fig.~\ref{subfig:normal-entropy} are two symmetric low-entropy conditions. The Mott insulating region can be seen as a degeneration of the FS interface to the entire BZ, a process that maximises entropy.
 
 \begin{figure}
 	\centering
@@ -1286,15 +1286,24 @@ represented in Fig.~\ref{subfig:normal-entropy}. The maximum is precisely locate
 		\includegraphics[height=0.32\linewidth]{../Project/src/labs/bin/entropy.pdf}
 		\label{subfig:normal-entropy}
 	}
-	\caption{Entropy density of the normal phase (left panel) and theoretical contribution to entropy for a state with occupation $f$. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref{subfig:normal-tS-data-B128-mott}, indicating the Mott transition.}
+	\caption{Entropy density of the normal phase (left panel) and theoretical contribution to entropy for a state with occupation $f$. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref{subfig:normal-tS-data-B128-mott}, indicating the Mott transition. {\color{tabred}[Perhaps use a lighter gray in heatmap.]}}
 	\label{fig:normal-s-data}
 \end{figure}
 
 All of this holds, as all the rest, at low temperature: by lowering $\beta$, finite-temperature effects become more and more relevant and the statements above need to be corrected.
 
-\subsection{Convergence problems and mixing fine-tuning}
+\subsection{Convergence problems and mixing fine-tuning}\label{subsec:normal-g-optimization}
 
-Although extremely simple and characterised by a single HFP, this framework is ideal for us to describe some of the typical convergence problems arising in HF iterative schemes anticipated in Sec.~\ref{subsec:reject-mix-iterate}. Bands flattening is a source of algorithmic instability: numeric fluctuations can lead to values of $u^{(s^*)}$, during iterations, slightly out of bounds with respect to Eq.~\eqref{eq:normal-us*-constraint}. Even if the numeric effect is small, the consequence is vast due to the subsequent band sign inversion. To heal this effect and extract converged values, it is necessary to pay a little care with the choice of the mixing parameter $g \in [0,1]$. We defined it in Sec.~\ref{subsec:reject-mix-iterate}, and operatively in Eq.~\eqref{eq:mix}. This parameter controls deterministically how, from an initializer (the HFPs vector we plug in the algorithm) and an output (the HFPs vector we get back from the algorithm) the new initializer for the following step is generated. As a general rule, it is pretty safe to use $g \approx 0.5$; this rule of thumb, however, breaks in situations like the one plotted comparatively in Fig.~\ref{fig:normal-tracks-compared}, representing the evolutions at different mixing parameters of a simulation at
+Although extremely simple and characterised by a single HFP, this framework is ideal for us to describe some of the typical convergence problems arising in HF iterative schemes anticipated in Sec.~\ref{subsec:reject-mix-iterate}. Bands flattening is a source of algorithmic instability: numeric fluctuations can lead to values of $u^{(s^*)}$, during iterations, slightly out of bounds with respect to Eq.~\eqref{eq:normal-us*-constraint}. Even if the numeric effect is small, the consequence can be vast. To heal this effect and extract converged values, it is necessary to pay a little care with the choice of the mixing parameter $g \in [0,1]$. 
+%
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=\linewidth]{../Project/src/labs/tracks/tracks.pdf}
+	\caption{Comparison of three example tracks for the single-valued HFPs vector of the normal phase, simulated at a ``Mott-deep'' point.}
+	\label{fig:normal-tracks-compared}
+\end{figure}
+%
+We defined it in Sec.~\ref{subsec:reject-mix-iterate}, and operatively in Eq.~\eqref{eq:mix}. This parameter controls deterministically how, from an initializer (the HFPs vector we plug in the algorithm) and an output (the HFPs vector we get back from the algorithm) the new initializer for the following step is generated. As a general rule, it is pretty safe to use $g \approx 0.5$; this rule of thumb, however, breaks in situations like the one plotted comparatively in Fig.~\ref{fig:normal-tracks-compared}, representing the evolutions at different mixing parameters of a simulation at
 \[
 	V = 6.0
 	\qquad
@@ -1302,19 +1311,12 @@ Although extremely simple and characterised by a single HFP, this framework is i
 	\qquad
 	\beta = 100.0
 \]
-As we have shown in Fig.~\ref{subfig:normal-uS-data-B128} this is a point well inside the Mott region. Localization, as we see in Fig.~\ref{fig:normal-tS-data}, is already pretty intense and to sustain bands flattening $u^{(s^*)}$ needs to converge at $2t/V=t/3$. Let us follow the evolution of the algorithm starting from the arbitrary initializer
+As can be checked in Fig.~\ref{subfig:normal-uS-data-B128} this is a point well inside the Mott region. Localization, as we see in Fig.~\ref{fig:normal-tS-data}, is already pretty intense and to sustain bands flattening $u^{(s^*)}$ needs to converge at $2t/V=t/3$. Let us follow the evolution of the algorithm starting from the arbitrary initializer
 \[
 	\text{Step $1$}
 	\quad\colon\quad
 	u^{(s^*)} = 0.1
 \]
-In each panel of Fig.~\ref{fig:normal-tracks-compared}, the red track represent the value of $u^{(s^*)}$ we plug in the self-consistency equations, the blue one the result, the green one the mixed value of the two based on different $g$s. The gray dashed line is the theoretical convergence target. In the first two panels, there is an evident infinite loop occurring whenever the green line crosses the threshold $2t/V$, which as we know is out of bounds with respect to Eq.~\eqref{eq:normal-us*-constraint}. When this happens, the next red point (initializer of following step) gives a band with inverted sign, a feature that ``breaks'' the self-consistency equation and generates a blue point with no physical significance.
+In each panel of Fig.~\ref{fig:normal-tracks-compared}, the red track represents the value of $u^{(s^*)}$ we plug in the self-consistency equations, the blue one the result, the green one the mixed value of the two based on different $g$s. The gray dashed line is the theoretical convergence target. In the first two panels, there is an evident infinite loop occurring whenever the green line crosses the threshold $2t/V$. As we know the generated green point is out of bounds with respect to Eq.~\eqref{eq:normal-us*-constraint}. When this happens, the next red point (initializer of following step) gives a band with inverted sign, a feature that ``breaks'' the self-consistency equation and generates a blue point with no physical significance.
 
-\begin{figure}
-	\centering
-	\includegraphics[width=\linewidth]{../Project/src/labs/tracks/tracks.pdf}
-	\caption{Comparison of three example tracks for the single-valued HFPs vector of the normal phase, simulated at a Mott-deep point.}
-	\label{fig:normal-tracks-compared}
-\end{figure}
-
-To overcome this problem it is necessary to move ``slowly''. As is shown in the right panel, the choice of a small enough mixing parameter ensures convergence, implementing the idea that -- within a given tolerance -- even if the blue line is systematically above the convergence value (in the region of band sign inversion) our mixing is careful enough to make up for this, and generate a green track systematically below the convergence value. This kind of problems can turn out to be pretty common for iterative HF schemes, and to understand how to knob the algorithmic parameters without sacrificing accurateness and precision and avoiding computationally costly and frustrating infinite loops was an essential part of this algorithm design.
+To overcome this problem it is necessary to move ``slowly''. As is shown in the right panel, the choice of a small enough mixing parameter ensures convergence, implementing the idea that -- within a given tolerance -- even if the blue line is systematically above the convergence value (in the region of band sign inversion) our mixing can be made careful enough to make up for this, and generate a green track systematically below the convergence value. This kind of problems can turn out to be pretty common for iterative HF schemes, and to understand how to knob the algorithmic parameters without sacrificing accurateness and precision, as well as avoiding computationally costly and frustrating infinite loops, was an essential part of this algorithm design.
