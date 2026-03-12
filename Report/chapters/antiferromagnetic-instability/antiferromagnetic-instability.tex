@@ -1173,9 +1173,9 @@ where the renormalized bands are given by:
 	\tilde{\epsilon}_{\mathbf{k}\sigma} = \epsilon_{\mathbf{k}\sigma} + V \sum_{\gamma\in\lbrace s^*,d \rbrace} u^{(\gamma)}_\sigma \varphi_{\mathbf{k}}^{(\gamma)*}
 \]
 and the full gap function by
-\[
+\begin{equation}\label{eq:af-full-gap}
 	\tilde{\Delta}_{\mathbf{k}\sigma} = \Delta_{\mathbf{k}\sigma} - iV \sum_\gamma v^{(\gamma)}_\sigma \varphi_\mathbf{k}^{(\gamma)*}
-\]
+\end{equation}
 
 The gap correction is purely imaginary, compared to the HM gap $\Delta_{\mathbf{k}\sigma} = (-1)^{\delta_{\sigma=\downarrow}} mU$. This has two obvious consequences: being no other contribution to the $x$ pseudospin projections other than the pure HM ones, spin antisymmetry is preserved within such direction
 \[
@@ -1549,14 +1549,6 @@ Starting from the full expression of the free energy density, we recovered the i
 \section{Theoretical constraints on the AF phase HFPs}\label{sec:af-constraints}
 \todo
 
-\subsection{Pure-symmetry gap and bands isotropy}
-
-A very important point can be made about the relations between bands resymmetrization and the insurgence of an anisotropic gap. Consider the Bogoliubov band
-\[
-	\tilde{E}_\mathbf{k} = \sqrt{\tilde{\epsilon}_\mathbf{k}^2 + \big| \tilde{\Delta}_\mathbf{k} \big|^2}
-\]
-\todo
-
 \subsection{Robust $\mathrm{C}_4$ bands shrinking extension}
 
 For the normal phase, we saw that hen $\mathrm{C}_4$ symmetry is preserved (Sec.~\ref{subsec:normal-bands-shrinking}) we can conclude immediately the bands renormalization is actually a shrinking. An identical result holds here: if $\mathrm{C}_4$ symmetry is imposed onto the renormalized bands,
@@ -1607,154 +1599,3 @@ The final result,
 	0 < u^{(s^*)} < 2t/V
 \]
 is identical to the constraint obtained for the normal phase. Also in AF phase the bare bands are effectively shrunk by $\hat H_V$.
-
-%\section{HF algorithm, computational strategy and results}
-%
-%This section is devoted to the discussion of the self-consistent results we obtained running an iterative HF algorithm in the parameters space. As said earlier, not all presented results are in fact stable; however we decided to show them as sketch of the first step in a general self-consistent algorithm in search of the stablest AF structure.
-
-%\subsection{Preliminary symmetry considerations}
-%
-%\begin{figure}
-%	\centering
-%	\input{\GraphicsFolder/af-mbz-s*-optimization}
-%	\caption{Graphic rendition of $s^*$-wave symmetry over the MBZ employed to optimize calculations. The right-side table indicates, for any point in BZ, the relative weight assigned to calculation.}
-%	\label{fig:af-mbz-s*-optimization}
-%\end{figure}
-%
-%A very important feature when dealing with optimization is recognizing the complete $s^*$ symmetry of the model, and the HFP parameters with relative self-consistency equations. Consider Eqns.~\eqref{eq:af-renormalized-self-consistent-equation-m}, \eqref{eq:af-renormalized-self-consistent-equation-w0} and \eqref{eq:af-renormalized-self-consistent-equation-wpi}: in all of three the term inside the sum exhibits $s^*$-wave symmetry and is summed over the MBZ. Then there is no need of sweeping the entirety of the MBZ, it suffices to sweep just one fourth and just multiply coherently the result.
-%
-%A little care is necessary when dealing with borders, due to MBZ nesting. Consider in fact the MBZ rhombus, sketched in gray in Fig.~\ref{fig:af-mbz-s*-optimization}: due to periodicity, two of its four boundaries must be excluded from computation in order to avoid redundancy. Let those be the lower boundaries,
-%\[
-%	k_y = \abs{k_x} - \pi
-%\]
-%Due to periodicity, the remaining upper boundaries lead to identical results, thus we may compute just one of them and multiply the result by $2$. In doing this, we need to avoid the edges: due to nesting of the MBZ, the three points
-%\[
-%	(0,\pi) \qquad (-\pi,0) \qquad (\pi,0)
-%\]
-%are the same point. Thus these need to be considered once. Looking to the bulk of the rhombus, due to $s^*$ periodicity it suffices to integrate over one quarter (considering just one internal border) and multiply by $4$. In doing this, the origin $(0,0)$ must be counted only once. Fig.~\ref{fig:af-mbz-s*-optimization} summarizes this argument: if we assign to any given point $\mathbf{k}\in\mathrm{BZ}$ a weight function $w(\mathbf{k})$ defined as in figure, in particular avoiding computations over white and gray points, we get an optimized integral over the entire MBZ saving \textit{circa} $75\%$ of runtime.
-
-%\subsection{Results of the HF algorithm at generic doping}
-%
-%Within this section we will ignore stability considerations. The first set of simulations was run keeping the local repulsion fixed at a \textit{not-so-strong} coupling value, $U/t=4$, and letting $V$ vary up to a comparable value, $0 \le V/t \le 3$, for various fillings. The temperature is kept to a finite large value $\beta=100$ to avoid Fermi surface discontinuities, while lattice size is kept to a reasonably high value $L_x=L_y=256$ to suppress finite-size effects while keeping runtime low enough. The HF has been set with the following parameters:
-%\begin{lstlisting}[language=julia]
-%p::Int64 = 100						# Maximum number of iterations
-%dv::Dict{String,Float64} = Dict([	# Relative tolerance on each HFP
-%	"m" => 1e-4,
-%	"w0" => 1e-4,
-%	"wp" => 1e-4
-%])
-%dn::Float64 = 1e-2					# Relative tolerance on density
-%g::Float64 = 0.5					# Mixing parameter
-%\end{lstlisting}
-%
-%\paragraph{First HFP: $m$ (magnetization).}
-%
-%\begin{figure}
-%	\centering
-%%	\subfloat[Non-local attraction $V/t$ depencence.]{
-%%		\includegraphics[height=0.3\textwidth]{../Project/EHM-HartreeFock/analysis/Phase=AF/scan/Setup=B[256]/PlotOrderParameter/xVar=V/pVar=δ/m_t=1.0_U=4.0_Lx=256.0_β=100.0.pdf}
-%%		\label{subfig:mV-scan-beta=100}	}
-%%	\subfloat[Doping $\delta = n-0.5$ dependence.]{
-%%		\includegraphics[height=0.3\textwidth]{../Project/EHM-HartreeFock/analysis/Phase=AF/scan/Setup=B[256]/PlotOrderParameter/xVar=δ/pVar=V/m_t=1.0_U=4.0_Lx=256.0_β=100.0.pdf}
-%%		\label{subfig:md-scan-beta=100}
-%%	}	
-%	\caption{Plots of the magnetization $m$ in the antiferromagnetic phase as a function of both the non-local attraction $V/t$ (Fig.~\ref{subfig:mV-scan-beta=100}) and the doping $\delta = n-1/2$ (Fig.~\ref{subfig:md-scan-beta=100}), at fixed local repulsion $U/t=4$. As discussed in text, actually only $\delta=0$ simulations are stable.}
-%	\label{fig:mdV-scan-beta=100}
-%\end{figure}
-%
-%Consider first Fig.~\ref{subfig:mV-scan-beta=100}. As is to be expected from Eq.~\eqref{eq:af-renormalized-self-consistent-equation-m}, being it dependent on
-%\[
-%	\Re\{\tilde{\Delta}_\mathbf{k}\} =
-%	m(U + 2zV)
-%	\qq{with $z=4$}
-%\]
-%in this renormalized antiferromagnetic phase the non-local attraction acts as a magnetization boost, essentially reproducing the same behavior of $m$ with $U$ for the conventional Hubbard model plotted in Fig.~\ref{appfig:mdU-beta=100}. The non-local attraction also enlarges the AF phase when considering various dopings, as is seen in Fig.~\ref{fig:mdV-scan-beta=100}. The magnetized region is largely extended with respect to the low-doped segment that magnetizes at $V=0$. These effects are not particularly interesting or surprising. However, something more interesting arises when looking to Fig.~\ref{fig:mUVd-heatmaps-beta=100}, a couple of heatmaps in $UV$ and $V\delta$ planes obtained respectively at $\delta=0.2$ and $U=4.0$, with $L_x$ halved down to $128$ for computational reasons. Fig.~\ref{fig:mUVd-heatmaps-beta=100} expresses again the boost to magnetization given by $V$, with a magnetized region separated by a linear boundary approximately tilted as $-1/2z$, coherently with the renormalization of $\Re\{\tilde{\Delta}_\mathbf{k}\}$. Fig.~\ref{subfig:mVd-heatmap-beta=100} in particular is interesting: a sort of shallow ``phase boundary'' appears to follow a regular sub-linear curve.
-%
-%\begin{figure}
-%	\centering
-%%	\subfloat[Magnetization in the $UV$ plane.]{
-%%		\includegraphics[height=0.3\textwidth]{../Project/EHM-HartreeFock/analysis/Phase=AF/heatmap/Setup=A[128]/Heatmaps/xVar=U_yVar=V/m_t=1.0_Lx=128.0_δ=0.2_β=100.0.pdf}
-%%		\label{subfig:mUV-heatmap-beta=100}
-%%	}
-%%	\subfloat[Magnetization in the $V\delta$ plane.]{
-%%		\includegraphics[height=0.3\textwidth]{../Project/EHM-HartreeFock/analysis/Phase=AF/heatmap/Setup=B[128]/Heatmaps/xVar=V_yVar=δ/m_t=1.0_U=4.0_Lx=128.0_β=100.0.pdf}
-%%		\label{subfig:mVd-heatmap-beta=100}
-%%	}	
-%	\caption{Heatmaps of the magnetization $m$ in the antiferromagnetic phase in the $UV$ plane (Fig.~\ref{subfig:mUV-heatmap-beta=100}) and the $V\delta$ plane (Fig.~\ref{subfig:mVd-heatmap-beta=100}).}
-%	\label{fig:mUVd-heatmaps-beta=100}
-%\end{figure}
-%
-%\paragraph{Second HFP: $w^{(\mathbf{0})}$ (hopping renormalization coefficient).}
-%
-%\begin{figure}
-%	\centering
-%%	\subfloat[Non-local attraction $V/t$ depencence.]{
-%%		\includegraphics[height=0.3\textwidth]{../Project/EHM-HartreeFock/analysis/Phase=AF/scan/Setup=B[256]/PlotOrderParameter/xVar=V/pVar=δ/w0_t=1.0_U=4.0_Lx=256.0_β=100.0.pdf}
-%%		\label{subfig:w0V-scan-beta=100}
-%%	}
-%%	\subfloat[Doping $\delta = n-0.5$ dependence.]{
-%%		\includegraphics[height=0.3\textwidth]{../Project/EHM-HartreeFock/analysis/Phase=AF/scan/Setup=B[256]/PlotOrderParameter/xVar=δ/pVar=V/w0_t=1.0_U=4.0_Lx=256.0_β=100.0.pdf}
-%%		\label{subfig:w0d-scan-beta=100}
-%%	}	
-%	\caption{Plots of the parameter $w^{(\mathbf{0})}$ in the antiferromagnetic phase as a function of both the non-local attraction $V/t$ (Fig.~\ref{subfig:w0V-scan-beta=100}) and the doping $\delta = n-1/2$ (Fig.~\ref{subfig:w0d-scan-beta=100}), at fixed local repulsion $U/t=4$.}
-%	\label{fig:w0dV-scan-beta=100}
-%\end{figure}
-%
-%Moving to the second HFP, things get interesting. Fig.~\ref{fig:w0dV-scan-beta=100} is set up as Fig.~\ref{fig:mdV-scan-beta=100}, while Fig.~\ref{fig:w0UVd-heatmaps-beta=100} as Fig.~\ref{fig:mUVd-heatmaps-beta=100}. When considering the behavior of the parameter at fixed $U$, thus looking to Fig.~\ref{subfig:w0V-scan-beta=100}, a series of \textit{plateaus} later interrupted by a continuous change in derivative are present at each doping. This is clearly evident also in Fig.~\ref{subfig:mVd-heatmap-beta=100}, with the parameter staying constant when approaching from left the maximum situated at the position of the ``phase boundary'' of Fig.~\ref{subfig:mVd-heatmap-beta=100}. The fact that there exists a geometric region of the $V\delta$ plane where are located both the phase transition and the maximum of this parameter, which controls hopping renormalization, is particularly interesting, suggesting the possibility of finding a maximally localized system by following the path extrapolated by maximizing $w^{(\mathbf{0})}$ around the phase transition.
-%
-%\begin{figure}
-%	\centering
-%%	\subfloat[Magnetization in the $UV$ plane.]{
-%%		\includegraphics[height=0.3\textwidth]{../Project/EHM-HartreeFock/analysis/Phase=AF/heatmap/Setup=A[128]/Heatmaps/xVar=U_yVar=V/w0_t=1.0_Lx=128.0_δ=0.2_β=100.0.pdf}
-%%		\label{subfig:w0UV-heatmap-beta=100}
-%%	}
-%%	\subfloat[Magnetization in the $V\delta$ plane.]{
-%%		\includegraphics[height=0.3\textwidth]{../Project/EHM-HartreeFock/analysis/Phase=AF/heatmap/Setup=B[128]/Heatmaps/xVar=V_yVar=δ/w0_t=1.0_U=4.0_Lx=128.0_β=100.0.pdf}
-%%		\label{subfig:w0Vd-heatmap-beta=100}
-%%	}	
-%	\caption{Heatmaps of the parameter $w^{(\mathbf{0})}$ in the antiferromagnetic phase in the $UV$ plane (Fig.~\ref{subfig:w0UV-heatmap-beta=100}) and the $V\delta$ plane (Fig.~\ref{subfig:w0Vd-heatmap-beta=100}).}
-%	\label{fig:w0UVd-heatmaps-beta=100}
-%\end{figure}
-%
-%Interestingly enough, the highly doped region, $\delta>0.4$, presents seemingly no dependency on $V$ in Fig.~\ref{subfig:w0Vd-heatmap-beta=100} (at least for thus value of $U$), as is also evident from the asymptotic behavior at increasing $V$ visible in Fig.~\ref{subfig:w0Vd-heatmap-beta=100}. Moreover, Fig.~\ref{subfig:mUV-heatmap-beta=100} and \ref{subfig:w0UV-heatmap-beta=100} appear almost reciprocal: where one parameter grows, the other is suppressed. In terms of hopping renormalization, this tells us that antiferromagnetic ordering tends to maintain $t$ non-renormalized.
-%
-%\begin{figure}
-%	\centering
-%%	\subfloat[Effective hopping in the $UV$ plane.]{
-%%		\includegraphics[height=0.3\textwidth]{../Project/EHM-HartreeFock/analysis/Phase=AF/RMPs/Setup=A[128]/RMPs/xVar=U_yVar=V/t_tilde_t=1.0_Lx=128.0_δ=0.2_β=100.0.pdf}
-%%		\label{subfig:tUV-RMP-beta=100}
-%%	}
-%%	\subfloat[Effective hopping in the $V\delta$ plane.]{
-%%		\includegraphics[height=0.3\textwidth]{../Project/EHM-HartreeFock/analysis/Phase=AF/RMPs/Setup=B[128]/RMPs/xVar=V_yVar=δ/t_tilde_t=1.0_U=4.0_Lx=128.0_β=100.0.pdf}
-%%		\label{subfig:tVd-RMP-beta=100}
-%%	}	
-%	\caption{Plots of the effective hopping $\tilde{t}$ in the antiferromagnetic phase in the $UV$ plane (Fig.~\ref{subfig:tUV-RMP-beta=100}) and the $V\delta$ plane (Fig.~\ref{subfig:tVd-RMP-beta=100}).}
-%	\label{fig:tUVd-RMPs-beta=100}
-%\end{figure}
-%
-%Fig.~\ref{fig:tUVd-RMPs-beta=100} reports in its subplots the renormalized hopping as a function of the model parameters, in the same setups as in the aforementioned heatmaps. As is depicted, the NN interaction $V$ tends to reduce effective hopping amplitude down to a significant fraction of the starting value: $t$ is damped of a $30\%$ factor or so. As is evident from Fig.~\ref{subfig:tVd-RMP-beta=100}, for a small local repulsion $U=4$ the value of $\tilde{t}$ lowers as the doping grows, reaching a maximum approximately on the position of the maxima of $w^{(\mathbf{0})}$ in Fig.~\ref{subfig:w0Vd-heatmap-beta=100}, which was expected considering Eq.~\eqref{eq:af-fock-hop-ss-renormalization}.
-%
-%\paragraph{Third HFP: $w^{(\bm{\pi})}$ (imaginary gap coefficient).}
-%
-%Unsurprisingly, the third HFP turns out to be essentially zero in all parameters space, considering also numerical fluctuations. This was expected: when deriving the MF solution to the model within AF phase, we essentially reduced it to the already known solution of Sec.~\ref{appsec:antiferromagnetic-phase}. The gap there was a real parameter, thus by purely renormalizing the parameters obtained within such solution there is no need for the present gap to acquire a non-zero imaginary part.
-%
-%\subsection{Role of hopping renormalization: switching off $w^{(\mathbf{0})}$}
-%\todo
-
-\section{Numerical simulations}\label{sec:af-numerical}
-
-\todo
-
-\subsection{HF iterative algorithm sketch}\label{subsec:af-hf-sketch}
-
-For the sAF and aAf phases, the two possible five-entries HFPs real vectors are given respectively by:
-\[
-	\mathbf{v}_\mathrm{s} = \begin{bmatrix}
-		m \\ u^{(s^*)} \\ u^{(d)} \\ v^{(s^*)} \\ v^{(d)}
-	\end{bmatrix}
-	\qquad
-	\mathbf{v}_\mathrm{a} = \begin{bmatrix}
-	m \\ u^{(s^*)} \\ u^{(d)} \\ -iv^{(p_x)} \\ -iv^{(p_y)}
-	\end{bmatrix}
-\]
-\todo
