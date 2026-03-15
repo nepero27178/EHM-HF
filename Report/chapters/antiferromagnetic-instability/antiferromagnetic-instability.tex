@@ -1599,3 +1599,224 @@ The final result,
 	0 < u^{(s^*)} < 2t/V
 \]
 is identical to the constraint obtained for the normal phase. Also in AF phase the bare bands are effectively shrunk by $\hat H_V$.
+
+\subsection{HFPs vanishing in sAF phase}
+
+We now present a somewhat convoluted argument to show that, even if raw MFT presents an apparently rich scenario with a lot of HFPs, the problem can be proven to be actually much simpler. Let us start from the sAF phase, described by the five HFPs of Tab.~\ref{tab:saf-aaf-hfps} and their self-consistency equations of Tabs.~\ref{tab:af-ehm-ugamma-self-consistencies} and \ref{tab:af-ehm-vgamma-self-consistencies}. Let us define the linear functional
+\[
+	F[f(\mathbf{k})] \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \frac{\tilde{\mathrm{Th}}_\mathbf{k}[\beta,\tilde{\mu}]}{\tilde{E}_\mathbf{k}} f(\mathbf{k})
+\]
+whose linearity properties are trivial,
+\begin{equation}\label{eq:saf-F-linearity}
+	F[a f(\mathbf{k}) + b g(\mathbf{k})] = a F[f(\mathbf{k})] + b F[g(\mathbf{k})]
+\end{equation}
+being $a,b \in \mathbb{C}$ and $f,g$ two integrable functions in reciprocal space. Another handy property is the sign-preserving relation for sign-defined functions. Let for instance
+\begin{equation}\label{eq:saf-F-positivity}
+	\forall \mathbf{k} \quad\colon\quad f(\mathbf{k}) \ge 0 
+	\quad\implies\quad F[f(\mathbf{k})] \ge 0
+\end{equation}
+This is due to the fact that both $\tilde{\mathrm{Th}}_\mathbf{k}$ and $\tilde{E}_\mathbf{k}$ are positive-defined. An identical relation with inverted inequality holds for negative-defined function.
+
+Consider now the self-consistency equation for $u^{(s^*)}$: explicitly,
+\[
+\begin{aligned}
+	u^{(s^*)} &= -\frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (c_x + c_y)
+	\frac{\tilde{\epsilon}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}] \\
+	&= \frac{\left[2t - Vu^{(s^*)}\right]}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}}
+	\frac{ \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]}{\tilde{E}_\mathbf{k}} (c_x + c_y)^2 - \frac{Vu^{(d)}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}}
+	\frac{ \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]}{\tilde{E}_\mathbf{k}} (c_x^2 - c_y^2)
+\end{aligned}
+\]
+having we used the notation $\cos k_\ell \equiv c_\ell$ and substituted the full bare bands
+\[
+	\tilde{\epsilon}_\mathbf{k} \equiv -\left[2t - u^{(s^*)}_\sigma V\right] (c_x + c_y) + u^{(d)}_\sigma V (c_x - c_y)
+\]
+Evidently, in terms of the functional $S$, we can rewrite:
+\[
+\begin{aligned}
+	u^{(s^*)} &= \left[2t - Vu^{(s^*)}\right] \times F\left[(c_x + c_y)^2\right] - Vu^{(d)} \times F\left[c_x^2 - c_y^2\right] \\
+	&= \left[2t - Vu^{(s^*)}\right] \times \left\lbrace F\left[c_x^2\right] + 2F\left[c_x c_y\right] + F\left[c_y^2\right] \right\rbrace -  Vu^{(d)} \times \left\lbrace F\left[c_x^2\right] - F\left[c_y^2\right] \right\rbrace
+\end{aligned}
+\]
+having we used the linearity property of Eq.~\eqref{eq:saf-F-linearity} in last passage.
+
+Let now:
+\[
+	A \equiv F\left[c_x^2\right]
+	\qquad
+	B \equiv 2F\left[c_x c_y\right]
+	\qquad
+	C \equiv F\left[c_y^2\right]
+\]
+which allows us to rewrite the self-consistency equation as:
+\[
+	u^{(s^*)} =
+	\left[2t - Vu^{(s^*)}\right] (A+B+C) -  Vu^{(d)} (A-C)
+\]
+Repeating an identical procedure on the three self-consistency equations for $u^{(d)}$, $v^{(s^*)}$ and $v^{(d)}$, we get the full system:
+\begin{align}
+	u^{(s^*)} &=
+	\left[2t - Vu^{(s^*)}\right] (A+B+C) -  Vu^{(d)} (A-C) \label{eq:saf-uS-sc-ABC} \\
+	u^{(d)} &=
+	\left[2t - Vu^{(s^*)}\right] (A-C) -  Vu^{(d)} (A-B+C) \label{eq:saf-ud-sc-ABC} \\
+	v^{(s^*)} &=
+	- Vv^{(s^*)} (A+B+C) -  Vv^{(d)} (A-C) \label{eq:saf-vS-sc-ABC} \\
+	v^{(d)} &=
+	- Vv^{(s^*)} (A-C) -  Vv^{(d)} (A-B+C) \label{eq:saf-vd-sc-ABC}
+\end{align}
+These equations define a four-fold nonlinear map, whose parameters $A,B,C$ depend on the HFPs themselves, being the functional $F$ dependent on the HFPs. Because of this last point, the four equations are coupled to each other and the map does not decouple in two independent sub-maps.
+
+Aim of this section is to prove that no self-consistent solution exists with non-zero $u^{(d)}$, $v^{(s^*)}$ and $v^{(d)}$. Being the derivation convoluted and abstract enough, let us proceed by enumerating the relevant facts.
+\begin{enumerate}
+	\item Let us start by applying a conformal transform on the map: define the new ``sum'' and ``difference'' variables
+	\[
+		S_u \equiv u^{(s^*)} + u^{(d)}
+		\qquad
+		D_u \equiv u^{(s^*)} - u^{(d)}
+		\qquad
+		S_v \equiv v^{(s^*)} + v^{(d)}
+		\qquad
+		D_v \equiv v^{(s^*)} - v^{(d)}
+	\]
+	whose matrix representation is
+	\[
+		\begin{bmatrix}
+			S_u \\ D_u \\ S_v \\ D_v
+		\end{bmatrix} \equiv \begin{bmatrix}
+			1 & 1 && \\
+			1 & -1 && \\
+			&& 1 & 1 \\
+			&& 1 & -1
+		\end{bmatrix} \begin{bmatrix}
+			u^{(s^*)} \\ u^{(d)} \\ v^{(s^*)} \\ v^{(d)}
+		\end{bmatrix}
+	\]
+	The map transform is obtained by summing and subtracting two couples of equations: Eq.~\eqref{eq:saf-uS-sc-ABC} and \eqref{eq:saf-ud-sc-ABC} (the first two) as well as Eq.~\eqref{eq:saf-vS-sc-ABC} and \eqref{eq:saf-vd-sc-ABC} (the second two). By doing this we get the simplified system:
+	\begin{align}
+		(1+2AV) S_u + BV D_u &= 2t(2A+B) \label{eq:saf-Su-sc-ABC} \\
+		(1+2CV) D_u + BV S_u &= 2t(B+2C) \label{eq:saf-Du-sc-ABC} \\
+		(1+2AV) S_v + BV D_v &= 0 \label{eq:saf-Sv-sc-ABC} \\
+		(1+2CV) D_v + BV S_v &= 0 \label{eq:saf-Dv-sc-ABC}
+	\end{align}
+	%
+	\item Let $S_v = 0$. Then $D_v = 0$. From Eq.~\eqref{eq:saf-Dv-sc-ABC}, using $C = F\left[c_y^2 \right] \ge 0$ implied by Eq.~\eqref{eq:saf-F-positivity}:
+	\[
+		\underbrace{(1+2CV)}_{>0} D_v = 0
+		\quad\implies\quad
+		D_v = 0
+	\]
+	Identically, let $D_v = 0$. Then applying the same consideration on Eq.~\eqref{eq:saf-Sv-sc-ABC}, $S_v = 0$. Either both are non-zero or both are zero.
+	%
+	\item Let $S_v \neq 0$ and $D_v \neq 0$. Then $B \neq 0$. To prove this, consider for example Eq.~\eqref{eq:saf-Sv-sc-ABC}: we are working at $V>0$, thus
+	\[
+		B = - \frac{1 + 2AV}{V} \frac{S_v}{D_v}
+	\]
+	which is non-zero because $A = F\left[c_x^2 \right] \ge 0$, the latter following from Eq.~\eqref{eq:saf-F-positivity}. We could have used identically Eq.~\eqref{eq:saf-Dv-sc-ABC}.
+	%
+	\item Let $S_v \neq 0$ and $D_v \neq 0$. Hence the following relation holds:
+	\begin{equation}\label{eq:saf-BV2-relation}
+		(BV)^2 = (1+2CV)(1+2AV)
+	\end{equation}
+	To prove the latter, it is sufficient to multiply Eq.~\eqref{eq:saf-Sv-sc-ABC} by $BV \neq 0$ (see point above),
+	\[
+		BV (1+2AV) S_v + (BV)^2 D_v = 0
+	\]
+	and substitute from Eq.~\eqref{eq:saf-Dv-sc-ABC} $BV S_v = - (1+2CV) D_v$,
+	\[
+		\left[- (1+2CV) (1+2AV) + (BV)^2\right] D_v = 0
+	\]
+	Since $D_v \neq 0$ by hypothesis, Eq.~\eqref{eq:saf-BV2-relation} is implied.
+	%
+	\item Let $S_v \neq 0$ and $D_v \neq 0$. Hence the following relation holds:
+	\begin{equation}\label{eq:saf-B2-4AC-relation}
+		B+2C = V(B^2 - 4AC)
+	\end{equation}
+	To prove this: multiply Eq.~\eqref{eq:saf-Su-sc-ABC} by $BV$ on both sides,
+	\[
+		BV (1+2AV) S_u + (BV)^2 D_u = 2t BV(2A+B)
+	\]
+	and substitute from Eq.~\eqref{eq:saf-Du-sc-ABC} $BV S_v = - (1+2CV) D_v + 2t(B+2C)$,
+	\[
+	\begin{aligned}
+		- (1+2CV)(1+2AV) D_v + + 2t(B+2C)(1+2AV) + (BV)^2 D_u &= 2t BV(2A+B) \\
+		2t(B+2C)(1+2AV) &= 2t BV(2A+B) \\
+		B + 2ABV + 2C + 4ACV &= 2ABV + B^2 V
+	\end{aligned}
+	\]
+	Passing from first to second line we used Eq.~\eqref{eq:saf-BV2-relation}, and in the passage below $t>0$. Last line implies Eq.~\eqref{eq:saf-B2-4AC-relation}.
+	%
+	\item Let $S_v \neq 0$ and $D_v \neq 0$. Then $B^2 \neq 4AC$. Indeed, let $B^2 = 4AC$. Then from Eq.~\eqref{eq:saf-BV2-relation},
+	\[
+		(BV)^2 = 1 + 2V (A+C) + 4ACV^2
+		\quad\implies\quad
+		1 + 2V (A+C) = 0
+	\]
+	which is obviously absurd, being $A\ge0$, $C\ge0$ from Eq.~\eqref{eq:saf-F-positivity}. A consequence of this implication on Eq.~\eqref{eq:saf-B2-4AC-relation} is that, at a given $V$, the map parameters should satisfy
+	\begin{equation}\label{eq:saf-B2-4AC-relation-int1}
+		V = \frac{B+2C}{B^2 - 4AC}
+	\end{equation}
+	%
+	\item Let $S_v \neq 0$ and $D_v \neq 0$. Then $A=C$. To prove this, consider the parabolic solutions of Eq.~\eqref{eq:saf-B2-4AC-relation},
+	\[
+		(B^2 - 4AC) V^2 - 2V (A+C) - 1 = 0
+		\,\implies\,
+		V_{1,2} = \frac{(A+C) \pm \sqrt{ (A+C)^2 + (B^2 - 4AC) }}{B^2 - 4AC}
+	\]
+	To identify a fixed point of the map, at least one of those points should satisfy Eq.~\eqref{eq:saf-B2-4AC-relation-int1}. Then it must be
+	\[
+	\begin{aligned}
+		A+C \pm \sqrt{ (A+C)^2 + (B^2 - 4AC) } &= B+2C \\
+		(A+C)^2 + (B^2 - 4AC) &= \left[ (B+2C) - (A+C) \right]^2 \\
+		B^2 - 4AC &= (B+2C)^2 - 2(B+2C)(A+C) \\
+		B^2 - 4AC &= B^2 + 4C^2 + 4BC - 2AB - 2BC - 4AC - 4C^2
+	\end{aligned}
+	\]
+	Simplifying all recurring terms, we get
+	\[
+		2B(A-C) = 0
+	\]
+	From previous points we know $B\neq 0$. Then $A=C$.
+	%
+	\item It's impossible to have $S_v \neq 0$ and $D_v \neq 0$. To prove this, assume the contrary and use the point above to reduce  Eq.~\eqref{eq:saf-B2-4AC-relation-int1} to
+	\[
+		A=C
+		\quad\implies\quad
+		V = \frac{B+2C}{B^2 - 4C^2} = \frac{1}{B-2C}
+	\]
+	Inserting the latter in Eq.~\eqref{eq:saf-Dv-sc-ABC},
+	\[
+	\begin{aligned}
+		\left( 1+\frac{2C}{B-2C} \right) D_v + \frac{B}{B-2C} S_v &= 0 \\
+		\frac{B}{B-2C} D_v + \frac{B}{B-2C} S_v &= 0
+	\end{aligned} 
+	\]
+	which implies
+	\[
+		D_v + S_v = 0
+		\quad\implies\quad
+		v^{(s^*)} = 0
+	\]
+	Recalling from Tab.~\ref{tab:af-ehm-vgamma-self-consistencies} the explicit self-consistency equation for $v^{(d)}$ and setting $v^{(s^*)} = 0$,
+	\[
+		v^{(d)} = - V v^{(d)} F\left[ (c_x-c_y)^2 \right]
+	\]
+	and using the positivity rule of Eq.~\eqref{eq:saf-F-positivity} we get
+	\[
+		V > 0 \qq{and} F\left[ (c_x-c_y)^2 \right] \ge 0
+		\quad\implies\quad
+		v^{(d)} = 0
+	\]
+	because no finite positive number can equal any finite negative number, and viceversa. Thus
+	\[
+		S_v \neq 0 \qq{and} D_v \neq 0
+		\quad\implies\quad
+		v^{(s^*)} = v^{(d)} = 0
+		\quad\implies\quad
+		S_v = D_v = 0
+	\]
+	Absurd. We explored any possibility for $S_v$, $D_v$: no stable solution with finite values of the HFPs $v^{(s^*)}$, $v^{(d)}$ exists, thus both must be zero and can be eliminated from the algorithm.
+\end{enumerate}
+\todo
+
+
+\subsection{HFPs vanishing in aAF phase}
