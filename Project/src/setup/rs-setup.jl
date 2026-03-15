@@ -3,7 +3,7 @@ SetupFilePath::String = @__FILE__
 
 # Phase
 AllPhases::Set{String} = Set(["Normal","AF-Symmetric","AF-Antisymmetric","SC-Singlet","SC-Triplet"])
-Phase::String = "Normal" # ← Change here
+Phase::String = "AF-Antisymmetric" # ← Change here
 if !in(Phase, AllPhases)
 	@error "Invalid phase, please modify at: " * SetupFilePath
 	exit()
@@ -12,7 +12,7 @@ end
 # Syms
 SymmetricStructures::Set{String} = Set(["s", "S", "d"])
 AntisymmetricStructures::Set{String} = Set(["x", "y"])
-Syms::Set{String} = Set([]) # ← Change here
+Syms::Set{String} = Set(["x","y"]) # ← Change here
 
 Err::Bool = false # Handle assignment error
 (Phase=="Normal" && length(Syms)>0) ? Err = true : false
@@ -26,16 +26,16 @@ end
 
 # RB
 AllRB::Set{String} = Set(["S","d"])
-RB::Set{String} = Set(["S"]) # ← Change here
+RB::Set{String} = Set(["S","d"]) # ← Change here
 RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "B[128]-b" # ← Change here
+Setup::String = "A[128]-a" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test[30]",
 	"A[128]-a", # UV plane
-	"A[128]-b", # UV plane
+	# "A[128]-b", # UV plane
 	"B[128]-a", # δV plane: V ≤ 4 sector
 	"B[128]-b", # δV plane: V ≥ 4 sector
 ])
@@ -91,14 +91,14 @@ elseif Setup=="A[128]-a"
 elseif Setup=="A[128]-b"
 	tt = [1.0]
 	UU = [U for U in 0.0:0.5:20.0]
-	VV = [V for V in 0.0:0.1:4.0]
+	VV = [V for V in 4.0:0.1:8.0] # Difference with A[128]-a
 	LL = [128]
 	δδ = [0.0, 0.2, 0.4]
 	ββ = [100.0]
-	p = 250 # Difference with A[128]a
+	p = 250 # Difference with A[128]-a
 	Δv = MainΔv
 	Δn = 1e-2
-	g = 0.05 # Difference with A[128]a
+	g = 0.05 # Difference with A[128]-a
 	xVar = "U"
 	yVar = "V"
 
@@ -121,14 +121,14 @@ elseif Setup=="B[128]-a"
 elseif Setup=="B[128]-b"
 	tt = [1.0]
 	UU = [0.0]
-	VV = [V for V in 4.0:0.1:8.0] # Difference with B[128]a
+	VV = [V for V in 4.0:0.1:8.0] # Difference with B[128]-a
 	LL = [128]
 	δδ = [δ for δ in 0.0:0.01:0.49]
 	ββ = [100.0]
-	p = 250 # Difference with B[128]a
+	p = 250 # Difference with B[128]-a
 	Δv = MainΔv
 	Δn = 1e-2
-	g = 0.05 # Difference with B[128]a
+	g = 0.05 # Difference with B[128]-a
 	xVar = "δ"
 	yVar = "V"
 

@@ -78,12 +78,14 @@ function LayerHFScan(
 			))
 
 			# Initializers (use last converged value)
-			LastRow = DF[j,:]
-			v0 = DataFrame(LastRow[[HFP for HFP in HFPs]]) # Set{String} => Vector{String}
+			LastRow = DataFrame(DF[j,:])
+			v0 = select(LastRow, HFPs...) # DataFrame(LastRow[[HFP for HFP in HFPs]]) # Set{String} => Vector{String}
 
 			# Main run
 			R::HFRun = GetHFRun(Phase,Syms,ModPars,AlgPars;v0,RBS,RBd)
-			Q::DataFrame = DataFrame(Dict(["Q"*x => first(R.Q[!,x]) for x in names(R.Q)]))
+			Q::DataFrame = DataFrame(Dict(
+				[ "Q"*x => first(R.Q[!,x]) for x in names(R.Q) ]
+			))
 			LayeredRow::DataFrame = hcat( # Horizontal concatenation of:
 				ModPars,R.v,Q, # Already structured dfs
 				DataFrame(Dict( # All the rest
@@ -98,7 +100,7 @@ function LayerHFScan(
 			)
 
 			popat!(DF,r)
-			insert!(DF,r,LayeredRow[1,:])
+			insert!(DF,r,first(LayeredRow))
 
 			R.Cvd ? c += 1 : false
 			append::Bool = true
@@ -108,8 +110,8 @@ function LayerHFScan(
 			end
 
 			if FilePathOut != "" #TODO Add no FilePathOut possibility
-				# Write on file
-				CSV.write(FilePathOut,LayeredRow;append)
+				# Write on file (respecting DF order!)
+				CSV.write(FilePathOut,DataFrame(DF[r,:]);append)
 			end
 
 		elseif Row.Converged

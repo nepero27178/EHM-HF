@@ -260,8 +260,14 @@ function GetHFRun(
 			exit()
 		end
 	end
-	select!(Δv,Cols(in(HFPs))) # Filter tolerances
-	Q::DataFrame = DataFrame(Dict(HFPs .=> 0.0)) # Initialize qualities
+
+	# Filter and sort tolerances
+	select!(Δv,Cols(in(HFPs)))
+	Δv = Δv[:,names(v0)]
+
+	# Get qualities and data row
+	Q::DataFrame = copy(v0) # Initialize qualities
+	Q .= 0.0 # Start from zero
 	Row::DataFrame = hcat( # Initialize row
 		rename(v0, HFPs .=> "I" .* HFPs),
 		DataFrame(Dict( "C" .* HFPs .=> NaN)),
@@ -287,7 +293,7 @@ function GetHFRun(
 			end
 			S = GetHFStep(Phase,Syms,ModPars,v0;Δn,μ0=μ,RBS,RBd,OptBZ,debug) # Single step
 			v = copy(S.v) # Otherwise chaos with pointers
-			Q .= abs.(v.-v0)./Δv # Get qualities
+			Q .= abs.(v.-v0) ./ Δv # Get qualities
 			Cvd = all(first(Q.<=1)) # Compute converged switch
 			μ = S.μ
 
