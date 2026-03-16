@@ -2,7 +2,7 @@
 SetupFilePath::String = @__FILE__
 
 # Phase
-AllPhases::Set{String} = Set(["Normal","AF-Symmetric","AF-Antisymmetric","SC-Singlet","SC-Triplet"])
+AllPhases::Set{String} = Set(["Normal","AF","AF-Symmetric","AF-Antisymmetric","SC-Singlet","SC-Triplet"])
 Phase::String = "Normal" # Choose your phase
 if !in(Phase, AllPhases)
 	@error "Invalid phase, please modify at: " * SetupFilePath
@@ -16,6 +16,7 @@ Syms::Set{String} = Set([]) # ← Change here
 
 Err::Bool = false
 (Phase=="Normal" && length(Syms)>0) ? Err = true : false
+(Phase=="AF" && length(Syms)>0) ? Err = true : false
 (Phase=="AF-Symmetric" && !issubset(Syms, SymmetricStructures)) ? Err = true : false
 (Phase=="AF-Antisymmetric" && !issubset(Syms, AntisymmetricStructures)) ? Err = true : false
 (Phase=="SC-Singlet" && !issubset(Syms, SymmetricStructures)) ? Err = true : false
@@ -31,7 +32,7 @@ RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "C[256]-b" # ← Change here
+Setup::String = "C[256]-a" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test", # Test setup
 	"A[256]-a", # UV plane
@@ -82,8 +83,28 @@ elseif Setup=="Test"
 # --- MAIN UV plane RUN ---
 elseif Setup=="A[256]-a"
 	tt = [1.0]
-	UU = [U for U in 0.0:0.25:5.0]
-	VV = [V for V in 0.0:0.25:5.0]
+	UU = [U for U in 0.0:0.4:8.0]
+	VV = [V for V in 0.0:0.4:4.0]
+	LL = [256]
+	δδ = [0.0, 0.2, 0.4]
+	ββ = [100.0]
+	p = 200
+	Δv = MainΔv
+	Δn = 1e-2
+	g = 0.2
+	xVar = "U"
+	pVar = "V"
+	xScale = identity
+	compared = false
+	cVar = ""
+	exchange = true
+	cs = :tabwarm
+
+# --- MAIN UV plane RUN ---
+elseif Setup=="A[256]-a"
+	tt = [1.0]
+	UU = [U for U in 0.0:0.4:8.0]
+	VV = [V for V in 4.0:0.4:8.0]
 	LL = [256]
 	δδ = [0.0, 0.2, 0.4]
 	ββ = [100.0]

@@ -52,7 +52,7 @@ function RunHFScan(
 
 	# Warn user of memory-heavy simulations detection
 	I::Int64 = length(UU) * length(VV) * length(LL) * length(ββ) * length(δδ)
-	C::Int64 = length(Syms) + RBS + RBd + occursin("AF-",Phase)
+	C::Int64 = length(Syms) + RBS + RBd + occursin("AF",Phase)
 	@info "Total iterations and algorithmic complexity" I C
 
 	if FilePathOut == "" && I > 200
@@ -164,7 +164,7 @@ function main()
 	mkpath(dirname(FilePathOut))
 
 	# Filter out non half-filled simulations from AF phase
-	occursin("AF-", Phase) ? filter!(==(0.0),δδ) : false
+	occursin("AF", Phase) ? filter!(==(0.0),δδ) : false
 	Phase=="Normal" ? filter!(==(0.0),UU) : false
 
 	RunStart::DateTime = now()

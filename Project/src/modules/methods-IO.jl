@@ -162,7 +162,10 @@ function GetHFPs(
 	HFPs::Set{String} = Set()
 	RBS ? push!(HFPs,"uS") : false
 	RBd ? push!(HFPs,"ud") : false
-	if Phase=="AF-Symmetric" || Phase=="AF-Antisymmetric"
+	if Phase=="AF"
+		push!(HFPs,"m")
+
+	elseif Phase=="AF-Symmetric" || Phase=="AF-Antisymmetric"
 		push!(HFPs,"m")
 
 		if Phase=="AF-Symmetric" && !issubset(Syms,["S","d"])
@@ -230,7 +233,14 @@ function GetLabels(
 	])
 
 	PhaseLabels::Dict{String,String} = Dict()
-	if Phase=="AF-Symmetric"
+	if Phase=="AF"
+		PhaseLabels = Dict([
+			# HFPs
+			"m" => "m",
+			# Convergence
+			"Qm" => "Q[m]",
+		])
+	elseif Phase=="AF-Symmetric"
 		PhaseLabels = Dict([
 			# HFPs
 			"m" => "m",

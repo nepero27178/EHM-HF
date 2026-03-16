@@ -126,8 +126,8 @@ function GetHFStep(
 		RBS ? v.uS .= sum( StructureFactor.("S",K).*FermiDirac.(εK,μ,β) )/LxLy : false
 		RBd ? v.ud .= sum( StructureFactor.("d",K).*FermiDirac.(εK,μ,β) )/LxLy : false
 
-	# Symmetric AF phase
-	elseif Phase=="AF-Symmetric"
+	# Pure AF phase
+	elseif Phase=="AF"
 		EK = sqrt.(εK.^2 .+ reΔK.^2 .+ imΔK.^2)
 		m0::Float64 = try
 			first(v0.m)
@@ -142,7 +142,28 @@ function GetHFStep(
 		rK::Matrix{Float64} = reΔK./EK
 		replace!(rK, NaN => 0.0) # Null field: <sx>=0
 
-		iK::Matrix{Float64} = imΔK./EK
+		# Self-consistency equations
+		RBS ? v.uS .= -sum( StructureFactor.("S",K).*eK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
+		RBd ? v.ud .= -sum( StructureFactor.("d",K).*eK.*Th.("-",EK,μ,β) )/(2*LxLy) : false
+		v.m .= sum( rK.*Th.("-",EK,μ,β) )/(2*LxLy)
+
+	# Symmetric AF phase
+	elseif Phase=="AF-Symmetric"
+		EK = sqrt.(εK.^2 .+ reΔK.^2 .+ imΔK.^2)
+		m0 = try # Pre-assigned data type
+			first(v0.m)
+		catch
+			@error "Magnetization not found in v0 @ HFStep" v0
+			exit()
+		end
+
+		eK = εK./EK # Pre-assigned data type
+		replace!(eK, NaN => 0.0) # Null field: <sz>=0
+
+		rK = reΔK./EK # Pre-assigned data type
+		replace!(rK, NaN => 0.0) # Null field: <sx>=0
+
+		iK = imΔK./EK # Pre-assigned data type
 		replace!(iK, NaN => 0.0) # Null field: <sy>=0
 
 		# Self-consistency equations

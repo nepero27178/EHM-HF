@@ -86,7 +86,12 @@ function GetΔΔ(
 	reΔΔ::Dict{String,Float64} = Dict()
 	imΔΔ::Dict{String,Float64} = Dict()
 
-	if Phase == "AF-Symmetric"
+	if Phase == "AF"
+
+		# Real gap
+		reΔΔ["s"] = U * first(v.m)
+
+	elseif Phase == "AF-Symmetric"
 
 		# Real gap
 		reΔΔ["s"] = U * first(v.m)
@@ -234,7 +239,7 @@ function GetObj(
 		end
 
 	# Antiferromagnetic phases
-	elseif Phase=="AF-Symmetric" || Phase=="AF-Antisymmetric"
+	elseif Phase=="AF" || Phase=="AF-Symmetric" || Phase=="AF-Antisymmetric"
 		EK = sqrt.(εK.^2 .+ reΔK.^2 .+ imΔK.^2)
 		m::Float64 = try
 			first(v.m)
@@ -257,7 +262,11 @@ function GetObj(
 
 			if Obj=="f"
 				# Free energy from HFPs
-				vv::Vector{Float64} = [ select(v, Cols(contains.("v")))[1,:]... ]
+				vv::Vector{Float64} = try
+					[ select(v, Cols(contains.("v")))[1,:]... ]
+				catch
+					[0.0, 0.0] # Fake for pure AF phase
+				end
 				f += U*m^2 - V*sum(vv.^2)
 
 				# Free energy from bands

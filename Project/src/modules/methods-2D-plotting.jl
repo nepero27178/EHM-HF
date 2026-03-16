@@ -85,7 +85,7 @@ function Plot2D(
 	end
 
 	# Group data
-	GroupedDF::GroupedDataFrame = groupby(DF,Pars)
+	GroupedDF::GroupedDataFrame = groupby(DF,Pars,sort=true)
 	J::Int64 = length(GroupedDF)
 	PlotVec::Vector{GroupedPlot} = GroupedPlot[]
 
@@ -180,7 +180,7 @@ function Plot2D(
 			[a.title = rawTitle for a in AxisVec]
 		end
 
-		Groupeddf::GroupedDataFrame = groupby(df,pVar)[1:(Skip+1):end]
+		Groupeddf::GroupedDataFrame = groupby(df,pVar,sort=true)[1:(Skip+1):end]
 		I::Int64 = length(Groupeddf)
 		C::Int64 = floor(Int64, length(colorschemes[cs]) / I)
 		C==0.0 ? error("Your cs (ColorScheme) is not large enough.") : false

@@ -2,8 +2,8 @@
 SetupFilePath::String = @__FILE__
 
 # Phase
-AllPhases::Set{String} = Set(["Normal","AF-Symmetric","AF-Antisymmetric","SC-Singlet","SC-Triplet"])
-Phase::String = "AF-Antisymmetric" # ← Change here
+AllPhases::Set{String} = Set(["Normal","AF","AF-Symmetric","AF-Antisymmetric","SC-Singlet","SC-Triplet"])
+Phase::String = "AF" # ← Change here
 if !in(Phase, AllPhases)
 	@error "Invalid phase, please modify at: " * SetupFilePath
 	exit()
@@ -12,10 +12,11 @@ end
 # Syms
 SymmetricStructures::Set{String} = Set(["s", "S", "d"])
 AntisymmetricStructures::Set{String} = Set(["x", "y"])
-Syms::Set{String} = Set(["x","y"]) # ← Change here
+Syms::Set{String} = Set([]) # ← Change here
 
 Err::Bool = false # Handle assignment error
 (Phase=="Normal" && length(Syms)>0) ? Err = true : false
+(Phase=="AF" && length(Syms)>0) ? Err = true : false
 (Phase=="AF-Symmetric" && !issubset(Syms, SymmetricStructures)) ? Err = true : false
 (Phase=="AF-Antisymmetric" && !issubset(Syms, AntisymmetricStructures)) ? Err = true : false
 (Phase=="SC-Singlet" && !issubset(Syms, SymmetricStructures)) ? Err = true : false
@@ -26,22 +27,22 @@ end
 
 # RB
 AllRB::Set{String} = Set(["S","d"])
-RB::Set{String} = Set(["S","d"]) # ← Change here
+RB::Set{String} = Set(["S"]) # ← Change here
 RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "A[128]-a" # ← Change here
+Setup::String = "Test[30]" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test[30]",
 	"A[128]-a", # UV plane
-	# "A[128]-b", # UV plane
+	"A[128]-b", # UV plane
 	"B[128]-a", # δV plane: V ≤ 4 sector
 	"B[128]-b", # δV plane: V ≥ 4 sector
 ])
 
 TestΔv::DataFrame = DataFrame(Dict([
-	key => 5e-3 for key in [
+	key => 5e-4 for key in [
 		"uS","ud",
 		"m","vS","vd","vx","vy",
 		"ws","wS","wd","wx","wy"
@@ -63,7 +64,7 @@ elseif Setup=="Test[30]"
 	UU = [U for U in 0.0:0.5:6.0]
 	VV = [V for V in 1.0:0.2:2.0]
 	LL = [30]
-	δδ = [0.1]
+	δδ = [0.0]
 	ββ = [100.0]
 	p = 100
 	Δv = TestΔv
