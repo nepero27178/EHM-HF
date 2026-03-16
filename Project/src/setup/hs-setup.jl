@@ -3,7 +3,7 @@ SetupFilePath::String = @__FILE__
 
 # Phase
 AllPhases::Set{String} = Set(["Normal","AF","AF-Symmetric","AF-Antisymmetric","SC-Singlet","SC-Triplet"])
-Phase::String = "Normal" # Choose your phase
+Phase::String = "AF" # Choose your phase
 if !in(Phase, AllPhases)
 	@error "Invalid phase, please modify at: " * SetupFilePath
 	exit()
@@ -32,7 +32,7 @@ RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "C[256]-a" # ← Change here
+Setup::String = "A[256]-b" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test", # Test setup
 	"A[256]-a", # UV plane
@@ -102,7 +102,7 @@ elseif Setup=="A[256]-a"
 	cs = :tabwarm
 
 # --- MAIN UV plane RUN ---
-elseif Setup=="A[256]-a"
+elseif Setup=="A[256]-b"
 	tt = [1.0]
 	UU = [U for U in 0.0:0.4:8.0]
 	VV = [V for V in 4.0:0.4:8.0]

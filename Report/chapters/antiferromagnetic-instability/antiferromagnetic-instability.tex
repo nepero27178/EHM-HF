@@ -1595,14 +1595,20 @@ As we did for the normal phase:
 	\]
 \end{enumerate}
 The final result,
-\[
+\begin{equation}\label{eq:af-us*-constraint}
 	0 < u^{(s^*)} < 2t/V
-\]
+\end{equation}
 is identical to the constraint obtained for the normal phase. Also in AF phase the bare bands are effectively shrunk by $\hat H_V$.
 
 \subsection{HFPs vanishing in sAF phase}
 
-We now present a somewhat convoluted argument to show that, even if raw MFT presents an apparently rich scenario with a lot of HFPs, the problem can be proven to be actually much simpler. Let us start from the sAF phase, described by the five HFPs on the first row of Tab.~\ref{tab:saf-aaf-hfps} and their self-consistency equations of Tabs.~\ref{tab:af-ehm-ugamma-self-consistencies} and \ref{tab:af-ehm-vgamma-self-consistencies}. Let us define the linear functional
+We now present a somewhat convoluted argument to show that, even if raw MFT presents an apparently rich scenario with a lot of HFPs, the problem can be proven to be actually much simpler. Let us start from the sAF phase, assuming
+\[
+	\mathrm{C}_4 \SSB \mathrm{C}_2
+\]
+The system is described by the five HFPs on the first row of Tab.~\ref{tab:saf-aaf-hfps} and their self-consistency equations of Tabs.~\ref{tab:af-ehm-ugamma-self-consistencies} and \ref{tab:af-ehm-vgamma-self-consistencies}.
+
+Let us define the functional
 \begin{equation}\label{eq:saf-F-definition}
 	F[f(\mathbf{k})] \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \frac{\tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]}{\tilde{E}_\mathbf{k}} f(\mathbf{k})
 \end{equation}
@@ -1615,7 +1621,13 @@ being $a,b \in \mathbb{C}$ and $f,g$ two integrable functions in reciprocal spac
 	\forall \mathbf{k} \quad\colon\quad f(\mathbf{k}) \ge 0 
 	\quad\implies\quad F[f(\mathbf{k})] \ge 0
 \end{equation}
-This is due to the fact that both $\tilde{\mathrm{Th}}_\mathbf{k}$ and $\tilde{E}_\mathbf{k}$ are positive-defined. An identical relation with inverted inequality holds for negative-defined function.
+The relation above is implied by the fact that both $\tilde{\mathrm{Th}}_\mathbf{k}^{(-)}$ and $\tilde{E}_\mathbf{k}$ are positive-defined,
+\[
+	\tilde{\mathrm{Th}}_\mathbf{k}^{(-)} = \frac{1}{e^{\beta(\tilde{E}_\mathbf{k}-\mu)}+1} - \frac{1}{e^{\beta(-\tilde{E}_\mathbf{k}-\mu)}+1} \ge 0
+	\qquad
+	\tilde{E}_\mathbf{k} = \sqrt{\tilde{\epsilon}_\mathbf{k}^2 + \abs{\Delta_{\mathbf{k}\sigma}}^2} \ge 0
+\]
+so, being the functional $F$ essentially a weighted integral over MBZ, any positive-defined function has a positive image. An identical statement with inverted inequalities holds for negative-defined function.
 
 Consider now the self-consistency equation for $u^{(s^*)}$: explicitly,
 \[
@@ -1866,4 +1878,92 @@ and gap complexification is a completely ``ghost'' effect, even if theoretically
 
 \subsection{Natural suppression of nematicity within $\mathrm{C}_2/\mathbb{Z}_2$ symmetry}\label{subsec:af-bands-shrinking-C2}
 
-{\color{tabred}[To be written: there is numeric strong evidence of no nematicity. Find a proof.]}
+A consequence of the two sections above is that the gap function is purely real, non-renormalized and constant across all reciprocal space,
+\[
+	\tilde{\Delta}_\mathbf{k} = mU
+	\quad\implies\quad
+	\tilde{E}_\mathbf{k} = \sqrt{\tilde{\epsilon}_\mathbf{k}^2 + (mU)^2}
+\]
+Bogoliubov bands maintain renormalization through the $u^{(\gamma)}$ HFPs channel. Aim of this section is to prove that, as was for the normal phase, no nematicity occurs in the AF phase, giving $u^{(d)}=0$. 
+
+While the proof given in Sec.~\ref{subsec:normal-bands-shrinking-C2} was long and quite elaborated, this one is actually very short. Let us start from recalling the normal phase context:
+\[
+	\text{Normal phase:}
+	\qquad
+	\begin{aligned}
+		u^{(s^*)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \\
+		u^{(d)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+	\end{aligned}
+\]
+while, using $\bm{\pi}$ periodicity, in the present context we can re-write all equations doubling the integration domain,
+\[
+	\text{AF phase:}
+	\qquad
+	\begin{aligned}
+		u^{(s^*)} &= -\frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) \frac{\tilde{\epsilon}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}] \\
+		u^{(d)} &= -\frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) \frac{\tilde{\epsilon}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}] 
+	\end{aligned}
+\]
+Let us define the pseudo distribution
+\[
+	f'(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \equiv - \frac{\tilde{\epsilon}_\mathbf{k}}{2\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]
+\]
+which, substituted in the self-consistency equations, makes them very similar to the normal ones, up to a $f \to f'$ exchange.
+
+The fact that $u^{(d)}=0$ follows from the simple consideration that in Sec.~\ref{subsec:normal-bands-shrinking-C2} (when showing the same for the normal phase) we never used the specific form of $f$; instead, we only made use of it being monotonically descendent as a function of $\epsilon_\mathbf{k}$. If $f'$ also is a monotonically descendent function of $\epsilon_\mathbf{k}$, we can re-use the entire derivation of Sec.~\ref{subsec:normal-bands-shrinking-C2}. Let us show that using a somewhat lighter notation,
+\[
+	\epsilon_\mathbf{k} \to x
+	\qquad
+	mU \to \Delta
+\]
+and omitting parametric arguments. The function $f'$ is given by the product
+\[
+	f'(x) = g(x) h(x)
+\]
+with
+\[
+\begin{aligned}
+	g(x) &= -\frac{x}{\sqrt{x^2 + \Delta^2}} \\
+	h(x) &= \left(
+		\frac{1}{e^{\beta(\sqrt{x^2+\Delta^2}-\mu)}+1} - \frac{1}{e^{\beta(-\sqrt{x^2+\Delta^2}-\mu)}+1}
+	\right)
+\end{aligned}
+\]
+The following points are true:
+\begin{enumerate}
+	\item The function is antisymmetric about $x=0$. This is evident by considering that $g(x)$ is evidently antisymmetric, while $h(x)$ is symmetric.
+	%
+	\item $g(x)$ is monotonically descendent. Its derivative is
+	\[
+	\begin{aligned}
+		\dv{g}{x} &= - \frac{\sqrt{x^2 + \Delta^2} - x^2/\sqrt{x^2 + \Delta^2}}{x^2 + \Delta^2} \\
+		&= -\frac{\Delta^2}{(x^2 + \Delta^2)^{3/2}}
+	\end{aligned}
+	\]
+	clearly always negative.
+	%
+	\item The product $g(x)h(x)$ is monotonically descendent. This is trivially seen this way: let $x>y>0$, then
+	\[
+		g(x)h(x) < g(y)h(y)
+	\]
+	being $h$ always positive and $g$ always negative, respectively due to symmetry and antisymmetry. For $x<y<0$,
+	\[
+		g(x)h(x) > g(y)h(y)
+	\]
+	being both $h$ and $g$ always positive. For $x>0$ and $y \le 0$, it suffices to notice that
+	\[
+		g(y)h(y) \ge 0
+		\qquad
+		g(x)h(x) < 0
+	\]
+	for the same reasons. {\color{tabred}[Add sketch of $f'(x)$.]}
+\end{enumerate}
+These points end the proof: as anticipated, $f'$ is a monotonically descendent function of $\epsilon_\mathbf{k}$, a feature that allows us to re-use the entire derivation of Sec.~\ref{subsec:normal-bands-shrinking-C2} without hesitation, and conclude that also for the AF phase
+\[
+	u^{(d)} = 0
+\]
+while $u^{(s^*)}$ remains constrained in the limits of Eq.~\eqref{eq:af-us*-constraint}. Starting from a rather complicated scenario, we were able to resolve all the AF HFPs down to the pair
+\[
+	m, u^{(s^*)}
+\]
+Perhaps not-so-excitingly, the real net effect of the non-local extension of the HM is, once again, the shrinking effect on bands. Now it is a matter of numeric analysis to assess if Mott localization takes place.
