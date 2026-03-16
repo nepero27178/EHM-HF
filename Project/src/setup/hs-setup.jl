@@ -36,6 +36,7 @@ Setup::String = "C[256]-a" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test", # Test setup
 	"A[256]-a", # UV plane
+	"A[256]-b", # UV plane
 	"B[256]-a", # δV plane
 	"B[256]-b", # δV plane
 	"C[256]-a", # βV plane

@@ -35,8 +35,8 @@ RBd::Bool = "d" in RB ? true : false
 Setup::String = "Test[30]" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test[30]",
-	"A[128]-a", # UV plane
-	"A[128]-b", # UV plane
+	"A[128]-a", # UV plane: V ≤ 4 sector
+	"A[128]-b", # UV plane: V ≥ 4 sector
 	"B[128]-a", # δV plane: V ≤ 4 sector
 	"B[128]-b", # δV plane: V ≥ 4 sector
 ])
