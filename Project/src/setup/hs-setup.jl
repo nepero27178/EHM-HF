@@ -101,7 +101,7 @@ elseif Setup=="A[256]-a"
 	exchange = true
 	cs = :tabwarm
 
-# --- MAIN UV plane RUN ---
+# --- EXTENDED UV plane RUN ---
 elseif Setup=="A[256]-b"
 	tt = [1.0]
 	UU = [U for U in 0.0:0.4:8.0]
@@ -141,7 +141,7 @@ elseif Setup=="B[256]-a"
 	exchange = true
 	cs = :tabwarm
 
-# --- MAIN δV plane RUN ---
+# --- EXTENDED δV plane RUN ---
 elseif Setup=="B[256]-b"
 	tt = [1.0]
 	UU = [0.0, 5.0, 10.0]

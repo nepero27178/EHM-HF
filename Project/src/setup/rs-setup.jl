@@ -32,13 +32,14 @@ RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "A[128]-b" # ← Change here
+Setup::String = "C[128]-a" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test[30]",
 	"A[128]-a", # UV plane: V ≤ 4 sector
 	"A[128]-b", # UV plane: V ≥ 4 sector
 	"B[128]-a", # δV plane: V ≤ 4 sector
 	"B[128]-b", # δV plane: V ≥ 4 sector
+	"C[128]-a", # UV plane: U,V ≤ 8 sector
 ])
 
 TestΔv::DataFrame = DataFrame(Dict([
@@ -131,6 +132,21 @@ elseif Setup=="B[128]-b"
 	Δn = 1e-2
 	g = 0.05 # Difference with B[128]-a
 	xVar = "δ"
+	yVar = "V"
+
+# --- ZOOM UV plane RUN ---
+elseif Setup=="C[128]-a"
+	tt = [1.0]
+	UU = [U for U in 0.0:0.05:8.0]
+	VV = [V for V in 0.0:0.05:8.0]
+	LL = [128]
+	δδ = [0.0, 0.2, 0.4]
+	ββ = [100.0]
+	p = 100
+	Δv = MainΔv
+	Δn = 1e-2
+	g = 0.5
+	xVar = "U"
 	yVar = "V"
 
 end

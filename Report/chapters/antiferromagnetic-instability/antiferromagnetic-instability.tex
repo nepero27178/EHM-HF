@@ -1,7 +1,7 @@
 \def\GraphicsFolder{chapters/antiferromagnetic-instability/pictures}
 \chapter{Antiferromagnetic instability}\label{chap:mft-af-instability}
 
-This chapter is devoted to an in-depth discussion of the antiferromagnetic (AF) long-range ordering in the EHM by the means of MFT. In the context of the $2$D HM, discussed in App.~\ref{appendix:mean-field-hubbard}, AF ordering establishes as an unconventional metallic phase which is only stable at half-filling (as is discussed in Sec.~\ref{appsubsec:instability-af-commensurate}). The situation for the EHM is similar: the present analysis is carried out based on the argument that, given the symmetry structure of the non-local NN interaction, the fundamental features of the commensurate AF phase of the HM are effectively preserved, while the parameters are redefined by the interaction itself. The two most relevant effects we discuss in this chapter are the gap ``complexification'' and the bands renormalization and resymmetrization (both in Sec.~\ref{sec:af-fock-bands-renormalization}), the latter being a general feature of the EHM common to all phases preserving (or, at most, weakening without destroying) translational invariance, discussed previously in Sec.~\ref{sec:normal-fock-bands-renormalization}.
+This chapter is devoted to an in-depth discussion of the antiferromagnetic (AF) long-range ordering in the EHM by the means of MFT. In the context of the $2$D HM, discussed in App.~\ref{appendix:mean-field-hubbard}, AF ordering establishes as an unconventional metallic phase which is only stable at half-filling (as is discussed in Sec.~\ref{appsubsec:af-instability}). The situation for the EHM is similar: the present analysis is carried out based on the argument that, given the symmetry structure of the non-local NN interaction, the fundamental features of the commensurate AF phase of the HM are effectively preserved, while the parameters are redefined by the interaction itself. The two most relevant effects we discuss in this chapter are the gap ``complexification'' and the bands renormalization and resymmetrization (both in Sec.~\ref{sec:af-fock-bands-renormalization}), the latter being a general feature of the EHM common to all phases preserving (or, at most, weakening without destroying) translational invariance, discussed previously in Sec.~\ref{sec:normal-fock-bands-renormalization}.
 
 \section{The AF phase and its symmetries}\label{sec:af-phase-theory}
 
@@ -1150,7 +1150,7 @@ where in the second passage we employed the change of variables $\mathbf{q}'=\ma
 		\big|u^{(\gamma)}_\sigma\big|^2 + \big|v^{(\gamma)}_\sigma\big|^2
 	\right]
 \end{equation}
-Interestingly enough, the new HFPs amplitudes contribute positively to the contraction energy. This fact is non-trivial and has consequences we will discuss in Sec.~\mref.
+Interestingly enough, the new HFPs amplitudes contribute positively to the contraction energy. This fact is non-trivial and has consequences we will discuss in Sec.~\ref{subsec:af-gap-energy}.
 
 \section{Full MFT hamiltonian and gap complexification}\label{sec:af-full-hamiltonian}
 
@@ -1265,7 +1265,7 @@ hence inversion symmetry is respected only if
 \[
 	\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace = \pm\Im\lbrace \tilde{\Delta}_{-\mathbf{k}\sigma}\rbrace
 \]
-which is: either the imaginary part of the gap is inversion symmetric, or is antisymmetric. Based on this trivial consideration, we are able two discard two of the four self-consistency equations for the $v$-related HFPs listed in Tab.~\ref{tab:af-ehm-vgamma-self-consistencies}: $s^*$ and $d$-wave symmetries HFPs are nonzero if $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is momentum-even; $p_x$ and $p_y$-wave symmetries HFPs are nonzero if $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is momentum-odd. The two options cannot coexist, and separate simulations can be implemented in the two symmetry sectors. We name the two possible symmetries ``sAF'' (symmetric antiferromagnet) and ``aAF'' (antisymmetric antiferromagnet). The set of HFPs then restricts in these AF structures, and is reported for both cases in Tab.~\ref{tab:saf-aaf-hfps}.
+which is: either the imaginary part of the gap is inversion symmetric, or is antisymmetric. Based on this trivial consideration, we are able two discard two of the four self-consistency equations for the $v$-related HFPs listed in Tab.~\ref{tab:af-ehm-vgamma-self-consistencies}: $s^*$ and $d$-wave symmetries HFPs are nonzero if $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is momentum-even; $p_x$ and $p_y$-wave symmetries HFPs are nonzero if $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is momentum-odd. The two options cannot coexist, and separate simulations can be implemented in the two symmetry sectors. We name the two possible symmetries ``sAF'' (symmetric antiferromagnet) and ``aAF'' (antisymmetric antiferromagnet). The set of HFPs then restricts in these AF structures, and is reported for both cases in Tab.~\ref{tab:af-saf-aaf-hfps}. The presence itself of two ``AF flavours'' is not-so-physical, given that up to now we have no clear physical interpretation for $\Im\lbrace\tilde{\Delta}_\mathbf{k}\rbrace$. As we will discuss in Sec.~\ref{sec:af-constraints}, it is possible to prove that almost all these new HFPs actually vanish -- a fact that is not inferrable from MFT analysis, but can be seen only delving into the detailed discussion of the iterative algorithm seen as a recursive parametric map. For now, let us proceed integrally with all the HFPs we found and derive the results.
 
 \begin{table}
 	\centering
@@ -1281,7 +1281,7 @@ which is: either the imaginary part of the gap is inversion symmetric, or is ant
 		\midrule
 	\end{tabular}
 	\caption{Set of HFP for the two possible realization of the AF phase, respectively a symmetric and an antisymmetric imaginary part of the gap.}
-	\label{tab:saf-aaf-hfps}
+	\label{tab:af-saf-aaf-hfps}
 \end{table}
 
 Moreover, from now on we will omit the $\sigma$ index, working just in the $\uparrow$ sector. As said in Sec.~\ref{sec:af-phase-theory}, the AF phase does not break $\mathbb{Z}_2$ spin inversion symmetry, being the SDW ordering generated by a staggered but globally symmetric spin density distribution among sites. The MFT hamiltonian is invariant by a $\sigma \leftrightarrow \overline{\sigma}$ exchange, thus all measurable physical quantities must be. What is unmeasurable and has no effect on Physics is free to be $\sigma$-dependent, as for the sign of $\Re\lbrace\Delta_{\mathbf{k}\sigma}\rbrace$. Since all it's relevant of both the complex components of the gap function is their magnitude, we can safely treat $\sigma$ as a pure degeneracy. This gives a simple equation for the last HFP,
@@ -1349,11 +1349,11 @@ which is the actual physical magnetization. From the first line we see that it c
 %\end{align}
 %In the second passage $\langle \hat \Psi_{\mathbf{k}\uparrow}^\dagger \tau^x \hat \Psi_{\mathbf{k}\uparrow} \rangle = - \langle \hat \Psi_{\mathbf{k}\downarrow}^\dagger \tau^x \hat \Psi_{\mathbf{k}\downarrow} \rangle$ has been used. In the third passage, relations \eqref{eq:af-bogoliubov-angle-relations} were inserted. The algorithm sketched in Sec.~\ref{appsubsec:hartree-fock-algorithm} remains essentially identical, with the \textit{caveat} of defining three HF parameters, running for each a convergence analysis.
 
-\section{Stability of the AF phase}
+\section{Stability of the AF phase}\label{subsec:af-instability}
 
 {\color{tabred}[Re-write and move up.]}
 
-The discussion above is formally correct and self-consistent, thus a HF algorithm can be sketched to extract the HFPs. However we cannot proceed without considering the instability effects of Sec.~\ref{appsubsec:instability-af-commensurate}. As is known (and we would have liked to notice earlier) the AF-SSB at wavevector $\bm{\pi}$ we are studying here, responsible of halving the BZ down to the MBZ, can produce a stable phase on pure Hubbard lattices only at half filling \cite{singh1990collective}. For the EHM the situation is even worse than that: repeating the simple Linear Reponse Theory (LRT) computations of Sec.~\ref{appsubsec:instability-af-commensurate} and mimicking Eq.~\eqref{appeq:af-commensurate-proper-response}, we get a proper response function
+The discussion above is formally correct and self-consistent, thus a HF algorithm can be sketched to extract the HFPs. However we cannot proceed without considering the instability effects of Sec.~\ref{appsubsec:af-instability}. As is known (and we would have liked to notice earlier) the AF-SSB at wavevector $\bm{\pi}$ we are studying here, responsible of halving the BZ down to the MBZ, can produce a stable phase on pure Hubbard lattices only at half filling \cite{singh1990collective}. For the EHM the situation is even worse than that: repeating the simple Linear Reponse Theory (LRT) computations of Sec.~\ref{appsubsec:af-instability} and mimicking Eq.~\eqref{appeq:af-commensurate-proper-response}, we get a proper response function
 \begin{equation}\label{eq:af-commensurate-proper-response}
 	\tilde{\chi}_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega) = \frac{\chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega)}{1 - \left[ 
 		U {\color{tabred} - 2V (\cos k_x + \cos k_y)}
@@ -1505,11 +1505,11 @@ where we used Eq.~\eqref{eq:af-ehm-ivvphi-imag} to exchange the conjugation oper
 where in second passage we recognized $v^{(\gamma)}$ given in Eq.~\eqref{eq:af-vgamma-chain}. Then Eq.~\eqref{eq:af-ehm-gap-energy} is verified. The latter is particularly interesting because it shows a non-intuitive result: due to gap complexification, gap amplitude is only increased by $\hat H_V$, thus by analogy we would expect the relative free energy contribution to have the same sign as the original gap energy from the real part. This is not the case: to open a gap in the $s$-wave real sector contributes positively to free energy, while to open a gap in the $\gamma$-wave imaginary sector contributes negatively.
 
 An immediate consequence of Eq.~\eqref{eq:af-ehm-gap-energy} is that, being the right-hand side evidently positive, for $V>0$ the total amplitude of the ``complexifiers'' vector is maximised,
-\[
+\begin{equation}\label{eq:af-vgamma-circle}
 	\sum_{\gamma} \big| v^{(\gamma)} \big|^2 \le M
 	\qq{being}
 	M^{(\mathrm{AF})} \equiv m^2 \frac U V
-\]
+\end{equation}
 The above constraint predicts that:
 \begin{itemize}
 	\item In the strong coupling limit $U \ll V$, gap complexification is suppressed;
@@ -1547,7 +1547,10 @@ Starting from the full expression of the free energy density, we recovered the i
 {\color{tabred}[Expand: interesting situation for bands with nodes. At low temperature, where band nodes are present, the function behaves differently because its argument goes to zero. What is the behaviour there?]}
 
 \section{Theoretical constraints on the AF phase HFPs}\label{sec:af-constraints}
-\todo
+
+Up to now, all we derived was the most general MFT-compatible mathematical description of a commensurate AF established on the EHM, allowing for nematic spatial symmetry breaking as well as non-trivial renormalization effects. This section, a clone of Sec.~\ref{sec:normal-constraints}, is dedicated to understanding, given the algorithmic problem, how its solutions should behave. As we will see, based on this theoretical analysis we are able to reduce a lot the algorithmic complexity and limit the solution search to a tailored subspace of HFPs space.
+
+We start from considering a robust $\mathrm{C}_4$ antiferromagnet, thus setting $u^{(d)}=0$ by hand, and show how the constraints on $u^{(s^*)}$ mimic those posed for the normal phase in Eq.~\eqref{eq:normal-us*-constraint}. Then we move to a rather convoluted but necessary analysis of the five components HFPs vector described for both AF flavours in Tab.~\ref{tab:af-saf-aaf-hfps}.
 
 \subsection{Robust $\mathrm{C}_4$ bands shrinking extension to AF phases}\label{subsec:af-bands-shrinking}
 
@@ -1606,7 +1609,7 @@ We now present a somewhat convoluted argument to show that, even if raw MFT pres
 \[
 	\mathrm{C}_4 \SSB \mathrm{C}_2
 \]
-The system is described by the five HFPs on the first row of Tab.~\ref{tab:saf-aaf-hfps} and their self-consistency equations of Tabs.~\ref{tab:af-ehm-ugamma-self-consistencies} and \ref{tab:af-ehm-vgamma-self-consistencies}.
+The system is described by the five HFPs on the first row of Tab.~\ref{tab:af-saf-aaf-hfps} and their self-consistency equations of Tabs.~\ref{tab:af-ehm-ugamma-self-consistencies} and \ref{tab:af-ehm-vgamma-self-consistencies}.
 
 Let us define the functional
 \begin{equation}\label{eq:saf-F-definition}
@@ -1825,7 +1828,7 @@ To gain full knowledge on the map fixed point's shape, we should analyze similar
 
 \subsection{HFPs vanishing in aAF phase}
 
-We now deal with a much easier proof for an analogous thesis on the sAF phase described by the five HFPs on the second row of Tab.~\ref{tab:saf-aaf-hfps}, as well as the self-consistency equations of Tabs.~\ref{tab:af-ehm-ugamma-self-consistencies} and \ref{tab:af-ehm-vgamma-self-consistencies}. We continue using the functional $F$ as defined in Eq.~\eqref{eq:saf-F-definition}. We also define $A,B,C$ as in Eq.~\eqref{eq:saf-ABC-def}. Let $s_\ell \equiv \sin k_\ell$, and
+We now deal with a much easier proof for an analogous thesis on the sAF phase described by the five HFPs on the second row of Tab.~\ref{tab:af-saf-aaf-hfps}, as well as the self-consistency equations of Tabs.~\ref{tab:af-ehm-ugamma-self-consistencies} and \ref{tab:af-ehm-vgamma-self-consistencies}. We continue using the functional $F$ as defined in Eq.~\eqref{eq:saf-F-definition}. We also define $A,B,C$ as in Eq.~\eqref{eq:saf-ABC-def}. Let $s_\ell \equiv \sin k_\ell$, and
 \begin{equation}\label{eq:saf-PQR-def}
 	P \equiv F\left[s_x^2\right]
 	\qquad
@@ -1870,7 +1873,7 @@ To prove that both $v^{(p_\ell)}=0$ is immediate.
 	%
 	\item $v^{(p_x)}=0$. Same proof as point above.
 \end{enumerate}
-This ends this short section and shows that also for the aAF phase all gap complexifiers actually vanish. Then, there is no need to distinguish two AF phases,
+This ends this short section and shows that also for the aAF phase all gap complexifiers actually vanish. This is trivially coherent with the constraint of Eq.~\eqref{eq:af-vgamma-circle}. As a consequence, there is no need to distinguish two AF phases,
 \[
 	\mathrm{sAF} = \mathrm{aAF}
 \]
@@ -1956,8 +1959,16 @@ The following points are true:
 		\qquad
 		g(x)h(x) < 0
 	\]
-	for the same reasons. {\color{tabred}[Add sketch of $f'(x)$.]}
+	for the same reasons.
 \end{enumerate}
+%
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\linewidth]{../Project/src/labs/bin/pseudo-dirac.pdf}
+	\caption{Sketch of the Fermi-Dirac distribution $f(x)$ and the pseudo-distribution $f'(x)$ described in text for the normal phase. These example data have been plotted arbitrarily at $mU=\Delta=0.2$ for $\mu=0.0,0.3,0.6$.}
+	\label{fig:pseudo-dirac}
+\end{figure}
+%
 These points end the proof: as anticipated, $f'$ is a monotonically descendent function of $\epsilon_\mathbf{k}$, a feature that allows us to re-use the entire derivation of Sec.~\ref{subsec:normal-bands-shrinking-C2} without hesitation, and conclude that also for the AF phase
 \[
 	u^{(d)} = 0
@@ -1967,3 +1978,71 @@ while $u^{(s^*)}$ remains constrained in the limits of Eq.~\eqref{eq:af-us*-cons
 	m, u^{(s^*)}
 \]
 Perhaps not-so-excitingly, the real net effect of the non-local extension of the HM is, once again, the shrinking effect on bands. Now it is a matter of numeric analysis to assess if Mott localization takes place.
+
+\section{Discussion of numeric results}\label{sec:af-numeric}
+
+In this section we present numeric results. For the AF phase, the HFPs vector, as we thoroughly showed, has two components
+\[
+	\mathbf{v} = \begin{bmatrix}
+		m \\ u^{(s^*)}
+	\end{bmatrix}
+	\qquad
+	\mathbf{v} = \mathbb{R}^2
+\]
+The resulting model RMPs are, as before:
+\[
+\begin{aligned}
+	\tilde{t}_{ij} &\equiv \left(
+	t - \frac{u^{(s^*)}V}{2}
+	\right) \varphi_{ij}^{(s^*)} \\
+	\tilde{\mu} &\equiv \mu + n (2zV-U)
+\end{aligned}
+\]
+In the end, the computational scenario is not so different from the normal phase. The only real difference is our choice of parametric boundaries for simulations:
+\[
+	U = 0,~0.5,~1.0,~\dots,~20.0
+	\qquad
+	V = 0,~0.1,~0.2,~\dots,~4.0
+	\qquad
+	\delta = 0.0
+\]
+while we set $\delta=0.0$. {\color{tabred}As we anticipated in Sec.~\ref{subsec:af-instability}, any finite doping implies immediate disruption of commensurate antiferromagnetism, a consideration that makes any simulation at $\delta >0$ os low physical significance.}
+
+\todo
+
+\begin{figure}
+	\centering
+	\subfloat[Heatmap of $m$ in $UV$ plane.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=AF/Setup=A[128]/Syms=/RB=S/Obj=HFPs/xVar=U_yVar=V/m_t=1.0_L=128_δ=0.0_β=100.0.pdf}
+		\label{subfig:af-m-data-A128}
+	}
+	\subfloat[Heatmap of $u^{(s^*)}$ in $UV$ plane.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=AF/Setup=A[128]/Syms=/RB=S/Obj=HFPs/xVar=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf}
+		\label{subfig:af-uS-data-A128}
+	}	
+	\caption{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}
+	\label{fig:af-data-A128}
+\end{figure}
+
+
+\begin{figure}
+	\centering
+	\subfloat[$U$-dependency of $m$ varying $V$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf}
+		\label{subfig:af-m-data-A256-pVar=V}
+	}
+	\subfloat[$V$-dependency of $m$ varying $U$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf}
+		\label{subfig:af-m-data-A256-pVar=U}
+	}\\[0.5em]
+	\subfloat[$U$-dependency of $u^{(s^*)}$ varying $V$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf}
+		\label{subfig:af-uS-data-A256-pVar=V}
+	}
+	\subfloat[$V$-dependency of $u^{(s^*)}$ varying $U$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf}
+		\label{subfig:af-uS-data-A256-pVar=U}
+	}
+	\caption{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}
+	\label{fig:af-data-A256}
+\end{figure}

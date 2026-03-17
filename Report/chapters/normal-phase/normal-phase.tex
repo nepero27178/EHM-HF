@@ -1123,7 +1123,7 @@ Following this line of reasoning, we can extract easily the two limits of $u^{(s
 \end{enumerate}
 To summarize: around $V=0$, $u^{(s^*)}$ is expected to descend monotonically from $4/\pi^2$ to $0$ at increasing doping.
 
-\section{Discussion of numeric results}\label{sec:normal-numerical}
+\section{Discussion of numeric results}\label{sec:normal-numeric}
 
 In this section we present and discuss the numeric results, the physical relevance of the found phenomena and the boundaries of the algorithm. Let us start by sketching the algorithm used to determine self-consistently the mean-field structure of the normal phase in parameter space. For the normal phase, the HFPs ``vector'' defined in Sec.~\ref{subsec:reject-mix-iterate} has just one component:
 \[
@@ -1132,12 +1132,14 @@ In this section we present and discuss the numeric results, the physical relevan
 	\end{bmatrix}
 \]
 As before, we treat spin as a pure degeneracy. The only HFP is characterized by the first self-consistency equation of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}. The resulting model has two RMPs:
-\begin{align}
+\[
+\begin{aligned}
 	\tilde{t}_{ij} &\equiv \left(
 		t - \frac{u^{(s^*)}V}{2}
 	\right) \varphi_{ij}^{(s^*)} \\
 	\tilde{\mu} &\equiv \mu + n (2zV-U)
-\end{align}
+\end{aligned}
+\]
 the second one being only dependent on the model parameters and not on HFPs. 
 Finally, the phase free energy is given by Eq.~\eqref{eq:normal-fMFT}. Evidently the normal phase is completely independent of $U$, since the local repulsion cannot develop any RWC other than those renormalizing the chemical potential. Because of this we present the results varying the other parameters, keeping everywhere $U=0$. We ran simulations in the $(V, \delta)$ plane, setting up the following general parameters:
 \[
@@ -1153,7 +1155,7 @@ with $\Delta \mathbf{v}$ the tolerance vector defined as in Sec.~\ref{subsec:rej
 
 \begin{figure}
 	\centering
-	\subfloat[Heatmap of $u^{(s^*)}$ in $V\delta$ plane.]{
+	\subfloat[Heatmap of $u^{(s^*)}$ in $\delta V$ plane.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf}
 		\label{subfig:normal-uS-data-B128}
 	}
@@ -1252,7 +1254,7 @@ Recalling the first point of the derivation of Sec.~\ref{sec:normal-free-energy}
 
 \begin{figure}
 	\centering
-	\subfloat[Heatmap of $f_\mathrm{MFT}$ in $V\delta$ plane.]{
+	\subfloat[Heatmap of $f_\mathrm{MFT}$ in $\delta V$ plane.]{
 		\includegraphics[height=0.32\linewidth]{../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf}
 		\label{subfig:normal-f-data-B128}
 	}
@@ -1278,7 +1280,7 @@ represented in Fig.~\ref{subfig:normal-entropy}. The maximum is precisely locate
 
 \begin{figure}
 	\centering
-	\subfloat[Heatmap of $s_\mathrm{MFT}$ in $V\delta$ plane.]{
+	\subfloat[Heatmap of $s_\mathrm{MFT}$ in $\delta V$ plane.]{
 		\includegraphics[height=0.32\linewidth]{../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf}
 		\label{subfig:normal-s-data-B128}
 	}
