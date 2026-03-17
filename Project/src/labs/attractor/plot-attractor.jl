@@ -25,6 +25,10 @@ for (j,FilePathIn) in enumerate(readdir(LAB_ROOT * "/data"))
 	DF = CSV.read(LAB_ROOT * "/data/" * FilePathIn,DataFrame)
 	xx = DF.Im
 	yy = DF.IuS
+	scatter!(
+		ax,xx[1:1],yy[1:1],
+		color=cs[j]
+	)
 	lines!(
 		ax,xx,yy,
 		color=cs[j],

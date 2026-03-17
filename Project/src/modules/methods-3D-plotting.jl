@@ -20,7 +20,9 @@ function Plot3D(
 	yVar::String="V",
 	zVar::String="f",
 	cs::Symbol=:imola50,
-	azm=false
+	colorbar::Bool=true,
+	azm=false,
+	ax=false
 )::Vector{GroupedPlot}
 
 	if Mode=="heatmap" && isa(azm,Float64)
@@ -177,7 +179,7 @@ function Plot3D(
 				colormap=colorschemes[cs],
 				colorrange=clims
 			)
-			Colorbar(H[1,2], h)
+			colorbar ? Colorbar(H[1,2], h) : false
 		elseif Mode=="surface"
 			h = CairoMakie.surface!(
 				ax,
@@ -217,13 +219,14 @@ function SavePlot3D(
 	yVar::String="V",
 	zVar::String="f",
 	cs::Symbol=:imola50,
+	colorbar::Bool=true,
 	azm=false,
 	Extension::String="pdf"
 )
 
 	# Assert printing
 	Print::Bool=true
-	PlotVec = Plot3D(FilePathIn;Print,Mode,xVar,yVar,zVar,cs,azm)
+	PlotVec = Plot3D(FilePathIn;Print,Mode,xVar,yVar,zVar,cs,colorbar,azm)
 
 	# Initialize directory structure
 	Setup, Phase, Syms, RB, _ = UnpackFilePath(FilePathIn)
