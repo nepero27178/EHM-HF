@@ -32,7 +32,7 @@ RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "A[256]-b" # ← Change here
+Setup::String = "D[256]-a" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test", # Test setup
 	"A[256]-a", # UV plane
@@ -41,6 +41,7 @@ AvailableSetups::Set{String} = Set([
 	"B[256]-b", # δV plane
 	"C[256]-a", # βV plane
 	"C[256]-b", # βV plane
+	"D[256]-a", # Uδ plane
 ])
 
 TestΔv::DataFrame = DataFrame(Dict([
@@ -200,5 +201,25 @@ elseif Setup=="C[256]-b"
 	cVar = "δ"
         exchange = false
 	cs = :tabcoolwarm
+
+# --- MAIN δV plane RUN ---
+elseif Setup=="D[256]-a"
+	tt = [1.0]
+	UU = [U for U in 0.0:0.5:1.0]
+	VV = [0.0]
+	LL = [256]
+	δδ = [δ for δ in 0.0:0.05:0.45]
+	ββ = [100.0]
+	p = 200
+	Δv = MainΔv
+	Δn = 1e-2
+	g = 0.2
+	xVar = "U"
+	pVar = "δ"
+	xScale = identity
+	compared = false
+	cVar = ""
+	exchange = true
+	cs = :tabwarm
 
 end
