@@ -15,49 +15,49 @@ include(LAB_ROOT * "/../../setup/graphic-setup.jl")
 include(LAB_ROOT * "/../../modules/methods-3D-plotting.jl")
 
 FilePathIn = "/home/nepero27178/Thesis/EHM-HF/Project/data/refined/Mode=rs/Setup=C[128]/Phase=AF/RB=S_Syms=_tailored2.csv"
-FilePathOut = LAB_ROOT * "/af-data-C128.pdf"
 
-H = Figure(size=(1300,400),figure_padding=1)
+function PlotSided(
+	zVar::String;
+	cs=colorschemes[:tabcoolerrev]
+)
+	FilePathOut = LAB_ROOT * "/af-$(zVar)-data-C128.pdf"
 
-P = Plot3D(FilePathIn;Print=true,xVar="U",yVar="V",zVar="m",colorbar=false)
-Hm = P[1].H
-dfm = P[1].DF
+	H = Figure(size=(1300,400),figure_padding=1)
+	P = Plot3D(FilePathIn;Print=true,xVar="U",yVar="V",zVar,colorbar=false)
+	df = P[1].DF
 
-# FFS there is no simpler way to do this in Makie!?
-axm_P = Hm.content[1]
-axm_H = Axis(H[1,1])
-axm_H.xlabel = axm_P.xlabel.val
-axm_H.ylabel = axm_P.ylabel.val
-axm_H.title = axm_P.title.val
-axm_H.xticks = axm_P.xticks.val
-axm_H.yticks = axm_P.yticks.val
+	# FFS there is no simpler way to do this in Makie!?
+	ax_P = P[1].H.content[1]
+	ax_H = Axis(H[1,1])
+	ax_H.xlabel = ax_P.xlabel.val
+	ax_H.ylabel = ax_P.ylabel.val
+	ax_H.xticks = ax_P.xticks.val
+	ax_H.yticks = ax_P.yticks.val
+	ylims!(ax_H,0.0,6.0)
 
-xx, yy, zz = ReshapeData(DataFrame(dfm);xVar="U",yVar="V",zVar="m")
-hm = heatmap!(axm_H,xx,yy,zz,colormap=colorschemes[:tabcoolerrev])
+	xx, yy, zz = ReshapeData(DataFrame(df);xVar="U",yVar="V",zVar)
+	clims = (
+		minimum( vcat(0.0,filter(!isnan,zz)) ),
+		maximum( vcat(0.0,filter(!isnan,zz)) )
+	)
+	h = heatmap!(ax_H,xx,yy,zz,colormap=cs,colorrange=clims)
 
-P = Plot3D(FilePathIn;Print=true,xVar="U",yVar="V",zVar="uS",colorbar=false)
-HuS = P[1].H
-dfuS = P[1].DF
+	ax_C = Axis(H[1,2])
+	ax_C.xlabel = ax_P.xlabel.val
+	ax_C.xticks = ax_P.xticks.val
+	ax_C.yticks = ax_P.yticks.val
+	ylims!(ax_C,0.0,6.0)
 
-# FFS there is no simpler way to do this in Makie!?
-axuS_P = HuS.content[1]
-axuS_H = Axis(H[1,2])
-axuS_H.xlabel = axuS_P.xlabel.val
-axuS_H.ylabel = axuS_P.ylabel.val
-axuS_H.title = axuS_P.title.val
-axuS_H.xticks = axuS_P.xticks.val
-axuS_H.yticks = axuS_P.yticks.val
+	heatmap!(ax_C,xx,yy,zz,colormap=cs,colorrange=clims)
+	contour!(ax_C,xx,yy,zz,colormap=colorschemes[:blacklight],labels=true,levels=10,labelsize=10)
+	ax_C.ylabelvisible = false
+	ax_C.yticklabelsvisible = false
 
-xx, yy, zz = ReshapeData(DataFrame(dfuS);xVar="U",yVar="V",zVar="uS")
-heatmap!(axuS_H,xx,yy,zz,colormap=colorschemes[:tabcoolerrev])
+	linkyaxes!(ax_H,ax_C)
+	Label(H[0,:], ax_P.title.val)
+	Colorbar(H[1,3],h)
+	save(FilePathOut, H)
+end
 
-axuS_H.ylabelvisible = false
-axuS_H.yticklabelsvisible = false
-Colorbar(H[1,3],hm)
-
-# text!(ax,0.1,7.0,text="Mott localization",color=:white,align=(:center,:center))
-# lines!(ax,xx,yy,color=:white,linestyle=(:dash,:dense),linewidth=1)
-# xlims!(ax,0.0,0.49)
-# ylims!(ax,0.0,8.0)
-
-save(FilePathOut, H)
+PlotSided("m")
+# PlotSided("uS")

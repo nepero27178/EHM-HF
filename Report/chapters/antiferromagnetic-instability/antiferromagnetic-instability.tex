@@ -1913,6 +1913,13 @@ Let us define the pseudo distribution
 \]
 which, substituted in the self-consistency equations, makes them very similar to the normal ones, up to a $f \to f'$ exchange.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\linewidth]{../Project/src/labs/functions/pseudo-dirac.pdf}
+	\caption{Sketch of the Fermi-Dirac distribution $f(x)$ and the pseudo-distribution $f'(x)$ described in text for the normal phase. These example data have been plotted arbitrarily at $mU=\Delta=0.2$ for $\mu=0.0,0.3,0.6$.}
+	\label{fig:pseudo-dirac}
+\end{figure}
+
 The fact that $u^{(d)}=0$ follows from the simple consideration that in Sec.~\ref{subsec:normal-bands-shrinking-C2} (when showing the same for the normal phase) we never used the specific form of $f$; instead, we only made use of it being monotonically descendent as a function of $\epsilon_\mathbf{k}$. If $f'$ also is a monotonically descendent function of $\epsilon_\mathbf{k}$, we can re-use the entire derivation of Sec.~\ref{subsec:normal-bands-shrinking-C2}. Let us show that using a somewhat lighter notation,
 \[
 	\epsilon_\mathbf{k} \to x
@@ -1945,30 +1952,43 @@ The following points are true:
 	\]
 	clearly always negative.
 	%
-	\item The product $g(x)h(x)$ is monotonically descendent. This is trivially seen this way: let $x>y>0$, then
+	\item The product $g(x)h(x)$ is monotonically descendent at positive finite doping. To assert this, we can compute the derivative of $f'$,
 	\[
-		g(x)h(x) < g(y)h(y)
+		\dv{f'}{x} = \dv{g}{x} h(x) + g(x) \dv{h}{x}
 	\]
-	being $h$ always positive and $g$ always negative, respectively due to symmetry and antisymmetry. For $x<y<0$,
+	Now, evidently $h(x)>0$ and as we said $\mathrm{d}g/\mathrm{d}x<0$, which makes the first term negative. The second is negative too: let
 	\[
-		g(x)h(x) > g(y)h(y)
+		E(x) \equiv \sqrt{x^2 + \Delta^2}
+		\quad\implies\quad
+		\dv{E}{x} = \frac{x}{E(x)} = -g(x)
 	\]
-	being both $h$ and $g$ always positive. For $x>0$ and $y \le 0$, it suffices to notice that
+	Then:
 	\[
-		g(y)h(y) \ge 0
-		\qquad
-		g(x)h(x) < 0
+	\begin{aligned}
+		\dv{h}{x} &= \dv{}{x} \left[
+			\frac{1}{e^{\beta(-E(x)-\mu)}+1} - \frac{1}{e^{\beta(E(x)-\mu)}+1}
+		\right] \\
+		&= \beta \dv{E}{x} \left[
+			\frac{e^{\beta(-E(x)-\mu)}}{\left[e^{\beta(-E(x)-\mu)}+1\right]^2} - \frac{e^{\beta(E(x)-\mu)}}{\left[e^{\beta(E(x)-\mu)}+1\right]^2}
+		\right]
+	\end{aligned}
 	\]
-	for the same reasons.
+	The term in square brackets is positive. Through trivial algebraic manipulations,
+	\[
+	\begin{aligned}
+		e^{-\beta(E+\mu)}\left[e^{\beta(E-\mu)}+1\right]^2 &> e^{\beta(E-\mu)}\left[e^{-\beta(E+\mu)}+1\right]^2\\
+		e^{-\beta(E+\mu)}\left[e^{2\beta(E-\mu)}+2e^{\beta(E-\mu)}+1\right] &> e^{\beta(E-\mu)} \left[e^{-2\beta(E+\mu)}+2e^{-\beta(E+\mu)}+1\right] \\
+		e^{-\beta(E+\mu)} e^{\beta(E-\mu)} \left[e^{\beta(E-\mu)}+e^{-\beta(E-\mu)}\right] &> e^{\beta(E-\mu)} e^{-\beta(E+\mu)} \left[e^{-\beta(E+\mu)}+e^{\beta(E+\mu)}\right]
+	\end{aligned}
+	\]
+	Simplifying recurring terms and reorganising the remaining ones we get:
+	\[
+	\begin{aligned}
+		e^{-\beta\mu}e^{\beta E} + e^{\beta\mu}e^{-\beta E} &> e^{-\beta\mu}e^{-\beta E} + e^{\beta\mu}e^{\beta E} \\
+	\end{aligned}
+	\]
+	{\color{tabred}[Redo this computation...]}
 \end{enumerate}
-%
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\linewidth]{../Project/src/labs/functions/pseudo-dirac.pdf}
-	\caption{Sketch of the Fermi-Dirac distribution $f(x)$ and the pseudo-distribution $f'(x)$ described in text for the normal phase. These example data have been plotted arbitrarily at $mU=\Delta=0.2$ for $\mu=0.0,0.3,0.6$.}
-	\label{fig:pseudo-dirac}
-\end{figure}
-%
 These points end the proof: as anticipated, $f'$ is a monotonically descendent function of $\epsilon_\mathbf{k}$, a feature that allows us to re-use the entire derivation of Sec.~\ref{subsec:normal-bands-shrinking-C2} without hesitation, and conclude that also for the AF phase
 \[
 	u^{(d)} = 0
@@ -2008,14 +2028,16 @@ In the end, the computational scenario is not so different from the normal phase
 \]
 We set $\delta=0.0$. {\color{tabred}As we anticipated in Sec.~\ref{sec:af-instability}, any finite doping implies immediate disruption of commensurate antiferromagnetism, a consideration that makes any simulation at $\delta >0$ of low physical significance.}
 
+\subsection{Magnetization boost}
+
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{../Project/src/labs/antiferromagnet-heatmaps/af-data-C128.pdf}
-	\caption{Plot of the self-consistent convergence values for the HFPs $m$ (left panel) and $u^{(s^*)}$ (right panel) in the AF phase.}
-	\label{fig:af-data-C128}
+	\includegraphics[width=\linewidth]{../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf}
+	\caption{Plot of the self-consistent convergence values for $m$ (left panel) and isomagnetic curves computed on the same data (right panel). The solid lines in the right panel represent those paths in parametric space along which magnetization is constant. {\color{tabred}[Are $U=0.05$ data correct?]}}
+	\label{fig:AF-m-data-C128}
 \end{figure}
 
-The convergence values for both the HFPs computed in the $UV$ plane are shown in the panels of Fig.~\ref{fig:af-data-C128}. Tolerances on density and HFPs have been set to
+The convergence values for $m$ computed in the $UV$ plane are shown in the panels of Fig.~\ref{fig:AF-m-data-C128}, along with a level curves plot to identify isomagnetic curves (right panel). Tolerances on density and HFPs have been set to
 \[
 	\Delta n = 10^{-2}
 	\qquad
@@ -2024,24 +2046,47 @@ The convergence values for both the HFPs computed in the $UV$ plane are shown in
 		u^{(s^*)} \colon 5 \times 10^{-4}
 	\end{bmatrix}
 \]
-The most interesting evident visible directly from heatmaps is that $\hat H_V$ actually boosts magnetization. This phenomenon is intuitive and easy to explain: since the only observable net effect of the non-local interaction is to lower $t$ by shrinking bands, at any fixed point $(t,U,V)$ the model can be mapped to
+The most interesting evident visible directly from heatmaps is that $\hat H_V$ actually boosts magnetization. This phenomenon is intuitive and easy to explain: since the only observable net effect of the non-local interaction is to lower $t$ by shrinking bands, at any fixed point $(t,U,V)$ the model can be effectively mapped to
 \[
-	(t,U,V) 
+	\text{EHM: }(t,U,V) 
 	\quad\to\quad
-	(\tilde{t},U,0)
+	\text{HM: }(\tilde{t},U,0)
 \]
-being $\tilde{t}$ dependent on $V$. For the pure HM, to magnetize the system what matters is just $U/t$. To lower $t$ is physically the same as to increase $U$, and from this point comes the magnetization precession visible in the left panel of Fig.~\ref{fig:af-data-C128}.
+being $\tilde{t}$ dependent on $V$. For the pure HM, to magnetize the system what matters is just $U/t$. To lower $t$ is physically the same as to increase $U$, and from this point comes the magnetization precession visible in Fig.~\ref{fig:AF-m-data-C128}. Isomagnetic lines on the right panel show, for $U$ significantly greater than $0$, interesting linear trends whose angular coefficient depend on $m$ itself. 
 
 \begin{figure}
 	\centering
 	\subfloat[$U$-dependency of $m$ varying $V$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf}
-		\label{subfig:af-m-data-A256-pVar=V}
+		\label{subfig:AF-m-data-C256-pVar=V}
 	}
 	\subfloat[$V$-dependency of $m$ varying $U$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf}
-		\label{subfig:af-m-data-A256-pVar=U}
-	}\\[0.5em]
+		\label{subfig:AF-m-data-C256-pVar=U}
+	}
+	\caption{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}
+\label{fig:AF-m-data-C256}
+\end{figure}
+
+The data shown in Fig.~\ref{fig:AF-m-data-C256} confirm clearly the aforementioned magnetization  ``boost'' given by $\hat H_V$. The effect is more enhanced at low values of $U$, and can be explained in terms of the competition measured by the ratio $V/U$.
+
+\subsection{Bands shrinking}
+
+\begin{figure}
+	\centering
+	\subfloat[Heatmap of $u^{(s^*)}$ in $UV$ plane.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=HFPs/xVar=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf}
+		\label{subfig:AF-uS-data-C128}
+	}
+	\subfloat[$V$-dependency of $t^{(s^*)}$ in $UV$ plane.]{
+		%\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=RMPs/xVar=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf}
+		\label{subfig:AF-tS-data-C128}
+	}
+	\caption{\todo}
+	\label{fig:AF-uS-tS-data}
+\end{figure}
+
+\begin{figure}
 	\subfloat[$U$-dependency of $u^{(s^*)}$ varying $V$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf}
 		\label{subfig:af-uS-data-A256-pVar=V}
@@ -2051,5 +2096,5 @@ being $\tilde{t}$ dependent on $V$. For the pure HM, to magnetize the system wha
 		\label{subfig:af-uS-data-A256-pVar=U}
 	}
 	\caption{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}
-	\label{fig:af-data-A256}
+	\label{fig:af-uS-data-A256}
 \end{figure}
