@@ -113,7 +113,7 @@ function main()
 				xVar,
 				yVar,
 				zVar=obj,
-				cs=:tabwarm,
+				cs=:tabcoolerrev,
 				# Mode="surface",
 				# azm=0.7*pi
 				# Extension="png"

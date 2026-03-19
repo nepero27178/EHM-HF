@@ -1968,26 +1968,20 @@ The following points are true:
 		\dv{h}{x} &= \dv{}{x} \left[
 			\frac{1}{e^{\beta(-E(x)-\mu)}+1} - \frac{1}{e^{\beta(E(x)-\mu)}+1}
 		\right] \\
-		&= \beta \dv{E}{x} \left[
-			\frac{e^{\beta(-E(x)-\mu)}}{\left[e^{\beta(-E(x)-\mu)}+1\right]^2} - \frac{e^{\beta(E(x)-\mu)}}{\left[e^{\beta(E(x)-\mu)}+1\right]^2}
-		\right]
+		&= \beta \dv{E}{x} \underbrace{
+			\left[
+				\frac{e^{\beta(-E(x)-\mu)}}{\left[e^{\beta(-E(x)-\mu)}+1\right]^2} + \frac{e^{\beta(E(x)-\mu)}}{\left[e^{\beta(E(x)-\mu)}+1\right]^2}
+			\right]	
+		}_{k(x)}
 	\end{aligned}
 	\]
-	The term in square brackets is positive. Through trivial algebraic manipulations,
+	The term in square brackets is obviously positive, $k(x)>0$. Taking all together, we have
 	\[
-	\begin{aligned}
-		e^{-\beta(E+\mu)}\left[e^{\beta(E-\mu)}+1\right]^2 &> e^{\beta(E-\mu)}\left[e^{-\beta(E+\mu)}+1\right]^2\\
-		e^{-\beta(E+\mu)}\left[e^{2\beta(E-\mu)}+2e^{\beta(E-\mu)}+1\right] &> e^{\beta(E-\mu)} \left[e^{-2\beta(E+\mu)}+2e^{-\beta(E+\mu)}+1\right] \\
-		e^{-\beta(E+\mu)} e^{\beta(E-\mu)} \left[e^{\beta(E-\mu)}+e^{-\beta(E-\mu)}\right] &> e^{\beta(E-\mu)} e^{-\beta(E+\mu)} \left[e^{-\beta(E+\mu)}+e^{\beta(E+\mu)}\right]
-	\end{aligned}
+		g(x) \dv{h}{x} = -\beta g^2(x) k(x) < 0
+		\quad\implies\quad
+		\dv{f'}{x} < 0
 	\]
-	Simplifying recurring terms and reorganising the remaining ones we get:
-	\[
-	\begin{aligned}
-		e^{-\beta\mu}e^{\beta E} + e^{\beta\mu}e^{-\beta E} &> e^{-\beta\mu}e^{-\beta E} + e^{\beta\mu}e^{\beta E} \\
-	\end{aligned}
-	\]
-	{\color{tabred}[Redo this computation...]}
+	making $f'$ descendent monotonicity proven.
 \end{enumerate}
 These points end the proof: as anticipated, $f'$ is a monotonically descendent function of $\epsilon_\mathbf{k}$, a feature that allows us to re-use the entire derivation of Sec.~\ref{subsec:normal-bands-shrinking-C2} without hesitation, and conclude that also for the AF phase
 \[
@@ -2020,24 +2014,24 @@ The resulting model RMPs are, as before:
 \]
 In the end, the computational scenario is not so different from the normal phase. The only real difference is our choice of parametric boundaries for simulations:
 \[
-	U = 0,~0.05,~0.1,,~\dots,~4.0
+	U = 0,~0.05,~0.1,,~\dots,~8.0
 	\qquad
-	V = 0,~0.05,~0.1,,~\dots,~6.0
+	V = 0,~0.05,~0.1,,~\dots,~8.0
 	\qquad
 	\delta = 0.0
 \]
-We set $\delta=0.0$. {\color{tabred}As we anticipated in Sec.~\ref{sec:af-instability}, any finite doping implies immediate disruption of commensurate antiferromagnetism, a consideration that makes any simulation at $\delta >0$ of low physical significance.}
+We set $\delta=0.0$. As we anticipated in Sec.~\ref{sec:af-instability}, any finite doping implies immediate disruption of commensurate antiferromagnetism, a consideration that makes any simulation at $\delta >0$ of low physical significance. Following this consideration, we omit data at finite $\delta \neq 0$.
 
 \subsection{Magnetization boost}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf}
-	\caption{Plot of the self-consistent convergence values for $m$ (left panel) and isomagnetic curves computed on the same data (right panel). The solid lines in the right panel represent those paths in parametric space along which magnetization is constant. {\color{tabred}[Are $U=0.05$ data correct?]}}
+	\caption{Plot of the self-consistent convergence values for $m$ (left panel) and isomagnetic curves computed on the same data (right panel), along which magnetization is constant. For the sake of graphic clarity, only the points at $0 \le U \le 4$ and $0 \le V \le 6$ are plotted. {\color{tabred}[Are $U=0.05$ data correct?]}}
 	\label{fig:AF-m-data-C128}
 \end{figure}
 
-The convergence values for $m$ computed in the $UV$ plane are shown in the panels of Fig.~\ref{fig:AF-m-data-C128}, along with a level curves plot to identify isomagnetic curves (right panel). Tolerances on density and HFPs have been set to
+The convergence values for $m$ computed in the $UV$ plane are shown in the panels of Fig.~\ref{fig:AF-m-data-C128}, along with a level curves plot to identify isomagnetic curves (right panel). Note that, to increase graphic clarity in heatmaps bottom left sector, from the plots are omitted the points at $U \ge 4$ and $V \ge 6$. Tolerances on density and HFPs have been set to
 \[
 	\Delta n = 10^{-2}
 	\qquad
@@ -2052,25 +2046,33 @@ The most interesting evident visible directly from heatmaps is that $\hat H_V$ a
 	\quad\to\quad
 	\text{HM: }(\tilde{t},U,0)
 \]
-being $\tilde{t}$ dependent on $V$. For the pure HM, to magnetize the system what matters is just $U/t$. To lower $t$ is physically the same as to increase $U$, and from this point comes the magnetization precession visible in Fig.~\ref{fig:AF-m-data-C128}. Isomagnetic lines on the right panel show, for $U$ significantly greater than $0$, interesting linear trends whose angular coefficient depend on $m$ itself. 
+being $\tilde{t}$ dependent on $V$. For the pure HM, to magnetize the system what matters is just $U/t$. To lower $t$ is physically the same as to increase $U$, and from this point comes the magnetization precession visible in Fig.~\ref{fig:AF-m-data-C128}. Isomagnetic lines on the right panel show, for $U$ significantly greater than $0$, interesting linear trends whose angular coefficient depend on $m$ itself. The low-$U$ limit of isomagnetic lines presents some oscillations that are evidently imputable to numeric discretization of parametric space. {\color{tabred}[Add: derivation and discussion about the presence of isomagnetic lines.]}
 
 \begin{figure}
 	\centering
 	\subfloat[$U$-dependency of $m$ varying $V$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf}
-		\label{subfig:AF-m-data-C256-pVar=V}
+		\label{subfig:AF-m-data-A256-pVar=V}
 	}
 	\subfloat[$V$-dependency of $m$ varying $U$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf}
-		\label{subfig:AF-m-data-C256-pVar=U}
+		\label{subfig:AF-m-data-A256-pVar=U}
 	}
 	\caption{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}
-\label{fig:AF-m-data-C256}
+\label{fig:AF-m-data-A256}
 \end{figure}
 
-The data shown in Fig.~\ref{fig:AF-m-data-C256} confirm clearly the aforementioned magnetization  ``boost'' given by $\hat H_V$. The effect is more enhanced at low values of $U$, and can be explained in terms of the competition measured by the ratio $V/U$.
+The data shown in Fig.~\ref{fig:AF-m-data-A256} confirm clearly the aforementioned magnetization  ``boost'' given by $\hat H_V$. The effect is more enhanced at low values of $U$. Interestingly enough, as is visible from Fig.~\ref{subfig:AF-m-data-A256-pVar=U}, magnetization does not always saturate the same way. For example, considering the curve at $U=1.2$, magnetization varies following a somewhat sigmoid shape, making the boost most effective around $V \approx 2 \divisionsymbol 4$. Because of $m$ saturation, this behaviour is lost at higher $U$s.
 
 \subsection{Bands shrinking}
+
+Bands shrinking effect was discussed in Sec.~\ref{subsec:af-bands-shrinking} within $\mathrm{C}_4$ symmetry, and then confirmed in Sec.~\ref{subsec:af-bands-shrinking-C2} when trying to extend to nematic structures. As was for the normal phase, we have proven that $\hat H_V$ net effect on the hamiltonian kinetic part is to shrink bands,
+\[
+	t
+	\quad\to\quad
+	\tilde{t} < t
+\]
+For the normal phase, in Sec.~\ref{subsec:normal-mott-numeric} we presented numeric results showing a Mott-localized region appears in $(\delta,V)$ plane, whose $\delta \to 0$ limit was approximately $V=4.93t$, as shown in Fig.~\ref{subfig:normal-tS-data-B128-mott}.
 
 \begin{figure}
 	\centering
@@ -2078,23 +2080,50 @@ The data shown in Fig.~\ref{fig:AF-m-data-C256} confirm clearly the aforemention
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=HFPs/xVar=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf}
 		\label{subfig:AF-uS-data-C128}
 	}
-	\subfloat[$V$-dependency of $t^{(s^*)}$ in $UV$ plane.]{
-		%\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=RMPs/xVar=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf}
+	\subfloat[Heatmap of $t^{(s^*)}$ in $UV$ plane.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=RMPs/xVar=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf}
 		\label{subfig:AF-tS-data-C128}
 	}
-	\caption{\todo}
+	\caption{Data for the HFP $u^{(s^*)}$ and $\tilde{t}^{(s^*)}$ varying both $U$ and $V$.}
 	\label{fig:AF-uS-tS-data}
 \end{figure}
 
 \begin{figure}
 	\subfloat[$U$-dependency of $u^{(s^*)}$ varying $V$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf}
-		\label{subfig:af-uS-data-A256-pVar=V}
+		\label{subfig:AF-uS-data-A256-pVar=V}
 	}
 	\subfloat[$V$-dependency of $u^{(s^*)}$ varying $U$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf}
-		\label{subfig:af-uS-data-A256-pVar=U}
+		\label{subfig:AF-uS-data-A256-pVar=U}
 	}
 	\caption{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}
-	\label{fig:af-uS-data-A256}
+	\label{fig:AF-uS-data-A256}
 \end{figure}
+
+The convergence values for the HFP $u^{(s^*)}$ are shown in Fig.~\ref{subfig:AF-uS-data-C128}, and more in details in the two panels of Fig.~\ref{fig:AF-uS-data-A256}. In general, $u^{(s^*)}$ decreases monotonically both in $U$ and in $V$. As we already discussed in normal phase, the $U=0$ data of Fig.~\ref{subfig:AF-uS-data-A256-pVar=U} present a plateau up to a Mott-critical value. This effect is absent at positive $U$s. Both interactions disrupt the HFP; however, the two limits
+\[
+	U \gg 1
+	\qq{and}
+	V \gg 1
+\]
+are much different. By computing the value of $\tilde{t}^{(s^*)}$,
+\[
+	\tilde{t}^{(s^*)} = 2t - u^{(s^*)}V
+\]
+we obtain the data of Fig.~\ref{subfig:AF-tS-data-C128}. The limit $U \gg 1$ taken at fixed $V$, also shown in Fig.~\ref{subfig:AF-tS-data-A256-pVar=V}, provides ``$U$-induced antiferromagnetism'', with bands shrinking effect being almost irrelevant as $V$ lowers; on the contrary, the opposite limit $V \gg 1$ taken at fixed $U$, also shown in Fig.~\ref{subfig:AF-tS-data-A256-pVar=U}, shrinks bands strongly providing a ``Mott-induced antiferromagnetism''.
+
+\begin{figure}
+	\subfloat[$U$-dependency of $t^{(s^*)}$ varying $V$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs/xVar=U_pVar=V/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf}
+		\label{subfig:AF-tS-data-A256-pVar=V}
+	}
+	\subfloat[$V$-dependency of $t^{(s^*)}$ varying $U$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf}
+		\label{subfig:AF-tS-data-A256-pVar=U}
+	}
+	\caption{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}
+	\label{fig:AF-tS-data-A256}
+\end{figure}
+
+Interestingly, in $(U,V)$ space there is not Mott-localized region of the kind we had in $(\delta,V)$ space for the normal phase (see Fig.~\ref{subfig:normal-tS-data-B128-mott}). At half filling, complete localization only occurs at $U=0$, as can be seen in the bottom left sector of Fig.~\ref{subfig:AF-tS-data-A256-pVar=V}. Any finite value of $U$ disrupts bands flattening, thus -- being the local repulsion an essential ingredient in Hubbard antiferromagnetism -- we can safely sustain, based on numeric evidence, that bands flattening is incompatible with an actual AF phase on the EHM at half-filling.
