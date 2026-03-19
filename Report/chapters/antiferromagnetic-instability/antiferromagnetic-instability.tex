@@ -1603,7 +1603,7 @@ The final result,
 \end{equation}
 is identical to the constraint obtained for the normal phase. Also in AF phase the bare bands are effectively shrunk by $\hat H_V$.
 
-\subsection{HFPs vanishing in sAF phase}
+\subsection{HFPs vanishing in sAF phase}\label{subsec:af-HFPs=0-sAF}
 
 We now present a somewhat convoluted argument to show that, even if raw MFT presents an apparently rich scenario with a lot of HFPs, the problem can be proven to be actually much simpler. Let us start from the sAF phase, assuming
 \[
@@ -1826,7 +1826,7 @@ Aim of this section is to prove that no self-consistent solution exists with non
 \end{enumerate}
 To gain full knowledge on the map fixed point's shape, we should analyze similarly the behaviour of the self-consistency equations for $u^{(s^*)}$, $u^{(d)}$. This is done later in Sec.~\ref{subsec:af-bands-shrinking-C2}. For now, it suffices to know that limitedly to the sAF phase no gap complexification aforementioned in Sec.~\ref{sec:af-full-hamiltonian} actually occurs. This effect is not a consequence of MFT derivation, which remains self-coherent and correct; it is instead of the particular form of the non-linear map defined by the set of model equations.
 
-\subsection{HFPs vanishing in aAF phase}
+\subsection{HFPs vanishing in aAF phase}\label{subsec:af-HFPs=0-aAF}
 
 We now deal with a much easier proof for an analogous thesis on the sAF phase described by the five HFPs on the second row of Tab.~\ref{tab:af-saf-aaf-hfps}, as well as the self-consistency equations of Tabs.~\ref{tab:af-ehm-ugamma-self-consistencies} and \ref{tab:af-ehm-vgamma-self-consistencies}. We continue using the functional $F$ as defined in Eq.~\eqref{eq:saf-F-definition}. We also define $A,B,C$ as in Eq.~\eqref{eq:saf-ABC-def}. Let $s_\ell \equiv \sin k_\ell$, and
 \begin{equation}\label{eq:saf-PQR-def}
@@ -2028,10 +2028,10 @@ We set $\delta=0.0$. As we anticipated in Sec.~\ref{sec:af-instability}, any fin
 	\centering
 	\includegraphics[width=\linewidth]{../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf}
 	\caption{Plot of the self-consistent convergence values for $m$ (left panel) and isomagnetic curves computed on the same data (right panel), along which magnetization is constant. For the sake of graphic clarity, only the points at $0 \le U \le 4$ and $0 \le V \le 6$ are plotted. {\color{tabred}[Are $U=0.05$ data correct?]}}
-	\label{fig:AF-m-data-C128}
+	\label{fig:af-m-data-C128}
 \end{figure}
 
-The convergence values for $m$ computed in the $UV$ plane are shown in the panels of Fig.~\ref{fig:AF-m-data-C128}, along with a level curves plot to identify isomagnetic curves (right panel). Note that, to increase graphic clarity in heatmaps bottom left sector, from the plots are omitted the points at $U \ge 4$ and $V \ge 6$. Tolerances on density and HFPs have been set to
+The convergence values for $m$ computed in the $UV$ plane are shown in the panels of Fig.~\ref{fig:af-m-data-C128}, along with a level curves plot to identify isomagnetic curves (right panel). Note that, to increase graphic clarity in heatmaps bottom left sector, from the plots are omitted the points at $U \ge 4$ and $V \ge 6$. Tolerances on density and HFPs have been set to
 \[
 	\Delta n = 10^{-2}
 	\qquad
@@ -2046,23 +2046,23 @@ The most interesting evident visible directly from heatmaps is that $\hat H_V$ a
 	\quad\to\quad
 	\text{HM: }(\tilde{t},U,0)
 \]
-being $\tilde{t}$ dependent on $V$. For the pure HM, to magnetize the system what matters is just $U/t$. To lower $t$ is physically the same as to increase $U$, and from this point comes the magnetization precession visible in Fig.~\ref{fig:AF-m-data-C128}. Isomagnetic lines on the right panel show, for $U$ significantly greater than $0$, interesting linear trends whose angular coefficient depend on $m$ itself. The low-$U$ limit of isomagnetic lines presents some oscillations that are evidently imputable to numeric discretization of parametric space. {\color{tabred}[Add: derivation and discussion about the presence of isomagnetic lines.]}
+being $\tilde{t}$ dependent on $V$. For the pure HM, to magnetize the system what matters is just $U/t$. To lower $t$ is physically the same as to increase $U$, and from this point comes the magnetization precession visible in Fig.~\ref{fig:af-m-data-C128}. Isomagnetic lines on the right panel show, for $U$ significantly greater than $0$, interesting linear trends whose angular coefficient depend on $m$ itself. The low-$U$ limit of isomagnetic lines presents some oscillations that are evidently imputable to numeric discretization of parametric space. {\color{tabred}[Add: derivation and discussion about the presence of isomagnetic lines.]}
 
 \begin{figure}
 	\centering
 	\subfloat[$U$-dependency of $m$ varying $V$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf}
-		\label{subfig:AF-m-data-A256-pVar=V}
+		\label{subfig:af-m-data-A256-pVar=V}
 	}
 	\subfloat[$V$-dependency of $m$ varying $U$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf}
-		\label{subfig:AF-m-data-A256-pVar=U}
+		\label{subfig:af-m-data-A256-pVar=U}
 	}
 	\caption{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}
-\label{fig:AF-m-data-A256}
+\label{fig:af-m-data-A256}
 \end{figure}
 
-The data shown in Fig.~\ref{fig:AF-m-data-A256} confirm clearly the aforementioned magnetization  ``boost'' given by $\hat H_V$. The effect is more enhanced at low values of $U$. Interestingly enough, as is visible from Fig.~\ref{subfig:AF-m-data-A256-pVar=U}, magnetization does not always saturate the same way. For example, considering the curve at $U=1.2$, magnetization varies following a somewhat sigmoid shape, making the boost most effective around $V \approx 2 \divisionsymbol 4$. Because of $m$ saturation, this behaviour is lost at higher $U$s.
+The data shown in Fig.~\ref{fig:af-m-data-A256} confirm clearly the aforementioned magnetization  ``boost'' given by $\hat H_V$. The effect is more enhanced at low values of $U$. Interestingly enough, as is visible from Fig.~\ref{subfig:af-m-data-A256-pVar=U}, magnetization does not always saturate the same way. For example, considering the curve at $U=1.2$, magnetization varies following a somewhat sigmoid shape, making the boost most effective around $V \approx 2 \divisionsymbol 4$. Because of $m$ saturation, this behaviour is lost at higher $U$s.
 
 \subsection{Bands shrinking}
 
@@ -2078,30 +2078,30 @@ For the normal phase, in Sec.~\ref{subsec:normal-mott-numeric} we presented nume
 	\centering
 	\subfloat[Heatmap of $u^{(s^*)}$ in $UV$ plane.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=HFPs/xVar=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf}
-		\label{subfig:AF-uS-data-C128}
+		\label{subfig:af-uS-data-C128}
 	}
 	\subfloat[Heatmap of $t^{(s^*)}$ in $UV$ plane.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=RMPs/xVar=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf}
-		\label{subfig:AF-tS-data-C128}
+		\label{subfig:af-tS-data-C128}
 	}
 	\caption{Data for the HFP $u^{(s^*)}$ and $\tilde{t}^{(s^*)}$ varying both $U$ and $V$.}
-	\label{fig:AF-uS-tS-data}
+	\label{fig:af-uS-tS-data}
 \end{figure}
 
 \begin{figure}
 	\subfloat[$U$-dependency of $u^{(s^*)}$ varying $V$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf}
-		\label{subfig:AF-uS-data-A256-pVar=V}
+		\label{subfig:af-uS-data-A256-pVar=V}
 	}
 	\subfloat[$V$-dependency of $u^{(s^*)}$ varying $U$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf}
-		\label{subfig:AF-uS-data-A256-pVar=U}
+		\label{subfig:af-uS-data-A256-pVar=U}
 	}
 	\caption{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}
-	\label{fig:AF-uS-data-A256}
+	\label{fig:af-uS-data-A256}
 \end{figure}
 
-The convergence values for the HFP $u^{(s^*)}$ are shown in Fig.~\ref{subfig:AF-uS-data-C128}, and more in details in the two panels of Fig.~\ref{fig:AF-uS-data-A256}. In general, $u^{(s^*)}$ decreases monotonically both in $U$ and in $V$. As we already discussed in normal phase, the $U=0$ data of Fig.~\ref{subfig:AF-uS-data-A256-pVar=U} present a plateau up to a Mott-critical value. This effect is absent at positive $U$s. Both interactions disrupt the HFP; however, the two limits
+The convergence values for the HFP $u^{(s^*)}$ are shown in Fig.~\ref{subfig:af-uS-data-C128}, and more in details in the two panels of Fig.~\ref{fig:af-uS-data-A256}. In general, $u^{(s^*)}$ decreases monotonically both in $U$ and in $V$. As we already discussed in normal phase, the $U=0$ data of Fig.~\ref{subfig:af-uS-data-A256-pVar=U} present a plateau up to a Mott-critical value. This effect is absent at positive $U$s. Both interactions disrupt the HFP; however, the two limits
 \[
 	U \gg 1
 	\qq{and}
@@ -2111,19 +2111,98 @@ are much different. By computing the value of $\tilde{t}^{(s^*)}$,
 \[
 	\tilde{t}^{(s^*)} = 2t - u^{(s^*)}V
 \]
-we obtain the data of Fig.~\ref{subfig:AF-tS-data-C128}. The limit $U \gg 1$ taken at fixed $V$, also shown in Fig.~\ref{subfig:AF-tS-data-A256-pVar=V}, provides ``$U$-induced antiferromagnetism'', with bands shrinking effect being almost irrelevant as $V$ lowers; on the contrary, the opposite limit $V \gg 1$ taken at fixed $U$, also shown in Fig.~\ref{subfig:AF-tS-data-A256-pVar=U}, shrinks bands strongly providing a ``Mott-induced antiferromagnetism''.
+we obtain the data of Fig.~\ref{subfig:af-tS-data-C128}. The limit $U \gg 1$ taken at fixed $V$, also shown in Fig.~\ref{subfig:af-tS-data-A256-pVar=V}, provides ``$U$-induced antiferromagnetism'', with bands shrinking effect being almost irrelevant as $V$ lowers; on the contrary, the opposite limit $V \gg 1$ taken at fixed $U$, also shown in Fig.~\ref{subfig:af-tS-data-A256-pVar=U}, shrinks bands strongly providing a ``Mott-induced antiferromagnetism''.
 
 \begin{figure}
 	\subfloat[$U$-dependency of $t^{(s^*)}$ varying $V$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs/xVar=U_pVar=V/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf}
-		\label{subfig:AF-tS-data-A256-pVar=V}
+		\label{subfig:af-tS-data-A256-pVar=V}
 	}
 	\subfloat[$V$-dependency of $t^{(s^*)}$ varying $U$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf}
-		\label{subfig:AF-tS-data-A256-pVar=U}
+		\label{subfig:af-tS-data-A256-pVar=U}
 	}
 	\caption{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}
-	\label{fig:AF-tS-data-A256}
+	\label{fig:af-tS-data-A256}
 \end{figure}
 
-Interestingly, in $(U,V)$ space there is not Mott-localized region of the kind we had in $(\delta,V)$ space for the normal phase (see Fig.~\ref{subfig:normal-tS-data-B128-mott}). At half filling, complete localization only occurs at $U=0$, as can be seen in the bottom left sector of Fig.~\ref{subfig:AF-tS-data-A256-pVar=V}. Any finite value of $U$ disrupts bands flattening, thus -- being the local repulsion an essential ingredient in Hubbard antiferromagnetism -- we can safely sustain, based on numeric evidence, that bands flattening is incompatible with an actual AF phase on the EHM at half-filling.
+Interestingly, in $(U,V)$ space there is not Mott-localized region of the kind we had in $(\delta,V)$ space for the normal phase (see Fig.~\ref{subfig:normal-tS-data-B128-mott}). At half filling, complete localization only occurs at $U=0$, as can be seen in the bottom left sector of Fig.~\ref{subfig:af-tS-data-A256-pVar=V}. Any finite value of $U$ disrupts bands flattening, thus -- being the local repulsion an essential ingredient in Hubbard antiferromagnetism -- we can safely sustain, based on numeric evidence, that bands flattening is incompatible with a commensurate AF phase on the half-filled EHM.
+
+\subsection{Solution free energy and entropy densities}\label{subsec:af-f-s}
+
+\begin{figure}
+	\centering
+	\subfloat[Heatmap of $f_\mathrm{MFT}$ in $\delta V$ plane.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=phys/xVar=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0.pdf}
+		\label{subfig:af-f-data-C128}
+	}
+	\subfloat[$V$-dependency of $f_\mathrm{MFT}$ varying $\delta$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0.pdf}
+		\label{subfig:af-f-data-A256}
+	}
+	\caption{Free energy density of the AF phase.}
+	\label{fig:af-f-data}
+\end{figure}
+
+In Fig.~\ref{fig:af-f-data} the solution free energy is plotted. In the Fig.~\ref{subfig:af-f-data-A256} it becomes evident how the energetically most stable state is realized at low $V$, high $U$. The opposite limit of weak local repulsion, strong non-local attraction (top-left corner of Fig.~\ref{subfig:af-f-data-C128}) instead increases $f_\mathrm{MFT}$ a lot, correctly reaching zero energy at $U=0$, $V>4.93t$ -- the critical value discussed in Sec.~\ref{subsec:normal-mott-numeric} and computed in Eq.~\eqref{eq:normal-Vc-half-filling}.
+
+It is then evident how, even if the macroscopic magnetic properties are the same along one isomagnetic line of those plotted in Fig.~\ref{fig:af-m-data-C128}, right panel, and thus the realized state exhibits an identical value of $m$, much different is the energetic content of the state itself. While in the $U \gg 1$, fixed $V$ limit free energy gain comes from gap amplification -- which moves down the Bogoliubov bands $\tilde{E}_\mathbf{k}$ --, in the $V \gg 1$, fixed $U$ limit energies of the lower Bogoliubov band (full at low temperature) are shifted upwards via the Mott localization effect. \todo
+
+%\begin{figure}
+%	\centering
+%	\subfloat[Heatmap of $s_\mathrm{MFT}$ in $\delta V$ plane.]{
+%		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=phys/xVar=U_yVar=V/s_t=1.0_L=128_δ=0.0_β=100.0.pdf}
+%		\label{subfig:af-s-data-C128}
+%	}
+%	\subfloat[$V$-dependency of $s_\mathrm{MFT}$ varying $\delta$.]{
+%		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=U/s_t=1.0_L=256_δ=0.0_β=100.0.pdf}
+%		\label{subfig:af-s-data-A256}
+%	}
+%	\caption{Entropy density of the AF phase.}
+%	\label{fig:af-s-data}
+%\end{figure}
+
+\subsection{Fixed-point interpretation of HF solution}
+
+As a final remark discussing the mathematical structure of the algorithm, we anticipated in Sec.~\ref{subsec:reject-mix-iterate} how the reject-mix-iterate scheme upon which our HF algorithm is built can be seen as an effective search for the singular fixed point of a nonlinear map. A physical solution is represented as a HFP vector $\mathbf{v}$ such that the algorithm is a local identity,
+\[
+	\mathrm{A}(\mathbf{v}) = \mathbf{v}
+\]
+To predict for a given initializer $\mathbf{v}_0$ the path it will follow through HFPs space is, in general, highly non-trivial due to the intrinsic nonlinearity of the algorithmic map defined by self-consistency equations for the various HFPs. An example of such nonlinearity is given in the derivation of Secs.~\ref{subsec:af-HFPs=0-sAF}, \ref{subsec:af-HFPs=0-aAF}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor.pdf}
+	\caption{Quiver plot of algorithmic evolution in HFPs space at fixed model parametrization. The black dot $\mathbf{v}$ represents the nonlinear map fixed point, while the colored paths the sequences of HFPs coordinates simulated via iterative HF procedure, starting from different HFPs initializers (colored dots).}
+	\label{fig:af-attractor}
+\end{figure}
+
+In Fig.~\ref{fig:af-attractor} we sketch this concept in a practical situation. In figure are plotted various algorithmic paths through AF HFPs space, with operational setup at
+\[
+	U = 3
+	\qquad
+	V = 6
+	\qquad
+	L = 128
+	\qquad
+	\beta = 100
+	\qquad
+	\delta = 0
+\]
+At this point, the self-consistent HF ``fixed-point'' solution is given by
+\[
+	m \approx 0.449
+	\qquad
+	u^{(s^*)} \approx 0.212
+\]
+indicated in panels as the black dot. The three panels show different map evolutions varying the mixing parameter within three choices, $g \in \lbrace 0.25, 0.1, 0.05 \rbrace$. We chose various initializers in the set:
+\[
+	\mathbf{v}_0 = \begin{bmatrix} m_0 \\ u^{(s^*)}_0 \end{bmatrix} 
+	\quad\colon\quad
+	m_0 \in \lbrace 0.2,~0.3,~...,~0.6 \rbrace
+	\qq{and}
+	u^{(s^*)}_0 \in \lbrace 0.0,~0.1,~...,~0.4 \rbrace
+\]
+In figures, different colors indicate different evolutions, while the tip size indicates the magnitude of the algorithmic step in passing from one step to the following.
+
+All paths are able to converge to $\mathbf{v}$, and the quantity of steps necessary to reach the fixed point, a sort of attractor, increases as we lower $g$. To select the correct $g$ turns out to be the real algorithm fine-tuning knob: as we saw for the normal phase, some model parametrization could lead to unavoidable algorithmic instabilities. The problem is that we do not know beforehand where the instabilities will occur, and how. The correct $g$ is the compromise between keeping low the number of steps (larger mixing) and moving slow enough to not diverge when encountering unstable points (smaller mixing). By recursively fine-tuning $g$ repeating non-converged simulation with more care, we are essentially making the nonlinear map ``softer'' and curvier, as is in the right panel of Fig.~\ref{fig:af-attractor}. It's not always resource convenient to do so, so for most simulations we stick to a rougher map (like the left panel one) by setting $g=0.5$.

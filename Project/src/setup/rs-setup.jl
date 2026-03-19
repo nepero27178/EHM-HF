@@ -32,7 +32,7 @@ RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "C[128]-a" # ← Change here
+Setup::String = "D[128]-a" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test[30]",
 	"A[128]-a", # UV plane: V ≤ 4 sector
@@ -41,6 +41,7 @@ AvailableSetups::Set{String} = Set([
 	"B[128]-b", # δV plane: V ≥ 4 sector
 	"C[128]-a", # UV plane: U,V ≤ 8 sector
 	"D[128]-a", # Uδ plane
+	"D[128]-b", # Uδ plane
 ])
 
 TestΔv::DataFrame = DataFrame(Dict([
@@ -162,7 +163,22 @@ elseif Setup=="D[128]-a"
 	Δv = MainΔv
 	Δn = 1e-2
 	g = 0.5
-	xVar = "δ"
-	yVar = "V"
+	xVar = "U"
+	yVar = "δ"
+
+# --- EXTENDED Uδ plane RUN ---
+elseif Setup=="D[128]-b"
+	tt = [1.0]
+	UU = [U for U in 4.0:0.1:16.0]
+	VV = [0.0]
+	LL = [128]
+	δδ = [δ for δ in 0.0:0.01:0.49]
+	ββ = [100.0]
+	p = 100
+	Δv = MainΔv
+	Δn = 1e-2
+	g = 0.5
+	xVar = "U"
+	yVar = "δ"
 
 end

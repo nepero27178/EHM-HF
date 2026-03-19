@@ -851,7 +851,7 @@ being $\Omega$ the expectation value (EV) of $\hat K$. In the last passage we wr
 
 \subsection{The reject-mix-iterate convergence scheme}\label{subsec:reject-mix-iterate}
 
-Up to now, we did not specify when we consider the algorithm to ``have converged''. Explicitly, this is considered true whenever the following logic condition is satisfied for each component of $\mathbf{v}$:
+Up to now, we did not specify when we consider the algorithm to ``have converged''. From a purely theoretical point of view, considering the set of self-consistency equations provided by MFT as a nonlinear map in HFPs space, we consider the run finished when our algorithm, following a non-trivial path in HFPs space, comes close enough to a fixed point of the map; which is, a point which gets mapped onto itself. Explicitly, we consider the run over and converged whenever the following logic condition is satisfied for each component of $\mathbf{v}$:
 \[
 	\forall v_j
 	\quad\colon\quad
@@ -863,7 +863,7 @@ When the acceptance condition is not satisfied, which is, when at least one comp
 \begin{equation}\label{eq:mix}
 	\mathbf{v}_{i+1} \equiv g \mathrm{A} \left( \mathbf{v}_{i} \right) + (1-g) \mathbf{v}_{i}
 \end{equation}
-and becomes a simple but useful knob to tune the algorithmic evolution. Its usefulness comes from the core concept that, even if physically there exists a unique solution to the model (thus just one self-consistent HFP vector, eventually of all zeros) such a fixed point could be hard to reach following a pure iterative numeric scheme on a given map (which would be the $g=1$ case of the above equation) for a variety of reasons. By moving ``slower'' (low $g$) with an accurate optimization of the mixing, as will be seen concretely in Sec.~\ref{subsec:normal-g-optimization}, it is possible to reach convergence in a controlled way.
+and becomes a simple but useful knob to tune algorithmic evolution. Its usefulness comes from the core concept that, even if physically there must exist a unique solution to the model (thus just one self-consistent HFP vector, eventually of all zeros) such a fixed point could be hard to reach following a pure iterative numeric scheme on a given map (which would be the $g=1$ case of the above equation) for a variety of reasons. By moving ``slower'' (low $g$) with an accurate optimization of the mixing, as will be seen concretely in Sec.~\ref{subsec:normal-g-optimization}, it is possible to reach convergence in a controlled way.
 
 When it comes to HF iterative schemes of this kind, it can happen with some frequency that the algorithm remains stuck in an infinite loop between a set of points mathematically linked by the self-consistent map but not representing a physical solution (because of their reciprocal absolute distance in HFP space). In some other situations, evolutions could turn out to be rather slow. Because of this it is reasonable to define a parameter $p$, such that the number of iterations is kept $i \le p$. If the algorithm failed to converge in $p$ steps, the point is saved as ``\texttt{NaN}'' (Not a number) and the algorithm moves to another simulation. Introducing this simple rule, runtime is kept under control and we gain an easy method to identify the regions of parameter space requiring more care -- just read from the raw data where \texttt{NaN}s have been saved.
 
