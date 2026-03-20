@@ -1,0 +1,66 @@
+% \documentclass[tikz,border=3.14mm]{standalone}
+% \usetikzlibrary{positioning}
+
+% \begin{document}
+\begin{tikzpicture}[
+    site/.style={circle, fill=#1, minimum size=0.3em, outer sep=0pt, inner sep=0pt},
+    up/.style={site=tabblue},
+    down/.style={site=tabred},
+    empty/.style={site=lightgray},
+    arrow/.style={-stealth, line width=1pt, shorten <=2pt, shorten >=2pt},
+]
+
+% First lattice: alternating up/down
+\begin{scope}[local bounding box=lattice1]
+    \draw[lightgray, dashed] (-0.4,0.4) grid (2.4,-4.4);
+    \foreach \i in {0,...,4} {
+        \foreach \j in {0,...,2} {
+            \pgfmathparse{mod(\i+\j,2) ? "down" : "up"}
+            \node[\pgfmathresult] (n-\i-\j) at (\j, -\i) {};
+            \pgfmathparse{mod(\i+\j,2) ? "tabred" : "tabblue"}
+            \draw[\pgfmathresult, arrow, rotate=60] ([shift={(-0.3,0)}]n-\i-\j.center) -- ([shift={(0.3,0)}]n-\i-\j.center);
+        }
+    }
+\end{scope}
+
+% Second lattice: doubled periodicity with intermediate arrows
+\begin{scope}[xshift=4cm, local bounding box=lattice2]
+    \draw[lightgray, dashed] (-0.4,0.4) grid (2.4,-4.4);
+    \foreach \i in {0,...,4} {
+        \foreach \j in {0,...,2} {
+            \pgfmathparse{mod(\i+\j,4)}
+            \ifcase\pgfmathresult
+                \node[up] (n-\i-\j) at (\j, -\i) {};
+                \draw[tabblue, arrow, rotate=60] ([shift={(-0.3,0)}]n-\i-\j.center) -- ([shift={(0.3,0)}]n-\i-\j.center);
+            \or
+                \node[empty] (n-\i-\j) at (\j, -\i) {};
+            \or
+                \node[down] (n-\i-\j) at (\j, -\i) {};
+                \draw[tabred, arrow, rotate=60] ([shift={(0.3,0)}]n-\i-\j.center) -- ([shift={(-0.3,0)}]n-\i-\j.center);
+            \or
+                \node[empty] (n-\i-\j) at (\j, -\i) {};
+            \fi
+        }
+    }
+\end{scope}
+
+% Third lattice: stripes
+\begin{scope}[xshift=8cm, local bounding box=lattice3]
+    \draw[lightgray, dashed] (-0.4,0.4) grid (2.4,-4.4);
+    \foreach \i in {0,...,4} {
+        \foreach \j in {0,...,2} {
+            \pgfmathparse{mod(\i,2) ? "down" : "up"}
+            \node[\pgfmathresult] (n-\i-\j) at (\j, -\i) {};
+            \pgfmathparse{mod(\i,2) ? "tabred" : "tabblue"}
+            \draw[\pgfmathresult, arrow, rotate=60] ([shift={(-0.3,0)}]n-\i-\j.center) -- ([shift={(0.3,0)}]n-\i-\j.center);
+        }
+    }
+\end{scope}
+
+% Labels
+\node[below=0.25cm of lattice1.south] {Alternating};
+\node[below=0.25cm of lattice2.south] {Doubled Periodicity};
+\node[below=0.25cm of lattice3.south] {Stripes};
+
+\end{tikzpicture}
+% \end{document}

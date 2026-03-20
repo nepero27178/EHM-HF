@@ -1,23 +1,18 @@
 \def\GraphicsFolder{chapters/antiferromagnetic-instability/pictures}
 \chapter{Antiferromagnetic instability}\label{chap:mft-af-instability}
 
-This chapter is devoted to an in-depth discussion of the antiferromagnetic (AF) long-range ordering in the EHM by the means of MFT. In the context of the $2$D HM, discussed in App.~\ref{appendix:mean-field-hubbard}, AF ordering establishes as an unconventional metallic phase which is only stable at half-filling (as is discussed in Sec.~\ref{appsec:af-instability}). The situation for the EHM is similar: the present analysis is carried out based on the argument that, given the symmetry structure of the non-local NN interaction, the fundamental features of the commensurate AF phase of the HM are effectively preserved, while the parameters are redefined by the interaction itself. The two most relevant effects we discuss in this chapter are the gap ``complexification'' and the bands renormalization and resymmetrization (both in Sec.~\ref{sec:af-fock-bands-renormalization}), the latter being a general feature of the EHM common to all phases preserving (or, at most, weakening without destroying) translational invariance, discussed previously in Sec.~\ref{sec:normal-fock-bands-renormalization}.
+This chapter is devoted to an in-depth discussion of the antiferromagnetic (AF) long-range ordering in the EHM by the means of MFT. In the context of the $2$D HM, discussed in App.~\ref{appendix:mean-field-hubbard}, AF ordering establishes as an unconventional metallic phase which is only stable at half-filling (as is discussed in Sec.~\ref{appsubsec:af-instability}). The situation in EHM is similar: the present analysis is carried out based on the argument that, given the symmetry structure of the non-local NN interaction, the fundamental features of the commensurate AF phase of the HM are effectively preserved, while the parameters are redefined by the interaction itself. The two most relevant effects we discuss in this chapter are the gap ``complexification'' and the bands renormalization and resymmetrization (both in Sec.~\ref{sec:af-fock-bands-renormalization}), the latter being a general feature of the EHM common to all phases preserving (or, at most, weakening without destroying) translational invariance, discussed previously in Sec.~\ref{sec:normal-fock-bands-renormalization}.
 
 \section{The AF phase and its symmetries}\label{sec:af-phase-theory}
 
-%When discussing the AF phase on the EHM on square lattice, we must specify the type of antiferromagnetism we are dealing with. SDW antiferromagnets on a square lattice can emerge in a variety of ways, the simplest one -- described in this text -- being the so-called ``commensurate''. By this we mean essentially a kind of long range spin density ordering varying on the length scale of two lattice sites. This type of AF structure is particularly interesting on a square lattice because the phase transition is simply described in reciprocal space by the order parameter 
-%\[
-%	\hat \psi_{\mathbf{k}\sigma} \equiv \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
-%\]
-%going from a null EV in the normal phase to a non-zero value. This phenomenon occurs at the so called ``AF vector''
-%\[
-%	\bm{\pi} \equiv (\pi,\pi)
-%\]
-%Large portions of a square lattice Fermi surface (FS) can turn out to be connected precisely by an AF vector: this implies that, if the hamiltonian makes available a scattering channel at this wavevector, electrons can jump from one side to the other, making said EV non-zero.
-%
-%In principle, the AF phase is physically established by breaking the $\mathrm{SU}(2)$ spin rotation symmetry down to the $\mathrm{U}^z(1)$ projected spin rotation symmetry; however, it is to be noted that -- even if the concept of SSB is well defined only for the $\mathrm{SU}(2) \to \mathrm{U}^z(1)$ symmetry reduction -- the hamiltonian in thermodynamic limit remains $\mathbb{Z}_2$ invariant with respect to spin inversion, $\sigma \leftrightarrow \overline{\sigma}$. Identical considerations as in Sec.~\ref{sec:normal-phase-theory} hold This: all physical quantities are spin-independent. As for the normal phase, we will use this considerations at the end of the calculations. 
+To start, AF phase is not uniquely defined; actually, there exists a variety of ways to establish a SDW phase in a spin-balanced square lattice, a system where both spin sectors are equally populated, but differently displaced. Fig.~\ref{fig:antiferromagnets} presents three (of many) types of antiferromagnets. The left panel shows the one we deal with: SDW structures are $2$-sites periodic, making the AF phase ``commensurate''. The central one presents another simple commensurate AF with higher periodicity. The right panel shows a possible striped antiferromagnet, where AF is effectively established along one particular direction. {\color{tabred} [Add: striped AF is a studied phase, blabla. Some connection with nematicity.]}
 
-The AF phase is not uniquely defined; actually, there exists a variety of ways to establish a SDW phase in a spin-balanced square lattice, which means a system where both spin sectors are equally populated, but differently displaced. {\color{tabred}[ToDo: graphics of various SDW structures]}
+\begin{figure}
+	\centering
+	\input{\GraphicsFolder/antiferromagnets.tex}
+	\caption{Three possible antiferromagnetic structures. Within this text we deal with the lowest-periodicity commensurate phase, the antiferromagnet on left panel.}
+	\label{fig:antiferromagnets}
+\end{figure}
 
 The AF phase hereby presented is a symmetry reduction of the normal phase, and is described by simultaneous spin rotational symmetry reduction and translational symmetry halving:
 \[
@@ -26,13 +21,13 @@ The AF phase hereby presented is a symmetry reduction of the normal phase, and i
 	\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)} &\SSB \mathrm{T}_2^{(x)} \otimes \mathrm{T}_2^{(y)}
 \end{aligned}
 \]
-We describe a SDW whose period is of two sites. As done for the normal phase, we allow theoretically
+We describe a SDW whose period is of two sites, as in the left panel of Fig.~\ref{fig:antiferromagnets}. As done for the normal phase, we allow theoretically
 \[
 	\mathrm{C}_4 \SSB \mathrm{C}_2
 \]
-in order to capture the same anisotropy effects seen in Sec.~\ref{subsec:normal-fock-analytic}. 
+in order to capture the same possible nematic effects seen in Sec.~\ref{subsec:normal-fock-analytic}. 
 
-Recall Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, collecting the RWCs for the AF phase,
+Finally, recall Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, collecting the RWCs for the AF phase,
 \[
 \begin{aligned}
 	&\hat H_U 

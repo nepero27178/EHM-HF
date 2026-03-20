@@ -454,8 +454,13 @@ as is obvious. The $2$ prefactor was absorbed in doubling the integration region
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\linewidth]{../Project/HM-HartreeFock/src/labs/n\_AF\_U=10.0\_Δ=1.0.pdf}
-	\caption{Electronic density in the AF phase as a function of the chemical potential, measured in relation to the gap $\Delta=mU$, at various temperatures.}
+	\subfloat[Electronic density.]{
+		\includegraphics[height=0.28\linewidth]{../Project/src/labs/hm-density/n\_AF\_U=10.0\_Δ=1.0.pdf}
+	}
+	\subfloat[Example doped bands.]{
+		\includegraphics[height=0.28\linewidth]{../Project/src/labs/antiferromagnet-bands-3d/antiferromagnet-bands-3d.pdf}
+	}
+	\caption{Left panel: electronic density in the AF phase as a function of the chemical potential, measured in relation to the gap $\Delta=mU$, at various temperatures. Right panel: example doped bands, with $\mu/\Delta = 1.5$ set arbitrarily and temperature set to $\beta=10$ to enhance smearing effects around FS. Single-state filling is proportional to color magnitude.}
 	\label{appfig:af-density-various-betas}
 \end{figure}
 
@@ -742,11 +747,11 @@ In Fig.~\ref{appfig:mdU-beta=100} plots at $\beta=100$ of the magnetization $m$ 
 \begin{figure}
 	\centering
 	\subfloat[Local repulsion $U/t$ depencence.]{
-		\includegraphics[width=0.5\textwidth]{../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOrderParameter/xVar=U/pVar=δ/m_t=1.0_Lx=128.0_β=100.0.pdf}
+		\includegraphics[height=0.32\linewidth]{../Project/plots/raw/Mode=hs/Phase=AF/Setup=D[256]-a/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf}
 		\label{appsubfig:mU-beta=100}
 	}
 	\subfloat[Doping $\delta = n-0.5$ dependence.]{
-		\includegraphics[width=0.5\textwidth]{../Project/HM-HartreeFock/analysis/Phase=AF/scan/Setup=A[128]_t=1.0/PlotOrderParameter/xVar=δ/pVar=U/m_t=1.0_Lx=128.0_β=100.0.pdf}
+		\includegraphics[height=0.32\linewidth]{../Project/plots/raw/Mode=hs/Phase=AF/Setup=D[256]-a/Syms=/RB=S/Obj=HFPs/xVar=δ_pVar=U/m_t=1.0_V=0.0_L=256_β=100.0.pdf}
 		\label{appsubfig:dU-beta=100}
 	}	
 	\caption{Plots of the zero-temperature AF instability order parameter $m$ as a function of both the local repulsion $U/t$ (Fig.~\ref{appsubfig:mU-beta=100}) and the doping $\delta = n-1/2$ (Fig.~\ref{appsubfig:dU-beta=100}).}

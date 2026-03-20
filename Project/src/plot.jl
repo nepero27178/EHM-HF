@@ -93,6 +93,7 @@ function main()
 				cVar,
 			)
 			if exchange
+				Skip = 2
 				SavePlot2D(
 					FilePathIn,
 					DirPathOut;
