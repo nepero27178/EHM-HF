@@ -2128,7 +2128,7 @@ we obtain the data of Fig.~\ref{subfig:af-tS-data-C128}. The limit $U \gg 1$ tak
 
 Interestingly, in $(U,V)$ space there is not Mott-localized region of the kind we had in $(\delta,V)$ space for the normal phase (see Fig.~\ref{subfig:normal-tS-data-B128-mott}). At half filling, complete localization only occurs at $U=0$, as can be seen in the bottom left sector of Fig.~\ref{subfig:af-tS-data-A256-pVar=V}. Any finite value of $U$ disrupts bands flattening, thus -- being the local repulsion an essential ingredient in Hubbard antiferromagnetism -- we can safely sustain, based on numeric evidence, that bands flattening is incompatible with a commensurate AF phase on the half-filled EHM.
 
-\subsection{Solution free energy and entropy densities}\label{subsec:af-f-s}
+\subsection{Solution free energy}\label{subsec:af-f}
 
 \begin{figure}
 	\centering
@@ -2144,23 +2144,26 @@ Interestingly, in $(U,V)$ space there is not Mott-localized region of the kind w
 	\label{fig:af-f-data}
 \end{figure}
 
-In Fig.~\ref{fig:af-f-data} the solution free energy is plotted. In the Fig.~\ref{subfig:af-f-data-A256} it becomes evident how the energetically most stable state is realized at low $V$, high $U$. The opposite limit of weak local repulsion, strong non-local attraction (top-left corner of Fig.~\ref{subfig:af-f-data-C128}) instead increases $f_\mathrm{MFT}$ a lot, correctly reaching zero energy at $U=0$, $V>4.93t$ -- the critical value discussed in Sec.~\ref{subsec:normal-mott-numeric} and computed in Eq.~\eqref{eq:normal-Vc-half-filling}.
+In Fig.~\ref{fig:af-f-data} the solution free energy is plotted. The right panel, Fig.~\ref{subfig:af-f-data-A256}, makes it becomes evident how the energetically most stable state is realized at low $V$, high $U$. The opposite limit of weak local repulsion, strong non-local attraction (top-left corner of Fig.~\ref{subfig:af-f-data-C128}) instead increases $f_\mathrm{MFT}$ a lot, correctly reaching zero energy at $U=0$, $V>4.93t$ -- the critical value discussed in Sec.~\ref{subsec:normal-mott-numeric} and computed in Eq.~\eqref{eq:normal-Vc-half-filling}.
 
-It is then evident how, even if the macroscopic magnetic properties are the same along one isomagnetic line of those plotted in Fig.~\ref{fig:af-m-data-C128}, right panel, and thus the realized state exhibits an identical value of $m$, much different is the energetic content of the state itself. While in the $U \gg 1$, fixed $V$ limit free energy gain comes from gap amplification -- which moves down the Bogoliubov bands $\tilde{E}_\mathbf{k}$ --, in the $V \gg 1$, fixed $U$ limit energies of the lower Bogoliubov band (full at low temperature) are shifted upwards via the Mott localization effect. \todo
+It is then evident how, even if the macroscopic magnetic properties are the same along one isomagnetic line of those plotted in Fig.~\ref{fig:af-m-data-C128}, right panel, and thus the realized state exhibits an identical value of $m$, much different is the energetic content of the state itself. While in the $U \gg 1$, fixed $V$ limit free energy gain comes from gap amplification -- which moves down the Bogoliubov bands $\tilde{E}_\mathbf{k}$ --, in the $V \gg 1$, fixed $U$ limit energies of the lower Bogoliubov band (full at low temperature) are shifted upwards via the Mott localization effect.
 
-%\begin{figure}
-%	\centering
-%	\subfloat[Heatmap of $s_\mathrm{MFT}$ in $\delta V$ plane.]{
-%		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=phys/xVar=U_yVar=V/s_t=1.0_L=128_δ=0.0_β=100.0.pdf}
-%		\label{subfig:af-s-data-C128}
-%	}
-%	\subfloat[$V$-dependency of $s_\mathrm{MFT}$ varying $\delta$.]{
-%		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=U/s_t=1.0_L=256_δ=0.0_β=100.0.pdf}
-%		\label{subfig:af-s-data-A256}
-%	}
-%	\caption{Entropy density of the AF phase.}
-%	\label{fig:af-s-data}
-%\end{figure}
+The AF phase is always energetically favoured at half-filling, with respect to the normal phase. Considering the energy difference,
+\[
+	\Delta f_\mathrm{MFT} \equiv f_\mathrm{MFT}^{(\mathrm{N})} - f_\mathrm{MFT}^{(\mathrm{AF})}
+\]
+shown for a slightly more coarse-grained dataset in Fig.~\ref{fig:af-df-data-A128}, we see immediately how $\Delta f_\mathrm{MFT} \ge 0$ in all $(U,V)$ plane. Note that, in order to compare the two acquisitions, being the normal phase data of Sec.~\ref{sec:normal-numeric} having been simulated at $U=0$ due to their intrinsic $U$ independence, we obtained a comparable dataset for the normal phase by just concatenating the data for $U=0$ at all values of $U$ we are interested in.
+%
+\begin{figure}
+	\centering
+	\includegraphics[height=0.32\linewidth]{../Project/src/labs/compare-f-normal-af/compare-f-normal-af.pdf}
+	\caption{Difference of free energies for the normal phase minus the AF phase.}
+	\label{fig:af-df-data-A128}
+\end{figure}
+%
+As we expect, in the $V \gg 1$ and low $U$ limit the energy difference is null: in this limit the two phases tend to coincide, since at $U=0.0$ no magnetization is physically possible. Moreover, the $U \gg 1$ limit makes the AF phase undoubtedly energetically favoured. Overall, at half filling the interesting free fermions Mott-localization effect is, at least when comparing these phases, existent but surpassed by the high energetic gain of establishing an AF structure at infinitesimal $U$. The situation could change at finite doping, a regime we do not investigate limitedly to AF Physics.
+
+At low temperature and half filling, it is not worth plotting entropy density. Half-filled commensurate antiferromagnets are insulators, with two gapped Bogoliubov bands. At low temperature, electronic distribution fills completely the lower band and empties the upper one. Because of this, insulating gapped systems inherently are low entropic.
 
 \subsection{Fixed-point interpretation of HF solution}
 
