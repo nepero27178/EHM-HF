@@ -227,7 +227,7 @@ one gets:
 		\hat s_{\mathbf{k}\sigma}^z
 	\end{bmatrix}
 \end{equation}
-The hamiltonian represents a system of spins subject to local magnetic fields, each tilted by an angle $\tan 2\theta_{\mathbf{k}\sigma} = \Delta_{\mathbf{k}\sigma}/\epsilon_{\mathbf{k}\sigma}$, as sketched in Fig.~\ref{appfig:pseudo-magnetic-field}. Evidently the following relations, also reported in Tab.~\ref{tab:af-pseudospin-map}, hold:
+The hamiltonian represents a system of spins subject to local magnetic fields, each tilted by an angle $\tan 2\theta_{\mathbf{k}\sigma} = \Delta_{\mathbf{k}\sigma}/\epsilon_{\mathbf{k}\sigma}$, as sketched in Fig.~\ref{appfig:pseudo-magnetic-field}. Evidently the following relations, also reported in Tab.~\ref{tab:af-pseudo-spin-map}, hold:
 \begin{align}
 	\hat s_{\mathbf{k}\sigma}^x &= \hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger \label{appeq:af-hm-x-psi} \\
 	\hat s_{\mathbf{k}\sigma}^y &= i \left(
@@ -266,7 +266,7 @@ Eigenvalues are:
 	}
 \end{equation}
 
-At any finite temperature, the ground-state of such a system is well-known: a thermal superposition of ``down'' spins with ``up'' spins. In the pseudospin picture, at each ``site'' $(\mathbf{k}\sigma)$, the lowest-energy state is the one anti-aligned with the pseudo-magnetic field. It is useful now to define the thermal factors,
+At any finite temperature, the ground-state of such a system is well-known: a thermal superposition of ``down'' spins with ``up'' spins. In the pseudo-spin picture, at each ``site'' $(\mathbf{k}\sigma)$, the lowest-energy state is the one anti-aligned with the pseudo-magnetic field. It is useful now to define the thermal factors,
 \begin{equation}\label{appeq:af-thermal-factors-def}
 	\mathrm{Th}_{\mathbf{k}\sigma}^{(\pm)}[\beta,\mu] \equiv 
 	f\left(
@@ -315,11 +315,11 @@ The $\hat\Gamma$ spinor operators are effectively free fermionic spinor fields a
 	\end{bmatrix} \label{appeq:af-hm-gamma-ops-transform}
 \end{align}
 
-The consequence of Eq.~\eqref{appeq:af-full-h-diagonalization} is interesting by itself: within this HF solution, the gap opens always at $E=0$. In other words, the bands sketched in Fig.~\ref{appfig:antiferromagnetic-3d-bands} retain the same geometric features regardless of the doping, what changes is the bands width and the gap between them. The very key point here is that, being the two bands symmetric (thus containing each half of the electronic states) and defined over the MBZ, any finite doping $\delta>0$ will produce a metallic behaviour, imposing that the chemical potential crosses the upper band. It is widely observed and confirmed by more refined numerical procedures, however, that AF establishes an insulating phase -- here only reproduced at half-filling, where the chemical potential lies within the gap. As will be detailed in \ref{appsubsec:af-instability}, the commensurate nature of AF SSB at wavevector $\bm{\pi}$ of this self-consistent solution is highly unstable and atypical at finite doping \cite{singh1990collective}.
+The consequence of Eq.~\eqref{appeq:af-full-h-diagonalization} is interesting by itself: within this HF solution, the gap opens always at $E=0$. In other words, the bands sketched in Fig.~\ref{appsubfig:af-Ek-bands} retain the same geometric features regardless of the doping, what changes is the bands width and the gap between them. The very key point here is that, being the two bands symmetric (thus containing each half of the electronic states) and defined over the MBZ, any finite doping $\delta>0$ will produce a metallic behaviour, making chemical potential crossing the upper band. It is widely observed and confirmed by more refined numerical procedures, however, that AF establishes an insulating phase -- here only reproduced at half-filling, where chemical potential lies within the gap. As will be detailed in \ref{appsubsec:af-instability}, the commensurate nature of AF SSB at wavevector $\bm{\pi}$ of this self-consistent solution is highly unstable and atypical at finite doping \cite{singh1990collective}.
 
 \subsection{Explicit zero-temperature AF ground state at half-filling}\label{appsubsec:af-zero-T-half-filling-gs}
 
-The AF ground state can be expressed easily at $n=1/2$ and $\beta \to +\infty$. Let $\ket{\Uparrow_{\mathbf{k}\sigma}}$ and $\ket{\Downarrow_{\mathbf{k}\sigma}}$ be respectively the ``up'' and ``down'' $\mathbf{k}$-th pseudospin states. Let $\ket{\overline{\Downarrow}_{\mathbf{k}\sigma}}$ be the ``down'' state in the tilted frame. The ground state is given by
+The AF ground state can be expressed easily at $n=1/2$ and $\beta \to +\infty$. Let $\ket{\Uparrow_{\mathbf{k}\sigma}}$ and $\ket{\Downarrow_{\mathbf{k}\sigma}}$ be respectively the ``up'' and ``down'' $\mathbf{k}$-th pseudo-spin states. Let $\ket{\overline{\Downarrow}_{\mathbf{k}\sigma}}$ be the ``down'' state in the tilted frame. The ground state is given by
 \begin{equation}\label{appeq:af-hm-gs-1}
 	\ket{\Psi} \equiv \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \ket{\overline{\Downarrow}_{\mathbf{k}\sigma}}
 \end{equation}
@@ -395,7 +395,9 @@ and lets us conclude from Eq.~\eqref{appeq:af-hm-gs-2}
 	\sin \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma}^\dagger + \cos \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger
 	\right] \ket{\Omega_{\mathbf{k}\sigma}}
 \end{equation}
-For low-temperature physics, we can expect the ground-state density matrix to be highly dominated by this BCS-like zero-temperature ground-state, which highlights the essential features of the system. Finally, using Eq.~\eqref{appeq:af-hm-gamma-ops-transform}, we check that correctly the ground-state describes a perfect degenerate $\gamma^{(-)}$ quasiparticles Fermi gas,
+For low-temperature physics, we can expect the ground-state density matrix to be highly dominated by this BCS-like zero-temperature ground-state, which highlights the essential features of the system. 
+
+Finally, using Eq.~\eqref{appeq:af-hm-gamma-ops-transform}, we check that correctly the ground-state describes a perfect degenerate $\gamma^{(-)}$ quasiparticles Fermi gas,
 \begin{equation}\label{appeq:af-hm-gs-4}
 	\ket{\Psi} = \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \gamma_{\mathbf{k}\sigma}^{(-)\dagger} \ket{\Omega_{\mathbf{k}\sigma}}
 \end{equation}
@@ -457,15 +459,17 @@ as is obvious. The $2$ prefactor was absorbed in doubling the integration region
 	\centering
 	\subfloat[Electronic density.]{
 		\includegraphics[height=0.28\linewidth]{../Project/src/labs/hm-density/n\_AF\_U=10.0\_Δ=1.0.pdf}
+		\label{appsubfig:af-Ek-density}
 	}
 	\subfloat[Example doped bands.]{
 		\includegraphics[height=0.28\linewidth]{../Project/src/labs/antiferromagnet-bands-3d/antiferromagnet-bands-3d.pdf}
+		\label{appsubfig:af-Ek-bands}
 	}
 	\caption{Left panel: electronic density in the AF phase as a function of the chemical potential, measured in relation to the gap $\Delta=mU$, at various temperatures. Right panel: example doped bands, with $\mu/\Delta = 1.5$ set arbitrarily and temperature set to $\beta=10$ to enhance smearing effects around FS. Single-state filling is proportional to color magnitude.}
-	\label{appfig:af-density-various-betas}
+	\label{appfig:af-Ek-filling}
 \end{figure}
 
-In Fig.~\ref{appfig:af-density-various-betas} the density $n(\mu)$ is plotted as a function of $\mu$. As is evident, at nearly zero temperature ($\beta\to\infty$) the system is half filled for $-\Delta<\mu<\Delta$. In order to obtain a finite doping, it must be $\abs{\mu}>\Delta$; which means, the chemical potential needs to cross the electronic bands. This HF solution leads invariably to a rather unusual metallic AF at any finite doping.
+In Fig.~\ref{appsubfig:af-Ek-density} the density $n(\mu)$ is plotted as a function of $\mu$. As is evident, at nearly zero temperature ($\beta\to\infty$) the system is half filled for $-\Delta<\mu<\Delta$. In order to obtain a finite doping, it must be $\abs{\mu}>\Delta$; which means, the chemical potential needs to cross the electronic bands. This HF solution leads invariably to a rather unusual metallic AF at any finite doping.
 
 \subsection{Self-consistency gap equation and magnetization}\label{appsubsec:af-self-consistency-gap-equation}
 
@@ -642,16 +646,16 @@ Substitute the momentum integral with an integral over energies, in the low temp
 
 \subsection{Instability of the commensurate AF solution and atypical metallic bands}\label{appsubsec:af-instability}
 
-A key point to be discussed is the known instability of the AF HF solution of the EHM. As is thoroughly discussed in \cite{singh1990collective}, the solution we presented above is only stable at half-filling, becoming hardly unstable at infinitesimal doping. This is due to the commensurate nature of the established AF phase: we impose SSB to take place at wavevector $\bm{\pi}$, shrinking the BZ to exactly half its size and giving back on the newly defined MBZ two bands $\pm E_\mathbf{k}$. This procedure actually works well for the half-filled case: the magnetization essentially depends on the scattering rate between points on the FS connected by a $\bm{\pi}$ vector. The half filled case, taking advantage of the natural nesting property of the bare bands,
+A key point to be discussed is the known instability of the AF HF solution of the EHM. As is thoroughly discussed in \cite{singh1990collective}, the solution we presented above is only stable at half-filling, becoming hardly unstable at infinitesimal doping. This is due to the commensurate nature of the established AF phase: we impose SSB to take place at wavevector $\bm{\pi}$, shrinking the BZ to exactly half its size and giving back on the newly defined MBZ two bands $\pm E_\mathbf{k}$. This procedure actually works well for the half-filled case: magnetization essentially depends on the scattering rate between points on the FS connected by a $\bm{\pi}$ vector. The half filled case, taking advantage of the natural nesting property of the bare bands,
 \[
  	\forall \mathbf{k}\in\partial\mathrm{MBZ}\,\colon\, \epsilon_{\mathbf{k}} = \epsilon_{\mathbf{k}+\bm{\pi}}
 \]
-(being $\partial\mathrm{MBZ}$ the boundary of the MBZ) exhibits a magnetization at infinitesimal interaction. For a many body state resulting from continuous SSB, to establish a given phase means to show the presence of a stable gapless Goldstone mode associated to the broken symmetry. Such a Goldstone mode is essentially a sharp peak at zero frequency for some dressed response function. For the AF phase, it follows from the reduced $\mathrm{U}^z(1)$ rotational symmetry and is related to the proper transverse pseudospin-pseudospin response function,
+(being $\partial\mathrm{MBZ}$ the boundary of the MBZ) exhibits a magnetization at infinitesimal interaction. For a many body state resulting from continuous SSB, to establish a given phase means to show the presence of a stable gapless Goldstone mode associated to the broken symmetry. Such a Goldstone mode is essentially a sharp peak at zero frequency for some dressed response function. For the AF phase, it follows from the reduced $\mathrm{U}^z(1)$ rotational symmetry and is related to the proper transverse pseudo-spin to pseudo-spin response function,
 $2\times 2$ matrix equation,
 \begin{equation}\label{appeq:af-commensurate-proper-response}
 	\tilde{\chi}_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega) = \frac{\chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega)}{1 - U \chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega)}
 \end{equation}
-being $\chi$ the free transverse response. The pseudospin hereby considered is the one of Eq.~\eqref{af-hm-spin-h}. As is shown in \cite{singh1990collective}, for the commensurate AF SSB at wavevector $\bm{\pi}$ the condition for the presence of a stable gapless mode reduces to a $2\times 2$ matrix equation,
+being $\chi$ the free transverse response. The pseudo-spin hereby considered is the one of Eq.~\eqref{af-hm-spin-h}. As is shown in \cite{singh1990collective}, for the commensurate AF SSB at wavevector $\bm{\pi}$ the condition for the presence of a stable gapless mode reduces to a $2\times 2$ matrix equation,
 \begin{equation}\label{appeq:af-commensurate-stability-condition}
 	\text{Stability condition:}
 	\qquad
@@ -732,7 +736,7 @@ Then a self-consistent algorithm to search for a self consistent estimate of the
 	\end{itemize}
 \end{enumerate}
 
-The algorithm sketched hereby was ran with the following setup:
+For the sake of completeness, we decided to run our algorithm also at finite doping, knowing from the previous discussion of Sec.~\ref{appsubsec:af-instability} that the results at $\delta > 0$ are unstable. The algorithm sketched hereby was ran with the following setup:
 \begin{lstlisting}[language=julia]
 UU = [U for U in 0.5:0.5:20.0]      # Local repulsions
 LL = [256]             				# Lattice sizes
@@ -755,7 +759,7 @@ In Fig.~\ref{appfig:mdU-beta=100} plots at $\beta=100$ of the magnetization $m$ 
 		\includegraphics[height=0.32\linewidth]{../Project/plots/raw/Mode=hs/Phase=AF/Setup=D[256]-a/Syms=/RB=S/Obj=HFPs/xVar=δ_pVar=U/m_t=1.0_V=0.0_L=256_β=100.0.pdf}
 		\label{appsubfig:dU-beta=100}
 	}	
-	\caption{Plots of the zero-temperature AF instability order parameter $m$ as a function of both the local repulsion $U/t$ (Fig.~\ref{appsubfig:mU-beta=100}) and the doping $\delta = n-1/2$ (Fig.~\ref{appsubfig:dU-beta=100}).}
+	\caption{Plots of the zero-temperature AF instability order parameter $m$ as a function of both the local repulsion $U/t$ (Fig.~\ref{appsubfig:mU-beta=100}) and the doping $\delta = n-1/2$ (Fig.~\ref{appsubfig:dU-beta=100}). {\color{tabred}[Insert new more refined data.]}}
 	\label{appfig:mdU-beta=100}
 \end{figure}
 
@@ -970,7 +974,7 @@ We finally reduce $\hat H_U$ to
 	\Delta^{(s)*} \hat \phi_\mathbf{q}^\dagger
 	\right] - E_{\mathrm{C}/U}^{(\mathrm{SC})}
 \end{equation}
-which can be easily mapped on a pseudospin model.
+which can be easily mapped on a pseudo-spin model.
 
 Composing Eqns.~\eqref{appeq:sc-hm-U-int-1} and \eqref{appeq:sc-hm-U-int-4}, we get the full MFT hamiltonian
 \begin{multline}
@@ -997,7 +1001,7 @@ We now proceed precisely as in Sec.~\ref{appsubsec:af-nambu}. Define the SC Namb
 		\hat c_{-\mathbf{k}\downarrow}^\dagger
 	\end{bmatrix}
 \] 
-Define the pseudospin operator:
+Define the pseudo-spin operator:
 \[
 	\hat s_\mathbf{k}^\alpha \equiv \hat \Phi_\mathbf{k}^\dagger \tau^\alpha \hat \Phi_\mathbf{k}
 \]

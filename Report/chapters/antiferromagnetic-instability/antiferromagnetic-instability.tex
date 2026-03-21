@@ -14,7 +14,7 @@ To start, AF phase is not uniquely defined; actually, there exists a variety of 
 	\label{fig:antiferromagnets}
 \end{figure}
 %
-Striped antiferromagnetism is studied in HM physics \cite{wietek2021stripes} as a possible long-range ordering energetically competing with anisotropic superconductivity. Nematic antiferromagnets, establishing long-range magnetic ordering along one particular direction, are interesting due to competition and interplay against superconducting ordering at finite doping \cite{qin2020absence}. Geometrically non-trivial magnetic ordering are at the core of SDW formation in copper oxides at finite doping \cite{zaanen1989charged,kato1990soliton}. 
+Striped antiferromagnetism is studied in HM physics \cite{wietek2021stripes} as a possible long-range ordering energetically competing with anisotropic superconductivity. Nematic antiferromagnets, establishing long-range magnetic ordering along one particular direction, are interesting due to competition and interplay against superconducting ordering at finite doping \cite{qin2020absence}. Geometrically non-trivial magnetic ordering are at the core of SDW formation in copper oxides at finite doping \cite{zaanen1989charged,kato1990soliton}.
 
 The AF phase hereby presented is a symmetry reduction of the normal phase, and is described by simultaneous spin rotational symmetry reduction and translational symmetry halving:
 \[
@@ -27,7 +27,7 @@ We describe a SDW whose period is of two sites, as in the left panel of Fig.~\re
 \[
 	\mathrm{C}_4 \SSB \mathrm{C}_2
 \]
-in order to capture the same possible nematic effects seen in Sec.~\ref{subsec:normal-fock-analytic}. 
+in order to capture the same possible nematic effects seen in Sec.~\ref{subsec:normal-fock-analytic}. The theoretical reason to do so for AF phase relies in our previous discussion. As said, planar Hubbard lattices exhibits tendency towards nematic magnetic ordering, thus (even if our Ansatz is the simplest and non evidently nematic) nematic effects are not to be excluded \textit{a priori}.
 
 Finally, recall Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, collecting the RWCs for the AF phase,
 \[
@@ -1336,15 +1336,16 @@ We start from considering a robust $\mathrm{C}_4$ antiferromagnet, thus setting 
 
 \subsection{Robust $\mathrm{C}_4$ bands shrinking extension to AF phases}\label{subsec:af-bands-shrinking}
 
-For the normal phase, we saw that hen $\mathrm{C}_4$ symmetry is preserved (Sec.~\ref{subsec:normal-bands-shrinking}) we can conclude immediately the bands renormalization is actually a shrinking. An identical result holds here: if $\mathrm{C}_4$ symmetry is imposed onto the renormalized bands,
+For the normal phase, we saw that when $\mathrm{C}_4$ symmetry is preserved (Sec.~\ref{subsec:normal-bands-shrinking}) we can conclude immediately that bands renormalization is actually a shrinking. An identical result holds here: if $\mathrm{C}_4$ symmetry is imposed onto the renormalized bands,
 \[
 	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv (u^{(s^*)} V - 2t) (\cos k_x + \cos k_y)
-	\]
-with a single self-consistency equation
+\]
+of $u^{(\gamma)}$, just the $s*$-wave channel contributes with a single self-consistency equation
 \[
 	u^{(s^*)} = - \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \frac{\tilde{\epsilon}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]
 \]
-As we did for the normal phase:
+
+In this situation, it's immediate to derive constraints for $u^{(s^*)}$. As we did for the normal phase:
 \begin{enumerate}
 	\item If $t>0$ and $u^{(s^*)} \le 0$
 	\[
@@ -1422,7 +1423,7 @@ having we used the notation $c_\ell \equiv \cos k_\ell$ and substituted the full
 \[
 	\tilde{\epsilon}_\mathbf{k} \equiv -\left[2t - u^{(s^*)}_\sigma V\right] (c_x + c_y) + u^{(d)}_\sigma V (c_x - c_y)
 \]
-Evidently, in terms of the functional $S$, we can rewrite:
+Evidently, in terms of the functional $F$, we can rewrite:
 \[
 \begin{aligned}
 	u^{(s^*)} &= \left[2t - Vu^{(s^*)}\right] \times F\left[(c_x + c_y)^2\right] - Vu^{(d)} \times F\left[c_x^2 - c_y^2\right] \\
@@ -1459,7 +1460,7 @@ These equations define a four-fold nonlinear map, whose parameters $A,B,C$ depen
 
 Aim of this section is to prove that no self-consistent solution exists with non-zero $u^{(d)}$, $v^{(s^*)}$ and $v^{(d)}$. Being the derivation convoluted and abstract enough, let us proceed by enumerating the relevant facts.
 \begin{enumerate}
-	\item Let us start by applying a conformal transform on the map: define the new ``sum'' and ``difference'' variables
+	\item Let us start by applying a linear transform on the map: define the new ``sum'' and ``difference'' variables
 	\[
 		S_u \equiv u^{(s^*)} + u^{(d)}
 		\qquad
@@ -1496,7 +1497,7 @@ Aim of this section is to prove that no self-consistent solution exists with non
 		\quad\implies\quad
 		D_v = 0
 	\]
-	Identically, let $D_v = 0$. Then applying the same consideration on Eq.~\eqref{eq:saf-Sv-sc-ABC}, $S_v = 0$. Either both are non-zero or both are zero.
+	Identically, let $D_v = 0$. Then applying the same consideration on Eq.~\eqref{eq:saf-Sv-sc-ABC} with $C \leftrightarrow A$, we conclude $S_v = 0$. Either both are non-zero or both are zero.
 	%
 	\item Let $S_v \neq 0$ and $D_v \neq 0$. Then $B \neq 0$. To prove this, consider for example Eq.~\eqref{eq:saf-Sv-sc-ABC}: we are working at $V>0$, thus
 	\[
@@ -1529,7 +1530,7 @@ Aim of this section is to prove that no self-consistent solution exists with non
 	and substitute from Eq.~\eqref{eq:saf-Du-sc-ABC} $BV S_v = - (1+2CV) D_v + 2t(B+2C)$,
 	\[
 	\begin{aligned}
-		- (1+2CV)(1+2AV) D_v + + 2t(B+2C)(1+2AV) + (BV)^2 D_u &= 2t BV(2A+B) \\
+		- (1+2CV)(1+2AV) D_v + 2t(B+2C)(1+2AV) + (BV)^2 D_u &= 2t BV(2A+B) \\
 		2t(B+2C)(1+2AV) &= 2t BV(2A+B) \\
 		B + 2ABV + 2C + 4ACV &= 2ABV + B^2 V
 	\end{aligned}
@@ -1590,7 +1591,7 @@ Aim of this section is to prove that no self-consistent solution exists with non
 		\quad\implies\quad
 		v^{(d)} = 0
 	\]
-	because no finite positive number can equal any finite negative number, and viceversa. Thus
+	because no finite positive number can equal any finite negative number, and \textit{viceversa}. Thus
 	\[
 		S_v \neq 0 \qq{and} D_v \neq 0
 		\quad\implies\quad
@@ -1803,11 +1804,11 @@ We set $\delta=0.0$. As we anticipated in Sec.~\ref{sec:af-instability}, any fin
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf}
-	\caption{Plot of the self-consistent convergence values for $m$ (left panel) and isomagnetic curves computed on the same data (right panel), along which magnetization is constant. For the sake of graphic clarity, only the points at $0 \le U \le 4$ and $0 \le V \le 6$ are plotted. {\color{tabred}[Are $U=0.05$ data correct?]}}
+	\caption{Plot of the self-consistent convergence values for $m$ (left panel) and isomagnetic curves computed on the same data (right panel), along which magnetization is constant. For the sake of graphic clarity, only the points at $0 \le U \le 4$ and $0 \le V \le 6$ are plotted. {\color{tabred}[Something broke at $U=0.05$, $V \ge 5$, change with new data.]}}
 	\label{fig:af-m-data-C128}
 \end{figure}
 
-The convergence values for $m$ computed in the $UV$ plane are shown in the panels of Fig.~\ref{fig:af-m-data-C128}, along with a level curves plot to identify isomagnetic curves (right panel). Note that, to increase graphic clarity in heatmaps bottom left sector, from the plots are omitted the points at $U \ge 4$ and $V \ge 6$. Tolerances on density and HFPs have been set to
+The convergence values for $m$ computed in $(U,V)$ plane are shown in the panels of Fig.~\ref{fig:af-m-data-C128}, along with a level curves plot to identify isomagnetic curves (right panel). Note that, to increase graphic clarity in heatmaps bottom left sector, from the plots are omitted the points at $U \ge 4$ and $V \ge 6$. Tolerances on density and HFPs have been set to
 \[
 	\Delta n = 10^{-2}
 	\qquad
@@ -1822,7 +1823,7 @@ The most interesting evident visible directly from heatmaps is that $\hat H_V$ a
 	\quad\to\quad
 	\text{HM: }(\tilde{t},U,0)
 \]
-being $\tilde{t}$ dependent on $V$. For the pure HM, to magnetize the system what matters is just $U/t$. To lower $t$ is physically the same as to increase $U$, and from this point comes the magnetization precession visible in Fig.~\ref{fig:af-m-data-C128}. Isomagnetic lines on the right panel show, for $U$ significantly greater than $0$, interesting linear trends whose angular coefficient depend on $m$ itself. The low-$U$ limit of isomagnetic lines presents some oscillations that are evidently imputable to numeric discretization of parametric space. {\color{tabred}[Add: derivation and discussion about the presence of isomagnetic lines.]}
+being $\tilde{t}$ dependent on $V$. For the pure HM, to magnetize the system what matters is just $U/t$. To lower $t$ is physically the same as to increase $U$, and from this point comes the magnetization precession visible in Fig.~\ref{fig:af-m-data-C128}. Isomagnetic lines on the right panel show, for $U$ significantly greater than $0$, interesting linear trends whose angular coefficient depend on $m$ itself. The low-$U$ limit of isomagnetic lines presents some oscillations that are evidently imputable to numeric discretization of parametric space. {\color{tabred}[Why isomagnetic curves are lines? Something about $U/(V-V_\mathrm{c})$ ratio being constant?]}
 
 \begin{figure}
 	\centering
@@ -1838,7 +1839,7 @@ being $\tilde{t}$ dependent on $V$. For the pure HM, to magnetize the system wha
 \label{fig:af-m-data-A256}
 \end{figure}
 
-The data shown in Fig.~\ref{fig:af-m-data-A256} confirm clearly the aforementioned magnetization  ``boost'' given by $\hat H_V$. The effect is more enhanced at low values of $U$. Interestingly enough, as is visible from Fig.~\ref{subfig:af-m-data-A256-pVar=U}, magnetization does not always saturate the same way. For example, considering the curve at $U=1.2$, magnetization varies following a somewhat sigmoid shape, making the boost most effective around $V \approx 2 \divisionsymbol 4$. Because of $m$ saturation, this behaviour is lost at higher $U$s.
+Data shown in Fig.~\ref{fig:af-m-data-A256} confirm clearly the aforementioned magnetization  ``boost'' given by $\hat H_V$. The effect is more enhanced at low values of $U$. Interestingly enough, as is visible from Fig.~\ref{subfig:af-m-data-A256-pVar=U}, magnetization does not always saturate the same way. For example, considering the curve at $U=1.2$, magnetization varies following a somewhat tilted sigmoid shape, making boost most effective around $V \approx 2 \divisionsymbol 4$. Because of $m$ saturation, this behaviour is lost at higher $U$s.
 
 \subsection{Bands shrinking}
 
@@ -1928,7 +1929,7 @@ The AF phase is always energetically favoured at half-filling, with respect to t
 \[
 	\Delta f_\mathrm{MFT} \equiv f_\mathrm{MFT}^{(\mathrm{N})} - f_\mathrm{MFT}^{(\mathrm{AF})}
 \]
-shown for a slightly more coarse-grained dataset in Fig.~\ref{fig:af-df-data-A128}, we see immediately how $\Delta f_\mathrm{MFT} \ge 0$ in all $(U,V)$ plane. Note that, in order to compare the two acquisitions, being the normal phase data of Sec.~\ref{sec:normal-numeric} having been simulated at $U=0$ due to their intrinsic $U$ independence, we obtained a comparable dataset for the normal phase by just concatenating the data for $U=0$ at all values of $U$ we are interested in.
+shown for a slightly more coarse-grained dataset in Fig.~\ref{fig:af-df-data-A128}, we see immediately how $\Delta f_\mathrm{MFT} \ge 0$ in all $(U,V)$ plane. Note that, in order to compare the two acquisitions, being the normal phase data of Sec.~\ref{sec:normal-numeric} having been simulated at $U=0$ due to their intrinsic $U$ independence, we obtained a comparable dataset for the normal phase by just concatenating the filtered data for $U=0$ at all values of $U$ we are interested in.
 %
 \begin{figure}
 	\centering
@@ -1982,6 +1983,6 @@ indicated in panels as the black dot. The three panels show different map evolut
 	\qq{and}
 	u^{(s^*)}_0 \in \lbrace 0.0,~0.1,~...,~0.4 \rbrace
 \]
-In figures, different colors indicate different evolutions, while the tip size indicates the magnitude of the algorithmic step in passing from one step to the following.
+In figures, different colors indicate different evolutions, while the tip size indicates the magnitude of the algorithmic step in passing from one iteration to the following.
 
 All paths are able to converge to $\mathbf{v}$, and the quantity of steps necessary to reach the fixed point, a sort of attractor, increases as we lower $g$. To select the correct $g$ turns out to be the real algorithm fine-tuning knob: as we saw for the normal phase, some model parametrization could lead to unavoidable algorithmic instabilities. The problem is that we do not know beforehand where the instabilities will occur, and how. The correct $g$ is the compromise between keeping low the number of steps (larger mixing) and moving slow enough to not diverge when encountering unstable points (smaller mixing). By recursively fine-tuning $g$ repeating non-converged simulation with more care, we are essentially making the nonlinear map ``softer'' and curvier, as is in the right panel of Fig.~\ref{fig:af-attractor}. It's not always resource convenient to do so, so for most simulations we stick to a rougher map (like the left panel one) by setting $g=0.5$.
