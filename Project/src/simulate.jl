@@ -176,7 +176,7 @@ function main()
 			p,Δv,Δn,g;
 			FilePathOut,
 			RBS,RBd,
-			OptBZ=false,Optg=true,record=false
+			OptBZ=false,Optg=false,record=false
 		)
 	end
 

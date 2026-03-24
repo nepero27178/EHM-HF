@@ -307,8 +307,8 @@ function GetObj(
 			return f
 
 		elseif Obj=="s"
-			@error "Under construction"
-			return
+			s -= sum(xlogx.(EK) + xlogx.(1 .- EK)) * 2/β
+			return s
 
 		end
 
