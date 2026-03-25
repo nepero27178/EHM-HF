@@ -57,7 +57,7 @@ else
 end
 
 function main()
-	Level::String = "raw"
+	Level::String = "refined"
 	if Level=="refined"
 		global Setup = split(Setup,'-')[1]
 	end
@@ -79,7 +79,7 @@ function main()
 	for obj in objList
 		# Run plot modules for each HFP
 		if Mode=="hs"
-			Skip::Int64 = pVar=="V" ? 2 : 0 # Adjust
+			Skip::Int64 = pVar=="U" ? 1 : 0 # Adjust
 			SavePlot2D(
 				FilePathIn,
 				DirPathOut;
@@ -91,9 +91,10 @@ function main()
 				Skip,
 				compared,
 				cVar,
+				Extension="png"
 			)
 			if exchange
-				Skip = 2
+				Skip = xVar=="U" ? 1 : 0 # Adjust
 				SavePlot2D(
 					FilePathIn,
 					DirPathOut;
@@ -105,6 +106,7 @@ function main()
 					Skip,
 					compared,
 					cVar,
+					Extension="png"
 				)
 			end
 		elseif Mode=="rs"

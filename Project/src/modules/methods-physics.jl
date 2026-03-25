@@ -307,7 +307,8 @@ function GetObj(
 			return f
 
 		elseif Obj=="s"
-			s -= sum(xlogx.(EK) + xlogx.(1 .- EK)) * 2/β
+			FK = FermiDirac.(EK,0.0,β)
+			s -= sum(xlogx.(FK) + xlogx.(1 .- FK)) * 2/β
 			return s
 
 		end

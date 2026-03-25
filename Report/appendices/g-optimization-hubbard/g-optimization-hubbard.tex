@@ -1,0 +1,67 @@
+\chapter{Mixing optimization in HM model}
+
+This short appendix is meant to give a practical example on a topic we often referenced to in text: how optimization of $g$, the mixing parameter defined in Sec.~\ref{subsec:reject-mix-iterate} and given operatively in  Eq.~\eqref{eq:mix} as
+\[
+	\mathbf{v}_{i+1} \equiv g \mathrm{A} \left( \mathbf{v}_{i} \right) + (1-g) \mathbf{v}_{i}
+\]
+can be relevant in order to ensure convergence of an iterative HF scheme as presented in Sec.~\ref{subsec:hf-sketch}.
+
+\section{Map analysis for $s$-wave superconductivity in HM}
+
+As we thoroughly discussed in Sec.~\ref{appsec:superconducting-phase}, conventional repulsive HM cannot exhibit BCS $s$-wave superconductivity within a MFT general scheme. This is proven trivially at the end of Sec.~\ref{appsubsec:sc-hm-impossible}, where we end up withe the self-consistency equation
+\begin{equation}\label{appeq:sc-self-consistency}
+	w^{(s)} = -\frac{U}{U_\mathrm{c}} w^{(s)}
+\end{equation}
+only solved at $U>0$ by $w^{(s)}=0$. Now, our aim is the following: given any initializer $w^{(s)}_0$, our iterative HF algorithm should give
+\[
+	w^{(s)}_0
+	\quad\stackrel{\mathrm{Alg}}{\to}\quad
+	\cdots 
+	\quad\stackrel{\mathrm{Alg}}{\to}\quad 
+	\sim 0 
+\]
+The point is the following: is this behaviour possible at any model parametrization?
+
+Consider the nonlinear map of Eq.~\eqref{appeq:sc-self-consistency} as ``seen by the algorithm'': at step $i$, we compute the left side by using the value of $w^{(s)}$ at step $i-1$ (also for computing $U_\mathrm{c}[\beta]$). Let us drop the superscript $(s)$ for the sake of readability. Seen this way, we are effectively moving along the numeric succession
+\[
+	w_{i+1} = -g\left(\frac{U}{U_{\mathrm{c}}[\beta]}\right)_i w_i + (1-g) w_i \\
+\]
+the subscript indicating iteration. In previous equation we made use of Eq.~\eqref{eq:mix} to generate the $i+1$-th step from step $i$. Let now:
+\[
+\begin{aligned}
+	U_\mathrm{s} &\equiv \left(\frac{1}{g}-1\right) U_{\mathrm{c}} \\
+	U_\mathrm{h} &\equiv \left(\frac{2}{g}-1\right) U_{\mathrm{c}}
+\end{aligned}
+\]
+the subscript indicating, for a reason clear soon, a ``soft boundary'' (first) and an ``hard boundary'' (second). Let us derive some trivial facts true whenever $w_i>0$:
+\begin{enumerate}
+	\item It always holds $w_{i+1} \le w_i$. This is simple to see: if $w_{i+1}>w_i$,
+	\[
+	\begin{aligned}
+		-g\left(\frac{U}{U_{\mathrm{c}}[\beta]}\right)_i w_i + (1-g) w_i &> w_i \\
+		-g\left(\frac{U}{U_{\mathrm{c}}[\beta]}\right)_i w_i -g w_i &> 0
+	\end{aligned}
+	\]
+	which is impossible because all involved terms are positive.
+	%
+	\item For $0 < U < U_\mathrm{s}$, we have $0 < w_{i+1} < w_i$. Indeed $w_{i+1}$ is greater than zero when:
+	\[
+	\begin{aligned}
+		-g\left(\frac{U}{U_{\mathrm{c}}}\right)_i w_i + (1-g) w_i &> 0 \\
+		\frac{1-g}{g} &> \frac{U}{U_{\mathrm{c}}} \\
+		U_\mathrm{s} &> U 
+	\end{aligned}
+	\]
+	%
+	\item For $U_\mathrm{s} < U < U_\mathrm{h}$, we have $-w_i < w_{i+1} < 0$. From point above, we know $U>U_\mathrm{s}$ implies $w_{i+1} < 0$ by simply inverting inequalities. Moreover,
+	\[
+	\begin{aligned}
+		-g\left(\frac{U}{U_{\mathrm{c}}}\right)_i w_i + (1-g) w_i &> -w_i \\
+		\frac{2-g}{g} &> \frac{U}{U_{\mathrm{c}}} \\
+		U_\mathrm{h} &> U 
+	\end{aligned}	
+	\]
+	%
+	\item For $U > U_\mathrm{h}$, we have $w_{i+1} < -w_i$. This is trivially implied by inverting inequalities in last point.
+\end{enumerate}
+If we know $U_\mathrm{c}$, for any given $g$ we can predict the algorithmic image of a given step.
