@@ -65,3 +65,13 @@ the subscript indicating, for a reason clear soon, a ``soft boundary'' (first) a
 	\item For $U > U_\mathrm{h}$, we have $w_{i+1} < -w_i$. This is trivially implied by inverting inequalities in last point.
 \end{enumerate}
 If we know $U_\mathrm{c}$, for any given $g$ we can predict the algorithmic image of a given step.
+
+Now, consider $U_\mathrm{c}$ as a function of the gap $\Delta$,
+\[
+	U_\mathrm{c}(\Delta) = \left[
+		\frac{1}{2 L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{1}{\sqrt{\xi_\mathbf{k}^2 + \abs{\Delta}^2}} \tanh(
+			\frac{\beta}{2} \sqrt{\xi_\mathbf{k}^2 + \abs{\Delta}^2}
+		)
+	\right]^{-1}
+\]
+\todo

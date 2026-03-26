@@ -79,7 +79,7 @@ function main()
 	for obj in objList
 		# Run plot modules for each HFP
 		if Mode=="hs"
-			Skip::Int64 = pVar=="U" ? 1 : 0 # Adjust
+			# Skip::Int64 = pVar=="U" ? 1 : 0 # Adjust
 			SavePlot2D(
 				FilePathIn,
 				DirPathOut;
@@ -91,10 +91,10 @@ function main()
 				Skip,
 				compared,
 				cVar,
-				Extension="png"
+				# Extension="png"
 			)
 			if exchange
-				Skip = xVar=="U" ? 1 : 0 # Adjust
+				# Skip = xVar=="U" ? 1 : 0 # Adjust
 				SavePlot2D(
 					FilePathIn,
 					DirPathOut;
@@ -106,7 +106,7 @@ function main()
 					Skip,
 					compared,
 					cVar,
-					Extension="png"
+					# Extension="png"
 				)
 			end
 		elseif Mode=="rs"

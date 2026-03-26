@@ -3,7 +3,7 @@ SetupFilePath::String = @__FILE__
 
 # Phase
 AllPhases::Set{String} = Set(["Normal","AF","AF-Symmetric","AF-Antisymmetric","SC-Singlet","SC-Triplet"])
-Phase::String = "SC-Singlet" 			# ← Change here
+Phase::String = "AF" # ← Change here
 if !in(Phase, AllPhases)
 	@error "Invalid phase, please modify at: " * SetupFilePath
 	exit()
@@ -12,7 +12,7 @@ end
 # Syms
 SymmetricStructures::Set{String} = Set(["s", "S", "d"])
 AntisymmetricStructures::Set{String} = Set(["x", "y"])
-Syms::Set{String} = Set(["s","S","d"]) 	# ← Change here
+Syms::Set{String} = Set([]) # ← Change here
 
 Err::Bool = false
 (Phase=="Normal" && length(Syms)>0) ? Err = true : false
@@ -27,12 +27,12 @@ end
 
 # RB
 AllRB::Set{String} = Set(["S", "d"])
-RB::Set{String} = Set(["S","d"]) 		# ← Change here
+RB::Set{String} = Set(["S"]) # ← Change here
 RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "A[256]-a" 				# ← Change here
+Setup::String = "D[256]-a" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test", # Test setup
 	"A[256]-a", # UV plane
@@ -184,22 +184,22 @@ elseif Setup=="C[256]-a"
 
 # --- MAIN βV plane RUN ---
 elseif Setup=="C[256]-b"
-        tt = [1.0]
-        UU = [0.0]
-        VV = [V for V in 0.0:0.2:6.0]
-        LL = [256]
-        δδ = [0.0, 0.2, 0.4]
-        ββ = [0.1, 4.0, 6.0, 8.0, 15.0]
-        p = 100
-        Δv = MainΔv
-        Δn = 1e-2
-        g = 0.1
-        xVar = "V"
-        pVar = "β"
-        xScale = identity
+	tt = [1.0]
+	UU = [0.0]
+	VV = [V for V in 0.0:0.2:6.0]
+	LL = [256]
+	δδ = [0.0, 0.2, 0.4]
+	ββ = [0.1, 4.0, 6.0, 8.0, 15.0]
+	p = 100
+	Δv = MainΔv
+	Δn = 1e-2
+	g = 0.1
+	xVar = "V"
+	pVar = "β"
+	xScale = identity
 	compared = true
 	cVar = "δ"
-        exchange = false
+	exchange = false
 	cs = :tabcoolwarm
 
 # --- MAIN δV plane RUN ---
@@ -221,5 +221,6 @@ elseif Setup=="D[256]-a"
 	cVar = ""
 	exchange = true
 	cs = :tabwarm
+	Skip::Int64 = 2
 
 end
