@@ -32,7 +32,7 @@ RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "B[256]-a" # ← Change here
+Setup::String = "B[256]-b" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test", # Test setup
 	"A[256]-a", # UV plane
@@ -101,6 +101,7 @@ elseif Setup=="A[256]-a"
 	cVar = "δ" # ""
 	exchange = true
 	cs = :tabwarm
+	Skip = 2
 
 # --- EXTENDED UV plane RUN ---
 elseif Setup=="A[256]-b"
@@ -121,6 +122,7 @@ elseif Setup=="A[256]-b"
 	cVar = ""
 	exchange = true
 	cs = :tabwarm
+	Skip = 2
 
 # --- MAIN δV plane RUN ---
 elseif Setup=="B[256]-a"
