@@ -21,9 +21,125 @@
 
 \section{Introduction to Hartree-Fock methods}
 
-The Hartree-Fock method is a variational approach to determine the ground-state wavefunction of a many-body hamiltonian. The wavefunction is searched in a variational scheme as the one minimising energy, limiting search to the subspace of wavefunctions that can be represented as a single Slater determinant. Let us introduce these concepts.
+The Hartree-Fock (HF) method is a variational approach to determine the ground-state wavefunction of a many-body hamiltonian. The wavefunction is searched in a variational scheme as the one minimising energy, limiting search to the subspace of wavefunctions that can be represented as a single Slater determinant. Let us introduce these concepts. The sections that follow are based on the discussions of \cite{grosso2014solid, fabrizio2022course}.
 
+\subsection{Slater determinants and generalities}
 
+For a electronic system, it follows from fermionic algebra that the many-body wavefunction needs to be antisymmetric under interchange of coordinates and spins ($\mathbf{r}_i,\sigma_i)$, $(\mathbf{r}_j,\sigma_j)$ of any couple of electrons. The simplest way to build a many-body wavefunction satisfying this rule is ``to antisymmetrize'' a set of orthonormal $N$ one-body spin-orbitals, being $N$ the total number of electrons. Let $\lbrace \psi_i \rbrace$ be said set,
+\[
+	\frac{1}{2\mathcal{V}} \sum_\sigma \int \mathrm{d}\mathbf{r}\ \psi_i(\mathbf{r},\sigma) \psi_j(\mathbf{r},\sigma) = \delta_{ij}
+\]
+being $\mathcal{V}$ the total volume. Let then the antisymmetrization operator
+\[
+	\mathcal{A} \equiv \frac{1}{\sqrt{N!}} \sum_{\mathrm{P}\in \mathrm{S}_N} (-1)^{\sigma(\mathrm{P})} \mathrm{P}
+\]
+being $\mathrm{S}_N$ the $N!$ elements symmetric group of $N$ objects permutations, and $\sigma(\mathrm{P})$ the ``parity factor'' of any permutation $\mathrm{P} \in \mathcal{S}_N$. $\sigma(\mathrm{P})$ counts the number of exchanges needed to achieve a given configuration. This way, an even number of exchanges gives $+1$, an odd number gives $-1$. The permutation operator exchanges spin-coordinates couples,
+\[
+	\mathrm{P} \quad\colon\quad
+	(\mathbf{r},\sigma) \leftrightarrow (\mathbf{r}',\sigma')
+\]
+thus any given pair is exchanged with another.
+
+Equipped with $\mathcal{A}$, we define the many-body wavefunction
+\[
+	\Psi(\mathbf{r}_1,\sigma_1;\mathbf{r}_2,\sigma_2;\cdots;\mathbf{r}_N,\sigma_N) = \mathcal{A} \left\lbrace 
+		\prod_{i=1}^{N} \psi_i(\mathbf{r}_i,\sigma_i)
+	\right\rbrace
+\]
+which by construction is antisymmetric under exchange of coordinates and spins pairs. This class of wavefunctions, obtained as antisymmetric combinations of product states, are representable as so-called Slater determinants,
+\[
+	\Psi(\mathbf{r}_1,\sigma_1;\mathbf{r}_2,\sigma_2;\cdots;\mathbf{r}_N,\sigma_N) = \frac{1}{\sqrt{N!}} \det \begin{bmatrix}
+		\psi_1 (\mathbf{r}_1,\sigma_1) & \psi_1 (\mathbf{r}_2,\sigma_2) & \cdots & \psi_1 (\mathbf{r}_N,\sigma_N) \\
+		\psi_2 (\mathbf{r}_1,\sigma_1) & \psi_2 (\mathbf{r}_2,\sigma_2) & \cdots & \psi_2 (\mathbf{r}_N,\sigma_N) \\
+		\vdots & \vdots & & \vdots \\
+		\psi_N (\mathbf{r}_1,\sigma_1) & \psi_N (\mathbf{r}_2,\sigma_2) & \cdots & \psi_N (\mathbf{r}_N,\sigma_N) \\
+	\end{bmatrix}
+\]
+Determinants of matrices with two equal rows or two equal columns are null. Thus, all spin-orbitals must differ, as well as no single spin-orbital $\psi_i$ can be doubly occupied (which is, all spin-coordinate couples must be different). Pauli exclusion principle is included in this framework.
+
+Any normalised combinations of Slater determinants gives an antisymmetric wavefunction, although not necessarily representable as a single Slater determinant. In HF theory, we search for the best possible choice of orthonormal one-body spin orbitals $\lbrace \psi_1,\psi_2, \cdots, \psi_N \rbrace$ to approximate the true ground-state of the model. The space of possible ``Slater-like'' many-body wavefunctions is the parametric space where we perform the variational constrained search.
+
+The EHM is formulated in second-quantisation. It is then useful to represent Slater-like states in this language. Let us map all the spin-orbitals from the discussion above to a couple of annihilation-creation fermionic operators,
+\[
+	\psi_i \quad\to\quad \hat c_i, \hat c_i^\dagger
+\]
+Any Slater state can be expressed in second-quantisation as:
+\begin{equation}\label{eq:slater-Psi}
+	\ket{\Psi} = \bigotimes_{i=1}^N \hat c_i^\dagger \ket{\Omega}
+\end{equation}
+being $\ket{\Omega}$ the vacuum. Note that up to now we never required explicitly $\hat c_i$ to be electronic operators. 
+
+Our fermionic $\hat c$ operators span, in general, a subspace of the entire Hilbert space. Let $\hat c_i$ with $i > N$ identify all spin-orbitals not already included in the definition of $\ket{\Psi}$ of Eq.~\eqref{eq:slater-Psi}. Then it holds:
+\[
+\begin{aligned}
+	0\le i \le N
+	\quad&\colon\quad
+	\hat c_i^\dagger \ket{\Psi} = 0 \\
+	i > N
+	\quad&\colon\quad
+	\hat c_i \ket{\Psi} = 0
+\end{aligned}
+\]
+Let:
+\[
+	\hat a_i \equiv \begin{cases}
+		\hat c_i^\dagger &\text{for $0\le i \le N$} \\
+		\hat c_i &\text{for $i > N$} \\
+	\end{cases}
+\]
+These new operators satisfy a Fermi algebra $\lbrace \hat a_i , \hat a_j^\dagger \rbrace = \delta_{ij}$. They are annhilation and creation operators above the ``vacuum'' state $\ket{\Psi}$. In other words, any Slater state can be seen as a vacuum state for a suitably chosen set of fermionic operators.
+
+This property is particularly handy for evaluation of expectation values (EV). By applying the transformation described above, any $\mathcal{O}(c)$ operator $\hat C_\ell$ (either $\hat c_i$ or $\hat c_i^\dagger$ for some $i$) can be mapped to its $\mathcal{O}(a)$ counterpart $\hat A_\ell$. Now, Wick's theorem states that
+\[
+\begin{aligned}
+	\hat C_1 \hat C_2 \cdots \hat C_{2k} &= \mathrm{N} \left\lbrace \hat C_1 \hat C_2 \cdots \hat C_{2k} \right\rbrace \\
+	&+ \sum_{(\alpha\beta)} (-1)^{\zeta_{\alpha\beta}} D_{\alpha\beta} \mathrm{N} \left\lbrace \prod_{i \neq \alpha,\beta} \hat C_i \right\rbrace \\
+	&+ \sum_{(\alpha\beta)(\gamma\delta)} (-1)^{\zeta_{\alpha\beta}} D_{\alpha\beta} (-1)^{\zeta_{\gamma\delta}} D_{\gamma\delta} \mathrm{N} \left\lbrace \prod_{i \neq \alpha,\beta,\gamma,\delta} \hat C_i \right\rbrace \\
+	&+ \cdots
+\end{aligned}
+\]
+where $\mathrm{N}\lbrace \cdots \rbrace$ indicates normal ordering, $D_{\alpha\beta}$ is the contraction of the pair $\hat C_\alpha \hat C_\beta$ and $\zeta_{\alpha\beta}$ is a symmetry factor included to take care of the number of fermionic algebra. Sums are performed over pairs of indices, implicitly taken to be different from each other. Now, to take averages of this complicated operator over $\ket{\Psi}$ is in general non trivial. If instead change basis and express all operators in terms of $\hat a$, $\hat a^\dagger$,
+\[
+	\hat C_i \quad\to\quad \hat A_i
+\]
+the above decomposition holds identically, with slight change of notation. Now, taking a zero temperature average computed on $\ket{\Psi}$, all normal-ordered terms disappear,
+\[
+	\mel{\Psi}{\mathrm{N}\lbrace \hat A_a \hat A_b \cdots \rbrace}{\Psi} = 0
+\]
+thus in the decomposition above only fully contracted terms survive. Going back to $\hat c$ operators, we can re-express fully contracted terms in the original basis. In this procedure, the only key property of Slater states we used was the fact that they are vacuum to some fermionic basis. Finite-temperature extension of Wick's theorem as well as more complicated change of basis are possible, but the concept remains the same: on a Slater state, which is essentially a non-interacting state for some set of fermions, Wick's theorem is particularly well-behaved.
+
+From the point above it follows that
+\[
+	\langle
+	\hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta
+	\rangle = \underbrace{
+		\langle 
+		\hat c_\alpha^\dagger \hat c_\delta
+		\rangle \langle	
+		\hat c_\beta^\dagger \hat c_\gamma 
+		\rangle
+	}_{\text{Hartree}}
+	- 
+	\underbrace{
+		\langle 
+		\hat c_\alpha^\dagger \hat c_\beta
+		\rangle \langle	
+		\hat c_\gamma^\dagger \hat c_\delta 
+		\rangle 
+	}_{\text{Fock}}
+	+ 
+	\underbrace{
+		\langle 
+		\hat c_\alpha^\dagger \hat c_\beta^\dagger
+		\rangle \langle	
+		\hat c_\gamma \hat c_\delta 
+		\rangle 
+	}_{\text{Cooper}}
+\]
+being the average intended on a Slater state. The subscript indicate the name we will give to these terms throughout the text.
+
+\subsection{Sketch of HF variational method}
+\todo
 
 \color{tabred}
 \section{Extended Hubbard model symmetries and Wick's theorem}\label{sec:ehm-symmetries}
