@@ -6,8 +6,8 @@ B[256]-a => TODO refine => TODO plot
 B[256]-b => TODO layer => TODO refine => TODO plot
 
 SC-Singlet [rs]
-A[128]-a => TODO layer => TODO refine => TODO plot
-A[128]-b => TODO copy from met-num => TODO layer => TODO refine => TODO plot
+A[128]-a => TODO layer => TODO refine => TODO plot [ON]
+A[128]-b => DONE copy from met-num => TODO layer => TODO refine => TODO plot [ON]
 B[128]-a => TODO correct layer interruption locally => TODO refine => TODO plot
 B[128]-b => TODO simulate on stubborn => TODO copy from stubborn => TODO layer => TODO refine => TODO plot
 
