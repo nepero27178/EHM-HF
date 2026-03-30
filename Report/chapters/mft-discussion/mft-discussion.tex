@@ -21,7 +21,7 @@
 
 \section{Introduction to Hartree-Fock methods}
 
-The Hartree-Fock (HF) method is a variational approach to determine the ground-state wavefunction of a many-body hamiltonian. The wavefunction is searched in a variational scheme as the one minimising energy, limiting search to the subspace of wavefunctions that can be represented as a single Slater determinant. Let us introduce these concepts. The sections that follow are based on the discussions of \cite{grosso2014solid, fabrizio2022course}.
+The Hartree-Fock (HF) method is a variational approach to determine the ground-state wavefunction of a many-body hamiltonian. The wavefunction is searched in a variational scheme as the one minimising energy, limiting search to the subspace of gaussian states. Let us introduce these concepts. The sections that follow are based on the discussions of \cite{grosso2014solid, fabrizio2022course}.
 
 \subsection{Slater determinants and generalities}
 
@@ -65,11 +65,37 @@ The EHM is formulated in second-quantisation. It is then useful to represent Sla
 \]
 Any Slater state can be expressed in second-quantisation as:
 \begin{equation}\label{eq:slater-Psi}
-	\ket{\Psi} = \bigotimes_{i=1}^N \hat c_i^\dagger \ket{\Omega}
+	\ket{\Psi} = \prod_{i=1}^N \hat c_i^\dagger \ket{\Omega}
 \end{equation}
-being $\ket{\Omega}$ the vacuum. Note that up to now we never required explicitly $\hat c_i$ to be electronic operators. 
+being $\ket{\Omega}$ the vacuum. 
 
-Our fermionic $\hat c$ operators span, in general, a subspace of the entire Hilbert space. Let $\hat c_i$ with $i > N$ identify all spin-orbitals not already included in the definition of $\ket{\Psi}$ of Eq.~\eqref{eq:slater-Psi}. Then it holds:
+Note that up to now we never required explicitly $\hat c_i$ to be ``standard'' electronic operators. In fact, let $M$ be any unitary matrix, and
+\[
+	\hat a_i \equiv \sum_j M_{ij} \hat c_j
+	\qquad
+	\hat a_i^\dagger \equiv \sum_j M_{ji}^* \hat c_j^\dagger
+\]
+be a combination of annihilation operators. The new operators satisfy Fermi anticommutation rules,
+\[
+\begin{aligned}
+	\lbrace \hat a_i, \hat a_j^\dagger \rbrace &= \sum_{i'} M_{ii'} \sum_{j'} M_{jj'} \lbrace \hat c_{i'}, \hat c_{j'}^\dagger \rbrace \\
+	&= \sum_{i'} M_{ii'} \sum_{j'} M_{j'j}^* \delta_{i'j'} \\
+	&= \left[ MM^\dagger \right]_{ij} \\
+	&= \delta_{ij}
+\end{aligned}
+\]
+being $M$ unitary. Express Eq.~\eqref{eq:slater-Psi} in the new basis:
+\[
+\begin{aligned}
+	\ket{\Psi} &= \prod_{i=1}^N \hat c_i^\dagger \ket{\Omega} \\
+	&= \prod_{i=1}^N \sum_j M_{ij} \hat a_j^\dagger \ket{\Omega}
+\end{aligned}
+\]
+The concise expression of Eq.~\eqref{eq:slater-Psi} may appear more complicated in a different basis. The core concept is that Slater determinants represent, for a specific choice of fermionic operators, a non-interacting Fermi gas. HF methods assume the ground state to be of the form of Eq.~\eqref{eq:slater-Psi} for an unknown set of fermionic operators, and then look for the best approximation within all these possible Slater states.
+
+{\color{tabred}\subsection{Wick's theorem applied to Slater determinants}
+
+In this picture, second-quantised fermionic $\hat c$ operators span, in general, a subset of all possible spin-orbitals (states in Hilbert space). Let $\hat c_i$ with $i > N$ identify all spin-orbitals not already included in the definition of $\ket{\Psi}$ of Eq.~\eqref{eq:slater-Psi}. Then it holds:
 \[
 \begin{aligned}
 	0\le i \le N
@@ -98,7 +124,7 @@ This property is particularly handy for evaluation of expectation values (EV). B
 	&+ \cdots
 \end{aligned}
 \]
-where $\mathrm{N}\lbrace \cdots \rbrace$ indicates normal ordering, $D_{\alpha\beta}$ is the contraction of the pair $\hat C_\alpha \hat C_\beta$ and $\zeta_{\alpha\beta}$ is a symmetry factor included to take care of the number of fermionic algebra. Sums are performed over pairs of indices, implicitly taken to be different from each other. Now, to take averages of this complicated operator over $\ket{\Psi}$ is in general non trivial. If instead change basis and express all operators in terms of $\hat a$, $\hat a^\dagger$,
+where $\mathrm{N}\lbrace \cdots \rbrace$ indicates normal ordering, $D_{\alpha\beta}$ is the contraction of the pair $\hat C_\alpha \hat C_\beta$ and $\zeta_{\alpha\beta}$ is a symmetry factor included to take care of the number of fermionic algebra. Sums are performed over pairs of indices, implicitly taken to be different from each other. Now, to take averages of this complicated operator over $\ket{\Psi}$ is in general non trivial. If we change basis and express all operators in terms of $\hat a$, $\hat a^\dagger$,
 \[
 	\hat C_i \quad\to\quad \hat A_i
 \]
@@ -136,7 +162,13 @@ From the point above it follows that
 		\rangle 
 	}_{\text{Cooper}}
 \]
-being the average intended on a Slater state. The subscript indicate the name we will give to these terms throughout the text.
+being the average intended on a Slater state. The subscript indicate the name we will give to these terms throughout the text.}
+
+\subsection{Gaussian states and Slater determinants}
+
+In this text we make use of an extended version of HF method, often referred to as Hartree-Fock-Bogoliubov (HFB). Minimisation is performed not only over Slater determinants, but a larger set: gaussian states. Introducing the concept of Slater determinants was useful to describe intuitively how HF methods work, but now we extend to a broader set.
+
+\todo
 
 \subsection{Sketch of HF variational method}
 \todo

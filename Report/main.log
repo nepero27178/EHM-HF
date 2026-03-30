@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  30 MAR 2026 00:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  30 MAR 2026 13:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1706,7 +1706,15 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
-dvips/cm-super/cm-super-ts1.enc}] (./misc/abbreviations.tex
+dvips/cm-super/cm-super-ts1.enc}]
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.41 \clearpage
+                [2] (./misc/abbreviations.tex
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1747,16 +1755,24 @@ een already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.38 \restoregeometry
-                      [2]) (./misc/introduction.tex)
+                      [3]) (./misc/introduction.tex
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.3 \chapter
+            *{Introduction} [4
+
+
+
+
+
+])
 (./chapters/theoretical-introduction/theoretical-introduction.tex
 
-[1
-
-
-
-
-
-]
+[1]
 
 [2
 
@@ -1803,9 +1819,11 @@ LaTeX Warning: Citation 'cao2025p-wave' on page 4 undefined on input line 50.
 [7]
 
 LaTeX Warning: Reference `sec:normal-fock-bands-renormalization' on page 8 unde
-fined on input line 182.
+fined on input line 214.
 
-(./chapters/mft-discussion/pictures/su2-full-symmetry.tex
+
+
+[8] (./chapters/mft-discussion/pictures/su2-full-symmetry.tex
 \pgf@layerbox@back=\box79
 \pgf@layerboxsaved@back=\box80
 \pgf@layerbox@front=\box81
@@ -1817,7 +1835,7 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
-Underfull \hbox (badness 1286) in paragraph at lines 218--218
+Underfull \hbox (badness 1286) in paragraph at lines 250--250
 []|$[]\OT1/cmr/m/n/9 (2)$ ro-ta-tions do-main be-fore
  []
 
@@ -1830,8 +1848,6 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
 
-[8]
-
 [9]
 
 [10]
@@ -1839,28 +1855,29 @@ Missing character: There is no ; in font nullfont!
 [11]
 
 LaTeX Warning: Reference `appsec:antiferromagnetic-phase' on page 12 undefined 
-on input line 432.
+on input line 464.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 491.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 491.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 491.
-
-(./chapters/mft-discussion/pictures/square-nearest-neighbors.tex)
 
 [12]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 523.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 523.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 523.
+
+(./chapters/mft-discussion/pictures/square-nearest-neighbors.tex)
 
 [13]
 
 LaTeX Warning: Reference `appendix:mean-field-hubbard' on page 14 undefined on 
-input line 630.
+input line 662.
 
 
 
@@ -1873,50 +1890,51 @@ input line 630.
 [17]
 
 LaTeX Warning: Reference `appsubsec:hartree-fock-algorithm' on page 18 undefine
-d on input line 919.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 931.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mu' on input line 931.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 931.
+d on input line 951.
 
 
 
 [18]
 
-LaTeX Warning: Reference `subsec:normal-g-optimization' on page 19 undefined on
- input line 990.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 963.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mu' on input line 963.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 963.
 
 
 
-[19] (./chapters/mft-discussion/pictures/s-wave-correlator.tex)
+[19]
+
+LaTeX Warning: Reference `subsec:normal-g-optimization' on page 20 undefined on
+ input line 1022.
+
+(./chapters/mft-discussion/pictures/s-wave-correlator.tex)
 (./chapters/mft-discussion/pictures/s*-wave-correlator.tex)
 (./chapters/mft-discussion/pictures/px-wave-correlator.tex)
 (./chapters/mft-discussion/pictures/py-wave-correlator.tex)
 (./chapters/mft-discussion/pictures/d-wave-correlator.tex)
-Underfull \vbox (badness 3758) has occurred while \output is active []
-
-
 
 [20]
-<../Project/src/labs/structure-factors/plot-structure-factors.pdf, id=409, 602.
+
+[21]
+<../Project/src/labs/structure-factors/plot-structure-factors.pdf, id=436, 602.
 25pt x 526.96875pt>
 File: ../Project/src/labs/structure-factors/plot-structure-factors.pdf Graphic 
 file (type pdf)
 <use ../Project/src/labs/structure-factors/plot-structure-factors.pdf>
 Package pdftex.def Info: ../Project/src/labs/structure-factors/plot-structure-f
-actors.pdf  used on input line 1091.
+actors.pdf  used on input line 1123.
 (pdftex.def)             Requested size: 384.1096pt x 336.109pt.
 
+Underfull \vbox (badness 1859) has occurred while \output is active []
 
-[21]
+
 
 [22 <../Project/src/labs/structure-factors/plot-structure-factors.pdf>])
 
@@ -1956,7 +1974,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D10295BC56109E97968F50152737E294;6332.
+(rerunfilecheck)             Checksum: B343CDFBBA52FFB0C4004593D544C1A3;6903.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -1967,11 +1985,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53142 strings out of 475076
- 1202130 string characters out of 5763687
- 2216976 words of memory out of 5000000
- 75191 multiletter control sequences out of 15000+600000
- 579018 words of font info for 109 fonts, out of 8000000 for 9000
+ 53148 strings out of 475076
+ 1202219 string characters out of 5763687
+ 2206978 words of memory out of 5000000
+ 75194 multiletter control sequences out of 15000+600000
+ 579371 words of font info for 110 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  92i,16n,96p,2640b,1673s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -1994,19 +2012,20 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texm
-f/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public
-/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.p
-fb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (28 pages, 1131034 bytes).
+nts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></u
+sr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (30 pages, 1143003 bytes).
 PDF statistics:
- 712 PDF objects out of 1000 (max. 8388607)
- 572 compressed objects within 6 object streams
- 138 named destinations out of 1000 (max. 500000)
- 338 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 737 PDF objects out of 1000 (max. 8388607)
+ 593 compressed objects within 6 object streams
+ 140 named destinations out of 1000 (max. 500000)
+ 354 words of extra memory for PDF output out of 10000 (max. 10000000)
 
