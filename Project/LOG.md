@@ -1,13 +1,16 @@
-# 20260328
+# 20260330
+SC-Triplet [hs]
+A[256]-a => TODO simulate on subborn => TODO layer => TODO refine => TODO plot
+
 SC-Singlet [hs]
 A[256]-a => DONE refine => DONE plot refined (w/ -b)
 A[256]-b => DONE refine => DONE plot refined (w/ -a)
 B[256]-a => TODO refine => TODO plot
-B[256]-b => TODO layer => TODO refine => TODO plot
+B[256]-b => TODO layer (3rd on met-num) => TODO refine => TODO plot [ON met-num]
 
 SC-Singlet [rs]
-A[128]-a => TODO layer => TODO refine => TODO plot [ON]
-A[128]-b => DONE copy from met-num => TODO layer => TODO refine => TODO plot [ON]
+A[128]-a => TODO layer (2nd on stubborn) => TODO refine => TODO plot [ON stubborn]
+A[128]-b => TODO layer (1st on met-num) => TODO refine => TODO plot [ON met-num]
 B[128]-a => TODO correct layer interruption locally => TODO refine => TODO plot
 B[128]-b => TODO simulate on stubborn => TODO copy from stubborn => TODO layer => TODO refine => TODO plot
 
