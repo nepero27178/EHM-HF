@@ -244,7 +244,7 @@ The subscripts indicate the name we will give to these terms throughout the text
 
 All of this holds when averaging is performed on a state, $\ket{\Psi}$, which is vacuum for a set of operators linked to fermionic Nambu spinor $\hat \Phi$ by some unitary operation. This set of states is the domain of our variational constrained search. This kind of unitary mapping is often referred to as Bogoliubov-Valatin transformation, and the method hereby presented as Hartree-Fock-Bogoliubov (HFB). For simplicity we will stick, from now on, to the name ``HF method'' referring to this discussion. {\color{tabred}\textbf{This argument has been carried out at zero temperature, but can be extended to finite temperature using appropriate path-integral techniques}}.
 
-\section{Sketch of HF variational method}
+\section{Sketch of HF variational method}\label{sec:sketch-hf-method}
 
 Consider the generic quartic hamiltonian:
 \[
@@ -425,7 +425,7 @@ Using Eq.~\eqref{eq:hf-B-sym} we end up with:
 \end{multline*}
 
 Let now:
-\[
+\begin{equation}\label{eq:hf-CD-definition}
 	C_{\alpha\beta} \equiv 
 	\frac{1}{2} \left[
 		A_{\alpha\beta} + \sum_{\gamma,\delta}
@@ -434,8 +434,8 @@ Let now:
 		\right) \Delta_{\gamma\delta}^{+-} 
 	\right]
 	\qquad
-	D_{\alpha\beta} = \sum_{\gamma,\delta} \frac{B_{\alpha\beta\gamma\delta} \Delta_{\gamma\delta}^{--}}{2}
-\]
+	D_{\alpha\beta} \equiv \sum_{\gamma,\delta} \frac{B_{\alpha\beta\gamma\delta} \Delta_{\gamma\delta}^{--}}{2}
+\end{equation}
 From Fermi anticommutation rules, we have:
 \[
 	\Delta_{\alpha\beta}^{+-} = \delta_{\alpha\beta} - \Delta_{\beta\alpha}^{-+}
@@ -474,7 +474,7 @@ The notation ``$\stackrel{!}{=}$'' indicates, throughout the thesis, that we are
 		C_{\alpha\beta} \pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} - C_{\beta\alpha} \pdv{\Delta_{\alpha\beta}^{-+}}{h_{\mu\nu}^{rs}} + D_{\alpha\beta} \pdv{\Delta_{\alpha\beta}^{++}}{h_{\mu\nu}^{rs}} + D_{\beta\alpha}^* 	\pdv{\Delta_{\alpha\beta}^{--}}{h_{\mu\nu}^{rs}}
 	\right) \stackrel{!}{=} 0
 \end{equation}
-Now compare Eqns.~\eqref{eq:hf-variational-h} and \eqref{eq:hf-variational-CD}. We recognise the $h_{\alpha\beta}^{+-} = C_{\alpha\beta}$ and $h_{\alpha\beta}^{++} = D_{\alpha\beta}$; the remaining fields are determined by the symmetry relations \eqref{eq:hf-ondiag-relation} and \eqref{eq:hf-offdiag-relation}. Explicitly, the fields are self-consistently determined by the following two equations:
+Now compare Eqns.~\eqref{eq:hf-variational-h} and \eqref{eq:hf-variational-CD}. We recognise $h_{\alpha\beta}^{+-} = C_{\alpha\beta}$ and $h_{\alpha\beta}^{++} = D_{\alpha\beta}$; the remaining fields are determined by the symmetry relations \eqref{eq:hf-ondiag-relation} and \eqref{eq:hf-offdiag-relation}. Explicitly, the fields are self-consistently determined by the following two equations:
 \begin{align}
 	h_{\alpha\beta}^{+-} &= \frac{1}{2} \left[
 	A_{\alpha\beta} + \sum_{\gamma,\delta}
@@ -488,39 +488,33 @@ The right-hand side of both equations depends on the fields themselves: $\Delta_
 \begin{equation}\label{eq:hf-self-consistency-general}
 	\Delta_{\alpha\beta}^{pq}[\mathbf{h}] = \mel{\Psi[\mathbf{h}]}{\hat a_\alpha^p \hat a_\beta^q}{\Psi[\mathbf{h}]}
 \end{equation}
-This set of equations defines our computational problem. We are searching a set of parameters $\lbrace \Delta_{\alpha\beta}^{pq} \rbrace$ such that, determining the fields via Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}, then Eq.~\eqref{eq:hf-self-consistency-general} is respected. {\color{tabred}\textbf{The great advantage of this scheme is that, with an appropriate choice of the Hilbert space basis (for example, moving to reciprocal space for a translationally-invariant model), we can implement very easily model symmetries.}}
+This set of equations defines our computational problem. We are searching a set of parameters $\lbrace \Delta_{\alpha\beta}^{pq} \rbrace$ such that, determining the fields via Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}, then Eq.~\eqref{eq:hf-self-consistency-general} is respected. {\color{tabred}\textbf{The great advantage of this scheme is that, with an appropriate choice of the Hilbert space basis (for example, moving to reciprocal space for a translationally-invariant model), we can implement easily model symmetries.}}
 
-The list of parameters $\lbrace \Delta_{\alpha\beta}^{pq} \rbrace$ to be determined self-consistently may be not-so-short: by looking at Eq.~\eqref{eq:hf-self-consistency-general}, the indices $\alpha,\beta,p,q$ are spanning a large Hilbert space. However, this equation can be manipulated and transformed, reducing the set of parameters to be determined self-consistently to a very manageable number. For each phase we define them ``Hartree-Fock parameters'' (HFPs): a set of objects self-consistently determined by an equivalent, but transformed, version of Eq.~\eqref{eq:hf-self-consistency-general}. Let $\mathbf{v}$ be the HFPs vector, \todo
+The list of parameters $\lbrace \Delta_{\alpha\beta}^{pq} \rbrace$ to be determined self-consistently may be not-so-short: by looking at Eq.~\eqref{eq:hf-self-consistency-general}, the indices $\alpha,\beta,p,q$ are spanning a large Hilbert space. However, this equation can be manipulated and transformed, reducing the set of parameters to be determined self-consistently to a very manageable number. For each phase we define these last as ``Hartree-Fock parameters'' (HFPs): a set of objects self-consistently determined by a set equivalent, but transformed, version of Eq.~\eqref{eq:hf-self-consistency-general}.
 
-\section{Iterative computational approach to MFT}\label{sec:computational-mft}
+\section{Sketch of the iHF algorithm}\label{sec:sketch-ihf-algorithm}
 
-This section is devoted to the explanation of the general iterative strategy we use to simulate the EHM through iterative Mean-Field Theory (iMFT). The simplicity of the algorithm is only possible thanks to the violent reduction of complexity MFT is able to reach. We use an iterative self-consistent scheme, thus solving a finite set of equation searching for a fixed point in parameters space for each phase.
-
-\subsection{Sketch of the Hartree-Fock iterative algorithm}\label{subsec:hf-sketch}
-
-The general sketch of a self-consistent Hartree-Fock algorithm in our context is simple enough. Start from a fermionic quartic hamiltonian,
-\begin{equation}\label{eq:generic-quartic-hamiltonian}
-	\hat H = \sum_{\alpha\beta} A_{\alpha\beta} \hat c_\alpha^\dagger \hat c_\beta + \sum_{\alpha\beta\gamma\delta} B_{\alpha\beta\gamma\delta} \hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta + \hc
-\end{equation}
-where $A_{\alpha\beta}$, $B_{\alpha\beta\gamma\delta}$ are model parameters. We limit ourselves to quartic hamiltonians, but the idea can be extended. As discussed before, in this kind of context MFT is employed by applying Wick's theorem. This way, the quartic hamiltonian is effectively reduced to a quadratic hamiltonian,
-\begin{equation}\label{eq:generic-quadratic-effective-hamiltonian}
-	\hat H \simeq \hat H^{(\mathrm{eff})} = 
-	\sum_{\alpha\beta} C_{\alpha\beta} \hat c_\alpha^\dagger \hat c_\beta + \sum_{\alpha\beta} D_{\alpha\beta} \hat c_\alpha^\dagger \hat c_\beta^\dagger + \hc
-\end{equation}
-where now the new parameters, which we will refer to as Hartree-Fock parameters (HFP), depend on the model itself via the equations
+In this section we give a practical sketch of the algorithm we use to compute Eq.~\eqref{eq:hf-self-consistency-general} for all given phases. We refer to this technique as ``iterative Hartree Fock'' (iHF). Let $\mathbf{v}$ be the vector containing all HFPs. Suppose we have $N$ HFPs $v_i$: then
 \[
-\begin{aligned}
-	C_{\alpha\beta} &= A_{\alpha\beta} + \sum_{\gamma\delta} \left[
-	B_{\alpha\gamma\delta\beta} - B_{\alpha\gamma\beta\delta} 
-	\right] \ev{
-		\hat c_\gamma^\dagger \hat c_\delta
-	} \\
-	D_{\alpha\beta} &= \sum_{\gamma\delta} B_{\alpha\beta\gamma\delta} \ev{
-		\hat c_\gamma \hat c_\delta
-	}
-\end{aligned}
+	\mathbf{v} \in \mathbb{C}^N
+	\qquad
+	\mathbf{v} \equiv \begin{bmatrix}
+		v_1 \\ v_2 \\ \vdots \\ v_N
+	\end{bmatrix}
 \]
-These equations are determined by many-body expectation values, which in general are computed by the means of thermal averages.
+In order to get a physical solution, each HFP must satisfy a self-consistency equation similar to Eq.~\eqref{eq:hf-self-consistency-general}. Each equation has the structure:
+\[
+	v_i = \text{(Some non-linear function of $\mathbf{v}$)}
+\]
+Let $\mathrm{A}$ be the non-linear operator collecting all these functions. The problem of finding a self-consistent solution can be reformulated as follows: $\mathbf{v}$ represents a physical solution if it is a fixed point of the map $\mathrm{A}$,
+\[
+	\mathrm{A} \colon \mathbb{C}^N \to \mathbb{C}^N
+	\qquad
+	\mathrm{A} (\mathbf{v}) = \mathbf{v}
+	\quad\implies\quad
+	\text{$\mathbf{v}$ is a solution.}
+\]
+We implement a rather easy scheme: first, we obtain an analytic expression for $\mathrm{A}$. Then we choose an initializer $\mathbf{v}_0$ and apply $\mathrm{A}$ to it, obtaining a new HFPs vector. Iterating this procedure, we ``follow'' the non-linear map $\mathrm{A}$ until we claim to have converged.
 %
 \begin{figure}
 	\centering
@@ -529,48 +523,100 @@ These equations are determined by many-body expectation values, which in general
 	\label{fig:effective-model-scheme}
 \end{figure}
 %
-A self consistent Hartree-Fock scheme goes as follows:
+Let us explain in detail:
 \begin{enumerate}
-	\item Apply MFT to the quartic hamiltonian, recovering its general theoretic effective form;
-	\item Impose selection rules on the parameters $C_{\alpha\beta}$, $D_{\alpha\beta}$, eventually eliminating those not respecting the symmetry sector we are working in.	As an example: if we choose not to break charge conservation, set $\forall\alpha,\beta\,\colon\,D_{\alpha\beta}=0$;
-	\item Choose a starting value and a coherent symmetry structure for the remaining parameters;
-	\item Enter the iterative scheme of Fig.~\ref{fig:effective-model-scheme}:
+	\item Start with a generic quartic hamiltonian:
+	\[
+		\hat H = \sum_{\alpha\beta} A_{\alpha\beta} \hat c_\alpha^\dagger \hat c_\beta + \sum_{\alpha\beta\gamma\delta} B_{\alpha\beta\gamma\delta} \hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta
+	\]
+	Choose the model parameters and set an electronic density;
+	%
+	\item Following the discussion of Sec.~\ref{sec:sketch-hf-method}, approximate analytically $\hat H$ with a quadratic hamiltonian
+	\[
+		\hat H \simeq \hat H_\mathrm{HF} \equiv \sum_{\alpha\beta} \left[
+			h_{\alpha\beta}^{+-} \hat c_\alpha^\dagger \hat c_\beta - h_{\beta\alpha}^{+-} \hat c_\alpha \hat c_\beta^\dagger + 			h_{\alpha\beta}^{++} \hat c_\alpha^\dagger \hat c_\beta^\dagger + \left(h_{\beta\alpha}^{++}\right)^* \hat c_\alpha \hat c_\beta
+		\right]
+	\]
+	with the fields given by Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++};
+	\item Impose selection rules on the fields $h_{\alpha\beta}^{+-}$, $h_{\alpha\beta}^{++}$, eventually eliminating those not respecting the symmetry sector we are working in.	As an example: if we choose not to break charge conservation, set $\forall\alpha,\beta \colon h_{\alpha\beta}^{++}=0$;
+	\item Choose a starting value for the HFPs vector $\mathbf{v}_0$;
+	\item Set $\mathbf{v} = \mathbf{v}_0$ and enter the iterative scheme of Fig.~\ref{fig:effective-model-scheme}:
 	\begin{enumerate}
-		\item Based on the current HFPs, determine the value $\mu [C,D]$ giving the correct density;
-		\item Diagonalize the effective hamiltonian $\hat H^{(\mathrm{eff})}[C,D] - \mu[C,D] \hat N$ and recover the ground-state $\ket{\Psi [C,D]}$;
-		\item Compute the new HFPs $C_{\alpha\beta}'$, $D_{\alpha\beta}'$ via the self consistent equations;
-		\item Initialize the new effective hamiltonian $\hat H^{(\mathrm{eff})}[C',D']$ and repeat the cycle until the HFPs have converged to stable values.
+		\item Get a numeric approximation of the hamiltonian for the current value of $\mathbf{v}$, $\hat H_\mathrm{HF}[\mathbf{v}]$;
+		\item Determine the value $\mu [\mathbf{v}]$ giving the desired density;
+		\item Diagonalise the effective hamiltonian $\hat H_\mathrm{HF} [\mathbf{v}] - \mu[\mathbf{v}] \hat N$, and obtain the approximated ground-state $\ket{\Psi [\mathbf{v}]}$;
+		\item Compute the new HFPs vector $\mathbf{v}$ using self-consistency equations;
+		\item If the HFPs vector converged to a fixed point, exit; otherwise, iterate.
 	\end{enumerate}
 \end{enumerate}
-The stable values we are referring to in the last point are our solutions. The resulting vector is a fixed point in the parametric recursive map defined by the set of MFT self-consistent equations.
+We voluntarily left unspecified the criterion we use for claiming that $\mathbf{v}$ ``has converged''. It will be specified later.
 
-Of course, to work with any of these algorithms we need to know how to diagonalize the hamiltonian. In the context of the EHM at thermal equilibrium, being the phases we are simulating simple enough, we know analytically the diagonalized hamiltonian, and making use of this knowledge we are able to reduce the self consistent scheme to a simple iterative algorithm. An explicit example of HF algorithm used in present text, somewhat simplified due to the presence of a single HFP, is given in App.~\ref{appsubsec:hartree-fock-algorithm}.
-
-\subsection{Self-consistency and RMPs}
-
-As will be thoroughly discussed in the following derivations for each physical phase we treat, treating the EHM via MFT keeping under strict control the effects of Wick's theorem produces ground states whose parametric properties (band structures, gap functions, chemical potential) are controlled self-consistently by the model two-body interactions $\hat H_U$ and $\hat H_V$. Let us define the concept of Renormalized model parameter (RMP), indicating any of the model parameters that is effectively renormalized via interactions. 
-
-Let us propose a relevant example of RMP. Suppose that under MFT, for a given phase, the decomposition $\hat H_V$ has a net effect of renormalizing the hopping amplitude
-\[
-t \stackrel{\hat H_V}{\to} \tilde{t}
-\]
-In other words, the decomposition of $\hat H_V$ produces a free Fermionic hamiltonian whose diffusive parameter is $\tilde{t}$. We define $\tilde{t}$ as an RMP, being the result of the original model parameter $t$ plus the effect of interactions.
+%\subsection{Self-consistency and RMPs}
+%
+%As will be thoroughly discussed in the following derivations for each physical phase we treat, treating the EHM via MFT keeping under strict control the effects of Wick's theorem produces ground states whose parametric properties (band structures, gap functions, chemical potential) are controlled self-consistently by the model two-body interactions $\hat H_U$ and $\hat H_V$. Let us define the concept of Renormalized model parameter (RMP), indicating any of the model parameters that is effectively renormalized via interactions. 
+%
+%Let us propose a relevant example of RMP. Suppose that under MFT, for a given phase, the decomposition $\hat H_V$ has a net effect of renormalizing the hopping amplitude
+%\[
+%t \stackrel{\hat H_V}{\to} \tilde{t}
+%\]
+%In other words, the decomposition of $\hat H_V$ produces a free Fermionic hamiltonian whose diffusive parameter is $\tilde{t}$. We define $\tilde{t}$ as an RMP, being the result of the original model parameter $t$ plus the effect of interactions.
 
 \subsection{Fixed density simulations and the role of $\mu$}\label{subsec:fixed-density-role-mu}
 
-In the context of the present text, all simulations are performed at fixed density, determining self-consistently the value of the chemical potential. This means that, for a given step $i$ and the relative HFPs vector $\mathbf{v}_i$, and for a fixed density $n\in[0,1]$, $\mu_i$ (the chemical potential at current step) is determined as
+In this thesis all derivations and simulations are carried out at fixed density. This requires a way to fix $\mu$ during iterations of the algorithm. This must be done iteratively: changing at each step the HFPs vector, we are actively modifying the approximate hamiltonian. Chemical potential must be determined accordingly to maintain the required density. 
+
+For a given choice of HFPs vector and chemical potential, the ground state $\ket{\Psi[\mathbf{v},\mu]}$ is uniquely determined; then we compute density as
+\[
+	n(\mathbf{v},\mu) \equiv \frac{1}{\mathcal{V}} \sum_{\alpha} \mel{\Psi[\mathbf{v},\mu]}{\hat c_\alpha^\dagger \hat c_\alpha}{\Psi[\mathbf{v},\mu]}
+\]
+being $\mathcal{V}$ the volume. Suppose we fix density to a value $n_0\in[0,1]$. At step $i$, naming the current HFPs vector $\mathbf{v}_i$, $\mu_i$ (the chemical potential at current step) is determined as
 \begin{equation}\label{eq:mu-numerical-minimization}
-	\mu_i
-	\quad\colon\quad
-	\min_\mu \left\lbrace
-	\frac{1}{2L_x L_y} \sum_\mathbf{k} \sum_\sigma \ev{\hat n_{\mathbf{k}\sigma}} \big|_{\mathbf{v}=\mathbf{v}_i} - n
-	\right\rbrace
+	\mu_i \equiv
+	\min_\mu \left|
+	n(\mathbf{v}_i,\mu) - n_0
+	\right|
 \end{equation}
-being $\mathbf{v}=\mathbf{v}_i$ the HFPs vector at current step. Averaging is performed over the ground state determined parametrically by the current value of the HFPs.
+The density $n$ must be a monotonically increasing function of $\mu$: then we can translate the above equation, which would inspire a minimisation procedure, to a much simpler node-search rule:
+\[
+	\mu_i = \mu \mid_{\delta n(\mathbf{v}_i,\mu) = 0}
+	\qq{being}
+	\delta n(\mathbf{v}_i,\mu) \equiv n(\mathbf{v}_i,\mu) - n_0
+\]
+In order to determine $\mu_i$ we use a basic bisection algorithm:
+\begin{enumerate}
+	\item Set an arbitrary tolerance $\Delta n > 0$ and a shifting parameter $\Delta \mu > 0$;
+	\item Choose starting lower and upper bounds $\mu_\mathrm{L}<\mu_\mathrm{U}$;
+	\item Compute $\delta n(\mathbf{v}_i,\mu_\mathrm{L})$. Evaluate: 
+	\begin{itemize}
+		\item if $\abs{\delta n(\mathbf{v}_i,\mu_\mathrm{L})} \le \Delta n$, set $\mu_i = \mu_\mathrm{L}$ and halt;
+		\item if $\delta n(\mathbf{v}_i,\mu_\mathrm{L}) < -\Delta n$ do nothing;
+		\item If instead $\delta n(\mathbf{v}_i,\mu_\mathrm{L}) > \Delta n$, shift the lower bound down, $\mu_\mathrm{L} \to \mu_\mathrm{L} - \Delta \mu$ and repeat from step 3;
+	\end{itemize}
+	\item Compute $\delta n(\mathbf{v}_i,\mu_\mathrm{U})$. Evaluate: 
+	\begin{itemize}
+		\item if $\abs{\delta n(\mathbf{v}_i,\mu_\mathrm{U})} \le \Delta n$, set $\mu_i = \mu_\mathrm{U}$ and halt;
+		\item if $\delta n(\mathbf{v}_i,\mu_\mathrm{U}) > \Delta n$ do nothing;
+		\item If instead $\delta n(\mathbf{v}_i,\mu_\mathrm{U}) < - \Delta n$, shift the upper bound up, $\mu_\mathrm{U} \to \mu_\mathrm{U} + \Delta \mu$ and repeat from step 4;
+	\end{itemize}
+	\item At this point, the the lower bound underestimates density while the upper bound overestimates. Start iterations:
+	\begin{enumerate}
+		\item Compute the midpoint,
+		\[
+			\mu_\mathrm{M} = \frac{\mu_\mathrm{L} + \mu_\mathrm{U}}{2}
+		\]
+		\item Evaluate:
+		\begin{itemize}
+			\item If $\delta n(\mathbf{v}_i,\mu_\mathrm{M}) \le \Delta n$, set $\mu_i = \mu_\mathrm{M}$ and halt;
+			\item If $\delta n(\mathbf{v}_i,\mu_\mathrm{M}) > \Delta n$, set $\mu_\mathrm{U} = \mu_\mathrm{M}$ and repeat from point a);
+			\item If $\delta n(\mathbf{v}_i,\mu_\mathrm{M}) < -\Delta n$, set $\mu_\mathrm{L} = \mu_\mathrm{M}$ and repeat from point a);
+		\end{itemize}
+	\end{enumerate}
+\end{enumerate}
+\todo
 
 Hence, if we are able to perform averages and know both $\mathbf{v}_i$ and $n$, at step $i$ we infer the correct chemical potential. Now, as we will discuss $\tilde{\mu}$ will turn out to be an RMP itself, meaning that theoretically
 \[
-\mu \to \mu + F[\mathbf{v}] \equiv \tilde{\mu} [\mathbf{v}]
+	\mu \to \mu + F[\mathbf{v}] \equiv \tilde{\mu} [\mathbf{v}]
 \]
 being $F$ some functional of the HFPs. In other words, a common effect of interactions under MFT will be precisely to shift the chemical potential. At step $i$, keeping the density fixed, the chemical potential we are determining numerically and using in our equations is then $\tilde{\mu}_i$. In simpler words, the designed algorithm ``does not know'' about chemical potential renormalization and thus just determines the number that solves Eq.~\eqref{eq:mu-numerical-minimization}. But we know that this number is made of two contributions: the ``physical'' $\mu_i$ and the effective shift produced by the model itself, $F[\mathbf{v}_i]$. So, when it comes to $\mu_i$, this consideration becomes important.
 
