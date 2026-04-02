@@ -1,7 +1,7 @@
 # 20260330
 SC-Triplet [hs]
 A[256]-a => TODO refine => TODO plot
-A[256]-b => TODO copy from stubborn => TODO layer => TODO refine => TODO plot [ON stubborn]
+A[256]-b => TODO layer (1st on stubborn) => TODO refine => TODO plot [ON stubborn]
 
 SC-Singlet [hs]
 A[256]-a => DONE (plot refined w/ -b)
