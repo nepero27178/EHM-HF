@@ -1,6 +1,33 @@
 \def\GraphicsFolder{chapters/theoretical-introduction/pictures}
 \chapter{Introduction to the Extended Hubbard Model}\label{chapter:theoretical-introduction}
 
+A major breakthrough in Condensed Matter Physics was the discovery of superconductivity in two-dimensional copper-oxide based compounds (often referred to as ``cuprates''). Until \citeyear{bednorz1986possible}, when \citeauthor{bednorz1986possible} found evidence of a superconducting transition in Ba-La-Cu-O systems \cite{bednorz1986possible}, superconductivity had been observed up to critical temperatures ($T_\mathrm{c}$) around $30~\mathrm{K}$. The new class of copper oxides rapidly took over as highest-$T_\mathrm{c}$ class of superconductors, dramatically increasing critical temperatures to around $130~\mathrm{K}$ at ambient pressure. Today, the highest observed value is $T_\mathrm{c} \approx 151~\mathrm{K}$ at ambient pressure on the cuprate $\mathrm{Hg}\mathrm{Ba}_2 \mathrm{Ca}_2 \mathrm{Cu}_3 \mathrm{O}_{8+\delta}$ \cite{deng2026ambient}. It is worth mentioning that this result was obtained in recent months after almost 30 years from the previous record.
+
+Cuprates Physics is particularly interesting and surprising also considering their very poor conducting properties at normal phase. Copper oxides are basically ceramics, highly prone to establishing insulating antiferromagnetic phases. Antiferromagnetism and superconductivity are apparently antithetical orderings: the first arises from electronic repulsion, while the second from attractive interactions \cite{keimer2015quantum}. It is widely observed, however, how in cuprates the two phases can compete {\color{tabred}\textbf{and even coexist}} \cite{scalapino2012common}.
+
+Moreover, cuprates superconduct through a new, not-yet understood mechanism. Classical Bardeen-Cooper-Shrieffer (BCS) theory of superconductivity describes the arising of a phonon-induced effective electron-electron attractive interaction as a source of so-called ``conventional superconductivity''. It is the interplay of electrons with lattice vibrations that couples them in Cooper pairs. The same theory fails completely in explaining this new ``unconventional superconductivity''. All of these observation have gathered, in years, a lot of interest in these materials.
+
+Such complex materials are surprisingly well described in many features by the simple (but rich) single-band Hubbard model (HM) \cite{scalapino2012common},
+\begin{equation}\label{eq:hubbard-model}
+	\hat H_\mathrm{HM} = 
+	-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+	+ U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow}
+	\qquad
+	t, U  > 0
+\end{equation}
+being $t$ the hopping energy and $U$ the on-site repulsion. Sum is intended on the spin index $\sigma \in \lbrace \uparrow, \downarrow \rbrace$ and the sites $i$ of a two-dimensional square lattice. The notation $\langle ij \rangle$ indicates nearest neighbours (NNs). Recent developments \cite{padma2025beyond} have shown, however, that a more accurate description of these materials could be obtained by adding a non-local electron-electron attraction. This leads us to a widely studied modified version of Eq.~\eqref{eq:hubbard-model},
+\begin{equation}\label{eq:extended-hubbard-model}
+	\hat H_\mathrm{EHM} =
+	-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+	+ U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow}
+	- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat n_{i\sigma} \hat n_{j\sigma'}
+	\qquad
+	t, U, V > 0
+\end{equation}
+commonly referred to as ``Extended Hubbard model'' (EHM). The non-local attraction $V$ is independent of site and spin indices. In this thesis, we study the insurgence of antiferromagnetism and superconductivity in the EHM within numerical Hartree-Fock methods.
+
+This introductory chapter is organised as follows: \todo
+
 %\section{Antiferromagnetic ordering in the Hubbard model}\label{sec:antiferromagnetic-ordering-hubbard}
 %
 %Consider the ordinary Hubbard model:
