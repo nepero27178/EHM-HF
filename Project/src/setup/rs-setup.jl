@@ -32,7 +32,7 @@ RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "A[128]-a" # ← Change here
+Setup::String = "B[128]-a" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test[30]",
 	"A[128]-a", # UV plane: V ≤ 4 sector
