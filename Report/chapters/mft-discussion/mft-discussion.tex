@@ -1,69 +1,51 @@
  \def\GraphicsFolder{chapters/mft-discussion/pictures}
 \chapter{Mean-field theory discussion of the EHM}\label{chap:mft-discussion}
 
-%This chapter is devoted to develop a Mean Field Theory (MFT) framework of the Extended Hubbard model (EHM) of Eq.~\eqref{eq:extended-hubbard-model},
-%\[
-%	\hat H =
-%	\underbrace{
-%		-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-%	}_{\hat H_t} \underbrace{
-%		+U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow}
-%		\vphantom{
-%			\sum_{\langle ij \rangle}
-%		}
-%	}_{\hat H_U}
-%	\underbrace{
-%		- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat n_{i\sigma} \hat n_{j\sigma'}
-%	}_{\hat H_V}
-%\]
-%Mean Field Theory (MFT) is a widely used and simple theoretical tool, often sufficient to describe the leading orders in phase transition phenomena of Many-Body Physics. Here MFT is employed generically, in order to later discuss the effects of the non-local term $\hat H_V$. The latter, following the path of Bardeen-Cooper-Schrieffer (BCS) theory in describing conventional $s$-wave superconductivity. As will be thoroughly described, the lattice spatial structure directly influences the topology of the gap function, giving rise to anisotropic pairing.
-{\color{tabred}[Introduction: this is a technical chapter about Hartree Fock applied to EHM.]}
+The general idea of this project is to apply HF methods to the EHM, derive analytically the approximated quadratic hamiltonian of Eq.~\eqref{eq:hf-Hhf-k} and then apply the iHF procedure sketched in Sec.~\ref{sec:sketch-ihf-algorithm} to extract the self-consistent values of the various HFPs. One of the advantages of using iHF methods is that we can impose rather simply the symmetries of the HF approximated wavefunction.
 
-\section{Extended Hubbard model symmetries and Wick's theorem}\label{sec:ehm-symmetries}
+This is most useful when dealing with competing phases. A phase transition is basically described by some spontaneous symmetry breaking (SSB) and the rising to a non-zero value of an order parameter. We will deal with three phases:
+\begin{enumerate}
+	\item the normal phase, where no symmetry is broken;
+	\item the antiferromagnetic phase, where we allow for spin density to be non-uniform across sites;
+	\item the superconducting phase, where we do not conserve particle number.
+\end{enumerate}
+Each phase is discussed in a separate chapter. Many other ``phases'' are possible, based on which symmetries are respected and which are not.
 
-The general aim of this project is to study the phase diagram of the EHM by comparing ground-state energies of different phases. The phases we consider in next chapters for the EHM are the normal state (N), the antiferromagnetic ordering (AF), given by a non-uniform distribution of charge in each spin sector, and the anisotropic superconducting (SC) phase, described by a uniformly distributed charge allowing for Cooper pairing instabilities.
+For each phase, we will extract the best approximation to the true ground state wavefunction. In computational terms, we will find three solutions to the general self-consistency problem of Eq.~\eqref{eq:hf-self-consistency-general}. In the end we want to compare the free energy of these three solutions, assessing which one is the most stable. Any HF approximation, being by construction not the true ground state, overestimates energy. Thus, comparing energies of our solutions we get a hint of the features of the true ground state.
 
-At the end of this section, in Tab.~\ref{tab:symmetry-groups} we summarize all symmetries with the relative operations. Throughout the entire thesis we will refer to specific SSB for given groups to establish a specific phase.
+\section{The EHM symmetries}
 
-\subsection{Spatial and topological symmetries}\label{subsec:spatial-syms}
+Let us start by enumerating the spatial symmetries of the EHM on the square lattice. We start with those related to the spatial structure of the lattice, and then move to the ones more specific of Hubbard Physics.
 
+\subsection{Lattice symmetries}\label{subsec:lattice-syms}
 
-Let us start from the trivial topology of the lattice we are working on. The EHM of Eq.~\eqref{eq:extended-hubbard-model} is evidently translational invariant on both the $x$ and $y$ directions. We refer to these groups as $\mathrm{T}_1^{(x)}$, $\mathrm{T}_1^{(x)}$. The ``$1$'' subscript indicates the one-site translations under which the model is symmetric.
+We study the EHM on the planar square lattice, with one orbital per site. The hamiltonian of Eq.~\eqref{eq:extended-hubbard-model} respects three fundamental lattice symmetries:
+\begin{enumerate}
+	\item Discrete translations symmetry in both the $x$ and $y$ directions. We refer to the groups of one-site translations as as $\mathrm{T}_1^{(x)}$, $\mathrm{T}_1^{(x)}$. It holds:
+	\begin{equation}\label{eq:ehm-Tn-Tkn}
+		\mathrm{T}_n^{(\ell)} \supset \mathrm{T}_{kn}^{(\ell)}
+		\qquad
+		k\in\mathbb{N}
+	\end{equation}
+	A shift in direction $\ell$ by $kn$ sites can be decomposed in $k$ shift by $n$ sites. Invariance by $n$-sites shifts, thus, implies invariance also for $kn$-sites shifts.
+	%
+	\item Discrete $\pi/2$ rotations symmetry. This symmetry is described by the four-fold cyclic point group $\mathrm{C}_4$, containing rotations by angle $\pi/2, \pi, 3\pi/2$ and identity. A similar property as for the translations holds for cyclic point groups,
+	\begin{equation}\label{eq:ehm-Cn-Cn/k}
+		\mathrm{C}_n \supset \mathrm{C}_{n/k}
+		\qquad
+		k, n/k \in\mathbb{N}
+	\end{equation}
+	Invariance for rotations of angle $2\pi/n$ implies invariance for rotations of angle $k \times 2\pi/n$.
+	%
+	\item Inversion symmetry. This point may appear redundant, because
+	\begin{equation}\label{eq:ehm-I2-C2}
+		\mathrm{I}_2 \equiv \mathrm{C}_2
+	\end{equation}
+	We define $\mathrm{I}_2$ as the inversion group in two-dimensional space, containing the reflection operator and identity. In $2$D space, to rotate by $\pi$ around the origin and to mirror the position of a point are the same operation.
+\end{enumerate}
+\todo
 
-Evidently, the following statement holds:
-\[
-	\mathrm{T}_n^{(\ell)} \supset \mathrm{T}_{kn}^{(\ell)}
-	\qquad
-	k\in\mathbb{N}
-\]
-A model which is invariant for $n$-sites translations in the $\ell$ direction, also is for $kn$-sites translations. Then we can break translation symmetry in a given direction reducing it to a smaller group. For example, the commensurate AF phase we analyze halves translational invariance,
-\[
-	\bigotimes_{\ell = x,y} \mathrm{T}_1^{(\ell)}
-	\quad\SSB\quad
-	\bigotimes_{\ell = x,y} \mathrm{T}_2^{(\ell)}
-\]
-since it deals with two-site periodic spin-density waves (SDWs); instead the SC phase preserves translational invariance.
-
-Another natural symmetry of the EHM is the four-fold point group $\mathrm{C}_4$ of $\pi/2$ rotations, expressing the square lattice property being mapped onto itself under said rotations. A similar property as for the translations holds for point groups,
-\[
-	\mathrm{C}_n \supset \mathrm{C}_{n/k}
-	\qquad
-	k, n/k \in\mathbb{N}
-\]
-which expresses the fact that, if a system is topologically invariant under $n$-fold rotations and $k \in \mathbb{N}$ exists such that $n/k \in \mathbb{R}$, then the smaller point group is automatically included. As for translations, we can break the point group reducing it to a smaller subgroup, say
-\[
-	\mathrm{C}_4
-	\quad\SSB\quad
-	\mathrm{C}_2
-\]
-This is what happens in general with the effective arising of anisotropic corrections to the kinetic hamiltonian due to non-local interactions, as will be discussed in Sec.~\ref{sec:normal-fock-bands-renormalization}. For our purposes, we will leave $\mathrm{C}_4$ unbroken both in the AF and SC phases.
-
-Finally, the system also is inversion-symmetric: let $\mathrm{I}_2$ be the inversion group on the two-dimensional square lattice, containing trivially just the inversion operator and the identity. In general, rotations and mirroring are different operations from a group-theoretical point of view. However, when it comes to the square lattice, operatively it holds
-\[
-	\mathrm{I}_2 \equiv \mathrm{C}_2
-\]
-{\color{tabred} To rotate by $\pi$ is the same as to mirror the lattice}. The inversion symmetry is then already included in $\mathrm{C}_4$, and we leave it unspecified.
-
+\color{tabred}
 \subsection{Spin and charge symmetries}\label{subsec:spin-charge-syms}
 
 When it comes to Fermi algebra and operators, a large symmetry of the EHM is a global $\mathrm{U}(2)$ symmetry \cite{arovas2022hubbard} given by the transformation
