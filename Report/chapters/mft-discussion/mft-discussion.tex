@@ -37,52 +37,258 @@ We study the EHM on the planar square lattice, with one orbital per site. The ha
 	\end{equation}
 	Invariance for rotations of angle $2\pi/n$ implies invariance for rotations of angle $k \times 2\pi/n$.
 	%
-	\item Inversion symmetry. This point may appear redundant, because
+	\item Inversion symmetry. We define $\mathrm{I}_2$ as the inversion group in two-dimensional space, containing the reflection operator and identity. This point may appear redundant, because
 	\begin{equation}\label{eq:ehm-I2-C2}
 		\mathrm{I}_2 \equiv \mathrm{C}_2
 	\end{equation}
-	We define $\mathrm{I}_2$ as the inversion group in two-dimensional space, containing the reflection operator and identity. In $2$D space, to rotate by $\pi$ around the origin and to mirror the position of a point are the same operation.
+	In $2$D space, to rotate by $\pi$ around the origin and to mirror the position of a point are the same operation.
 \end{enumerate}
 \todo
 
-\color{tabred}
 \subsection{Spin and charge symmetries}\label{subsec:spin-charge-syms}
 
-When it comes to Fermi algebra and operators, a large symmetry of the EHM is a global $\mathrm{U}(2)$ symmetry \cite{arovas2022hubbard} given by the transformation
-\begin{equation}\label{eq:ehm-global-u2-symmetry}
-	\hat c_{i\sigma} \to \sum_{\sigma'} \mathcal{U}_{\sigma \sigma'} \hat c_{i\sigma'}
-	\qq{with}
-	\mathcal{U}_{\sigma \sigma'} \in \mathrm{U}(2)
-\end{equation}
-The proof is trivial and follows from the fact that $\mathcal{U}^\dagger \mathcal{U} = \mathcal{U} \mathcal{U}^\dagger = \Id$ {\color{tabred}[add proof?]}. Note that the the following decomposition holds,
-\begin{equation}\label{eq:ehm-global-u2-symmetry-u1-su2}
-	\mathrm{U}(2) = \mathrm{SU}(2) \otimes \mathrm{U}^\mathrm{c}(1)
-\end{equation}
-which expresses the separate charge conservation and spin rotational symmetries. In detail:
-\begin{itemize}
-	\item $\mathrm{U}^\mathrm{c}(1)$ charge conservation, coming from Eq.~\eqref{eq:ehm-global-u2-symmetry-u1-su2} decomposition. By breaking this symmetry, we allow for the total charge to fluctuate in the ground state. These fluctuations are only allowed in the SC phase in the present text;
-	\item $\mathrm{SU}(2)$ spin rotation symmetry, also , coming from Eq.~\eqref{eq:ehm-global-u2-symmetry-u1-su2} decomposition. Note that:
-	\[
-		\mathrm{SU}(2) \supset \mathrm{U}^z(1)
-	\]
-	The $z$ subscript we included to distinguish from the charge group. Hence $\mathrm{SU}(2)$ symmetry can be broken, selecting a particular vectorial direction for the order parameter (we call $z$), and reduced to a smaller $\mathrm{U}^z(1)$ symmetry which is essentially expressed by the conservation of the magnitude of the order parameter.
-\end{itemize}
-The last point is important: for the AF phase, for example, there is no need for the magnetization vector to be directed along the physical $z$-axis, which is the one perpendicular to the lattice plane. $\mathrm{SU}(2)$ symmetry breaks when (staggered) magnetization is established along a particular direction, but spin rotations around said direction still are ground state symmetries. This is shown schematically in Fig.~\ref{fig:su2-u1-domains}.
+The conventional HM shows a global $\mathrm{U}(2)$ symmetry, extended to $\mathrm{SU}(2) \times \mathrm{SU}(2) / \mathbb{Z}_2 = \mathrm{SO}(4)$ symmetry at half-filling on a bipartite lattice \cite{arovas2022hubbard}, such as the square lattice. The same symmetries are present in the EHM. Let us break down these statements.
 
-\begin{figure}
-	\centering
-	\subfloat[$\mathrm{SU}(2)$ rotations domain before SSB.]{
-		\input{\GraphicsFolder/su2-full-symmetry.tex}
-		\label{subfig:su2-domain}	
-	}
-	\hspace{2em}
-	\subfloat[$\mathrm{U}(1)$ rotations domain after SSB.]{
-		\input{\GraphicsFolder/su2-u1-reduced-symmetry.tex}
-		\label{subfig:u1-domain}
-	}
-	\caption{Graphic representation of the concept of $\mathrm{SU}(2)\to\mathrm{U}^z(1)$ SSB. The solid color identifies, in both cases, the rotations domain for the current symmetry. When SSB takes place in a magnetic phase, the magnetization order parameter acquires a precise direction which was previously invariant over the full spherical domain. After SSB, the hamiltonian is rotationally invariant only for rotations \textit{around} the selected magnetization vector.}
-	\label{fig:su2-u1-domains}
-\end{figure}
+\paragraph{Gauge symmetry.} The EHM is symmetric under the global transformation
+\begin{equation}\label{eq:gauge-symmetry}
+	\hat c_{i\sigma} \to e^{-i\eta} \hat c_{i\sigma}
+	\qquad
+	\hat c_{i\sigma}^\dagger \to e^{i\eta} \hat c_{i\sigma}^\dagger
+	\qquad
+	\eta \in \mathbb{R}
+\end{equation}
+To prove this, it suffices to note that
+\[
+	\hat c_{i\sigma}^\dagger \hat c_{j\sigma'}
+	\quad\to\quad
+	e^{i\eta} \hat c_{i\sigma}^\dagger e^{-i\eta} \hat c_{j\sigma'} = \hat c_{i\sigma}^\dagger \hat c_{j\sigma'}
+\]
+As a consequence, any product of fermionic operators with an equal number of annihilations and creations is symmetric. Hence the kinetic part $\hat H_t$ and the interactions $\hat H_U$, $\hat H_V$ are invariant. As a consequence, the total number of particles (charge)
+\[
+	\hat{N} = \sum_{i\sigma} \hat c_{i\sigma}^\dagger \hat c_{i\sigma}
+\]
+is a good quantum number. The symmetry is described by the transformation of Eq.~\eqref{eq:gauge-symmetry}, which is a pure phase shift by $\eta$. The relative group is $\mathrm{U}^\mathrm{c}(1)$, with a superscript $\mathrm{c}$ indicating ``charge''.
+
+\paragraph{Global spin symmetry}
+
+The EHM is described by three operators: NN hopping, independent of $\sigma$; local repulsion between opposite-spin densities; non-local attraction, independent of $\sigma$. Intuitively, the model is invariant under global spin rotations. Let us prove this rigorously.
+
+Let the local spinor:
+\[
+	\hat \Psi_i \equiv \begin{bmatrix}
+		\hat c_{i\uparrow} \\ \hat c_{i\downarrow}
+	\end{bmatrix}
+\]
+and the Pauli matrices
+\[
+	\tau^x \equiv \begin{bmatrix}
+		& 1 \\
+		1 &
+	\end{bmatrix}
+	\qquad
+	\tau^y \equiv \begin{bmatrix}
+		& -i \\
+		i &
+	\end{bmatrix}
+	\qquad
+	\tau^z \equiv \begin{bmatrix}
+		1 & \\
+		& -1
+	\end{bmatrix}
+\]
+We define the local spin operator as:
+\[
+	\hat S_i^\alpha \equiv \frac{1}{2} \hat \Psi_i^\dagger \tau^\alpha \hat \Psi_i
+	\qquad
+	\left[ \hat S_j^\alpha, \hat S_j^\beta \right] = i \sum_\gamma \epsilon_{\alpha\beta\gamma} \hat S_j^\gamma
+\]
+with $\epsilon_{\alpha\beta\gamma}$ the Levi-Civita tensor. It can be checked by explicit calculation that the $\mathfrak{su}(2)$ spin algebra is actually respected. For example, consider $\alpha=x$, $\beta=y$:
+\[
+\begin{aligned}
+	\left[ \hat S_j^x, \hat S_j^y \right] &= \frac{1}{4} \left[
+		\hat \Psi_j^\dagger \begin{bmatrix}
+			& 1 \\
+			1 &
+		\end{bmatrix} \hat \Psi_j, \hat \Psi_j^\dagger \begin{bmatrix}
+			& -i \\
+			i &
+		\end{bmatrix} \hat \Psi_j
+	\right] \\
+	&= \frac{1}{4} \left[
+		\hat c_{j\uparrow}^\dagger \hat c_{j\downarrow} + \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}, -i\hat c_{j\uparrow}^\dagger \hat c_{j\downarrow} + i \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}
+	\right] \\
+	&= \frac{i}{4} \left[
+		\hat c_{j\uparrow}^\dagger \hat c_{j\downarrow}, \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}
+	\right] - \frac{i}{4} \left[
+		\hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}, \hat c_{j\uparrow}^\dagger \hat c_{j\downarrow}
+	\right] \\
+	&= \frac{i}{2} \left[
+		\hat c_{j\uparrow}^\dagger \hat c_{j\downarrow}, \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}
+	\right] \\
+	&= \frac{i}{2} \left(
+		\hat c_{j\uparrow}^\dagger \hat c_{j\downarrow} \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow} - \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow} \hat c_{j\uparrow}^\dagger \hat c_{j\downarrow}
+	\right) \\
+	&= \frac{i}{2} \left(
+		- \hat c_{j\uparrow}^\dagger \hat c_{j\downarrow}^\dagger \hat c_{j\downarrow} \hat c_{j\uparrow} + \hat c_{j\uparrow}^\dagger \hat c_{j\uparrow} + \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}^\dagger \hat c_{j\uparrow} \hat c_{j\downarrow} - \hat c_{j\downarrow}^\dagger \hat c_{j\downarrow}
+	\right) \\
+	&= \frac{i}{2} \left( 
+		\hat c_{j\uparrow}^\dagger \hat c_{j\uparrow} - \hat c_{j\downarrow}^\dagger \hat c_{j\downarrow}
+	\right) \\
+	&= i \hat S_j^z
+\end{aligned}
+\]
+We used Fermi anticommutation rules, $\lbrace \hat c_{i\sigma}, \hat c_{j\sigma'}^\dagger \rbrace = \delta_{ij} \delta_{\sigma\sigma'}$. Identical derivations can be carried out for all other components.
+
+Let the raising and lowering operators:
+\[
+	\hat S_j^+ \equiv \frac{\hat S_j^x + i\hat S_j^y}{2}
+	\qquad
+	\hat S_j^- \equiv \frac{\hat S_j^x - i\hat S_j^y}{2}
+\]
+and the global spin operators
+\[
+	\hat S^\alpha \equiv \sum_{i \in \mathcal{L}} \hat S_i^\alpha
+	\qquad
+	\left[ \hat S^\alpha, \hat S^\beta \right] = i \sum_\gamma \epsilon_{\alpha\beta\gamma} \hat S^\gamma
+\]
+being $\mathcal{L}$ the lattice. Explicitly,
+\[
+	\hat S^z \equiv \frac{1}{2} \sum_{i \in \mathcal{L}} \left(
+		\hat n_{i\uparrow} - \hat n_{i\downarrow}
+	\right)
+	\qquad
+	\hat S^+ \equiv \frac{1}{2} \sum_{i \in \mathcal{L}} \hat c_{i\uparrow}^\dagger \hat c_{i\downarrow}
+	\qquad
+	\hat S^- \equiv \left( \hat S^+ \right)^\dagger
+\]
+The EHM hamiltonian commutates with the global spin operator. For the kinetic part $\hat H_t$ and the local repulsion $\hat H_U$ this is a well known result \cite{arovas2022hubbard,pavarini2015many},
+\[
+	\comm{\hat H_t + \hat H_U}{\hat{\mathbf{S}}} = 0
+\]
+For the non-local attraction, since it depends solely on total densities on neighbouring sites, spin-rotational invariance must hold. Anyway, let us give a short formal proof following this chain of results:
+\begin{enumerate}
+	\item The non-local attraction can be written as:
+	\[
+		\begin{aligned}
+			\hat H_V &= V\sum_{\ev{ij}} \sum_{\sigma\sigma'} \hat n_{i\sigma} \hat n_{j\sigma'} \\
+			&= V\sum_{\ev{ij}} \hat \Psi_i^\dagger \hat \Psi_i \hat \Psi_j^\dagger \hat \Psi_j
+		\end{aligned}
+	\]
+	having we used
+	\[
+		\hat \Psi_i^\dagger \hat \Psi_i = \hat c_{i\uparrow}^\dagger \hat c_{i\uparrow} + \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow}
+	\]
+	%
+	\item Let now $\hat R(\bm{\theta})$ be any global spin rotation,
+	\[
+		\hat R (\bm{\theta}) \equiv \exp \left(-i \bm{\theta} \cdot \hat{\mathbf{S}}\right)
+		\qq{where}
+		\bm{\theta} = (\theta_x,\theta_y,\theta_z)
+	\]
+	Spinors transform as:
+	\[
+		\hat R (\bm{\theta}) \hat \Psi_i \hat R (\bm{\theta})^\dagger = \mathcal{R}(\bm{\theta}) \hat \Psi_i
+	\]
+	with $\mathcal{R}(\bm{\theta}) \in \mathrm{SU}(2)$ the unitary matrix associated to said rotation,
+	\[
+		\mathcal{R}(\bm{\theta}) = \exp(- \frac{i}{2} \bm{\theta} \cdot \bm{\tau})
+		\qq{where}
+		\bm{\tau} = (\tau_x,\tau_y,\tau_z)
+	\]
+	Let us prove this. Let $\hat A = i \bm{\theta} \cdot \hat{\mathbf{S}}$ e $\hat B = \hat \Psi_i$. The following identity, a consequence of Baker-Campbell-Housdorff formula, holds:
+	\[
+		e^{\hat A} \hat B e^{-\hat A} = \hat B + \comm{\hat A}{\hat B} + \frac{1}{2!} \comm{\hat A}{ \comm{\hat A}{\hat B}} + \frac{1}{3!} \comm{\hat A}{\comm{\hat A}{\comm{\hat A}{\hat B}}} + \cdots
+	\]
+	The first order of the expansion gives:
+	\[
+	\begin{aligned}
+		[i \bm{\theta} \cdot \hat{\mathbf{S}}, \hat \Psi_i] &= i \sum_\alpha \theta_\alpha [\hat S^\alpha, \hat \Psi_i] \\
+		&= -\frac{i}{2} \sum_\alpha \theta_\alpha \tau^\alpha \hat{\Psi}_i \\
+		&= -\frac{i}{2} \bm{\theta} \cdot \bm{\tau} \hat \Psi_i
+	\end{aligned}
+	\]
+	having we omitted some purely algebraic passages. The second order:
+	\[
+		\begin{aligned}
+			\comm{
+				i \bm{\theta} \cdot \hat{\mathbf{S}}
+			}{
+				\comm{ i \bm{\theta} \cdot \hat{\mathbf{S}} }{ \hat{\Psi}_i }
+			}
+			&= \comm{
+				i \bm{\theta} \cdot \hat{\mathbf{S}}
+			}{
+				-\frac{i}{2} (\bm{\theta} \cdot \bm{\tau}) \hat \Psi_i
+			} \\
+			&= -\frac{i}{2} \bm{\theta} \cdot \bm{\tau} \comm{
+				i \bm{\theta} \cdot \hat{\mathbf{S}}
+			}{
+				\Psi_i
+			} \\
+			&= \frac{1}{4} (\bm{\theta} \cdot \bm{\tau})^2 \hat{\Psi}_i
+		\end{aligned}
+	\]
+	and so on. Collecting all terms,
+	\[
+	\begin{aligned}
+		\hat R (\bm{\theta}) \hat \Psi_i \hat R (\bm{\theta})^\dagger &= \hat \Psi_i -\frac{i}{2} \bm{\theta} \cdot \bm{\tau} \hat \Psi_i + \frac{1}{2! \times 4} (\bm{\theta} \cdot \bm{\tau})^2 \hat{\Psi}_i + \cdots \\
+		&= \sum_{k=1}^\infty \frac{1}{k!} \left( - \frac{i}{2} \bm{\theta} \cdot \bm{\tau} \right)^k \hat \Psi_i \\
+		&= \mathcal{R}(\bm{\theta}) \hat \Psi_i
+	\end{aligned}
+	\]
+	which ends the sub-proof.
+	%
+	\item Then, the group acts on $\hat H_V$ as
+	\[
+		\begin{aligned}
+			\hat R \hat H_V \hat R^\dagger &= V\sum_{\ev{ij}} \left(
+				\hat \Psi_i^\dagger \mathcal{R}^\dagger \mathcal{R} \hat \Psi_i
+			\right) \left(
+				\Psi_j^\dagger \mathcal{R}^\dagger \mathcal{R} \hat \Psi_j
+			\right) \\
+			&= V\sum_{\ev{ij}} \left(\hat \Psi_i^\dagger \hat \Psi_i\right) \left(\hat \Psi_j^\dagger \hat \Psi_j\right)\\
+			&= \hat H_V
+		\end{aligned}
+	\]
+	making the non-local attraction spin-rotationally symmetric.
+\end{enumerate}
+The EHM is symmetric under global spin rotations. Note that $\hat H_V$ is actually symmetric under local spin rotations, meaning that we could rotate the spin at each site by a different amount and get the same interaction. The same holds for $\hat H_U$. It is the kinetic sector that makes the EHM only globally $\mathrm{SU}(2)$ symmetric.
+
+%When it comes to Fermi algebra and operators, a large symmetry of the EHM is a global $\mathrm{U}(2)$ symmetry \cite{arovas2022hubbard} given by the transformation
+%\begin{equation}\label{eq:ehm-global-u2-symmetry}
+%	\hat c_{i\sigma} \to \sum_{\sigma'} \mathcal{U}_{\sigma \sigma'} \hat c_{i\sigma'}
+%	\qq{with}
+%	\mathcal{U}_{\sigma \sigma'} \in \mathrm{U}(2)
+%\end{equation}
+%The proof is trivial and follows from the fact that $\mathcal{U}^\dagger \mathcal{U} = \mathcal{U} \mathcal{U}^\dagger = \Id$ {\color{tabred}[add proof?]}. Note that the the following decomposition holds,
+%\begin{equation}\label{eq:ehm-global-u2-symmetry-u1-su2}
+%	\mathrm{U}(2) = \mathrm{SU}(2) \otimes \mathrm{U}^\mathrm{c}(1)
+%\end{equation}
+%which expresses the separate charge conservation and spin rotational symmetries. In detail:
+%\begin{itemize}
+%	\item $\mathrm{U}^\mathrm{c}(1)$ charge conservation, coming from Eq.~\eqref{eq:ehm-global-u2-symmetry-u1-su2} decomposition. By breaking this symmetry, we allow for the total charge to fluctuate in the ground state. These fluctuations are only allowed in the SC phase in the present text;
+%	\item $\mathrm{SU}(2)$ spin rotation symmetry, also , coming from Eq.~\eqref{eq:ehm-global-u2-symmetry-u1-su2} decomposition. Note that:
+%	\[
+%		\mathrm{SU}(2) \supset \mathrm{U}^z(1)
+%	\]
+%	The $z$ subscript we included to distinguish from the charge group. Hence $\mathrm{SU}(2)$ symmetry can be broken, selecting a particular vectorial direction for the order parameter (we call $z$), and reduced to a smaller $\mathrm{U}^z(1)$ symmetry which is essentially expressed by the conservation of the magnitude of the order parameter.
+%\end{itemize}
+%The last point is important: for the AF phase, for example, there is no need for the magnetization vector to be directed along the physical $z$-axis, which is the one perpendicular to the lattice plane. $\mathrm{SU}(2)$ symmetry breaks when (staggered) magnetization is established along a particular direction, but spin rotations around said direction still are ground state symmetries. This is shown schematically in Fig.~\ref{fig:su2-u1-domains}.
+%
+%\begin{figure}
+%	\centering
+%	\subfloat[$\mathrm{SU}(2)$ rotations domain before SSB.]{
+%		\input{\GraphicsFolder/su2-full-symmetry.tex}
+%		\label{subfig:su2-domain}	
+%	}
+%	\hspace{2em}
+%	\subfloat[$\mathrm{U}(1)$ rotations domain after SSB.]{
+%		\input{\GraphicsFolder/su2-u1-reduced-symmetry.tex}
+%		\label{subfig:u1-domain}
+%	}
+%	\caption{Graphic representation of the concept of $\mathrm{SU}(2)\to\mathrm{U}^z(1)$ SSB. The solid color identifies, in both cases, the rotations domain for the current symmetry. When SSB takes place in a magnetic phase, the magnetization order parameter acquires a precise direction which was previously invariant over the full spherical domain. After SSB, the hamiltonian is rotationally invariant only for rotations \textit{around} the selected magnetization vector.}
+%	\label{fig:su2-u1-domains}
+%\end{figure}
 
 \begin{table}
 	\centering
@@ -94,11 +300,13 @@ The last point is important: for the AF phase, for example, there is no need for
 		SC & $\mathrm{U}^\mathrm{c}(1)$ & $0$ \\
 		\midrule
 	\end{tabular}
-	\caption{SSB interpretation of the AF and SC phases. In the last line, the $0$ on the SSB right-hand side indicates a completely disrupted symmetry.}
+	\caption{SSB interpretation of the AF and SC phases. In the last line, the $0$ on the SSB right-hand side indicates a completely disrupted symmetry. {\color{tabred}MOVE ME}}
 	\label{tab:phases-symmetries}
 \end{table}
 
 \subsection{Particle-hole symmetry at half-filling}\label{subsec:phs}
+
+{\color{tabred}FROM HERE...}
 
 The half-filled EHM is of particular interest due to its particle-hole symmetry (PHS), which is immediately distrupted at infinitesimal doping. Let us prove that. Consider the generic unitary operation
 \[
