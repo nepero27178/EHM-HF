@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  6 APR 2026 23:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  7 APR 2026 20:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1580,7 +1580,41 @@ tween.code.tex)))
 corations.softclip.code.tex))) (./misc/definitions.tex)
 \@quotelevel=\count556
 \@quotereset=\count557
- (./main.aux)
+ (./main.aux
+
+LaTeX Warning: Label `eq:Ht-Fourier' multiply defined.
+
+
+LaTeX Warning: Label `eq:bare-bands' multiply defined.
+
+
+LaTeX Warning: Label `eq:HV-fourier' multiply defined.
+
+
+LaTeX Warning: Label `eq:HV-os-fourier' multiply defined.
+
+
+LaTeX Warning: Label `eq:HV-ss-fourier' multiply defined.
+
+
+LaTeX Warning: Label `eq:reciprocal-space-cooper-contraction' multiply defined.
+
+
+
+LaTeX Warning: Label `eq:reciprocal-space-fock-contraction' multiply defined.
+
+
+LaTeX Warning: Label `eq:reciprocal-space-hartree-contraction' multiply defined
+.
+
+
+LaTeX Warning: Label `subsec:mft-discussion-reciprocal-local' multiply defined.
+
+
+
+LaTeX Warning: Label `HU-Fourier' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -1774,21 +1808,21 @@ n input line 14.
 
 
 LaTeX Warning: Reference `eq:extended-hubbard-model' on page 3 undefined on inp
-ut line 22.
+ut line 29.
 
 
 
 [3]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 105
+
+[4]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 130
 .
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 
-[4]
-
-LaTeX Warning: Citation 'pavarini2015many' on page 5 undefined on input line 16
-4.
+LaTeX Warning: Citation 'pavarini2015many' on page 5 undefined on input line 18
+9.
 
 
 
@@ -1798,14 +1832,14 @@ Package amsmath Warning: Bracket group [i \bm {\theta } \cdot \hat {\mathbf {S}
 }, \hat \Psi _i] at formula start!
 (amsmath)                It could be a misspelled positional argument.
 (amsmath)                If it belongs to the formula add a \relax in
-(amsmath)                front to hide it on input line 205.
+(amsmath)                front to hide it on input line 233.
 
 
 
 [6]
 
 LaTeX Warning: Reference `eq:extended-hubbard-model' on page 7 undefined on inp
-ut line 326.
+ut line 358.
 
 
 
@@ -1813,73 +1847,82 @@ ut line 326.
 
 [8]
 
-LaTeX Warning: Reference `appsec:antiferromagnetic-phase' on page 9 undefined o
-n input line 499.
+LaTeX Warning: Reference `sec:sketch-hf-method' on page 9 undefined on input li
+ne 481.
+
+
+LaTeX Warning: Reference `eq:hf-solution-h+-' on page 9 undefined on input line
+ 481.
+
+
+LaTeX Warning: Reference `eq:hf-solution-h++' on page 9 undefined on input line
+ 481.
 
 
 
-[9]
+[9] (./chapters/mft-discussion/pictures/square-nearest-neighbors.tex)
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 558.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 558.
+LaTeX Warning: Reference `eq:hf-wick-hfc' on page 10 undefined on input line 51
+9.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 558.
-
-(./chapters/mft-discussion/pictures/square-nearest-neighbors.tex)
 
 [10]
 
 LaTeX Warning: Reference `subfig:antiferromagnet-sublattices' on page 11 undefi
-ned on input line 616.
+ned on input line 610.
+
+
+LaTeX Warning: Reference `eq:mft-extended-hubbard-wick-decomposition' on page 1
+1 undefined on input line 651.
 
 
 
 [11]
 
 LaTeX Warning: Reference `appendix:mean-field-hubbard' on page 12 undefined on 
-input line 697.
+input line 691.
 
 
 
 [12]
 
-[13] (./chapters/mft-discussion/pictures/s-wave-correlator.tex)
+[13]
+
+[14]
+
+[15]
+
+[16] (./chapters/mft-discussion/pictures/s-wave-correlator.tex)
 (./chapters/mft-discussion/pictures/s*-wave-correlator.tex)
 (./chapters/mft-discussion/pictures/px-wave-correlator.tex)
 (./chapters/mft-discussion/pictures/py-wave-correlator.tex)
 (./chapters/mft-discussion/pictures/d-wave-correlator.tex)
 
-[14]
-<../Project/src/labs/structure-factors/plot-structure-factors.pdf, id=292, 602.
+[17]
+
+LaTeX Warning: Reference `sec:mft-discussion-non-local-source' on page 18 undef
+ined on input line 1425.
+
+<../Project/src/labs/structure-factors/plot-structure-factors.pdf, id=337, 602.
 25pt x 526.96875pt>
 File: ../Project/src/labs/structure-factors/plot-structure-factors.pdf Graphic 
 file (type pdf)
 <use ../Project/src/labs/structure-factors/plot-structure-factors.pdf>
 Package pdftex.def Info: ../Project/src/labs/structure-factors/plot-structure-f
-actors.pdf  used on input line 1158.
+actors.pdf  used on input line 1453.
 (pdftex.def)             Requested size: 384.1096pt x 336.109pt.
 
-Underfull \vbox (badness 1325) has occurred while \output is active []
 
+[18]
 
+[19])
 
-[15]
+[20 <../Project/src/labs/structure-factors/plot-structure-factors.pdf>]
 
-[16 <../Project/src/labs/structure-factors/plot-structure-factors.pdf>])
-
-[17]
-
-[18
+[21
 
 ]
-
-[19]
 Overfull \hbox (3.53458pt too wide) in paragraph at lines 67--67
 \OT1/cmr/m/it/10 Phys-ica C: Su-per-con-duc-tiv-ity and its Ap-pli-ca-tions \OT
 1/cmr/m/n/10 633 (June 2025), p. 1354719. \OT1/cmr/m/sc/10 issn\OT1/cmr/m/n/10 
@@ -1895,9 +1938,9 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 67.
 
 
-[20]
+[22]
 
-[21]
+[23]
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
@@ -1910,8 +1953,11 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7563348CC67F3EE5877CD4097B5C9428;3054.
+(rerunfilecheck)             Checksum: 2C9CE6E07CF8841E43995912B0C0A688;2387.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -1922,11 +1968,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 52250 strings out of 475076
- 1181757 string characters out of 5763687
- 2208431 words of memory out of 5000000
- 74329 multiletter control sequences out of 15000+600000
- 580670 words of font info for 116 fonts, out of 8000000 for 9000
+ 52301 strings out of 475076
+ 1182627 string characters out of 5763687
+ 2206609 words of memory out of 5000000
+ 74355 multiletter control sequences out of 15000+600000
+ 578338 words of font info for 107 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  92i,16n,96p,2641b,1677s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -1936,33 +1982,31 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/f
-onts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm
--super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb>
-</usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (23 pages, 1095343 bytes).
+1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/f
+onts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm
+-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
+
+Output written on main.pdf (25 pages, 1085990 bytes).
 PDF statistics:
- 628 PDF objects out of 1000 (max. 8388607)
- 497 compressed objects within 5 object streams
- 122 named destinations out of 1000 (max. 500000)
- 230 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 664 PDF objects out of 1000 (max. 8388607)
+ 536 compressed objects within 6 object streams
+ 148 named destinations out of 1000 (max. 500000)
+ 222 words of extra memory for PDF output out of 10000 (max. 10000000)
 

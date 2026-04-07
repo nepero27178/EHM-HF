@@ -212,24 +212,24 @@ being $M$ unitary.
 
 Assume now $\ket{\Psi}$ to be the vacuum state for the new operators,
 \[
-\forall i
-\quad\colon\quad
-\hat \gamma_i \ket{\Psi} = 0
+	\forall i
+	\quad\colon\quad
+	\hat \gamma_i \ket{\Psi} = 0
 \]
 Suppose we want to evaluate, with identical meaning of the notation as in previous section, something like
 \[
-\left\langle \hat C_1 \hat C_2 \cdots \hat C_{2k} \right\rangle
+	\left\langle \hat C_1 \hat C_2 \cdots \hat C_{2k} \right\rangle
 \]
 We can apply the result obtained above. Indeed, inverse maps linking old and new operators read:
 \[
-\hat c_i \equiv \sum_{j=1}^D U_{ij} \hat \gamma_j + \sum_{j=1}^D U_{ji}^* \hat \gamma_j^\dagger
-\qquad
-\hat c_i^\dagger \equiv \sum_{j=1}^D V_{ji}^* \hat \gamma_j^\dagger + \sum_{j=1}^D V_{ij} \hat \gamma_j
+	\hat c_i \equiv \sum_{j=1}^D U_{ij} \hat \gamma_j + \sum_{j=1}^D U_{ji}^* \hat \gamma_j^\dagger
+	\qquad
+	\hat c_i^\dagger \equiv \sum_{j=1}^D V_{ji}^* \hat \gamma_j^\dagger + \sum_{j=1}^D V_{ij} \hat \gamma_j
 \]
 In Sec.~\ref{subsec:slater-wick} we argued that, when averaging a product of operators like the one of Eq.~\eqref{eq:slater-Ol}, only $2$-points EVs contribute. This time the idea is the same, substituting $\mathcal{O}^{(\ell)} \to \hat C_\ell$ and $\hat c_i, \hat c_i^\dagger \to \hat \gamma_i, \hat \gamma_i^\dagger$. Thus, also here we can decompose the product operator, apply Wick's theorem, discard all non-fully-contracted terms and recompose the results. All we used was just the unitary mapping between $\hat \Phi$ and $\hat \Gamma$, the fact that $\gamma_i, \hat \gamma_i^\dagger$ obey Fermi anticommutation rules and ``see'' $\ket{\Psi}$ as a vacuum state.
 
 As in Sec.~\ref{subsec:slater-wick}, we conclude that:
-\[
+\begin{equation}\label{eq:hf-wick-hfc}
 	\langle
 	\hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta
 	\rangle = \underbrace{
@@ -255,7 +255,7 @@ As in Sec.~\ref{subsec:slater-wick}, we conclude that:
 		\hat c_\gamma \hat c_\delta 
 		\rangle 
 	}_{\text{Cooper}}
-\]
+\end{equation}
 The subscripts indicate the name we will give to these terms throughout the text. Note that, differently from ``pure Slater states'' EVs with two annihilations or two creations do not vanish, in general.
 
 All of this holds when averaging is performed on a state, $\ket{\Psi}$, which is vacuum for a set of operators linked to fermionic Nambu spinor $\hat \Phi$ by some unitary operation. This set of states is the domain of our variational constrained search. This kind of unitary mapping is often referred to as Bogoliubov-Valatin transformation, and the method hereby presented as Hartree-Fock-Bogoliubov (HFB). For simplicity we will stick, from now on, to the name ``HF method'' referring to this discussion. {\color{tabred}\textbf{This argument has been carried out at zero temperature, but can be extended to finite temperature using appropriate path-integral techniques}}.

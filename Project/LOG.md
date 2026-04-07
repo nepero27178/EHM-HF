@@ -1,7 +1,9 @@
 # 20260330
 SC-Singlet (RB=S, SYM=d)
-B[128]-a [ON met-num]
-B[256]-a [ON met-num]
+B[128]-a => TODO plot
+B[256]-a => TODO plot
+B[128]-b [ON met-num]
+B[256]-b [ON met-num]
 B[256]-b [ON stubborn]
 
 SC-Triplet [hs]
