@@ -1,0 +1,19 @@
+\begin{tikzpicture}[
+    site/.style={circle, fill=#1, minimum size=0.3em, outer sep=0pt, inner sep=0pt},
+    sub1/.style={site=tabblue},
+    sub2/.style={site=tabred},
+]
+
+	\begin{scope}[local bounding box=lattice1]
+	    \draw[lightgray, dashed] (-0.4,0.4) grid (5.4,-4.4);
+	    \foreach \i in {0,...,4} {
+	        \foreach \j in {0,...,5} {
+	            \pgfmathparse{mod(\i+\j,2) ? "sub1" : "sub2"}
+	            \node[\pgfmathresult] (n-\i-\j) at (\j, -\i) {};
+	        }
+	    }
+	    \node[tabred,anchor=south east] at (0,0) {$\mathcal{S}_1$};
+ 	    \node[tabblue,anchor=south east] at (1,0) {$\mathcal{S}_2$};
+	\end{scope}
+
+\end{tikzpicture}
