@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.10)  8 APR 2026 19:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  9 APR 2026 11:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1367,7 +1367,7 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \bibhang=\skip259
 \blx@bcfin=\read4
 \blx@bcfout=\write6
-\blx@langwohyphens=\language90
+\blx@langwohyphens=\language9
 \c@mincomprange=\count469
 \c@maxcomprange=\count470
 \c@mincompwidth=\count471
@@ -1746,9 +1746,9 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.39 \restoregeometry
+l.41 \restoregeometry
                       [2]) (./misc/introduction.tex)
-(./chapters/ehm-symmetries/ehm-symmetries.tex
+(./chapters/theoretical-introduction/theoretical-introduction.tex
 
 [1
 
@@ -1760,44 +1760,82 @@ l.39 \restoregeometry
 
 [2
 
+]) (./chapters/hf-introduction/hf-introduction.tex
+
+[3]
+
+[4
+
 ]
 
-LaTeX Warning: Reference `eq:hf-Hhf-k' on page 3 undefined on input line 4.
+[5]
+
+[6]
+
+[7]
+
+[8]
+
+[9]
+
+[10]
+
+[11]
+
+[12] (./chapters/hf-introduction/pictures/effective-model-scheme.tex)
+
+[13]
+
+[14]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 585.
 
 
-LaTeX Warning: Reference `sec:sketch-ihf-algorithm' on page 3 undefined on inpu
-t line 4.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mu' on input line 585.
 
 
-LaTeX Warning: Reference `eq:hf-self-consistency-general' on page 3 undefined o
-n input line 14.
-
-
-LaTeX Warning: Reference `eq:extended-hubbard-model' on page 3 undefined on inp
-ut line 29.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 585.
 
 
 
-[3] (./chapters/ehm-symmetries/pictures/square-sublattices.tex)
+[15]
 
-[4]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 138
+[16]
+
+LaTeX Warning: Reference `subsec:normal-g-optimization' on page 17 undefined on
+ input line 687.
+
+) (./chapters/ehm-symmetries/ehm-symmetries.tex
+
+[17]
+
+[18
+
+]
+
+[19] (./chapters/ehm-symmetries/pictures/square-sublattices.tex)
+
+[20]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 145
 .
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 
-[5]
+[21]
 
 Package amsmath Warning: Bracket group [i \bm {\theta } \cdot \hat {\mathbf {S}
 }, \hat \Psi _i] at formula start!
 (amsmath)                It could be a misspelled positional argument.
 (amsmath)                If it belongs to the formula add a \relax in
-(amsmath)                front to hide it on input line 241.
+(amsmath)                front to hide it on input line 248.
 
 
 
-[6] (./chapters/ehm-symmetries/pictures/su2-full-symmetry.tex
+[22] (./chapters/ehm-symmetries/pictures/su2-full-symmetry.tex
 \pgf@layerbox@back=\box79
 \pgf@layerboxsaved@back=\box80
 \pgf@layerbox@front=\box81
@@ -1809,7 +1847,7 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
-Underfull \hbox (badness 1286) in paragraph at lines 304--304
+Underfull \hbox (badness 1286) in paragraph at lines 311--311
 []|$[]\OT1/cmr/m/n/9 (2)$ ro-ta-tions do-main be-fore
  []
 
@@ -1822,80 +1860,57 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
 
-[7]
-
-LaTeX Warning: Reference `eq:extended-hubbard-model' on page 8 undefined on inp
-ut line 333.
+[23]
+Underfull \vbox (badness 5161) has occurred while \output is active []
 
 
 
-[8]
+[24]
 
-[9]
+[25]
 
-LaTeX Warning: Reference `sec:sketch-hf-method' on page 10 undefined on input l
-ine 456.
+[26] (./chapters/ehm-symmetries/pictures/square-nearest-neighbors.tex)
 
+[27]
 
-LaTeX Warning: Reference `eq:hf-solution-h+-' on page 10 undefined on input lin
-e 456.
+[28]
 
-
-LaTeX Warning: Reference `eq:hf-solution-h++' on page 10 undefined on input lin
-e 456.
-
-(./chapters/ehm-symmetries/pictures/square-nearest-neighbors.tex)
-
-[10]
-
-LaTeX Warning: Reference `eq:hf-wick-hfc' on page 11 undefined on input line 49
-4.
-
-
-
-[11]
-
-[12]
-Overfull \hbox (11.79265pt too wide) in paragraph at lines 754--755
-[]\OT1/cmr/m/n/10 In Tab. [][]1.3[][] we sum-marise these con-sid-er-a-tions, g
+[29]
+Overfull \hbox (11.79265pt too wide) in paragraph at lines 766--767
+[]\OT1/cmr/m/n/10 In Tab. [][]3.3[][] we sum-marise these con-sid-er-a-tions, g
 iv-ing the se-lec-tion rules on the EVs of Eqns. [],
  []
 
 
 
-[13]
+[30]
 
-[14]
+[31]
 
-[15] (./chapters/ehm-symmetries/pictures/s-wave-correlator.tex)
+[32] (./chapters/ehm-symmetries/pictures/s-wave-correlator.tex)
 (./chapters/ehm-symmetries/pictures/s*-wave-correlator.tex)
 (./chapters/ehm-symmetries/pictures/px-wave-correlator.tex)
 (./chapters/ehm-symmetries/pictures/py-wave-correlator.tex)
 (./chapters/ehm-symmetries/pictures/d-wave-correlator.tex)
 
-[16]
+[33]
 
-[17]
-<../Project/src/labs/structure-factors/plot-structure-factors.pdf, id=337, 602.
+[34]
+<../Project/src/labs/structure-factors/plot-structure-factors.pdf, id=575, 602.
 25pt x 526.96875pt>
 File: ../Project/src/labs/structure-factors/plot-structure-factors.pdf Graphic 
 file (type pdf)
 <use ../Project/src/labs/structure-factors/plot-structure-factors.pdf>
 Package pdftex.def Info: ../Project/src/labs/structure-factors/plot-structure-f
-actors.pdf  used on input line 1112.
+actors.pdf  used on input line 1124.
 (pdftex.def)             Requested size: 384.1096pt x 336.109pt.
 
 
-[18]
-Underfull \vbox (badness 4254) has occurred while \output is active []
+[35 <../Project/src/labs/structure-factors/plot-structure-factors.pdf>])
 
+[36]
 
-
-[19 <../Project/src/labs/structure-factors/plot-structure-factors.pdf>])
-
-[20]
-
-[21
+[37
 
 ]
 Overfull \hbox (3.53458pt too wide) in paragraph at lines 67--67
@@ -1913,9 +1928,9 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 67.
 
 
-[22]
+[38]
 
-[23]
+[39]
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
@@ -1929,7 +1944,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B630B0283BE576303C9F6BEB3A9F8212;2128.
+(rerunfilecheck)             Checksum: FA1AAC16CCDC9B1C2589C09716D17FBC;5137.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -1940,12 +1955,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53321 strings out of 473197
- 1204099 string characters out of 5718605
- 2222768 words of memory out of 5000000
- 75618 multiletter control sequences out of 15000+600000
+ 53496 strings out of 475076
+ 1207559 string characters out of 5763687
+ 2218610 words of memory out of 5000000
+ 75473 multiletter control sequences out of 15000+600000
  578574 words of font info for 108 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
+ 59 hyphenation exceptions out of 8191
  92i,16n,96p,2641b,1682s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
@@ -1975,10 +1990,10 @@ usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr
 share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/ty
 pe1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/
 sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (25 pages, 1099895 bytes).
+Output written on main.pdf (41 pages, 1177664 bytes).
 PDF statistics:
- 662 PDF objects out of 1000 (max. 8388607)
- 527 compressed objects within 6 object streams
- 136 named destinations out of 1000 (max. 500000)
- 226 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 903 PDF objects out of 1000 (max. 8388607)
+ 749 compressed objects within 8 object streams
+ 204 named destinations out of 1000 (max. 500000)
+ 322 words of extra memory for PDF output out of 10000 (max. 10000000)
 

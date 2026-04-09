@@ -15,18 +15,25 @@ For each phase, we will extract the best approximation to the true ground state 
 
 \section{The EHM symmetries}
 
-In this section we present the symmetries of the extended Hubbard model
+In this section we present the symmetries of the extended Hubbard model introduced in Eq.~\eqref{eq:extended-hubbard-model}
 \[
 	\hat H_\mathrm{EHM} =
-	-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	+ U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow}
-	- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat n_{i\sigma} \hat n_{j\sigma'}
+	\underbrace{
+		-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+	}_{\hat H_t}
+	\underbrace{
+		\vphantom{\sum_{\langle ij \rangle}}
+		+ U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow}
+	}_{\hat H_U}
+	\underbrace{
+		- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat n_{i\sigma} \hat n_{j\sigma'}
+	}_{\hat H_V}
 \]
 The symmetries of the model can be divided in two groups: the ones related to the geometry of the square lattice, and those related to the algebraic properties of $\hat H_\mathrm{EHM}$. We start by the lattice symmetries.
 
 \subsection{Lattice symmetries}\label{subsec:lattice-syms}
 
-We study the EHM on the planar square lattice, with one orbital per site. A sketch of the lattice $\mathcal{L}$ is given in Fig.~\mref. We indicate with $L_x$ the number of sites in direction $x$, and $L_y$ in direction $y$. The hamiltonian of Eq.~\eqref{eq:extended-hubbard-model} respects three fundamental lattice symmetries:
+We study the EHM on the planar square lattice, with one orbital per site. We indicate with $L_x$ the number of sites in direction $x$, and $L_y$ in direction $y$. The hamiltonian of Eq.~\eqref{eq:extended-hubbard-model} respects three fundamental lattice symmetries:
 \begin{enumerate}
 	\item Discrete translations symmetry in both the $x$ and $y$ directions. We refer to the groups of one-site translations as as $\mathrm{T}_1^{(x)}$, $\mathrm{T}_1^{(x)}$. It holds:
 	\begin{equation}\label{eq:ehm-Tn-Tkn}
@@ -76,7 +83,7 @@ The graph is said to be bipartite if two sub-graphs $\mathcal{S}_1$, $\mathcal{S
 	\label{fig:square-sublattices}
 \end{figure}
 %
-The planar square lattice is bipartite: it can be divided in two square lattices, as represented in Fig.~\ref{fig:square-sublattices}. Two sites are ``connected'' if linked by a non-zero hopping operator. Which is, if they are NNs.
+The planar square lattice is bipartite: it can be divided in two square lattices, as represented in Fig.~\ref{fig:square-sublattices}. Two sites are ``connected'' if linked by a non-zero hopping operator. Which is, if they are NNs. Note that one-site translations leave the hamiltonian invariant but exchange the two sublattices, while two-sites translations don't.
 
 \subsection{Spin and charge symmetries}\label{subsec:spin-charge-syms}
 
@@ -307,7 +314,7 @@ where the $z$ superscript serves to distinguish from the gauge group. The $z$ ax
 			\input{\GraphicsFolder/su2-u1-reduced-symmetry.tex}
 			\label{subfig:u1-domain}
 		}
-	\caption{Graphic representation of the concept of $\mathrm{SU}(2)\to\mathrm{U}^z(1)$ SSB. ``Before'' SSB, we have full symmetry under any possible rotation (solid color sphere, left panel). ``After'' SSB we have symmetry only for rotations around some vector $\mathbf{m}$.}
+	\caption{Graphic representation of the concept of $\mathrm{SU}(2)\to\mathrm{U}^z(1)$ SSB. ``Before'' SSB, we have full symmetry under any possible rotation (solid color sphere, left panel). ``After'' SSB we have symmetry only for rotations around some vector $\mathbf{m}$ (dashed tilted circumference, right panel).}
 	\label{fig:su2-u1-domains}
 \end{figure}
 %
@@ -315,7 +322,7 @@ A graphic rendition of this SSB is given in Fig.~\ref{fig:su2-u1-domains}, repre
 
 \subsection{Particle-hole symmetry at half-filling}\label{subsec:phs}
 
-The half-filled EHM on the square lattice exhibits particle-hole symmetry (PHS). The presence of this additional symmetry is a consequence of the fact that the square lattice is bipartite. Let us prove this. Consider the generic unitary operation
+The half-filled EHM on the square lattice exhibits particle-hole symmetry (PHS). The presence of this additional symmetry is a consequence of the fact that the square lattice is bipartite. Let us prove this. Consider the generic unitary particle-hole (PH) transformation
 \begin{equation}\label{eq:phs-P-general}
 	\mathrm{P}
 	\quad\colon\quad
@@ -338,7 +345,7 @@ For the two interactions $\hat H_U$, $\hat H_V$ the phase factors cancelled out.
 	- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'} \hat h_{j\sigma'} \hat h_{i\sigma}
 \]
 
-Before starting the derivation, which is an extension of the argument of \citeauthor{arovas2022hubbard} \cite{arovas2022hubbard} about the conventional HM, let us discuss some properties of the hole operators. Due to the presence of the phase factors in the PHS operative definition, the Fermi anticommutation rules hold regardlessly of the phase factor:
+Before starting the derivation, which is an extension of the argument carried out for the conventional HM \cite{arovas2022hubbard}, let us discuss some properties of the hole operators. Due to the presence of the phase factors in the PHS operative definition, the Fermi anticommutation rules hold regardlessly of the phase factor:
 \[
 \begin{aligned}
 	\lbrace \hat h_{i\sigma}, \hat h_{j\sigma'}^\dagger \rbrace &= e^{i(\eta_{i\sigma}-\eta_{j\sigma'})} \lbrace \hat c_{i\sigma}^\dagger, \hat c_{j\sigma'} \rbrace \\
@@ -370,6 +377,10 @@ The first term of the last passage is mirrored with respect to the starting term
 \paragraph{Kinetic term.}
 
 Consider the kinetic term,
+\[
+	\hat H_t = -t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+\]
+Apply the PH transform of Eq.~\eqref{eq:phs-P-general}
 \[
 	\mathrm{P} \lbrace \hat H_t \rbrace = -t \sum_{\langle ij \rangle} \sum_\sigma e^{i(\eta_{i\sigma} + \eta_{j\sigma})} \hat h_{i\sigma} \hat h_{j\sigma}^\dagger
 \]
@@ -451,17 +462,17 @@ Any other phase, as long as it alternates by $\pi$ on the two sublattices, is go
 
 \section{Symmetry breaking channels in real space}\label{subsec:ehm-sym-break}
 
-In many-body Physics, a phase transition is described by some order parameter rising from zero to a non-zero value. This is associated with some SSB. In order to simulate different phases, we need a way to distinguish them based on which symmetries they break (or not). We also need a way to work computationally in a given symmetry sector. HF methods, by reducing the hamiltonian to a non-interacting approximation, offer a simple framework to these ends. Indeed, once we identified all symmetries of a given phase, we just impose them on our approximation of the full hamiltonian. The found ground-state approximation will entail these symmetries by construction.
+In many-body Physics, a phase transition is described by some order parameter rising from zero to a non-zero value. This is associated with some spontaneous symmetry breaking (SSB). In order to simulate different phases, we need a way to distinguish them based on which symmetries they break (or not). We also need a way to work computationally in a given symmetry sector. HF methods, by reducing the hamiltonian to a non-interacting approximation, offer a simple framework to these ends. Indeed, once we identified all symmetries of a given phase, we just impose them on our approximation of the full hamiltonian. The found ground-state approximation will entail these symmetries by construction.
 
 Recall now the discussion of the HF method of Sec.~\ref{sec:sketch-hf-method}. The ending point were Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}, which identify the self-consistent single-particle fields which approximate the original quartic hamiltonian. In order to get there, we applied Wick's theorem to the quartic part of the hamiltonian and derived the most general expressions of $\mathbf{h}$. In next sections here apply Wick's theorem to the quartic operators of $\hat H_\mathrm{EHM}$ and discuss the symmetry properties of the resulting decomposition.
 
 Before starting, let us define precisely the three phases we will investigate in terms of symmetries:
 \begin{itemize}
 	\item Normal phase: no broken symmetry.
-	\item Antiferromagnetic phase: simultaneous $\mathrm{SU}(2) \to \mathrm{U}^z(1)$ and $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)} \to \mathrm{T}_2^{(x)} \otimes \mathrm{T}_2^{(y)}$ SSBs. Among all possible realisations of antiferromagnetism, we realise a SDW with alternating distribution of spin densities;
-	\item Superconducting phase: simultaneous $\mathrm{U}^c(1) \to 0$ and $\mathrm{C}_4 \to \mathrm{C}_2$ SSBs. We investigate anisotropic superconductivity, allowing for the particle number to be not conserved and for nematic effects.
+	\item Antiferromagnetic phase: simultaneous $\mathrm{SU}(2) \SSB \mathrm{U}^z(1)$ and $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)} \SSB \mathrm{T}_2^{(x)} \otimes \mathrm{T}_2^{(y)}$. Among all possible realisations of antiferromagnetism, we realise a SDW with alternating distribution of spin densities;
+	\item Superconducting phase: simultaneous $\mathrm{U}^c(1) \SSB 0$ and $\mathrm{C}_4 \SSB \mathrm{C}_2$. We investigate anisotropic superconductivity, allowing for the particle number to be not conserved and for nematic effects.
 \end{itemize}
-{\color{tabred}\textbf{Nematic effects are observed in unconventional superconductors, and this is the reason of our interest in rotational SSB.}} We will theoretically discuss the nematic SSB $\mathrm{C}_4 \to \mathrm{C}_2$ also for normal and AF phases, as if discrete rotational symmetry was broken. As we will see, while it not trivial to exclude it \textit{a priori}, it will actually turn out that the HF ground state preserves $\mathrm{C}_4$ in both cases.
+{\color{tabred}\textbf{Nematic effects are observed in unconventional superconductors, and this is the reason of our interest in the possibility of rotational SSBs.}} We will theoretically discuss the nematic SSB $\mathrm{C}_4 \to \mathrm{C}_2$ also for normal and AF phases, as if discrete rotational symmetry was broken. As we will see, while it not trivial to exclude it \textit{a priori}, it will actually turn out that the HF ground state preserves $\mathrm{C}_4$ in both cases.
 
 \begin{figure}
 	\centering
@@ -616,7 +627,7 @@ Let us start from the opposite spin sector. On the square lattice (as for any bi
 \begin{equation}\label{eq:ehm-NNs-sum(f)}
 	\sum_{\langle \mathbf{r}\mathbf{r}' \rangle} f(\mathbf{r},\mathbf{r}') = \sum_{\mathbf{r}\in\mathcal{L}/2} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} f(\mathbf{r},\mathbf{r}+\bm{\delta})
 \end{equation}
-with $f$ some function. We are using the notation of Fig.~\ref{fig:square-nearest-neighbors}. The symbol ``$\mathcal{L}/2$'' indicates one of the two sublattices $\mathcal{S}_1$, $\mathcal{S}_2$ represented in Fig.~\mref. We can rewrite:
+with $f$ some function. We are using the notation of Fig.~\ref{fig:square-nearest-neighbors}. The symbol ``$\mathcal{L}/2$'' indicates one of the two sublattices $\mathcal{S}_1$, $\mathcal{S}_2$ represented in Fig.~\ref{fig:square-sublattices}. We can rewrite:
 \[
 	\hat H_V^{\sigma\sigma'} = - V 
 	\sum_{\mathbf{r}\in\mathcal{L}/2} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left(\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}+\bm{\delta}\sigma'} + \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}-\bm{\delta}\sigma'}\right)
@@ -630,13 +641,13 @@ Now, if we choose $\mathcal{L}/2 = \mathcal{S}_1$, this gives:
 	\sum_{\mathbf{r}\in\mathcal{S}_1} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left(\hat n_{\mathbf{r}\downarrow} \hat n_{\mathbf{r}+\bm{\delta}\uparrow} + \hat n_{\mathbf{r}\downarrow} \hat n_{\mathbf{r}-\bm{\delta}\uparrow}\right)
 \end{aligned}
 \]
-These two operators are ``complementary'': $\sigma=\uparrow$ densities act on $\mathcal{S}_1$ for $\hat H_V^{\uparrow\downarrow}$, on $\mathcal{S}_2$ for $\hat H_V^{\downarrow\uparrow}$. Then their sum can be expressed as:
+These two operators are ``complementary'': $\sigma=\uparrow$ densities act on $\mathcal{S}_1$ for $\hat H_V^{\uparrow\downarrow}$, on $\mathcal{S}_2$ for $\hat H_V^{\downarrow\uparrow}$; $\sigma=\downarrow$ densities, the opposite. Then their sum can be expressed as:
 \begin{align}
 	\hat H_V^{(\text{o.s.})} &\equiv \hat H_V^{\uparrow\downarrow}  + \hat H_V^{\downarrow\uparrow} \nonumber \\
 	&= - V 
 	\sum_{\mathbf{r}\in\mathcal{L}} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left(\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}+\bm{\delta}\downarrow} + \hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}-\bm{\delta}\downarrow}\right) \label{eq:ehm-HV(os)}
 \end{align}
-Wick's theorem applied to these quartic operator gives:
+Wick's theorem applied to this quartic operator gives:
 \begin{align}
 	\langle 
 	\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r} \pm \bm{\delta} \downarrow}
@@ -710,6 +721,7 @@ Note that, with respect to the o.s. sector, we are summing on half the sites two
 	}_{\text{Cooper}}	
 	\label{eq:ehm-HV(ss)-wick}
 \end{align}
+As we did for $\hat H_U$, we analyse each separately.
 
 \paragraph{Hartree terms.}
 
@@ -751,7 +763,7 @@ Now, if $\sigma=\sigma'$ the last passage of Eq.~\eqref{eq:ehm-HV-wick-int1} is 
 	\label{tab:V-wick-terms-phases}
 \end{table}
 
-In Tab.~\ref{tab:V-wick-terms-phases} we summarise these considerations, giving the selection rules on the EVs of Eqns.~\eqref{eq:ehm-HV(os)-wick}, \eqref{eq:ehm-HV(ss)-wick}, dividing in the two sectors ``o.s.'' and ``s.s.''. By identifying these selection rules, we set the ground for the detailed derivation of each chapter and heavily simplify application of HF model to the EHM. We now move to the last part of this chapter: reciprocal space description of the EHM.
+In Tab.~\ref{tab:V-wick-terms-phases} we summarise these considerations, giving the selection rules on the EVs of Eqns.~\eqref{eq:ehm-HV(os)-wick}, \eqref{eq:ehm-HV(ss)-wick}, dividing in the two sectors ``o.s.'' and ``s.s.''. By identifying these selection rules, we set grounds for the detailed derivation of each chapter and heavily simplify application of HF model to the EHM. We now move to the last part of this chapter: reciprocal space description of the EHM.
 
 \section{The EHM in reciprocal space}
 
@@ -1018,7 +1030,7 @@ in units of the lattice step. The following identity holds:
 	\right)
 \end{aligned}
 \]
-where we defined the set of orthonormal functions $\varphi_{\mathbf{r}\mathbf{r}'}^{(\gamma)}$ listed explicitly in Tab.~\ref{tab:x-wave-real-factors}.
+where we defined the set of orthonormal functions $\varphi_{\mathbf{r}\mathbf{r}'}^{(\gamma)}$ listed explicitly in Tab.~\ref{tab:x-wave-real-factors} and sketched in Fig.~\ref{fig:x-wave-real-factors}.
 %
 \setlength{\extrarowheight}{1em}
 \begin{table}[t]
@@ -1087,8 +1099,8 @@ We decomposed the original function in its harmonics. Moving to reciprocal space
 \[
 	\frac{1}{L_x L_y} \sum_\mathbf{k} \varphi_\mathbf{k}^{(\gamma)} \varphi_\mathbf{k}^{(\gamma')*} = \delta_{\gamma\gamma'}
 \]
-We will refer to these harmonics as ``symmetry channels'', indicating the various spatial components of the order parameter associated to a given phase transition. As we will see, indeed, we consider order parameters that have specific transformation properties under planar rotations. To distinguish in symmetry channels is useful to apply selection rules to the topology of the order parameter based on the planar rotational symmetry of the studied phase.
-
+The functions of Tab.~\ref{tab:x-wave-reciprocal-factors} are plotted in the BZ in Fig.~\ref{fig:x-wave-reciprocal-factors}.
+%
 \setlength{\extrarowheight}{0.5em}
 \begin{table}
 	\centering
@@ -1102,17 +1114,19 @@ We will refer to these harmonics as ``symmetry channels'', indicating the variou
 		$d_{x^2-y^2}$-wave & $\varphi_\mathbf{k}^{(d)}$ & $\cos k_x - \cos k_y$ & Fig.~\ref{subfig:d-wave-correlator} \\[0.5em]
 		\midrule
 	\end{tabular}
-	\caption{Structure factors derived from the correlation structures of Tab.~\ref{tab:x-wave-real-factors}. The functions hereby defined are orthonormal, and are plotted in Fig-~\ref{fig:x-wave-reciprocal-factors}.}
+	\caption{Structure factors derived from the correlation structures of Tab.~\ref{tab:x-wave-real-factors}. The functions hereby defined are orthonormal, and are plotted in Fig.~\ref{fig:x-wave-reciprocal-factors}.}
 	\label{tab:x-wave-reciprocal-factors}
 \end{table}
 \setlength{\extrarowheight}{0em}
-
+%
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.9\linewidth]{../Project/src/labs/structure-factors/plot-structure-factors.pdf}
 	\caption{Representation of the various structure factors listed in Tab.~\ref{tab:x-wave-reciprocal-factors} on the BZ. For the $s^*$ and $d_{x^2-y^2}$-wave factors, the real part is plotted; for the $p_\ell$ factors, the imaginary part is plotted.}
 	\label{fig:x-wave-reciprocal-factors}
 \end{figure}
+
+We will refer to these harmonics as ``symmetry channels'', indicating the various spatial components of the order parameter associated to a given phase transition. As we will see, indeed, we consider order parameters that have specific transformation properties under planar rotations. To distinguish the various spatial harmonics of the order parameter is useful in order to apply symmetry-based selection rules.
 
 Finally, a very useful mathematical identity is given by the following argument. Consider Eq.~\eqref{eq:HV-fourier}, where is present the factor $\cos \left( \delta k_x \right)	+ \cos \left( \delta k_y \right)$ (with $\delta k_x = k_x-k_x'$ and $\delta k_y = k_y-k_y'$). Expanding,
 \[
@@ -1156,4 +1170,4 @@ or, in a more compact form
 	\qq{for $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$} \label{eq:coscos-symmetries-decomposition} \\
 	&= \frac 1 2 \sum_\gamma \varphi_\mathbf{k}^{(\gamma)*} \varphi_{\mathbf{k}'}^{(\gamma)}
 \end{align}
-This decomposition will become particularly handy in later calculations.
+This decomposition will result particularly handy in later calculations.

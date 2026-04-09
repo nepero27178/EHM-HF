@@ -57,7 +57,7 @@ This representation includes automatically Pauli exclusion principle: determinan
 
 Any normalised combinations of Slater determinants gives an antisymmetric wavefunction, although not necessarily representable as a single Slater determinant. In HF theory, we search for the best possible choice of orthonormal one-body spin orbitals $\lbrace \psi_1,\psi_2, \cdots, \psi_N \rbrace$ to approximate the true ground-state of the model through a single Slater determinant. The space of possible ``Slater-like'' many-body wavefunctions is the parametric space where we perform the variational constrained search.
 
-The EHM is formulated in second-quantisation. It is then useful to represent Slater-like states in this language. Let us map all the spin-orbitals from the discussion above to a couple of annihilation-creation fermionic operators,
+The EHM is formulated in second-quantisation. It is then useful to represent Slater-like states in this language. Let us map all the spin-orbitals from the discussion above to pairs of annihilation-creation fermionic operators,
 \[
 	\psi_i \quad\to\quad \hat c_i, \hat c_i^\dagger
 \]
@@ -282,7 +282,7 @@ Our aim is to approximate the above hamiltonian with something like:
 \begin{equation}\label{eq:hf-Hhf-k}
 	\hat H \simeq \hat H_\mathrm{HF} \equiv \sum_{\alpha,\beta} k_{\alpha\beta} \hat\gamma_\alpha^\dagger \hat\gamma_\beta
 \end{equation}
-Old and new operators must be linked by an unitary transform: with identical notation as in previous sections, $\hat\Gamma = M\hat \Phi$. To find the best approximation to the original hamiltonian means to identify both the $\gamma$ operators and the $k$ coefficients. Let us discuss briefly the features of $\hat H_\mathrm{HF}$ and then propose a solution.
+Old and new operators must be linked by an unitary map: with identical notation as in previous sections, $\hat\Gamma = M\hat \Phi$. To find the best approximation to the original hamiltonian means to identify both the $\gamma$ operators and the $k$ coefficients. Let us discuss briefly the features of $\hat H_\mathrm{HF}$ and then propose a solution.
 
 \subsection{Properties of the target quadratic hamiltonian}
 
@@ -323,7 +323,7 @@ which reads, element-wise:
 \end{equation}
 Same-sign off-diagonal fields are linked.
 
-Moreover, any hamiltonian can be arbitrarily chosen to be traceless: Physics is not affected by constant energy shifts. Indeed, if an hamiltonian is not traceless, it suffices to subtract its trace to get a traceless and physically equivalent operator. Thus we can set 
+Moreover, any hamiltonian can be arbitrarily chosen to be traceless: Physics is not affected by constant energy shifts. Indeed, if an hamiltonian is not traceless, it suffices to subtract its trace to get a traceless and physically equivalent operator. Thus we can set the target hamiltonian to be traceless as well,
 \[
 	\Tr h^{+-} + \Tr h^{-+} = 0
 \]
@@ -479,7 +479,7 @@ Using these two relations, we conclude:
 	\pdv{\Delta_{\gamma\delta}^{--}}{h_{\mu\nu}^{rs}}
 \]
 
-Recollect everything and impose the solution to be a stationary point of the energy,
+Recollect everything and impose the solution to be a stationary point of energy,
 \[
 	\pdv{E}{h_{\mu\nu}^{rs}} \stackrel{!}{=} 0
 \]
@@ -534,7 +534,7 @@ We implement a rather easy scheme: first, we obtain an analytic expression for $
 \begin{figure}
 	\centering
 	\input{\GraphicsFolder/effective-model-scheme}
-	\caption{Schematization of the self-consistent Hartree Fock method described in Sec.~\ref{sec:computational-mft}. The effective model is solved, the solution is used to estimate self-consistently the Hartree Fock vector, which is then used to update iteratively the model itself. $\mathrm{HFP}_\mathrm{i}$ indicates the initialzer HFPs vector, $\mathrm{HFP}_\mathrm{c}$ the converged HFPs vector.}
+	\caption{Schematisation of the self-consistent Hartree Fock method described in Sec.~\ref{sec:sketch-ihf-algorithm}. The effective model is solved, the solution is used to estimate self-consistently the Hartree Fock vector $\mathbf{v}$, which is then used to update iteratively the model itself. The notation $\mathbf{v}_0$ indicates the initialiser HFPs vector, $\mathbf{v}_\mathrm{c}$ the converged HFPs vector.}
 	\label{fig:effective-model-scheme}
 \end{figure}
 %
@@ -676,18 +676,18 @@ Let us discuss briefly the convergence criterion of our algorithm and the iterat
 	\quad\colon\quad
 	\abs{v_j-\mathrm{A}_j(\mathbf{v})} \le \Delta v_j
 \]
-being $\mathrm{A}(\mathbf{v})$ the map image of the HFP vector $\mathbf{v}$, and $\mathrm{A}_j$ its $j$-th component. The tolerance $\Delta v_j$ is arbitrary. If just one component of $\mathbf{v}$ is mapped ``too far'' (with respect to $\Delta v_j$) the step is rejected and iterations continue. In this text we often deal in with quantities of order $10^{-1}$, so convergence values of order $10^{-3} \divisionsymbol 10^{-4}$ will be somewhat sufficient. 
+being $\mathrm{A}(\mathbf{v})$ the map image of the HFP vector $\mathbf{v}$, and $\mathrm{A}_j$ its $j$-th component. The tolerance $\Delta v_j$ is arbitrary. If just one component of $\mathbf{v}$ is mapped ``too far'' (with respect to $\Delta v_j$) the step is rejected and iterations continue. In this text we deal in with quantities of order $10^{-1}$, so convergence values of order $10^{-3} \divisionsymbol 10^{-4}$ will be in general sufficient. 
 
 At step $i$, we check the distance of the two vectors $\mathrm{A}(\mathbf{v}_i)$ and $\mathbf{v}_i$ and if possible, halt. If instead convergence is not reached, we need repeat the cycle with a new initialiser $\mathbf{v}_{i+1}$. A very simple choice would be to set $\mathbf{v}_{i+1} = \mathbf{v}_i$. We do something slightly different:
 \begin{equation}\label{eq:mix}
 	\mathbf{v}_{i+1} \equiv g \mathrm{A} \left( \mathbf{v}_{i} \right) + (1-g) \mathbf{v}_{i}
 \end{equation}
-The ``mixing parameter'' $g$ is a simple but useful knob to tune algorithmic evolution. Its usefulness comes from the this observation: even if a fixed point exists, we don't know how easy it is to actually get there following $\mathrm{A}$. Setting $g=1$, the new initialiser is just the image of the previous initialiser. By moving ``slower'' ($g<1$) with an accurate optimisation of the mixing, it is possible to reach convergence in a controlled way.
+The ``mixing parameter'' $g$ is a simple but useful knob to tune algorithmic evolution. Its usefulness comes from this observation: even if a fixed point exists, we don't know how easy it is to actually get there following $\mathrm{A}$. Setting $g=1$, the new initialiser is just the image of the previous initialiser. By moving ``slower'' ($g<1$) with an accurate optimisation of the mixing, it is possible to reach convergence in a controlled way.
 
 Let us give some concrete justification about the relevance of controlling $g$. When it comes to HF iterative schemes of this kind, it can sometimes happen for the algorithm to remain stuck in infinite loops. An example of this behaviour is given in Sec.~\ref{subsec:normal-g-optimization}. A typical situation is the following: during algorithm evolution we reach a couple of points $\mathbf{v}^{(a)}$, $\mathbf{v}^{(b)}$ such that
 \[
 	\cdots \stackrel{\mathrm{A},g}{\longrightarrow} \mathbf{v}^{(a)} \stackrel{\mathrm{A},g}{\longrightarrow} \mathbf{v}^{(b)} \stackrel{\mathrm{A},g}{\longrightarrow} \mathbf{v}^{(a)} \stackrel{\mathrm{A},g}{\longrightarrow} \mathbf{v}^{(b)} \stackrel{\mathrm{A},g}{\longrightarrow} \cdots
 \]
-With the notation ``$\stackrel{\mathrm{A},g}{\longrightarrow}$'' we intend one algorithmic step at mixing parameter $g$. We are stuck forever in this loop. Now, to predict if couples like $(\mathbf{v}^{(a)},\mathbf{v}^{(b)})$ exist, how they depend on $g$, where they are located in HFPs space... is impossible at this level. Thus there is no immediate way to avoid these loops \textit{a priori}. One workaround we found, however, was to just make $g$ smaller. To ``slow down'' in HFPs space makes numeric instabilities less frequent. The trade-off, however, is that if we move too slow, runtime could get very large. Note that inaccurate setup of the algorithm could lead to resource-intensive runs also in ``ordinary'' situations, when we are not stuck in a loop.
+With the notation ``$\stackrel{\mathrm{A},g}{\longrightarrow}$'' we intend one algorithmic step at mixing parameter $g$. We are stuck forever in this loop. Now, to predict if couples like $(\mathbf{v}^{(a)},\mathbf{v}^{(b)})$ exist, how they depend on $g$, where they are located in HFPs space... is impossible at this level. Thus there is no immediate way to avoid these loops \textit{a priori}. One workaround we found, however, was to just make $g$ smaller. We gained empirical evidence that to ``slow down'' in HFPs space makes numeric instabilities less frequent. The trade-off, however, is that if we move too slow, runtime could get very large. Note that inaccurate setup of the algorithm could lead to resources-intensive runs also in ``ordinary'' situations, when we are not stuck in a loop.
 
 To keep the number of iterations under control, we also defined an upper bound $p$ to the total number of steps. If after $p$ steps we algorithm failed to converge, it halts. In that case, $\mathbf{v}$ is saved as a ``\texttt{NaN}'' (Not a number) vector and we move to another simulation. Introducing this simple rule, runtime is controlled and we gain an easy method to identify the regions of parameter space requiring more care -- just read from the raw data where \texttt{NaN}s have been saved and repeat simulations fine-tuning the parameters. This basically means to lower $g$ and increase $p$. These considerations end this technical introductory chapter on iHF methods.
