@@ -280,9 +280,15 @@ because exchanging the position of the two annihilations and the two creations, 
 
 Our aim is to approximate the above hamiltonian with something like:
 \begin{equation}\label{eq:hf-Hhf-k}
-	\hat H \simeq \hat H_\mathrm{HF} \equiv \sum_{\alpha,\beta} k_{\alpha\beta} \hat\gamma_\alpha^\dagger \hat\gamma_\beta
+	\hat H \simeq \hat H_\mathrm{HF} \equiv E_0 + \sum_{\alpha,\beta} k_{\alpha\beta} \hat\gamma_\alpha^\dagger \hat\gamma_\beta
 \end{equation}
-Old and new operators must be linked by an unitary map: with identical notation as in previous sections, $\hat\Gamma = M\hat \Phi$. To find the best approximation to the original hamiltonian means to identify both the $\gamma$ operators and the $k$ coefficients. Let us discuss briefly the features of $\hat H_\mathrm{HF}$ and then propose a solution.
+Old and new operators must be linked by an unitary map: with identical notation as in previous sections, $\hat\Gamma = M\hat \Phi$. To find the best approximation to the original hamiltonian means to identify:
+\begin{itemize}
+	\item the offset $E_0$;
+	\item the fermionic operators $\hat \gamma_\alpha$, $\hat \gamma_\alpha^\dagger$;
+	\item the $k_{\alpha\beta}$ coefficients. 
+\end{itemize}
+Note that, in terms of algebraic solution, $E_0$ is irrelevant. To determine it correctly is only relevant in order to get the correct approximation of the actual ground-state energy. Let us discuss briefly the features of $\hat H_\mathrm{HF}$ and then propose a solution.
 
 \subsection{Properties of the target quadratic hamiltonian}
 
@@ -294,13 +300,15 @@ In this short section we enumerate some useful properties of $\hat H_\mathrm{HF}
 \]
 Due to linearity of the unitary mapping, the operator $\hat H_\mathrm{HF}$ of Eq.~\eqref{eq:hf-Hhf-k} can also be expressed as the most general quadratic hamiltonians for electronic operators:
 \begin{equation}\label{eq:hf-Hhf-h}
-	\hat H_\mathrm{HF} = \sum_{\alpha,\beta} \sum_{p,q} h_{\alpha\beta}^{pq} \hat a_\alpha^p \hat a_\beta^q
+	\hat H_\mathrm{HF} = E_0 + \sum_{\alpha,\beta} \sum_{p,q} h_{\alpha\beta}^{pq} \hat a_\alpha^p \hat a_\beta^q
 \end{equation}
 By changing basis from $\hat \gamma$ to $\hat c$ operators, we moved all our ignorance into the new $h_{\alpha\beta}^{pq}$ fields.
 
 We can infer some mathematical properties of the fields $h_{\alpha\beta}^{pq}$. First, note that the hamiltonian can be represented through Nambu spinors as
 \[
-	\hat H_\mathrm{HF} = \begin{bmatrix}
+\begin{aligned}
+	\hat H_\mathrm{HF} &= E_0 + \hat \Phi^\dagger \mathbf{h} \hat \Phi \\
+	&= E_0 + \begin{bmatrix}
 		\hat{\mathbf{c}} \\ \hat{\mathbf{c}}^\dagger
 	\end{bmatrix}^\dagger \begin{bmatrix}
 		h^{+-} & h^{++} \\
@@ -308,6 +316,7 @@ We can infer some mathematical properties of the fields $h_{\alpha\beta}^{pq}$. 
 	\end{bmatrix} \begin{bmatrix}
 	\hat{\mathbf{c}} \\ \hat{\mathbf{c}}^\dagger
 	\end{bmatrix}
+\end{aligned}
 \]
 Our hamiltonian must be hermitian. We conclude that:
 \[
@@ -323,20 +332,20 @@ which reads, element-wise:
 \end{equation}
 Same-sign off-diagonal fields are linked.
 
-Moreover, any hamiltonian can be arbitrarily chosen to be traceless: Physics is not affected by constant energy shifts. Indeed, if an hamiltonian is not traceless, it suffices to subtract its trace to get a traceless and physically equivalent operator. Thus we can set the target hamiltonian to be traceless as well,
+We can set, without loss of generality,
 \[
 	\Tr h^{+-} + \Tr h^{-+} = 0
 \]
-Our variational argument does not depend neither on the trace of the fields nor the trace of the original hamiltonian. Then
+This passage is guaranteed by the fact that if $\mathbf{h}$ is not traceless, we can redefine it by subtracting its trace and including the latter in the energy shift $E_0$. Then
 \[
 \begin{aligned}
-	\hat H_\mathrm{HF} &= \sum_{\alpha,\beta} \left[
+	\hat H_\mathrm{HF} &= E_0 + \sum_{\alpha,\beta} \left[
 		h_{\alpha\beta}^{+-} \hat c_\alpha^\dagger \hat c_\beta + h_{\alpha\beta}^{-+} \hat c_\alpha \hat c_\beta^\dagger
 	\right] + (\text{same sign terms}) \\
-	&= \sum_{\alpha,\beta} \left[
+	&= E_0 + \sum_{\alpha,\beta} \left[
 		h_{\alpha\beta}^{+-} \left(\delta_{\alpha\beta} - \hat c_\beta \hat c_\alpha^\dagger \vphantom{c_\beta^\dagger} \right) + h_{\alpha\beta}^{-+} \left(\delta_{\alpha\beta} - \hat c_\beta^\dagger \hat c_\alpha\right)
 	\right] + (\text{same sign terms}) \\
-	&= -\sum_{\alpha,\beta} \left[
+	&= E_0 -\sum_{\alpha,\beta} \left[
 		h_{\beta\alpha}^{+-} \hat c_\alpha \hat c_\beta^\dagger + h_{\beta\alpha}^{-+} \hat c_\alpha^\dagger \hat c_\beta
 	\right] + (\text{same sign terms}) \\
 \end{aligned}
@@ -374,7 +383,7 @@ The HF ground-state energy is given by:
 \[
 \begin{aligned}
 	E_\mathrm{HF} &= \ev{\hat H_\mathrm{HF}} \\
-	&= \sum_{\alpha,\beta} \sum_{p,q} h_{\alpha\beta}^{pq} \Delta_{\alpha\beta}^{pq}
+	&= E_0 + \sum_{\alpha,\beta} \sum_{p,q} h_{\alpha\beta}^{pq} \Delta_{\alpha\beta}^{pq}
 \end{aligned}
 \]
 Here $\Delta_{\alpha\beta}^{pq}$ are functions of the fields $h_{\alpha\beta}^{pq}$. Derive energy:
@@ -384,7 +393,7 @@ Here $\Delta_{\alpha\beta}^{pq}$ are functions of the fields $h_{\alpha\beta}^{p
 	&= \Delta_{\mu\nu}^{rs} + \sum_{\alpha,\beta} \sum_{p,q} h_{\alpha\beta}^{pq} \pdv{\Delta_{\alpha\beta}^{pq}}{h_{\mu\nu}^{rs}}
 \end{aligned}
 \]
-From Hellman-Feynman theorem \cite{grosso2014solid}, we know that for a parametric hamiltonian it holds:
+Note that by construction $E_\mathrm{HF}$ is greater than the actual ground-state energy, since our approximated wavefunction is not the actual ground-state wavefunction. Now, from Hellman-Feynman theorem \cite{grosso2014solid}, we know that for a parametric hamiltonian it holds:
 \[
 \begin{aligned}
 	\pdv{E_\mathrm{HF}}{h_{\mu\nu}^{rs}} &= \mel{\Psi}{\pdv{\hat H_\mathrm{HF}}{h_{\mu\nu}^{rs}}}{\Psi} \\

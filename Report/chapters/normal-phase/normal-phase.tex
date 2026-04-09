@@ -1,17 +1,28 @@
 \def\GraphicsFolder{chapters/normal-phase/pictures}
 \chapter{The normal phase}\label{chap:normal-phase}
 
-This chapter is devoted to the MFT analysis of the ``normal phase'', which is, the one where interacting electrons do not develop an antiferromagnetic or superconducting gap, although undergoing an effective non-trivial transformation. What will be derived here, in particular the hopping renormalization effect, constitutes a peculiarity of effective MFT treatment of the EHM and will be the groundwork of following analyses. Note that this chapter is structured in such a way that what is derived here mathematically is recovered and expanded to more complex phases in next chapters.
+\color{tabred}ToDo
+\begin{itemize}
+	\item Clarify the Mean-Field decomposition of quartic operators OR use the self-consistent fields
+\end{itemize}
 
-\section{The ``normal'' phase and its symmetries}\label{sec:normal-phase-theory}
+In this chapter we apply the HF methods sketched in Sec.~\ref{sec:sketch-hf-method} to the ``normal phase''. We are studying the model in a state were no symmetry of those enumerated in Tab.~\ref{tab:symmetry-groups} is broken. Even though this phase may appear not so interesting, it actually shows a significant physical difference with respect to the conventional perfectly degenerate Fermi gas.
 
-The normal phase is simply the one where no symmetry is broken, and the many-body ground state preserves the entire $\mathrm{U}(2)$ structure of Eq.~\eqref{eq:ehm-global-u2-symmetry-u1-su2} as well as full translational symmetry $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$. In terms of spatial symmetries, we here theoretically allow for
+HF methods applied in this context will lead us to a self-consistent hopping renormalisation effect. For certain values of the non-local attraction $V$ and the doping level, a complete Mott localisation effect takes place. The resulting bands shrinking and flattening is the main net effect of the presence of $\hat H_V$ in the EHM.
+
+This chapter is divided in three main parts. First, we discuss the symmetries of the normal phase, following the general discussion of Chap.~\ref{chap:ehm-symmetries}, and apply HF methods to derive the self-consistent approximated hamiltonian. Second, we impose some theoretical constraints on the self-consistent solution. Lastly, we present numeric results.
+
+\section{The ``normal'' phase and its  symmetries}\label{sec:normal-phase-theory}
+
+In the normal phase no symmetry is broken. Thus, the HF wavefunction approximating the ground state must exhibit the full $\mathrm{U}(2) \otimes \mathrm{C}_4 \otimes \mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$ symmetry discussed in Sec.~\ref{sec:ehm-syms}. We take a slight detour from this, and instead allow for
 \[
 	\mathrm{C}_4 \SSB \mathrm{C}_2
 \]
-symmetry reduction and extract the mathematical interesting consequences. While this implies immediately inversion symmetry preservation, full $\mathrm{C}_4$ symmetry will be recovered later. Many materials show interactions-driven nematicity, which is the capability of partially breaking rotational symmetry.
+This is the only potential SSB we consider. It will turn out in Sec.~\ref{subsec:normal-bands-shrinking-C2} that even allowing for breaking of rotational symmetry, the ground-state actually does not break $\mathrm{C}_4$. This can be seen as a convolute way to confirm that there is not a normal-nematic phase. While this may seem as an useless complication, the derivation will set grounds for actual nematic effects found in the superconducting phase.
 
-The normal phase is essentially given by the null gap limit of both the AF and SC phases. By discussing it separately now, we highlight a MFT feature of the EHM of particular interest, namely, the insurgence of a new, self-consistent hopping amplitude. From Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, we know that the relevant Wick's contractions (RWCs) for this phase are
+Our HF method relies on the application of Wick's theorem on the quartic part of the interacting hamiltonian, expressed in Eq.~\eqref{eq:hf-wick-hfc}. \todo
+
+Recalling Tab.~\ref{tab:HU-sel-rules}, \ref{tab:HV-sel-rules}, for the normal phase we must consider the following contributes to the EVs of Eqns.~\eqref{eq:ehm-HU-wick}, \eqref{eq:ehm-HV(os)-wick}, \eqref{eq:ehm-HV(ss)-wick}:
 \[
 \begin{aligned}
 	&\hat H_U 
@@ -22,7 +33,7 @@ The normal phase is essentially given by the null gap limit of both the AF and S
 	&&\text{Hartree and Fock contractions} \\
 \end{aligned}	
 \]
-We anticipate the final effects of all RWCs. As we will see in detail and is reported in Tab.~\ref{tab:normal-RWCs}, the Hartree contractions account essentially for chemical potential shifts, while the only Fock contraction for a renormalization effects on the bare bands.
+As we will see in detail and is reported in Tab.~\ref{tab:normal-RWCs}, the Hartree contractions account essentially for chemical potential shifts, while the only Fock contraction for a renormalisation effects on the bare bands.
 
 \begin{table}[t]
 	\centering
