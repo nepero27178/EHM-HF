@@ -3,12 +3,12 @@ SC-Singlet (RB=S, SYM=d)
 B[128]-a => TODO plot
 B[256]-a => TODO plot
 B[128]-b [ON met-num]
-B[256]-b [ON met-num]
-B[256]-b => TODO layer (1st on stubborn) => TODO refine => TODO plot [ON stubborn]
+B[256]-b => TODO layer (2nd on stubborn) => TODO refine => TODO plot [ON stubborn]
 
 SC-Triplet [hs]
 A[256]-a => TODO refine => TODO plot
-A[256]-b => TODO layer (1st on stubborn) => TODO refine => TODO plot [OFF stubborn]
+A[256]-b => TODO layer => TODO refine => TODO plot // NOTE: A[256]-b DO NOT DOWN-LAYER ANMORE, use custom up-layering technique
+B[256]-a => TODO copy from met-num => TODO layer => TODO refine => TODO plot [ON met-num]
 
 SC-Singlet [hs]
 A[256]-a => DONE (plot refined w/ -b)
