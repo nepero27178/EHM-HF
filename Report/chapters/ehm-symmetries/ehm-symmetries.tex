@@ -472,7 +472,7 @@ Before starting, let us define precisely the three phases we will investigate in
 	\item Antiferromagnetic phase: simultaneous $\mathrm{SU}(2) \SSB \mathrm{U}^z(1)$ and $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)} \SSB \mathrm{T}_2^{(x)} \otimes \mathrm{T}_2^{(y)}$. Among all possible realisations of antiferromagnetism, we realise a SDW with alternating distribution of spin densities;
 	\item Superconducting phase: simultaneous $\mathrm{U}^c(1) \SSB 0$ and $\mathrm{C}_4 \SSB \mathrm{C}_2$. We investigate anisotropic superconductivity, allowing for the particle number to be not conserved and for nematic effects.
 \end{itemize}
-{\color{tabred}\textbf{Nematic effects are observed in unconventional superconductors, and this is the reason of our interest in the possibility of rotational SSBs.}} We will theoretically discuss the nematic SSB $\mathrm{C}_4 \to \mathrm{C}_2$ also for normal and AF phases, as if discrete rotational symmetry was broken. As we will see, while it not trivial to exclude it \textit{a priori}, it will actually turn out that the HF ground state preserves $\mathrm{C}_4$ in both cases.
+{\color{tabred}\textbf{Nematic effects are observed in unconventional superconductors \cite{bohmer2022nematicity}, and this is the reason of our interest in the possibility of rotational SSBs.}} We will theoretically discuss the nematic SSB $\mathrm{C}_4 \to \mathrm{C}_2$ also for normal and AF phases, as if discrete rotational symmetry was broken. As we will see, while it not trivial to exclude it \textit{a priori}, it will actually turn out that the HF ground state preserves $\mathrm{C}_4$ in both cases.
 
 \begin{figure}
 	\centering
@@ -609,15 +609,16 @@ In Tab.~\ref{tab:HU-sel-rules} we collect the selection rules for the Hartree, F
 \subsection{Non-local attraction}
 
 In order to analyse similarly the non-local attraction $\hat H_V$, it is useful to decompose the operator in spin channels:
-\[
-	\hat H_V \equiv 
+\begin{align}
+	\hat H_V &\equiv 
 	\underbrace{
 		\hat H_V^{\uparrow\uparrow} + \hat H_V^{\downarrow\downarrow}
 	}_{\text{Same spin}} +
 	\underbrace{
 		\hat H_V^{\uparrow\downarrow} + \hat H_V^{\downarrow\uparrow}
-	}_{\text{Opposite spin}}
-\]
+	}_{\text{Opposite spin}} \nonumber \\
+	&= \hat H^{(\mathrm{s.s.})} + \hat H^{(\mathrm{o.s.})} \label{eq:ehm-HV(ss)+HV(os)}
+\end{align}
 being
 \[
 	\hat H_V^{\sigma\sigma'} \equiv - V \sum_{\langle \mathbf{r},\mathbf{r}' \rangle} \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}'\sigma'}

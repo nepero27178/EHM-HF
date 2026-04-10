@@ -263,9 +263,9 @@ All of this holds when averaging is performed on a state, $\ket{\Psi}$, which is
 \section{Sketch of HF variational method}\label{sec:sketch-hf-method}
 
 We have identified the features of the states we use to approximate the model ground-state. Now, let us get to the core of HF method and give a technical introduction on how it works. Consider the generic quartic hamiltonian:
-\[
+\begin{equation}\label{eq:hf-quartic-H}
 	\hat H = \sum_{\alpha,\beta} A_{\alpha\beta} \hat c_\alpha^\dagger \hat c_\beta + \frac{1}{2} \sum_{\alpha,\beta,\gamma,\delta} B_{\alpha\beta\gamma\delta} \hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta
-\]
+\end{equation}
 where
 \begin{equation}\label{eq:hf-AB-syms}
 	A_{\alpha\beta} = A_{\beta\alpha}^*
@@ -353,8 +353,6 @@ This passage is guaranteed by the fact that if $\mathbf{h}$ is not traceless, we
 In second row we got rid of the traces sum and exchanged indices $\alpha \leftrightarrow \beta$. Confronting last and first row we conclude:
 \begin{equation}\label{eq:hf-ondiag-relation}
 	h_{\beta\alpha}^{+-} = - h_{\alpha\beta}^{-+}
-	\qquad
-	h_{\beta\alpha}^{-+} = - h_{\alpha\beta}^{+-}
 \end{equation}
 thus, also on-diagonal fields are linked. We are allowed to determine, say, just $h^{+-}$: its counterpart $h^{-+}$ is completely determined. These properties were all we needed to get to the main argument of the method.
 
@@ -515,6 +513,118 @@ The right-hand side of both equations depends on the fields themselves: $\Delta_
 This set of equations defines our computational problem. We are searching a set of parameters $\lbrace \Delta_{\alpha\beta}^{pq} \rbrace$ such that, determining the fields via Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}, then Eq.~\eqref{eq:hf-self-consistency-general} is respected. {\color{tabred}\textbf{The great advantage of this scheme is that, with an appropriate choice of the Hilbert space basis (for example, moving to reciprocal space for a translationally-invariant model), we can implement easily model symmetries.}}
 
 The list of parameters $\lbrace \Delta_{\alpha\beta}^{pq} \rbrace$ to be determined self-consistently may be not-so-short: by looking at Eq.~\eqref{eq:hf-self-consistency-general}, the indices $\alpha,\beta,p,q$ are spanning a large Hilbert space. However, this equation can be manipulated and transformed, reducing the set of parameters to be determined self-consistently to a very manageable number. For each phase we define these last as ``Hartree-Fock parameters'' (HFPs): a set of objects self-consistently determined by a set equivalent, but transformed, version of Eq.~\eqref{eq:hf-self-consistency-general}.
+
+\subsection{Connection with mean-field theories}
+
+This short last section concludes the theoretical introduction to HF methods, and bridges the gap between HF approaches and mean-field theory (MFT). {\color{tabred}\textbf{In general, in MFT approaches we substitute the two-body (or more) interactions of the hamiltonian with a single-body interaction with a mean field, determined locally via self-consistency equations. This is, for example, the Weiß mean-field solution to the quantum Ising model. The HF method we sketched here does not this. In the context of Hubbard models, the analogous of Weiß MFT would be dynamical mean-field theory (DMFT) \cite{georges1996dynamical}.}}
+
+However, there are some points of connection. Let us sketch first the general scheme behind MFT. Suppose we have some operator $\hat A = \hat B \hat C$. Let
+\[
+	\delta \hat O \equiv \hat O - \big\langle \hat O \big\rangle
+	\qquad
+	\hat O \in \big\lbrace \hat A, \hat B, \hat C \big\rbrace
+\]
+Then we have:
+\[
+\begin{aligned}
+	\hat A &= \left( \big\langle \hat B \big\rangle + \delta \hat B \right) \left( \big\langle \hat C \big\rangle + \delta \hat C \right) \\
+	&= \big\langle \hat B \big\rangle \big\langle \hat C \big\rangle + \big\langle \hat B \big\rangle \delta \hat C + \delta \hat B \big\langle \hat C \big\rangle + \delta \hat B \delta \hat C \\
+	&= \big\langle \hat B \big\rangle \big\langle \hat C \big\rangle + \big\langle \hat B \big\rangle \left( \hat C - \big\langle \hat C \big\rangle \right) + \left( \hat B - \big\langle \hat B \big\rangle \right) \big\langle \hat C \big\rangle + \delta \hat B \delta \hat C \\
+	&= - \big\langle \hat B \big\rangle \big\langle \hat C \big\rangle + \big\langle \hat B \big\rangle \hat C + \hat B \big\langle \hat C \big\rangle + \delta \hat B \delta \hat C \\
+\end{aligned}
+\]
+Up to now, this relation is exact. MFT relies on the idea that the last term, of order $\mathcal{O}(\delta^2)$, can be neglected. This amounts to say that the operator fluctuations about its average are ``small''. This gives the approximation:
+\[
+	\hat A \simeq \big\langle \hat B \big\rangle \hat C + \hat B \big\langle \hat C \big\rangle - \big\langle \hat B \big\rangle \big\langle \hat C \big\rangle
+\]
+Within the assumption that independently $\hat B$ and $\hat C$ fluctuations are ``small'', we are able to simplify $\hat A$ with a sum of three terms: the product of each operator with the averaged value of the other, minus the product of the averages.
+
+In the context of HF methods, we are in an slightly different situation. We are not making assumptions on the fluctuations of the quartic sectors of the hamiltonian. We are constraining the space of wavefunctions and minimising energy there. Now, Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}, although general and correct, are a little unpractical to use. To derive them was useful in order to prove that the self-consistent method is a variational search in disguise. We here sketch a more concrete method to obtain the approximated hamiltonian and connect it with MFT interpretation. What we derive here is a mere reformulation of the self-consistent result obtained above, presented in a somewhat lighter form.
+
+{\color{tabred}
+Let us restart from the interacting hamiltonian of Eq.~\eqref{eq:hf-quartic-H}. In this thesis we deal with the EHM, thus (limitedly to this section) let us restrict to the two-body generic quartic interaction:
+\[
+	\hat V = \sum_{\alpha,\beta} V_{\alpha\beta} \hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\beta \hat c_\alpha
+\]
+We work with HF states. Thus Eq.~\eqref{eq:hf-wick-hfc} holds exactly (adapted for two indices instead of four)
+\[
+	\langle
+		\hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\beta \hat c_\alpha
+	\rangle = \underbrace{
+		\langle 
+		\hat c_\alpha^\dagger \hat c_\alpha
+		\rangle \langle	
+		\hat c_\beta^\beta \hat c_\beta
+		\rangle
+	}_{\text{Hartree}}
+	- 
+	\underbrace{
+		\langle 
+		\hat c_\alpha^\dagger \hat c_\beta
+		\rangle \langle	
+		\hat c_\beta^\dagger \hat c_\alpha 
+		\rangle 
+	}_{\text{Fock}}
+	+ 
+	\underbrace{
+		\langle 
+		\hat c_\alpha^\dagger \hat c_\beta^\dagger
+		\rangle \langle	
+		\hat c_\beta \hat c_\alpha 
+		\rangle 
+	}_{\text{Cooper}}
+\]
+This gives:
+\[
+\begin{aligned}
+	\big\langle \hat V \big\rangle &= \sum_{\alpha,\beta} V_{\alpha\beta} \big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\beta \hat c_\alpha \big\rangle \\
+	&= \sum_{\alpha,\beta} V_{\alpha\beta} \left(
+		\langle 
+		\hat c_\alpha^\dagger \hat c_\alpha
+		\rangle \langle	
+		\hat c_\beta^\dagger \hat c_\beta
+		\rangle - \langle 
+		\hat c_\alpha^\dagger \hat c_\beta
+		\rangle \langle	
+		\hat c_\beta^\dagger \hat c_\alpha 
+		\rangle + \langle 
+		\hat c_\alpha^\dagger \hat c_\beta
+		\rangle \langle	
+		\hat c_\beta^\dagger \hat c_\alpha 
+		\rangle 
+	\right)
+\end{aligned}
+\]
+from which we have the equations:
+\[
+	\pdv{\big\langle \hat V \big\rangle}{\big\langle \hat c_\alpha^\dagger \hat c_\alpha \big\rangle} = \sum_\beta \big\langle \hat c_\beta^\dagger \hat c_\beta \big\rangle
+	\qquad
+	\pdv{\big\langle \hat V \big\rangle}{\big\langle \hat c_\alpha^\dagger \hat c_\beta \big\rangle} = \sum_\beta \big\langle \hat c_\beta^\dagger \hat c_\alpha \big\rangle
+	\qquad
+	\eta_{\alpha\beta} = \pdv{\big\langle \hat V \big\rangle}{\big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \big\rangle}
+\]
+
+Now, our aim is to approximate $\hat V$ as:
+\[
+	\hat V \simeq \sum_{\alpha\beta} \left[
+	\lambda_\alpha \hat c_\alpha^\dagger \hat c_\alpha + \mu_{\alpha\beta} \hat c_\alpha^\dagger \hat c_\beta + \eta_{\alpha\beta} \hat c_\alpha^\dagger \hat c_\beta^\dagger + \hc
+	\right] + (\text{some constant})
+\]
+Thus:
+\[
+	\big\langle \hat V \big\rangle \simeq \sum_{\alpha\beta} \left[
+		\lambda_\alpha \big\langle \hat c_\alpha^\dagger \hat c_\alpha \big\rangle + \mu_{\alpha\beta} \big\langle \hat c_\alpha^\dagger \hat c_\beta \big\rangle + \eta_{\alpha\beta} \big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \big\rangle
+	\right]
+\]
+It holds:
+\[
+	\lambda_\alpha = \pdv{\big\langle \hat V \big\rangle}{\big\langle \hat c_\alpha^\dagger \hat c_\alpha \big\rangle}
+	\qquad
+	\mu_{\alpha\beta} = \pdv{\big\langle \hat V \big\rangle}{\big\langle \hat c_\alpha^\dagger \hat c_\beta \big\rangle}
+	\qquad
+	\eta_{\alpha\beta} = \pdv{\big\langle \hat V \big\rangle}{\big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \big\rangle}
+\]
+}
 
 \section{Sketch of the iHF algorithm}\label{sec:sketch-ihf-algorithm}
 
