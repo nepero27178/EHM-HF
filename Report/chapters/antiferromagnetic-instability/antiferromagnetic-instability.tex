@@ -40,36 +40,6 @@ We describe a SDW whose period is of two sites, as in the left panel of Fig.~\re
 \]
 in order to capture the same theoretical nematic effects seen in Sec.~\ref{subsec:normal-fock-analytic}. The theoretical reason to do so for AF phase relies in our previous discussion. As said, planar Hubbard lattices exhibits tendency towards nematic magnetic ordering, thus (even if our Ansatz is the simplest and non evidently nematic) nematic effects are not to be excluded \textit{a priori}.
 
-Finally, recall Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}: the relevant Wick's contractions are, for each sector,
-\[
-\begin{aligned}
-	&\hat H_U 
-	&&\text{Hartree contraction} \\
-	&\hat H_V \text{ (o.s. sector)}
-	&&\text{Hartree contraction} \\
-	&\hat H_V \text{ (s.s. sector)}
-	&&\text{Hartree and Fock contractions} \\
-\end{aligned}	
-\]
-We anticipate the role of all these in Tab.~\ref{tab:af-RWCs}.
-
-\begin{table}[t]
-	\centering
-	\begin{tabular}{c c c l}
-		\textbf{Operator} & \textbf{Sector} & \textbf{RWCs} & \textbf{Net effect} \\
-		\midrule
-		$\hat H_U$ && Hartree & $\mu$ shift by $-nU$ \\
-		\midrule
-		\multirow{4}{*}{$\hat H_V$} & o.s. & Hartree & $\mu$ shift by $nzV$ \\[0.5em]
-		& \multirow{3}{*}{s.s.} & Hartree & $\mu$ shift by $nzV$\\
-		&& \multirow{2}{*}{Fock} & Bands renormalization and resymmetrization,\\
-		& & & gap complexification \\
-		\midrule
-	\end{tabular}
-	\caption{Relevant Wick's contractions and net effect in the AF phase. Note the similarity with Tab.~\ref{tab:normal-RWCs}.}
-	\label{tab:af-RWCs}
-\end{table}
-
 Commensurate antiferromagnetism is specified by the Ansatz:
 \begin{equation}\label{eq:af-mean-field-ansatz}
 	\langle \hat n_{\mathbf{r}\sigma} \rangle = n - (-1)^{x+y+\delta_{\sigma=\uparrow}} m
@@ -82,7 +52,7 @@ The Ansats of Eq.~\eqref{eq:af-mean-field-ansatz} breaks translational invarianc
 \begin{equation}\label{eq:af-ansatz-2m}
 	\langle \hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow} \rangle = 2m
 \end{equation}
-SSB happens establishes when $m \neq 0$. Then:
+ignoring the local sign factor. SSB happens establishes when $m \neq 0$. Then:
 \begin{itemize}
 	\item Recall the definitions of $\hat \Psi_\mathbf{r}$ of Eq.~\eqref{eq:Psi-onsite} 
 	\[
@@ -117,11 +87,154 @@ SSB happens establishes when $m \neq 0$. Then:
 	%
 	\item From Eq.~\eqref{eq:gauge-symmetry-c+c-} we know that on-site density operators are gauge-invariant separately in both spin sectors. Then no selection rule applies to $\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}$: its EV can be non-zero without breaking $\mathrm{U}^z(1)$.
 \end{itemize}
-The Ansatz of Eq.~\eqref{eq:af-mean-field-ansatz} is used in literature to describe antiferromagnetism in Hubbard lattice. Before moving to the EHM, we sketch in next section the theoretical description of commensurate antiferromagnetism in the HM.
+
+The chosen Ansatz is coherent with the symmetry requirements of Tab.~\ref{tab:symmetry-groups}. Recall now Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}: the relevant Wick's contractions are, for each sector,
+\[
+\begin{aligned}
+	&\hat H_U 
+	&&\text{Hartree contraction} \\
+	&\hat H_V \text{ (o.s. sector)}
+	&&\text{Hartree contraction} \\
+	&\hat H_V \text{ (s.s. sector)}
+	&&\text{Hartree and Fock contractions} \\
+\end{aligned}	
+\]
+Their role is anticipated Tab.~\ref{tab:af-RWCs}. In next sections we break down each one and derive the results by analytically applying HF methods.
+
+\begin{table}[t]
+	\centering
+	\begin{tabular}{c c c l}
+		\textbf{Operator} & \textbf{Sector} & \textbf{RWCs} & \textbf{Net effect} \\
+		\midrule
+		$\hat H_U$ && Hartree & $\mu$ shift by $-nU$ \\
+		\midrule
+		\multirow{4}{*}{$\hat H_V$} & o.s. & Hartree & $\mu$ shift by $nzV$ \\[0.5em]
+		& \multirow{3}{*}{s.s.} & Hartree & $\mu$ shift by $nzV$\\
+		&& \multirow{2}{*}{Fock} & Bands renormalization and resymmetrization,\\
+		& & & gap complexification \\
+		\midrule
+	\end{tabular}
+	\caption{Relevant Wick's contractions and net effect in the AF phase. Note the similarity with Tab.~\ref{tab:normal-RWCs}.}
+	\label{tab:af-RWCs}
+\end{table}
+
+\section{Local Hartree effects: magnetisation}\label{sec:af-local-hartree-m}
+
+Let us start from the local quartic interaction,
+\[
+	\hat H_U = U \sum_\mathbf{r} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow}
+\]
+We only need to analyse the Hartree contraction channel, as is reported in Tab.~\ref{tab:af-RWCs}.
+
+\subsection{Hartree channel in the normal phase: analytic derivation}\label{subsec:af-local-hartree-analytic}
+
+The HF method, applied to a quartic operator, gives the decomposition of Eq.~\mref. Decompose $\hat H_U$:
+\[
+	\hat H_U \simeq U \sum_\mathbf{r} \left[
+		\hat n_{\mathbf{r}\uparrow} \ev{\hat n_{\mathbf{r}\downarrow}} + \ev{\hat n_{\mathbf{r}\uparrow}} \hat n_{\mathbf{r}\downarrow} - \ev{\hat n_{\mathbf{r}\uparrow}} \ev{\hat n_{\mathbf{r}\downarrow}}
+	\right] \nonumber
+\]
+The one-body operators can be rewritten as:
+\[
+	\hat n_{\mathbf{r}\uparrow} \ev{\hat n_{\mathbf{r}\downarrow}} + \ev{\hat n_{\mathbf{r}\uparrow}} \hat n_{\mathbf{r}\downarrow}
+	= \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \left(
+	\hat n_{\mathbf{r}\uparrow} + \hat n_{\mathbf{r}\downarrow}
+	\right) - \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \left(
+	\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
+	\right)
+\]
+Recall the Ansatz of Eq.~\eqref{eq:af-mean-field-ansatz}. From this rewriting we gain a definition and a justification for the Ansatz. On-site averaged density is:
+\begin{equation}\label{eq:af-n-def}
+	n \equiv \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\downarrow}}}{2}
+\end{equation}
+while the spin averaged unbalance has a two-sites periodicity,
+\begin{equation}\label{eq:af-m-def}
+	m \equiv (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\downarrow}}}{2}
+\end{equation}
+With this definitions, we have the decomposition:
+\begin{equation}
+	\hat H_U \simeq nU \sum_\mathbf{r} \left[
+	\hat n_{\mathbf{r}\uparrow} + \hat n_{\mathbf{r}\downarrow}
+	\right] - mU \sum_\mathbf{r} (-1)^{x+y} \left[
+	\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
+	\right] - E_{\mathrm{H}/U}^{(\mathrm{AF})} \label{eq:af-hm-mft-h}
+\end{equation}
+with $E_{\mathrm{H}/U}^{(\mathrm{AF})}$ the HM Hartree contraction energy, discussed in Sec.~\ref{subsec:af-local-hartree-energy}. Note that the quantities $n$, $m$ in Eqns.~\eqref{eq:af-n-def}, \eqref{eq:af-m-def} are $\mathbf{r}$-independent. Then it must hold
+\begin{align}
+	n &= \frac{1}{L_x L_y} \sum_\mathbf{r} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \label{eq:af-hm-n-self-consistency-implicit}\\
+	m &= \frac{1}{L_x L_y} \sum_\mathbf{r} (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \label{eq:af-hm-m-self-consistency-implicit}
+\end{align}
+While from the first equation we gain an operational method to compute density, from the second we get a self-consistency equation for magnetisation.
+
+The first term of Eq.~\eqref{eq:af-hm-mft-h} gives a number operator,
+\[
+	nU \sum_\mathbf{r} \left[
+	\hat n_{\mathbf{r}\uparrow} + \hat n_{\mathbf{r}\downarrow}
+	\right] = nU \times \hat N
+	\quad\implies\quad
+	\mu \to \tilde{\mu} \equiv \mu - nU
+\]
+Chemical potential shift, anticipated in Tab.~\ref{tab:af-RWCs}, is present also in the EHM. In the second term, the phase factor can be absorbed through a momentum shift,
+\begin{align}
+	\sum_\mathbf{r} (-1)^{x+y} \hat n_{\mathbf{r}\sigma} &= \sum_\mathbf{r} (-1)^{x+y} \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \nonumber \\
+	&\stackrel{\mathcal{F}}{=} \sum_\mathbf{r} e^{i \bm{\pi} \cdot \mathbf{r}}
+	\frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k} \in \mathrm{BZ}} e^{i \mathbf{k} \cdot \mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k}' \in \mathrm{BZ}} e^{-i \mathbf{k}' \cdot \mathbf{r}} \hat c_{\mathbf{k}'\sigma} \nonumber \\
+	&=\sum_{\mathbf{k} \in \mathrm{BZ}} \sum_{\mathbf{k}' \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \frac{1}{L_x L_y} \sum_\mathbf{r} e^{-i [\mathbf{k}' - (\mathbf{k} + \bm{\pi}) ] \cdot \mathbf{r}} \nonumber \\
+	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma}\label{eq:af-hm-staggered-n-transform}
+\end{align}
+where we defined the AF vector $\bm{\pi} \equiv (\pi,\pi)$. It follows:
+\[
+	mU \sum_\mathbf{r} (-1)^{x+y} \left[
+	\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
+	\right] = mU \sum_{\mathbf{k} \in \mathrm{BZ}} \left[
+	\hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\uparrow} - \hat c_{\mathbf{k}\downarrow}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\downarrow}
+	\right]
+\]
+Recall the definition of the MBZ given in Eq.~\eqref{eq:MBZ-def}. Using $2\bm{\pi}$ periodicity we rewrite
+\begin{align}
+	\sum_{\mathbf{k} \in \mathrm{BZ}}
+	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma} &= \sum_{\mathbf{k} \in \mathrm{MBZ}}
+	\left[
+	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma} + \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}+2\bm{\pi}\sigma}
+	\right] \nonumber \\
+	&= \sum_{\mathbf{k} \in \mathrm{MBZ}}
+	\left[
+	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma} + \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
+	\right] \label{eq:af-MBZ-sum}
+\end{align}
+Let now:
+\begin{align}
+	\hat n_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:af-ehm-n-def} \\
+	\hat \psi_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:af-ehm-psi-def}
+\end{align}
+Collecting everything, the local interaction reduces to
+\[
+	\hat H_U \simeq - mU \sum_{\mathbf{k}\in\mathrm{MBZ}} \sum_\sigma (-1)^{\delta_{\sigma=\downarrow}} \left[
+	\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger
+	\right] + nU \hat N - E_{\mathrm{H}/U}^{(\mathrm{AF})}
+\]
+\todo
+
+\subsection{Hartree contraction energy}\label{subsec:af-local-hartree-energy}
+
+with $E_{\mathrm{H}/U}^{(\mathrm{AF})}$ the HM Hartree contraction energy,
+\begin{align}
+	E_{\mathrm{H}/U}^{(\mathrm{AF})} &\equiv U \sum_\mathbf{r} \ev{\hat n_{\mathbf{r}\uparrow}} \ev{\hat n_{\mathbf{r}\downarrow}} \nonumber \\
+	&= U \sum_\mathbf{r} \left(
+	n + (-1)^{x+y} m
+	\right) \left(
+	n - (-1)^{x+y} m
+	\right) \nonumber \\
+	&= L_x L_y \times U \left(
+	n^2 - m^2
+	\right) \label{eq:af-hm-hartree-U-Ec}
+\end{align}
+
+\color{tabred}
 
 \subsection{Antiferromagnetism in the HM}\label{subsec:af-hm}
 
-Commensurate antiferromagnetism in conventional HM is widely studied \cite{fabrizio2022course}. FROM HERE
+Commensurate antiferromagnetism in conventional HM is widely studied \cite{fabrizio2022course}. 
 
 The detailed derivation is given in Sec.~\ref{appsec:antiferromagnetic-phase}, and here we just sketch the most important steps. Let us define:
 \begin{align}
