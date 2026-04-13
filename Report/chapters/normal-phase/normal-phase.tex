@@ -1352,14 +1352,16 @@ We defined $g$ in Sec.~\ref{subsec:reject-mix-iterate}, and operatively in Eq.~\
 	\qquad
 	\beta = 100.0
 \]
-This point is inside the Mott region (as can be checked in Fig.~\ref{subfig:normal-uS-data-B128}). Localisation, as we see in Fig.~\ref{fig:normal-tS-data}, is present and in order to flatten bands $u^{(s^*)}$ needs to converge at $2t/V=t/3$. This limit is shown as a dashed gray line in Fig.~\ref{fig:normal-tracks-compared}. The initialiser
+This point is inside the Mott region, as can be checked in Fig.~\ref{subfig:normal-uS-data-B128}. The HFP $u^{(s^*)}$ needs to converge at $2t/V=t/3$ in order to give complete localisation. The initialiser
 \[
 	\text{Step $1$}
 	\quad\colon\quad
 	u^{(s^*)} = 0.1
 \]
-was arbitrarily chosen. In each panel of Fig.~\ref{fig:normal-tracks-compared}, the red track represents the value of $u^{(s^*)}$ we plug in the self-consistency equations, the blue one the result, the green one the mixed value of the two based on different $g$s. The gray dashed line is the theoretical convergence target. 
+was arbitrarily chosen. In each panel of Fig.~\ref{fig:normal-tracks-compared}, the red track represents the value of $u^{(s^*)}$ we plug in the self-consistency equations, the blue the result of the self-consistent equation, the green one the mixed value of the two based on different $g$s. The gray dashed line is the theoretical convergence target. 
 
 In the first two panels, there is an evident infinite loop occurring whenever the green line crosses the threshold $2t/V$. At those steps, the green point is out of bounds with respect to Eq.~\eqref{eq:normal-us*-constraint}. When this happens, the following red point gives a band with inverted sign, a feature that ``breaks'' the self-consistency equation and generates a blue point with no physical significance.
 
-To overcome this problem it is necessary to move ``slowly''. As is shown in the right panel, the choice of a small enough mixing parameter ensures convergence, implementing the idea that -- within a given tolerance -- even if the blue line is systematically above the convergence value (in the region of band sign inversion) our mixing can be made careful enough to make up for this, and generate a green track systematically below the convergence value. This kind of problems can turn out to be pretty common for iterative HF schemes, and to understand how to knob the algorithmic parameters without sacrificing accurateness and precision, as well as avoiding computationally costly and frustrating infinite loops, was an essential part of this algorithm design.
+To overcome this problem it is necessary to move ``slowly''. As is shown in the right panel, the choice of a small enough mixing parameter ensures convergence. In the track, each blue dot is above the target and would produce a band with inverted sign. Mixing blue and red dots with a $95\%$ unbalance on the red ones, we ensure that the green track approaches the target from below. Note, however, that lowering $g$ cannot be reiterated too many times. Indeed, for $g \to 0$, any point of our map becomes a fixed point. 
+
+This kind of problems can turn out to be pretty common for iHF schemes, and to understand how to knob the algorithmic parameters without sacrificing accurateness and precision, as well as avoiding computationally costly and frustrating infinite loops, was an essential part of this algorithm design.

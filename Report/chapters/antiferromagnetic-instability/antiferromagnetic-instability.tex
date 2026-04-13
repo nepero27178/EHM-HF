@@ -1,11 +1,22 @@
 \def\GraphicsFolder{chapters/antiferromagnetic-instability/pictures}
 \chapter{Antiferromagnetic instability}\label{chap:mft-af-instability}
 
-This chapter is devoted to an in-depth discussion of the antiferromagnetic (AF) long-range ordering in the EHM by the means of MFT. In the context of the $2$D HM, discussed in App.~\ref{appendix:mean-field-hubbard}, AF ordering establishes as an unconventional metallic phase only stable at half-filling (as is discussed in Sec.~\ref{appsubsec:af-instability}). In EHM, the situation is similar: the present analysis is carried out based on the argument that, given the symmetry structure of the non-local NN interaction, the fundamental features of commensurate AF in HM (the ability to establish antiferromagnetism as a two-sites periodic SDW) are effectively preserved, while parameters are redefined by interaction itself. The first effect we discuss in this chapter is ``gap complexification'', in Sec.~\ref{sec:af-full-hamiltonian}; as it will turn out, such effect arises from MFT but is later suppressed. The second is combined bands renormalization-resymmetrization (both in Sec.~\ref{sec:af-fock-bands-renormalization}), the latter being a general feature of EHM common to all phases preserving (or, at most, weakening without destroying) translational invariance, previously discussed in Sec.~\ref{sec:normal-fock-bands-renormalization}.
+{\color{tabred}ToDo
+	\begin{itemize}
+		\item Clarify the Mean-Field decomposition of quartic operators OR use the self-consistent fields
+\end{itemize}}
+
+In this chapter we apply HF method to the AF phase. In the context of conventional HM, antiferromagnetism is widely studied. We focus on one particular realisation of antiferromagnetism, referred to as ``commensurate''. It is inherently metallic and only relevant at half-filling.
+
+In this phase, HF methods give two main self-consistent effects. First, the presence of the non-local attraction redefines the bands gap, an effect we denote ``gap complexification'' (Sec.~\ref{sec:af-full-hamiltonian}) and later show is actually suppressed (Sec.~\ref{sec:af-constraints}).  Second, bands shrinking (Sec.~\ref{sec:af-fock-bands-renormalization}) similarly to what found for the normal phase.
+
+As for the normal phase, this chapter is equally divided in the same three main parts. First: discussion of AF phase symmetries, based on Chap.~\ref{chap:ehm-symmetries}, and implementation of HF methods. Second: theoretical constraints on the self-consistent solution. Third: numeric results.
 
 \section{The AF phase and its symmetries}\label{sec:af-phase-theory}
 
-To start, AF phase is not uniquely defined; actually, there exists a variety of ways to establish a SDW phase in a spin-balanced square lattice, a system where both spin sectors are equally populated, but differently displaced. Fig.~\ref{fig:antiferromagnets} presents three (of many) types of antiferromagnets. Left panel shows the one we deal with: SDW structures are $2$-sites periodic, making the AF phase ``commensurate''. The central one presents another simple commensurate AF with higher periodicity. The right panel shows a possible ``striped'' antiferromagnet, where AF is effectively established along one particular direction; the example we report is $2$ sites periodic in $y$ direction, but any other periodicity could work.
+The AF phase is not uniquely defined. In the context of single-band Hubbard models, antiferromagnetism indicates a spin-density wave (SDW) structure. The two spin populations $\sigma=\uparrow$, $\sigma=\downarrow$ are identical, with a given periodicity and displaced by a finite amount.
+
+Fig.~\ref{fig:antiferromagnets} presents three (of many) types of antiferromagnets. Left panel shows the one we deal with: SDW structures are $2$-sites periodic, making the AF phase ``commensurate''. The central one presents another simple commensurate AF with higher periodicity. The right panel shows a possible ``striped'' antiferromagnet, where AF is effectively established along one particular direction; the example we report is $2$ sites periodic in $y$ direction, but any other periodicity could work.
 %
 \begin{figure}
 	\centering
@@ -16,20 +27,20 @@ To start, AF phase is not uniquely defined; actually, there exists a variety of 
 %
 Striped antiferromagnetism is studied in HM physics \cite{wietek2021stripes} as a possible long-range ordering energetically competing with anisotropic superconductivity. Nematic antiferromagnets, establishing long-range magnetic ordering along one particular direction, are interesting due to competition and interplay against superconducting ordering at finite doping \cite{qin2020absence}. Geometrically non-trivial magnetic ordering are at the core of SDW formation in copper oxides at finite doping \cite{zaanen1989charged,kato1990soliton}.
 
-The AF phase hereby presented is a symmetry reduction of the normal phase, and is described by simultaneous spin rotational symmetry reduction and translational symmetry halving:
+The AF phase is described by simultaneous global spin rotation and translational symmetry SSBs:
 \[
 \begin{aligned}
 	\mathrm{SU}(2) &\SSB \mathrm{U}^z(1) \\
 	\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)} &\SSB \mathrm{T}_2^{(x)} \otimes \mathrm{T}_2^{(y)}
 \end{aligned}
 \]
-We describe a SDW whose period is of two sites, as in the left panel of Fig.~\ref{fig:antiferromagnets}. As done for the normal phase, we allow theoretically
+We describe a SDW whose period is of two sites, as in the left panel of Fig.~\ref{fig:antiferromagnets}. As done for the normal phase, we allow
 \[
 	\mathrm{C}_4 \SSB \mathrm{C}_2
 \]
-in order to capture the same possible nematic effects seen in Sec.~\ref{subsec:normal-fock-analytic}. The theoretical reason to do so for AF phase relies in our previous discussion. As said, planar Hubbard lattices exhibits tendency towards nematic magnetic ordering, thus (even if our Ansatz is the simplest and non evidently nematic) nematic effects are not to be excluded \textit{a priori}.
+in order to capture the same theoretical nematic effects seen in Sec.~\ref{subsec:normal-fock-analytic}. The theoretical reason to do so for AF phase relies in our previous discussion. As said, planar Hubbard lattices exhibits tendency towards nematic magnetic ordering, thus (even if our Ansatz is the simplest and non evidently nematic) nematic effects are not to be excluded \textit{a priori}.
 
-Finally, recall Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, collecting the RWCs for the AF phase,
+Finally, recall Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}: the relevant Wick's contractions are, for each sector,
 \[
 \begin{aligned}
 	&\hat H_U 
@@ -40,7 +51,7 @@ Finally, recall Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-ph
 	&&\text{Hartree and Fock contractions} \\
 \end{aligned}	
 \]
-We anticipate the role of all RWCs in Tab.~\ref{tab:af-RWCs}.
+We anticipate the role of all these in Tab.~\ref{tab:af-RWCs}.
 
 \begin{table}[t]
 	\centering
@@ -59,30 +70,77 @@ We anticipate the role of all RWCs in Tab.~\ref{tab:af-RWCs}.
 	\label{tab:af-RWCs}
 \end{table}
 
+Commensurate antiferromagnetism is specified by the Ansatz:
+\begin{equation}\label{eq:af-mean-field-ansatz}
+	\langle \hat n_{\mathbf{r}\sigma} \rangle = n - (-1)^{x+y+\delta_{\sigma=\uparrow}} m
+	\qquad
+	n, m \in [0,1]
+\end{equation}
+This Ansatz captures the idea of the staggered distribution of spin populations shown in the left panel of Fig.~\ref{fig:antiferromagnets}. At site $\mathbf{r}=(x,y)$ the two spin populations average to $n$ and differ by $2m$. A detailed justification for this Ansatz in the HM is given in Sec.~\ref{appsubsec:af-more}. Note that $\langle \hat n_{\mathbf{r}\sigma} \rangle \le 1$ due to Pauli exclusion principle. This argument is already sufficient to claim that doping disrupts commensurate antiferromagnetism.
+
+The Ansats of Eq.~\eqref{eq:af-mean-field-ansatz} breaks translational invariance in each spin sector, but preserves $\mathrm{U}^z(1)$ and $\mathrm{U}^c(1)$ symmetries. Let us prove this. The Ansatz is defined by the following EV being non-zero,
+\begin{equation}\label{eq:af-ansatz-2m}
+	\langle \hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow} \rangle = 2m
+\end{equation}
+SSB happens establishes when $m \neq 0$. Then:
+\begin{itemize}
+	\item Recall the definitions of $\hat \Psi_\mathbf{r}$ of Eq.~\eqref{eq:Psi-onsite} 
+	\[
+	\hat \Psi_\mathbf{r} = \begin{bmatrix}
+		\hat c_{\mathbf{r}\uparrow} \\ \hat c_{\mathbf{r}\downarrow}
+	\end{bmatrix}
+	\]
+	and the local spin operators of Eq.~\eqref{eq:local-S},
+	\[
+		\hat S_\mathbf{r}^+ = \frac{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}}{2}
+		\qquad
+		\hat S_\mathbf{r}^- = \frac{\hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\uparrow}}{2}
+		\qquad
+		\hat S_\mathbf{r}^z = \frac{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\uparrow} + \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow}}{2}
+	\]
+	Consider Eq.~\eqref{eq:[c+,n]} and its conjugate,
+	\[
+		\comm{\hat c_{\mathbf{r}\sigma}^\dagger}{\hat n_{\mathbf{r}\sigma}} = -\hat c_{\mathbf{r}\sigma}^\dagger
+		\qquad
+		\comm{\hat c_{\mathbf{r}\sigma}}{\hat n_{\mathbf{r}\sigma}} = \hat c_{\mathbf{r}\sigma}
+	\]
+	The operators $\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}$ and $\hat S_\mathbf{r}^\pm$ do not commutate. Indeed,
+	\[
+	\begin{aligned}
+		\comm{\hat S_\mathbf{r}^+}{\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}} &= \frac{1}{2} \comm{\hat c_{\mathbf{r}\uparrow}^\dagger}{\hat n_{\mathbf{r}\uparrow}} \hat c_{\mathbf{r}\downarrow} - \frac{1}{2} \hat c_{\mathbf{r}\uparrow}^\dagger \comm{\hat c_{\mathbf{r}\downarrow}}{\hat n_{\mathbf{r}\downarrow}} \\
+		&= - \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow} \\[0.5em]
+		\comm{\hat S_\mathbf{r}^-}{\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}} &= \frac{1}{2} \hat c_{\mathbf{r}\downarrow}^\dagger \comm{\hat c_{\mathbf{r}\uparrow}}{\hat n_{\mathbf{r}\uparrow}} - \frac{1}{2} \comm{\hat c_{\mathbf{r}\downarrow}^\dagger}{\hat n_{\mathbf{r}\downarrow}} \hat c_{\mathbf{r}\uparrow} \\
+		&= \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\uparrow}
+	\end{aligned}
+	\]
+	Instead, $\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}$ and $\hat S_\mathbf{r}^z$ commutate, because all on-site density operators always do. Then, in order to have $m \neq 0$ in Eq.~\eqref{eq:af-ansatz-2m}, $\mathrm{SU}(2)$ needs to be broken while $\mathrm{U}^z(1)$ needs not.
+	%
+	\item From Eq.~\eqref{eq:gauge-symmetry-c+c-} we know that on-site density operators are gauge-invariant separately in both spin sectors. Then no selection rule applies to $\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}$: its EV can be non-zero without breaking $\mathrm{U}^z(1)$.
+\end{itemize}
+The Ansatz of Eq.~\eqref{eq:af-mean-field-ansatz} is used in literature to describe antiferromagnetism in Hubbard lattice. Before moving to the EHM, we sketch in next section the theoretical description of commensurate antiferromagnetism in the HM.
+
 \subsection{Antiferromagnetism in the HM}\label{subsec:af-hm}
 
-In this short section we recall the principal features of the AF phase established in conventional HM. The detailed derivation of all feature we here summarize is given in Sec.~\ref{appsec:antiferromagnetic-phase}. Before starting, let us define as in Eqns.~\eqref{appeq:af-hm-psi-def} and \eqref{appeq:af-hm-n-def} the AF and density fluctuations operators,
+Commensurate antiferromagnetism in conventional HM is widely studied \cite{fabrizio2022course}. FROM HERE
+
+The detailed derivation is given in Sec.~\ref{appsec:antiferromagnetic-phase}, and here we just sketch the most important steps. Let us define:
 \begin{align}
 	\hat n_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:af-ehm-n-def} \\
 	\hat \psi_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:af-ehm-psi-def}
 \end{align}
-which represent the two essential fermionic quadratic operators of the analytic MFT derivation. It is very useful to also note the following properties. Given the $\gamma$-wave form factors of Tab.~\ref{tab:x-wave-reciprocal-factors}, evidently both following equations hold
+Recall also the $\gamma$-wave form factors of Tab.~\ref{tab:x-wave-reciprocal-factors}. Then:
 \[
 \begin{aligned}
 	\hat \psi_{\mathbf{k}+\bm{\pi}\sigma}^\dagger &= \hat \psi_{\mathbf{k}\sigma} \\
 	\varphi_{\mathbf{k}+\bm{\pi}}^{(\gamma)} &= -\varphi_\mathbf{k}^{(\gamma)}
 \end{aligned}
 \]
-which imply the handy property
+which imply the property
 \begin{equation}\label{eq:af-ehm-vphi-psi-property}
 	\varphi_{\mathbf{k}+\bm{\pi}}^{(\gamma)} \psi_{\mathbf{k}+\bm{\pi}\sigma}^\dagger = - \varphi_\mathbf{k}^{(\gamma)} \psi_{\mathbf{k}\sigma}
 \end{equation}
 
-Within pure HM, AF phase is specified by the Ansatz \eqref{appeq:af-mean-field-ansatz},
-\begin{equation}\label{eq:af-mean-field-ansatz}
-	\langle \hat n_{\mathbf{r}\sigma} \rangle = n - (-1)^{x+y+\delta_{\sigma=\uparrow}} m
-\end{equation}
-which is explicitly breaking translational invariance in each spin sector, while preserving $\mathrm{U}^z(1)$ and $\mathrm{U}^c(1)$ symmetries. As reported in Tab.~\ref{tab:U-wick-terms-phases}, the only RWC comes in Hartree channel, since the local two-body attraction couples operators at opposite spin index. The hamiltonian $\hat H$ is reduced thereby to the form of Eq.~\eqref{appeq:af-hm-mft-h}
+As reported in Tab.~\ref{tab:U-wick-terms-phases}, the only RWC comes in Hartree channel, since the local two-body attraction couples operators at opposite spin index. The hamiltonian $\hat H$ is reduced thereby to the form of Eq.~\eqref{appeq:af-hm-mft-h}
 \begin{multline*}
 	\hat H_t + \hat H_U \stackrel{\mathrm{MFT}}{\simeq} -t \sum_{\langle \mathbf{r}\mathbf{r}' \rangle} \sum_\sigma 
 	\left[

@@ -114,11 +114,11 @@ is a good quantum number. The symmetry is described by the transformation of Eq.
 The EHM is described by three operators: NN hopping, independent of $\sigma$; local repulsion between opposite-spin densities; non-local attraction, independent of $\sigma$. If we rotate all spins by an equal amount, the hamiltonian must remain identical. An identical observation holds for the number operator, $\hat N$. Thus $\hat H_\mathrm{EHM}-\mu\hat N$ must be exhibit a global $\mathrm{SU}(2)$ symmetry, related to the rotation in $3$D space of all spins altogether.
 
 Let us prove this rigorously. Let the on-site spinor:
-\[
+\begin{equation}\label{eq:Psi-onsite}
 	\hat \Psi_i \equiv \begin{bmatrix}
 		\hat c_{i\uparrow} \\ \hat c_{i\downarrow}
 	\end{bmatrix}
-\]
+\end{equation}
 and the Pauli matrices
 \[
 	\tau^x \equiv \begin{bmatrix}
@@ -137,11 +137,11 @@ and the Pauli matrices
 	\end{bmatrix}
 \]
 We define the local spin operator as:
-\[
+\begin{equation}\label{eq:local-S}
 	\hat S_i^\alpha \equiv \frac{1}{2} \hat \Psi_i^\dagger \tau^\alpha \hat \Psi_i
 	\qquad
 	\left[ \hat S_j^\alpha, \hat S_j^\beta \right] = i \sum_\gamma \epsilon_{\alpha\beta\gamma} \hat S_j^\gamma
-\]
+\end{equation}
 with $\epsilon_{\alpha\beta\gamma}$ the Levi-Civita tensor. It can be checked by explicit calculation that the $\mathfrak{su}(2)$ spin algebra is actually respected. For example, consider $\alpha=x$, $\beta=y$:
 \[
 \begin{aligned}

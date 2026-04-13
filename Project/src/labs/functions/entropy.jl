@@ -18,7 +18,7 @@ H = Figure(size=(500,400),figure_padding = 1)
 ax = Axis(H[1,1])
 ax.xlabel = L"$f$"
 ax.ylabel = L"$s/k_\mathrm{B}$"
-ax.title = L"Entropy density at occupation $f$: $s(f) = -k_\mathrm{B} [ f \log f + (1-f) \log (1-f) ]$"
+ax.title = L"Entropy density at occupation $f$: $s(f\,) = -k_\mathrm{B} [ f\, \log f\, + (1-f\,) \log (1-f\,) ]$"
 lines!(ax,xx,yy,color=tabred)
 
 FilePathOut = "entropy.pdf"
