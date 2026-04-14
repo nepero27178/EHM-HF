@@ -88,7 +88,30 @@ ignoring the local sign factor. SSB happens establishes when $m \neq 0$. Then:
 	\item From Eq.~\eqref{eq:gauge-symmetry-c+c-} we know that on-site density operators are gauge-invariant separately in both spin sectors. Then no selection rule applies to $\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}$: its EV can be non-zero without breaking $\mathrm{U}^z(1)$.
 \end{itemize}
 
-The chosen Ansatz is coherent with the symmetry requirements of Tab.~\ref{tab:symmetry-groups}. Recall now Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}: the relevant Wick's contractions are, for each sector,
+The chosen Ansatz is coherent with the symmetry requirements of Tab.~\ref{tab:symmetry-groups}. Let us rephrase this in the language of HF methods. We need an HFPs vector $\mathbf{v}$, whose components $v_i$ are equipped with self-consistency equations. Commensurate antiferromagnetism is described by those HFPs emerging from Wick's theorem applied to the EHM respecting symmetry requirement. Among these we include explicitly the spin averaged unbalance has a two-sites periodicity,
+\begin{equation}\label{eq:af-m-def}
+	\forall \mathbf{r} = (x,y) \in \mathcal{L}
+	\quad\colon\quad 
+	m \equiv (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\downarrow}}}{2}
+\end{equation}
+By allowing for this EV to be non-zero we respect phase symmetry and impose antiferromagnetism to be commensurate. Setting $m \neq 0$ is equivalent to imposing the Ansatz of Eq.~\eqref{eq:af-mean-field-ansatz}.
+
+The on-site averaged density is given by:
+\begin{equation}\label{eq:af-n-def}
+	\forall \mathbf{r} \in \mathcal{L}
+	\quad\colon\quad 
+	n \equiv \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\downarrow}}}{2}
+\end{equation}
+Despite of similarity with $m$, this is not an HFP. First, on-site density respect all EHM symmetries. Second, we are imposing average density as a parametrisation of the model. There is nothing to be searched self-consistently here.
+
+Note that the quantities $n$, $m$ in Eqns.~\eqref{eq:af-n-def}, \eqref{eq:af-m-def} are $\mathbf{r}$-independent. Then it must hold
+\begin{align}
+	n &= \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \label{eq:af-hm-n-self-consistency-implicit}\\
+	m &= \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \label{eq:af-hm-m-self-consistency-implicit}
+\end{align}
+From the first equation we gain an operational method to compute density, from the second we get a self-consistency equation for magnetisation. Indeed, the ground-state depends on HFP $m$ in some way to be determined explicitly. While this passage added nothing about the theoretical description of antiferromagnetism (we averaged constants over the lattice), it will be crucial in order to move the discussion to reciprocal space.
+
+Recall now Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}: the relevant Wick's contractions are, for each sector,
 \[
 \begin{aligned}
 	&\hat H_U 
@@ -118,19 +141,21 @@ Their role is anticipated Tab.~\ref{tab:af-RWCs}. In next sections we break down
 	\label{tab:af-RWCs}
 \end{table}
 
-\section{Local Hartree effects: magnetisation}\label{sec:af-local-hartree-m}
+\section{Local Hartree effects: antiferromagnetism in the HM}\label{sec:af-local-hartree-m}
 
-Let us start from the local quartic interaction,
+For the AF phase, the derivation is more elaborated than for the normal phase. It is useful to separate the local and non-local interactions and apply to each one HF methods. Let us start from the local quartic interaction,
 \[
-	\hat H_U = U \sum_\mathbf{r} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow}
+	\hat H_U = U \sum_{\mathbf{r}\in\mathcal{L}} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow}
 \]
-We only need to analyse the Hartree contraction channel, as is reported in Tab.~\ref{tab:af-RWCs}.
+We only need to analyse the Hartree contraction channel, as is reported in Tab.~\ref{tab:af-RWCs}. 
 
-\subsection{Hartree channel in the normal phase: analytic derivation}\label{subsec:af-local-hartree-analytic}
+Before extending to the non-local attraction, we dedicate the end of this section to complete the theoretical description of antiferromagnetism in the conventional, locally repulsive Hubbard model. Indeed, this thesis aims to investigate how $\hat H_V$ changes the various phases with respect to the pure HM.
+
+\subsection{Local Hartree channel in the normal phase: analytic derivation}\label{subsec:af-local-hartree-analytic}
 
 The HF method, applied to a quartic operator, gives the decomposition of Eq.~\mref. Decompose $\hat H_U$:
 \[
-	\hat H_U \simeq U \sum_\mathbf{r} \left[
+	\hat H_U \simeq U \sum_{\mathbf{r}\in\mathcal{L}} \left[
 		\hat n_{\mathbf{r}\uparrow} \ev{\hat n_{\mathbf{r}\downarrow}} + \ev{\hat n_{\mathbf{r}\uparrow}} \hat n_{\mathbf{r}\downarrow} - \ev{\hat n_{\mathbf{r}\uparrow}} \ev{\hat n_{\mathbf{r}\downarrow}}
 	\right] \nonumber
 \]
@@ -143,54 +168,43 @@ The one-body operators can be rewritten as:
 	\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
 	\right)
 \]
-Recall the Ansatz of Eq.~\eqref{eq:af-mean-field-ansatz}. From this rewriting we gain a definition and a justification for the Ansatz. On-site averaged density is:
-\begin{equation}\label{eq:af-n-def}
-	n \equiv \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\downarrow}}}{2}
-\end{equation}
-while the spin averaged unbalance has a two-sites periodicity,
-\begin{equation}\label{eq:af-m-def}
-	m \equiv (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\downarrow}}}{2}
-\end{equation}
-With this definitions, we have the decomposition:
-\begin{equation}
-	\hat H_U \simeq nU \sum_\mathbf{r} \left[
+From Eqns.~\eqref{eq:af-m-def} and \eqref{eq:af-n-def}, we recognise $n$ and the HFP $m$. We have the decomposition:
+\begin{equation} \label{eq:af-hm-mft-h}
+	\hat H_U \simeq nU \sum_{\mathbf{r}\in\mathcal{L}} \left[
 	\hat n_{\mathbf{r}\uparrow} + \hat n_{\mathbf{r}\downarrow}
-	\right] - mU \sum_\mathbf{r} (-1)^{x+y} \left[
+	\right] - mU \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \left[
 	\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
-	\right] - E_{\mathrm{H}/U}^{(\mathrm{AF})} \label{eq:af-hm-mft-h}
+	\right] - E_{\mathrm{H}/U}^{(\mathrm{AF})}
 \end{equation}
-with $E_{\mathrm{H}/U}^{(\mathrm{AF})}$ the HM Hartree contraction energy, discussed in Sec.~\ref{subsec:af-local-hartree-energy}. Note that the quantities $n$, $m$ in Eqns.~\eqref{eq:af-n-def}, \eqref{eq:af-m-def} are $\mathbf{r}$-independent. Then it must hold
-\begin{align}
-	n &= \frac{1}{L_x L_y} \sum_\mathbf{r} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \label{eq:af-hm-n-self-consistency-implicit}\\
-	m &= \frac{1}{L_x L_y} \sum_\mathbf{r} (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \label{eq:af-hm-m-self-consistency-implicit}
-\end{align}
-While from the first equation we gain an operational method to compute density, from the second we get a self-consistency equation for magnetisation.
+with $E_{\mathrm{H}/U}^{(\mathrm{AF})}$ the HM Hartree contraction energy, discussed in Sec.~\ref{subsec:af-local-hartree-energy}.
 
 The first term of Eq.~\eqref{eq:af-hm-mft-h} gives a number operator,
 \[
-	nU \sum_\mathbf{r} \left[
+	nU \sum_{\mathbf{r}\in\mathcal{L}} \left[
 	\hat n_{\mathbf{r}\uparrow} + \hat n_{\mathbf{r}\downarrow}
 	\right] = nU \times \hat N
-	\quad\implies\quad
-	\mu \to \tilde{\mu} \equiv \mu - nU
 \]
-Chemical potential shift, anticipated in Tab.~\ref{tab:af-RWCs}, is present also in the EHM. In the second term, the phase factor can be absorbed through a momentum shift,
+Then we get the first renormalisation of chemical potential:
+\[
+	\mu \to \mu - nU
+\]
+We partially anticipated it in Tab.~\ref{tab:af-RWCs}. Another shift to $\mu$ will come from the non-local attraction. In the second term of Eq.~\eqref{eq:af-hm-mft-h} the phase factor can be absorbed through a momentum shift,
 \begin{align}
-	\sum_\mathbf{r} (-1)^{x+y} \hat n_{\mathbf{r}\sigma} &= \sum_\mathbf{r} (-1)^{x+y} \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \nonumber \\
-	&\stackrel{\mathcal{F}}{=} \sum_\mathbf{r} e^{i \bm{\pi} \cdot \mathbf{r}}
+	\sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \hat n_{\mathbf{r}\sigma} &= \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \nonumber \\
+	&\stackrel{\mathcal{F}}{=} \sum_{\mathbf{r}\in\mathcal{L}} e^{i \bm{\pi} \cdot \mathbf{r}}
 	\frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k} \in \mathrm{BZ}} e^{i \mathbf{k} \cdot \mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k}' \in \mathrm{BZ}} e^{-i \mathbf{k}' \cdot \mathbf{r}} \hat c_{\mathbf{k}'\sigma} \nonumber \\
-	&=\sum_{\mathbf{k} \in \mathrm{BZ}} \sum_{\mathbf{k}' \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \frac{1}{L_x L_y} \sum_\mathbf{r} e^{-i [\mathbf{k}' - (\mathbf{k} + \bm{\pi}) ] \cdot \mathbf{r}} \nonumber \\
+	&=\sum_{\mathbf{k} \in \mathrm{BZ}} \sum_{\mathbf{k}' \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} e^{-i [\mathbf{k}' - (\mathbf{k} + \bm{\pi}) ] \cdot \mathbf{r}} \nonumber \\
 	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma}\label{eq:af-hm-staggered-n-transform}
 \end{align}
 where we defined the AF vector $\bm{\pi} \equiv (\pi,\pi)$. It follows:
 \[
-	mU \sum_\mathbf{r} (-1)^{x+y} \left[
+	mU \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \left[
 	\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
 	\right] = mU \sum_{\mathbf{k} \in \mathrm{BZ}} \left[
 	\hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\uparrow} - \hat c_{\mathbf{k}\downarrow}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\downarrow}
 	\right]
 \]
-Recall the definition of the MBZ given in Eq.~\eqref{eq:MBZ-def}. Using $2\bm{\pi}$ periodicity we rewrite
+Recall the definition of the MBZ given in Eq.~\eqref{eq:MBZ-def}. The full BZ can be seen as the sum of two MBZ shifted by $\bm{\pi}$. Then, using $2\bm{\pi}$ periodicity, the following identity holds:
 \begin{align}
 	\sum_{\mathbf{k} \in \mathrm{BZ}}
 	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma} &= \sum_{\mathbf{k} \in \mathrm{MBZ}}
@@ -207,32 +221,221 @@ Let now:
 	\hat n_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:af-ehm-n-def} \\
 	\hat \psi_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:af-ehm-psi-def}
 \end{align}
-Collecting everything, the local interaction reduces to
+Note that $\hat n_{\mathbf{k}\sigma}$ is not the Fourier-transform of $\hat n_{\mathbf{r}\sigma}$. Collecting everything, the local interaction is reduced to
 \[
-	\hat H_U \simeq - mU \sum_{\mathbf{k}\in\mathrm{MBZ}} \sum_\sigma (-1)^{\delta_{\sigma=\downarrow}} \left[
-	\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger
-	\right] + nU \hat N - E_{\mathrm{H}/U}^{(\mathrm{AF})}
+	\hat H_U \simeq - mU \sum_{\mathbf{k}\in\mathrm{MBZ}} \sum_\sigma (-1)^{\delta_{\sigma=\downarrow}} \left(
+		\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger
+	\right) + nU \hat N - E_{\mathrm{H}/U}^{(\mathrm{AF})}
 \]
-\todo
+We define the gap function:
+\[
+	\Delta_{\mathbf{k}\sigma} = (-1)^{\delta_{\sigma=\downarrow}} mU
+\]
+This new object allows us to rewrite the local repulsion as:
+\begin{equation}\label{eq:af-HU-gap-psi}
+	\hat H_U \simeq -\sum_{\mathbf{k}\in\mathrm{MBZ}} \sum_\sigma \left(
+		\Delta_{\mathbf{k}\sigma} \hat \psi_{\mathbf{k}\sigma} + \Delta_{\mathbf{k}\sigma}^* \hat \psi_{\mathbf{k}\sigma}^\dagger
+	\right) + nU \hat N - E_{\mathrm{H}/U}^{(\mathrm{AF})}
+\end{equation}
+The gap function is actually independent of $\mathbf{k}$. It is a constant in reciprocal space. However, we defined it as $\Delta_{\mathbf{k}\sigma}$: this notation will be useful later.
 
-\subsection{Hartree contraction energy}\label{subsec:af-local-hartree-energy}
+\subsection{Local Hartree contraction energy}\label{subsec:af-local-hartree-energy}
 
-with $E_{\mathrm{H}/U}^{(\mathrm{AF})}$ the HM Hartree contraction energy,
-\begin{align}
-	E_{\mathrm{H}/U}^{(\mathrm{AF})} &\equiv U \sum_\mathbf{r} \ev{\hat n_{\mathbf{r}\uparrow}} \ev{\hat n_{\mathbf{r}\downarrow}} \nonumber \\
-	&= U \sum_\mathbf{r} \left(
+In last section we defined $E_{\mathrm{H}/U}^{(\mathrm{AF})}$ as the local Hartree contraction energy,
+\[
+\begin{aligned}
+	E_{\mathrm{H}/U}^{(\mathrm{AF})} &\equiv U \sum_{\mathbf{r}\in\mathcal{L}} \ev{\hat n_{\mathbf{r}\uparrow}} \ev{\hat n_{\mathbf{r}\downarrow}} \\
+	&= U \sum_{\mathbf{r}\in\mathcal{L}} \left(
 	n + (-1)^{x+y} m
 	\right) \left(
 	n - (-1)^{x+y} m
-	\right) \nonumber \\
-	&= L_x L_y \times U \left(
+	\right) \\
+\end{aligned}
+\]
+where we used the Ansatz of Eq.~\eqref{eq:af-mean-field-ansatz}. Expanding the product above we get:
+\[
+\begin{aligned}
+	\left(
+	n + (-1)^{x+y} m
+	\right) \left(
+	n - (-1)^{x+y} m
+	\right) &= n^2 + \left(
+		(-1)^{x+y} - (-1)^{x+y}
+	\right)nm - \left((-1)^{x+y}\right)^2 m^2 \\
+	&= n^2 - m^2
+\end{aligned}
+\]
+The sum over $\mathcal{L}$ gives $L_x L_y$ identical terms, thus we get:
+\begin{equation}\label{eq:af-hm-hartree-U-Ec}
+	E_{\mathrm{H}/U}^{(\mathrm{AF})} = L_x L_y \times U \left(
 	n^2 - m^2
-	\right) \label{eq:af-hm-hartree-U-Ec}
-\end{align}
-
-\color{tabred}
+	\right)
+\end{equation}
+which is the contraction energy in the local Hartree channel.
 
 \subsection{Antiferromagnetism in the HM}\label{subsec:af-hm}
+
+In this section we give a description of antiferromagnetism in the conventional HM, before moving later to the EHM. This is useful in order to identify clearly what changes due to $\hat H_V$. 
+
+Let the reciprocal space spinors:
+\[
+	\hat \Psi_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
+		\hat c_{\mathbf{k}\sigma} \\
+		\hat c_{\mathbf{k}+\bm{\pi}\sigma} 
+	\end{bmatrix}
+\]
+Despite sharing a similar notation with the spinors of Eq.~\eqref{eq:Psi-onsite}, they are inherently different objects.
+Recall Eq.~\eqref{eq:Ht-Fourier}: the kinetic sector is represented in reciprocal space by:
+\[
+\begin{aligned}
+	\hat H_t &= \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_\mathbf{k} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \\
+	&= \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \epsilon_\mathbf{k} \left(\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} - \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma}\right)
+\end{aligned}
+\]
+where we used antiperiodicity by $\bm{\pi}$ of the bare bands $\epsilon_\mathbf{k}$ defined in Eq.~\eqref{eq:bare-bands},
+\[
+	\epsilon_\mathbf{k} = -\epsilon_{\mathbf{k}+\bm{\pi}}
+\]
+In therms of the spinors $\hat \Psi_{\mathbf{k}\sigma}$, the kinetic operator can be written as
+\[
+	\hat H_t = \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger \begin{bmatrix}
+		\epsilon_{\mathbf{k}\sigma} & \\ & -\epsilon_{\mathbf{k}\sigma}
+	\end{bmatrix} \hat \Psi_{\mathbf{k}\sigma}
+\]
+The local repulsion $\hat H_U$ of Eq.~\eqref{eq:af-HU-gap-psi} can also be written in terms of these spinors:
+\[
+	\hat H_U = \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger \begin{bmatrix}
+		& -\Delta_{\mathbf{k}\sigma}^* \\ -\Delta_{\mathbf{k}\sigma} & 
+	\end{bmatrix} \hat \Psi_{\mathbf{k}\sigma} + nU \hat N - E_{\mathrm{H}/U}^{(\mathrm{AF})}
+\]
+
+Collecting everything, we get the following representation of the AF hamiltonian for the conventional HM:
+\begin{equation}\label{eq:af-HM-hk}
+	\hat H_t + \hat H_U \simeq \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger h_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma} + nU \hat N -  E_{\mathrm{H}/U}^{(\mathrm{AF})}
+\end{equation}
+where we defined the $2 \times 2$ matrix:
+\[	
+	h_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
+		\epsilon_{\mathbf{k}\sigma} & -\Delta_{\mathbf{k}\sigma}^* \\
+		-\Delta_{\mathbf{k}\sigma} & - \epsilon_{\mathbf{k}\sigma}
+	\end{bmatrix}
+\]
+
+\textbf{FROM HERE}
+
+The system ground-state is obtained by the means of a Bogoliubov rotation. The hamiltonian maps onto the simple one of a spin in a magnetic field (the gap is purely real here),
+\[
+h_{\mathbf{k}\sigma} = \epsilon_{\mathbf{k}\sigma} \tau^z - \Delta_{\mathbf{k}\sigma} \tau^x
+\]
+being $\tau^\alpha$ the Pauli matrices. Then, defining
+\[
+\hat s_{\mathbf{k}\sigma}^\alpha \equiv \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^\alpha \hat \Psi_{\mathbf{k}\sigma}
+\qq{and}
+\mathbf{b}_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
+	-\Delta_{\mathbf{k}\sigma} \\ 0 \\ \epsilon_{\mathbf{k}\sigma} 
+\end{bmatrix}
+\]
+one gets:
+\begin{equation}\label{af-hm-spin-h}
+	\hat H \simeq \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \mathbf{b}_{\mathbf{k}\sigma} \cdot \hat{\mathbf{s}}_{\mathbf{k}\sigma} - E_{\mathrm{H}/U}^{(\mathrm{AF})}
+	\qq{where}
+	\hat{\mathbf{s}}_{\mathbf{k}\sigma} = \begin{bmatrix}
+		\hat s_{\mathbf{k}\sigma}^x \\
+		\hat s_{\mathbf{k}\sigma}^y \\
+		\hat s_{\mathbf{k}\sigma}^z
+	\end{bmatrix}
+\end{equation}
+The hamiltonian represents a system of spins subject to local magnetic fields, each tilted by an angle $\tan 2\theta_{\mathbf{k}\sigma} = \Delta_{\mathbf{k}\sigma}/\epsilon_{\mathbf{k}\sigma}$, as sketched in Fig.~\ref{appfig:pseudo-magnetic-field}. Evidently the following relations, also reported in Tab.~\ref{tab:af-pseudo-spin-map}, hold:
+\begin{align}
+	\hat s_{\mathbf{k}\sigma}^x &= \hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger \label{appeq:af-hm-x-psi} \\
+	\hat s_{\mathbf{k}\sigma}^y &= i \left(
+	\hat \psi_{\mathbf{k}\sigma} - \hat \psi_{\mathbf{k}\sigma}^\dagger 
+	\right) \label{appeq:af-hm-y-psi} \\
+	\hat s_{\mathbf{k}\sigma}^z &= \hat n_{\mathbf{k}\sigma} - \hat n_{\mathbf{k}+\bm{\pi}\sigma} \label{appeq:af-hm-z-psi} 
+\end{align}
+Let also:
+\begin{align}
+	\hat \Id_{\mathbf{k}\sigma} &\equiv \hat \Psi_{\mathbf{k}\sigma}^\dagger \Id_{2\times2} \hat \Psi_{\mathbf{k}\sigma} \nonumber \\
+	&= \hat n_{\mathbf{k}\sigma} + \hat n_{\mathbf{k}+\bm{\pi}\sigma} \label{appeq:af-hm-id-def}
+\end{align}
+
+Diagonalization of each $h_{\mathbf{k}\sigma}$ is obtained trivially by a simple rotation around the $y$ axis:
+\[
+d_{\mathbf{k}\sigma} = W_{\mathbf{k}\sigma} h_{\mathbf{k}\sigma} W_{\mathbf{k}\sigma}^\dagger
+\qq{with}
+d_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
+	E_{\mathbf{k}\sigma} & \\
+	& - E_{\mathbf{k}\sigma}
+\end{bmatrix}
+\]
+and where the diagonalization unitary matrix is simply a rotation by an angle $2 \theta_{\mathbf{k}\sigma}$ around the $y$ axis, counter-clockwise
+\begin{align}
+	W_{\mathbf{k}\sigma} &\equiv e^{-i \theta_{\mathbf{k}\sigma} \tau^y} \nonumber\\
+	&= \cos \theta_{\mathbf{k}\sigma} -i \sin \theta_{\mathbf{k}\sigma} \tau^y \nonumber\\
+	&= \begin{bmatrix}
+		\cos \theta_{\mathbf{k}\sigma} & - \sin \theta_{\mathbf{k}\sigma} \\
+		\sin \theta_{\mathbf{k}\sigma} & \cos \theta_{\mathbf{k}\sigma}
+	\end{bmatrix} \label{appeq:af-hm-diagonalizer}
+\end{align}
+Eigenvalues are:
+\begin{equation}\label{appeq:af-bands}
+	E_{\mathbf{k}\sigma} \equiv \sqrt{
+		\epsilon_{\mathbf{k}\sigma}^2 + \abs{\Delta_{\mathbf{k}\sigma}}^2
+	}
+\end{equation}
+
+At any finite temperature, the ground-state of such a system is well-known: a thermal superposition of ``down'' spins with ``up'' spins. In the pseudo-spin picture, at each ``site'' $(\mathbf{k}\sigma)$, the lowest-energy state is the one anti-aligned with the pseudo-magnetic field. It is useful now to define the thermal factors,
+\begin{equation}\label{appeq:af-thermal-factors-def}
+	\mathrm{Th}_{\mathbf{k}\sigma}^{(\pm)}[\beta,\mu] \equiv 
+	f\left(
+	-E_{\mathbf{k}\sigma};\beta,\mu
+	\right) \pm f\left(
+	E_{\mathbf{k}\sigma};\beta,\mu
+	\right)
+\end{equation}
+that will appear quite often. Then it's immediate to derive the various expectation values.
+\begin{align}
+	\ev{\hat s_{\mathbf{k}\sigma}^x} &= \frac{\Re\lbrace\Delta_{\mathbf{k}\sigma}\rbrace}{E_{\mathbf{k}\sigma}} \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{appeq:af-hm-sx}\\
+	\ev{\hat s_{\mathbf{k}\sigma}^y} &= \frac{\Im\lbrace\Delta_{\mathbf{k}\sigma}\rbrace}{E_{\mathbf{k}\sigma}}  \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{appeq:af-hm-sy}\\
+	\ev{\hat s_{\mathbf{k}\sigma}^z} &=  -\frac{\epsilon_{\mathbf{k}\sigma}}{E_{\mathbf{k}\sigma}}  \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{appeq:af-hm-sz}
+\end{align}
+
+Note that considering the gran canonical hamiltonian $\hat K \equiv \hat H - \mu\hat N$ and using Eq.~\eqref{appeq:af-hm-id-def} the diagonalizing matrix remains the same, being
+\begin{equation}\label{appeq:af-full-h-diagonalization}
+	-\mu\hat N = \sum_{\mathbf{k}\in\mathrm{MBZ}} \begin{bmatrix}
+		-\mu & \\ & -\mu
+	\end{bmatrix}
+	\quad\implies\quad
+	W_{\mathbf{k}\sigma} \left[ 
+	h_{\mathbf{k}\sigma}-\mu \Id_{2\times2}
+	\right] W_{\mathbf{k}\sigma}^\dagger = d_{\mathbf{k}\sigma}-\mu \Id_{2\times2}
+\end{equation}
+thus for non-null chemical potential (i.e. finite doping) the eigenvalues are just shifted, $\pm E_\mathbf{k}-\mu$. In other words, the new bands retain the same chemical potential of the bare bands. Notice also that the presence of an absolute value makes the eigenvalues independent of the $\sigma$ index. Eigenvector fermion operators are obtained simply as:
+\begin{equation}\label{appeq:af-hm-Gamma-WPsi}
+	\hat\Gamma_{\mathbf{k}\sigma} = W_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma}
+\end{equation}
+The $\hat\Gamma$ spinor operators are effectively free fermionic spinor fields and as such must be treated. Explicitly,
+\begin{align}
+	\hat\Gamma_{\mathbf{k}\sigma} &= \begin{bmatrix}
+		\cos \theta_{\mathbf{k}\sigma} & - \sin \theta_{\mathbf{k}\sigma} \\
+		\sin \theta_{\mathbf{k}\sigma} & \cos \theta_{\mathbf{k}\sigma}
+	\end{bmatrix} \begin{bmatrix}
+		\hat c_{\mathbf{k}\sigma} \\
+		\hat c_{\mathbf{k}+\bm{\pi}\sigma} 
+	\end{bmatrix} \nonumber \\
+	&= \begin{bmatrix}
+		\cos \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma} - \sin \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}+\bm{\pi}\sigma}  \\
+		\sin \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma} + \cos \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}+\bm{\pi}\sigma} 
+	\end{bmatrix} \equiv
+	\begin{bmatrix}
+		\hat \gamma_{\mathbf{k}\sigma}^{(+)} \\
+		\hat \gamma_{\mathbf{k}\sigma}^{(-)} 
+	\end{bmatrix} \label{appeq:af-hm-gamma-ops-transform}
+\end{align}
+
+The consequence of Eq.~\eqref{appeq:af-full-h-diagonalization} is interesting by itself: within this HF solution, the gap opens always at $E=0$. In other words, the bands sketched in Fig.~\ref{appsubfig:af-Ek-bands} retain the same geometric features regardless of the doping, what changes is the bands width and the gap between them. The very key point here is that, being the two bands symmetric (thus containing each half of the electronic states) and defined over the MBZ, any finite doping $\delta>0$ will produce a metallic behaviour, making chemical potential crossing the upper band. It is widely observed and confirmed by more refined numerical procedures, however, that AF establishes an insulating phase -- here only reproduced at half-filling, where chemical potential lies within the gap. As will be detailed in \ref{appsubsec:af-instability}, the commensurate nature of AF SSB at wavevector $\bm{\pi}$ of this self-consistent solution is highly unstable and atypical at finite doping \cite{singh1990collective}.
+
+\color{tabred}
 
 Commensurate antiferromagnetism in conventional HM is widely studied \cite{fabrizio2022course}. 
 
