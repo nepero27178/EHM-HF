@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.10)  16 APR 2026 17:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.10)  17 APR 2026 23:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1706,7 +1706,20 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
-dvips/cm-super/cm-super-ts1.enc}])
+dvips/cm-super/cm-super-ts1.enc}]
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.109 ...and $\beta \to \infty $}{99}{section.B.1}
+                                                  % [2]
+Overfull \hbox (1.74986pt too wide) detected at line 113
+ \OT1/cmr/bx/n/10 105
+ []
+
+)
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
@@ -1714,7 +1727,7 @@ een already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.41 \clearpage
-                [2] (./misc/abbreviations.tex
+                [3] (./misc/abbreviations.tex
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1755,58 +1768,80 @@ een already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.41 \restoregeometry
-                      [3]) (./misc/introduction.tex
+                      [4]) (./misc/introduction.tex)
+(./chapters/theoretical-introduction/theoretical-introduction.tex
 
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.3 \chapter
-            *{Introduction} [4
+[1
 
 
 
 
-
-]) (./chapters/ehm-symmetries/ehm-symmetries.tex
-
-[1]
-
-[2
 
 ]
 
-LaTeX Warning: Reference `eq:hf-Hhf-k' on page 3 undefined on input line 4.
+[2
+
+]) (./chapters/hf-introduction/hf-introduction.tex
+
+[3]
+
+[4
+
+]
+
+[5]
+
+[6]
+
+[7]
+
+[8]
+
+[9]
+
+[10]
+
+[11]
+
+[12]
+
+[13]
+
+[14] (./chapters/hf-introduction/pictures/effective-model-scheme.tex)
+
+[15]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 704.
 
 
-LaTeX Warning: Reference `sec:sketch-ihf-algorithm' on page 3 undefined on inpu
-t line 4.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mu' on input line 704.
 
 
-LaTeX Warning: Reference `eq:hf-self-consistency-general' on page 3 undefined o
-n input line 14.
-
-
-LaTeX Warning: Reference `eq:extended-hubbard-model' on page 3 undefined on inp
-ut line 18.
-
-
-LaTeX Warning: Reference `eq:extended-hubbard-model' on page 3 undefined on inp
-ut line 36.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 704.
 
 
 
-[3] (./chapters/ehm-symmetries/pictures/square-sublattices.tex)
+[16]
 
-[4]
+[17]) (./chapters/ehm-symmetries/ehm-symmetries.tex
+
+[18]
+
+[19
+
+] (./chapters/ehm-symmetries/pictures/square-sublattices.tex)
+
+[20]
 LaTeX Font Info:    Trying to load font information for U+euf on input line 145
 .
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 
-[5]
+[21]
 
 Package amsmath Warning: Bracket group [i \bm {\theta } \cdot \hat {\mathbf {S}
 }, \hat \Psi _i] at formula start!
@@ -1816,7 +1851,7 @@ Package amsmath Warning: Bracket group [i \bm {\theta } \cdot \hat {\mathbf {S}
 
 
 
-[6] (./chapters/ehm-symmetries/pictures/su2-full-symmetry.tex
+[22] (./chapters/ehm-symmetries/pictures/su2-full-symmetry.tex
 \pgf@layerbox@back=\box79
 \pgf@layerboxsaved@back=\box80
 \pgf@layerbox@front=\box81
@@ -1841,66 +1876,43 @@ Missing character: There is no ; in font nullfont!
 Missing character: There is no ; in font nullfont!
 )
 
-[7]
-
-LaTeX Warning: Reference `eq:extended-hubbard-model' on page 8 undefined on inp
-ut line 340.
-
-
+[23]
 Underfull \vbox (badness 5161) has occurred while \output is active []
 
 
 
-[8]
+[24]
 
-[9]
+[25]
 
-LaTeX Warning: Reference `sec:sketch-hf-method' on page 10 undefined on input l
-ine 467.
+[26] (./chapters/ehm-symmetries/pictures/square-nearest-neighbors.tex)
 
+[27]
 
-LaTeX Warning: Reference `eq:hf-solution-h+-' on page 10 undefined on input lin
-e 467.
+[28]
 
-
-LaTeX Warning: Reference `eq:hf-solution-h++' on page 10 undefined on input lin
-e 467.
-
-
-
-[10] (./chapters/ehm-symmetries/pictures/square-nearest-neighbors.tex)
-
-LaTeX Warning: Reference `eq:hf-wick-hfc' on page 11 undefined on input line 50
-5.
-
-
-
-[11]
-
-[12]
-
-[13]
+[29]
 Overfull \hbox (11.79265pt too wide) in paragraph at lines 767--768
-[]\OT1/cmr/m/n/10 In Tab. [][]1.3[][] we sum-marise these con-sid-er-a-tions, g
+[]\OT1/cmr/m/n/10 In Tab. [][]3.3[][] we sum-marise these con-sid-er-a-tions, g
 iv-ing the se-lec-tion rules on the EVs of Eqns. [],
  []
 
 
 
-[14]
+[30]
 
-[15]
+[31]
 
-[16] (./chapters/ehm-symmetries/pictures/s-wave-correlator.tex)
+[32] (./chapters/ehm-symmetries/pictures/s-wave-correlator.tex)
 (./chapters/ehm-symmetries/pictures/s*-wave-correlator.tex)
 (./chapters/ehm-symmetries/pictures/px-wave-correlator.tex)
 (./chapters/ehm-symmetries/pictures/py-wave-correlator.tex)
 (./chapters/ehm-symmetries/pictures/d-wave-correlator.tex)
 
-[17]
+[33]
 
-[18]
-<../Project/src/labs/structure-factors/plot-structure-factors.pdf, id=699, 602.
+[34]
+<../Project/src/labs/structure-factors/plot-structure-factors.pdf, id=897, 602.
 25pt x 526.96875pt>
 File: ../Project/src/labs/structure-factors/plot-structure-factors.pdf Graphic 
 file (type pdf)
@@ -1910,55 +1922,32 @@ actors.pdf  used on input line 1125.
 (pdftex.def)             Requested size: 384.1096pt x 336.109pt.
 
 
-[19 <../Project/src/labs/structure-factors/plot-structure-factors.pdf>])
+[35 <../Project/src/labs/structure-factors/plot-structure-factors.pdf>])
 (./chapters/normal-phase/normal-phase.tex
 
-[20]
+[36]
 
-LaTeX Warning: Reference `sec:sketch-hf-method' on page 21 undefined on input l
-ine 9.
-
-
-LaTeX Warning: Reference `eq:hf-wick-hfc' on page 21 undefined on input line 23
-.
-
-
-
-[21
+[37
 
 ]
 
-LaTeX Warning: Reference `eq:hf-wick-hfc' on page 22 undefined on input line 58
-.
+[38]
 
-
-LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 22 undefined on
- input line 60.
-
-
-
-[22]
-
-LaTeX Warning: Reference `subsec:af-hartree-analytic' on page 23 undefined on i
+LaTeX Warning: Reference `subsec:af-hartree-analytic' on page 39 undefined on i
 nput line 168.
 
 
-LaTeX Warning: Reference `subsec:sc-hartree-analytic' on page 23 undefined on i
+LaTeX Warning: Reference `subsec:sc-hartree-analytic' on page 39 undefined on i
 nput line 168.
 
 
 
-[23]
-
-LaTeX Warning: Reference `eq:hf-wick-hfc' on page 24 undefined on input line 21
-5.
-
-(./chapters/normal-phase/pictures/Kk.tex)
+[39] (./chapters/normal-phase/pictures/Kk.tex)
 (./chapters/normal-phase/pictures/qq'.tex)
 
-[24]
+[40]
 
-[25]
+[41]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 499.
@@ -1969,21 +1958,13 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 (./chapters/normal-phase/pictures/anisotropic-hopping.tex)
 
-[26]
+[42]
 
-[27]
+[43]
 
-[28]
-
-LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 29 undefined on
- input line 659.
-
-
-LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 29 undefined on
- input line 677.
-
-<../Project/src/labs/bands/normal-nematic-bands.pdf, id=871, 602.25pt x 526.968
-75pt>
+[44]
+<../Project/src/labs/bands/normal-nematic-bands.pdf, id=1074, 602.25pt x 526.96
+875pt>
 File: ../Project/src/labs/bands/normal-nematic-bands.pdf Graphic file (type pdf
 )
 <use ../Project/src/labs/bands/normal-nematic-bands.pdf>
@@ -1992,10 +1973,10 @@ ed on input line 700.
 (pdftex.def)             Requested size: 384.1096pt x 336.109pt.
 
 
-[29] (./chapters/normal-phase/pictures/MBZ-sectors.tex)
+[45] (./chapters/normal-phase/pictures/MBZ-sectors.tex)
 (./chapters/normal-phase/pictures/NBZ-sectors.tex)
 
-[30 <../Project/src/labs/bands/normal-nematic-bands.pdf>]
+[46 <../Project/src/labs/bands/normal-nematic-bands.pdf>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 795.
@@ -2010,7 +1991,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-[31]
+[47]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 869.
@@ -2027,16 +2008,16 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 869.
 
-<../Project/src/labs/bands/normal-nematic-bands-pp.pdf, id=956, 376.40625pt x 3
-01.125pt>
+<../Project/src/labs/bands/normal-nematic-bands-pp.pdf, id=1160, 376.40625pt x 
+301.125pt>
 File: ../Project/src/labs/bands/normal-nematic-bands-pp.pdf Graphic file (type 
 pdf)
 <use ../Project/src/labs/bands/normal-nematic-bands-pp.pdf>
 Package pdftex.def Info: ../Project/src/labs/bands/normal-nematic-bands-pp.pdf 
  used on input line 881.
 (pdftex.def)             Requested size: 192.0548pt x 153.64981pt.
-<../Project/src/labs/bands/normal-nematic-bands-mp.pdf, id=957, 376.40625pt x 3
-01.125pt>
+<../Project/src/labs/bands/normal-nematic-bands-mp.pdf, id=1161, 376.40625pt x 
+301.125pt>
 File: ../Project/src/labs/bands/normal-nematic-bands-mp.pdf Graphic file (type 
 pdf)
 <use ../Project/src/labs/bands/normal-nematic-bands-mp.pdf>
@@ -2044,18 +2025,18 @@ Package pdftex.def Info: ../Project/src/labs/bands/normal-nematic-bands-mp.pdf
  used on input line 886.
 (pdftex.def)             Requested size: 192.0548pt x 153.64981pt.
 
-LaTeX Warning: Reference `eq:normal-k'=Rk' on page 32 undefined on input line 8
+LaTeX Warning: Reference `eq:normal-k'=Rk' on page 48 undefined on input line 8
 87.
 
 
-LaTeX Warning: Reference `eq:normal-k'=Rk' on page 32 undefined on input line 8
+LaTeX Warning: Reference `eq:normal-k'=Rk' on page 48 undefined on input line 8
 87.
 
 
 
-[32]
+[48]
 
-[33 <../Project/src/labs/bands/normal-nematic-bands-pp.pdf> <../Project/src/lab
+[49 <../Project/src/labs/bands/normal-nematic-bands-pp.pdf> <../Project/src/lab
 s/bands/normal-nematic-bands-mp.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/bands/normal-nemati
@@ -2065,7 +2046,7 @@ gle page
 \c@enumTemp=\count565
 
 
-[34]
+[50]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1099.
@@ -2080,20 +2061,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 
-[35]
+[51]
 
-LaTeX Warning: Reference `subsec:reject-mix-iterate' on page 36 undefined on in
-put line 1169.
-
-
-
-[36]
-
-LaTeX Warning: Reference `subsec:reject-mix-iterate' on page 37 undefined on in
-put line 1195.
-
+[52]
 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=HFPs
-/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf, id=1106, 451.6875pt x 301.12
+/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf, id=1311, 451.6875pt x 301.12
 5pt>
 File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
 =HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf Graphic file (type pdf)
@@ -2101,10 +2073,10 @@ File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
 HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf>
 Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[
 128]/Syms=/RB=S/Obj=HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf  used
- on input line 1202.
+ on input line 1208.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
 <../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs
-/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf, id=1107, 451.6875pt x 301.12
+/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf, id=1312, 451.6875pt x 301.12
 5pt>
 File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj
 =HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
@@ -2112,16 +2084,16 @@ File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj
 HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf>
 Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[
 256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf  used
- on input line 1206.
+ on input line 1212.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
 
-Overfull \hbox (2.94913pt too wide) in paragraph at lines 1202--1207
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 1208--1213
  [][][] 
  []
 
 
 
-[37 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
+[53 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
 HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf> <../Project/plots/refine
 d/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0
 _U=0.0_L=256_β=100.0.pdf
@@ -2132,7 +2104,7 @@ Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=
 age
 >]
 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=RMPs
-/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf, id=1183, 451.687
+/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf, id=1388, 451.687
 5pt x 376.40625pt>
 File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
 =RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf Graphic file
@@ -2141,53 +2113,19 @@ File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
 RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf>
 Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[
 128]/Syms=/RB=S/Obj=RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePl
-ot.pdf  used on input line 1240.
+ot.pdf  used on input line 1246.
 (pdftex.def)             Requested size: 192.0548pt x 160.04807pt.
-<../Project/src/labs/mott-localization/normal-mott-boundary-uS.pdf, id=1184, 45
+<../Project/src/labs/mott-localization/normal-mott-boundary-uS.pdf, id=1389, 45
 1.6875pt x 301.125pt>
 File: ../Project/src/labs/mott-localization/normal-mott-boundary-uS.pdf Graphic
  file (type pdf)
 <use ../Project/src/labs/mott-localization/normal-mott-boundary-uS.pdf>
 Package pdftex.def Info: ../Project/src/labs/mott-localization/normal-mott-boun
-dary-uS.pdf  used on input line 1244.
+dary-uS.pdf  used on input line 1250.
 (pdftex.def)             Requested size: 213.39568pt x 142.26393pt.
-<../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=HFPs/x
-Var=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf, id=1189, 1129.21875pt x 301
-.125pt>
-File: ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=H
-FPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf Graphic file (type pdf)
-
-<use ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=HF
-Ps/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf>
-Package pdftex.def Info: ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]
--a/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf  use
-d on input line 1260.
-(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
-
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1260--1260
- [][] 
- []
-
-<../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=RMPs/x
-Var=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf, id=1190, 1129.21875pt x 301
-.125pt>
-File: ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=R
-MPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf Graphic file (type pdf)
-
-<use ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=RM
-Ps/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf>
-Package pdftex.def Info: ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]
--a/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf  use
-d on input line 1264.
-(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
-
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1264--1265
- [][] 
- []
 
 
-
-[38 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
+[54 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
 RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf> <../Project/
 src/labs/mott-localization/normal-mott-boundary-uS.pdf
 
@@ -2195,33 +2133,43 @@ pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/mott-localization/n
 ormal-mott-boundary-uS.pdf): PDF inclusion: multiple pdfs with page group inclu
 ded in a single page
 >]
-<../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf, id=17020, 45
-1.6875pt x 301.125pt>
-File: ../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf Graphic 
-file (type pdf)
-<use ../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf>
-Package pdftex.def Info: ../Project/src/labs/mott-localization/normal-mott-boun
-dary-f.pdf  used on input line 1299.
-(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-<../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=phys
-/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf, id=17021, 451.6875pt x 301.12
-5pt>
-File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj
-=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
-<use ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=
-phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf>
-Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[
-256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf  used 
-on input line 1303.
-(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=HFPs/x
+Var=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf, id=17215, 1129.21875pt x 30
+1.125pt>
+File: ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=H
+FPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf Graphic file (type pdf)
 
-Overfull \hbox (2.94913pt too wide) in paragraph at lines 1299--1304
- [][][] 
+<use ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=HF
+Ps/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf>
+Package pdftex.def Info: ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]
+-a/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf  use
+d on input line 1266.
+(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
+
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1266--1266
+ [][] 
+ []
+
+<../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=RMPs/x
+Var=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf, id=17216, 1129.21875pt x 30
+1.125pt>
+File: ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=R
+MPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf Graphic file (type pdf)
+
+<use ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=RM
+Ps/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf>
+Package pdftex.def Info: ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]
+-a/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf  use
+d on input line 1270.
+(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
+
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1270--1271
+ [][] 
  []
 
 
 
-[39 <../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=HF
+[55 <../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=HF
 Ps/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf> <../Project/plots/raw/M
 ode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=β/tS_t=1.0_
 U=0.0_L=256_δ=Compared.pdf
@@ -2231,41 +2179,47 @@ al/Setup=C[256]-a/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Co
 mpared.pdf): PDF inclusion: multiple pdfs with page group included in a single 
 page
 >]
-<../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf, id=17086, 45
+<../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf, id=17284, 45
+1.6875pt x 301.125pt>
+File: ../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf Graphic 
+file (type pdf)
+<use ../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf>
+Package pdftex.def Info: ../Project/src/labs/mott-localization/normal-mott-boun
+dary-f.pdf  used on input line 1305.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=phys
+/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf, id=17285, 451.6875pt x 301.12
+5pt>
+File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj
+=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=
+phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[
+256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf  used 
+on input line 1309.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 1305--1310
+ [][][] 
+ []
+
+<../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf, id=17291, 45
 1.6875pt x 301.125pt>
 File: ../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf Graphic 
 file (type pdf)
 <use ../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf>
 Package pdftex.def Info: ../Project/src/labs/mott-localization/normal-mott-boun
-dary-s.pdf  used on input line 1323.
+dary-s.pdf  used on input line 1329.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-<../Project/src/labs/functions/entropy.pdf, id=17087, 376.40625pt x 301.125pt>
+<../Project/src/labs/functions/entropy.pdf, id=17292, 376.40625pt x 301.125pt>
 File: ../Project/src/labs/functions/entropy.pdf Graphic file (type pdf)
 <use ../Project/src/labs/functions/entropy.pdf>
 Package pdftex.def Info: ../Project/src/labs/functions/entropy.pdf  used on inp
-ut line 1327.
+ut line 1333.
 (pdftex.def)             Requested size: 170.72522pt x 136.57635pt.
 
 
-LaTeX Warning: Reference `subsec:reject-mix-iterate' on page 40 undefined on in
-put line 1336.
-
-<../Project/src/labs/tracks/tracks.pdf, id=17091, 1129.21875pt x 301.125pt>
-File: ../Project/src/labs/tracks/tracks.pdf Graphic file (type pdf)
-<use ../Project/src/labs/tracks/tracks.pdf>
-Package pdftex.def Info: ../Project/src/labs/tracks/tracks.pdf  used on input l
-ine 1340.
-(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
-
-LaTeX Warning: Reference `subsec:reject-mix-iterate' on page 40 undefined on in
-put line 1345.
-
-
-LaTeX Warning: Reference `eq:mix' on page 40 undefined on input line 1345.
-
-
-
-[40 <../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf> <../Proj
+[56 <../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf> <../Proj
 ect/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=phys/xVar=V_
 pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf
 
@@ -2282,15 +2236,21 @@ ed in a single page
 
 pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/functions/entropy.p
 df): PDF inclusion: multiple pdfs with page group included in a single page
->]) (./chapters/antiferromagnetic-instability/antiferromagnetic-instability.tex
+>]
+<../Project/src/labs/tracks/tracks.pdf, id=17426, 1129.21875pt x 301.125pt>
+File: ../Project/src/labs/tracks/tracks.pdf Graphic file (type pdf)
+<use ../Project/src/labs/tracks/tracks.pdf>
+Package pdftex.def Info: ../Project/src/labs/tracks/tracks.pdf  used on input l
+ine 1346.
+(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
+) (./chapters/antiferromagnetic-instability/antiferromagnetic-instability.tex
 
+[57 <../Project/src/labs/tracks/tracks.pdf>]
 
-[41 <../Project/src/labs/tracks/tracks.pdf>]
-
-[42
+[58
 
 ]
-Overfull \hbox (6.74413pt too wide) in paragraph at lines 13--14
+Overfull \hbox (6.74413pt too wide) in paragraph at lines 11--12
 []\OT1/cmr/m/n/10 For the com-men-su-rate an-ti-fer-ro-mag-net, the non-local a
 t-trac-tion $[]$ adds two main self-consistent
  []
@@ -2340,48 +2300,75 @@ Missing character: There is no . in font nullfont!
 Missing character: There is no 0 in font nullfont!
 )
 
-[43]
+[59]
 
-[44]
-
-[45]
-Underfull \vbox (badness 1430) has occurred while \output is active []
+LaTeX Warning: Reference `appsubsec:af-more' on page 60 undefined on input line
+ 47.
 
 
 
-[46]
+[60]
 
-[47]
+[61]
 
-[48]
+[62]
 
-[49]
+[63]
 
-[50]
+[64]
 
-[51]
+[65]
 
-[52]
-<../Project/src/labs/hm-density/n_AF_U=10.0_Δ=1.0.pdf, id=17434, 451.6875pt x 
+LaTeX Warning: Reference `appeq:af-hm-sx' on page 66 undefined on input line 41
+2.
+
+
+LaTeX Warning: Reference `appeq:af-hm-sy' on page 66 undefined on input line 41
+6.
+
+
+LaTeX Warning: Reference `appeq:af-hm-sz' on page 66 undefined on input line 42
+0.
+
+
+(./chapters/antiferromagnetic-instability/pictures/pseudo-magnetic-field-hm.tex
+)
+
+LaTeX Warning: Reference `fig:af-bk-hm' on page 66 undefined on input line 460.
+
+
+
+
+[66]
+
+LaTeX Warning: Reference `fig:af-bk-hm' on page 67 undefined on input line 525.
+
+
+
+
+[67]
+
+[68]
+<../Project/src/labs/hm-density/n_AF_U=10.0_Δ=1.0.pdf, id=17634, 451.6875pt x 
 301.125pt>
 File: ../Project/src/labs/hm-density/n_AF_U=10.0_Δ=1.0.pdf Graphic file (type 
 pdf)
 <use ../Project/src/labs/hm-density/n_AF_U=10.0_Δ=1.0.pdf>
 Package pdftex.def Info: ../Project/src/labs/hm-density/n_AF_U=10.0_Δ=1.0.pdf 
- used on input line 611.
+ used on input line 612.
 (pdftex.def)             Requested size: 179.252pt x 119.50105pt.
 <../Project/src/labs/antiferromagnet-bands-3d/antiferromagnet-bands-3d.pdf, id=
-17435, 526.96875pt x 301.125pt>
+17635, 526.96875pt x 301.125pt>
 File: ../Project/src/labs/antiferromagnet-bands-3d/antiferromagnet-bands-3d.pdf
  Graphic file (type pdf)
 <use ../Project/src/labs/antiferromagnet-bands-3d/antiferromagnet-bands-3d.pdf>
 
 Package pdftex.def Info: ../Project/src/labs/antiferromagnet-bands-3d/antiferro
-magnet-bands-3d.pdf  used on input line 615.
+magnet-bands-3d.pdf  used on input line 616.
 (pdftex.def)             Requested size: 209.12733pt x 119.50105pt.
 
 
-[53 <../Project/src/labs/hm-density/n_AF_U=10.0_Δ=1.0.pdf> <../Project/src/lab
+[69 <../Project/src/labs/hm-density/n_AF_U=10.0_Δ=1.0.pdf> <../Project/src/lab
 s/antiferromagnet-bands-3d/antiferromagnet-bands-3d.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/antiferromagnet-ban
@@ -2391,368 +2378,70 @@ up included in a single page
 (./chapters/antiferromagnetic-instability/pictures/pseudo-magnetic-field-ehm.te
 x)
 
-[54]
-
-[55]
-
-[56]
-
-[57]
-
-[58]
-
-[59]
-
-[60]
-
-[61]
-
-[62]
-
-LaTeX Warning: Reference `' on page 63 undefined on input line 1601.
-
-
-
-[63]
-
-LaTeX Warning: Reference `appsec:af-instability' on page 64 undefined on input 
-line 1682.
-
-
-LaTeX Warning: Reference `appsec:af-instability' on page 64 undefined on input 
-line 1682.
-
-
-
-[64]
-
-LaTeX Warning: Reference `eq:af-mu-shift' on page 65 undefined on input line 17
-72.
-
-
-
-[65]
-
-LaTeX Warning: Reference `eq:af-m-self-consistency' on page 66 undefined on inp
-ut line 1814.
-
-
-
-[66]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1889.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 1889.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1889.
-
-
-
-[67]
-
-[68]
-
-[69]
-
 [70]
+
+LaTeX Warning: Reference `appeq:af-mean-field-ansatz' on page 71 undefined on i
+nput line 865.
+
+
 
 [71]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2211.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 2211.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 2211.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2211.
-
-
-
 [72]
-<../Project/src/labs/functions/pseudo-dirac.pdf, id=36364, 602.25pt x 301.125pt
->
-File: ../Project/src/labs/functions/pseudo-dirac.pdf Graphic file (type pdf)
-<use ../Project/src/labs/functions/pseudo-dirac.pdf>
-Package pdftex.def Info: ../Project/src/labs/functions/pseudo-dirac.pdf  used o
-n input line 2247.
-(pdftex.def)             Requested size: 384.1096pt x 192.06227pt.
 
-
-[73 <../Project/src/labs/functions/pseudo-dirac.pdf>]
+[73]
 
 [74]
-<../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf, id=36416, 978
-.65625pt x 301.125pt>
-File: ../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf Graphic f
-ile (type pdf)
-<use ../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf>
-Package pdftex.def Info: ../Project/src/labs/antiferromagnet-heatmaps/af-m-data
--C128.pdf  used on input line 2358.
-(pdftex.def)             Requested size: 426.79135pt x 131.32373pt.
+
+[75]
+
+[76]
+
+[77]
+
+LaTeX Warning: Reference `subsec:af-gap-energy' on page 78 undefined on input l
+ine 1559.
 
 
-[75 <../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf>]
-<../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVa
-r=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36455, 451.6875pt x 301.125pt>
-
-File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFP
-s/xVar=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
-<use ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs
-/xVar=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf>
-Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
-/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf  used on i
-nput line 2385.
-(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-<../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVa
-r=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36456, 451.6875pt x 301.125pt>
-
-File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFP
-s/xVar=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
-<use ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs
-/xVar=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf>
-Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
-/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf  used on i
-nput line 2389.
-(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-
-Overfull \hbox (2.94913pt too wide) in paragraph at lines 2385--2390
- [][][] 
- []
-
-<../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=HFPs/xVa
-r=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf, id=36463, 451.6875pt x 301.125pt
->
-File: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=HFP
-s/xVar=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf Graphic file (type pdf)
-<use ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=HFPs
-/xVar=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf>
-Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]
-/Syms=/RB=S/Obj=HFPs/xVar=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf  used on 
-input line 2411.
-(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-<../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=RMPs/xVa
-r=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf, id=36464, 451.6875pt x 301.125pt
->
-File: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=RMP
-s/xVar=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf Graphic file (type pdf)
-<use ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=RMPs
-/xVar=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf>
-Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]
-/Syms=/RB=S/Obj=RMPs/xVar=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf  used on 
-input line 2415.
-(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-
-Overfull \hbox (2.94913pt too wide) in paragraph at lines 2411--2416
- [][][] 
- []
-
-<../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVa
-r=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36465, 451.6875pt x 301.125pt
->
-File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFP
-s/xVar=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
-<use ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs
-/xVar=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf>
-Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
-/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf  used on 
-input line 2424.
-(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-<../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVa
-r=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36466, 451.6875pt x 301.125pt
->
-File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFP
-s/xVar=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
-<use ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs
-/xVar=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf>
-Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
-/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf  used on 
-input line 2428.
-(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-
-Overfull \hbox (2.94913pt too wide) in paragraph at lines 2424--2429
-[][][] 
- []
+LaTeX Warning: Reference `appsubsec:af-zero-T-half-filling-gs' on page 78 undef
+ined on input line 1606.
 
 
 
-[76 <../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs
-/xVar=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf> <../Project/plots/refined/Mod
-e=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/m_t=1.0_L=256_δ=0
-.0_β=100.0.pdf
+[78]
 
-pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
-AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0
-.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> <../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=HFPs/x
-Var=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf
+LaTeX Warning: Reference `' on page 79 undefined on input line 1608.
 
-pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=rs/Phase=
-AF/Setup=C[128]/Syms=/RB=S/Obj=HFPs/xVar=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.
-0.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> <../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=RMPs/x
-Var=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf
 
-pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=rs/Phase=
-AF/Setup=C[128]/Syms=/RB=S/Obj=RMPs/xVar=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.
-0.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->]
-<../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs/xVa
-r=U_pVar=V/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36589, 451.6875pt x 301.125pt
->
-File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMP
-s/xVar=U_pVar=V/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
-<use ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs
-/xVar=U_pVar=V/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf>
-Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
-/Syms=/RB=S/Obj=RMPs/xVar=U_pVar=V/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf  used on 
-input line 2449.
-(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-<../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs/xVa
-r=V_pVar=U/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36590, 451.6875pt x 301.125pt
->
-File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMP
-s/xVar=V_pVar=U/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
-<use ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs
-/xVar=V_pVar=U/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf>
-Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
-/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf  used on 
-input line 2453.
-(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-
-Overfull \hbox (2.94913pt too wide) in paragraph at lines 2449--2454
-[][][] 
- []
-
-<../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=phys/xVa
-r=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0.pdf, id=36593, 451.6875pt x 301.125pt>
-
-File: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=phy
-s/xVar=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0.pdf Graphic file (type pdf)
-<use ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=phys
-/xVar=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0.pdf>
-Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]
-/Syms=/RB=S/Obj=phys/xVar=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0.pdf  used on i
-nput line 2467.
-(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-<../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=phys/xVa
-r=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36594, 451.6875pt x 301.125pt>
-
-File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=phy
-s/xVar=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
-<use ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=phys
-/xVar=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0.pdf>
-Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
-/Syms=/RB=S/Obj=phys/xVar=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0.pdf  used on i
-nput line 2471.
-(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-
-Overfull \hbox (2.94913pt too wide) in paragraph at lines 2467--2472
- [][][] 
- []
+LaTeX Warning: Reference `appsubsec:af-zero-T-half-filling-gs' on page 79 undef
+ined on input line 1614.
 
 
 
-[77 <../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs
-/xVar=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf> <../Project/plots/refined/Mo
-de=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/uS_t=1.0_L=256_δ
-=0.0_β=100.0.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
-AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.
-0.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> <../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs/x
-Var=U_pVar=V/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
-AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs/xVar=U_pVar=V/tS_t=1.0_L=256_δ=0.0_β=100.
-0.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> <../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs/x
-Var=V_pVar=U/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
-AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=0.0_β=100.
-0.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->]
-<../Project/src/labs/compare-f-normal-af/compare-f-normal-af.pdf, id=36715, 451
-.6875pt x 301.125pt>
-File: ../Project/src/labs/compare-f-normal-af/compare-f-normal-af.pdf Graphic f
-ile (type pdf)
-<use ../Project/src/labs/compare-f-normal-af/compare-f-normal-af.pdf>
-Package pdftex.def Info: ../Project/src/labs/compare-f-normal-af/compare-f-norm
-al-af.pdf  used on input line 2488.
-(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-
-
-[78 <../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=phys
-/xVar=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0.pdf> <../Project/plots/refined/Mod
-e=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=U/f_t=1.0_L=256_δ=0
-.0_β=100.0.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
-AF/Setup=A[256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0
-.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> <../Project/src/labs/compare-f-normal-af/compare-f-normal-af.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/compare-f-normal-af
-/compare-f-normal-af.pdf): PDF inclusion: multiple pdfs with page group include
-d in a single page
->]
-
-LaTeX Warning: Reference `subsec:reject-mix-iterate' on page 79 undefined on in
-put line 2499.
-
-</home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor.pdf, id=3
-6821, 978.65625pt x 376.40625pt>
-File: /home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor.pdf 
-Graphic file (type pdf)
-<use /home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor.pdf>
-Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/src/labs/attra
-ctor/attractor.pdf  used on input line 2507.
-(pdftex.def)             Requested size: 426.79135pt x 164.15466pt.
-)
-
-[79 </home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor.pdf>]
-(./appendices/mean-field-hubbard/mean-field-hubbard.tex
+[79]
 
 [80]
 
-LaTeX Warning: Reference `eq:hubbard-model' on page 81 undefined on input line 
-4.
-
-
-LaTeX Warning: Reference `sec:ehm-symmetries' on page 81 undefined on input lin
-e 25.
-
-
-LaTeX Warning: Reference `tab:U-wick-terms-phases' on page 81 undefined on inpu
-t line 32.
-
-
-
-[81
-
-]
+[81]
 
 [82]
-Overfull \hbox (3.15839pt too wide) in paragraph at lines 155--157
-\OT1/cmr/m/n/10 This way we re-duce trans-la-tional in-vari-ance. Of course, if
- the two quan-ti-ties above are $\OT1/cmr/bx/n/10 r$\OT1/cmr/m/n/10 -independen
-t
- []
 
-(./appendices/mean-field-hubbard/pictures/pseudo-magnetic-field.tex)
+LaTeX Warning: Reference `sec:af-instability' on page 83 undefined on input lin
+e 1895.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1897.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 1897.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1897.
+
+
 
 [83]
 
@@ -2761,63 +2450,347 @@ t
 [85]
 
 [86]
-File: ../Project/src/labs/hm-density/n_AF_U=10.0_Δ=1.0.pdf Graphic file (type 
-pdf)
-<use ../Project/src/labs/hm-density/n_AF_U=10.0_Δ=1.0.pdf>
-Package pdftex.def Info: ../Project/src/labs/hm-density/n_AF_U=10.0_Δ=1.0.pdf 
- used on input line 464.
-(pdftex.def)             Requested size: 179.252pt x 119.50105pt.
-File: ../Project/src/labs/antiferromagnet-bands-3d/antiferromagnet-bands-3d.pdf
- Graphic file (type pdf)
-<use ../Project/src/labs/antiferromagnet-bands-3d/antiferromagnet-bands-3d.pdf>
-
-Package pdftex.def Info: ../Project/src/labs/antiferromagnet-bands-3d/antiferro
-magnet-bands-3d.pdf  used on input line 468.
-(pdftex.def)             Requested size: 209.12733pt x 119.50105pt.
-
 
 [87]
-<../Project/src/labs/antiferromagnet-dos/K(x).pdf, id=60631, 451.6875pt x 301.1
-25pt>
-File: ../Project/src/labs/antiferromagnet-dos/K(x).pdf Graphic file (type pdf)
-<use ../Project/src/labs/antiferromagnet-dos/K(x).pdf>
-Package pdftex.def Info: ../Project/src/labs/antiferromagnet-dos/K(x).pdf  used
- on input line 662.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2221.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 2221.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 2221.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 2221.
+
+
+
+[88]
+<../Project/src/labs/functions/pseudo-dirac.pdf, id=36557, 602.25pt x 301.125pt
+>
+File: ../Project/src/labs/functions/pseudo-dirac.pdf Graphic file (type pdf)
+<use ../Project/src/labs/functions/pseudo-dirac.pdf>
+Package pdftex.def Info: ../Project/src/labs/functions/pseudo-dirac.pdf  used o
+n input line 2257.
+(pdftex.def)             Requested size: 384.1096pt x 192.06227pt.
+
+
+[89 <../Project/src/labs/functions/pseudo-dirac.pdf>]
+
+LaTeX Warning: Reference `sec:af-instability' on page 90 undefined on input lin
+e 2362.
+
+<../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf, id=36603, 978
+.65625pt x 301.125pt>
+File: ../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf Graphic f
+ile (type pdf)
+<use ../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf>
+Package pdftex.def Info: ../Project/src/labs/antiferromagnet-heatmaps/af-m-data
+-C128.pdf  used on input line 2368.
+(pdftex.def)             Requested size: 426.79135pt x 131.32373pt.
+
+
+[90]
+<../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVa
+r=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36611, 451.6875pt x 301.125pt>
+
+File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFP
+s/xVar=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs
+/xVar=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
+/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf  used on i
+nput line 2395.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-<../Project/src/labs/antiferromagnet-dos/D(x).pdf, id=60632, 451.6875pt x 301.1
-25pt>
-File: ../Project/src/labs/antiferromagnet-dos/D(x).pdf Graphic file (type pdf)
-<use ../Project/src/labs/antiferromagnet-dos/D(x).pdf>
-Package pdftex.def Info: ../Project/src/labs/antiferromagnet-dos/D(x).pdf  used
- on input line 666.
+<../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVa
+r=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36612, 451.6875pt x 301.125pt>
+
+File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFP
+s/xVar=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs
+/xVar=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
+/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf  used on i
+nput line 2399.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
 
-Overfull \hbox (2.94913pt too wide) in paragraph at lines 662--667
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 2395--2400
  [][][] 
  []
 
 
 
-[88]
+[91 <../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf> <../Proje
+ct/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=
+V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf
 
-[89 <../Project/src/labs/antiferromagnet-dos/K(x).pdf> <../Project/src/labs/ant
-iferromagnet-dos/D(x).pdf
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
+AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0
+.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/x
+Var=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf
 
-pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/antiferromagnet-dos
-/D(x).pdf): PDF inclusion: multiple pdfs with page group included in a single p
-age
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
+AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0
+.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
+<../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=HFPs/xVa
+r=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf, id=36707, 451.6875pt x 301.125pt
+>
+File: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=HFP
+s/xVar=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=HFPs
+/xVar=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]
+/Syms=/RB=S/Obj=HFPs/xVar=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf  used on 
+input line 2421.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=RMPs/xVa
+r=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf, id=36708, 451.6875pt x 301.125pt
+>
+File: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=RMP
+s/xVar=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=RMPs
+/xVar=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]
+/Syms=/RB=S/Obj=RMPs/xVar=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf  used on 
+input line 2425.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
 
-LaTeX Warning: Reference `sec:computational-mft' on page 90 undefined on input 
-line 749.
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 2421--2426
+ [][][] 
+ []
+
+<../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVa
+r=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36709, 451.6875pt x 301.125pt
+>
+File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFP
+s/xVar=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs
+/xVar=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
+/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf  used on 
+input line 2434.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVa
+r=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36710, 451.6875pt x 301.125pt
+>
+File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFP
+s/xVar=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs
+/xVar=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
+/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf  used on 
+input line 2438.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 2434--2439
+[][][] 
+ []
 
 
 
-[90]
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 801.
+[92 <../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=HFPs
+/xVar=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf> <../Project/plots/refined/Mo
+de=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=RMPs/xVar=U_yVar=V/tS_t=1.0_L=128_δ
+=0.0_β=100.0.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=rs/Phase=
+AF/Setup=C[128]/Syms=/RB=S/Obj=RMPs/xVar=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.
+0.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/x
+Var=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
+AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.
+0.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/x
+Var=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
+AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.
+0.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+<../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs/xVa
+r=U_pVar=V/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36833, 451.6875pt x 301.125pt
+>
+File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMP
+s/xVar=U_pVar=V/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs
+/xVar=U_pVar=V/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
+/Syms=/RB=S/Obj=RMPs/xVar=U_pVar=V/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf  used on 
+input line 2459.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs/xVa
+r=V_pVar=U/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36834, 451.6875pt x 301.125pt
+>
+File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMP
+s/xVar=V_pVar=U/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs
+/xVar=V_pVar=U/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
+/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf  used on 
+input line 2463.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 2459--2464
+[][][] 
+ []
+
+<../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=phys/xVa
+r=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0.pdf, id=36837, 451.6875pt x 301.125pt>
+
+File: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=phy
+s/xVar=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=phys
+/xVar=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]
+/Syms=/RB=S/Obj=phys/xVar=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0.pdf  used on i
+nput line 2477.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=phys/xVa
+r=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36838, 451.6875pt x 301.125pt>
+
+File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=phy
+s/xVar=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=phys
+/xVar=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
+/Syms=/RB=S/Obj=phys/xVar=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0.pdf  used on i
+nput line 2481.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 2477--2482
+ [][][] 
+ []
+
+
+
+[93 <../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs
+/xVar=U_pVar=V/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf> <../Project/plots/refined/Mo
+de=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ
+=0.0_β=100.0.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
+AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=0.0_β=100.
+0.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=phys/x
+Var=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=rs/Phase=
+AF/Setup=C[128]/Syms=/RB=S/Obj=phys/xVar=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0
+.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=phys/x
+Var=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
+AF/Setup=A[256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0
+.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+<../Project/src/labs/compare-f-normal-af/compare-f-normal-af.pdf, id=36976, 451
+.6875pt x 301.125pt>
+File: ../Project/src/labs/compare-f-normal-af/compare-f-normal-af.pdf Graphic f
+ile (type pdf)
+<use ../Project/src/labs/compare-f-normal-af/compare-f-normal-af.pdf>
+Package pdftex.def Info: ../Project/src/labs/compare-f-normal-af/compare-f-norm
+al-af.pdf  used on input line 2498.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+</home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor.pdf, id=3
+6980, 978.65625pt x 376.40625pt>
+File: /home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor.pdf 
+Graphic file (type pdf)
+<use /home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor.pdf>
+Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/src/labs/attra
+ctor/attractor.pdf  used on input line 2517.
+(pdftex.def)             Requested size: 426.79135pt x 164.15466pt.
+
+
+[94 <../Project/src/labs/compare-f-normal-af/compare-f-normal-af.pdf>])
+(./appendices/superexchange-virtual-hopping/superexchange-virtual-hopping.tex
+
+[95 </home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor.pdf>]
+
+
+[96
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 5.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 5.
+
+
+(./appendices/superexchange-virtual-hopping/pictures/two-sites-hubbard-model.te
+x)
+
+[97]) (./appendices/hm-af-ground-state/hm-af-ground-state.tex
+
+[98]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 62.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\beta' on input line 62.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\to' on input line 62.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\infty' on input line 62.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 62.
+
+
+
+[99
+
+]
+
+LaTeX Warning: Reference `appeq:af-hm-id-def' on page 100 undefined on input li
+ne 80.
+
+
+LaTeX Warning: Reference `appeq:af-hm-z-psi' on page 100 undefined on input lin
+e 80.
+
+
+LaTeX Warning: Reference `appeq:af-hm-x-psi' on page 100 undefined on input lin
+e 119.
+
+
+LaTeX Warning: Reference `appeq:af-hm-gamma-ops-transform' on page 100 undefine
+d on input line 142.
+
+
+
+[100]
+Overfull \hbox (1.84894pt too wide) in paragraph at lines 195--196
+[]\OT1/cmr/m/n/10 Consider the largest eigen-value $\OML/cmm/m/it/10 ^^U[]\OT1/
+cmr/m/n/10 (\OT1/cmr/bx/n/10 k\OML/cmm/m/it/10 ; !\OT1/cmr/m/n/10 )$ of the ma-
+trix $[\OML/cmm/m/it/10 ^^_[]\OT1/cmr/m/n/10 ]$ at dop-ing $\OML/cmm/m/it/10 ^^
+N$\OT1/cmr/m/n/10 . We work in momentum-
+ []
+
+
+
+[101]
 <../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs/xVa
-r=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf, id=60719, 451.6875pt x 301.125pt>
+r=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf, id=60800, 451.6875pt x 301.125pt>
 
 File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFP
 s/xVar=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
@@ -2825,10 +2798,10 @@ s/xVar=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
 /xVar=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf>
 Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]
 /Syms=/RB=S/Obj=HFPs/xVar=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf  used on i
-nput line 817.
+nput line 251.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
 <../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs/xVa
-r=δ_pVar=U/m_t=1.0_V=0.0_L=256_β=100.0.pdf, id=60720, 451.6875pt x 301.125pt>
+r=δ_pVar=U/m_t=1.0_V=0.0_L=256_β=100.0.pdf, id=60801, 451.6875pt x 301.125pt>
 
 File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFP
 s/xVar=δ_pVar=U/m_t=1.0_V=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
@@ -2836,73 +2809,81 @@ s/xVar=δ_pVar=U/m_t=1.0_V=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
 /xVar=δ_pVar=U/m_t=1.0_V=0.0_L=256_β=100.0.pdf>
 Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]
 /Syms=/RB=S/Obj=HFPs/xVar=δ_pVar=U/m_t=1.0_V=0.0_L=256_β=100.0.pdf  used on i
-nput line 821.
+nput line 255.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
 
-Overfull \hbox (2.94913pt too wide) in paragraph at lines 817--822
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 251--256
  [][][] 
  []
 
 
 
-[91]
+[102]
 
-LaTeX Warning: Reference `tab:U-wick-terms-phases' on page 92 undefined on inpu
-t line 957.
+LaTeX Warning: Reference `appeq:af-hm-m-self-consistency' on page 103 undefined
+ on input line 263.
+
+<../Project/src/labs/antiferromagnet-dos/K(x).pdf, id=60822, 451.6875pt x 301.1
+25pt>
+File: ../Project/src/labs/antiferromagnet-dos/K(x).pdf Graphic file (type pdf)
+<use ../Project/src/labs/antiferromagnet-dos/K(x).pdf>
+Package pdftex.def Info: ../Project/src/labs/antiferromagnet-dos/K(x).pdf  used
+ on input line 294.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/src/labs/antiferromagnet-dos/D(x).pdf, id=60823, 451.6875pt x 301.1
+25pt>
+File: ../Project/src/labs/antiferromagnet-dos/D(x).pdf Graphic file (type pdf)
+<use ../Project/src/labs/antiferromagnet-dos/D(x).pdf>
+Package pdftex.def Info: ../Project/src/labs/antiferromagnet-dos/D(x).pdf  used
+ on input line 298.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 294--299
+ [][][] 
+ []
 
 
 
-[92 <../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs
-/xVar=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf> <../Project/plots/refined/Mod
-e=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs/xVar=δ_pVar=U/m_t=1.0_V=0.0_L=2
-56_β=100.0.pdf
+[103 <../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFP
+s/xVar=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf> <../Project/plots/refined/Mo
+de=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs/xVar=δ_pVar=U/m_t=1.0_V=0.0_L=
+256_β=100.0.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
 AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs/xVar=δ_pVar=U/m_t=1.0_V=0.0_L=256_β=100.0
 .pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>])
+
+[104 <../Project/src/labs/antiferromagnet-dos/K(x).pdf> <../Project/src/labs/an
+tiferromagnet-dos/D(x).pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/antiferromagnet-dos
+/D(x).pdf): PDF inclusion: multiple pdfs with page group included in a single p
+age
 >]
 
-LaTeX Warning: Reference `HU-Fourier' on page 93 undefined on input line 976.
-
-
-LaTeX Warning: Reference `eq:sc-ehm-phi-def' on page 93 undefined on input line
- 992.
-
-
-LaTeX Warning: Reference `eq:sc-wq-def' on page 93 undefined on input line 996.
-
-
-
-
-[93]
-
-[94]
-
-[95])
-
-[96]
-
-[97
+[105
 
 ]
-Overfull \hbox (3.53458pt too wide) in paragraph at lines 67--67
+Overfull \hbox (3.53458pt too wide) in paragraph at lines 68--68
 \OT1/cmr/m/it/10 Phys-ica C: Su-per-con-duc-tiv-ity and its Ap-pli-ca-tions \OT
 1/cmr/m/n/10 633 (June 2025), p. 1354719. \OT1/cmr/m/sc/10 issn\OT1/cmr/m/n/10 
 : 09214534.
  []
 
+
+
+[106]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 6
-7.
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+8.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 67.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 68.
 
 
-[98]
-
-[99]
+[107]
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
@@ -2916,7 +2897,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BA62FB0192E95FBFB3476981F70B8A0A;20500.
+(rerunfilecheck)             Checksum: 9CA16B8E4BE78086F82304CC7C5ADE38;20923.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -2927,11 +2908,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 55460 strings out of 473197
- 1265750 string characters out of 5718605
- 2267952 words of memory out of 5000000
- 77262 multiletter control sequences out of 15000+600000
- 579330 words of font info for 111 fonts, out of 8000000 for 9000
+ 55166 strings out of 473197
+ 1265675 string characters out of 5718605
+ 2250183 words of memory out of 5000000
+ 76959 multiletter control sequences out of 15000+600000
+ 581259 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  92i,17n,96p,2641b,2187s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
@@ -2943,37 +2924,38 @@ t/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmtt9.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
-rm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/sha
-re/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1
-/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (103 pages, 17144538 bytes).
+fonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600
+.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/tex
+mf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/publi
+c/cm-super/sfrm1000.pfb>
+Output written on main.pdf (111 pages, 17187685 bytes).
 PDF statistics:
- 61262 PDF objects out of 66169 (max. 8388607)
- 31516 compressed objects within 316 object streams
- 590 named destinations out of 1000 (max. 500000)
- 940 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61341 PDF objects out of 66169 (max. 8388607)
+ 31582 compressed objects within 316 object streams
+ 580 named destinations out of 1000 (max. 500000)
+ 978 words of extra memory for PDF output out of 10000 (max. 10000000)
 

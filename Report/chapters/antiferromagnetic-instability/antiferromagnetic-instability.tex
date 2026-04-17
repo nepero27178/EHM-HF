@@ -4,8 +4,6 @@
 {\color{tabred}ToDo
 	\begin{itemize}
 		\item Clarify the Mean-Field decomposition of quartic operators OR use the self-consistent fields
-		\item Pseudo-field figure
-		\item Instability
 \end{itemize}}
 
 In this chapter we apply HF method to the AF phase, widely studied for the HM \cite{fabrizio2022course}. We focus on one particular realisation of antiferromagnetism, referred to as ``commensurate''. It is inherently metallic and only physically sensed at half-filling.
@@ -446,8 +444,9 @@ The hamiltonian represents a system of spins subject to local magnetic fields.
 %
 \begin{figure}
 	\centering
-	\caption{\todo}
-	\label{fig:af-bk-hm}
+	\input{\GraphicsFolder/pseudo-magnetic-field-hm}
+	\caption{Sketch of the diagonalisation procedure for the HM antiferromagnet. To diagonalise the HF hamiltonian, we align the $z$ axis with the pseudo-field.}
+	\label{fig:pseudo-magnetic-field-hm}
 \end{figure}
 %
 The field $\mathbf{b}_{\mathbf{k}\sigma}$ is orthogonal to the $y$ plane, and is tilted in the $z$ plane by an angle $2\theta_{\mathbf{k}\sigma}$ with:
@@ -486,12 +485,14 @@ Its eigenvalues are $\pm E_{\mathbf{k}\sigma}$, with
 		\epsilon_{\mathbf{k}\sigma}^2 + \abs{\Delta_{\mathbf{k}\sigma}}^2
 	}
 \end{equation}
+In Fig.~\ref{fig:pseudo-magnetic-field-hm} we sketch the pseudo-magnetic field in the $xz$ plane, and the diagonalisation procedure. $W_{\mathbf{k}\sigma}$ is a rotation by an angle $2\theta_{\mathbf{k}\sigma}$ around the $y$ axis, and in the end aligns the original $z$ axis with the pseudofield axis.
+
 Applying the rotation matrix to the spinors we obtain new spinors of $\gamma^{(\pm)}$ fermions,
-\[
+\begin{equation}\label{eq:af-Gamma=WPsi}
 	\hat\Gamma_{\mathbf{k}\sigma} = W_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma} = \begin{bmatrix}
 		\hat \gamma_{\mathbf{k}\sigma}^{(+)} \\ \hat \gamma_{\mathbf{k}\sigma}^{(-)}
 	\end{bmatrix}
-\]
+\end{equation}
 In the end we have the non-interacting hamiltonian:
 \[
 \begin{aligned}
@@ -509,7 +510,7 @@ We could redefine the pseudospin operators dividing them by an appropriate const
 
 \subsection{Features of the AF solution}
 
-This subsection is devoted to discussing briefly some features of the AF solution we found. \todo
+This subsection is devoted to discussing briefly some features of the AF solution we found. It is organised as a series of unrelated paragraphs, each to derive a precise property or formula we use in the algorithmic computation. With these observations we conclude the part about the local repulsion and extend to full EHM.
 
 \paragraph{Pseudospin EVs.}
 
@@ -629,7 +630,13 @@ Consider now the gran canonical hamiltonian $\hat K \equiv \hat H - \mu\hat N$ a
 \end{equation}
 thus for non-null chemical potential (i.e. finite doping) the eigenvalues are just shifted, $\pm E_\mathbf{k}-\mu$. These two bands have the same number of single-particle states. In Fig.~\ref{fig:af-Ek-bands} we sketch the bands $\pm E_{\mathbf{k}\sigma}$. Intense colour indicates an almost filled single-particle state, lighter gray colour an almost empty single-particle state. The gap is at zero energy, but at any finite doping $\tilde{\mu}$ crosses the upper band. 
 
-These observations end the description of commensurate antiferromagnetism in the conventional HM. Some more details and observations are provided in App.~\ref{appendix:mean-field-hubbard}.
+\paragraph{Instability of the doped antiferromagnet.}
+
+As we said at the beginning of this chapter, there exist several ways to realise an Hubbard antiferromagnet. For the conventional HM, it is known \cite{singh1990collective,singh1991doped} that the commensurate AF phase is unstable at any finite doping. This is discussed briefly in Sec.~\ref{appsubsec:af-instability}. The key takeaway is that insulating antiferromagnets are stable with respect to spin fluctuations, while metallic antiferromagnets are not. The commensurate AF phase is insulating only at half-filling, because the chemical potential lies within the gap.
+
+The mere existence of a self-consistent solution does not guarantee stability: indeed, when in Sec.~\ref{subsec:hf-variational-solution} we derived the variational solution, we only required it to be a stationary point of the HF energy. In other words, there is no need for the solution to be a minimum. The commensurate AF phase is, in fact, a saddle point of HF energy \cite{singh1990collective} and any finite doping disrupts commensurate ordering towards uncommensurate phases.
+
+These observations end the description of commensurate antiferromagnetism in the conventional HM. Some more details and observations are provided in App.~\ref{app:hm-af-ground-state}.
 
 %\color{tabred}
 %
@@ -779,7 +786,7 @@ These equations are an extension of Eqns.~\eqref{eq:af-ehm-sx}, \eqref{eq:af-ehm
 \begin{figure}
 	\centering
 	\input{\GraphicsFolder/pseudo-magnetic-field-ehm}
-	\caption{Sketch of the diagonalization of the pseudo-spin problem. The dashed line represents the diagonalization given by the $z$-axis alignment with the field direction. In the top-right side of the picture are listed the expectation values of the original Nambu spinor. For simplicity everywhere the index $\sigma=\uparrow$ has been omitted.}
+	\caption{Sketch of the diagonalisation procedure for the EHM antiferromagnet. To diagonalise the HF hamiltonian, we align the $z$ axis with the pseudo-field. This is an extesion of Fig.~\ref{fig:pseudo-magnetic-field-hm}.}
 	\label{fig:pseudo-magnetic-field-ehm}
 \end{figure}
 
@@ -889,7 +896,7 @@ We obtain
 		mV \sum_{\ev{\mathbf{r}\mathbf{r}'}} \sum_\sigma (-1)^{x+y+\delta_{\sigma=\uparrow}} \left[
 		\hat n_{\mathbf{r}\sigma} - \hat n_{\mathbf{r}'\sigma}
 		\right]
-	}^{\text{s.s. (magnetization)}} \\
+	}^{\text{s.s. (magnetisation)}} \\
 	\underbrace{
 		-nV \sum_{\ev{\mathbf{r}\mathbf{r}'}} \sum_\sigma \left[
 		\hat n_{\mathbf{r}\sigma} + \hat n_{\mathbf{r}'\overline{\sigma}}
@@ -898,10 +905,10 @@ We obtain
 		mV \sum_{\ev{\mathbf{r}\mathbf{r}'}} \sum_\sigma (-1)^{x+y+\delta_{\sigma=\uparrow}} \left[
 		\hat n_{\mathbf{r}\sigma} + \hat n_{\mathbf{r}'\overline{\sigma}}
 		\right]
-	}_{\text{o.s. (magnetization)}}
+	}_{\text{o.s. (magnetisation)}}
 	\label{eq:af-ehm-hartree-int-1}
 \end{multline}
-In the above expressions we separated in ``density'' contributions and ``magnetization'' ones. Let us deal with them separately.
+In the above expressions we separated in ``density'' contributions and ``magnetisation'' ones. Let us deal with them separately.
 
 \paragraph{Density terms.}
 
@@ -921,7 +928,7 @@ We already included the shift to $\mu$ due to the local Hartree channel, anticip
 
 \paragraph{Magnetization terms.}
 
-The magnetization $\mathrm{s.s.}$ and $\mathrm{o.s.}$ terms of Expr.~\eqref{eq:af-ehm-hartree-int-1} perfectly cancel out:
+The magnetisation $\mathrm{s.s.}$ and $\mathrm{o.s.}$ terms of Expr.~\eqref{eq:af-ehm-hartree-int-1} perfectly cancel out:
 \[
 	mV \sum_{\ev{\mathbf{r}\mathbf{r}'}} \sum_\sigma (-1)^{x+y+\delta_{\sigma=\uparrow}} \left[
 		\left(
@@ -1674,34 +1681,34 @@ We name the two possible symmetries ``sAF'' (symmetric antiferromagnet) and ``aA
 
 From now on we will omit $\sigma$ index, working just in the $\uparrow$ sector. As said in Sec.~\ref{sec:af-phase-theory}, the AF phase does not break $\mathbb{Z}_2$ spin inversion symmetry, being the SDW ordering generated by a staggered but globally symmetric spin density distribution among sites. The approximated quadratic hamiltonian of Eq.~\mref is invariant by a $\sigma \leftrightarrow \overline{\sigma}$ exchange, thus all measurable physical quantities must be.
 
-{\section{(In)stability of commensurate AF phase}\label{sec:af-instability}
-
-\color{tabred}
-[Re-write and move up.]
-
-The discussion above is formally correct and self-consistent, thus a HF algorithm can be sketched to extract the HFPs. However we cannot proceed without considering the instability effects of Sec.~\ref{appsec:af-instability}. As is known (and we would have liked to notice earlier) the AF-SSB at wavevector $\bm{\pi}$ we are studying here, responsible of halving the BZ down to the MBZ, can produce a stable phase on pure Hubbard lattices only at half filling \cite{singh1990collective}. For the EHM the situation is even worse than that: repeating the simple Linear Reponse Theory (LRT) computations of Sec.~\ref{appsec:af-instability} and mimicking Eq.~\eqref{appeq:af-commensurate-proper-response}, we get a proper response function
-\begin{equation}\label{eq:af-commensurate-proper-response}
-	\tilde{\chi}_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega) = \frac{\chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega)}{1 - \left[ 
-		U {\color{tabred} - 2V (\cos k_x + \cos k_y)}
-	\right] \chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega)}
-\end{equation}
-[Double check]
-
-As is well documented in literature \cite{wietek2021stripes}, AF can establish in a wide range of spatial structures with particular shapes, for example stripes. In order to extract the precise AF phase, we should
-\begin{enumerate}
-	\item Choose an initializer wavevector, say $\mathbf{k}=\bm{\pi}$;
-	\item Solve self-consistently for the HFPs at $\mathbf{k}$;
-	\item Compute the free energy $F$ as a functional of the wavevector around $\mathbf{k}$;
-	\item Look for gradient descent of the free energy, $\grad F < 0$;
-	\item If the gradient descent is found, update $\mathbf{k} \to \mathbf{k} + \delta \mathbf{k}$ and repeat from step 2, otherwise halt.
-\end{enumerate}
-Of course the sketched procedure can lead to a lot of complications, first the fact that at incommensurate wavevector $\mathbf{k} \neq \bm{\pi}$ the unit cell is not as simple as a pair of sites, but can become much larger requiring more refined computational solutions.
-
-In this text we will show the self consistent result for AF-SSB at wavevector $\bm{\pi}$ even at finite doping as a first step in the above sketched procedure. The presented results are self-consistent, but unfortunately deeply unstable and unphysical at finite doping, a situation where an incommensurate and insulating AF phase is preferred to this commensurate metallic counterpart. Nevertheless we present them anyway.}
+%{\section{(In)stability of commensurate AF phase}\label{sec:af-instability}
+%
+%\color{tabred}
+%[Re-write and move up.]
+%
+%The discussion above is formally correct and self-consistent, thus a HF algorithm can be sketched to extract the HFPs. However we cannot proceed without considering the instability effects of Sec.~\ref{appsec:af-instability}. As is known (and we would have liked to notice earlier) the AF-SSB at wavevector $\bm{\pi}$ we are studying here, responsible of halving the BZ down to the MBZ, can produce a stable phase on pure Hubbard lattices only at half filling \cite{singh1990collective}. For the EHM the situation is even worse than that: repeating the simple Linear Reponse Theory (LRT) computations of Sec.~\ref{appsec:af-instability} and mimicking Eq.~\eqref{appeq:af-commensurate-proper-response}, we get a proper response function
+%\begin{equation}\label{eq:af-commensurate-proper-response}
+%	\tilde{\chi}_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega) = \frac{\chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega)}{1 - \left[ 
+%		U {\color{tabred} - 2V (\cos k_x + \cos k_y)}
+%	\right] \chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega)}
+%\end{equation}
+%[Double check]
+%
+%As is well documented in literature \cite{wietek2021stripes}, AF can establish in a wide range of spatial structures with particular shapes, for example stripes. In order to extract the precise AF phase, we should
+%\begin{enumerate}
+%	\item Choose an initializer wavevector, say $\mathbf{k}=\bm{\pi}$;
+%	\item Solve self-consistently for the HFPs at $\mathbf{k}$;
+%	\item Compute the free energy $F$ as a functional of the wavevector around $\mathbf{k}$;
+%	\item Look for gradient descent of the free energy, $\grad F < 0$;
+%	\item If the gradient descent is found, update $\mathbf{k} \to \mathbf{k} + \delta \mathbf{k}$ and repeat from step 2, otherwise halt.
+%\end{enumerate}
+%Of course the sketched procedure can lead to a lot of complications, first the fact that at incommensurate wavevector $\mathbf{k} \neq \bm{\pi}$ the unit cell is not as simple as a pair of sites, but can become much larger requiring more refined computational solutions.
+%
+%In this text we will show the self consistent result for AF-SSB at wavevector $\bm{\pi}$ even at finite doping as a first step in the above sketched procedure. The presented results are self-consistent, but unfortunately deeply unstable and unphysical at finite doping, a situation where an incommensurate and insulating AF phase is preferred to this commensurate metallic counterpart. Nevertheless we present them anyway.}
 
 \section{AF free energy density}\label{sec:af-free-energy}
 
-In order to derive the free energy density expression for AF phase, we proceed precisely as in Sec.~\ref{sec:normal-free-energy}. The only notable difference is in entropy: Eq.~\eqref{eq:normal-entropy-density} is written for two opposite bands on MBZ
+In order to derive the free energy density expression for AF phase, we proceed precisely as in Sec.~\ref{sec:normal-free-energy}. The only notable difference is in the expression of entropy density: Eq.~\eqref{eq:normal-entropy-density} is written for two opposite bands on MBZ
 \[
 	s = s^{(+)} + s^{(-)}
 \]
@@ -1769,7 +1776,7 @@ and we get
 		\mu + n(2zV-U)
 	\right]
 \end{multline*}
-As was for the normal phase, contraction energy and chemical potential energy corrections build up the RMP $\tilde{\mu}$ of Eq.~\eqref{eq:af-mu-shift},
+As was for the normal phase, contraction energy and chemical potential energy corrections build up the RMP $\tilde{\mu}$ of Eq.~\eqref{eq:af-nl-mu},
 \begin{multline}
 	f_\mathrm{MFT}^{(\mathrm{AF})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \left[
 		\ln \left(
@@ -1783,10 +1790,11 @@ As was for the normal phase, contraction energy and chemical potential energy co
 	\right] + \tilde{\mu} n 
 	\label{eq:af-fMFT}
 \end{multline}
+In this expression, we see that $u^{(\gamma)}$s, $v^{(\gamma)}$s contribution is negative, while magnetisation contributes positively. At a first glance, this suggests that a system with no magnetisation and non-zero $u^{(\gamma)}$s, $v^{(\gamma)}$s would be energetically favoured. In that situation we would have a purely imaginary gap for a non-magnetised phase, which would be not so intuitive to explain physically. In next section we explain how the above expression for the free energy density can be used to give a constraint that proves that said situation is impossible. HFPs are interrelated and the physical solution cannot admit arbitrary values.
 
-\subsection{The gap energy}\label{subsec:af-gap-energy}
+\subsection{Energetic constraints on the HFPs}\label{subsec:af-energy-constraints}
 
-It is useful to see here a property of the above expression. Collecting the terms directly related to the gap function, the following identity holds:
+Let us derive a constraint from the free energy density expression. Collecting the terms directly related to the gap function, the following identity holds:
 \begin{equation}\label{eq:af-ehm-gap-energy}
 	Um^2 - V \sum_{\gamma} \big| v^{(\gamma)} \big|^2 = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\big|
 		\tilde{\Delta}_\mathbf{k}
@@ -1811,7 +1819,7 @@ which implies
 	&= Um^2
 \end{aligned}
 \]
-having we recognized the magnetization from Eq.~\eqref{eq:af-m-self-consistency}. Equivalently,
+having we recognised the expression for the magnetisation from Eq.~\eqref{eq:af-ehm-m-self-consistency}. Equivalently,
 \[
 \begin{aligned}
 	\Im \lbrace\tilde{\Delta}_\mathbf{k}\rbrace &= - V \sum_\gamma v^{(\gamma)} \varphi_\mathbf{k}^{(\gamma)*} \\
@@ -1826,9 +1834,9 @@ where we used Eq.~\eqref{eq:af-ehm-ivvphi-imag} to exchange the conjugation oper
 	&= - V \sum_\gamma \big| v^{(\gamma)*} \big|^2
 \end{aligned}
 \]
-where in second passage we recognized $v^{(\gamma)}$ given in Eq.~\eqref{eq:af-vgamma-chain}. Then Eq.~\eqref{eq:af-ehm-gap-energy} is verified. The latter is particularly interesting because it shows a non-intuitive result: due to gap complexification, gap amplitude is only increased by $\hat H_V$, thus by analogy we would expect the relative free energy contribution to have the same sign as the original gap energy from the real part. This is not the case: to open a gap in the $s$-wave real sector contributes positively to free energy, while to open a gap in the $\gamma$-wave imaginary sector contributes negatively.
+where in second passage we recognised $v^{(\gamma)}$ given in Eq.~\eqref{eq:af-vgamma-chain}. Then Eq.~\eqref{eq:af-ehm-gap-energy} is verified. 
 
-An immediate consequence of Eq.~\eqref{eq:af-ehm-gap-energy} is that, being the right-hand side evidently positive, for $V>0$ the total amplitude of the ``complexifiers'' vector is maximised,
+A consequence of Eq.~\eqref{eq:af-ehm-gap-energy} is that, being the right-hand side positive, for $V>0$ the total amplitude of the ``complexifiers'' vector is maximised,
 \begin{equation}\label{eq:af-vgamma-circle}
 	\sum_{\gamma} \big| v^{(\gamma)} \big|^2 \le M
 	\qq{being}
@@ -1837,32 +1845,32 @@ An immediate consequence of Eq.~\eqref{eq:af-ehm-gap-energy} is that, being the 
 The above constraint predicts that:
 \begin{itemize}
 	\item In the strong coupling limit $U \ll V$, gap complexification is suppressed;
-	\item Correctly, when the physical magnetization closes, so does the imaginary part of the gap
+	\item If magnetisation is null, so is the imaginary part of the gap
 	\[
 		\lim_{m\to0} v^{(\gamma)} = 0
 	\]
 	which is coherent with the entire derivation and takes us back to the normal phase.
 \end{itemize}
-Eq.~\eqref{eq:af-ehm-gap-energy} is also solved by a null magnetization and thus null complexifiers. This can be interpreted by the fact that when the constraint is impossible to solve self-consistently, the gap must close.
+Eq.~\eqref{eq:af-ehm-gap-energy} is also solved by a null magnetisation and thus null complexifiers. This can be interpreted by the fact that when the constraint is impossible to solve self-consistently, the gap must close.
 
-Interestingly, Eq.~\eqref{eq:af-vgamma-circle} provides a neat graphical interpretation for the constraint on HFPs in both sAF and aAF phases. At any competition ratio $U/V$, system magnetization $m$ defines a sphere whose radius is $m \sqrt{U/V}$, and inside which the vector defined by remaining $v^{(\gamma)}$ HFPs must lie. For our AF flavours, the sphere is actually a circle, being in both cases three the total HFPs number, counting also $m$. All of this is nice, but notice that the trivial solution
+Eq.~\eqref{eq:af-vgamma-circle} provides a neat graphic interpretation for the constraint on HFPs in both sAF and aAF phases. At any competition ratio $U/V$, the product $m \sqrt{U/V}$ is the radius of a sphere. Inside this sphere must lie the vector defined by remaining $v^{(\gamma)}$ HFPs. For our AF flavours, the sphere is actually a circle, being in both cases the total number of HFPs equal to $3$, counting also $m$. Note that the solution:
 \[
 	\forall \gamma
 	\quad\colon\quad
 	v^{(\gamma)} = 0
 \]
-solves the constraint of Eq.~\eqref{eq:af-vgamma-circle}. These considerations do not imply gap complexification is an actual, realized effect.
+solves the constraint of Eq.~\eqref{eq:af-vgamma-circle}. These considerations do not imply gap complexification is an actual, observed effect.
 
 \subsection{Free energy at half-filling}
 
-Half-filling condition is of particular interest, with $\tilde{\mu}=0$, where PHS discussed in Sec.~\ref{subsec:phs} is preserved in the AF phase. Since, as it can be shown easily,
+Let us discuss the half-filling condition. We start with the identity:
 \[
 \begin{aligned}
 	\ln(1 - \frac{1}{e^x + 1}) + \ln(1 - \frac{1}{e^{-x} + 1}) &= \ln\left[ \frac{e^x}{(e^x+1)^2} \right] \\
 	&= x - 2 \ln(1+e^x)
 \end{aligned}
 \]
-Let now $x=\beta \tilde{E}_\mathbf{k}$. At low temperature for a band with no nodes, we can approximate $x\to +\infty$, which gives
+Let now $x=\beta \tilde{E}_\mathbf{k}$. At low temperature for a band with no nodes, we can approximate $x\to +\infty$ on the entire BZ. This gives
 \[
 	x - 2 \ln(1+e^x) \simeq -x
 \]
@@ -1872,9 +1880,9 @@ Hence we get the half-filling free energy density substituting ,
 		\big|u^{(\gamma)}\big|^2 + \big|v^{(\gamma)}\big|^2
 	\right]
 \]
-Starting from the full expression of the free energy density, we recovered the intuitive expression of the energy of a fully (double) occupied band at $-\tilde{E}_\mathbf{k}$, with HFPs correction.
+The first term in this sum gives the energy of the fully occupied lower band.
 
-This approximation makes sense when $\tilde{E}_\mathbf{k} \neq 0$ everywhere. Fortunately, this is always realized in AF phase: from the constraint of Eq.~\eqref{eq:af-vgamma-circle} we know magnetization is necessary for all gap HFPs; for a magnetized system, whatever the symmetries,
+This approximation makes sense when $\tilde{E}_\mathbf{k} \neq 0$ everywhere. This is always realised in AF phase: from the constraint of Eq.~\eqref{eq:af-vgamma-circle} we know magnetisation is necessary for all gap HFPs; for a magnetised system, whatever the symmetries,
 \[
 	\tilde{E}_\mathbf{k} = \sqrt{\tilde{\epsilon}_\mathbf{k}^2 + (Um)^2 + \big| \Im\lbrace \Delta_\mathbf{k} \rbrace \big|^2} \ge Um
 \]
@@ -1882,9 +1890,9 @@ At half filling and low temperature, the system is well approximated by a comple
 
 \section{Theoretical constraints on the AF phase HFPs}\label{sec:af-constraints}
 
-Up to now, all we derived was the most general MFT-compatible mathematical description of a commensurate AF established on EHM, allowing for nematic spatial symmetry breaking as well as non-trivial renormalisation effects. This section, basically a clone of Sec.~\ref{sec:normal-constraints}, is dedicated to understanding, given the algorithmic problem, how its solutions should behave. As we will see, based on this theoretical analysis we are able to reduce a lot the algorithmic complexity and limit the solution search to a tailored subspace of HFPs space.
+Up to now, all we derived was the most general HF mathematical description of a commensurate AF established on EHM, allowing for nematic spatial symmetry breaking as well as non-trivial renormalisation effects. This section, basically a clone of Sec.~\ref{sec:normal-constraints}, is dedicated to understanding, given the algorithmic problem, how its solutions should behave. As we will see, based on this theoretical analysis we are able to reduce a lot the algorithmic complexity and limit the solution search to a tailored subspace of HFPs space.
 
-We start from considering a robust $\mathrm{C}_4$ antiferromagnet, thus setting $u^{(d)}=0$ by hand, and show how the constraints on $u^{(s^*)}$ mimic those posed for the normal phase in Eq.~\eqref{eq:normal-us*-constraint}. Then we move to a rather convoluted but necessary analysis of the five components HFPs vector described for both AF flavours in Tab.~\ref{tab:af-saf-aaf-hfps}. For the sake of generality, even if -- as discussed in Sec.~\ref{sec:af-instability} -- at finite doping the system is naturally unstable, we take on all calculations at generic $\tilde{\mu}$.
+We start from considering a robust $\mathrm{C}_4$ antiferromagnet, thus setting $u^{(d)}=0$ by hand, and show how the constraints on $u^{(s^*)}$ mimic those posed for the normal phase in Eq.~\eqref{eq:normal-us*-constraint}. Then we move to a rather convoluted but necessary analysis of the five-components HFPs vector, described for both AF flavours in Tab.~\ref{tab:af-saf-aaf-hfps}. For the sake of generality, even if -- as discussed in Sec.~\ref{sec:af-instability} -- at finite doping the system is naturally unstable, we take on all calculations at generic $\tilde{\mu}$.
 
 \subsection{Robust $\mathrm{C}_4$ bands shrinking extension to AF phases}\label{subsec:af-bands-shrinking}
 
@@ -1897,7 +1905,7 @@ of $u^{(\gamma)}$, just the $s*$-wave channel contributes with a single self-con
 	u^{(s^*)} = - \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \frac{\tilde{\epsilon}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]
 \]
 
-In this situation, it's immediate to derive constraints for $u^{(s^*)}$. As we did for the normal phase:
+In this situation, we are able to derive constraints for $u^{(s^*)}$ by analysing the self-consistency equation. As we did for the normal phase:
 \begin{enumerate}
 	\item If $t>0$ and $u^{(s^*)} \le 0$
 	\[
@@ -1934,7 +1942,9 @@ is identical to the constraint obtained for the normal phase. Also in AF phase t
 
 \subsection{HFPs vanishing in sAF phase}\label{subsec:af-HFPs=0-sAF}
 
-We now present a somewhat convoluted argument to show that, even if raw MFT presents an apparently rich scenario with a lot of HFPs, the problem can be proven to be actually much simpler. Let us start from the sAF phase, assuming
+We applied HF methods to the EHM and obtained two flavours of antiferromagnetism, each of which involves $5$ HFPs. The scenario appears to be rich. In this section we present an argument to prove that the actual number of HFPs is much smaller, as many of those are mathematically suppressed. 
+
+Let us start from the sAF phase, assuming
 \[
 	\mathrm{C}_4 \SSB \mathrm{C}_2
 \]
@@ -1944,7 +1954,7 @@ Let us define the functional
 \begin{equation}\label{eq:saf-F-definition}
 	F[f(\mathbf{k})] \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \frac{\tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]}{\tilde{E}_\mathbf{k}} f(\mathbf{k})
 \end{equation}
-whose linearity properties are trivial,
+The functional $F$ is linear:
 \begin{equation}\label{eq:saf-F-linearity}
 	F[a f(\mathbf{k}) + b g(\mathbf{k})] = a F[f(\mathbf{k})] + b F[g(\mathbf{k})]
 \end{equation}
@@ -1975,7 +1985,7 @@ having we used the notation $c_\ell \equiv \cos k_\ell$ and substituted the full
 \[
 	\tilde{\epsilon}_\mathbf{k} \equiv -\left[2t - u^{(s^*)}_\sigma V\right] (c_x + c_y) + u^{(d)}_\sigma V (c_x - c_y)
 \]
-Evidently, in terms of the functional $F$, we can rewrite:
+In terms of the functional $F$, we can rewrite:
 \[
 \begin{aligned}
 	u^{(s^*)} &= \left[2t - Vu^{(s^*)}\right] \times F\left[(c_x + c_y)^2\right] - Vu^{(d)} \times F\left[c_x^2 - c_y^2\right] \\
@@ -2008,7 +2018,7 @@ Repeating an identical procedure on the three self-consistency equations for $u^
 	v^{(d)} &=
 	- Vv^{(s^*)} (A-C) -  Vv^{(d)} (A-B+C) \label{eq:saf-vd-sc-ABC}
 \end{align}
-These equations define a four-fold nonlinear map, whose parameters $A,B,C$ depend on the HFPs themselves, being the functional $F$ dependent on the HFPs. Because of this last point, the four equations are coupled to each other and the map does not decouple in two independent sub-maps.
+These equations define a four-components nonlinear map, whose parameters $A,B,C$ depend on the HFPs themselves, being the functional $F$ dependent on the HFPs. Because of this last point, the four equations are coupled to each other and the map does not decouple in two independent sub-maps. Note that the full map would include another equation for the magnetisation.
 
 Aim of this section is to prove that no self-consistent solution exists with non-zero $u^{(d)}$, $v^{(s^*)}$ and $v^{(d)}$. Being the derivation convoluted and abstract enough, let us proceed by enumerating the relevant facts.
 \begin{enumerate}
@@ -2153,11 +2163,11 @@ Aim of this section is to prove that no self-consistent solution exists with non
 	\]
 	Absurd. We explored any possibility for $S_v$, $D_v$: no stable solution with finite values of the HFPs $v^{(s^*)}$, $v^{(d)}$ exists, thus both must be zero and can be eliminated from the algorithm.
 \end{enumerate}
-To gain full knowledge on the map fixed point's shape, we should analyze similarly the behaviour of the self-consistency equations for $u^{(s^*)}$, $u^{(d)}$. This is done later in Sec.~\ref{subsec:af-bands-shrinking-C2}. For now, it suffices to know that limitedly to the sAF phase no gap complexification aforementioned in Sec.~\ref{sec:af-full-hamiltonian} actually occurs. This effect is not a consequence of MFT derivation, which remains self-coherent and correct; it is instead of the particular form of the non-linear map defined by the set of model equations.
+To gain full knowledge on the map fixed point's shape, we should analyze similarly the behaviour of the self-consistency equations for $u^{(s^*)}$, $u^{(d)}$. This is done later in Sec.~\ref{subsec:af-bands-shrinking-C2}. For now, it suffices to note that -- limitedly to the sAF phase -- gap complexification is not present. This effect is not a consequence of HF derivation, which remains self-coherent and general; it is instead of the peculiar form of the non-linear map defined by the set of self-consistency equations.
 
 \subsection{HFPs vanishing in aAF phase}\label{subsec:af-HFPs=0-aAF}
 
-We now deal with a much easier proof for an analogous thesis on the sAF phase described by the five HFPs on the second row of Tab.~\ref{tab:af-saf-aaf-hfps}, as well as the self-consistency equations of Tabs.~\ref{tab:af-ehm-ugamma-self-consistencies} and \ref{tab:af-ehm-vgamma-self-consistencies}. We continue using the functional $F$ as defined in Eq.~\eqref{eq:saf-F-definition}. We also define $A,B,C$ as in Eq.~\eqref{eq:saf-ABC-def}. Let $s_\ell \equiv \sin k_\ell$, and
+Let us discuss the sAF phase. It is described by the five HFPs on the second row of Tab.~\ref{tab:af-saf-aaf-hfps}, as well as the self-consistency equations of Tabs.~\ref{tab:af-ehm-ugamma-self-consistencies} and \ref{tab:af-ehm-vgamma-self-consistencies}. We continue using the functional $F$ as defined in Eq.~\eqref{eq:saf-F-definition}. We also define $A,B,C$ as in Eq.~\eqref{eq:saf-ABC-def}. Let $s_\ell \equiv \sin k_\ell$, and
 \begin{equation}\label{eq:saf-PQR-def}
 	P \equiv F\left[s_x^2\right]
 	\qquad
@@ -2176,9 +2186,9 @@ Using these definitions, four of five self-consistency equations are given by
 	v^{(p_y)} &=
 	- Vv^{(p_x)} Q - Vv^{(p_y)} R \label{eq:aaf-vy-sc-PQR}
 \end{align}
-To prove that both $v^{(p_\ell)}=0$ is immediate.
+Let us prove that both $v^{(p_\ell)}=0$.
 \begin{enumerate}
-	\item For the aAF phase, $Q=0$. Let us write $Q$ explicitly
+	\item For the aAF phase, $Q=0$. We write $Q$ explicitly
 	\[
 	\begin{aligned}
 		Q &= F\left[s_x s_y\right] \\
@@ -2200,9 +2210,9 @@ To prove that both $v^{(p_\ell)}=0$ is immediate.
 		v^{(p_x)} = 0
 	\]
 	%
-	\item $v^{(p_x)}=0$. Same proof as point above.
+	\item $v^{(p_y)}=0$. Same proof as point above.
 \end{enumerate}
-This ends this short section and shows that also for the aAF phase all gap complexifiers actually vanish. This is trivially coherent with the constraint of Eq.~\eqref{eq:af-vgamma-circle}. As a consequence, there is no need to distinguish two AF phases,
+This ends this short section and shows that also for the aAF phase all gap complexifiers actually vanish. This is coherent with the constraint of Eq.~\eqref{eq:af-vgamma-circle}. As a consequence, there is no need to distinguish two AF phases,
 \[
 	\mathrm{sAF} = \mathrm{aAF}
 \]
@@ -2270,22 +2280,22 @@ with
 \]
 The following points are true:
 \begin{enumerate}
-	\item The function is antisymmetric about $x=0$. This is evident by considering that $g(x)$ is evidently antisymmetric, while $h(x)$ is symmetric.
+	\item The function is antisymmetric about $x=0$, because $g(x)$ is antisymmetric, while $h(x)$ is symmetric.
 	%
-	\item $g(x)$ is monotonically descendent. Its derivative is
+	\item $g(x)$ is monotonically descendent. Its derivative is given by
 	\[
 	\begin{aligned}
 		\dv{g}{x} &= - \frac{\sqrt{x^2 + \Delta^2} - x^2/\sqrt{x^2 + \Delta^2}}{x^2 + \Delta^2} \\
 		&= -\frac{\Delta^2}{(x^2 + \Delta^2)^{3/2}}
 	\end{aligned}
 	\]
-	clearly always negative.
+	which is always negative.
 	%
-	\item The product $g(x)h(x)$ is monotonically descendent at positive finite doping. To assert this, we can compute the derivative of $f'$,
+	\item The product $g(x)h(x)$ is monotonically descendent at positive finite doping. To prove this, we can compute the derivative of $f'$,
 	\[
 		\dv{f'}{x} = \dv{g}{x} h(x) + g(x) \dv{h}{x}
 	\]
-	Now, evidently $h(x)>0$ and as we said $\mathrm{d}g/\mathrm{d}x<0$, which makes the first term negative. The second is negative too: let
+	We have $h(x)>0$, and as we said $\mathrm{d}g/\mathrm{d}x<0$, which makes the first term negative. The second is negative too: let
 	\[
 		E(x) \equiv \sqrt{x^2 + \Delta^2}
 		\quad\implies\quad
@@ -2312,11 +2322,11 @@ The following points are true:
 	\]
 	making $f'$ descendent monotonicity proven.
 \end{enumerate}
-These points end the proof: as anticipated, $f'$ is a monotonically descendent function of $\epsilon_\mathbf{k}$, a feature that allows us to re-use the entire derivation of Sec.~\ref{subsec:normal-bands-shrinking-C2} without hesitation, and conclude that also for the AF phase
+These points end the proof: as anticipated, $f'$ is a monotonically descendent function of $\epsilon_\mathbf{k}$, a feature that allows us to re-use the entire derivation of Sec.~\ref{subsec:normal-bands-shrinking-C2}, and conclude that also for the AF phase
 \[
 	u^{(d)} = 0
 \]
-while $u^{(s^*)}$ remains constrained in the limits of Eq.~\eqref{eq:af-us*-constraint}. Starting from a rather complicated scenario, we were able to resolve all the AF HFPs down to the pair
+while $u^{(s^*)}$ remains constrained in the limits of Eq.~\eqref{eq:af-us*-constraint}. Starting from a rather complicated scenario, we were able to reduce all the AF HFPs down to the pair
 \[
 	m, u^{(s^*)}
 \]
@@ -2351,12 +2361,12 @@ In the end, the computational scenario is not so different from the normal phase
 \]
 We set $\delta=0.0$. As we anticipated in Sec.~\ref{sec:af-instability}, any finite doping implies immediate disruption of commensurate antiferromagnetism, a consideration that makes any simulation at $\delta >0$ of low physical significance. Following this consideration, we omit data at finite $\delta \neq 0$.
 
-\subsection{Magnetization boost}
+\subsection{Magnetization boost}\label{subsec:af-m-boost}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf}
-	\caption{Plot of the self-consistent convergence values for $m$ (left panel) and isomagnetic curves computed on the same data (right panel), along which magnetization is constant. For the sake of graphic clarity, only the points at $0 \le U \le 4$ and $0 \le V \le 6$ are plotted. {\color{tabred}[Something broke at $U=0.05$, $V \ge 5$, change with new data.]}}
+	\caption{Plot of the self-consistent convergence values for $m$ (left panel) and isomagnetic curves computed on the same data (right panel), along which magnetisation is constant. For the sake of graphic clarity, only the points at $0 \le U \le 4$ and $0 \le V \le 6$ are plotted. {\color{tabred}[Something broke at $U=0.05$, $V \ge 5$, change with new data.]}}
 	\label{fig:af-m-data-C128}
 \end{figure}
 
@@ -2369,13 +2379,13 @@ The convergence values for $m$ computed in $(U,V)$ plane are shown in the panels
 		u^{(s^*)} \colon 5 \times 10^{-4}
 	\end{bmatrix}
 \]
-The most interesting evident visible directly from heatmaps is that $\hat H_V$ actually boosts magnetization. This phenomenon is intuitive and easy to explain: since the only observable net effect of the non-local interaction is to lower $t$ by shrinking bands, at any fixed point $(t,U,V)$ the model can be effectively mapped to
+From heatmaps we see that $\hat H_V$ actually boosts magnetisation. Since the only observable net effect of the non-local interaction is to lower $t$ by shrinking bands, at any fixed point $(t,U,V)$ the model can be effectively mapped to
 \[
 	\text{EHM: }(t,U,V) 
 	\quad\to\quad
 	\text{HM: }(\tilde{t},U,0)
 \]
-being $\tilde{t}$ dependent on $V$. For the pure HM, to magnetize the system what matters is just $U/t$. To lower $t$ is physically the same as to increase $U$, and from this point comes the magnetization precession visible in Fig.~\ref{fig:af-m-data-C128}. Isomagnetic lines on the right panel show, for $U$ significantly greater than $0$, interesting linear trends whose angular coefficient depend on $m$ itself. The low-$U$ limit of isomagnetic lines presents some oscillations that are evidently imputable to numeric discretization of parametric space. {\color{tabred}[Why isomagnetic curves are lines? Something about $U/(V-V_\mathrm{c})$ ratio being constant?]}
+being $\tilde{t}$ dependent on $V$. For the pure HM, magnetisation is controlled by the ratio $U/t$. To lower $t$ is physically the same as to increase $U$, and from this comes the magnetisation precession visible in Fig.~\ref{fig:af-m-data-C128}. Isomagnetic lines on the right panel show, for $U$ significantly greater than $0$, linear trends whose angular coefficient depend on $m$ itself. The low-$U$ limit of isomagnetic lines presents some oscillations that are imputable to numeric discretisation of parametric space. {\color{tabred}[Why isomagnetic curves are lines? Something about $U/(V-V_\mathrm{c})$ ratio being constant?]}
 
 \begin{figure}
 	\centering
@@ -2391,11 +2401,11 @@ being $\tilde{t}$ dependent on $V$. For the pure HM, to magnetize the system wha
 \label{fig:af-m-data-A256}
 \end{figure}
 
-Data shown in Fig.~\ref{fig:af-m-data-A256} confirm clearly the aforementioned magnetization  ``boost'' given by $\hat H_V$. The effect is more enhanced at low values of $U$. Interestingly enough, as is visible from Fig.~\ref{subfig:af-m-data-A256-pVar=U}, magnetization does not always saturate the same way. For example, considering the curve at $U=1.2$, magnetization varies following a somewhat tilted sigmoid shape, making boost most effective around $V \approx 2 \divisionsymbol 4$. Because of $m$ saturation, this behaviour is lost at higher $U$s.
+Data shown in Fig.~\ref{fig:af-m-data-A256} confirm clearly this $V$-controlled magnetisation  ``boost''. The effect is more enhanced at low values of $U$. As is visible from Fig.~\ref{subfig:af-m-data-A256-pVar=U}, magnetisation does not always saturate the same way. For example, considering the curve at $U=1.2$, magnetisation varies following a somewhat tilted sigmoid shape, making boost most effective around $V \approx 2 \divisionsymbol 4$. Because of $m$ saturation, this behaviour is lost at higher $U$s.
 
 \subsection{Bands shrinking}
 
-Bands shrinking effect was discussed in Sec.~\ref{subsec:af-bands-shrinking} within $\mathrm{C}_4$ symmetry, and then confirmed in Sec.~\ref{subsec:af-bands-shrinking-C2} when trying to extend to nematic structures. As was for the normal phase, we have proven that $\hat H_V$ net effect on the hamiltonian kinetic part is to shrink bands,
+The bands shrinking effect was discussed in Sec.~\ref{subsec:af-bands-shrinking} within $\mathrm{C}_4$ symmetry, and then confirmed in Sec.~\ref{subsec:af-bands-shrinking-C2} when trying to extend to nematic structures. As was for the normal phase, we have proven that $\hat H_V$ net effect on the hamiltonian kinetic part is to shrink bands,
 \[
 	t
 	\quad\to\quad
@@ -2430,7 +2440,7 @@ For the normal phase, in Sec.~\ref{subsec:normal-mott-numeric} we presented nume
 	\label{fig:af-uS-data-A256}
 \end{figure}
 
-The convergence values for the HFP $u^{(s^*)}$ are shown in Fig.~\ref{subfig:af-uS-data-C128}, and more in details in the two panels of Fig.~\ref{fig:af-uS-data-A256}. In general, $u^{(s^*)}$ decreases monotonically both in $U$ and in $V$. As we already discussed in normal phase, the $U=0$ data of Fig.~\ref{subfig:af-uS-data-A256-pVar=U} present a plateau up to a Mott-critical value. This effect is absent at positive $U$s. Both interactions disrupt the HFP; however, the two limits
+The convergence values for the HFP $u^{(s^*)}$ are shown in Fig.~\ref{subfig:af-uS-data-C128}, and more in detail in the two panels of Fig.~\ref{fig:af-uS-data-A256}. In general, $u^{(s^*)}$ decreases monotonically both in $U$ and in $V$. As we already discussed in normal phase, the $U=0$ data of Fig.~\ref{subfig:af-uS-data-A256-pVar=U} present a plateau up to a Mott-critical value. This effect is absent at positive $U$s. Both interactions disrupt the HFP; however, the two limits
 \[
 	U \gg 1
 	\qq{and}
@@ -2455,9 +2465,9 @@ we obtain the data of Fig.~\ref{subfig:af-tS-data-C128}. The limit $U \gg 1$ tak
 	\label{fig:af-tS-data-A256}
 \end{figure}
 
-Interestingly, in $(U,V)$ space there is not Mott-localized region of the kind we had in $(\delta,V)$ space for the normal phase (see Fig.~\ref{subfig:normal-tS-data-B128-mott}). At half filling, complete localization only occurs at $U=0$, as can be seen in the bottom left sector of Fig.~\ref{subfig:af-tS-data-A256-pVar=V}. Any finite value of $U$ disrupts bands flattening, thus -- being the local repulsion an essential ingredient in Hubbard antiferromagnetism -- we can safely sustain, based on numeric evidence, that bands flattening is incompatible with a commensurate AF phase on the half-filled EHM.
+In $(U,V)$ space there is not Mott-localised region of the kind we had in $(\delta,V)$ space for the normal phase (see Fig.~\ref{subfig:normal-tS-data-B128-mott}). At half filling, complete localisation only occurs at $U=0$, as can be seen in the bottom left sector of Fig.~\ref{subfig:af-tS-data-A256-pVar=V}. Any finite value of $U$ disrupts bands flattening, thus -- being the local repulsion an essential ingredient in Hubbard antiferromagnetism -- we can claim, based on numeric evidence, that bands flattening is incompatible with a commensurate AF phase on the half-filled EHM.
 
-\subsection{Solution free energy}\label{subsec:af-f}
+\subsection{Solution free energy and entropy densities}\label{subsec:af-f-s}
 
 \begin{figure}
 	\centering
@@ -2473,7 +2483,7 @@ Interestingly, in $(U,V)$ space there is not Mott-localized region of the kind w
 	\label{fig:af-f-data}
 \end{figure}
 
-In Fig.~\ref{fig:af-f-data} the solution free energy is plotted. The right panel, Fig.~\ref{subfig:af-f-data-A256}, makes it becomes evident how the energetically most stable state is realized at low $V$, high $U$. The opposite limit of weak local repulsion, strong non-local attraction (top-left corner of Fig.~\ref{subfig:af-f-data-C128}) instead increases $f_\mathrm{MFT}$ a lot, correctly reaching zero energy at $U=0$, $V>4.93t$ -- the critical value discussed in Sec.~\ref{subsec:normal-mott-numeric} and computed in Eq.~\eqref{eq:normal-Vc-half-filling}.
+In Fig.~\ref{fig:af-f-data} the solution free energy is plotted. In the right panel, Fig.~\ref{subfig:af-f-data-A256}, we see that antiferromagnetism becomes more stable at low $V$, high $U$. The opposite limit of weak local repulsion, strong non-local attraction (top-left corner of Fig.~\ref{subfig:af-f-data-C128}) instead increases $f_\mathrm{MFT}$, reaching zero energy at $U=0$, $V>4.93t$. The latter isz the critical value discussed in Sec.~\ref{subsec:normal-mott-numeric} and computed in Eq.~\eqref{eq:normal-Vc-half-filling}.
 
 It is then evident how, even if the macroscopic magnetic properties are the same along one isomagnetic line of those plotted in Fig.~\ref{fig:af-m-data-C128}, right panel, and thus the realized state exhibits an identical value of $m$, much different is the energetic content of the state itself. While in the $U \gg 1$, fixed $V$ limit free energy gain comes from gap amplification -- which moves down the Bogoliubov bands $\tilde{E}_\mathbf{k}$ --, in the $V \gg 1$, fixed $U$ limit energies of the lower Bogoliubov band (full at low temperature) are shifted upwards via the Mott localization effect.
 
@@ -2481,7 +2491,7 @@ The AF phase is always energetically favoured at half-filling, with respect to t
 \[
 	\Delta f_\mathrm{MFT} \equiv f_\mathrm{MFT}^{(\mathrm{N})} - f_\mathrm{MFT}^{(\mathrm{AF})}
 \]
-shown for a slightly more coarse-grained dataset in Fig.~\ref{fig:af-df-data-A128}, we see immediately how $\Delta f_\mathrm{MFT} \ge 0$ in all $(U,V)$ plane. Note that, in order to compare the two acquisitions, being the normal phase data of Sec.~\ref{sec:normal-numeric} having been simulated at $U=0$ due to their intrinsic $U$ independence, we obtained a comparable dataset for the normal phase by just concatenating the filtered data for $U=0$ at all values of $U$ we are interested in.
+shown for a slightly more coarse-grained dataset in Fig.~\ref{fig:af-df-data-A128}, we see immediately how $\Delta f_\mathrm{MFT} \ge 0$ in all $(U,V)$ plane. The normal phase data of Sec.~\ref{sec:normal-numeric} having been simulated at $U=0$ due to their intrinsic $U$ independence. The AF phase is simulated in the same range $0 \le V \le 8$, but for $0 \le U \le 10$. The comparable normal phase dataset was just a repetition of the $U=0$ data at all $U$s.
 %
 \begin{figure}
 	\centering
@@ -2490,7 +2500,7 @@ shown for a slightly more coarse-grained dataset in Fig.~\ref{fig:af-df-data-A12
 	\label{fig:af-df-data-A128}
 \end{figure}
 %
-As we expect, in the $V \gg 1$ and low $U$ limit the energy difference is null: in this limit the two phases tend to coincide, since at $U=0.0$ no magnetization is physically possible. Moreover, the $U \gg 1$ limit makes the AF phase undoubtedly energetically favoured. Overall, at half filling the interesting free fermions Mott-localization effect is, at least when comparing these phases, existent but surpassed by the high energetic gain of establishing an AF structure at infinitesimal $U$. The situation could change at finite doping, a regime we do not investigate limitedly to AF Physics.
+As we expect, in the $V \gg 1$ and low $U$ limit the energy difference is null: in this limit the two phases tend to coincide, since at $U=0.0$ no magnetisation is physically possible. Moreover, the $U \gg 1$ limit makes the AF phase undoubtedly energetically favoured. Overall, at half filling the interesting free fermions Mott-localization effect is, at least when comparing these phases, existent but surpassed by the high energetic gain of establishing an AF structure at infinitesimal $U$. The situation could change at finite doping, a regime we do not investigate limitedly to AF Physics.
 
 At low temperature and half filling, it is not worth plotting entropy density. Half-filled commensurate antiferromagnets are insulators, with two gapped Bogoliubov bands. At low temperature, electronic distribution fills completely the lower band and empties the upper one. Because of this, insulating gapped systems inherently are low entropic.
 
@@ -2535,6 +2545,6 @@ indicated in panels as the black dot. The three panels show different map evolut
 	\qq{and}
 	u^{(s^*)}_0 \in \lbrace 0.0,~0.1,~...,~0.4 \rbrace
 \]
-In figures, different colors indicate different evolutions, while the tip size indicates the magnitude of the algorithmic step in passing from one iteration to the following.
+In figures, different colours indicate different evolutions, while the tip size indicates the magnitude of the algorithmic step in passing from one iteration to the following.
 
-All paths are able to converge to $\mathbf{v}$, and the quantity of steps necessary to reach the fixed point, a sort of attractor, increases as we lower $g$. To select the correct $g$ turns out to be the real algorithm fine-tuning knob: as we saw for the normal phase, some model parametrization could lead to unavoidable algorithmic instabilities. The problem is that we do not know beforehand where the instabilities will occur, and how. The correct $g$ is the compromise between keeping low the number of steps (larger mixing) and moving slow enough to not diverge when encountering unstable points (smaller mixing). By recursively fine-tuning $g$ repeating non-converged simulation with more care, we are essentially making the nonlinear map ``softer'' and curvier, as is in the right panel of Fig.~\ref{fig:af-attractor}. It's not always resource convenient to do so, so for most simulations we stick to a rougher map (like the left panel one) by setting $g=0.5$.
+All paths are able to converge to $\mathbf{v}$, and the quantity of steps necessary to reach the fixed point, a sort of attractor, increases as we lower $g$. To select the correct $g$ turns out to be the real algorithm fine-tuning knob: as we saw for the normal phase, some model parametrisation could lead to unavoidable algorithmic instabilities. The problem is that we do not know beforehand where the instabilities will occur, and how. The correct $g$ is the compromise between keeping low the number of steps (larger mixing) and moving slow enough to not diverge when encountering unstable points (smaller mixing). By recursively fine-tuning $g$ repeating non-converged simulation with more care, we are essentially making the nonlinear map ``softer'' and curvier, as is in the right panel of Fig.~\ref{fig:af-attractor}. It's not always resource convenient to do so, so for most simulations we stick to a rougher map (like the left panel one) by setting $g=0.5$.

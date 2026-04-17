@@ -628,200 +628,200 @@ that goes from zero (normal phase, free Fermi gas) to a non-zero value (AF). As 
 %\end{equation}
 %Then: mean-field approximations yield an estimate for the magnetization at a given temperature and chemical potential just by carefully combining the elements of the diagonalizing matrix $W$ of each Bogoliubov matrix $h_{\mathbf{k}\sigma}$.
 
-Consider specifically the half-filled situation and multiply Eq.~\eqref{appeq:af-hm-m-self-consistency} on both sides by $U$. Since due to symmetry $\mu=0$, we have the finite-temperature self-consistent equation
-\[
-	\Delta = \frac{U}{L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta}{\sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2})
-\]
-where we used the relation
-\[
-	\mathrm{Th}_\mathbf{k}^{(-)}[\beta,0] = \tanh(\frac{\beta E_\mathbf{k}}{2})
-\]
-In thermodynamic limit $L \to \infty$
-\[
-	\frac{1}{U} = \frac{1}{2} \int_\mathrm{BZ} \frac{\mathrm{d}\mathbf{k}}{(2\pi)^2} \frac{1}{\sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2})
-\]
-Substitute the momentum integral with an integral over energies:
-\[
-	\frac{2}{U} = \int_{-4t}^{4t}  \frac{\mathrm{d}\epsilon \rho(\epsilon)}{\sqrt{\epsilon^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon^2 + \Delta^2})
-\]
-being $\rho(\epsilon)$ the $2$D square lattice DoS. Its explicit form is given by \cite{kogan2021greens}
-\[
-	\rho(\epsilon) = \frac{1}{2\pi^2} K\left(
-		\sqrt{1 - \left(\frac{\epsilon}{4t} \right)^2}
-	\right)
-	\qquad
-	K(x) \equiv \int_0^{\pi/2} \frac{\mathrm{d}\theta}{\sqrt{1-x^2 \sin^2\theta}}
-\]
-$K(x)$ is the complete elliptic integral of the first kind, shown in Fig.~\ref{appsubfig:K(x)}.
-
-\begin{figure}
-	\centering
-	\subfloat[Plot of $K(x)$.]{
-		\includegraphics[height=0.32\linewidth]{../Project/src/labs/antiferromagnet-dos/K(x).pdf}
-		\label{appsubfig:K(x)}
-	}
-	\subfloat[DoS and its approximation.]{
-		\includegraphics[height=0.32\linewidth]{../Project/src/labs/antiferromagnet-dos/D(x).pdf}
-		\label{appsubfig:D(x)}
-	}
-	\caption{Plots of the complete elliptic integral of the first kind $K(x)$ and the density of states for the planar square lattice.}
-	\label{appfig:square-dos}
-\end{figure}
-
-As is plotted in Fig.~\ref{appsubfig:D(x)}, the resulting DoS is logarithmically peaked at $\epsilon=0$, on the MBZ. An extremely rough but common approximation is to substitute the actual DoS with a step function,
-\[
-	\rho(\epsilon) \simeq \rho_0 \mathrm{H} \left( \epsilon_0 - \abs{\epsilon} \right)
-	\qq{with}
-	2\rho_0\epsilon_0 = 1
-\]
-Here, the peak parameters $\epsilon_0$ and $\rho_0$ are chosen in order to maintain a correct DoS integral, considering also the $2$ pre-factor of spin degeneracy. Within this extremely rough approximation, we have
-\[
-	\frac{2}{U} \simeq \rho_0 \int_{-\epsilon_0}^{\epsilon_0}  \frac{\mathrm{d}\epsilon}{\sqrt{\epsilon^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon^2 + \Delta^2})
-\]
-Suppose the system is magnetized, $\Delta>0$. At low temperature, $\beta \gg 1$, as a first approximation we can substitute the hyperbolic tangent with unity, obtaining
-\[
-\begin{aligned}
-	\frac{2}{\rho_0 U} &\simeq \int_{-\epsilon_0}^{\epsilon_0}  \frac{\mathrm{d}\epsilon}{\sqrt{\epsilon^2 + \Delta^2}} \\
-	&= \int_{-\epsilon_0/\Delta}^{\epsilon_0/\Delta}  \frac{\mathrm{d}x}{\sqrt{1+x^2}} \\
-	&= \sinh^{-1} \left(\frac{\epsilon_0}{\Delta} \right) - \sinh^{-1} \left(-\frac{\epsilon_0}{\Delta} \right) \\
-	&= 2\sinh^{-1} \left(\frac{\epsilon_0}{\Delta}\right)
-\end{aligned}
-\]
-thus
-\[
-	m \simeq \frac{\epsilon_0}{U\sinh(1/\rho_0 U)}
-\]
-having we used $\Delta = mU$. Now: at large $U$,
-\[
-	\lim_{U\to +\infty} m \simeq \epsilon_0 \rho_0 = \frac{1}{2}
-\]
-which gives the correct saturation limit at high local repulsion. In the opposite limit,
-\[
-\begin{aligned}
-	\lim_{U\to 0} m &\simeq \lim_{U\to 0} \frac{2\epsilon_0/U}{\exp(1/\rho_0 U)-\exp(-1/\rho_0 U)} \\
-	&\simeq \lim_{U\to 0} \frac{2\epsilon_0}{U} \exp(-\frac{1}{\rho_0 U})
-\end{aligned}
-\]
-giving a near-$0$ exponential suppression of magnetization, typical of MFT self-consistent solutions.
-
-\subsection{Instability of the commensurate AF solution and atypical metallic bands}\label{appsubsec:af-instability}
-
-A key point to be discussed is the known instability of the AF HF solution of the EHM. As is thoroughly discussed in \cite{singh1990collective}, the solution we presented above is only stable at half-filling, becoming hardly unstable at infinitesimal doping. This is due to the commensurate nature of the established AF phase: we impose SSB to take place at wavevector $\bm{\pi}$, shrinking the BZ to exactly half its size and giving back on the newly defined MBZ two bands $\pm E_\mathbf{k}$. This procedure actually works well for the half-filled case: magnetization essentially depends on the scattering rate between points on the FS connected by a $\bm{\pi}$ vector. The half filled case, taking advantage of the natural nesting property of the bare bands,
-\[
- 	\forall \mathbf{k}\in\partial\mathrm{MBZ}\,\colon\, \epsilon_{\mathbf{k}} = \epsilon_{\mathbf{k}+\bm{\pi}}
-\]
-(being $\partial\mathrm{MBZ}$ the boundary of the MBZ) exhibits a magnetization at infinitesimal interaction. For a many body state resulting from continuous SSB, to establish a given phase means to show the presence of a stable gapless Goldstone mode associated to the broken symmetry. Such a Goldstone mode is essentially a sharp peak at zero frequency for some dressed response function. For the AF phase, it follows from the reduced $\mathrm{U}^z(1)$ rotational symmetry and is related to the proper transverse pseudo-spin to pseudo-spin response function,
-$2\times 2$ matrix equation,
-\begin{equation}\label{appeq:af-commensurate-proper-response}
-	\tilde{\chi}_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega) = \frac{\chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega)}{1 - U \chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega)}
-\end{equation}
-being $\chi$ the free transverse response. The pseudo-spin hereby considered is the one of Eq.~\eqref{af-hm-spin-h}. As is shown in \cite{singh1990collective}, for the commensurate AF SSB at wavevector $\bm{\pi}$ the condition for the presence of a stable gapless mode reduces to a $2\times 2$ matrix equation,
-\begin{equation}\label{appeq:af-commensurate-stability-condition}
-	\text{Stability condition:}
-	\qquad
-	\mathbb{I}_{2\times2} - U \left[\chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\bm{\pi},0)\right] \ge 0
-\end{equation}
-with $\left[\chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\bm{\pi},\omega)\right]$ the response function matrix obtained by considering a matrix response function for a two-sites unit cell. The above equation is to be interpreted as a matricial equation {\color{tabred}[Explain better..]}. Considering the eigenvalue of largest amplitude of the matrix $\lambda_\delta$ at filling $\delta$, the one most prone to instabilities, it is found that
-\[
-\begin{aligned}
-	\lambda_0(\mathbf{k}\to\bm{\pi},0) &= \frac 1 U &&\text{(half filling)} \\
-	\lambda_\delta(\mathbf{k}\to\bm{\pi},0) &= \frac 1 U + \frac{2\epsilon_\mathrm{F}}{\Delta} N(\epsilon_\mathrm{F}) &&\text{(finite doping)}
-\end{aligned}
-\]
-The reason for the distinction above is the intrinsic metallic nature of the system for infinitesimal doping. At half-filling the system is an insulator, therefore no Fermi energy is defined, as well as no FS. Evidently this implies
-\[
-\begin{aligned}
-	1 - U\lambda_0(\mathbf{k}\to\bm{\pi},0) &= 0 &&\text{(half filling)} &&\implies &&\text{stable Goldstone mode}\\
-	1 - U\lambda_\delta(\mathbf{k}\to\bm{\pi},0) &< 0 &&\text{(finite doping)} &&\implies &&\text{unstable Goldstone mode}
-\end{aligned}
-\]
-For any finite doping, the commensurate AF phase becomes unstable and is destroyed by transverse spin fluctuations. Nevertheless, for the sake of completeness and because we noticed too late, we will study the metallic AF also at finite doping.
-
-\subsection{Hartree-Fock algorithm results in reciprocal space}\label{appsubsec:hartree-fock-algorithm}
-
-The above sections offer a self-consistency equation for the only HFP $m$; $W$ is determined by $\Delta = mU$ indeed. In an iterative HF fashion, Eq.~\eqref{appeq:af-hm-m-self-consistency} reads:
-\begin{equation}\label{appeq:af-hm-m-self-consistency-iterative}
-	m_{i+1} =
-	\frac{U}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{m_i}{2E_\mathbf{k}[\Delta_i]} \left[
-	f(-E_\mathbf{k}[m_i];\beta,\mu)-f(E_\mathbf{k}[m_i];\beta,\mu)
-	\right]
-\end{equation}
-Then a self-consistent algorithm to search for a self consistent estimate of the magnetization may be sketched, following the general idea of Sec.~\ref{sec:computational-mft}:
-\begin{enumerate}
-	\item Algorithm setup: initialize a counter $i=1$ and choose:
-	\begin{itemize}
-		\item the local repulsion $U/t$ or equivalently the hopping amplitude $t/U$;
-		\item the coarse-graining of the $\mathrm{BZ}$, which is, fix $L_x$ and $L_y$. Then 
-		\[ 
-			k_x = 2\pi n_x/L_x
-			\qquad
-			k_y = 2\pi n_y/L_y 
-		\]
-		where $-L_j/2 \le n_j \le L_j/2$, $n_j \in \mathbb{Z}$;
-		\item the density $n$ or equivalently the doping $\delta \equiv n-0.5$;
-		\item the inverse temperature $\beta$;
-		\item the maximum number of iterations $p \in \mathbb{N}$; 
-		\item the mixing parameter $g \in [0,1]$;
-		\item the tolerance parameters $\delta_m, \delta_n \in \mathbb{R}$ (respectively for the HFP $m$ and density);
-	\end{itemize}
-	\item Select a random starting value $m_i > 0$ for $i=1$;
-	\item Find the optimal chemical potential $\mu$ as follows:
-	\begin{enumerate}
-		\item Compute $\pm E_\mathbf{k}[\Delta_i, U$]; 
-		\item Define the function of the chemical potential $\mu$,
-		\[
-			\delta n(\mu; \beta, m_i, U) \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \left[
-			f\left(-E_\mathbf{k}[U,m_i]; \beta,\mu \right) + f \left( E_\mathbf{k}[U,m_i]; \beta,\mu \right)
-			\right] - n
-		\]
-		\item Find the root of $\delta n$, 
-		\[
-			\delta n(\mu_i) = 0
-		\]
-		Then $\mu_i$ is the chemical potential which, at step $i$ with HFP $m_i$, realizes the best approximation of density $n$;
-	\end{enumerate}
-	\item Compute $m_{i+1}$ using Eq.~\eqref{appeq:af-hm-m-self-consistency-iterative} with chemical potential $\mu_i$ and update the counter, $i \to i+1$;
-	\item Check if $\abs{m_{i+1}-m_i} \le \delta_m$:
-	\begin{itemize}
-		\item If yes, halt;
-		\item If not: check if $i > p$
-		\begin{itemize}
-			\item If yes, halt and consider choosing better tolerance and model parameters;
-			\item If not, define 
-			\[
-				m_{i+1} \colon g m_{i+1} + (1-g) m_i
-			\]
-			(logical assignment notation used) and repeat from step 2.
-		\end{itemize}
-	\end{itemize}
-\end{enumerate}
-
-For the sake of completeness, we decided to run our algorithm also at finite doping, knowing from the previous discussion of Sec.~\ref{appsubsec:af-instability} that the results at $\delta > 0$ are unstable. The algorithm sketched hereby was ran with the following setup:
-\begin{lstlisting}[language=julia]
-UU = [U for U in 0.5:0.5:20.0]      # Local repulsions
-LL = [256]             				# Lattice sizes
-dd = [d for d in 0.0:0.05:0.45]     # Dopings
-bb = [100.0, Inf]				    # Inverse temperatures
-p = 100                             # Max number of iterations
-dm = 1e-4                           # Tolerance on magnetization
-dn = 1e-2                           # Tolerance on density
-g = 0.5                             # Mixing parameter
-\end{lstlisting}
-In Fig.~\ref{appfig:mdU-beta=100} plots at $\beta=100$ of the magnetization $m$ is reported. As is evident in Fig.~\ref{appsubfig:mU-beta=100}, doping disrupts AF ordering; the horizontal asymptote lowers as $\delta$ gets bigger, a mere consequence of the fact that the free space at each single-particle state in $k$-space shrinks as density increases; also, for $\delta > 0$, a finite magnetization $m$ exists only for $U \ge U_c[\delta]$ (a critical value parametrically dependent on doping). Fig.~\ref{appsubfig:dU-beta=100} shows the dependence of magnetization on doping at various fixed local repulsions $U$: once again, to dope the material disrupt AF ordering. Identical analysis have been performed for different temperatures, leading to analogous results as long as $\beta \gtrsim 10$ and to $m \simeq 0$ for higher temperatures (predictably).
-
-\begin{figure}
-	\centering
-	\subfloat[Local repulsion $U/t$ depencence.]{
-		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf}
-		\label{appsubfig:mU-beta=100}
-	}
-	\subfloat[Doping $\delta = n-0.5$ dependence.]{
-		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs/xVar=δ_pVar=U/m_t=1.0_V=0.0_L=256_β=100.0.pdf}
-		\label{appsubfig:dU-beta=100}
-	}	
-	\caption{Plots of the zero-temperature AF instability order parameter $m$ as a function of both the local repulsion $U/t$ (Fig.~\ref{appsubfig:mU-beta=100}) and the doping $\delta = n-1/2$ (Fig.~\ref{appsubfig:dU-beta=100}).}
-	\label{appfig:mdU-beta=100}
-\end{figure}
+%Consider specifically the half-filled situation and multiply Eq.~\eqref{appeq:af-hm-m-self-consistency} on both sides by $U$. Since due to symmetry $\mu=0$, we have the finite-temperature self-consistent equation
+%\[
+%	\Delta = \frac{U}{L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta}{\sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2})
+%\]
+%where we used the relation
+%\[
+%	\mathrm{Th}_\mathbf{k}^{(-)}[\beta,0] = \tanh(\frac{\beta E_\mathbf{k}}{2})
+%\]
+%In thermodynamic limit $L \to \infty$
+%\[
+%	\frac{1}{U} = \frac{1}{2} \int_\mathrm{BZ} \frac{\mathrm{d}\mathbf{k}}{(2\pi)^2} \frac{1}{\sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2})
+%\]
+%Substitute the momentum integral with an integral over energies:
+%\[
+%	\frac{2}{U} = \int_{-4t}^{4t}  \frac{\mathrm{d}\epsilon \rho(\epsilon)}{\sqrt{\epsilon^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon^2 + \Delta^2})
+%\]
+%being $\rho(\epsilon)$ the $2$D square lattice DoS. Its explicit form is given by \cite{kogan2021greens}
+%\[
+%	\rho(\epsilon) = \frac{1}{2\pi^2} K\left(
+%		\sqrt{1 - \left(\frac{\epsilon}{4t} \right)^2}
+%	\right)
+%	\qquad
+%	K(x) \equiv \int_0^{\pi/2} \frac{\mathrm{d}\theta}{\sqrt{1-x^2 \sin^2\theta}}
+%\]
+%$K(x)$ is the complete elliptic integral of the first kind, shown in Fig.~\ref{appsubfig:K(x)}.
+%
+%\begin{figure}
+%	\centering
+%	\subfloat[Plot of $K(x)$.]{
+%		\includegraphics[height=0.32\linewidth]{../Project/src/labs/antiferromagnet-dos/K(x).pdf}
+%		\label{appsubfig:K(x)}
+%	}
+%	\subfloat[DoS and its approximation.]{
+%		\includegraphics[height=0.32\linewidth]{../Project/src/labs/antiferromagnet-dos/D(x).pdf}
+%		\label{appsubfig:D(x)}
+%	}
+%	\caption{Plots of the complete elliptic integral of the first kind $K(x)$ and the density of states for the planar square lattice.}
+%	\label{appfig:square-dos}
+%\end{figure}
+%
+%As is plotted in Fig.~\ref{appsubfig:D(x)}, the resulting DoS is logarithmically peaked at $\epsilon=0$, on the MBZ. An extremely rough but common approximation is to substitute the actual DoS with a step function,
+%\[
+%	\rho(\epsilon) \simeq \rho_0 \mathrm{H} \left( \epsilon_0 - \abs{\epsilon} \right)
+%	\qq{with}
+%	2\rho_0\epsilon_0 = 1
+%\]
+%Here, the peak parameters $\epsilon_0$ and $\rho_0$ are chosen in order to maintain a correct DoS integral, considering also the $2$ pre-factor of spin degeneracy. Within this extremely rough approximation, we have
+%\[
+%	\frac{2}{U} \simeq \rho_0 \int_{-\epsilon_0}^{\epsilon_0}  \frac{\mathrm{d}\epsilon}{\sqrt{\epsilon^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon^2 + \Delta^2})
+%\]
+%Suppose the system is magnetized, $\Delta>0$. At low temperature, $\beta \gg 1$, as a first approximation we can substitute the hyperbolic tangent with unity, obtaining
+%\[
+%\begin{aligned}
+%	\frac{2}{\rho_0 U} &\simeq \int_{-\epsilon_0}^{\epsilon_0}  \frac{\mathrm{d}\epsilon}{\sqrt{\epsilon^2 + \Delta^2}} \\
+%	&= \int_{-\epsilon_0/\Delta}^{\epsilon_0/\Delta}  \frac{\mathrm{d}x}{\sqrt{1+x^2}} \\
+%	&= \sinh^{-1} \left(\frac{\epsilon_0}{\Delta} \right) - \sinh^{-1} \left(-\frac{\epsilon_0}{\Delta} \right) \\
+%	&= 2\sinh^{-1} \left(\frac{\epsilon_0}{\Delta}\right)
+%\end{aligned}
+%\]
+%thus
+%\[
+%	m \simeq \frac{\epsilon_0}{U\sinh(1/\rho_0 U)}
+%\]
+%having we used $\Delta = mU$. Now: at large $U$,
+%\[
+%	\lim_{U\to +\infty} m \simeq \epsilon_0 \rho_0 = \frac{1}{2}
+%\]
+%which gives the correct saturation limit at high local repulsion. In the opposite limit,
+%\[
+%\begin{aligned}
+%	\lim_{U\to 0} m &\simeq \lim_{U\to 0} \frac{2\epsilon_0/U}{\exp(1/\rho_0 U)-\exp(-1/\rho_0 U)} \\
+%	&\simeq \lim_{U\to 0} \frac{2\epsilon_0}{U} \exp(-\frac{1}{\rho_0 U})
+%\end{aligned}
+%\]
+%giving a near-$0$ exponential suppression of magnetization, typical of MFT self-consistent solutions.
+%
+%\subsection{Instability of the commensurate AF solution and atypical metallic bands}\label{appsubsec:af-instability}
+%
+%A key point to be discussed is the known instability of the AF HF solution of the EHM. As is thoroughly discussed in \cite{singh1990collective}, the solution we presented above is only stable at half-filling, becoming hardly unstable at infinitesimal doping. This is due to the commensurate nature of the established AF phase: we impose SSB to take place at wavevector $\bm{\pi}$, shrinking the BZ to exactly half its size and giving back on the newly defined MBZ two bands $\pm E_\mathbf{k}$. This procedure actually works well for the half-filled case: magnetization essentially depends on the scattering rate between points on the FS connected by a $\bm{\pi}$ vector. The half filled case, taking advantage of the natural nesting property of the bare bands,
+%\[
+% 	\forall \mathbf{k}\in\partial\mathrm{MBZ}\,\colon\, \epsilon_{\mathbf{k}} = \epsilon_{\mathbf{k}+\bm{\pi}}
+%\]
+%(being $\partial\mathrm{MBZ}$ the boundary of the MBZ) exhibits a magnetization at infinitesimal interaction. For a many body state resulting from continuous SSB, to establish a given phase means to show the presence of a stable gapless Goldstone mode associated to the broken symmetry. Such a Goldstone mode is essentially a sharp peak at zero frequency for some dressed response function. For the AF phase, it follows from the reduced $\mathrm{U}^z(1)$ rotational symmetry and is related to the proper transverse pseudo-spin to pseudo-spin response function,
+%$2\times 2$ matrix equation,
+%\begin{equation}\label{appeq:af-commensurate-proper-response}
+%	\tilde{\chi}_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega) = \frac{\chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega)}{1 - U \chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\mathbf{k},\omega)}
+%\end{equation}
+%being $\chi$ the free transverse response. The pseudo-spin hereby considered is the one of Eq.~\eqref{af-hm-spin-h}. As is shown in \cite{singh1990collective}, for the commensurate AF SSB at wavevector $\bm{\pi}$ the condition for the presence of a stable gapless mode reduces to a $2\times 2$ matrix equation,
+%\begin{equation}\label{appeq:af-commensurate-stability-condition}
+%	\text{Stability condition:}
+%	\qquad
+%	\mathbb{I}_{2\times2} - U \left[\chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\bm{\pi},0)\right] \ge 0
+%\end{equation}
+%with $\left[\chi_{\hat{\mathbf{S}}^- \hat{\mathbf{S}}^+}(\bm{\pi},\omega)\right]$ the response function matrix obtained by considering a matrix response function for a two-sites unit cell. The above equation is to be interpreted as a matricial equation {\color{tabred}[Explain better..]}. Considering the eigenvalue of largest amplitude of the matrix $\lambda_\delta$ at filling $\delta$, the one most prone to instabilities, it is found that
+%\[
+%\begin{aligned}
+%	\lambda_0(\mathbf{k}\to\bm{\pi},0) &= \frac 1 U &&\text{(half filling)} \\
+%	\lambda_\delta(\mathbf{k}\to\bm{\pi},0) &= \frac 1 U + \frac{2\epsilon_\mathrm{F}}{\Delta} N(\epsilon_\mathrm{F}) &&\text{(finite doping)}
+%\end{aligned}
+%\]
+%The reason for the distinction above is the intrinsic metallic nature of the system for infinitesimal doping. At half-filling the system is an insulator, therefore no Fermi energy is defined, as well as no FS. Evidently this implies
+%\[
+%\begin{aligned}
+%	1 - U\lambda_0(\mathbf{k}\to\bm{\pi},0) &= 0 &&\text{(half filling)} &&\implies &&\text{stable Goldstone mode}\\
+%	1 - U\lambda_\delta(\mathbf{k}\to\bm{\pi},0) &< 0 &&\text{(finite doping)} &&\implies &&\text{unstable Goldstone mode}
+%\end{aligned}
+%\]
+%For any finite doping, the commensurate AF phase becomes unstable and is destroyed by transverse spin fluctuations. Nevertheless, for the sake of completeness and because we noticed too late, we will study the metallic AF also at finite doping.
+%
+%\subsection{Hartree-Fock algorithm results in reciprocal space}\label{appsubsec:hartree-fock-algorithm}
+%
+%The above sections offer a self-consistency equation for the only HFP $m$; $W$ is determined by $\Delta = mU$ indeed. In an iterative HF fashion, Eq.~\eqref{appeq:af-hm-m-self-consistency} reads:
+%\begin{equation}\label{appeq:af-hm-m-self-consistency-iterative}
+%	m_{i+1} =
+%	\frac{U}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{m_i}{2E_\mathbf{k}[\Delta_i]} \left[
+%	f(-E_\mathbf{k}[m_i];\beta,\mu)-f(E_\mathbf{k}[m_i];\beta,\mu)
+%	\right]
+%\end{equation}
+%Then a self-consistent algorithm to search for a self consistent estimate of the magnetization may be sketched, following the general idea of Sec.~\ref{sec:computational-mft}:
+%\begin{enumerate}
+%	\item Algorithm setup: initialize a counter $i=1$ and choose:
+%	\begin{itemize}
+%		\item the local repulsion $U/t$ or equivalently the hopping amplitude $t/U$;
+%		\item the coarse-graining of the $\mathrm{BZ}$, which is, fix $L_x$ and $L_y$. Then 
+%		\[ 
+%			k_x = 2\pi n_x/L_x
+%			\qquad
+%			k_y = 2\pi n_y/L_y 
+%		\]
+%		where $-L_j/2 \le n_j \le L_j/2$, $n_j \in \mathbb{Z}$;
+%		\item the density $n$ or equivalently the doping $\delta \equiv n-0.5$;
+%		\item the inverse temperature $\beta$;
+%		\item the maximum number of iterations $p \in \mathbb{N}$; 
+%		\item the mixing parameter $g \in [0,1]$;
+%		\item the tolerance parameters $\delta_m, \delta_n \in \mathbb{R}$ (respectively for the HFP $m$ and density);
+%	\end{itemize}
+%	\item Select a random starting value $m_i > 0$ for $i=1$;
+%	\item Find the optimal chemical potential $\mu$ as follows:
+%	\begin{enumerate}
+%		\item Compute $\pm E_\mathbf{k}[\Delta_i, U$]; 
+%		\item Define the function of the chemical potential $\mu$,
+%		\[
+%			\delta n(\mu; \beta, m_i, U) \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \left[
+%			f\left(-E_\mathbf{k}[U,m_i]; \beta,\mu \right) + f \left( E_\mathbf{k}[U,m_i]; \beta,\mu \right)
+%			\right] - n
+%		\]
+%		\item Find the root of $\delta n$, 
+%		\[
+%			\delta n(\mu_i) = 0
+%		\]
+%		Then $\mu_i$ is the chemical potential which, at step $i$ with HFP $m_i$, realizes the best approximation of density $n$;
+%	\end{enumerate}
+%	\item Compute $m_{i+1}$ using Eq.~\eqref{appeq:af-hm-m-self-consistency-iterative} with chemical potential $\mu_i$ and update the counter, $i \to i+1$;
+%	\item Check if $\abs{m_{i+1}-m_i} \le \delta_m$:
+%	\begin{itemize}
+%		\item If yes, halt;
+%		\item If not: check if $i > p$
+%		\begin{itemize}
+%			\item If yes, halt and consider choosing better tolerance and model parameters;
+%			\item If not, define 
+%			\[
+%				m_{i+1} \colon g m_{i+1} + (1-g) m_i
+%			\]
+%			(logical assignment notation used) and repeat from step 2.
+%		\end{itemize}
+%	\end{itemize}
+%\end{enumerate}
+%
+%For the sake of completeness, we decided to run our algorithm also at finite doping, knowing from the previous discussion of Sec.~\ref{appsubsec:af-instability} that the results at $\delta > 0$ are unstable. The algorithm sketched hereby was ran with the following setup:
+%\begin{lstlisting}[language=julia]
+%UU = [U for U in 0.5:0.5:20.0]      # Local repulsions
+%LL = [256]             				# Lattice sizes
+%dd = [d for d in 0.0:0.05:0.45]     # Dopings
+%bb = [100.0, Inf]				    # Inverse temperatures
+%p = 100                             # Max number of iterations
+%dm = 1e-4                           # Tolerance on magnetization
+%dn = 1e-2                           # Tolerance on density
+%g = 0.5                             # Mixing parameter
+%\end{lstlisting}
+%In Fig.~\ref{appfig:mdU-beta=100} plots at $\beta=100$ of the magnetization $m$ is reported. As is evident in Fig.~\ref{appsubfig:mU-beta=100}, doping disrupts AF ordering; the horizontal asymptote lowers as $\delta$ gets bigger, a mere consequence of the fact that the free space at each single-particle state in $k$-space shrinks as density increases; also, for $\delta > 0$, a finite magnetization $m$ exists only for $U \ge U_c[\delta]$ (a critical value parametrically dependent on doping). Fig.~\ref{appsubfig:dU-beta=100} shows the dependence of magnetization on doping at various fixed local repulsions $U$: once again, to dope the material disrupt AF ordering. Identical analysis have been performed for different temperatures, leading to analogous results as long as $\beta \gtrsim 10$ and to $m \simeq 0$ for higher temperatures (predictably).
+%
+%\begin{figure}
+%	\centering
+%	\subfloat[Local repulsion $U/t$ depencence.]{
+%		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf}
+%		\label{appsubfig:mU-beta=100}
+%	}
+%	\subfloat[Doping $\delta = n-0.5$ dependence.]{
+%		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs/xVar=δ_pVar=U/m_t=1.0_V=0.0_L=256_β=100.0.pdf}
+%		\label{appsubfig:dU-beta=100}
+%	}	
+%	\caption{Plots of the zero-temperature AF instability order parameter $m$ as a function of both the local repulsion $U/t$ (Fig.~\ref{appsubfig:mU-beta=100}) and the doping $\delta = n-1/2$ (Fig.~\ref{appsubfig:dU-beta=100}).}
+%	\label{appfig:mdU-beta=100}
+%\end{figure}
 
 %\section{An alternative (less efficient) real-space approach}
 %

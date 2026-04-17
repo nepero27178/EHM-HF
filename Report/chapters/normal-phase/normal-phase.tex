@@ -1114,12 +1114,18 @@ Let $\mathrm{FS}(\delta)$ be the Fermi surface for a given doping level $\delta$
 \end{aligned}
 \]
 
-At half filling:
+At half filling, the Fermi surface coincides with the boundary of the MBZ:
 \[
 	\delta = 0
 	\quad\implies\quad
 	\mathrm{FS} = \partial \mathrm{MBZ}
 \]
+This is implied by the fact that renormalised bands are antisymmetric by $\bm{\pi}$ shifts,
+\[
+	\tilde{\epsilon}_{\mathbf{k}\sigma} = -\tilde{\epsilon}_{\mathbf{k}+\bm{\pi}\sigma}
+\]
+The portion of an $s^*$-wave band outside the MBZ is mirrored with respect to the portion inside the MBZ. This implies that half the states lie in the MBZ, half out.
+
 At $\delta>0$ the FS expands in the region $\mathrm{BZ}\setminus\mathrm{MBZ}$ where the form factor $\cos k_x + \cos k_y$ becomes negative. This gives the self-consistency equation
 \[
 	\lim_{\beta \to \infty} u^{(s^*)}[\beta,\tilde{\mu}] \simeq \frac{1}{L_x L_y} \sum_{\epsilon_\mathbf{k} \le 0} \abs{\cos k_x + \cos k_y} - \frac{1}{L_x L_y} \sum_{0<\epsilon_\mathbf{k} \le \tilde{\mu}} \abs{\cos k_x + \cos k_y}
