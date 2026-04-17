@@ -44,7 +44,7 @@ Commensurate antiferromagnetism is specified by the Ansatz:
 	\qquad
 	n, m \in [0,1]
 \end{equation}
-This Ansatz captures the idea of the staggered distribution of spin populations shown in the left panel of Fig.~\ref{fig:antiferromagnets}. At site $\mathbf{r}=(x,y)$ the two spin populations average to $n$ and differ by $2m$. A detailed justification for this Ansatz in the HM is given in Sec.~\ref{appsubsec:af-more}. Note that $\langle \hat n_{\mathbf{r}\sigma} \rangle \le 1$ due to Pauli exclusion principle. This argument is already sufficient to claim that doping disrupts commensurate antiferromagnetism.
+This Ansatz captures the idea of the staggered distribution of spin populations shown in the left panel of Fig.~\ref{fig:antiferromagnets}. At site $\mathbf{r}=(x,y)$ the two spin populations average to $n$ and differ by $2m$. A detailed justification for this Ansatz in the HM is given in Sec.~\ref{appsubsec:af-instability}. Note that $\langle \hat n_{\mathbf{r}\sigma} \rangle \le 1$ due to Pauli exclusion principle. This argument is already sufficient to claim that doping disrupts commensurate antiferromagnetism.
 
 \subsection{Symmetries of the commensurate AF Ansatz}
 
@@ -403,24 +403,24 @@ We report these relations also in Tab.~\ref{tab:af-pseudo-spin-map}.
 %
 \begin{table}
 	\centering
-	\begin{tabular}{c c c}
-		\textbf{EV} & \textbf{Meaning} & \textbf{Equation} \\
+	\begin{tabular}{c c }
+		\textbf{EV} & \textbf{Meaning} \\
 		\midrule
 		$\ev{\hat s_{\mathbf{k}\sigma}^x}$ & $\ev{
 			\hat \psi_{\mathbf{k}\sigma}
 			+ \hat \psi_{\mathbf{k}\sigma}^\dagger
-		}$ & \eqref{appeq:af-hm-sx} \\[0.7em]
+		}$ \\[0.7em]
 		$\ev{\hat s_{\mathbf{k}\sigma}^y}$ & $i \ev{
 			\hat \psi_{\mathbf{k}\sigma}
 			- \hat \psi_{\mathbf{k}\sigma}^\dagger
-		}$ & \eqref{appeq:af-hm-sy} \\[0.7em]
+		}$ \\[0.7em]
 		$\ev{\hat s_{\mathbf{k}\sigma}^z}$ & $\ev{
 			\hat n_{\mathbf{k}\sigma}
 			+ \hat n_{\mathbf{k}+\bm{\pi}\sigma}
-		}$ & \eqref{appeq:af-hm-sz} \\
+		}$ \\
 		\midrule
 	\end{tabular}
-	\caption{List of the various expectation values (EVs) of each pseudo-spin component, their meaning in terms of fermionic operators and the reference equations from the pure HM.}
+	\caption{List of the various expectation values (EVs) of each pseudo-spin component and their meaning in terms of fermionic operators.}
 	\label{tab:af-pseudo-spin-map}
 \end{table}
 %
@@ -457,7 +457,7 @@ The field $\mathbf{b}_{\mathbf{k}\sigma}$ is orthogonal to the $y$ plane, and is
 	\qquad
 	E_{\mathbf{k}\sigma} \equiv 	\sqrt{\epsilon_{\mathbf{k}\sigma}^2 + \abs{\Delta_{\mathbf{k}\sigma}}^2}
 \]
-A sketch of these angles and the pseudofield is given in Fig.~\ref{fig:af-bk-hm}.
+A sketch of these angles and the pseudofield is given in Fig.~\ref{fig:pseudo-magnetic-field-hm}.
 
 \paragraph{Diagonalisation.}
 
@@ -508,7 +508,7 @@ where we intend $(\cdots) = nU \hat N -  E_{\mathrm{H}/U}^{(\mathrm{AF})}$. The 
 
 We could redefine the pseudospin operators dividing them by an appropriate constant, in order to satisfy exactly the $\mathrm{SU}(2)$ algebra, and at the same time multiply the pseudo-magnetic field by the same constant. The product $\mathbf{b}_{\mathbf{k}\sigma} \cdot \hat{\mathbf{s}}_{\mathbf{k}\sigma}$ would be unchanged, and the diagonalisation matrix $W_{\mathbf{k}\sigma}$ would be the same. Because of this, the aforementioned constant $C$ is irrelevant.
 
-\subsection{Features of the AF solution}
+\subsection{Features of the AF solution}\label{subsec:af-features}
 
 This subsection is devoted to discussing briefly some features of the AF solution we found. It is organised as a series of unrelated paragraphs, each to derive a precise property or formula we use in the algorithmic computation. With these observations we conclude the part about the local repulsion and extend to full EHM.
 
@@ -522,7 +522,7 @@ The expectation value of the original pseudospin operators in the various direct
 	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Psi_{\mathbf{k}\sigma} \rangle &= \cos 2\theta_{\mathbf{k}\sigma} \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle
 \end{aligned}
 \]
-where we used the angular relations of Fig.~\ref{fig:af-bk-hm}. Moving to the tilted frame, the $z$ component of the pseudo-spin is just a thermal superposition of ``up'' and ``down'' states
+where we used the angular relations of Fig.~\ref{fig:pseudo-magnetic-field-hm}. Moving to the tilted frame, the $z$ component of the pseudo-spin is just a thermal superposition of ``up'' and ``down'' states
 \begin{equation}\label{eq:af-<z>}
 	\langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle =
 	f\left(
@@ -862,7 +862,7 @@ accounting for energy shift originated as ``leftovers'' of Wick's contractions.
 
 \subsection{Non-local Hartree channel in the AF phase: analytic derivation}\label{subsec:af-nl-hartree-analytic}
 
-Let us start from the operator of Expr.~\eqref{eq:af-V-wick-decomposition-operatorial}. By inserting the Ansatz of Eq.~\eqref{appeq:af-mean-field-ansatz}, we get
+Let us start from the operator of Expr.~\eqref{eq:af-V-wick-decomposition-operatorial}. By inserting the Ansatz of Eq.~\eqref{eq:af-mean-field-ansatz}, we get
 \begin{multline*}
 	\overbrace{
 		-nV \sum_{\ev{\mathbf{r}\mathbf{r}'}} \sum_\sigma \left[
@@ -1556,7 +1556,7 @@ where in the second passage we employed the change of variables $\mathbf{q}'=\ma
 		\big|u^{(\gamma)}_\sigma\big|^2 + \big|v^{(\gamma)}_\sigma\big|^2
 	\right]
 \end{equation}
-The new HFPs amplitudes contribute positively to contraction energy. The consequences of this fact will be discussed in Sec.~\ref{subsec:af-gap-energy}.
+The new HFPs amplitudes contribute positively to contraction energy. The consequences of this fact will be discussed in Sec.~\ref{subsec:af-energy-constraints}.
 
 \section{Full MFT hamiltonian and gap complexification}\label{sec:af-full-hamiltonian}
 
@@ -1603,15 +1603,15 @@ while for HM the $y$ pseudo-spin component was identically null.
 
 \subsection{The relative phase in the zero temperature half-filled ground state}\label{subsec:af-zero-T-half-filling-gs}
 
-In Sec.~\ref{appsubsec:af-zero-T-half-filling-gs}, we derive analytically the AF ground state on conventional HM at zero temperature, as a simple Bloch's transform of a polarized (tilted) pseudo-spins collective pure state. Eq.~\eqref{appeq:af-hm-gs-3} reports the final form of said ground-state. Said quantum state is in general pretty similar to conventional BCS state.
+In Sec.~\ref{appsubsec:af-T=0-gs}, we derive analytically the AF ground state on conventional HM at zero temperature, as a simple Bloch's transform of a polarized (tilted) pseudo-spins collective pure state. Eq.~\eqref{appeq:af-hm-gs-3} reports the final form of said ground-state. Said quantum state is in general pretty similar to conventional BCS state.
 
-At half-filling and zero temperature we can extend that state to the new complexified gap. At zero temperature the AF ground-state for the EHM is identical to Eq.~\eqref{}
+At half-filling and zero temperature we can extend that state to the new complexified gap. At zero temperature the AF ground-state for the EHM is given by
 \begin{equation}\label{eq:af-hm-gs}
 	\ket{\Psi} = \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \left[
 		\sin\tilde{\theta}_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma}^\dagger + e^{2i\tilde{\zeta}_{\mathbf{k}\sigma}} \cos \tilde{\theta}_{\mathbf{k}\sigma} \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger
 	\right] \ket{\Omega_{\mathbf{k}\sigma}}
 \end{equation}
-The proof is identical to the one provided in Sec.~\ref{appsubsec:af-zero-T-half-filling-gs} for the HM, apart from renormalisations. Let $\ket{\mathbf{k}\sigma} \equiv \hat c_{\mathbf{k}\sigma}^\dagger \ket{\Omega_{\mathbf{k}\sigma}}$. Then we can write
+The proof is identical to the one provided in Sec.~\ref{appsubsec:af-T=0-gs} for the HM, apart from renormalisations. Let $\ket{\mathbf{k}\sigma} \equiv \hat c_{\mathbf{k}\sigma}^\dagger \ket{\Omega_{\mathbf{k}\sigma}}$. Then we can write
 \[
 	\ket{\Psi} = \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \left[
 		\sin\tilde{\theta}_{\mathbf{k}\sigma} + e^{2i\tilde{\zeta}_{\mathbf{k}\sigma}} \cos \tilde{\theta}_{\mathbf{k}\sigma} \hat \psi_{\mathbf{k}\sigma}
@@ -1892,7 +1892,7 @@ At half filling and low temperature, the system is well approximated by a comple
 
 Up to now, all we derived was the most general HF mathematical description of a commensurate AF established on EHM, allowing for nematic spatial symmetry breaking as well as non-trivial renormalisation effects. This section, basically a clone of Sec.~\ref{sec:normal-constraints}, is dedicated to understanding, given the algorithmic problem, how its solutions should behave. As we will see, based on this theoretical analysis we are able to reduce a lot the algorithmic complexity and limit the solution search to a tailored subspace of HFPs space.
 
-We start from considering a robust $\mathrm{C}_4$ antiferromagnet, thus setting $u^{(d)}=0$ by hand, and show how the constraints on $u^{(s^*)}$ mimic those posed for the normal phase in Eq.~\eqref{eq:normal-us*-constraint}. Then we move to a rather convoluted but necessary analysis of the five-components HFPs vector, described for both AF flavours in Tab.~\ref{tab:af-saf-aaf-hfps}. For the sake of generality, even if -- as discussed in Sec.~\ref{sec:af-instability} -- at finite doping the system is naturally unstable, we take on all calculations at generic $\tilde{\mu}$.
+We start from considering a robust $\mathrm{C}_4$ antiferromagnet, thus setting $u^{(d)}=0$ by hand, and show how the constraints on $u^{(s^*)}$ mimic those posed for the normal phase in Eq.~\eqref{eq:normal-us*-constraint}. Then we move to a rather convoluted but necessary analysis of the five-components HFPs vector, described for both AF flavours in Tab.~\ref{tab:af-saf-aaf-hfps}. For the sake of generality, even if -- as discussed in Sec.~\ref{appsubsec:af-instability} -- at finite doping the system is naturally unstable, we take on all calculations at generic $\tilde{\mu}$.
 
 \subsection{Robust $\mathrm{C}_4$ bands shrinking extension to AF phases}\label{subsec:af-bands-shrinking}
 
@@ -2359,7 +2359,7 @@ In the end, the computational scenario is not so different from the normal phase
 	\qquad
 	\delta = 0.0
 \]
-We set $\delta=0.0$. As we anticipated in Sec.~\ref{sec:af-instability}, any finite doping implies immediate disruption of commensurate antiferromagnetism, a consideration that makes any simulation at $\delta >0$ of low physical significance. Following this consideration, we omit data at finite $\delta \neq 0$.
+We set $\delta=0.0$. As we anticipated in Sec.~\ref{subsec:af-features} (and discuss in Sec.~\ref{appsubsec:af-instability}), any finite doping implies immediate disruption of commensurate antiferromagnetism, a consideration that makes any simulation at $\delta >0$ of low physical significance. Following this consideration, we omit data at finite $\delta \neq 0$.
 
 \subsection{Magnetization boost}\label{subsec:af-m-boost}
 
