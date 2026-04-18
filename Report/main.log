@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.10)  18 APR 2026 18:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.10)  18 APR 2026 18:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1706,7 +1706,25 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
-dvips/cm-super/cm-super-ts1.enc}])
+dvips/cm-super/cm-super-ts1.enc}]
+Overfull \hbox (1.74986pt too wide) detected at line 110
+ \OT1/cmr/bx/n/10 101
+ []
+
+
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.111 ...nd $\beta \to \infty $}{101}{section.B.1}
+                                                  % [2]
+Overfull \hbox (1.74986pt too wide) detected at line 115
+ \OT1/cmr/bx/n/10 109
+ []
+
+)
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
@@ -1714,7 +1732,7 @@ een already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.41 \clearpage
-                [2] (./misc/abbreviations.tex
+                [3] (./misc/abbreviations.tex
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1755,24 +1773,16 @@ een already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.41 \restoregeometry
-                      [3]) (./misc/introduction.tex
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.3 \chapter
-            *{Introduction} [4
-
-
-
-
-
-])
+                      [4]) (./misc/introduction.tex)
 (./chapters/theoretical-introduction/theoretical-introduction.tex
 
-[1]
+[1
+
+
+
+
+
+]
 
 [2
 
@@ -1911,7 +1921,7 @@ iv-ing the se-lec-tion rules on the EVs of Eqns. [],
 [35]
 
 [36]
-<../Project/src/labs/structure-factors/plot-structure-factors.pdf, id=882, 602.
+<../Project/src/labs/structure-factors/plot-structure-factors.pdf, id=927, 602.
 25pt x 526.96875pt>
 File: ../Project/src/labs/structure-factors/plot-structure-factors.pdf Graphic 
 file (type pdf)
@@ -1958,7 +1968,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [45]
 
 [46]
-<../Project/src/labs/bands/normal-nematic-bands.pdf, id=1070, 602.25pt x 526.96
+<../Project/src/labs/bands/normal-nematic-bands.pdf, id=1116, 602.25pt x 526.96
 875pt>
 File: ../Project/src/labs/bands/normal-nematic-bands.pdf Graphic file (type pdf
 )
@@ -2006,7 +2016,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 862.
 
-<../Project/src/labs/bands/normal-nematic-bands-pp.pdf, id=1153, 376.40625pt x 
+<../Project/src/labs/bands/normal-nematic-bands-pp.pdf, id=1198, 376.40625pt x 
 301.125pt>
 File: ../Project/src/labs/bands/normal-nematic-bands-pp.pdf Graphic file (type 
 pdf)
@@ -2014,7 +2024,7 @@ pdf)
 Package pdftex.def Info: ../Project/src/labs/bands/normal-nematic-bands-pp.pdf 
  used on input line 874.
 (pdftex.def)             Requested size: 192.0548pt x 153.64981pt.
-<../Project/src/labs/bands/normal-nematic-bands-mp.pdf, id=1154, 376.40625pt x 
+<../Project/src/labs/bands/normal-nematic-bands-mp.pdf, id=1199, 376.40625pt x 
 301.125pt>
 File: ../Project/src/labs/bands/normal-nematic-bands-mp.pdf Graphic file (type 
 pdf)
@@ -2055,7 +2065,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 [54]
 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=HFPs
-/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf, id=1308, 451.6875pt x 301.12
+/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf, id=1353, 451.6875pt x 301.12
 5pt>
 File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
 =HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf Graphic file (type pdf)
@@ -2066,7 +2076,7 @@ Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[
  on input line 1201.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
 <../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs
-/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf, id=1309, 451.6875pt x 301.12
+/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf, id=1354, 451.6875pt x 301.12
 5pt>
 File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj
 =HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
@@ -2094,7 +2104,7 @@ Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=
 age
 >]
 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=RMPs
-/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf, id=1385, 451.687
+/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf, id=1430, 451.687
 5pt x 376.40625pt>
 File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
 =RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf Graphic file
@@ -2105,7 +2115,7 @@ Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[
 128]/Syms=/RB=S/Obj=RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePl
 ot.pdf  used on input line 1239.
 (pdftex.def)             Requested size: 192.0548pt x 160.04807pt.
-<../Project/src/labs/mott-localization/normal-mott-boundary-uS.pdf, id=1386, 45
+<../Project/src/labs/mott-localization/normal-mott-boundary-uS.pdf, id=1431, 45
 1.6875pt x 301.125pt>
 File: ../Project/src/labs/mott-localization/normal-mott-boundary-uS.pdf Graphic
  file (type pdf)
@@ -2124,7 +2134,7 @@ ormal-mott-boundary-uS.pdf): PDF inclusion: multiple pdfs with page group inclu
 ded in a single page
 >]
 <../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=HFPs/x
-Var=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf, id=17212, 1129.21875pt x 30
+Var=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf, id=17257, 1129.21875pt x 30
 1.125pt>
 File: ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=H
 FPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf Graphic file (type pdf)
@@ -2141,7 +2151,7 @@ Overfull \hbox (9.99998pt too wide) in paragraph at lines 1259--1259
  []
 
 <../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=RMPs/x
-Var=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf, id=17213, 1129.21875pt x 30
+Var=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf, id=17258, 1129.21875pt x 30
 1.125pt>
 File: ../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=R
 MPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf Graphic file (type pdf)
@@ -2169,7 +2179,7 @@ al/Setup=C[256]-a/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Co
 mpared.pdf): PDF inclusion: multiple pdfs with page group included in a single 
 page
 >]
-<../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf, id=17282, 45
+<../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf, id=17327, 45
 1.6875pt x 301.125pt>
 File: ../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf Graphic 
 file (type pdf)
@@ -2178,7 +2188,7 @@ Package pdftex.def Info: ../Project/src/labs/mott-localization/normal-mott-boun
 dary-f.pdf  used on input line 1298.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
 <../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=phys
-/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf, id=17283, 451.6875pt x 301.12
+/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf, id=17328, 451.6875pt x 301.12
 5pt>
 File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj
 =phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
@@ -2193,7 +2203,7 @@ Overfull \hbox (2.94913pt too wide) in paragraph at lines 1298--1303
  [][][] 
  []
 
-<../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf, id=17289, 45
+<../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf, id=17334, 45
 1.6875pt x 301.125pt>
 File: ../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf Graphic 
 file (type pdf)
@@ -2201,7 +2211,7 @@ file (type pdf)
 Package pdftex.def Info: ../Project/src/labs/mott-localization/normal-mott-boun
 dary-s.pdf  used on input line 1322.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-<../Project/src/labs/functions/entropy.pdf, id=17290, 376.40625pt x 301.125pt>
+<../Project/src/labs/functions/entropy.pdf, id=17335, 376.40625pt x 301.125pt>
 File: ../Project/src/labs/functions/entropy.pdf Graphic file (type pdf)
 <use ../Project/src/labs/functions/entropy.pdf>
 Package pdftex.def Info: ../Project/src/labs/functions/entropy.pdf  used on inp
@@ -2227,7 +2237,7 @@ ed in a single page
 pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/functions/entropy.p
 df): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<../Project/src/labs/tracks/tracks.pdf, id=17424, 1129.21875pt x 301.125pt>
+<../Project/src/labs/tracks/tracks.pdf, id=17469, 1129.21875pt x 301.125pt>
 File: ../Project/src/labs/tracks/tracks.pdf Graphic file (type pdf)
 <use ../Project/src/labs/tracks/tracks.pdf>
 Package pdftex.def Info: ../Project/src/labs/tracks/tracks.pdf  used on input l
@@ -2292,11 +2302,6 @@ Missing character: There is no 0 in font nullfont!
 
 [61]
 
-LaTeX Warning: Reference `appsubsec:af-instability' on page 62 undefined on inp
-ut line 42.
-
-
-
 [62]
 
 [63]
@@ -2316,7 +2321,7 @@ ut line 42.
 [69]
 
 [70]
-<../Project/src/labs/hm-density/n_AF_U=10.0_Δ=1.0.pdf, id=17636, 451.6875pt x 
+<../Project/src/labs/hm-density/n_AF_U=10.0_Δ=1.0.pdf, id=17682, 451.6875pt x 
 301.125pt>
 File: ../Project/src/labs/hm-density/n_AF_U=10.0_Δ=1.0.pdf Graphic file (type 
 pdf)
@@ -2325,7 +2330,7 @@ Package pdftex.def Info: ../Project/src/labs/hm-density/n_AF_U=10.0_Δ=1.0.pdf
  used on input line 607.
 (pdftex.def)             Requested size: 179.252pt x 119.50105pt.
 <../Project/src/labs/antiferromagnet-bands-3d/antiferromagnet-bands-3d.pdf, id=
-17637, 526.96875pt x 301.125pt>
+17683, 526.96875pt x 301.125pt>
 File: ../Project/src/labs/antiferromagnet-bands-3d/antiferromagnet-bands-3d.pdf
  Graphic file (type pdf)
 <use ../Project/src/labs/antiferromagnet-bands-3d/antiferromagnet-bands-3d.pdf>
@@ -2333,15 +2338,6 @@ File: ../Project/src/labs/antiferromagnet-bands-3d/antiferromagnet-bands-3d.pdf
 Package pdftex.def Info: ../Project/src/labs/antiferromagnet-bands-3d/antiferro
 magnet-bands-3d.pdf  used on input line 611.
 (pdftex.def)             Requested size: 209.12733pt x 119.50105pt.
-
-
-LaTeX Warning: Reference `appsubsec:af-instability' on page 71 undefined on inp
-ut line 630.
-
-
-LaTeX Warning: Reference `app:hm-af-ground-state' on page 71 undefined on input
- line 634.
-
 
 
 [71 <../Project/src/labs/hm-density/n_AF_U=10.0_Δ=1.0.pdf> <../Project/src/lab
@@ -2370,21 +2366,7 @@ x)
 
 [79]
 
-LaTeX Warning: Reference `appsubsec:af-T=0-gs' on page 80 undefined on input li
-ne 1601.
-
-
-LaTeX Warning: Reference `appeq:af-hm-gs-3' on page 80 undefined on input line 
-1601.
-
-
-
 [80]
-
-LaTeX Warning: Reference `appsubsec:af-T=0-gs' on page 81 undefined on input li
-ne 1609.
-
-
 
 [81]
 
@@ -2393,10 +2375,6 @@ ne 1609.
 [83]
 
 [84]
-
-LaTeX Warning: Reference `appsubsec:af-instability' on page 85 undefined on inp
-ut line 1890.
-
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1892.
@@ -2439,7 +2417,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 [90]
-<../Project/src/labs/functions/pseudo-dirac.pdf, id=36557, 602.25pt x 301.125pt
+<../Project/src/labs/functions/pseudo-dirac.pdf, id=36610, 602.25pt x 301.125pt
 >
 File: ../Project/src/labs/functions/pseudo-dirac.pdf Graphic file (type pdf)
 <use ../Project/src/labs/functions/pseudo-dirac.pdf>
@@ -2449,11 +2427,7 @@ n input line 2252.
 
 
 [91 <../Project/src/labs/functions/pseudo-dirac.pdf>]
-
-LaTeX Warning: Reference `appsubsec:af-instability' on page 92 undefined on inp
-ut line 2357.
-
-<../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf, id=36604, 978
+<../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf, id=36658, 978
 .65625pt x 301.125pt>
 File: ../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf Graphic f
 ile (type pdf)
@@ -2465,7 +2439,7 @@ Package pdftex.def Info: ../Project/src/labs/antiferromagnet-heatmaps/af-m-data
 
 [92]
 <../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVa
-r=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36612, 451.6875pt x 301.125pt>
+r=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36667, 451.6875pt x 301.125pt>
 
 File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFP
 s/xVar=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
@@ -2476,7 +2450,7 @@ Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
 nput line 2390.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
 <../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVa
-r=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36613, 451.6875pt x 301.125pt>
+r=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36668, 451.6875pt x 301.125pt>
 
 File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFP
 s/xVar=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
@@ -2508,7 +2482,7 @@ AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0
 .pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
 <../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=HFPs/xVa
-r=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf, id=36709, 451.6875pt x 301.125pt
+r=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf, id=36763, 451.6875pt x 301.125pt
 >
 File: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=HFP
 s/xVar=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf Graphic file (type pdf)
@@ -2519,7 +2493,7 @@ Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]
 input line 2416.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
 <../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=RMPs/xVa
-r=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf, id=36710, 451.6875pt x 301.125pt
+r=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf, id=36764, 451.6875pt x 301.125pt
 >
 File: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=RMP
 s/xVar=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf Graphic file (type pdf)
@@ -2535,7 +2509,7 @@ Overfull \hbox (2.94913pt too wide) in paragraph at lines 2416--2421
  []
 
 <../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVa
-r=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36711, 451.6875pt x 301.125pt
+r=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36765, 451.6875pt x 301.125pt
 >
 File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFP
 s/xVar=U_pVar=V/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
@@ -2546,7 +2520,7 @@ Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
 input line 2429.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
 <../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVa
-r=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36712, 451.6875pt x 301.125pt
+r=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36766, 451.6875pt x 301.125pt
 >
 File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFP
 s/xVar=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
@@ -2585,7 +2559,7 @@ AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/uS_t=1.0_L=256_δ=0.0_β=100.
 0.pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
 <../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs/xVa
-r=U_pVar=V/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36835, 451.6875pt x 301.125pt
+r=U_pVar=V/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36889, 451.6875pt x 301.125pt
 >
 File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMP
 s/xVar=U_pVar=V/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
@@ -2596,7 +2570,7 @@ Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]
 input line 2454.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
 <../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMPs/xVa
-r=V_pVar=U/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36836, 451.6875pt x 301.125pt
+r=V_pVar=U/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36890, 451.6875pt x 301.125pt
 >
 File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=RMP
 s/xVar=V_pVar=U/tS_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
@@ -2612,7 +2586,7 @@ Overfull \hbox (2.94913pt too wide) in paragraph at lines 2454--2459
  []
 
 <../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=phys/xVa
-r=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0.pdf, id=36839, 451.6875pt x 301.125pt>
+r=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0.pdf, id=36893, 451.6875pt x 301.125pt>
 
 File: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=phy
 s/xVar=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0.pdf Graphic file (type pdf)
@@ -2623,7 +2597,7 @@ Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]
 nput line 2472.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
 <../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=phys/xVa
-r=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36840, 451.6875pt x 301.125pt>
+r=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0.pdf, id=36894, 451.6875pt x 301.125pt>
 
 File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=phy
 s/xVar=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0.pdf Graphic file (type pdf)
@@ -2661,7 +2635,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
 AF/Setup=A[256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0
 .pdf): PDF inclusion: multiple pdfs with page group included in a single page
 >]
-<../Project/src/labs/compare-f-normal-af/compare-f-normal-af.pdf, id=36977, 451
+<../Project/src/labs/compare-f-normal-af/compare-f-normal-af.pdf, id=37031, 451
 .6875pt x 301.125pt>
 File: ../Project/src/labs/compare-f-normal-af/compare-f-normal-af.pdf Graphic f
 ile (type pdf)
@@ -2670,7 +2644,7 @@ Package pdftex.def Info: ../Project/src/labs/compare-f-normal-af/compare-f-norm
 al-af.pdf  used on input line 2493.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
 </home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor.pdf, id=3
-6981, 978.65625pt x 376.40625pt>
+7035, 978.65625pt x 376.40625pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor.pdf 
 Graphic file (type pdf)
 <use /home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor.pdf>
@@ -2680,6 +2654,7 @@ ctor/attractor.pdf  used on input line 2512.
 
 
 [96 <../Project/src/labs/compare-f-normal-af/compare-f-normal-af.pdf>])
+(./appendices/superexchange-virtual-hopping/superexchange-virtual-hopping.tex
 
 [97 </home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor.pdf>]
 
@@ -2688,7 +2663,151 @@ ctor/attractor.pdf  used on input line 2512.
 
 ]
 
-[99]
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 5.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 5.
+
+
+(./appendices/superexchange-virtual-hopping/pictures/two-sites-hubbard-model.te
+x)
+
+[99]) (./appendices/hm-af-ground-state/hm-af-ground-state.tex
+
+[100]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 62.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\beta' on input line 62.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\to' on input line 62.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\infty' on input line 62.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 62.
+
+
+
+[101
+
+]
+
+[102]
+Overfull \hbox (1.84894pt too wide) in paragraph at lines 195--196
+[]\OT1/cmr/m/n/10 Consider the largest eigen-value $\OML/cmm/m/it/10 ^^U[]\OT1/
+cmr/m/n/10 (\OT1/cmr/bx/n/10 k\OML/cmm/m/it/10 ; !\OT1/cmr/m/n/10 )$ of the ma-
+trix $[\OML/cmm/m/it/10 ^^_[]\OT1/cmr/m/n/10 ]$ at dop-ing $\OML/cmm/m/it/10 ^^
+N$\OT1/cmr/m/n/10 . We work in momentum-
+ []
+
+
+
+[103]
+<../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs/xVa
+r=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf, id=60859, 451.6875pt x 301.125pt>
+
+File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFP
+s/xVar=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs
+/xVar=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]
+/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf  used on i
+nput line 251.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs/xVa
+r=δ_pVar=U/m_t=1.0_V=0.0_L=256_β=100.0.pdf, id=60860, 451.6875pt x 301.125pt>
+
+File: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFP
+s/xVar=δ_pVar=U/m_t=1.0_V=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs
+/xVar=δ_pVar=U/m_t=1.0_V=0.0_L=256_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]
+/Syms=/RB=S/Obj=HFPs/xVar=δ_pVar=U/m_t=1.0_V=0.0_L=256_β=100.0.pdf  used on i
+nput line 255.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 251--256
+ [][][] 
+ []
+
+
+
+[104]
+<../Project/src/labs/antiferromagnet-dos/K(x).pdf, id=60882, 451.6875pt x 301.1
+25pt>
+File: ../Project/src/labs/antiferromagnet-dos/K(x).pdf Graphic file (type pdf)
+<use ../Project/src/labs/antiferromagnet-dos/K(x).pdf>
+Package pdftex.def Info: ../Project/src/labs/antiferromagnet-dos/K(x).pdf  used
+ on input line 294.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/src/labs/antiferromagnet-dos/D(x).pdf, id=60883, 451.6875pt x 301.1
+25pt>
+File: ../Project/src/labs/antiferromagnet-dos/D(x).pdf Graphic file (type pdf)
+<use ../Project/src/labs/antiferromagnet-dos/D(x).pdf>
+Package pdftex.def Info: ../Project/src/labs/antiferromagnet-dos/D(x).pdf  used
+ on input line 298.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 294--299
+ [][][] 
+ []
+
+
+
+[105 <../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFP
+s/xVar=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf> <../Project/plots/refined/Mo
+de=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs/xVar=δ_pVar=U/m_t=1.0_V=0.0_L=
+256_β=100.0.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
+AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs/xVar=δ_pVar=U/m_t=1.0_V=0.0_L=256_β=100.0
+.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>]
+<../Project/src/labs/m-analytic/m-analytic.pdf, id=60948, 978.65625pt x 301.125
+pt>
+File: ../Project/src/labs/m-analytic/m-analytic.pdf Graphic file (type pdf)
+<use ../Project/src/labs/m-analytic/m-analytic.pdf>
+Package pdftex.def Info: ../Project/src/labs/m-analytic/m-analytic.pdf  used on
+ input line 330.
+(pdftex.def)             Requested size: 443.88559pt x 136.57635pt.
+
+Overfull \hbox (17.09424pt too wide) in paragraph at lines 330--331
+ [][] 
+ []
+
+
+
+[106 <../Project/src/labs/antiferromagnet-dos/K(x).pdf> <../Project/src/labs/an
+tiferromagnet-dos/D(x).pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/antiferromagnet-dos
+/D(x).pdf): PDF inclusion: multiple pdfs with page group included in a single p
+age
+> <../Project/src/labs/m-analytic/m-analytic.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/m-analytic/m-analyt
+ic.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+
+>])
+
+[107]
+
+[108
+
+]
+
+[109]
 Overfull \hbox (3.53458pt too wide) in paragraph at lines 68--68
 \OT1/cmr/m/it/10 Phys-ica C: Su-per-con-duc-tiv-ity and its Ap-pli-ca-tions \OT
 1/cmr/m/n/10 633 (June 2025), p. 1354719. \OT1/cmr/m/sc/10 issn\OT1/cmr/m/n/10 
@@ -2697,7 +2816,7 @@ Overfull \hbox (3.53458pt too wide) in paragraph at lines 68--68
 
 
 
-[100]
+[110]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 6
 8.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
@@ -2707,7 +2826,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 68.
 
 
-[101]
+[111]
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
@@ -2721,7 +2840,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1FDA3A6479D002327541295DC9EB9AA2;18695.
+(rerunfilecheck)             Checksum: 5C30FE005D6DCBF4AA6DAEC81BD61BC9;20948.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -2732,51 +2851,54 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 55008 strings out of 473197
- 1259370 string characters out of 5718605
- 2248726 words of memory out of 5000000
- 76838 multiletter control sequences out of 15000+600000
- 579163 words of font info for 110 fonts, out of 8000000 for 9000
+ 55191 strings out of 473197
+ 1266200 string characters out of 5718605
+ 2250378 words of memory out of 5000000
+ 76964 multiletter control sequences out of 15000+600000
+ 581259 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  92i,18n,96p,2641b,2187s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public
-/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.p
-fb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf
-/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (105 pages, 17000509 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600
+.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/tex
+mf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/publi
+c/cm-super/sfrm1000.pfb>
+Output written on main.pdf (115 pages, 17296698 bytes).
 PDF statistics:
- 61112 PDF objects out of 66169 (max. 8388607)
- 31405 compressed objects within 315 object streams
- 556 named destinations out of 1000 (max. 500000)
- 880 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61457 PDF objects out of 66169 (max. 8388607)
+ 31678 compressed objects within 317 object streams
+ 600 named destinations out of 1000 (max. 500000)
+ 983 words of extra memory for PDF output out of 10000 (max. 10000000)
 
