@@ -72,109 +72,122 @@
 \newlabel{eq:hf-solution-h++}{{2.17}{13}{Self-consistent variational solution}{equation.2.17}{}}
 \newlabel{eq:hf-self-consistency-general}{{2.18}{13}{Self-consistent variational solution}{equation.2.18}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Connection with mean-field theories}{13}{subsection.2.2.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Schematisation of the self-consistent Hartree Fock method described in Sec.~\ref {sec:sketch-ihf-algorithm}. The effective model is solved, the solution is used to estimate self-consistently the Hartree Fock vector $\mathbf  {v}$, which is then used to update iteratively the model itself. The notation $\mathbf  {v}_0$ indicates the initialiser HFPs vector, $\mathbf  {v}_\mathrm  {c}$ the converged HFPs vector.}}{15}{figure.caption.4}\protected@file@percent }
+\newlabel{eq:mft-A=BC}{{2.19}{14}{Connection with mean-field theories}{equation.2.19}{}}
+\newlabel{eq:mft-B=2V}{{2.20}{14}{Connection with mean-field theories}{equation.2.20}{}}
+\newlabel{eq:mft-wick-EV}{{2.21}{14}{Connection with mean-field theories}{equation.2.21}{}}
+\newlabel{eq:mft-x-implicit}{{2.22}{14}{Connection with mean-field theories}{equation.2.22}{}}
+\newlabel{eq:mft-y-implicit}{{2.23}{14}{Connection with mean-field theories}{equation.2.23}{}}
+\newlabel{eq:mft-V-implicit}{{2.24}{15}{Connection with mean-field theories}{equation.2.24}{}}
+\newlabel{eq:mft-x-explicit}{{2.25}{15}{Connection with mean-field theories}{equation.2.25}{}}
+\newlabel{eq:mft-y-explicit}{{2.26}{15}{Connection with mean-field theories}{equation.2.26}{}}
+\newlabel{eq:mft-V-decomposition}{{2.27}{15}{Connection with mean-field theories}{equation.2.27}{}}
+\@writefile{toc}{\contentsline {paragraph}{Local repulsion.}{16}{section*.4}\protected@file@percent }
+\newlabel{eq:mft-HU}{{2.28}{16}{Local repulsion}{equation.2.28}{}}
+\@writefile{toc}{\contentsline {paragraph}{Non-local attraction.}{16}{section*.5}\protected@file@percent }
+\newlabel{eq:mft-HV}{{2.29}{16}{Non-local attraction}{equation.2.29}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Sketch of HF iterative algorithm}{16}{section.2.3}\protected@file@percent }
+\newlabel{sec:sketch-ihf-algorithm}{{2.3}{16}{Sketch of HF iterative algorithm}{section.2.3}{}}
+\newlabel{eq:hf-A-fixed-point}{{2.30}{16}{Sketch of HF iterative algorithm}{equation.2.30}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Schematisation of the self-consistent Hartree Fock method described in Sec.~\ref {sec:sketch-ihf-algorithm}. The effective model is solved, the solution is used to estimate self-consistently the Hartree Fock vector $\mathbf  {v}$, which is then used to update iteratively the model itself. The notation $\mathbf  {v}_0$ indicates the initialiser HFPs vector, $\mathbf  {v}_\mathrm  {c}$ the converged HFPs vector.}}{17}{figure.caption.6}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:effective-model-scheme}{{2.1}{15}{Schematisation of the self-consistent Hartree Fock method described in Sec.~\ref {sec:sketch-ihf-algorithm}. The effective model is solved, the solution is used to estimate self-consistently the Hartree Fock vector $\mathbf {v}$, which is then used to update iteratively the model itself. The notation $\mathbf {v}_0$ indicates the initialiser HFPs vector, $\mathbf {v}_\mathrm {c}$ the converged HFPs vector}{figure.caption.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Sketch of the iHF algorithm}{15}{section.2.3}\protected@file@percent }
-\newlabel{sec:sketch-ihf-algorithm}{{2.3}{15}{Sketch of the iHF algorithm}{section.2.3}{}}
-\newlabel{eq:hf-A-fixed-point}{{2.19}{15}{Sketch of the iHF algorithm}{equation.2.19}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Fixed density simulations and the role of $\mu $}{16}{subsection.2.3.1}\protected@file@percent }
-\newlabel{subsec:fixed-density-role-mu}{{2.3.1}{16}{Fixed density simulations and the role of $\mu $}{subsection.2.3.1}{}}
-\newlabel{eq:mu-numerical-minimization}{{2.20}{16}{Fixed density simulations and the role of $\mu $}{equation.2.20}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}The reject-mix-iterate convergence scheme}{18}{subsection.2.3.2}\protected@file@percent }
-\newlabel{subsec:reject-mix-iterate}{{2.3.2}{18}{The reject-mix-iterate convergence scheme}{subsection.2.3.2}{}}
-\newlabel{eq:mix}{{2.21}{18}{The reject-mix-iterate convergence scheme}{equation.2.21}{}}
+\newlabel{fig:effective-model-scheme}{{2.1}{17}{Schematisation of the self-consistent Hartree Fock method described in Sec.~\ref {sec:sketch-ihf-algorithm}. The effective model is solved, the solution is used to estimate self-consistently the Hartree Fock vector $\mathbf {v}$, which is then used to update iteratively the model itself. The notation $\mathbf {v}_0$ indicates the initialiser HFPs vector, $\mathbf {v}_\mathrm {c}$ the converged HFPs vector}{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Fixed density simulations and the role of $\mu $}{17}{subsection.2.3.1}\protected@file@percent }
+\newlabel{subsec:fixed-density-role-mu}{{2.3.1}{17}{Fixed density simulations and the role of $\mu $}{subsection.2.3.1}{}}
+\newlabel{eq:mu-numerical-minimization}{{2.31}{18}{Fixed density simulations and the role of $\mu $}{equation.2.31}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}The reject-mix-iterate convergence scheme}{19}{subsection.2.3.2}\protected@file@percent }
+\newlabel{subsec:reject-mix-iterate}{{2.3.2}{19}{The reject-mix-iterate convergence scheme}{subsection.2.3.2}{}}
+\newlabel{eq:mix}{{2.32}{19}{The reject-mix-iterate convergence scheme}{equation.2.32}{}}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {3}Phase transitions and SSB in EHM}{19}{chapter.3}\protected@file@percent }
-\newlabel{chap:ehm-symmetries}{{3}{19}{Phase transitions and SSB in EHM}{chapter.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}The EHM symmetries}{19}{section.3.1}\protected@file@percent }
-\newlabel{sec:ehm-syms}{{3.1}{19}{The EHM symmetries}{section.3.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Lattice symmetries}{19}{subsection.3.1.1}\protected@file@percent }
-\newlabel{subsec:lattice-syms}{{3.1.1}{19}{Lattice symmetries}{subsection.3.1.1}{}}
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {3}Phase transitions and SSB in EHM}{21}{chapter.3}\protected@file@percent }
+\newlabel{chap:ehm-symmetries}{{3}{21}{Phase transitions and SSB in EHM}{chapter.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}The EHM symmetries}{21}{section.3.1}\protected@file@percent }
+\newlabel{sec:ehm-syms}{{3.1}{21}{The EHM symmetries}{section.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Lattice symmetries}{21}{subsection.3.1.1}\protected@file@percent }
+\newlabel{subsec:lattice-syms}{{3.1.1}{21}{Lattice symmetries}{subsection.3.1.1}{}}
 \abx@aux@cite{0}{arovas2022hubbard}
 \abx@aux@segm{0}{0}{arovas2022hubbard}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Square lattice $\mathcal  {L}$ bipartition in two sublattices $\mathcal  {S}_1$ (red), $\mathcal  {S}_2$ (blue).}}{20}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:square-sublattices}{{3.1}{20}{Square lattice $\mathcal {L}$ bipartition in two sublattices $\mathcal {S}_1$ (red), $\mathcal {S}_2$ (blue)}{figure.caption.5}{}}
-\newlabel{eq:ehm-Tn-Tkn}{{3.1}{20}{Lattice symmetries}{equation.3.1}{}}
-\newlabel{eq:ehm-Cn-Cn/k}{{3.2}{20}{Lattice symmetries}{equation.3.2}{}}
-\newlabel{eq:ehm-I2-C2}{{3.3}{20}{Lattice symmetries}{equation.3.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Spin and charge symmetries}{21}{subsection.3.1.2}\protected@file@percent }
-\newlabel{subsec:spin-charge-syms}{{3.1.2}{21}{Spin and charge symmetries}{subsection.3.1.2}{}}
-\@writefile{toc}{\contentsline {paragraph}{Gauge symmetry.}{21}{section*.6}\protected@file@percent }
-\newlabel{eq:gauge-symmetry}{{3.4}{21}{Gauge symmetry}{equation.3.4}{}}
-\newlabel{eq:gauge-symmetry-c+c-}{{3.5}{21}{Gauge symmetry}{equation.3.5}{}}
-\@writefile{toc}{\contentsline {paragraph}{Global spin symmetry}{21}{section*.7}\protected@file@percent }
-\newlabel{eq:Psi-onsite}{{3.6}{21}{Global spin symmetry}{equation.3.6}{}}
-\newlabel{eq:local-S}{{3.7}{21}{Global spin symmetry}{equation.3.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Square lattice $\mathcal  {L}$ bipartition in two sublattices $\mathcal  {S}_1$ (red), $\mathcal  {S}_2$ (blue).}}{22}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:square-sublattices}{{3.1}{22}{Square lattice $\mathcal {L}$ bipartition in two sublattices $\mathcal {S}_1$ (red), $\mathcal {S}_2$ (blue)}{figure.caption.7}{}}
+\newlabel{eq:ehm-Tn-Tkn}{{3.1}{22}{Lattice symmetries}{equation.3.1}{}}
+\newlabel{eq:ehm-Cn-Cn/k}{{3.2}{22}{Lattice symmetries}{equation.3.2}{}}
+\newlabel{eq:ehm-I2-C2}{{3.3}{22}{Lattice symmetries}{equation.3.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Spin and charge symmetries}{23}{subsection.3.1.2}\protected@file@percent }
+\newlabel{subsec:spin-charge-syms}{{3.1.2}{23}{Spin and charge symmetries}{subsection.3.1.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Gauge symmetry.}{23}{section*.8}\protected@file@percent }
+\newlabel{eq:gauge-symmetry}{{3.4}{23}{Gauge symmetry}{equation.3.4}{}}
+\newlabel{eq:gauge-symmetry-c+c-}{{3.5}{23}{Gauge symmetry}{equation.3.5}{}}
+\@writefile{toc}{\contentsline {paragraph}{Global spin symmetry}{23}{section*.9}\protected@file@percent }
+\newlabel{eq:Psi-onsite}{{3.6}{23}{Global spin symmetry}{equation.3.6}{}}
+\newlabel{eq:local-S}{{3.7}{23}{Global spin symmetry}{equation.3.7}{}}
 \abx@aux@cite{0}{arovas2022hubbard}
 \abx@aux@segm{0}{0}{arovas2022hubbard}
 \abx@aux@cite{0}{pavarini2015many}
 \abx@aux@segm{0}{0}{pavarini2015many}
-\newlabel{eq:ehm-HV-4xPsi}{{3.8}{22}{Global spin symmetry}{equation.3.8}{}}
-\newlabel{eq:ehm-N-2xPsi}{{3.9}{22}{Global spin symmetry}{equation.3.9}{}}
-\newlabel{eq:ehm-R-exp}{{3.10}{22}{Global spin symmetry}{equation.3.10}{}}
+\newlabel{eq:ehm-HV-4xPsi}{{3.8}{24}{Global spin symmetry}{equation.3.8}{}}
+\newlabel{eq:ehm-N-2xPsi}{{3.9}{24}{Global spin symmetry}{equation.3.9}{}}
+\newlabel{eq:ehm-R-exp}{{3.10}{24}{Global spin symmetry}{equation.3.10}{}}
 \abx@aux@cite{0}{arovas2022hubbard}
 \abx@aux@segm{0}{0}{arovas2022hubbard}
-\newlabel{subfig:su2-domain}{{3.2a}{24}{$\mathrm {SU}(2)$ rotations domain before SSB.\caption@thelabel }{figure.caption.8}{}}
-\newlabel{sub@subfig:su2-domain}{{a}{24}{$\mathrm {SU}(2)$ rotations domain before SSB.\caption@thelabel }{figure.caption.8}{}}
-\newlabel{subfig:u1-domain}{{3.2b}{24}{$\mathrm {U}(1)$ rotations domain after SSB.\caption@thelabel }{figure.caption.8}{}}
-\newlabel{sub@subfig:u1-domain}{{b}{24}{$\mathrm {U}(1)$ rotations domain after SSB.\caption@thelabel }{figure.caption.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Graphic representation of the concept of $\mathrm  {SU}(2)\to \mathrm  {U}^z(1)$ SSB. ``Before'' SSB, we have full symmetry under any possible rotation (solid color sphere, left panel). ``After'' SSB we have symmetry only for rotations around some vector $\mathbf  {m}$ (dashed tilted circumference, right panel).}}{24}{figure.caption.8}\protected@file@percent }
-\newlabel{fig:su2-u1-domains}{{3.2}{24}{Graphic representation of the concept of $\mathrm {SU}(2)\to \mathrm {U}^z(1)$ SSB. ``Before'' SSB, we have full symmetry under any possible rotation (solid color sphere, left panel). ``After'' SSB we have symmetry only for rotations around some vector $\mathbf {m}$ (dashed tilted circumference, right panel)}{figure.caption.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Particle-hole symmetry at half-filling}{24}{subsection.3.1.3}\protected@file@percent }
-\newlabel{subsec:phs}{{3.1.3}{24}{Particle-hole symmetry at half-filling}{subsection.3.1.3}{}}
-\newlabel{eq:phs-P-general}{{3.11}{24}{Particle-hole symmetry at half-filling}{equation.3.11}{}}
-\newlabel{eq:phs-hhhh-chain}{{3.12}{25}{Particle-hole symmetry at half-filling}{equation.3.12}{}}
-\@writefile{toc}{\contentsline {paragraph}{Kinetic term.}{25}{section*.9}\protected@file@percent }
-\newlabel{eq:phs-P-condition}{{3.13}{25}{Kinetic term}{equation.3.13}{}}
-\@writefile{toc}{\contentsline {paragraph}{Local repulsion.}{25}{section*.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Non-local attraction.}{25}{section*.11}\protected@file@percent }
+\newlabel{subfig:su2-domain}{{3.2a}{26}{$\mathrm {SU}(2)$ rotations domain before SSB.\caption@thelabel }{figure.caption.10}{}}
+\newlabel{sub@subfig:su2-domain}{{a}{26}{$\mathrm {SU}(2)$ rotations domain before SSB.\caption@thelabel }{figure.caption.10}{}}
+\newlabel{subfig:u1-domain}{{3.2b}{26}{$\mathrm {U}(1)$ rotations domain after SSB.\caption@thelabel }{figure.caption.10}{}}
+\newlabel{sub@subfig:u1-domain}{{b}{26}{$\mathrm {U}(1)$ rotations domain after SSB.\caption@thelabel }{figure.caption.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Graphic representation of the concept of $\mathrm  {SU}(2)\to \mathrm  {U}^z(1)$ SSB. ``Before'' SSB, we have full symmetry under any possible rotation (solid color sphere, left panel). ``After'' SSB we have symmetry only for rotations around some vector $\mathbf  {m}$ (dashed tilted circumference, right panel).}}{26}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:su2-u1-domains}{{3.2}{26}{Graphic representation of the concept of $\mathrm {SU}(2)\to \mathrm {U}^z(1)$ SSB. ``Before'' SSB, we have full symmetry under any possible rotation (solid color sphere, left panel). ``After'' SSB we have symmetry only for rotations around some vector $\mathbf {m}$ (dashed tilted circumference, right panel)}{figure.caption.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Particle-hole symmetry at half-filling}{26}{subsection.3.1.3}\protected@file@percent }
+\newlabel{subsec:phs}{{3.1.3}{26}{Particle-hole symmetry at half-filling}{subsection.3.1.3}{}}
+\newlabel{eq:phs-P-general}{{3.11}{26}{Particle-hole symmetry at half-filling}{equation.3.11}{}}
+\newlabel{eq:phs-hhhh-chain}{{3.12}{27}{Particle-hole symmetry at half-filling}{equation.3.12}{}}
+\@writefile{toc}{\contentsline {paragraph}{Kinetic term.}{27}{section*.11}\protected@file@percent }
+\newlabel{eq:phs-P-condition}{{3.13}{27}{Kinetic term}{equation.3.13}{}}
+\@writefile{toc}{\contentsline {paragraph}{Local repulsion.}{27}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Non-local attraction.}{27}{section*.13}\protected@file@percent }
 \abx@aux@cite{0}{arovas2022hubbard}
 \abx@aux@segm{0}{0}{arovas2022hubbard}
 \abx@aux@cite{0}{bohmer2022nematicity}
 \abx@aux@segm{0}{0}{bohmer2022nematicity}
-\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Model symmetries and relative group operations. Note that $\mathrm  {U}^\mathrm  {c}(1)$ represents the gauge symmetry linked to charge conservation.}}{26}{table.caption.12}\protected@file@percent }
-\newlabel{tab:symmetry-groups}{{3.1}{26}{Model symmetries and relative group operations. Note that $\mathrm {U}^\mathrm {c}(1)$ represents the gauge symmetry linked to charge conservation}{table.caption.12}{}}
-\newlabel{eq:square-NN-ghost-sum}{{3.14}{26}{Non-local attraction}{equation.3.14}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Symmetry breaking channels in real space}{26}{section.3.2}\protected@file@percent }
-\newlabel{subsec:ehm-sym-break}{{3.2}{26}{Symmetry breaking channels in real space}{section.3.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Schematic representation of the four NNs of a given site $i$ for a planar square lattice.}}{27}{figure.caption.13}\protected@file@percent }
-\newlabel{fig:square-nearest-neighbors}{{3.3}{27}{Schematic representation of the four NNs of a given site $i$ for a planar square lattice}{figure.caption.13}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Local repulsion}{27}{subsection.3.2.1}\protected@file@percent }
-\newlabel{eq:ehm-HU-wick}{{3.15}{27}{Local repulsion}{equation.3.15}{}}
-\@writefile{toc}{\contentsline {paragraph}{Hartree term.}{27}{section*.14}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Fock terms.}{28}{section*.15}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Cooper terms.}{28}{section*.16}\protected@file@percent }
-\newlabel{eq:[c+,n]}{{3.16}{28}{Cooper terms}{equation.3.16}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Summary of selection rules for the Wick's decomposition of Eq.~\eqref  {eq:ehm-HU-wick} of the local repulsion $\hat  H_U$. An empty entry indicates no selection rule.}}{29}{table.caption.17}\protected@file@percent }
-\newlabel{tab:HU-sel-rules}{{3.2}{29}{Summary of selection rules for the Wick's decomposition of Eq.~\eqref {eq:ehm-HU-wick} of the local repulsion $\hat H_U$. An empty entry indicates no selection rule}{table.caption.17}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Non-local attraction}{29}{subsection.3.2.2}\protected@file@percent }
-\newlabel{eq:ehm-HV(ss)+HV(os)}{{3.17}{29}{Non-local attraction}{equation.3.17}{}}
-\newlabel{eq:ehm-NNs-sum(f)}{{3.18}{29}{Non-local attraction}{equation.3.18}{}}
-\newlabel{eq:ehm-HV(os)}{{3.19}{29}{Non-local attraction}{equation.3.19}{}}
-\newlabel{eq:ehm-HV(os)-wick}{{3.20}{29}{Non-local attraction}{equation.3.20}{}}
-\newlabel{eq:ehm-HV(ss)}{{3.21}{29}{Non-local attraction}{equation.3.21}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.3}{\ignorespaces Summary of selection rules for the Wick's decomposition of Eqns.~\eqref  {eq:ehm-HV(os)-wick}, \eqref  {eq:ehm-HV(ss)-wick} of the non-local attraction $\hat  H_V$. An empty entry indicates no selection rule.}}{30}{table.caption.21}\protected@file@percent }
-\newlabel{tab:HV-sel-rules}{{3.3}{30}{Summary of selection rules for the Wick's decomposition of Eqns.~\eqref {eq:ehm-HV(os)-wick}, \eqref {eq:ehm-HV(ss)-wick} of the non-local attraction $\hat H_V$. An empty entry indicates no selection rule}{table.caption.21}{}}
-\newlabel{eq:ehm-HV(ss)-wick}{{3.22}{30}{Non-local attraction}{equation.3.22}{}}
-\@writefile{toc}{\contentsline {paragraph}{Hartree terms.}{30}{section*.18}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Fock terms.}{30}{section*.19}\protected@file@percent }
-\newlabel{eq:ehm-HV-wick-int1}{{3.23}{30}{Fock terms}{equation.3.23}{}}
-\@writefile{toc}{\contentsline {paragraph}{Cooper terms.}{30}{section*.20}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}The EHM in reciprocal space}{30}{section.3.3}\protected@file@percent }
-\newlabel{eq:fourier-convention}{{3.24}{31}{The EHM in reciprocal space}{equation.3.24}{}}
-\newlabel{eq:ehm-delta}{{3.25}{31}{The EHM in reciprocal space}{equation.3.25}{}}
-\newlabel{eq:ehm-delta/2}{{3.26}{31}{The EHM in reciprocal space}{equation.3.26}{}}
-\@writefile{toc}{\contentsline {paragraph}{Kinetic part.}{31}{section*.22}\protected@file@percent }
-\newlabel{eq:Ht-Fourier}{{3.27}{31}{Kinetic part}{equation.3.27}{}}
-\newlabel{eq:bare-bands}{{3.28}{31}{Kinetic part}{equation.3.28}{}}
-\@writefile{toc}{\contentsline {paragraph}{Local repulsion.}{31}{section*.23}\protected@file@percent }
-\newlabel{eq:HU-fourier}{{3.29}{31}{Local repulsion}{equation.3.29}{}}
-\@writefile{toc}{\contentsline {paragraph}{Non-local attraction.}{32}{section*.24}\protected@file@percent }
-\newlabel{eq:HV-fourier}{{3.30}{32}{Non-local attraction}{equation.3.30}{}}
-\newlabel{eq:HV-os-fourier}{{3.31}{33}{Non-local attraction}{equation.3.31}{}}
-\newlabel{eq:HV-ss-fourier}{{3.32}{33}{Non-local attraction}{equation.3.32}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Model symmetries and relative group operations. Note that $\mathrm  {U}^\mathrm  {c}(1)$ represents the gauge symmetry linked to charge conservation.}}{28}{table.caption.14}\protected@file@percent }
+\newlabel{tab:symmetry-groups}{{3.1}{28}{Model symmetries and relative group operations. Note that $\mathrm {U}^\mathrm {c}(1)$ represents the gauge symmetry linked to charge conservation}{table.caption.14}{}}
+\newlabel{eq:square-NN-ghost-sum}{{3.14}{28}{Non-local attraction}{equation.3.14}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Symmetry breaking channels in real space}{28}{section.3.2}\protected@file@percent }
+\newlabel{subsec:ehm-sym-break}{{3.2}{28}{Symmetry breaking channels in real space}{section.3.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Schematic representation of the four NNs of a given site $i$ for a planar square lattice.}}{29}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:square-nearest-neighbors}{{3.3}{29}{Schematic representation of the four NNs of a given site $i$ for a planar square lattice}{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Local repulsion}{29}{subsection.3.2.1}\protected@file@percent }
+\newlabel{eq:ehm-HU-wick}{{3.15}{29}{Local repulsion}{equation.3.15}{}}
+\@writefile{toc}{\contentsline {paragraph}{Hartree term.}{29}{section*.16}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Fock terms.}{30}{section*.17}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Cooper terms.}{30}{section*.18}\protected@file@percent }
+\newlabel{eq:[c+,n]}{{3.16}{30}{Cooper terms}{equation.3.16}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Summary of selection rules for the Wick's decomposition of Eq.~\eqref  {eq:ehm-HU-wick} of the local repulsion $\hat  H_U$. An empty entry indicates no selection rule.}}{31}{table.caption.19}\protected@file@percent }
+\newlabel{tab:HU-sel-rules}{{3.2}{31}{Summary of selection rules for the Wick's decomposition of Eq.~\eqref {eq:ehm-HU-wick} of the local repulsion $\hat H_U$. An empty entry indicates no selection rule}{table.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Non-local attraction}{31}{subsection.3.2.2}\protected@file@percent }
+\newlabel{eq:ehm-HV(ss)+HV(os)}{{3.17}{31}{Non-local attraction}{equation.3.17}{}}
+\newlabel{eq:ehm-NNs-sum(f)}{{3.18}{31}{Non-local attraction}{equation.3.18}{}}
+\newlabel{eq:ehm-HV(os)}{{3.19}{31}{Non-local attraction}{equation.3.19}{}}
+\newlabel{eq:ehm-HV(os)-wick}{{3.20}{31}{Non-local attraction}{equation.3.20}{}}
+\newlabel{eq:ehm-HV(ss)}{{3.21}{31}{Non-local attraction}{equation.3.21}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.3}{\ignorespaces Summary of selection rules for the Wick's decomposition of Eqns.~\eqref  {eq:ehm-HV(os)-wick}, \eqref  {eq:ehm-HV(ss)-wick} of the non-local attraction $\hat  H_V$. An empty entry indicates no selection rule.}}{32}{table.caption.23}\protected@file@percent }
+\newlabel{tab:HV-sel-rules}{{3.3}{32}{Summary of selection rules for the Wick's decomposition of Eqns.~\eqref {eq:ehm-HV(os)-wick}, \eqref {eq:ehm-HV(ss)-wick} of the non-local attraction $\hat H_V$. An empty entry indicates no selection rule}{table.caption.23}{}}
+\newlabel{eq:ehm-HV(ss)-wick}{{3.22}{32}{Non-local attraction}{equation.3.22}{}}
+\@writefile{toc}{\contentsline {paragraph}{Hartree terms.}{32}{section*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Fock terms.}{32}{section*.21}\protected@file@percent }
+\newlabel{eq:ehm-HV-wick-int1}{{3.23}{32}{Fock terms}{equation.3.23}{}}
+\@writefile{toc}{\contentsline {paragraph}{Cooper terms.}{32}{section*.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}The EHM in reciprocal space}{32}{section.3.3}\protected@file@percent }
+\newlabel{eq:fourier-convention}{{3.24}{33}{The EHM in reciprocal space}{equation.3.24}{}}
+\newlabel{eq:ehm-delta}{{3.25}{33}{The EHM in reciprocal space}{equation.3.25}{}}
+\newlabel{eq:ehm-delta/2}{{3.26}{33}{The EHM in reciprocal space}{equation.3.26}{}}
+\@writefile{toc}{\contentsline {paragraph}{Kinetic part.}{33}{section*.24}\protected@file@percent }
+\newlabel{eq:Ht-Fourier}{{3.27}{33}{Kinetic part}{equation.3.27}{}}
+\newlabel{eq:bare-bands}{{3.28}{33}{Kinetic part}{equation.3.28}{}}
+\@writefile{toc}{\contentsline {paragraph}{Local repulsion.}{33}{section*.25}\protected@file@percent }
+\newlabel{eq:HU-fourier}{{3.29}{33}{Local repulsion}{equation.3.29}{}}
+\@writefile{toc}{\contentsline {paragraph}{Non-local attraction.}{34}{section*.26}\protected@file@percent }
+\newlabel{eq:HV-fourier}{{3.30}{34}{Non-local attraction}{equation.3.30}{}}
+\newlabel{eq:HV-os-fourier}{{3.31}{35}{Non-local attraction}{equation.3.31}{}}
+\newlabel{eq:HV-ss-fourier}{{3.32}{35}{Non-local attraction}{equation.3.32}{}}
 \pgfsyspdfmark {pgfid7}{16343337}{35132971}
 \pgfsyspdfmark {pgfid8}{18999422}{35132971}
 \pgfsyspdfmark {pgfid9}{19141227}{34991887}
@@ -193,166 +206,166 @@
 \pgfsyspdfmark {pgfid22}{22966229}{30596585}
 \pgfsyspdfmark {pgfid23}{23851590}{30596585}
 \pgfsyspdfmark {pgfid24}{23993395}{30455501}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Square lattice spatial symmetry channels}{33}{section.3.4}\protected@file@percent }
-\newlabel{sec:square-lattice-symmetries}{{3.4}{33}{Square lattice spatial symmetry channels}{section.3.4}{}}
-\newlabel{subfig:s-wave-correlator}{{3.4a}{34}{Local $s$-wave\caption@thelabel }{figure.caption.25}{}}
-\newlabel{sub@subfig:s-wave-correlator}{{a}{34}{Local $s$-wave\caption@thelabel }{figure.caption.25}{}}
-\newlabel{subfig:s*-wave-correlator}{{3.4b}{34}{Extended $s$-wave.\caption@thelabel }{figure.caption.25}{}}
-\newlabel{sub@subfig:s*-wave-correlator}{{b}{34}{Extended $s$-wave.\caption@thelabel }{figure.caption.25}{}}
-\newlabel{subfig:px-wave-correlator}{{3.4c}{34}{$p_x$-wave.\caption@thelabel }{figure.caption.25}{}}
-\newlabel{sub@subfig:px-wave-correlator}{{c}{34}{$p_x$-wave.\caption@thelabel }{figure.caption.25}{}}
-\newlabel{subfig:py-wave-correlator}{{3.4d}{34}{$p_y$-wave.\caption@thelabel }{figure.caption.25}{}}
-\newlabel{sub@subfig:py-wave-correlator}{{d}{34}{$p_y$-wave.\caption@thelabel }{figure.caption.25}{}}
-\newlabel{subfig:d-wave-correlator}{{3.4e}{34}{$d_{x^2-y^2}$-wave.\caption@thelabel }{figure.caption.25}{}}
-\newlabel{sub@subfig:d-wave-correlator}{{e}{34}{$d_{x^2-y^2}$-wave.\caption@thelabel }{figure.caption.25}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Form factors at different topologies, as listed in Tab.~\ref {tab:x-wave-real-factors}. In figures five sites are represented: the hub site $i$ and its four NN. Solid lines represent non-zero values for $\varphi _{\bm  {\delta }}$, while dashed lines represent vanishing factors.}}{34}{figure.caption.25}\protected@file@percent }
-\newlabel{fig:x-wave-real-factors}{{3.4}{34}{Form factors at different topologies, as listed in Tab.~\ref {tab:x-wave-real-factors}. In figures five sites are represented: the hub site $i$ and its four NN. Solid lines represent non-zero values for $\varphi _{\bm {\delta }}$, while dashed lines represent vanishing factors}{figure.caption.25}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.4}{\ignorespaces Form factors for a function defined on a square lattice, with a prefactor included for normalization. We use lattice vector notation here. The last column indicates the graph representation of each contribution given in Fig.~\ref {fig:x-wave-real-factors}. Subscript $x^2-y^2$ is omitted for notational clarity.}}{34}{table.caption.26}\protected@file@percent }
-\newlabel{tab:x-wave-real-factors}{{3.4}{34}{Form factors for a function defined on a square lattice, with a prefactor included for normalization. We use lattice vector notation here. The last column indicates the graph representation of each contribution given in Fig.~\ref {fig:x-wave-real-factors}. Subscript $x^2-y^2$ is omitted for notational clarity}{table.caption.26}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.5}{\ignorespaces Structure factors derived from the correlation structures of Tab.~\ref {tab:x-wave-real-factors}. The functions hereby defined are orthonormal, and are plotted in Fig.~\ref {fig:x-wave-reciprocal-factors}.}}{35}{table.caption.27}\protected@file@percent }
-\newlabel{tab:x-wave-reciprocal-factors}{{3.5}{35}{Structure factors derived from the correlation structures of Tab.~\ref {tab:x-wave-real-factors}. The functions hereby defined are orthonormal, and are plotted in Fig.~\ref {fig:x-wave-reciprocal-factors}}{table.caption.27}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Representation of the various structure factors listed in Tab.~\ref {tab:x-wave-reciprocal-factors} on the BZ. For the $s^*$ and $d_{x^2-y^2}$-wave factors, the real part is plotted; for the $p_\ell $ factors, the imaginary part is plotted.}}{35}{figure.caption.28}\protected@file@percent }
-\newlabel{fig:x-wave-reciprocal-factors}{{3.5}{35}{Representation of the various structure factors listed in Tab.~\ref {tab:x-wave-reciprocal-factors} on the BZ. For the $s^*$ and $d_{x^2-y^2}$-wave factors, the real part is plotted; for the $p_\ell $ factors, the imaginary part is plotted}{figure.caption.28}{}}
-\newlabel{eq:sym-asym-couplings-gap}{{3.33}{36}{Square lattice spatial symmetry channels}{equation.3.33}{}}
-\newlabel{eq:coscos-symmetries-decomposition}{{3.34}{36}{Square lattice spatial symmetry channels}{equation.3.34}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Square lattice spatial symmetry channels}{35}{section.3.4}\protected@file@percent }
+\newlabel{sec:square-lattice-symmetries}{{3.4}{35}{Square lattice spatial symmetry channels}{section.3.4}{}}
+\newlabel{subfig:s-wave-correlator}{{3.4a}{36}{Local $s$-wave\caption@thelabel }{figure.caption.27}{}}
+\newlabel{sub@subfig:s-wave-correlator}{{a}{36}{Local $s$-wave\caption@thelabel }{figure.caption.27}{}}
+\newlabel{subfig:s*-wave-correlator}{{3.4b}{36}{Extended $s$-wave.\caption@thelabel }{figure.caption.27}{}}
+\newlabel{sub@subfig:s*-wave-correlator}{{b}{36}{Extended $s$-wave.\caption@thelabel }{figure.caption.27}{}}
+\newlabel{subfig:px-wave-correlator}{{3.4c}{36}{$p_x$-wave.\caption@thelabel }{figure.caption.27}{}}
+\newlabel{sub@subfig:px-wave-correlator}{{c}{36}{$p_x$-wave.\caption@thelabel }{figure.caption.27}{}}
+\newlabel{subfig:py-wave-correlator}{{3.4d}{36}{$p_y$-wave.\caption@thelabel }{figure.caption.27}{}}
+\newlabel{sub@subfig:py-wave-correlator}{{d}{36}{$p_y$-wave.\caption@thelabel }{figure.caption.27}{}}
+\newlabel{subfig:d-wave-correlator}{{3.4e}{36}{$d_{x^2-y^2}$-wave.\caption@thelabel }{figure.caption.27}{}}
+\newlabel{sub@subfig:d-wave-correlator}{{e}{36}{$d_{x^2-y^2}$-wave.\caption@thelabel }{figure.caption.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Form factors at different topologies, as listed in Tab.~\ref {tab:x-wave-real-factors}. In figures five sites are represented: the hub site $i$ and its four NN. Solid lines represent non-zero values for $\varphi _{\bm  {\delta }}$, while dashed lines represent vanishing factors.}}{36}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:x-wave-real-factors}{{3.4}{36}{Form factors at different topologies, as listed in Tab.~\ref {tab:x-wave-real-factors}. In figures five sites are represented: the hub site $i$ and its four NN. Solid lines represent non-zero values for $\varphi _{\bm {\delta }}$, while dashed lines represent vanishing factors}{figure.caption.27}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.4}{\ignorespaces Form factors for a function defined on a square lattice, with a prefactor included for normalization. We use lattice vector notation here. The last column indicates the graph representation of each contribution given in Fig.~\ref {fig:x-wave-real-factors}. Subscript $x^2-y^2$ is omitted for notational clarity.}}{36}{table.caption.28}\protected@file@percent }
+\newlabel{tab:x-wave-real-factors}{{3.4}{36}{Form factors for a function defined on a square lattice, with a prefactor included for normalization. We use lattice vector notation here. The last column indicates the graph representation of each contribution given in Fig.~\ref {fig:x-wave-real-factors}. Subscript $x^2-y^2$ is omitted for notational clarity}{table.caption.28}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.5}{\ignorespaces Structure factors derived from the correlation structures of Tab.~\ref {tab:x-wave-real-factors}. The functions hereby defined are orthonormal, and are plotted in Fig.~\ref {fig:x-wave-reciprocal-factors}.}}{37}{table.caption.29}\protected@file@percent }
+\newlabel{tab:x-wave-reciprocal-factors}{{3.5}{37}{Structure factors derived from the correlation structures of Tab.~\ref {tab:x-wave-real-factors}. The functions hereby defined are orthonormal, and are plotted in Fig.~\ref {fig:x-wave-reciprocal-factors}}{table.caption.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Representation of the various structure factors listed in Tab.~\ref {tab:x-wave-reciprocal-factors} on the BZ. For the $s^*$ and $d_{x^2-y^2}$-wave factors, the real part is plotted; for the $p_\ell $ factors, the imaginary part is plotted.}}{37}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:x-wave-reciprocal-factors}{{3.5}{37}{Representation of the various structure factors listed in Tab.~\ref {tab:x-wave-reciprocal-factors} on the BZ. For the $s^*$ and $d_{x^2-y^2}$-wave factors, the real part is plotted; for the $p_\ell $ factors, the imaginary part is plotted}{figure.caption.30}{}}
+\newlabel{eq:sym-asym-couplings-gap}{{3.33}{38}{Square lattice spatial symmetry channels}{equation.3.33}{}}
+\newlabel{eq:coscos-symmetries-decomposition}{{3.34}{38}{Square lattice spatial symmetry channels}{equation.3.34}{}}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {4}The normal phase}{37}{chapter.4}\protected@file@percent }
-\newlabel{chap:normal-phase}{{4}{37}{The normal phase}{chapter.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}The ``normal'' phase and its symmetries}{37}{section.4.1}\protected@file@percent }
-\newlabel{sec:normal-phase-theory}{{4.1}{37}{The ``normal'' phase and its symmetries}{section.4.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Relevant Wick's contractions and net effect in the normal phase.}}{38}{table.caption.29}\protected@file@percent }
-\newlabel{tab:normal-RWCs}{{4.1}{38}{Relevant Wick's contractions and net effect in the normal phase}{table.caption.29}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Hartree effects: chemical potential renormalization}{38}{section.4.2}\protected@file@percent }
-\newlabel{sec:normal-hartree-mu}{{4.2}{38}{Hartree effects: chemical potential renormalization}{section.4.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Hartree channel in the normal phase: analytic derivation}{38}{subsection.4.2.1}\protected@file@percent }
-\newlabel{subsec:normal-hartree-analytic}{{4.2.1}{38}{Hartree channel in the normal phase: analytic derivation}{subsection.4.2.1}{}}
-\@writefile{toc}{\contentsline {paragraph}{Local repulsion.}{38}{section*.30}\protected@file@percent }
-\newlabel{eq:normal-density-ansatz}{{4.1}{38}{Local repulsion}{equation.4.1}{}}
-\newlabel{eq:local-hartree-mu-shift}{{4.2}{38}{Local repulsion}{equation.4.2}{}}
-\@writefile{toc}{\contentsline {paragraph}{Non-local attraction.}{39}{section*.31}\protected@file@percent }
-\newlabel{eq:normal-V-wick-decomposition}{{4.3}{39}{Non-local attraction}{equation.4.3}{}}
-\newlabel{eq:non-local-hartree-mu-shift}{{4.4}{39}{Non-local attraction}{equation.4.4}{}}
-\newlabel{eq:normal-mu-shift}{{4.5}{39}{Non-local attraction}{equation.4.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Hartree contraction energy}{39}{subsection.4.2.2}\protected@file@percent }
-\newlabel{subsec:normal-hartree-energy}{{4.2.2}{39}{Hartree contraction energy}{subsection.4.2.2}{}}
-\newlabel{eq:normal-hartree-U-contraction-energy}{{4.6}{39}{Hartree contraction energy}{equation.4.6}{}}
-\newlabel{eq:normal-hartree-V-contraction-energy}{{4.7}{39}{Hartree contraction energy}{equation.4.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Fock effects: bare bands renormalization}{40}{section.4.3}\protected@file@percent }
-\newlabel{sec:normal-fock-bands-renormalization}{{4.3}{40}{Fock effects: bare bands renormalization}{section.4.3}{}}
-\newlabel{eq:real-space-non-local-interaction-fock}{{4.8}{40}{Fock effects: bare bands renormalization}{equation.4.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Fock channel in the normal phase: analytic derivation}{40}{subsection.4.3.1}\protected@file@percent }
-\newlabel{subsec:normal-fock-analytic}{{4.3.1}{40}{Fock channel in the normal phase: analytic derivation}{subsection.4.3.1}{}}
-\newlabel{eq:normal-V-fock-int1}{{4.9}{40}{Fock channel in the normal phase: analytic derivation}{equation.4.9}{}}
-\newlabel{eq:normal-V-fock-double-counting}{{4.10}{40}{Fock channel in the normal phase: analytic derivation}{equation.4.10}{}}
-\newlabel{eq:normal-cc-EV}{{4.11}{40}{Fock channel in the normal phase: analytic derivation}{equation.4.11}{}}
-\newlabel{eq:normal-V-fock-int2}{{4.12}{40}{Fock channel in the normal phase: analytic derivation}{equation.4.12}{}}
-\newlabel{subfig:Kk-qq'-generic}{{4.1a}{41}{Generic vectors. \caption@thelabel }{figure.caption.32}{}}
-\newlabel{sub@subfig:Kk-qq'-generic}{{a}{41}{Generic vectors. \caption@thelabel }{figure.caption.32}{}}
-\newlabel{subfig:Kk-qq'-newvariables}{{4.1b}{41}{Change of variables. \caption@thelabel }{figure.caption.32}{}}
-\newlabel{sub@subfig:Kk-qq'-newvariables}{{b}{41}{Change of variables. \caption@thelabel }{figure.caption.32}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Representation of the variable change employed to pass from Eq.~\eqref  {eq:normal-V-fock-int2} to \eqref  {eq:normal-V-fock-int3}. In Fig.~\ref {subfig:Kk-qq'-generic} generic vectors are considered, cycling over all values of $\mathbf  {K},\mathbf  {k}\in \mathrm  {BZ}$. In Fig.~\ref {subfig:Kk-qq'-newvariables} is depicted the variables change to the new vectors $\mathbf  {q},\mathbf  {q}'$.}}{41}{figure.caption.32}\protected@file@percent }
-\newlabel{fig:Kk-qq'}{{4.1}{41}{Representation of the variable change employed to pass from Eq.~\eqref {eq:normal-V-fock-int2} to \eqref {eq:normal-V-fock-int3}. In Fig.~\ref {subfig:Kk-qq'-generic} generic vectors are considered, cycling over all values of $\mathbf {K},\mathbf {k}\in \mathrm {BZ}$. In Fig.~\ref {subfig:Kk-qq'-newvariables} is depicted the variables change to the new vectors $\mathbf {q},\mathbf {q}'$}{figure.caption.32}{}}
-\newlabel{eq:normal-V-fock-int3}{{4.13}{41}{Fock channel in the normal phase: analytic derivation}{equation.4.13}{}}
-\newlabel{eq:normal-V-fock-int4}{{4.14}{41}{Fock channel in the normal phase: analytic derivation}{equation.4.14}{}}
-\newlabel{eq:normal-uqsigma-def}{{4.15}{41}{Fock channel in the normal phase: analytic derivation}{equation.4.15}{}}
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {4}The normal phase}{39}{chapter.4}\protected@file@percent }
+\newlabel{chap:normal-phase}{{4}{39}{The normal phase}{chapter.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}The ``normal'' phase and its symmetries}{39}{section.4.1}\protected@file@percent }
+\newlabel{sec:normal-phase-theory}{{4.1}{39}{The ``normal'' phase and its symmetries}{section.4.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Relevant Wick's contractions and net effect in the normal phase.}}{40}{table.caption.31}\protected@file@percent }
+\newlabel{tab:normal-RWCs}{{4.1}{40}{Relevant Wick's contractions and net effect in the normal phase}{table.caption.31}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Hartree effects: chemical potential renormalization}{40}{section.4.2}\protected@file@percent }
+\newlabel{sec:normal-hartree-mu}{{4.2}{40}{Hartree effects: chemical potential renormalization}{section.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Hartree channel in the normal phase: analytic derivation}{40}{subsection.4.2.1}\protected@file@percent }
+\newlabel{subsec:normal-hartree-analytic}{{4.2.1}{40}{Hartree channel in the normal phase: analytic derivation}{subsection.4.2.1}{}}
+\@writefile{toc}{\contentsline {paragraph}{Local repulsion.}{40}{section*.32}\protected@file@percent }
+\newlabel{eq:normal-density-ansatz}{{4.1}{40}{Local repulsion}{equation.4.1}{}}
+\newlabel{eq:local-hartree-mu-shift}{{4.2}{40}{Local repulsion}{equation.4.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{Non-local attraction.}{40}{section*.33}\protected@file@percent }
+\newlabel{eq:normal-V-wick-decomposition}{{4.3}{40}{Non-local attraction}{equation.4.3}{}}
+\newlabel{eq:non-local-hartree-mu-shift}{{4.4}{41}{Non-local attraction}{equation.4.4}{}}
+\newlabel{eq:normal-mu-shift}{{4.5}{41}{Non-local attraction}{equation.4.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Hartree contraction energy}{41}{subsection.4.2.2}\protected@file@percent }
+\newlabel{subsec:normal-hartree-energy}{{4.2.2}{41}{Hartree contraction energy}{subsection.4.2.2}{}}
+\newlabel{eq:normal-hartree-U-contraction-energy}{{4.6}{41}{Hartree contraction energy}{equation.4.6}{}}
+\newlabel{eq:normal-hartree-V-contraction-energy}{{4.7}{41}{Hartree contraction energy}{equation.4.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Fock effects: bare bands renormalization}{41}{section.4.3}\protected@file@percent }
+\newlabel{sec:normal-fock-bands-renormalization}{{4.3}{41}{Fock effects: bare bands renormalization}{section.4.3}{}}
+\newlabel{eq:real-space-non-local-interaction-fock}{{4.8}{41}{Fock effects: bare bands renormalization}{equation.4.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Fock channel in the normal phase: analytic derivation}{42}{subsection.4.3.1}\protected@file@percent }
+\newlabel{subsec:normal-fock-analytic}{{4.3.1}{42}{Fock channel in the normal phase: analytic derivation}{subsection.4.3.1}{}}
+\newlabel{eq:normal-V-fock-int1}{{4.9}{42}{Fock channel in the normal phase: analytic derivation}{equation.4.9}{}}
+\newlabel{eq:normal-V-fock-double-counting}{{4.10}{42}{Fock channel in the normal phase: analytic derivation}{equation.4.10}{}}
+\newlabel{eq:normal-cc-EV}{{4.11}{42}{Fock channel in the normal phase: analytic derivation}{equation.4.11}{}}
+\newlabel{eq:normal-V-fock-int2}{{4.12}{42}{Fock channel in the normal phase: analytic derivation}{equation.4.12}{}}
+\newlabel{eq:normal-V-fock-int3}{{4.13}{42}{Fock channel in the normal phase: analytic derivation}{equation.4.13}{}}
+\newlabel{subfig:Kk-qq'-generic}{{4.1a}{43}{Generic vectors. \caption@thelabel }{figure.caption.34}{}}
+\newlabel{sub@subfig:Kk-qq'-generic}{{a}{43}{Generic vectors. \caption@thelabel }{figure.caption.34}{}}
+\newlabel{subfig:Kk-qq'-newvariables}{{4.1b}{43}{Change of variables. \caption@thelabel }{figure.caption.34}{}}
+\newlabel{sub@subfig:Kk-qq'-newvariables}{{b}{43}{Change of variables. \caption@thelabel }{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Representation of the variable change employed to pass from Eq.~\eqref  {eq:normal-V-fock-int2} to \eqref  {eq:normal-V-fock-int3}. In Fig.~\ref {subfig:Kk-qq'-generic} generic vectors are considered, cycling over all values of $\mathbf  {K},\mathbf  {k}\in \mathrm  {BZ}$. In Fig.~\ref {subfig:Kk-qq'-newvariables} is depicted the variables change to the new vectors $\mathbf  {q},\mathbf  {q}'$.}}{43}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:Kk-qq'}{{4.1}{43}{Representation of the variable change employed to pass from Eq.~\eqref {eq:normal-V-fock-int2} to \eqref {eq:normal-V-fock-int3}. In Fig.~\ref {subfig:Kk-qq'-generic} generic vectors are considered, cycling over all values of $\mathbf {K},\mathbf {k}\in \mathrm {BZ}$. In Fig.~\ref {subfig:Kk-qq'-newvariables} is depicted the variables change to the new vectors $\mathbf {q},\mathbf {q}'$}{figure.caption.34}{}}
+\newlabel{eq:normal-V-fock-int4}{{4.14}{43}{Fock channel in the normal phase: analytic derivation}{equation.4.14}{}}
+\newlabel{eq:normal-uqsigma-def}{{4.15}{43}{Fock channel in the normal phase: analytic derivation}{equation.4.15}{}}
 \abx@aux@cite{0}{bohmer2022nematicity}
 \abx@aux@segm{0}{0}{bohmer2022nematicity}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Symmetry resolved self-consistency equations for the harmonics of $u_\mathbf  {k}$.}}{42}{table.caption.33}\protected@file@percent }
-\newlabel{tab:normal-ehm-ugamma-self-consistencies}{{4.2}{42}{Symmetry resolved self-consistency equations for the harmonics of $u_\mathbf {k}$}{table.caption.33}{}}
-\newlabel{eq:normal-V-fock-int5}{{4.16}{42}{Fock channel in the normal phase: analytic derivation}{equation.4.16}{}}
-\newlabel{eq:normal-bands-renormalization}{{4.17}{42}{Fock channel in the normal phase: analytic derivation}{equation.4.17}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Fock contraction energy}{42}{subsection.4.3.2}\protected@file@percent }
-\newlabel{subsec:normal-fock-energy}{{4.3.2}{42}{Fock contraction energy}{subsection.4.3.2}{}}
-\newlabel{eq:normal-fock-V-contraction-energy}{{4.18}{42}{Fock contraction energy}{equation.4.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Graphic rendition of anisotropic hopping, with a $s^*$-wave component (symmetric by $\pi /$ rotations) and a $d$-wave component (antisymmetric).}}{43}{figure.caption.34}\protected@file@percent }
-\newlabel{fig:anisotropic-hopping}{{4.2}{43}{Graphic rendition of anisotropic hopping, with a $s^*$-wave component (symmetric by $\pi /$ rotations) and a $d$-wave component (antisymmetric)}{figure.caption.34}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Nematicity: extending hopping to $d$-wave bands}{43}{subsection.4.3.3}\protected@file@percent }
-\newlabel{subsec:normal-d-wave-hopping}{{4.3.3}{43}{Nematicity: extending hopping to $d$-wave bands}{subsection.4.3.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Symmetry resolved self-consistency equations for the harmonics of $u_\mathbf  {k}$.}}{44}{table.caption.35}\protected@file@percent }
+\newlabel{tab:normal-ehm-ugamma-self-consistencies}{{4.2}{44}{Symmetry resolved self-consistency equations for the harmonics of $u_\mathbf {k}$}{table.caption.35}{}}
+\newlabel{eq:normal-V-fock-int5}{{4.16}{44}{Fock channel in the normal phase: analytic derivation}{equation.4.16}{}}
+\newlabel{eq:normal-bands-renormalization}{{4.17}{44}{Fock channel in the normal phase: analytic derivation}{equation.4.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Fock contraction energy}{44}{subsection.4.3.2}\protected@file@percent }
+\newlabel{subsec:normal-fock-energy}{{4.3.2}{44}{Fock contraction energy}{subsection.4.3.2}{}}
+\newlabel{eq:normal-fock-V-contraction-energy}{{4.18}{44}{Fock contraction energy}{equation.4.18}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.3}Nematicity: extending hopping to $d$-wave bands}{44}{subsection.4.3.3}\protected@file@percent }
+\newlabel{subsec:normal-d-wave-hopping}{{4.3.3}{44}{Nematicity: extending hopping to $d$-wave bands}{subsection.4.3.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Graphic rendition of anisotropic hopping, with a $s^*$-wave component (symmetric by $\pi /$ rotations) and a $d$-wave component (antisymmetric).}}{45}{figure.caption.36}\protected@file@percent }
+\newlabel{fig:anisotropic-hopping}{{4.2}{45}{Graphic rendition of anisotropic hopping, with a $s^*$-wave component (symmetric by $\pi /$ rotations) and a $d$-wave component (antisymmetric)}{figure.caption.36}{}}
 \abx@aux@cite{0}{grosso2014solid}
 \abx@aux@segm{0}{0}{grosso2014solid}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Normal free energy density}{44}{section.4.4}\protected@file@percent }
-\newlabel{sec:normal-free-energy}{{4.4}{44}{Normal free energy density}{section.4.4}{}}
-\newlabel{eq:normal-entropy-density}{{4.21}{45}{Normal free energy density}{equation.4.21}{}}
-\newlabel{eq:normal-fMFT}{{4.22}{45}{Normal free energy density}{equation.4.22}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}Theoretical constraints on the normal phase HFPs}{45}{section.4.5}\protected@file@percent }
-\newlabel{sec:normal-constraints}{{4.5}{45}{Theoretical constraints on the normal phase HFPs}{section.4.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Theoretical representation of mixed-symmetry nematic bands for the normal phase. The white contour represent level lines. In top-left panel, the MBZ and NBZ are depicted. While these plots only account for positive-defined components, in text is described how to map each one on its counterpart with different sign.}}{46}{figure.caption.35}\protected@file@percent }
-\newlabel{fig:normal-nematic-bands}{{4.3}{46}{Theoretical representation of mixed-symmetry nematic bands for the normal phase. The white contour represent level lines. In top-left panel, the MBZ and NBZ are depicted. While these plots only account for positive-defined components, in text is described how to map each one on its counterpart with different sign}{figure.caption.35}{}}
-\newlabel{eq:MBZ-def}{{4.23}{46}{Theoretical constraints on the normal phase HFPs}{equation.4.23}{}}
-\newlabel{eq:NBZ-def}{{4.24}{46}{Theoretical constraints on the normal phase HFPs}{equation.4.24}{}}
-\newlabel{subfig:MBZ-sectors}{{4.4a}{47}{MBZ sectors. \caption@thelabel }{figure.caption.36}{}}
-\newlabel{sub@subfig:MBZ-sectors}{{a}{47}{MBZ sectors. \caption@thelabel }{figure.caption.36}{}}
-\newlabel{subfig:NBZ-sectors}{{4.4b}{47}{NBZ sectors. \caption@thelabel }{figure.caption.36}{}}
-\newlabel{sub@subfig:NBZ-sectors}{{b}{47}{NBZ sectors. \caption@thelabel }{figure.caption.36}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Depiction of the sectors composing the MBZ (Fig.~\ref {subfig:MBZ-sectors}) and the NBZ (Fig.~\ref {subfig:NBZ-sectors}), based on the divisions shown in the top-left panel of Fig.~\ref {fig:normal-nematic-bands}. The full green zone composes $\mathcal  {A}$, the region where both the $s^*$-wave and $d$-wave structure factors are positive defined; its MBZ complementary white counterpart in the left panel gives $\mathcal  {B}$, for which the $s^*$-wave structure factors is positive-definite while the $d$-wave is negative. Similarly the NBZ complementary white counterpart in the right panel gives $\mathcal  {C}$, for which signs are exchanged. The black dots, at the contours intersection, are band nodes.}}{47}{figure.caption.36}\protected@file@percent }
-\newlabel{fig:BZ-sectors}{{4.4}{47}{Depiction of the sectors composing the MBZ (Fig.~\ref {subfig:MBZ-sectors}) and the NBZ (Fig.~\ref {subfig:NBZ-sectors}), based on the divisions shown in the top-left panel of Fig.~\ref {fig:normal-nematic-bands}. The full green zone composes $\mathcal {A}$, the region where both the $s^*$-wave and $d$-wave structure factors are positive defined; its MBZ complementary white counterpart in the left panel gives $\mathcal {B}$, for which the $s^*$-wave structure factors is positive-definite while the $d$-wave is negative. Similarly the NBZ complementary white counterpart in the right panel gives $\mathcal {C}$, for which signs are exchanged. The black dots, at the contours intersection, are band nodes}{figure.caption.36}{}}
-\newlabel{eq:BZ-A-def}{{4.25}{47}{Theoretical constraints on the normal phase HFPs}{equation.4.25}{}}
-\newlabel{eq:BZ-B-def}{{4.26}{47}{Theoretical constraints on the normal phase HFPs}{equation.4.26}{}}
-\newlabel{eq:BZ-C-def}{{4.27}{47}{Theoretical constraints on the normal phase HFPs}{equation.4.27}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Constraints in presence of a robust $\mathrm  {C}_4$ symmetry and bands shrinking}{47}{subsection.4.5.1}\protected@file@percent }
-\newlabel{subsec:normal-bands-shrinking}{{4.5.1}{47}{Constraints in presence of a robust $\mathrm {C}_4$ symmetry and bands shrinking}{subsection.4.5.1}{}}
-\newlabel{eq:normal-us*-constraint-int1}{{4.28}{48}{Constraints in presence of a robust $\mathrm {C}_4$ symmetry and bands shrinking}{equation.4.28}{}}
-\newlabel{eq:normal-us*-constraint}{{4.29}{48}{Constraints in presence of a robust $\mathrm {C}_4$ symmetry and bands shrinking}{equation.4.29}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Natural suppression of nematicity within $\mathrm  {C}_2/\mathbb  {Z}_2$ symmetry}{48}{subsection.4.5.2}\protected@file@percent }
-\newlabel{subsec:normal-bands-shrinking-C2}{{4.5.2}{48}{Natural suppression of nematicity within $\mathrm {C}_2/\mathbb {Z}_2$ symmetry}{subsection.4.5.2}{}}
-\newlabel{subfig:normal-nematic-bands-detail-pp}{{4.5a}{49}{Same-sign mixed bands.\caption@thelabel }{figure.caption.37}{}}
-\newlabel{sub@subfig:normal-nematic-bands-detail-pp}{{a}{49}{Same-sign mixed bands.\caption@thelabel }{figure.caption.37}{}}
-\newlabel{subfig:normal-nematic-bands-detail-mp}{{4.5b}{49}{Opposite-sign mixed bands.\caption@thelabel }{figure.caption.37}{}}
-\newlabel{sub@subfig:normal-nematic-bands-detail-mp}{{b}{49}{Opposite-sign mixed bands.\caption@thelabel }{figure.caption.37}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Theoretical example of bands with $u^{(s^*)} > 2t/V$, $u^{(d)}>0$ (top-left) and $u^{(s^*)} < 0$, $u^{(d)}>0$ (top right). Two example points are reported, connected by a $\pi /2$ rotation as given in Eqns.~\eqref  {eq:normal-A=RB}, \eqref  {eq:normal-B=RA}.}}{49}{figure.caption.37}\protected@file@percent }
-\newlabel{fig:normal-nematic-bands-detail}{{4.5}{49}{Theoretical example of bands with $u^{(s^*)} > 2t/V$, $u^{(d)}>0$ (top-left) and $u^{(s^*)} < 0$, $u^{(d)}>0$ (top right). Two example points are reported, connected by a $\pi /2$ rotation as given in Eqns.~\eqref {eq:normal-A=RB}, \eqref {eq:normal-B=RA}}{figure.caption.37}{}}
-\newlabel{eq:normal-B=RA}{{4.30}{49}{Natural suppression of nematicity within $\mathrm {C}_2/\mathbb {Z}_2$ symmetry}{equation.4.30}{}}
-\newlabel{eq:normal-us*-AR}{{4.31}{49}{Natural suppression of nematicity within $\mathrm {C}_2/\mathbb {Z}_2$ symmetry}{equation.4.31}{}}
-\newlabel{eq:normal-A=RB}{{4.32}{50}{Natural suppression of nematicity within $\mathrm {C}_2/\mathbb {Z}_2$ symmetry}{equation.4.32}{}}
-\newlabel{eq:normal-us*-BR}{{4.33}{50}{Natural suppression of nematicity within $\mathrm {C}_2/\mathbb {Z}_2$ symmetry}{equation.4.33}{}}
-\newlabel{eq:normal-us*-ud-constraint}{{4.34}{51}{Natural suppression of nematicity within $\mathrm {C}_2/\mathbb {Z}_2$ symmetry}{equation.4.34}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}Expected dependence on $\delta $ at low temperature}{51}{subsection.4.5.3}\protected@file@percent }
-\newlabel{subsec:normal-uS-doping}{{4.5.3}{51}{Expected dependence on $\delta $ at low temperature}{subsection.4.5.3}{}}
-\newlabel{eq:normal-uS-half-filling}{{4.35}{52}{Expected dependence on $\delta $ at low temperature}{equation.4.35}{}}
-\newlabel{subfig:normal-uS-data-B128}{{4.6a}{53}{Heatmap of $u^{(s^*)}$ in $\delta V$ plane.\caption@thelabel }{figure.caption.38}{}}
-\newlabel{sub@subfig:normal-uS-data-B128}{{a}{53}{Heatmap of $u^{(s^*)}$ in $\delta V$ plane.\caption@thelabel }{figure.caption.38}{}}
-\newlabel{subfig:normal-uS-data-B256}{{4.6b}{53}{$V$-dependency of $u^{(s^*)}$ varying $\delta $.\caption@thelabel }{figure.caption.38}{}}
-\newlabel{sub@subfig:normal-uS-data-B256}{{b}{53}{$V$-dependency of $u^{(s^*)}$ varying $\delta $.\caption@thelabel }{figure.caption.38}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase. To extract the data on the right side coarse-graining precision of the left-hand side data has been exchanged with higher lattice dimensions. As is evident, based on doping level $u^{(s^*)}$ exhibits non-trivial regions of $V$-independence.}}{53}{figure.caption.38}\protected@file@percent }
-\newlabel{fig:normal-uS-data}{{4.6}{53}{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase. To extract the data on the right side coarse-graining precision of the left-hand side data has been exchanged with higher lattice dimensions. As is evident, based on doping level $u^{(s^*)}$ exhibits non-trivial regions of $V$-independence}{figure.caption.38}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.6}Discussion of numeric results}{53}{section.4.6}\protected@file@percent }
-\newlabel{sec:normal-numeric}{{4.6}{53}{Discussion of numeric results}{section.4.6}{}}
-\newlabel{subfig:normal-tS-data-B128}{{4.7a}{54}{Simulated values of $\tilde {t}^{(s^*)}$\caption@thelabel }{figure.caption.39}{}}
-\newlabel{sub@subfig:normal-tS-data-B128}{{a}{54}{Simulated values of $\tilde {t}^{(s^*)}$\caption@thelabel }{figure.caption.39}{}}
-\newlabel{subfig:normal-tS-data-B128-mott}{{4.7b}{54}{Critical Mott boundary.\caption@thelabel }{figure.caption.39}{}}
-\newlabel{sub@subfig:normal-tS-data-B128-mott}{{b}{54}{Critical Mott boundary.\caption@thelabel }{figure.caption.39}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase and the Mott-boundary $V_\mathrm  {c}$, computed as is described in text. In the right panel, the tick $V=4.93$ is specified explicitly as a graphic confirm of the computation of Eq.~\eqref  {eq:normal-Vc-half-filling}. For graphic reasons the points at $V_\mathrm  {c} > 8$ have been omitted.}}{54}{figure.caption.39}\protected@file@percent }
-\newlabel{fig:normal-tS-data}{{4.7}{54}{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase and the Mott-boundary $V_\mathrm {c}$, computed as is described in text. In the right panel, the tick $V=4.93$ is specified explicitly as a graphic confirm of the computation of Eq.~\eqref {eq:normal-Vc-half-filling}. For graphic reasons the points at $V_\mathrm {c} > 8$ have been omitted}{figure.caption.39}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}Mott localisation effect}{54}{subsection.4.6.1}\protected@file@percent }
-\newlabel{subsec:normal-mott-numeric}{{4.6.1}{54}{Mott localisation effect}{subsection.4.6.1}{}}
-\newlabel{eq:normal-Vc-half-filling}{{4.36}{54}{Mott localisation effect}{equation.4.36}{}}
-\newlabel{subfig:normal-data-uS-C256-compared}{{4.8a}{55}{Temperature dependence of $u^{(s^*)}$ plots at various dopings.\caption@thelabel }{figure.caption.40}{}}
-\newlabel{sub@subfig:normal-data-uS-C256-compared}{{a}{55}{Temperature dependence of $u^{(s^*)}$ plots at various dopings.\caption@thelabel }{figure.caption.40}{}}
-\newlabel{subfig:normal-data-tS-C256-compared}{{4.8b}{55}{Temperature dependence of $\tilde {t}^{(s^*)}$ plots at various dopings.\caption@thelabel }{figure.caption.40}{}}
-\newlabel{sub@subfig:normal-data-tS-C256-compared}{{b}{55}{Temperature dependence of $\tilde {t}^{(s^*)}$ plots at various dopings.\caption@thelabel }{figure.caption.40}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Comparative plots of the HFP $u^{(s^*)}$ (top panel) and RMP $\tilde  {t}^{(s^*)}$ (bottom panel) in null-doped (left plots), ``medium-doped'' ($\delta =0.2$, central plots) and ``heavily-doped'' ($\delta =0.4$, right plots) contexts. Increasing temperature progressively destroys Mott localization, reducing the bands shrinking effect.}}{55}{figure.caption.40}\protected@file@percent }
-\newlabel{fig:normal-data-C256-compared}{{4.8}{55}{Comparative plots of the HFP $u^{(s^*)}$ (top panel) and RMP $\tilde {t}^{(s^*)}$ (bottom panel) in null-doped (left plots), ``medium-doped'' ($\delta =0.2$, central plots) and ``heavily-doped'' ($\delta =0.4$, right plots) contexts. Increasing temperature progressively destroys Mott localization, reducing the bands shrinking effect}{figure.caption.40}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}Solution free energy and entropy densities}{55}{subsection.4.6.2}\protected@file@percent }
-\newlabel{subsec:normal-f-s}{{4.6.2}{55}{Solution free energy and entropy densities}{subsection.4.6.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Normal free energy density}{46}{section.4.4}\protected@file@percent }
+\newlabel{sec:normal-free-energy}{{4.4}{46}{Normal free energy density}{section.4.4}{}}
+\newlabel{eq:normal-entropy-density}{{4.21}{46}{Normal free energy density}{equation.4.21}{}}
+\newlabel{eq:normal-fMFT}{{4.22}{47}{Normal free energy density}{equation.4.22}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Theoretical constraints on the normal phase HFPs}{47}{section.4.5}\protected@file@percent }
+\newlabel{sec:normal-constraints}{{4.5}{47}{Theoretical constraints on the normal phase HFPs}{section.4.5}{}}
+\newlabel{eq:MBZ-def}{{4.23}{47}{Theoretical constraints on the normal phase HFPs}{equation.4.23}{}}
+\newlabel{eq:NBZ-def}{{4.24}{47}{Theoretical constraints on the normal phase HFPs}{equation.4.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Theoretical representation of mixed-symmetry nematic bands for the normal phase. The white contour represent level lines. In top-left panel, the MBZ and NBZ are depicted. While these plots only account for positive-defined components, in text is described how to map each one on its counterpart with different sign.}}{48}{figure.caption.37}\protected@file@percent }
+\newlabel{fig:normal-nematic-bands}{{4.3}{48}{Theoretical representation of mixed-symmetry nematic bands for the normal phase. The white contour represent level lines. In top-left panel, the MBZ and NBZ are depicted. While these plots only account for positive-defined components, in text is described how to map each one on its counterpart with different sign}{figure.caption.37}{}}
+\newlabel{subfig:MBZ-sectors}{{4.4a}{49}{MBZ sectors. \caption@thelabel }{figure.caption.38}{}}
+\newlabel{sub@subfig:MBZ-sectors}{{a}{49}{MBZ sectors. \caption@thelabel }{figure.caption.38}{}}
+\newlabel{subfig:NBZ-sectors}{{4.4b}{49}{NBZ sectors. \caption@thelabel }{figure.caption.38}{}}
+\newlabel{sub@subfig:NBZ-sectors}{{b}{49}{NBZ sectors. \caption@thelabel }{figure.caption.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Depiction of the sectors composing the MBZ (Fig.~\ref {subfig:MBZ-sectors}) and the NBZ (Fig.~\ref {subfig:NBZ-sectors}), based on the divisions shown in the top-left panel of Fig.~\ref {fig:normal-nematic-bands}. The full green zone composes $\mathcal  {A}$, the region where both the $s^*$-wave and $d$-wave structure factors are positive defined; its MBZ complementary white counterpart in the left panel gives $\mathcal  {B}$, for which the $s^*$-wave structure factors is positive-definite while the $d$-wave is negative. Similarly the NBZ complementary white counterpart in the right panel gives $\mathcal  {C}$, for which signs are exchanged. The black dots, at the contours intersection, are band nodes.}}{49}{figure.caption.38}\protected@file@percent }
+\newlabel{fig:BZ-sectors}{{4.4}{49}{Depiction of the sectors composing the MBZ (Fig.~\ref {subfig:MBZ-sectors}) and the NBZ (Fig.~\ref {subfig:NBZ-sectors}), based on the divisions shown in the top-left panel of Fig.~\ref {fig:normal-nematic-bands}. The full green zone composes $\mathcal {A}$, the region where both the $s^*$-wave and $d$-wave structure factors are positive defined; its MBZ complementary white counterpart in the left panel gives $\mathcal {B}$, for which the $s^*$-wave structure factors is positive-definite while the $d$-wave is negative. Similarly the NBZ complementary white counterpart in the right panel gives $\mathcal {C}$, for which signs are exchanged. The black dots, at the contours intersection, are band nodes}{figure.caption.38}{}}
+\newlabel{eq:BZ-A-def}{{4.25}{49}{Theoretical constraints on the normal phase HFPs}{equation.4.25}{}}
+\newlabel{eq:BZ-B-def}{{4.26}{49}{Theoretical constraints on the normal phase HFPs}{equation.4.26}{}}
+\newlabel{eq:BZ-C-def}{{4.27}{49}{Theoretical constraints on the normal phase HFPs}{equation.4.27}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.1}Constraints in presence of a robust $\mathrm  {C}_4$ symmetry and bands shrinking}{49}{subsection.4.5.1}\protected@file@percent }
+\newlabel{subsec:normal-bands-shrinking}{{4.5.1}{49}{Constraints in presence of a robust $\mathrm {C}_4$ symmetry and bands shrinking}{subsection.4.5.1}{}}
+\newlabel{eq:normal-us*-constraint-int1}{{4.28}{50}{Constraints in presence of a robust $\mathrm {C}_4$ symmetry and bands shrinking}{equation.4.28}{}}
+\newlabel{eq:normal-us*-constraint}{{4.29}{50}{Constraints in presence of a robust $\mathrm {C}_4$ symmetry and bands shrinking}{equation.4.29}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.2}Natural suppression of nematicity within $\mathrm  {C}_2/\mathbb  {Z}_2$ symmetry}{50}{subsection.4.5.2}\protected@file@percent }
+\newlabel{subsec:normal-bands-shrinking-C2}{{4.5.2}{50}{Natural suppression of nematicity within $\mathrm {C}_2/\mathbb {Z}_2$ symmetry}{subsection.4.5.2}{}}
+\newlabel{subfig:normal-nematic-bands-detail-pp}{{4.5a}{51}{Same-sign mixed bands.\caption@thelabel }{figure.caption.39}{}}
+\newlabel{sub@subfig:normal-nematic-bands-detail-pp}{{a}{51}{Same-sign mixed bands.\caption@thelabel }{figure.caption.39}{}}
+\newlabel{subfig:normal-nematic-bands-detail-mp}{{4.5b}{51}{Opposite-sign mixed bands.\caption@thelabel }{figure.caption.39}{}}
+\newlabel{sub@subfig:normal-nematic-bands-detail-mp}{{b}{51}{Opposite-sign mixed bands.\caption@thelabel }{figure.caption.39}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Theoretical example of bands with $u^{(s^*)} > 2t/V$, $u^{(d)}>0$ (top-left) and $u^{(s^*)} < 0$, $u^{(d)}>0$ (top right). Two example points are reported, connected by a $\pi /2$ rotation as given in Eqns.~\eqref  {eq:normal-A=RB}, \eqref  {eq:normal-B=RA}.}}{51}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:normal-nematic-bands-detail}{{4.5}{51}{Theoretical example of bands with $u^{(s^*)} > 2t/V$, $u^{(d)}>0$ (top-left) and $u^{(s^*)} < 0$, $u^{(d)}>0$ (top right). Two example points are reported, connected by a $\pi /2$ rotation as given in Eqns.~\eqref {eq:normal-A=RB}, \eqref {eq:normal-B=RA}}{figure.caption.39}{}}
+\newlabel{eq:normal-B=RA}{{4.30}{51}{Natural suppression of nematicity within $\mathrm {C}_2/\mathbb {Z}_2$ symmetry}{equation.4.30}{}}
+\newlabel{eq:normal-us*-AR}{{4.31}{51}{Natural suppression of nematicity within $\mathrm {C}_2/\mathbb {Z}_2$ symmetry}{equation.4.31}{}}
+\newlabel{eq:normal-A=RB}{{4.32}{52}{Natural suppression of nematicity within $\mathrm {C}_2/\mathbb {Z}_2$ symmetry}{equation.4.32}{}}
+\newlabel{eq:normal-us*-BR}{{4.33}{52}{Natural suppression of nematicity within $\mathrm {C}_2/\mathbb {Z}_2$ symmetry}{equation.4.33}{}}
+\newlabel{eq:normal-us*-ud-constraint}{{4.34}{53}{Natural suppression of nematicity within $\mathrm {C}_2/\mathbb {Z}_2$ symmetry}{equation.4.34}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.5.3}Expected dependence on $\delta $ at low temperature}{53}{subsection.4.5.3}\protected@file@percent }
+\newlabel{subsec:normal-uS-doping}{{4.5.3}{53}{Expected dependence on $\delta $ at low temperature}{subsection.4.5.3}{}}
+\newlabel{eq:normal-uS-half-filling}{{4.35}{54}{Expected dependence on $\delta $ at low temperature}{equation.4.35}{}}
+\newlabel{subfig:normal-uS-data-B128}{{4.6a}{55}{Heatmap of $u^{(s^*)}$ in $\delta V$ plane.\caption@thelabel }{figure.caption.40}{}}
+\newlabel{sub@subfig:normal-uS-data-B128}{{a}{55}{Heatmap of $u^{(s^*)}$ in $\delta V$ plane.\caption@thelabel }{figure.caption.40}{}}
+\newlabel{subfig:normal-uS-data-B256}{{4.6b}{55}{$V$-dependency of $u^{(s^*)}$ varying $\delta $.\caption@thelabel }{figure.caption.40}{}}
+\newlabel{sub@subfig:normal-uS-data-B256}{{b}{55}{$V$-dependency of $u^{(s^*)}$ varying $\delta $.\caption@thelabel }{figure.caption.40}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase. To extract the data on the right side coarse-graining precision of the left-hand side data has been exchanged with higher lattice dimensions. As is evident, based on doping level $u^{(s^*)}$ exhibits non-trivial regions of $V$-independence.}}{55}{figure.caption.40}\protected@file@percent }
+\newlabel{fig:normal-uS-data}{{4.6}{55}{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase. To extract the data on the right side coarse-graining precision of the left-hand side data has been exchanged with higher lattice dimensions. As is evident, based on doping level $u^{(s^*)}$ exhibits non-trivial regions of $V$-independence}{figure.caption.40}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Discussion of numeric results}{55}{section.4.6}\protected@file@percent }
+\newlabel{sec:normal-numeric}{{4.6}{55}{Discussion of numeric results}{section.4.6}{}}
+\newlabel{subfig:normal-tS-data-B128}{{4.7a}{56}{Simulated values of $\tilde {t}^{(s^*)}$\caption@thelabel }{figure.caption.41}{}}
+\newlabel{sub@subfig:normal-tS-data-B128}{{a}{56}{Simulated values of $\tilde {t}^{(s^*)}$\caption@thelabel }{figure.caption.41}{}}
+\newlabel{subfig:normal-tS-data-B128-mott}{{4.7b}{56}{Critical Mott boundary.\caption@thelabel }{figure.caption.41}{}}
+\newlabel{sub@subfig:normal-tS-data-B128-mott}{{b}{56}{Critical Mott boundary.\caption@thelabel }{figure.caption.41}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase and the Mott-boundary $V_\mathrm  {c}$, computed as is described in text. In the right panel, the tick $V=4.93$ is specified explicitly as a graphic confirm of the computation of Eq.~\eqref  {eq:normal-Vc-half-filling}. For graphic reasons the points at $V_\mathrm  {c} > 8$ have been omitted.}}{56}{figure.caption.41}\protected@file@percent }
+\newlabel{fig:normal-tS-data}{{4.7}{56}{Plot of the self-consistent convergence values for the HFP $u^{(s^*)}$ in the normal phase and the Mott-boundary $V_\mathrm {c}$, computed as is described in text. In the right panel, the tick $V=4.93$ is specified explicitly as a graphic confirm of the computation of Eq.~\eqref {eq:normal-Vc-half-filling}. For graphic reasons the points at $V_\mathrm {c} > 8$ have been omitted}{figure.caption.41}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}Mott localisation effect}{56}{subsection.4.6.1}\protected@file@percent }
+\newlabel{subsec:normal-mott-numeric}{{4.6.1}{56}{Mott localisation effect}{subsection.4.6.1}{}}
+\newlabel{eq:normal-Vc-half-filling}{{4.36}{56}{Mott localisation effect}{equation.4.36}{}}
+\newlabel{subfig:normal-data-uS-C256-compared}{{4.8a}{57}{Temperature dependence of $u^{(s^*)}$ plots at various dopings.\caption@thelabel }{figure.caption.42}{}}
+\newlabel{sub@subfig:normal-data-uS-C256-compared}{{a}{57}{Temperature dependence of $u^{(s^*)}$ plots at various dopings.\caption@thelabel }{figure.caption.42}{}}
+\newlabel{subfig:normal-data-tS-C256-compared}{{4.8b}{57}{Temperature dependence of $\tilde {t}^{(s^*)}$ plots at various dopings.\caption@thelabel }{figure.caption.42}{}}
+\newlabel{sub@subfig:normal-data-tS-C256-compared}{{b}{57}{Temperature dependence of $\tilde {t}^{(s^*)}$ plots at various dopings.\caption@thelabel }{figure.caption.42}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Comparative plots of the HFP $u^{(s^*)}$ (top panel) and RMP $\tilde  {t}^{(s^*)}$ (bottom panel) in null-doped (left plots), ``medium-doped'' ($\delta =0.2$, central plots) and ``heavily-doped'' ($\delta =0.4$, right plots) contexts. Increasing temperature progressively destroys Mott localization, reducing the bands shrinking effect.}}{57}{figure.caption.42}\protected@file@percent }
+\newlabel{fig:normal-data-C256-compared}{{4.8}{57}{Comparative plots of the HFP $u^{(s^*)}$ (top panel) and RMP $\tilde {t}^{(s^*)}$ (bottom panel) in null-doped (left plots), ``medium-doped'' ($\delta =0.2$, central plots) and ``heavily-doped'' ($\delta =0.4$, right plots) contexts. Increasing temperature progressively destroys Mott localization, reducing the bands shrinking effect}{figure.caption.42}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}Solution free energy and entropy densities}{57}{subsection.4.6.2}\protected@file@percent }
+\newlabel{subsec:normal-f-s}{{4.6.2}{57}{Solution free energy and entropy densities}{subsection.4.6.2}{}}
 \abx@aux@cite{0}{grosso2014solid}
 \abx@aux@segm{0}{0}{grosso2014solid}
-\newlabel{subfig:normal-f-data-B128}{{4.9a}{56}{Heatmap of $f_\mathrm {MFT}$ in $\delta V$ plane.\caption@thelabel }{figure.caption.41}{}}
-\newlabel{sub@subfig:normal-f-data-B128}{{a}{56}{Heatmap of $f_\mathrm {MFT}$ in $\delta V$ plane.\caption@thelabel }{figure.caption.41}{}}
-\newlabel{subfig:normal-f-data-B256}{{4.9b}{56}{$V$-dependency of $f_\mathrm {MFT}$ varying $\delta $.\caption@thelabel }{figure.caption.41}{}}
-\newlabel{sub@subfig:normal-f-data-B256}{{b}{56}{$V$-dependency of $f_\mathrm {MFT}$ varying $\delta $.\caption@thelabel }{figure.caption.41}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Free energy density of the normal phase. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref {subfig:normal-tS-data-B128-mott}, indicating the Mott transition.}}{56}{figure.caption.41}\protected@file@percent }
-\newlabel{fig:normal-f-data}{{4.9}{56}{Free energy density of the normal phase. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref {subfig:normal-tS-data-B128-mott}, indicating the Mott transition}{figure.caption.41}{}}
-\newlabel{subfig:normal-s-data-B128}{{4.10a}{56}{Heatmap of $s_\mathrm {MFT}$ in $\delta V$ plane.\caption@thelabel }{figure.caption.42}{}}
-\newlabel{sub@subfig:normal-s-data-B128}{{a}{56}{Heatmap of $s_\mathrm {MFT}$ in $\delta V$ plane.\caption@thelabel }{figure.caption.42}{}}
-\newlabel{subfig:normal-entropy}{{4.10b}{56}{$V$-dependency of $f_\mathrm {MFT}$ varying $\delta $.\caption@thelabel }{figure.caption.42}{}}
-\newlabel{sub@subfig:normal-entropy}{{b}{56}{$V$-dependency of $f_\mathrm {MFT}$ varying $\delta $.\caption@thelabel }{figure.caption.42}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Entropy density of the normal phase (left panel) and theoretical contribution to entropy for a state with occupation $f$. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref {subfig:normal-tS-data-B128-mott}, indicating the Mott transition.}}{56}{figure.caption.42}\protected@file@percent }
-\newlabel{fig:normal-s-data}{{4.10}{56}{Entropy density of the normal phase (left panel) and theoretical contribution to entropy for a state with occupation $f$. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref {subfig:normal-tS-data-B128-mott}, indicating the Mott transition}{figure.caption.42}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Comparison of three example tracks for the single-valued HFPs vector of the normal phase, simulated at a ``Mott-deep'' point.}}{57}{figure.caption.43}\protected@file@percent }
-\newlabel{fig:normal-tracks-compared}{{4.11}{57}{Comparison of three example tracks for the single-valued HFPs vector of the normal phase, simulated at a ``Mott-deep'' point}{figure.caption.43}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}Convergence problems and mixing fine-tuning}{57}{subsection.4.6.3}\protected@file@percent }
-\newlabel{subsec:normal-g-optimization}{{4.6.3}{57}{Convergence problems and mixing fine-tuning}{subsection.4.6.3}{}}
+\newlabel{subfig:normal-f-data-B128}{{4.9a}{58}{Heatmap of $f_\mathrm {MFT}$ in $\delta V$ plane.\caption@thelabel }{figure.caption.43}{}}
+\newlabel{sub@subfig:normal-f-data-B128}{{a}{58}{Heatmap of $f_\mathrm {MFT}$ in $\delta V$ plane.\caption@thelabel }{figure.caption.43}{}}
+\newlabel{subfig:normal-f-data-B256}{{4.9b}{58}{$V$-dependency of $f_\mathrm {MFT}$ varying $\delta $.\caption@thelabel }{figure.caption.43}{}}
+\newlabel{sub@subfig:normal-f-data-B256}{{b}{58}{$V$-dependency of $f_\mathrm {MFT}$ varying $\delta $.\caption@thelabel }{figure.caption.43}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Free energy density of the normal phase. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref {subfig:normal-tS-data-B128-mott}, indicating the Mott transition.}}{58}{figure.caption.43}\protected@file@percent }
+\newlabel{fig:normal-f-data}{{4.9}{58}{Free energy density of the normal phase. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref {subfig:normal-tS-data-B128-mott}, indicating the Mott transition}{figure.caption.43}{}}
+\newlabel{subfig:normal-s-data-B128}{{4.10a}{58}{Heatmap of $s_\mathrm {MFT}$ in $\delta V$ plane.\caption@thelabel }{figure.caption.44}{}}
+\newlabel{sub@subfig:normal-s-data-B128}{{a}{58}{Heatmap of $s_\mathrm {MFT}$ in $\delta V$ plane.\caption@thelabel }{figure.caption.44}{}}
+\newlabel{subfig:normal-entropy}{{4.10b}{58}{$V$-dependency of $f_\mathrm {MFT}$ varying $\delta $.\caption@thelabel }{figure.caption.44}{}}
+\newlabel{sub@subfig:normal-entropy}{{b}{58}{$V$-dependency of $f_\mathrm {MFT}$ varying $\delta $.\caption@thelabel }{figure.caption.44}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Entropy density of the normal phase (left panel) and theoretical contribution to entropy for a state with occupation $f$. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref {subfig:normal-tS-data-B128-mott}, indicating the Mott transition.}}{58}{figure.caption.44}\protected@file@percent }
+\newlabel{fig:normal-s-data}{{4.10}{58}{Entropy density of the normal phase (left panel) and theoretical contribution to entropy for a state with occupation $f$. On the left-side panel, the dashed white line has the same meaning as the dotted line of Fig.~\ref {subfig:normal-tS-data-B128-mott}, indicating the Mott transition}{figure.caption.44}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Comparison of three example tracks for the single-valued HFPs vector of the normal phase, simulated at a ``Mott-deep'' point.}}{59}{figure.caption.45}\protected@file@percent }
+\newlabel{fig:normal-tracks-compared}{{4.11}{59}{Comparison of three example tracks for the single-valued HFPs vector of the normal phase, simulated at a ``Mott-deep'' point}{figure.caption.45}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.3}Convergence problems and mixing fine-tuning}{59}{subsection.4.6.3}\protected@file@percent }
+\newlabel{subsec:normal-g-optimization}{{4.6.3}{59}{Convergence problems and mixing fine-tuning}{subsection.4.6.3}{}}
 \abx@aux@cite{0}{fabrizio2022course}
 \abx@aux@segm{0}{0}{fabrizio2022course}
 \abx@aux@cite{0}{wietek2021stripes}
@@ -365,307 +378,248 @@
 \abx@aux@segm{0}{0}{kato1990soliton}
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {5}Antiferromagnetic instability}{59}{chapter.5}\protected@file@percent }
-\newlabel{chap:mft-af-instability}{{5}{59}{Antiferromagnetic instability}{chapter.5}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}The AF phase and its symmetries}{59}{section.5.1}\protected@file@percent }
-\newlabel{sec:af-phase-theory}{{5.1}{59}{The AF phase and its symmetries}{section.5.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Three possible antiferromagnetic structures. Dots and arrows indicate spin abundance on a given site, while empty sites are intended as spin-balanced. Within this text we deal with the lowest-periodicity commensurate phase, the antiferromagnet on left panel.}}{60}{figure.caption.44}\protected@file@percent }
-\newlabel{fig:antiferromagnets}{{5.1}{60}{Three possible antiferromagnetic structures. Dots and arrows indicate spin abundance on a given site, while empty sites are intended as spin-balanced. Within this text we deal with the lowest-periodicity commensurate phase, the antiferromagnet on left panel}{figure.caption.44}{}}
-\newlabel{eq:af-mean-field-ansatz}{{5.1}{60}{The AF phase and its symmetries}{equation.5.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Symmetries of the commensurate AF Ansatz}{60}{subsection.5.1.1}\protected@file@percent }
-\newlabel{eq:af-ansatz-2m}{{5.2}{60}{Symmetries of the commensurate AF Ansatz}{equation.5.2}{}}
-\newlabel{eq:af-m-def}{{5.3}{61}{Symmetries of the commensurate AF Ansatz}{equation.5.3}{}}
-\newlabel{eq:af-n-def}{{5.4}{61}{Symmetries of the commensurate AF Ansatz}{equation.5.4}{}}
-\newlabel{eq:af-hm-n-self-consistency-implicit}{{5.5}{61}{Symmetries of the commensurate AF Ansatz}{equation.5.5}{}}
-\newlabel{eq:af-hm-m-self-consistency-implicit}{{5.6}{61}{Symmetries of the commensurate AF Ansatz}{equation.5.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}The AF Ansatz in reciprocal space}{61}{subsection.5.1.2}\protected@file@percent }
-\newlabel{subsec:af-ansatz-reciprocal}{{5.1.2}{61}{The AF Ansatz in reciprocal space}{subsection.5.1.2}{}}
-\newlabel{eq:af-ehm-n-def}{{5.7}{61}{The AF Ansatz in reciprocal space}{equation.5.7}{}}
-\newlabel{eq:af-ehm-psi-def}{{5.8}{61}{The AF Ansatz in reciprocal space}{equation.5.8}{}}
-\newlabel{eq:af-(psi+pi)=psi}{{5.9}{61}{The AF Ansatz in reciprocal space}{equation.5.9}{}}
-\newlabel{eq:af-(phi+pi)=-phi}{{5.10}{61}{The AF Ansatz in reciprocal space}{equation.5.10}{}}
-\newlabel{eq:af-ehm-vphi-psi-property}{{5.11}{61}{The AF Ansatz in reciprocal space}{equation.5.11}{}}
-\newlabel{eq:af-<n>-not0}{{5.12}{62}{The AF Ansatz in reciprocal space}{equation.5.12}{}}
-\newlabel{eq:af-n-EV}{{5.13}{62}{The AF Ansatz in reciprocal space}{equation.5.13}{}}
-\newlabel{eq:af-<psi>-not0-int}{{5.14}{62}{The AF Ansatz in reciprocal space}{equation.5.14}{}}
-\newlabel{eq:af-<psi>-not0}{{5.15}{62}{The AF Ansatz in reciprocal space}{equation.5.15}{}}
-\newlabel{eq:af-m-EV}{{5.16}{62}{The AF Ansatz in reciprocal space}{equation.5.16}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Relevant Wick's contractions and net effect in the AF phase. Note the similarity with Tab.~\ref {tab:normal-RWCs}.}}{63}{table.caption.45}\protected@file@percent }
-\newlabel{tab:af-RWCs}{{5.1}{63}{Relevant Wick's contractions and net effect in the AF phase. Note the similarity with Tab.~\ref {tab:normal-RWCs}}{table.caption.45}{}}
-\newlabel{eq:af-m-EV-up}{{5.17}{63}{The AF Ansatz in reciprocal space}{equation.5.17}{}}
-\newlabel{eq:af-m-EV-down}{{5.18}{63}{The AF Ansatz in reciprocal space}{equation.5.18}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Local Hartree effects: antiferromagnetism in the HM}{63}{section.5.2}\protected@file@percent }
-\newlabel{sec:af-local-hartree-m}{{5.2}{63}{Local Hartree effects: antiferromagnetism in the HM}{section.5.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Local Hartree channel in the normal phase: analytic derivation}{63}{subsection.5.2.1}\protected@file@percent }
-\newlabel{subsec:af-l-hartree-analytic}{{5.2.1}{63}{Local Hartree channel in the normal phase: analytic derivation}{subsection.5.2.1}{}}
-\newlabel{eq:af-hm-mft-h}{{5.19}{63}{Local Hartree channel in the normal phase: analytic derivation}{equation.5.19}{}}
-\newlabel{eq:af-l-mu}{{5.20}{64}{Local Hartree channel in the normal phase: analytic derivation}{equation.5.20}{}}
-\newlabel{eq:af-MBZ-sum}{{5.21}{64}{Local Hartree channel in the normal phase: analytic derivation}{equation.5.21}{}}
-\newlabel{eq:af-HU-gap-psi}{{5.22}{64}{Local Hartree channel in the normal phase: analytic derivation}{equation.5.22}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Local Hartree contraction energy}{64}{subsection.5.2.2}\protected@file@percent }
-\newlabel{subsec:af-l-hartree-energy}{{5.2.2}{64}{Local Hartree contraction energy}{subsection.5.2.2}{}}
-\newlabel{eq:af-hm-hartree-U-Ec}{{5.23}{64}{Local Hartree contraction energy}{equation.5.23}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Antiferromagnetism in the HM}{65}{subsection.5.2.3}\protected@file@percent }
-\newlabel{subsec:af-hm}{{5.2.3}{65}{Antiferromagnetism in the HM}{subsection.5.2.3}{}}
-\@writefile{toc}{\contentsline {paragraph}{Matricial representation.}{65}{section*.46}\protected@file@percent }
-\newlabel{eq:af-HM-hk}{{5.24}{65}{Matricial representation}{equation.5.24}{}}
-\@writefile{toc}{\contentsline {paragraph}{Pseudospin representation.}{65}{section*.47}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces List of the various expectation values (EVs) of each pseudo-spin component and their meaning in terms of fermionic operators.}}{66}{table.caption.48}\protected@file@percent }
-\newlabel{tab:af-pseudo-spin-map}{{5.2}{66}{List of the various expectation values (EVs) of each pseudo-spin component and their meaning in terms of fermionic operators}{table.caption.48}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Sketch of the diagonalisation procedure for the HM antiferromagnet. To diagonalise the HF hamiltonian, we align the $z$ axis with the pseudo-field.}}{66}{figure.caption.49}\protected@file@percent }
-\newlabel{fig:pseudo-magnetic-field-hm}{{5.2}{66}{Sketch of the diagonalisation procedure for the HM antiferromagnet. To diagonalise the HF hamiltonian, we align the $z$ axis with the pseudo-field}{figure.caption.49}{}}
-\newlabel{eq:af-hm-x-psi}{{5.25}{66}{Pseudospin representation}{equation.5.25}{}}
-\newlabel{eq:af-hm-y-psi}{{5.26}{66}{Pseudospin representation}{equation.5.26}{}}
-\newlabel{eq:af-hm-z-psi}{{5.27}{66}{Pseudospin representation}{equation.5.27}{}}
-\newlabel{eq:af-hm-id-def}{{5.28}{66}{Pseudospin representation}{equation.5.28}{}}
-\newlabel{eq:af-hm-spin-h}{{5.29}{66}{Pseudospin representation}{equation.5.29}{}}
-\@writefile{toc}{\contentsline {paragraph}{Diagonalisation.}{67}{section*.50}\protected@file@percent }
-\newlabel{eq:af-WhW+-hm}{{5.30}{67}{Diagonalisation}{equation.5.30}{}}
-\newlabel{eq:af-hm-diagonalizer}{{5.31}{67}{Diagonalisation}{equation.5.31}{}}
-\newlabel{eq:af-bands}{{5.32}{67}{Diagonalisation}{equation.5.32}{}}
-\newlabel{eq:af-Gamma=WPsi}{{5.33}{67}{Diagonalisation}{equation.5.33}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}Features of the AF solution}{67}{subsection.5.2.4}\protected@file@percent }
-\newlabel{subsec:af-features}{{5.2.4}{67}{Features of the AF solution}{subsection.5.2.4}{}}
-\@writefile{toc}{\contentsline {paragraph}{Pseudospin EVs.}{67}{section*.51}\protected@file@percent }
-\newlabel{eq:af-<z>}{{5.34}{68}{Pseudospin EVs}{equation.5.34}{}}
-\newlabel{eq:af-Th}{{5.35}{68}{Pseudospin EVs}{equation.5.35}{}}
-\newlabel{eq:af-hm-sx}{{5.36}{68}{Pseudospin EVs}{equation.5.36}{}}
-\newlabel{eq:af-hm-sz}{{5.38}{68}{Pseudospin EVs}{equation.5.38}{}}
-\@writefile{toc}{\contentsline {paragraph}{Magnetisation self-consistency equation.}{68}{section*.52}\protected@file@percent }
-\newlabel{eq:af-hm-m-self-consistency}{{5.39}{68}{Magnetisation self-consistency equation}{equation.5.39}{}}
-\@writefile{toc}{\contentsline {paragraph}{Density.}{68}{section*.53}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {5}Antiferromagnetic instability}{61}{chapter.5}\protected@file@percent }
+\newlabel{chap:mft-af-instability}{{5}{61}{Antiferromagnetic instability}{chapter.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}The AF phase and its symmetries}{61}{section.5.1}\protected@file@percent }
+\newlabel{sec:af-phase-theory}{{5.1}{61}{The AF phase and its symmetries}{section.5.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Three possible antiferromagnetic structures. Dots and arrows indicate spin abundance on a given site, while empty sites are intended as spin-balanced. Within this text we deal with the lowest-periodicity commensurate phase, the antiferromagnet on left panel.}}{61}{figure.caption.46}\protected@file@percent }
+\newlabel{fig:antiferromagnets}{{5.1}{61}{Three possible antiferromagnetic structures. Dots and arrows indicate spin abundance on a given site, while empty sites are intended as spin-balanced. Within this text we deal with the lowest-periodicity commensurate phase, the antiferromagnet on left panel}{figure.caption.46}{}}
+\newlabel{eq:af-mean-field-ansatz}{{5.1}{62}{The AF phase and its symmetries}{equation.5.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Symmetries of the commensurate AF Ansatz}{62}{subsection.5.1.1}\protected@file@percent }
+\newlabel{eq:af-ansatz-2m}{{5.2}{62}{Symmetries of the commensurate AF Ansatz}{equation.5.2}{}}
+\newlabel{eq:af-m-def}{{5.3}{63}{Symmetries of the commensurate AF Ansatz}{equation.5.3}{}}
+\newlabel{eq:af-n-def}{{5.4}{63}{Symmetries of the commensurate AF Ansatz}{equation.5.4}{}}
+\newlabel{eq:af-hm-n-self-consistency-implicit}{{5.5}{63}{Symmetries of the commensurate AF Ansatz}{equation.5.5}{}}
+\newlabel{eq:af-hm-m-self-consistency-implicit}{{5.6}{63}{Symmetries of the commensurate AF Ansatz}{equation.5.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}The AF Ansatz in reciprocal space}{63}{subsection.5.1.2}\protected@file@percent }
+\newlabel{subsec:af-ansatz-reciprocal}{{5.1.2}{63}{The AF Ansatz in reciprocal space}{subsection.5.1.2}{}}
+\newlabel{eq:af-ehm-n-def}{{5.7}{63}{The AF Ansatz in reciprocal space}{equation.5.7}{}}
+\newlabel{eq:af-ehm-psi-def}{{5.8}{63}{The AF Ansatz in reciprocal space}{equation.5.8}{}}
+\newlabel{eq:af-(psi+pi)=psi}{{5.9}{63}{The AF Ansatz in reciprocal space}{equation.5.9}{}}
+\newlabel{eq:af-(phi+pi)=-phi}{{5.10}{63}{The AF Ansatz in reciprocal space}{equation.5.10}{}}
+\newlabel{eq:af-ehm-vphi-psi-property}{{5.11}{63}{The AF Ansatz in reciprocal space}{equation.5.11}{}}
+\newlabel{eq:af-<n>-not0}{{5.12}{64}{The AF Ansatz in reciprocal space}{equation.5.12}{}}
+\newlabel{eq:af-n-EV}{{5.13}{64}{The AF Ansatz in reciprocal space}{equation.5.13}{}}
+\newlabel{eq:af-<psi>-not0-int}{{5.14}{64}{The AF Ansatz in reciprocal space}{equation.5.14}{}}
+\newlabel{eq:af-<psi>-not0}{{5.15}{64}{The AF Ansatz in reciprocal space}{equation.5.15}{}}
+\newlabel{eq:af-m-EV}{{5.16}{64}{The AF Ansatz in reciprocal space}{equation.5.16}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Relevant Wick's contractions and net effect in the AF phase. Note the similarity with Tab.~\ref {tab:normal-RWCs}.}}{65}{table.caption.47}\protected@file@percent }
+\newlabel{tab:af-RWCs}{{5.1}{65}{Relevant Wick's contractions and net effect in the AF phase. Note the similarity with Tab.~\ref {tab:normal-RWCs}}{table.caption.47}{}}
+\newlabel{eq:af-m-EV-up}{{5.17}{65}{The AF Ansatz in reciprocal space}{equation.5.17}{}}
+\newlabel{eq:af-m-EV-down}{{5.18}{65}{The AF Ansatz in reciprocal space}{equation.5.18}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Local Hartree effects: antiferromagnetism in the HM}{65}{section.5.2}\protected@file@percent }
+\newlabel{sec:af-local-hartree-m}{{5.2}{65}{Local Hartree effects: antiferromagnetism in the HM}{section.5.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Local Hartree channel in the normal phase: analytic derivation}{65}{subsection.5.2.1}\protected@file@percent }
+\newlabel{subsec:af-l-hartree-analytic}{{5.2.1}{65}{Local Hartree channel in the normal phase: analytic derivation}{subsection.5.2.1}{}}
+\newlabel{eq:af-hm-mft-h}{{5.19}{65}{Local Hartree channel in the normal phase: analytic derivation}{equation.5.19}{}}
+\newlabel{eq:af-l-mu}{{5.20}{66}{Local Hartree channel in the normal phase: analytic derivation}{equation.5.20}{}}
+\newlabel{eq:af-MBZ-sum}{{5.21}{66}{Local Hartree channel in the normal phase: analytic derivation}{equation.5.21}{}}
+\newlabel{eq:af-HU-gap-psi}{{5.22}{66}{Local Hartree channel in the normal phase: analytic derivation}{equation.5.22}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Local Hartree contraction energy}{66}{subsection.5.2.2}\protected@file@percent }
+\newlabel{subsec:af-l-hartree-energy}{{5.2.2}{66}{Local Hartree contraction energy}{subsection.5.2.2}{}}
+\newlabel{eq:af-hm-hartree-U-Ec}{{5.23}{66}{Local Hartree contraction energy}{equation.5.23}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Antiferromagnetism in the HM}{67}{subsection.5.2.3}\protected@file@percent }
+\newlabel{subsec:af-hm}{{5.2.3}{67}{Antiferromagnetism in the HM}{subsection.5.2.3}{}}
+\@writefile{toc}{\contentsline {paragraph}{Matricial representation.}{67}{section*.48}\protected@file@percent }
+\newlabel{eq:af-HM-hk}{{5.24}{67}{Matricial representation}{equation.5.24}{}}
+\@writefile{toc}{\contentsline {paragraph}{Pseudospin representation.}{67}{section*.49}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces List of the various expectation values (EVs) of each pseudo-spin component and their meaning in terms of fermionic operators.}}{68}{table.caption.50}\protected@file@percent }
+\newlabel{tab:af-pseudo-spin-map}{{5.2}{68}{List of the various expectation values (EVs) of each pseudo-spin component and their meaning in terms of fermionic operators}{table.caption.50}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Sketch of the diagonalisation procedure for the HM antiferromagnet. To diagonalise the HF hamiltonian, we align the $z$ axis with the pseudo-field.}}{68}{figure.caption.51}\protected@file@percent }
+\newlabel{fig:pseudo-magnetic-field-hm}{{5.2}{68}{Sketch of the diagonalisation procedure for the HM antiferromagnet. To diagonalise the HF hamiltonian, we align the $z$ axis with the pseudo-field}{figure.caption.51}{}}
+\newlabel{eq:af-hm-x-psi}{{5.25}{68}{Pseudospin representation}{equation.5.25}{}}
+\newlabel{eq:af-hm-y-psi}{{5.26}{68}{Pseudospin representation}{equation.5.26}{}}
+\newlabel{eq:af-hm-z-psi}{{5.27}{68}{Pseudospin representation}{equation.5.27}{}}
+\newlabel{eq:af-hm-id-def}{{5.28}{68}{Pseudospin representation}{equation.5.28}{}}
+\newlabel{eq:af-hm-spin-h}{{5.29}{68}{Pseudospin representation}{equation.5.29}{}}
+\@writefile{toc}{\contentsline {paragraph}{Diagonalisation.}{69}{section*.52}\protected@file@percent }
+\newlabel{eq:af-WhW+-hm}{{5.30}{69}{Diagonalisation}{equation.5.30}{}}
+\newlabel{eq:af-hm-diagonalizer}{{5.31}{69}{Diagonalisation}{equation.5.31}{}}
+\newlabel{eq:af-bands}{{5.32}{69}{Diagonalisation}{equation.5.32}{}}
+\newlabel{eq:af-Gamma=WPsi}{{5.33}{69}{Diagonalisation}{equation.5.33}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}Features of the AF solution}{69}{subsection.5.2.4}\protected@file@percent }
+\newlabel{subsec:af-features}{{5.2.4}{69}{Features of the AF solution}{subsection.5.2.4}{}}
+\@writefile{toc}{\contentsline {paragraph}{Pseudospin EVs.}{69}{section*.53}\protected@file@percent }
+\newlabel{eq:af-<z>}{{5.34}{70}{Pseudospin EVs}{equation.5.34}{}}
+\newlabel{eq:af-Th}{{5.35}{70}{Pseudospin EVs}{equation.5.35}{}}
+\newlabel{eq:af-hm-sx}{{5.36}{70}{Pseudospin EVs}{equation.5.36}{}}
+\newlabel{eq:af-hm-sz}{{5.38}{70}{Pseudospin EVs}{equation.5.38}{}}
+\@writefile{toc}{\contentsline {paragraph}{Magnetisation self-consistency equation.}{70}{section*.54}\protected@file@percent }
+\newlabel{eq:af-hm-m-self-consistency}{{5.39}{70}{Magnetisation self-consistency equation}{equation.5.39}{}}
+\@writefile{toc}{\contentsline {paragraph}{Density.}{70}{section*.55}\protected@file@percent }
 \abx@aux@cite{0}{singh1990collective}
 \abx@aux@segm{0}{0}{singh1990collective}
 \abx@aux@cite{0}{singh1991doped}
 \abx@aux@segm{0}{0}{singh1991doped}
 \abx@aux@cite{0}{singh1990collective}
 \abx@aux@segm{0}{0}{singh1990collective}
-\newlabel{fig:af-Ek-density}{{5.3a}{69}{Electronic density.\caption@thelabel }{figure.caption.55}{}}
-\newlabel{sub@fig:af-Ek-density}{{a}{69}{Electronic density.\caption@thelabel }{figure.caption.55}{}}
-\newlabel{fig:af-Ek-bands}{{5.3b}{69}{Example doped bands.\caption@thelabel }{figure.caption.55}{}}
-\newlabel{sub@fig:af-Ek-bands}{{b}{69}{Example doped bands.\caption@thelabel }{figure.caption.55}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Left panel: electronic density in the AF phase as a function of the chemical potential, measured in relation to the gap $\Delta =mU$, at various temperatures. Right panel: example doped bands, with $\mu /\Delta = 1.5$ set arbitrarily and temperature set to $\beta =10$ to enhance smearing effects around FS. Single-state filling is proportional to color magnitude.}}{69}{figure.caption.55}\protected@file@percent }
-\newlabel{fig:af-Ek-filling}{{5.3}{69}{Left panel: electronic density in the AF phase as a function of the chemical potential, measured in relation to the gap $\Delta =mU$, at various temperatures. Right panel: example doped bands, with $\mu /\Delta = 1.5$ set arbitrarily and temperature set to $\beta =10$ to enhance smearing effects around FS. Single-state filling is proportional to color magnitude}{figure.caption.55}{}}
-\newlabel{eq:af-hm-n-MBZ-Th}{{5.40}{69}{Density}{equation.5.40}{}}
-\newlabel{eq:af-hm-n-BZ-Th}{{5.41}{69}{Density}{equation.5.41}{}}
-\@writefile{toc}{\contentsline {paragraph}{Unconventional metallicity.}{69}{figure.caption.55}\protected@file@percent }
-\newlabel{eq:af-WkW+-hm}{{5.42}{69}{Unconventional metallicity}{equation.5.42}{}}
-\@writefile{toc}{\contentsline {paragraph}{Instability of the doped antiferromagnet.}{69}{section*.56}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Extension to the EHM}{70}{section.5.3}\protected@file@percent }
-\newlabel{subsec:af-ehm}{{5.3}{70}{Extension to the EHM}{section.5.3}{}}
-\newlabel{eq:af-ehm-(~theta)}{{5.43}{70}{Extension to the EHM}{equation.5.43}{}}
-\newlabel{eq:af-ehm-(~zeta)}{{5.44}{70}{Extension to the EHM}{equation.5.44}{}}
-\newlabel{eq:af-<~z>}{{5.45}{70}{Extension to the EHM}{equation.5.45}{}}
-\newlabel{eq:af-~Th}{{5.46}{70}{Extension to the EHM}{equation.5.46}{}}
-\newlabel{eq:af-ehm-sx}{{5.47}{70}{Extension to the EHM}{equation.5.47}{}}
-\newlabel{eq:af-ehm-sy}{{5.48}{70}{Extension to the EHM}{equation.5.48}{}}
-\newlabel{eq:af-ehm-sz}{{5.49}{70}{Extension to the EHM}{equation.5.49}{}}
-\newlabel{eq:af-ehm-m-self-consistency}{{5.50}{70}{Extension to the EHM}{equation.5.50}{}}
-\newlabel{eq:af-ehm-n-MBZ-Th}{{5.51}{70}{Extension to the EHM}{equation.5.51}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Sketch of the diagonalisation procedure for the EHM antiferromagnet. To diagonalise the HF hamiltonian, we align the $z$ axis with the pseudo-field. This is an extesion of Fig.~\ref {fig:pseudo-magnetic-field-hm}.}}{71}{figure.caption.57}\protected@file@percent }
-\newlabel{fig:pseudo-magnetic-field-ehm}{{5.4}{71}{Sketch of the diagonalisation procedure for the EHM antiferromagnet. To diagonalise the HF hamiltonian, we align the $z$ axis with the pseudo-field. This is an extesion of Fig.~\ref {fig:pseudo-magnetic-field-hm}}{figure.caption.57}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Non-local Hartree effects: chemical potential renormalisation}{71}{section.5.4}\protected@file@percent }
-\newlabel{subsec:af-hartree-mu}{{5.4}{71}{Non-local Hartree effects: chemical potential renormalisation}{section.5.4}{}}
-\newlabel{eq:af-V-wick-decomposition-operatorial}{{5.52}{71}{Non-local Hartree effects: chemical potential renormalisation}{equation.5.52}{}}
-\newlabel{eq:af-V-wick-decomposition-double-counting}{{5.53}{71}{Non-local Hartree effects: chemical potential renormalisation}{equation.5.53}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Non-local Hartree channel in the AF phase: analytic derivation}{72}{subsection.5.4.1}\protected@file@percent }
-\newlabel{subsec:af-nl-hartree-analytic}{{5.4.1}{72}{Non-local Hartree channel in the AF phase: analytic derivation}{subsection.5.4.1}{}}
-\newlabel{eq:af-ehm-hartree-int-1}{{5.54}{72}{Non-local Hartree channel in the AF phase: analytic derivation}{equation.5.54}{}}
-\@writefile{toc}{\contentsline {paragraph}{Density terms.}{72}{section*.58}\protected@file@percent }
-\newlabel{eq:af-hartree-renormalisation-density}{{5.55}{72}{Density terms}{equation.5.55}{}}
-\newlabel{eq:af-nl-mu}{{5.56}{72}{Density terms}{equation.5.56}{}}
-\@writefile{toc}{\contentsline {paragraph}{Magnetization terms.}{72}{section*.59}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Non-local Hartree contraction energy}{72}{subsection.5.4.2}\protected@file@percent }
-\newlabel{subsec:af-nl-hartree-energy}{{5.4.2}{72}{Non-local Hartree contraction energy}{subsection.5.4.2}{}}
-\@writefile{toc}{\contentsline {paragraph}{s.s. sector double counting energy.}{73}{section*.60}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{o.s. sector double counting energy.}{73}{section*.61}\protected@file@percent }
-\newlabel{eq:af-hartree-V-contraction-energy}{{5.57}{73}{o.s. sector double counting energy}{equation.5.57}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Fock effects: gap and bands renormalisation}{73}{section.5.5}\protected@file@percent }
-\newlabel{sec:af-fock-bands-renormalisation}{{5.5}{73}{Fock effects: gap and bands renormalisation}{section.5.5}{}}
-\newlabel{eq:af-V-fock-int1}{{5.58}{73}{Fock effects: gap and bands renormalisation}{equation.5.58}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Fock channel in the AF phase: analytic derivation}{73}{subsection.5.5.1}\protected@file@percent }
-\newlabel{subsec:af-fock-analytic}{{5.5.1}{73}{Fock channel in the AF phase: analytic derivation}{subsection.5.5.1}{}}
-\newlabel{eq:af-V-fock-int2}{{5.59}{74}{Fock channel in the AF phase: analytic derivation}{equation.5.59}{}}
-\@writefile{toc}{\contentsline {paragraph}{Diagonal terms.}{74}{section*.62}\protected@file@percent }
-\newlabel{eq:af-V-fock-int3-diag}{{5.60}{74}{Diagonal terms}{equation.5.60}{}}
-\newlabel{eq:af-uqsigma-def}{{5.61}{74}{Diagonal terms}{equation.5.61}{}}
-\newlabel{eq:af-ugamma-chain}{{5.62}{74}{Diagonal terms}{equation.5.62}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Symmetry and spin resolved self-consistency equations for the harmonics of $u_\mathbf  {k}$.}}{75}{table.caption.63}\protected@file@percent }
-\newlabel{tab:af-ehm-ugamma-self-consistencies}{{5.3}{75}{Symmetry and spin resolved self-consistency equations for the harmonics of $u_\mathbf {k}$}{table.caption.63}{}}
-\newlabel{eq:af-bands-renormalisation}{{5.63}{75}{Diagonal terms}{equation.5.63}{}}
-\@writefile{toc}{\contentsline {paragraph}{Off-diagonal terms.}{75}{section*.64}\protected@file@percent }
-\newlabel{eq:af-V-fock-int3-offdiag}{{5.64}{75}{Off-diagonal terms}{equation.5.64}{}}
-\newlabel{eq:af-vqsigma-def}{{5.65}{75}{Off-diagonal terms}{equation.5.65}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Symmetry and spin resolved self-consistency equations for the harmonics of $v_\mathbf  {k}$.}}{76}{table.caption.65}\protected@file@percent }
-\newlabel{tab:af-ehm-vgamma-self-consistencies}{{5.4}{76}{Symmetry and spin resolved self-consistency equations for the harmonics of $v_\mathbf {k}$}{table.caption.65}{}}
-\newlabel{eq:af-vgamma-chain}{{5.66}{76}{Off-diagonal terms}{equation.5.66}{}}
-\newlabel{eq:af-V-fock-int4-offdiag}{{5.68}{77}{Off-diagonal terms}{equation.5.68}{}}
-\newlabel{eq:af-ehm-ivvphi-imag}{{5.69}{77}{Off-diagonal terms}{equation.5.69}{}}
-\newlabel{eq:af-V-fock-int5-offdiag}{{5.70}{77}{Off-diagonal terms}{equation.5.70}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Fock contraction energy}{77}{subsection.5.5.2}\protected@file@percent }
-\newlabel{subsec:af-fock-energy}{{5.5.2}{77}{Fock contraction energy}{subsection.5.5.2}{}}
-\newlabel{eq:af-V-fock-double-counting-int1}{{5.71}{77}{Fock contraction energy}{equation.5.71}{}}
-\newlabel{eq:af-V-fock-double-counting-int2}{{5.72}{77}{Fock contraction energy}{equation.5.72}{}}
-\newlabel{eq:af-V-fock-double-counting-int3}{{5.73}{78}{Fock contraction energy}{equation.5.73}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Full MFT hamiltonian and gap complexification}{78}{section.5.6}\protected@file@percent }
-\newlabel{sec:af-full-hamiltonian}{{5.6}{78}{Full MFT hamiltonian and gap complexification}{section.5.6}{}}
-\newlabel{eq:af-full-gap}{{5.74}{78}{Full MFT hamiltonian and gap complexification}{equation.5.74}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.1}The relative phase in the zero temperature half-filled ground state}{79}{subsection.5.6.1}\protected@file@percent }
-\newlabel{subsec:af-zero-T-half-filling-gs}{{5.6.1}{79}{The relative phase in the zero temperature half-filled ground state}{subsection.5.6.1}{}}
-\newlabel{eq:af-hm-gs}{{5.75}{79}{The relative phase in the zero temperature half-filled ground state}{equation.5.75}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.2}AF phase flavours and spin degeneracy}{79}{subsection.5.6.2}\protected@file@percent }
-\newlabel{subsec:eaf-hm-flavours}{{5.6.2}{79}{AF phase flavours and spin degeneracy}{subsection.5.6.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Set of HFP for the two possible realization of the AF phase, respectively a symmetric and an antisymmetric imaginary part of the gap.}}{80}{table.caption.66}\protected@file@percent }
-\newlabel{tab:af-saf-aaf-hfps}{{5.5}{80}{Set of HFP for the two possible realization of the AF phase, respectively a symmetric and an antisymmetric imaginary part of the gap}{table.caption.66}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.7}AF free energy density}{80}{section.5.7}\protected@file@percent }
-\newlabel{sec:af-free-energy}{{5.7}{80}{AF free energy density}{section.5.7}{}}
-\newlabel{eq:af-density-entropy}{{5.76}{80}{AF free energy density}{equation.5.76}{}}
-\newlabel{eq:af-fMFT}{{5.77}{81}{AF free energy density}{equation.5.77}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.1}Energetic constraints on the HFPs}{81}{subsection.5.7.1}\protected@file@percent }
-\newlabel{subsec:af-energy-constraints}{{5.7.1}{81}{Energetic constraints on the HFPs}{subsection.5.7.1}{}}
-\newlabel{eq:af-ehm-gap-energy}{{5.78}{81}{Energetic constraints on the HFPs}{equation.5.78}{}}
-\newlabel{eq:af-vgamma-circle}{{5.79}{82}{Energetic constraints on the HFPs}{equation.5.79}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.2}Free energy at half-filling}{82}{subsection.5.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.8}Theoretical constraints on the AF phase HFPs}{83}{section.5.8}\protected@file@percent }
-\newlabel{sec:af-constraints}{{5.8}{83}{Theoretical constraints on the AF phase HFPs}{section.5.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.1}Robust $\mathrm  {C}_4$ bands shrinking extension to AF phases}{83}{subsection.5.8.1}\protected@file@percent }
-\newlabel{subsec:af-bands-shrinking}{{5.8.1}{83}{Robust $\mathrm {C}_4$ bands shrinking extension to AF phases}{subsection.5.8.1}{}}
-\newlabel{eq:af-us*-constraint}{{5.80}{84}{Robust $\mathrm {C}_4$ bands shrinking extension to AF phases}{equation.5.80}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.2}HFPs vanishing in sAF phase}{84}{subsection.5.8.2}\protected@file@percent }
-\newlabel{subsec:af-HFPs=0-sAF}{{5.8.2}{84}{HFPs vanishing in sAF phase}{subsection.5.8.2}{}}
-\newlabel{eq:saf-F-definition}{{5.81}{84}{HFPs vanishing in sAF phase}{equation.5.81}{}}
-\newlabel{eq:saf-F-linearity}{{5.82}{84}{HFPs vanishing in sAF phase}{equation.5.82}{}}
-\newlabel{eq:saf-F-positivity}{{5.83}{84}{HFPs vanishing in sAF phase}{equation.5.83}{}}
-\newlabel{eq:saf-ABC-def}{{5.84}{85}{HFPs vanishing in sAF phase}{equation.5.84}{}}
-\newlabel{eq:saf-uS-sc-ABC}{{5.85}{85}{HFPs vanishing in sAF phase}{equation.5.85}{}}
-\newlabel{eq:saf-ud-sc-ABC}{{5.86}{85}{HFPs vanishing in sAF phase}{equation.5.86}{}}
-\newlabel{eq:saf-vS-sc-ABC}{{5.87}{85}{HFPs vanishing in sAF phase}{equation.5.87}{}}
-\newlabel{eq:saf-vd-sc-ABC}{{5.88}{85}{HFPs vanishing in sAF phase}{equation.5.88}{}}
-\newlabel{eq:saf-Su-sc-ABC}{{5.89}{85}{HFPs vanishing in sAF phase}{equation.5.89}{}}
-\newlabel{eq:saf-Du-sc-ABC}{{5.90}{85}{HFPs vanishing in sAF phase}{equation.5.90}{}}
-\newlabel{eq:saf-Sv-sc-ABC}{{5.91}{85}{HFPs vanishing in sAF phase}{equation.5.91}{}}
-\newlabel{eq:saf-Dv-sc-ABC}{{5.92}{85}{HFPs vanishing in sAF phase}{equation.5.92}{}}
-\newlabel{eq:saf-BV2-relation}{{5.93}{86}{HFPs vanishing in sAF phase}{equation.5.93}{}}
-\newlabel{eq:saf-B2-4AC-relation}{{5.94}{86}{HFPs vanishing in sAF phase}{equation.5.94}{}}
-\newlabel{eq:saf-B2-4AC-relation-int1}{{5.95}{86}{HFPs vanishing in sAF phase}{equation.5.95}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.3}HFPs vanishing in aAF phase}{87}{subsection.5.8.3}\protected@file@percent }
-\newlabel{subsec:af-HFPs=0-aAF}{{5.8.3}{87}{HFPs vanishing in aAF phase}{subsection.5.8.3}{}}
-\newlabel{eq:saf-PQR-def}{{5.96}{87}{HFPs vanishing in aAF phase}{equation.5.96}{}}
-\newlabel{eq:aaf-uS-sc-ABC}{{5.97}{87}{HFPs vanishing in aAF phase}{equation.5.97}{}}
-\newlabel{eq:aaf-ud-sc-ABC}{{5.98}{87}{HFPs vanishing in aAF phase}{equation.5.98}{}}
-\newlabel{eq:aaf-vx-sc-PQR}{{5.99}{87}{HFPs vanishing in aAF phase}{equation.5.99}{}}
-\newlabel{eq:aaf-vy-sc-PQR}{{5.100}{87}{HFPs vanishing in aAF phase}{equation.5.100}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.4}Natural suppression of nematicity within $\mathrm  {C}_2/\mathbb  {Z}_2$ symmetry}{88}{subsection.5.8.4}\protected@file@percent }
-\newlabel{subsec:af-bands-shrinking-C2}{{5.8.4}{88}{Natural suppression of nematicity within $\mathrm {C}_2/\mathbb {Z}_2$ symmetry}{subsection.5.8.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Sketch of the Fermi-Dirac distribution $f(x)$ and the pseudo-distribution $f'(x)$ described in text for the normal phase. These example data have been plotted arbitrarily at $mU=\Delta =0.2$ for $\mu =0.0,0.3,0.6$.}}{89}{figure.caption.67}\protected@file@percent }
-\newlabel{fig:pseudo-dirac}{{5.5}{89}{Sketch of the Fermi-Dirac distribution $f(x)$ and the pseudo-distribution $f'(x)$ described in text for the normal phase. These example data have been plotted arbitrarily at $mU=\Delta =0.2$ for $\mu =0.0,0.3,0.6$}{figure.caption.67}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.9}Discussion of numeric results}{90}{section.5.9}\protected@file@percent }
-\newlabel{sec:af-numeric}{{5.9}{90}{Discussion of numeric results}{section.5.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Plot of the self-consistent convergence values for $m$ (left panel) and isomagnetic curves computed on the same data (right panel), along which magnetisation is constant. For the sake of graphic clarity, only the points at $0 \le U \le 4$ and $0 \le V \le 6$ are plotted. {\color  {tabred}[Something broke at $U=0.05$, $V \ge 5$, change with new data.]}}}{91}{figure.caption.68}\protected@file@percent }
-\newlabel{fig:af-m-data-C128}{{5.6}{91}{Plot of the self-consistent convergence values for $m$ (left panel) and isomagnetic curves computed on the same data (right panel), along which magnetisation is constant. For the sake of graphic clarity, only the points at $0 \le U \le 4$ and $0 \le V \le 6$ are plotted. {\color {tabred}[Something broke at $U=0.05$, $V \ge 5$, change with new data.]}}{figure.caption.68}{}}
-\newlabel{subfig:af-m-data-A256-pVar=V}{{5.7a}{91}{$U$-dependency of $m$ varying $V$.\caption@thelabel }{figure.caption.69}{}}
-\newlabel{sub@subfig:af-m-data-A256-pVar=V}{{a}{91}{$U$-dependency of $m$ varying $V$.\caption@thelabel }{figure.caption.69}{}}
-\newlabel{subfig:af-m-data-A256-pVar=U}{{5.7b}{91}{$V$-dependency of $m$ varying $U$.\caption@thelabel }{figure.caption.69}{}}
-\newlabel{sub@subfig:af-m-data-A256-pVar=U}{{b}{91}{$V$-dependency of $m$ varying $U$.\caption@thelabel }{figure.caption.69}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}}{91}{figure.caption.69}\protected@file@percent }
-\newlabel{fig:af-m-data-A256}{{5.7}{91}{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase}{figure.caption.69}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.1}Magnetization boost}{91}{subsection.5.9.1}\protected@file@percent }
-\newlabel{subsec:af-m-boost}{{5.9.1}{91}{Magnetization boost}{subsection.5.9.1}{}}
-\newlabel{subfig:af-uS-data-C128}{{5.8a}{92}{Heatmap of $u^{(s^*)}$ in $UV$ plane.\caption@thelabel }{figure.caption.70}{}}
-\newlabel{sub@subfig:af-uS-data-C128}{{a}{92}{Heatmap of $u^{(s^*)}$ in $UV$ plane.\caption@thelabel }{figure.caption.70}{}}
-\newlabel{subfig:af-tS-data-C128}{{5.8b}{92}{Heatmap of $t^{(s^*)}$ in $UV$ plane.\caption@thelabel }{figure.caption.70}{}}
-\newlabel{sub@subfig:af-tS-data-C128}{{b}{92}{Heatmap of $t^{(s^*)}$ in $UV$ plane.\caption@thelabel }{figure.caption.70}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Data for the HFP $u^{(s^*)}$ and $\tilde  {t}^{(s^*)}$ varying both $U$ and $V$.}}{92}{figure.caption.70}\protected@file@percent }
-\newlabel{fig:af-uS-tS-data}{{5.8}{92}{Data for the HFP $u^{(s^*)}$ and $\tilde {t}^{(s^*)}$ varying both $U$ and $V$}{figure.caption.70}{}}
-\newlabel{subfig:af-uS-data-A256-pVar=V}{{5.9a}{92}{$U$-dependency of $u^{(s^*)}$ varying $V$.\caption@thelabel }{figure.caption.71}{}}
-\newlabel{sub@subfig:af-uS-data-A256-pVar=V}{{a}{92}{$U$-dependency of $u^{(s^*)}$ varying $V$.\caption@thelabel }{figure.caption.71}{}}
-\newlabel{subfig:af-uS-data-A256-pVar=U}{{5.9b}{92}{$V$-dependency of $u^{(s^*)}$ varying $U$.\caption@thelabel }{figure.caption.71}{}}
-\newlabel{sub@subfig:af-uS-data-A256-pVar=U}{{b}{92}{$V$-dependency of $u^{(s^*)}$ varying $U$.\caption@thelabel }{figure.caption.71}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}}{92}{figure.caption.71}\protected@file@percent }
-\newlabel{fig:af-uS-data-A256}{{5.9}{92}{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase}{figure.caption.71}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.2}Bands shrinking}{92}{subsection.5.9.2}\protected@file@percent }
-\newlabel{subfig:af-tS-data-A256-pVar=V}{{5.10a}{93}{$U$-dependency of $t^{(s^*)}$ varying $V$.\caption@thelabel }{figure.caption.72}{}}
-\newlabel{sub@subfig:af-tS-data-A256-pVar=V}{{a}{93}{$U$-dependency of $t^{(s^*)}$ varying $V$.\caption@thelabel }{figure.caption.72}{}}
-\newlabel{subfig:af-tS-data-A256-pVar=U}{{5.10b}{93}{$V$-dependency of $t^{(s^*)}$ varying $U$.\caption@thelabel }{figure.caption.72}{}}
-\newlabel{sub@subfig:af-tS-data-A256-pVar=U}{{b}{93}{$V$-dependency of $t^{(s^*)}$ varying $U$.\caption@thelabel }{figure.caption.72}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}}{93}{figure.caption.72}\protected@file@percent }
-\newlabel{fig:af-tS-data-A256}{{5.10}{93}{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase}{figure.caption.72}{}}
-\newlabel{subfig:af-f-data-C128}{{5.11a}{93}{Heatmap of $f_\mathrm {MFT}$ in $\delta V$ plane.\caption@thelabel }{figure.caption.73}{}}
-\newlabel{sub@subfig:af-f-data-C128}{{a}{93}{Heatmap of $f_\mathrm {MFT}$ in $\delta V$ plane.\caption@thelabel }{figure.caption.73}{}}
-\newlabel{subfig:af-f-data-A256}{{5.11b}{93}{$V$-dependency of $f_\mathrm {MFT}$ varying $\delta $.\caption@thelabel }{figure.caption.73}{}}
-\newlabel{sub@subfig:af-f-data-A256}{{b}{93}{$V$-dependency of $f_\mathrm {MFT}$ varying $\delta $.\caption@thelabel }{figure.caption.73}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces Free energy density of the AF phase.}}{93}{figure.caption.73}\protected@file@percent }
-\newlabel{fig:af-f-data}{{5.11}{93}{Free energy density of the AF phase}{figure.caption.73}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.3}Solution free energy and entropy densities}{93}{subsection.5.9.3}\protected@file@percent }
-\newlabel{subsec:af-f-s}{{5.9.3}{93}{Solution free energy and entropy densities}{subsection.5.9.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces Difference of free energies for the normal phase minus the AF phase.}}{94}{figure.caption.74}\protected@file@percent }
-\newlabel{fig:af-df-data-A128}{{5.12}{94}{Difference of free energies for the normal phase minus the AF phase}{figure.caption.74}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.4}Fixed-point interpretation of HF solution}{94}{subsection.5.9.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces Quiver plot of algorithmic evolution in HFPs space at fixed model parametrization. The black dot $\mathbf  {v}$ represents the nonlinear map fixed point, while the colored paths the sequences of HFPs coordinates simulated via iterative HF procedure, starting from different HFPs initializers (colored dots).}}{95}{figure.caption.75}\protected@file@percent }
-\newlabel{fig:af-attractor}{{5.13}{95}{Quiver plot of algorithmic evolution in HFPs space at fixed model parametrization. The black dot $\mathbf {v}$ represents the nonlinear map fixed point, while the colored paths the sequences of HFPs coordinates simulated via iterative HF procedure, starting from different HFPs initializers (colored dots)}{figure.caption.75}{}}
-\@writefile{lof}{\addvspace {10pt}}
-\@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {appendix}{\chapternumberline {A}Superexchange and virtual hopping in Hubbard lattices}{97}{appendix.A}\protected@file@percent }
-\newlabel{appendix:superexchange-virtual-hopping}{{A}{97}{Superexchange and virtual hopping in Hubbard lattices}{appendix.A}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.1}Virtual hopping in the $2$-sites Hubbard lattice}{97}{section.A.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces Two sites Hubbard model.}}{97}{figure.caption.76}\protected@file@percent }
-\newlabel{appfig:two-sites-hubbard-model}{{A.1}{97}{Two sites Hubbard model}{figure.caption.76}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {A.1}{\ignorespaces List of exact eigenstates and relative energies for the $2$-sites half-filled Hubbard model.}}{98}{table.caption.77}\protected@file@percent }
-\newlabel{apptab:two-sites-hubbard-model-eigenstates}{{A.1}{98}{List of exact eigenstates and relative energies for the $2$-sites half-filled Hubbard model}{table.caption.77}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.1}Exact solution of the half-filled model}{98}{subsection.A.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1.2}Virtual hopping}{98}{subsection.A.1.2}\protected@file@percent }
-\@writefile{lof}{\addvspace {10pt}}
-\@writefile{lot}{\addvspace {10pt}}
-\@writefile{toc}{\contentsline {appendix}{\chapternumberline {B}Antiferromagnetism in the HM}{99}{appendix.B}\protected@file@percent }
-\newlabel{app:hm-af-ground-state}{{B}{99}{Antiferromagnetism in the HM}{appendix.B}{}}
-\newlabel{appeq:hm}{{B.1}{99}{Antiferromagnetism in the HM}{equation.B.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.1}Explicit AF ground state at half-filling and $\beta \to \infty $}{99}{section.B.1}\protected@file@percent }
-\newlabel{appsubsec:af-T=0-gs}{{B.1}{99}{Explicit AF ground state at half-filling and $\beta \to \infty $}{section.B.1}{}}
-\newlabel{appeq:af-hm-gs-1}{{B.2}{99}{Explicit AF ground state at half-filling and $\beta \to \infty $}{equation.B.2}{}}
-\abx@aux@cite{0}{singh1990collective}
-\abx@aux@segm{0}{0}{singh1990collective}
-\abx@aux@cite{0}{singh1991doped}
-\abx@aux@segm{0}{0}{singh1991doped}
-\newlabel{appeq:af-hm-tilted-down}{{B.3}{100}{Explicit AF ground state at half-filling and $\beta \to \infty $}{equation.B.3}{}}
-\newlabel{appeq:af-hm-gs-2}{{B.4}{100}{Explicit AF ground state at half-filling and $\beta \to \infty $}{equation.B.4}{}}
-\newlabel{appeq:af-hm-gs-3}{{B.5}{100}{Explicit AF ground state at half-filling and $\beta \to \infty $}{equation.B.5}{}}
-\newlabel{appeq:af-hm-gs-4}{{B.6}{100}{Explicit AF ground state at half-filling and $\beta \to \infty $}{equation.B.6}{}}
-\abx@aux@cite{0}{singh1990collective}
-\abx@aux@segm{0}{0}{singh1990collective}
-\abx@aux@cite{0}{singh1990collective}
-\abx@aux@segm{0}{0}{singh1990collective}
-\abx@aux@cite{0}{singh1990collective}
-\abx@aux@segm{0}{0}{singh1990collective}
-\@writefile{toc}{\contentsline {section}{\numberline {B.2}Instability of the commensurate AF phase}{101}{section.B.2}\protected@file@percent }
-\newlabel{appsubsec:af-instability}{{B.2}{101}{Instability of the commensurate AF phase}{section.B.2}{}}
-\newlabel{eq:1-Uchi=0}{{B.7}{101}{Instability of the commensurate AF phase}{equation.B.7}{}}
-\newlabel{appeq:af-instability-condition}{{B.8}{101}{Instability of the commensurate AF phase}{equation.B.8}{}}
-\abx@aux@cite{0}{wietek2021stripes}
-\abx@aux@segm{0}{0}{wietek2021stripes}
-\newlabel{appeq:af-unstable-half}{{B.9}{102}{Instability of the commensurate AF phase}{equation.B.9}{}}
-\newlabel{appeq:af-unstable}{{B.10}{102}{Instability of the commensurate AF phase}{equation.B.10}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.3}iHF results}{102}{section.B.3}\protected@file@percent }
-\newlabel{appsubsec:af-ihf-results}{{B.3}{102}{iHF results}{section.B.3}{}}
-\newlabel{appeq:af-hm-m-self-consistency-iterative}{{B.11}{102}{iHF results}{equation.B.11}{}}
-\abx@aux@cite{0}{kogan2021greens}
-\abx@aux@segm{0}{0}{kogan2021greens}
-\newlabel{appsubfig:mU-beta=100}{{B.1a}{103}{Local repulsion $U/t$ depencence.\caption@thelabel }{figure.caption.78}{}}
-\newlabel{sub@appsubfig:mU-beta=100}{{a}{103}{Local repulsion $U/t$ depencence.\caption@thelabel }{figure.caption.78}{}}
-\newlabel{appsubfig:dU-beta=100}{{B.1b}{103}{Doping $\delta = n-0.5$ dependence.\caption@thelabel }{figure.caption.78}{}}
-\newlabel{sub@appsubfig:dU-beta=100}{{b}{103}{Doping $\delta = n-0.5$ dependence.\caption@thelabel }{figure.caption.78}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.1}{\ignorespaces Plots of the zero-temperature AF instability order parameter $m$ as a function of both the local repulsion $U/t$ (Fig.~\ref {appsubfig:mU-beta=100}) and the doping $\delta = n-1/2$ (Fig.~\ref {appsubfig:dU-beta=100}).}}{103}{figure.caption.78}\protected@file@percent }
-\newlabel{appfig:mdU-beta=100}{{B.1}{103}{Plots of the zero-temperature AF instability order parameter $m$ as a function of both the local repulsion $U/t$ (Fig.~\ref {appsubfig:mU-beta=100}) and the doping $\delta = n-1/2$ (Fig.~\ref {appsubfig:dU-beta=100})}{figure.caption.78}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.4}Analytic expression of self-consistent magnetisation}{103}{section.B.4}\protected@file@percent }
-\newlabel{appsubfig:K(x)}{{B.2a}{104}{Plot of $K(x)$.\caption@thelabel }{figure.caption.79}{}}
-\newlabel{sub@appsubfig:K(x)}{{a}{104}{Plot of $K(x)$.\caption@thelabel }{figure.caption.79}{}}
-\newlabel{appsubfig:D(x)}{{B.2b}{104}{DoS and its approximation.\caption@thelabel }{figure.caption.79}{}}
-\newlabel{sub@appsubfig:D(x)}{{b}{104}{DoS and its approximation.\caption@thelabel }{figure.caption.79}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.2}{\ignorespaces Plots of the complete elliptic integral of the first kind $K(x)$ and the density of states for the planar square lattice.}}{104}{figure.caption.79}\protected@file@percent }
-\newlabel{appfig:square-dos}{{B.2}{104}{Plots of the complete elliptic integral of the first kind $K(x)$ and the density of states for the planar square lattice}{figure.caption.79}{}}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{105}{section*.81}\protected@file@percent }
+\newlabel{fig:af-Ek-density}{{5.3a}{71}{Electronic density.\caption@thelabel }{figure.caption.57}{}}
+\newlabel{sub@fig:af-Ek-density}{{a}{71}{Electronic density.\caption@thelabel }{figure.caption.57}{}}
+\newlabel{fig:af-Ek-bands}{{5.3b}{71}{Example doped bands.\caption@thelabel }{figure.caption.57}{}}
+\newlabel{sub@fig:af-Ek-bands}{{b}{71}{Example doped bands.\caption@thelabel }{figure.caption.57}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Left panel: electronic density in the AF phase as a function of the chemical potential, measured in relation to the gap $\Delta =mU$, at various temperatures. Right panel: example doped bands, with $\mu /\Delta = 1.5$ set arbitrarily and temperature set to $\beta =10$ to enhance smearing effects around FS. Single-state filling is proportional to color magnitude.}}{71}{figure.caption.57}\protected@file@percent }
+\newlabel{fig:af-Ek-filling}{{5.3}{71}{Left panel: electronic density in the AF phase as a function of the chemical potential, measured in relation to the gap $\Delta =mU$, at various temperatures. Right panel: example doped bands, with $\mu /\Delta = 1.5$ set arbitrarily and temperature set to $\beta =10$ to enhance smearing effects around FS. Single-state filling is proportional to color magnitude}{figure.caption.57}{}}
+\newlabel{eq:af-hm-n-MBZ-Th}{{5.40}{71}{Density}{equation.5.40}{}}
+\newlabel{eq:af-hm-n-BZ-Th}{{5.41}{71}{Density}{equation.5.41}{}}
+\@writefile{toc}{\contentsline {paragraph}{Unconventional metallicity.}{71}{figure.caption.57}\protected@file@percent }
+\newlabel{eq:af-WkW+-hm}{{5.42}{71}{Unconventional metallicity}{equation.5.42}{}}
+\@writefile{toc}{\contentsline {paragraph}{Instability of the doped antiferromagnet.}{71}{section*.58}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Extension to the EHM}{72}{section.5.3}\protected@file@percent }
+\newlabel{subsec:af-ehm}{{5.3}{72}{Extension to the EHM}{section.5.3}{}}
+\newlabel{eq:af-ehm-(~theta)}{{5.43}{72}{Extension to the EHM}{equation.5.43}{}}
+\newlabel{eq:af-ehm-(~zeta)}{{5.44}{72}{Extension to the EHM}{equation.5.44}{}}
+\newlabel{eq:af-<~z>}{{5.45}{72}{Extension to the EHM}{equation.5.45}{}}
+\newlabel{eq:af-~Th}{{5.46}{72}{Extension to the EHM}{equation.5.46}{}}
+\newlabel{eq:af-ehm-sx}{{5.47}{72}{Extension to the EHM}{equation.5.47}{}}
+\newlabel{eq:af-ehm-sy}{{5.48}{72}{Extension to the EHM}{equation.5.48}{}}
+\newlabel{eq:af-ehm-sz}{{5.49}{72}{Extension to the EHM}{equation.5.49}{}}
+\newlabel{eq:af-ehm-m-self-consistency}{{5.50}{72}{Extension to the EHM}{equation.5.50}{}}
+\newlabel{eq:af-ehm-n-MBZ-Th}{{5.51}{72}{Extension to the EHM}{equation.5.51}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Sketch of the diagonalisation procedure for the EHM antiferromagnet. To diagonalise the HF hamiltonian, we align the $z$ axis with the pseudo-field. This is an extesion of Fig.~\ref {fig:pseudo-magnetic-field-hm}.}}{73}{figure.caption.59}\protected@file@percent }
+\newlabel{fig:pseudo-magnetic-field-ehm}{{5.4}{73}{Sketch of the diagonalisation procedure for the EHM antiferromagnet. To diagonalise the HF hamiltonian, we align the $z$ axis with the pseudo-field. This is an extesion of Fig.~\ref {fig:pseudo-magnetic-field-hm}}{figure.caption.59}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Non-local Hartree effects: chemical potential renormalisation}{73}{section.5.4}\protected@file@percent }
+\newlabel{subsec:af-hartree-mu}{{5.4}{73}{Non-local Hartree effects: chemical potential renormalisation}{section.5.4}{}}
+\newlabel{eq:af-V-wick-decomposition-operatorial}{{5.52}{73}{Non-local Hartree effects: chemical potential renormalisation}{equation.5.52}{}}
+\newlabel{eq:af-V-wick-decomposition-double-counting}{{5.53}{73}{Non-local Hartree effects: chemical potential renormalisation}{equation.5.53}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Non-local Hartree channel in the AF phase: analytic derivation}{74}{subsection.5.4.1}\protected@file@percent }
+\newlabel{subsec:af-nl-hartree-analytic}{{5.4.1}{74}{Non-local Hartree channel in the AF phase: analytic derivation}{subsection.5.4.1}{}}
+\newlabel{eq:af-ehm-hartree-int-1}{{5.54}{74}{Non-local Hartree channel in the AF phase: analytic derivation}{equation.5.54}{}}
+\@writefile{toc}{\contentsline {paragraph}{Density terms.}{74}{section*.60}\protected@file@percent }
+\newlabel{eq:af-hartree-renormalisation-density}{{5.55}{74}{Density terms}{equation.5.55}{}}
+\newlabel{eq:af-nl-mu}{{5.56}{74}{Density terms}{equation.5.56}{}}
+\@writefile{toc}{\contentsline {paragraph}{Magnetization terms.}{74}{section*.61}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Non-local Hartree contraction energy}{74}{subsection.5.4.2}\protected@file@percent }
+\newlabel{subsec:af-nl-hartree-energy}{{5.4.2}{74}{Non-local Hartree contraction energy}{subsection.5.4.2}{}}
+\@writefile{toc}{\contentsline {paragraph}{s.s. sector double counting energy.}{75}{section*.62}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{o.s. sector double counting energy.}{75}{section*.63}\protected@file@percent }
+\newlabel{eq:af-hartree-V-contraction-energy}{{5.57}{75}{o.s. sector double counting energy}{equation.5.57}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Fock effects: gap and bands renormalisation}{75}{section.5.5}\protected@file@percent }
+\newlabel{sec:af-fock-bands-renormalisation}{{5.5}{75}{Fock effects: gap and bands renormalisation}{section.5.5}{}}
+\newlabel{eq:af-V-fock-int1}{{5.58}{75}{Fock effects: gap and bands renormalisation}{equation.5.58}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.1}Fock channel in the AF phase: analytic derivation}{75}{subsection.5.5.1}\protected@file@percent }
+\newlabel{subsec:af-fock-analytic}{{5.5.1}{75}{Fock channel in the AF phase: analytic derivation}{subsection.5.5.1}{}}
+\newlabel{eq:af-V-fock-int2}{{5.59}{76}{Fock channel in the AF phase: analytic derivation}{equation.5.59}{}}
+\@writefile{toc}{\contentsline {paragraph}{Diagonal terms.}{76}{section*.64}\protected@file@percent }
+\newlabel{eq:af-V-fock-int3-diag}{{5.60}{76}{Diagonal terms}{equation.5.60}{}}
+\newlabel{eq:af-uqsigma-def}{{5.61}{76}{Diagonal terms}{equation.5.61}{}}
+\newlabel{eq:af-ugamma-chain}{{5.62}{76}{Diagonal terms}{equation.5.62}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Symmetry and spin resolved self-consistency equations for the harmonics of $u_\mathbf  {k}$.}}{77}{table.caption.65}\protected@file@percent }
+\newlabel{tab:af-ehm-ugamma-self-consistencies}{{5.3}{77}{Symmetry and spin resolved self-consistency equations for the harmonics of $u_\mathbf {k}$}{table.caption.65}{}}
+\newlabel{eq:af-bands-renormalisation}{{5.63}{77}{Diagonal terms}{equation.5.63}{}}
+\@writefile{toc}{\contentsline {paragraph}{Off-diagonal terms.}{77}{section*.66}\protected@file@percent }
+\newlabel{eq:af-V-fock-int3-offdiag}{{5.64}{77}{Off-diagonal terms}{equation.5.64}{}}
+\newlabel{eq:af-vqsigma-def}{{5.65}{77}{Off-diagonal terms}{equation.5.65}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Symmetry and spin resolved self-consistency equations for the harmonics of $v_\mathbf  {k}$.}}{78}{table.caption.67}\protected@file@percent }
+\newlabel{tab:af-ehm-vgamma-self-consistencies}{{5.4}{78}{Symmetry and spin resolved self-consistency equations for the harmonics of $v_\mathbf {k}$}{table.caption.67}{}}
+\newlabel{eq:af-vgamma-chain}{{5.66}{78}{Off-diagonal terms}{equation.5.66}{}}
+\newlabel{eq:af-V-fock-int4-offdiag}{{5.68}{79}{Off-diagonal terms}{equation.5.68}{}}
+\newlabel{eq:af-ehm-ivvphi-imag}{{5.69}{79}{Off-diagonal terms}{equation.5.69}{}}
+\newlabel{eq:af-V-fock-int5-offdiag}{{5.70}{79}{Off-diagonal terms}{equation.5.70}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5.2}Fock contraction energy}{79}{subsection.5.5.2}\protected@file@percent }
+\newlabel{subsec:af-fock-energy}{{5.5.2}{79}{Fock contraction energy}{subsection.5.5.2}{}}
+\newlabel{eq:af-V-fock-double-counting-int1}{{5.71}{79}{Fock contraction energy}{equation.5.71}{}}
+\newlabel{eq:af-V-fock-double-counting-int2}{{5.72}{79}{Fock contraction energy}{equation.5.72}{}}
+\newlabel{eq:af-V-fock-double-counting-int3}{{5.73}{80}{Fock contraction energy}{equation.5.73}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Full MFT hamiltonian and gap complexification}{80}{section.5.6}\protected@file@percent }
+\newlabel{sec:af-full-hamiltonian}{{5.6}{80}{Full MFT hamiltonian and gap complexification}{section.5.6}{}}
+\newlabel{eq:af-full-gap}{{5.74}{80}{Full MFT hamiltonian and gap complexification}{equation.5.74}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.1}The relative phase in the zero temperature half-filled ground state}{81}{subsection.5.6.1}\protected@file@percent }
+\newlabel{subsec:af-zero-T-half-filling-gs}{{5.6.1}{81}{The relative phase in the zero temperature half-filled ground state}{subsection.5.6.1}{}}
+\newlabel{eq:af-hm-gs}{{5.75}{81}{The relative phase in the zero temperature half-filled ground state}{equation.5.75}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.2}AF phase flavours and spin degeneracy}{81}{subsection.5.6.2}\protected@file@percent }
+\newlabel{subsec:eaf-hm-flavours}{{5.6.2}{81}{AF phase flavours and spin degeneracy}{subsection.5.6.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces Set of HFP for the two possible realization of the AF phase, respectively a symmetric and an antisymmetric imaginary part of the gap.}}{82}{table.caption.68}\protected@file@percent }
+\newlabel{tab:af-saf-aaf-hfps}{{5.5}{82}{Set of HFP for the two possible realization of the AF phase, respectively a symmetric and an antisymmetric imaginary part of the gap}{table.caption.68}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.7}AF free energy density}{82}{section.5.7}\protected@file@percent }
+\newlabel{sec:af-free-energy}{{5.7}{82}{AF free energy density}{section.5.7}{}}
+\newlabel{eq:af-density-entropy}{{5.76}{82}{AF free energy density}{equation.5.76}{}}
+\newlabel{eq:af-fMFT}{{5.77}{83}{AF free energy density}{equation.5.77}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.1}Energetic constraints on the HFPs}{83}{subsection.5.7.1}\protected@file@percent }
+\newlabel{subsec:af-energy-constraints}{{5.7.1}{83}{Energetic constraints on the HFPs}{subsection.5.7.1}{}}
+\newlabel{eq:af-ehm-gap-energy}{{5.78}{83}{Energetic constraints on the HFPs}{equation.5.78}{}}
+\newlabel{eq:af-vgamma-circle}{{5.79}{84}{Energetic constraints on the HFPs}{equation.5.79}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7.2}Free energy at half-filling}{84}{subsection.5.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.8}Theoretical constraints on the AF phase HFPs}{85}{section.5.8}\protected@file@percent }
+\newlabel{sec:af-constraints}{{5.8}{85}{Theoretical constraints on the AF phase HFPs}{section.5.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.1}Robust $\mathrm  {C}_4$ bands shrinking extension to AF phases}{85}{subsection.5.8.1}\protected@file@percent }
+\newlabel{subsec:af-bands-shrinking}{{5.8.1}{85}{Robust $\mathrm {C}_4$ bands shrinking extension to AF phases}{subsection.5.8.1}{}}
+\newlabel{eq:af-us*-constraint}{{5.80}{86}{Robust $\mathrm {C}_4$ bands shrinking extension to AF phases}{equation.5.80}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.2}HFPs vanishing in sAF phase}{86}{subsection.5.8.2}\protected@file@percent }
+\newlabel{subsec:af-HFPs=0-sAF}{{5.8.2}{86}{HFPs vanishing in sAF phase}{subsection.5.8.2}{}}
+\newlabel{eq:saf-F-definition}{{5.81}{86}{HFPs vanishing in sAF phase}{equation.5.81}{}}
+\newlabel{eq:saf-F-linearity}{{5.82}{86}{HFPs vanishing in sAF phase}{equation.5.82}{}}
+\newlabel{eq:saf-F-positivity}{{5.83}{86}{HFPs vanishing in sAF phase}{equation.5.83}{}}
+\newlabel{eq:saf-ABC-def}{{5.84}{87}{HFPs vanishing in sAF phase}{equation.5.84}{}}
+\newlabel{eq:saf-uS-sc-ABC}{{5.85}{87}{HFPs vanishing in sAF phase}{equation.5.85}{}}
+\newlabel{eq:saf-ud-sc-ABC}{{5.86}{87}{HFPs vanishing in sAF phase}{equation.5.86}{}}
+\newlabel{eq:saf-vS-sc-ABC}{{5.87}{87}{HFPs vanishing in sAF phase}{equation.5.87}{}}
+\newlabel{eq:saf-vd-sc-ABC}{{5.88}{87}{HFPs vanishing in sAF phase}{equation.5.88}{}}
+\newlabel{eq:saf-Su-sc-ABC}{{5.89}{87}{HFPs vanishing in sAF phase}{equation.5.89}{}}
+\newlabel{eq:saf-Du-sc-ABC}{{5.90}{87}{HFPs vanishing in sAF phase}{equation.5.90}{}}
+\newlabel{eq:saf-Sv-sc-ABC}{{5.91}{87}{HFPs vanishing in sAF phase}{equation.5.91}{}}
+\newlabel{eq:saf-Dv-sc-ABC}{{5.92}{87}{HFPs vanishing in sAF phase}{equation.5.92}{}}
+\newlabel{eq:saf-BV2-relation}{{5.93}{88}{HFPs vanishing in sAF phase}{equation.5.93}{}}
+\newlabel{eq:saf-B2-4AC-relation}{{5.94}{88}{HFPs vanishing in sAF phase}{equation.5.94}{}}
+\newlabel{eq:saf-B2-4AC-relation-int1}{{5.95}{88}{HFPs vanishing in sAF phase}{equation.5.95}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.3}HFPs vanishing in aAF phase}{89}{subsection.5.8.3}\protected@file@percent }
+\newlabel{subsec:af-HFPs=0-aAF}{{5.8.3}{89}{HFPs vanishing in aAF phase}{subsection.5.8.3}{}}
+\newlabel{eq:saf-PQR-def}{{5.96}{89}{HFPs vanishing in aAF phase}{equation.5.96}{}}
+\newlabel{eq:aaf-uS-sc-ABC}{{5.97}{89}{HFPs vanishing in aAF phase}{equation.5.97}{}}
+\newlabel{eq:aaf-ud-sc-ABC}{{5.98}{89}{HFPs vanishing in aAF phase}{equation.5.98}{}}
+\newlabel{eq:aaf-vx-sc-PQR}{{5.99}{89}{HFPs vanishing in aAF phase}{equation.5.99}{}}
+\newlabel{eq:aaf-vy-sc-PQR}{{5.100}{89}{HFPs vanishing in aAF phase}{equation.5.100}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8.4}Natural suppression of nematicity within $\mathrm  {C}_2/\mathbb  {Z}_2$ symmetry}{90}{subsection.5.8.4}\protected@file@percent }
+\newlabel{subsec:af-bands-shrinking-C2}{{5.8.4}{90}{Natural suppression of nematicity within $\mathrm {C}_2/\mathbb {Z}_2$ symmetry}{subsection.5.8.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Sketch of the Fermi-Dirac distribution $f(x)$ and the pseudo-distribution $f'(x)$ described in text for the normal phase. These example data have been plotted arbitrarily at $mU=\Delta =0.2$ for $\mu =0.0,0.3,0.6$.}}{91}{figure.caption.69}\protected@file@percent }
+\newlabel{fig:pseudo-dirac}{{5.5}{91}{Sketch of the Fermi-Dirac distribution $f(x)$ and the pseudo-distribution $f'(x)$ described in text for the normal phase. These example data have been plotted arbitrarily at $mU=\Delta =0.2$ for $\mu =0.0,0.3,0.6$}{figure.caption.69}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.9}Discussion of numeric results}{92}{section.5.9}\protected@file@percent }
+\newlabel{sec:af-numeric}{{5.9}{92}{Discussion of numeric results}{section.5.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Plot of the self-consistent convergence values for $m$ (left panel) and isomagnetic curves computed on the same data (right panel), along which magnetisation is constant. For the sake of graphic clarity, only the points at $0 \le U \le 4$ and $0 \le V \le 6$ are plotted. {\color  {tabred}[Something broke at $U=0.05$, $V \ge 5$, change with new data.]}}}{93}{figure.caption.70}\protected@file@percent }
+\newlabel{fig:af-m-data-C128}{{5.6}{93}{Plot of the self-consistent convergence values for $m$ (left panel) and isomagnetic curves computed on the same data (right panel), along which magnetisation is constant. For the sake of graphic clarity, only the points at $0 \le U \le 4$ and $0 \le V \le 6$ are plotted. {\color {tabred}[Something broke at $U=0.05$, $V \ge 5$, change with new data.]}}{figure.caption.70}{}}
+\newlabel{subfig:af-m-data-A256-pVar=V}{{5.7a}{93}{$U$-dependency of $m$ varying $V$.\caption@thelabel }{figure.caption.71}{}}
+\newlabel{sub@subfig:af-m-data-A256-pVar=V}{{a}{93}{$U$-dependency of $m$ varying $V$.\caption@thelabel }{figure.caption.71}{}}
+\newlabel{subfig:af-m-data-A256-pVar=U}{{5.7b}{93}{$V$-dependency of $m$ varying $U$.\caption@thelabel }{figure.caption.71}{}}
+\newlabel{sub@subfig:af-m-data-A256-pVar=U}{{b}{93}{$V$-dependency of $m$ varying $U$.\caption@thelabel }{figure.caption.71}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}}{93}{figure.caption.71}\protected@file@percent }
+\newlabel{fig:af-m-data-A256}{{5.7}{93}{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase}{figure.caption.71}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.1}Magnetization boost}{93}{subsection.5.9.1}\protected@file@percent }
+\newlabel{subsec:af-m-boost}{{5.9.1}{93}{Magnetization boost}{subsection.5.9.1}{}}
+\newlabel{subfig:af-uS-data-C128}{{5.8a}{94}{Heatmap of $u^{(s^*)}$ in $UV$ plane.\caption@thelabel }{figure.caption.72}{}}
+\newlabel{sub@subfig:af-uS-data-C128}{{a}{94}{Heatmap of $u^{(s^*)}$ in $UV$ plane.\caption@thelabel }{figure.caption.72}{}}
+\newlabel{subfig:af-tS-data-C128}{{5.8b}{94}{Heatmap of $t^{(s^*)}$ in $UV$ plane.\caption@thelabel }{figure.caption.72}{}}
+\newlabel{sub@subfig:af-tS-data-C128}{{b}{94}{Heatmap of $t^{(s^*)}$ in $UV$ plane.\caption@thelabel }{figure.caption.72}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Data for the HFP $u^{(s^*)}$ and $\tilde  {t}^{(s^*)}$ varying both $U$ and $V$.}}{94}{figure.caption.72}\protected@file@percent }
+\newlabel{fig:af-uS-tS-data}{{5.8}{94}{Data for the HFP $u^{(s^*)}$ and $\tilde {t}^{(s^*)}$ varying both $U$ and $V$}{figure.caption.72}{}}
+\newlabel{subfig:af-uS-data-A256-pVar=V}{{5.9a}{94}{$U$-dependency of $u^{(s^*)}$ varying $V$.\caption@thelabel }{figure.caption.73}{}}
+\newlabel{sub@subfig:af-uS-data-A256-pVar=V}{{a}{94}{$U$-dependency of $u^{(s^*)}$ varying $V$.\caption@thelabel }{figure.caption.73}{}}
+\newlabel{subfig:af-uS-data-A256-pVar=U}{{5.9b}{94}{$V$-dependency of $u^{(s^*)}$ varying $U$.\caption@thelabel }{figure.caption.73}{}}
+\newlabel{sub@subfig:af-uS-data-A256-pVar=U}{{b}{94}{$V$-dependency of $u^{(s^*)}$ varying $U$.\caption@thelabel }{figure.caption.73}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}}{94}{figure.caption.73}\protected@file@percent }
+\newlabel{fig:af-uS-data-A256}{{5.9}{94}{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase}{figure.caption.73}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.2}Bands shrinking}{94}{subsection.5.9.2}\protected@file@percent }
+\newlabel{subfig:af-tS-data-A256-pVar=V}{{5.10a}{95}{$U$-dependency of $t^{(s^*)}$ varying $V$.\caption@thelabel }{figure.caption.74}{}}
+\newlabel{sub@subfig:af-tS-data-A256-pVar=V}{{a}{95}{$U$-dependency of $t^{(s^*)}$ varying $V$.\caption@thelabel }{figure.caption.74}{}}
+\newlabel{subfig:af-tS-data-A256-pVar=U}{{5.10b}{95}{$V$-dependency of $t^{(s^*)}$ varying $U$.\caption@thelabel }{figure.caption.74}{}}
+\newlabel{sub@subfig:af-tS-data-A256-pVar=U}{{b}{95}{$V$-dependency of $t^{(s^*)}$ varying $U$.\caption@thelabel }{figure.caption.74}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}}{95}{figure.caption.74}\protected@file@percent }
+\newlabel{fig:af-tS-data-A256}{{5.10}{95}{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase}{figure.caption.74}{}}
+\newlabel{subfig:af-f-data-C128}{{5.11a}{95}{Heatmap of $f_\mathrm {MFT}$ in $\delta V$ plane.\caption@thelabel }{figure.caption.75}{}}
+\newlabel{sub@subfig:af-f-data-C128}{{a}{95}{Heatmap of $f_\mathrm {MFT}$ in $\delta V$ plane.\caption@thelabel }{figure.caption.75}{}}
+\newlabel{subfig:af-f-data-A256}{{5.11b}{95}{$V$-dependency of $f_\mathrm {MFT}$ varying $\delta $.\caption@thelabel }{figure.caption.75}{}}
+\newlabel{sub@subfig:af-f-data-A256}{{b}{95}{$V$-dependency of $f_\mathrm {MFT}$ varying $\delta $.\caption@thelabel }{figure.caption.75}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces Free energy density of the AF phase.}}{95}{figure.caption.75}\protected@file@percent }
+\newlabel{fig:af-f-data}{{5.11}{95}{Free energy density of the AF phase}{figure.caption.75}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.3}Solution free energy and entropy densities}{95}{subsection.5.9.3}\protected@file@percent }
+\newlabel{subsec:af-f-s}{{5.9.3}{95}{Solution free energy and entropy densities}{subsection.5.9.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces Difference of free energies for the normal phase minus the AF phase.}}{96}{figure.caption.76}\protected@file@percent }
+\newlabel{fig:af-df-data-A128}{{5.12}{96}{Difference of free energies for the normal phase minus the AF phase}{figure.caption.76}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9.4}Fixed-point interpretation of HF solution}{96}{subsection.5.9.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces Quiver plot of algorithmic evolution in HFPs space at fixed model parametrization. The black dot $\mathbf  {v}$ represents the nonlinear map fixed point, while the colored paths the sequences of HFPs coordinates simulated via iterative HF procedure, starting from different HFPs initializers (colored dots).}}{97}{figure.caption.77}\protected@file@percent }
+\newlabel{fig:af-attractor}{{5.13}{97}{Quiver plot of algorithmic evolution in HFPs space at fixed model parametrization. The black dot $\mathbf {v}$ represents the nonlinear map fixed point, while the colored paths the sequences of HFPs coordinates simulated via iterative HF procedure, starting from different HFPs initializers (colored dots)}{figure.caption.77}{}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{99}{section*.79}\protected@file@percent }
 \abx@aux@nociteall
-\memsetcounter{lastsheet}{111}
-\memsetcounter{lastpage}{107}
+\memsetcounter{lastsheet}{105}
+\memsetcounter{lastpage}{101}
 \abx@aux@read@bbl@mdfivesum{9A776CC0EF0A3A41A02A37DAE286C8A2}
 \abx@aux@read@bblrerun
 \abx@aux@defaultrefcontext{0}{singh1990collective}{none/global//global/global/global}
@@ -699,4 +653,4 @@
 \abx@aux@defaultrefcontext{0}{grosso2014solid}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{giuliani2005quantum}{none/global//global/global/global}
 \abx@aux@defaultrefcontext{0}{fabrizio2022course}{none/global//global/global/global}
-\gdef \@abspage@last{111}
+\gdef \@abspage@last{105}

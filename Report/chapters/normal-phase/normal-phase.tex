@@ -1,11 +1,6 @@
 \def\GraphicsFolder{chapters/normal-phase/pictures}
 \chapter{The normal phase}\label{chap:normal-phase}
 
-{\color{tabred}ToDo
-\begin{itemize}
-	\item Clarify the Mean-Field decomposition of quartic operators OR use the self-consistent fields
-\end{itemize}}
-
 In this chapter we apply the HF methods sketched in Sec.~\ref{sec:sketch-hf-method} to the ``normal phase''. We are studying the model in a state were no symmetry of those enumerated in Tab.~\ref{tab:symmetry-groups} is broken. Even though this phase may appear not so interesting, it actually shows a significant physical difference with respect to the conventional perfectly degenerate Fermi gas.
 
 HF methods applied in this context will lead us to a self-consistent hopping renormalisation effect. For certain values of the non-local attraction $V$ and the doping level, a complete Mott localisation effect takes place. The resulting bands shrinking and flattening is the main net effect of the presence of $\hat H_V$ in the EHM.
@@ -20,9 +15,7 @@ In the normal phase no symmetry is broken. Thus, the HF wavefunction approximati
 \]
 This is the only potential SSB we consider. It will turn out in Sec.~\ref{subsec:normal-bands-shrinking-C2} that even allowing for breaking of rotational symmetry, the ground-state actually does not break $\mathrm{C}_4$. This can be seen as a convolute way to confirm that there is not a normal-nematic phase. While this may seem as an useless complication, the derivation will set grounds for actual nematic effects found in the superconducting phase.
 
-Our HF method relies on the application of Wick's theorem on the quartic part of the interacting hamiltonian, expressed in Eq.~\eqref{eq:hf-wick-hfc}. {\color{tabred}[It's not that immediate how Wick's theorem gives HF decomposition.]}
-
-Recalling Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}, for the normal phase we must consider the following contributes to the EVs of Eqns.~\eqref{eq:ehm-HU-wick}, \eqref{eq:ehm-HV(os)-wick}, \eqref{eq:ehm-HV(ss)-wick}:
+Our HF method relies on the application of Wick's theorem on the quartic part of the interacting hamiltonian, expressed in Eq.~\eqref{eq:hf-wick-hfc}. We will decompose the quartic operators according to Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}. Recalling Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}, for the normal phase we must consider the following contributes to the EVs of Eqns.~\eqref{eq:ehm-HU-wick}, \eqref{eq:ehm-HV(os)-wick}, \eqref{eq:ehm-HV(ss)-wick}:
 \[
 \begin{aligned}
 	&\hat H_U 
@@ -61,11 +54,11 @@ In the final hamiltonian, the net effect originating from Hartree terms will be 
 
 \subsection{Hartree channel in the normal phase: analytic derivation}\label{subsec:normal-hartree-analytic}
 
-The quartic part of $\hat H$ is given by the the local repulsion $\hat H_U$ and the non-local attraction $\hat H_V$. \todo
+The quartic part of $\hat H$ is given by the the local repulsion $\hat H_U$ and the non-local attraction $\hat H_V$. Applying HF methods to them, we get the decomposition of Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}. Let us deal with the Hartree sector of both separately.
 
 \paragraph{Local repulsion.}
 
-In the normal phase, the local repulsion $\hat H_U$ decomposes in Hartree channel as
+In the normal phase, the local repulsion $\hat H_U$ decomposes in Hartree channel as specified in Eq.~\eqref{eq:mft-HU}
 \[
 	\hat H_U \simeq
 	U \sum_{i} \left[
@@ -103,7 +96,7 @@ The non-local attraction further corrects $\mu$.
 
 \paragraph{Non-local attraction.}
 
-The non-local repulsion is divided in two sectors, as in Eq.~\eqref{eq:ehm-HV(ss)+HV(os)}. Its Hartree-like terms are:
+The non-local attraction is divided in two sectors, as in Eq.~\eqref{eq:ehm-HV(ss)+HV(os)}. From Eq.~\eqref{eq:mft-HV}, its Hartree-like terms are:
 \begin{multline}
 	\hat H_V \simeq 
 	\overbrace{
@@ -200,7 +193,7 @@ for the non-local attraction. In the last passage, we used Eq.~\eqref{eq:square-
 
 \section{Fock effects: bare bands renormalization}\label{sec:normal-fock-bands-renormalization}
 
-Analysis of Fock terms will lead us to the effect that makes the normal phase interesting, when compared to the free Fermi gas on the square lattice. From Wick's decomposition of $\hat H_V$, the unique allowed Fock term comes from the same-spin sector. This selection rules is implied by the $\mathrm{SU}(2)$ symmetry of the normal phase. Then:
+Analysis of Fock terms will lead us to the effect that makes the normal phase interesting, when compared to the free Fermi gas on the square lattice. From Wick's decomposition of $\hat H_V$, the unique allowed Fock term comes from the same-spin sector. This selection rules is implied by the $\mathrm{SU}(2)$ symmetry of the normal phase. Then, from Eq.~\eqref{eq:mft-HV}:
 \begin{equation}\label{eq:real-space-non-local-interaction-fock}
 	\hat H_V \simeq (\text{Hartree channel}) + 
 	V \sum_{\ev{ij}} \sum_\sigma \left[

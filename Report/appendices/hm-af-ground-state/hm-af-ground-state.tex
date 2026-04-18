@@ -320,18 +320,25 @@ Suppose the system is magnetized, $\Delta>0$. At low temperature, $\beta \gg 1$,
 \end{aligned}
 \]
 thus
+\begin{equation}\label{appeq:m-analytic}
+	m \simeq \frac{\epsilon_0}{U\sinh(1/\rho_0 U)}
+\end{equation}
+having we used $\Delta = mU$. In the left panel of Fig.~\ref{appfig:m-analytic} we sketch this function of $U$ varying $\rho_0$, $\epsilon_0$. The same data of Fig.~\ref{appsubfig:mU-beta=100}, $\delta=0$ are plotted as gray dots. The shown curves are not fits.
+
+\begin{figure}
+	\centering
+	\includegraphics[height=0.32\linewidth]{../Project/src/labs/m-analytic/m-analytic.pdf}
+	\caption{Sketch of the analytic expression for $m$. The left panel shows a family of coloured curves described by Eq.~\eqref{appeq:m-analytic}. The right panel shows a family of coloured curves described by Eq.~\eqref{appeq:m-approx}, only reasonable at $U \to 0$.}
+	\label{appfig:m-analytic}
+\end{figure}
+
+Now: at large $U$,
 \[
-m \simeq \frac{\epsilon_0}{U\sinh(1/\rho_0 U)}
-\]
-having we used $\Delta = mU$. Now: at large $U$,
-\[
-\lim_{U\to +\infty} m \simeq \epsilon_0 \rho_0 = \frac{1}{2}
+	\lim_{U\to +\infty} m \simeq \epsilon_0 \rho_0 = \frac{1}{2}
 \]
 which gives the correct saturation limit at high local repulsion. In the opposite limit,
-\[
-\begin{aligned}
-	\lim_{U\to 0} m &\simeq \lim_{U\to 0} \frac{2\epsilon_0/U}{\exp(1/\rho_0 U)-\exp(-1/\rho_0 U)} \\
-	&\simeq \lim_{U\to 0} \frac{2\epsilon_0}{U} \exp(-\frac{1}{\rho_0 U})
-\end{aligned}
-\]
-giving a near-$0$ exponential suppression of magnetisation, typical of MFT self-consistent solutions.
+\begin{align}
+	\lim_{U\to 0} m &\simeq \lim_{U\to 0} \frac{2\epsilon_0/U}{\exp(1/\rho_0 U)-\exp(-1/\rho_0 U)} \nonumber \\
+	&\simeq \lim_{U\to 0} \frac{2\epsilon_0}{U} \exp(-\frac{1}{\rho_0 U}) \label{appeq:m-approx}
+\end{align}
+giving a near-$0$ exponential suppression of magnetisation, typical of MFT self-consistent solutions. In the right panel of Fig.~\ref{appfig:m-analytic} we sketch this approximation.

@@ -1,11 +1,6 @@
 \def\GraphicsFolder{chapters/antiferromagnetic-instability/pictures}
 \chapter{Antiferromagnetic instability}\label{chap:mft-af-instability}
 
-{\color{tabred}ToDo
-	\begin{itemize}
-		\item Clarify the Mean-Field decomposition of quartic operators OR use the self-consistent fields
-\end{itemize}}
-
 In this chapter we apply HF method to the AF phase, widely studied for the HM \cite{fabrizio2022course}. We focus on one particular realisation of antiferromagnetism, referred to as ``commensurate''. It is inherently metallic and only physically sensed at half-filling.
 
 For the commensurate antiferromagnet, the non-local attraction $\hat H_V$ adds two main self-consistent effects. First, redefinition of the bands gap: an effect we denote ``gap complexification'' (Sec.~\ref{sec:af-full-hamiltonian}) and later show is actually suppressed (Sec.~\ref{sec:af-constraints}).  Second, bare bands shrinking (Sec.~\ref{sec:af-fock-bands-renormalisation}) similarly to what found for the normal phase.
@@ -208,13 +203,13 @@ For the AF phase, the derivation is more elaborated than for the normal phase. I
 \[
 	\hat H_U = U \sum_{\mathbf{r}\in\mathcal{L}} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow}
 \]
-We only need to analyse the Hartree contraction channel, as is reported in Tab.~\ref{tab:af-RWCs}. 
+We only need to analyse the Hartree contraction channel, as is reported in Tab.~\ref{tab:af-RWCs}. The HF decomposition and the Hartree sectors are given in Eq.~\eqref{eq:mft-HU}.
 
 Before extending to the non-local attraction, we dedicate the end of this section to complete the theoretical description of antiferromagnetism in the conventional, locally repulsive Hubbard model. This will allow us to identify easily what changes due to the presence of $\hat H_V$.
 
 \subsection{Local Hartree channel in the normal phase: analytic derivation}\label{subsec:af-l-hartree-analytic}
 
-The HF method, applied to a quartic operator, gives the decomposition of Eq.~\mref. Decompose $\hat H_U$ in the Hartree channel:
+The HF method, applied to a quartic operator, gives the decomposition of Eq.~\eqref{eq:mft-HU}. Decompose $\hat H_U$ in the Hartree channel:
 \[
 	\hat H_U \simeq U \sum_{\mathbf{r}\in\mathcal{L}} \left[
 		\hat n_{\mathbf{r}\uparrow} \ev{\hat n_{\mathbf{r}\downarrow}} + \ev{\hat n_{\mathbf{r}\uparrow}} \hat n_{\mathbf{r}\downarrow} - \ev{\hat n_{\mathbf{r}\uparrow}} \ev{\hat n_{\mathbf{r}\downarrow}}
@@ -804,7 +799,7 @@ With this strategy, we get back to the application of HF methods to the full EHM
 
 In last sections we obtained the pseudospin representation of the HM hamiltonian for the AF phase. The main results were Eqns.~\eqref{eq:af-HU-gap-psi}, \eqref{eq:af-hm-spin-h}. Now we must approximate $\hat H_V$, reducing to a quadratic operator. We start from the Hartree channel.
 
-The non-local attraction decomposes, in the non-local Hartree channel, in same-spin and opposite-spin:
+The non-local attraction decomposes, in the non-local Hartree channel, in same-spin and opposite-spin sectors. Using Eq.~\eqref{eq:mft-HV} we get:
 \begin{multline*}
 	\hat H_V \simeq
 	\overbrace{
