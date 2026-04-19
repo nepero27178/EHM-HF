@@ -701,7 +701,7 @@ Let us summarise this section through a practical rule to decompose the quartic 
 \paragraph{Non-local attraction.} Applying the HF method, the local repulsion $\hat H_V$ is approximated by the quadratic operator:
 \begin{align}
 	\hat H_V &= -V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \hat n_{i\sigma} \hat n_{j\sigma'} \label{eq:mft-HV} \\
-	&\simeq -V \sum_i \Big(
+	&\simeq -V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \Big(
 	\hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle + \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} - \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle  \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle &&(\text{Hartree}) \nonumber\\
 	&\phantom{\simeq \sum_{{i\sigma}\neq{j\sigma'}} V_{{i\sigma}{j\sigma'}}}
 	- \hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\langle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} \big\rangle - \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\rangle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} + \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\rangle  \big\langle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} \big\rangle &&(\text{Fock}) \nonumber\\
@@ -709,7 +709,7 @@ Let us summarise this section through a practical rule to decompose the quartic 
 	+ \hat c_{i\sigma}^\dagger \hat c_{j\sigma'}^\dagger \big\langle \hat c_{j\sigma'} \hat c_{i\sigma} \big\rangle + \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'}^\dagger \big\rangle \hat c_{j\sigma'} \hat c_{i\sigma} - \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'}^\dagger \big\rangle  \big\langle \hat c_{j\sigma'} \hat c_{i\sigma} \big\rangle
 	\Big) &&(\text{Cooper}) \nonumber
 \end{align}
-We will use these decomposition referring to each sector in later chapters.
+We will use these decomposition referring to each sector in dedicated chapters.
 
 \section{Sketch of HF iterative algorithm}\label{sec:sketch-ihf-algorithm}
 

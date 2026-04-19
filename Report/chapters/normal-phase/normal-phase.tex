@@ -78,16 +78,14 @@ For a translationally invariant phase such as the normal phase, it holds
 	\langle \hat n_{i\sigma} \rangle = n
 \end{equation}
 which gives
-\[
-\begin{aligned}
+\begin{align}
 	\hat H_U &\simeq
 	nU \sum_i \left[
 		 \hat n_{i\uparrow} + \hat n_{i\downarrow}
 	\right]
-	- U \sum_i n^2 \\
-	&= nU \times \hat N - E_{\mathrm{H}/U}^{(\mathrm{N})}
-\end{aligned}
-\]
+	- U \sum_i n^2 \nonumber \\
+	&= nU \times \hat N - E_{\mathrm{H}/U}^{(\mathrm{N})} \label{eq:normal-HU-approx}
+\end{align}
 being $\hat N$ the total number operator and $ E_{\mathrm{H}/U}^{(\mathrm{N})}$ the ``contraction energy'' (also known as double counting term). In Sec.~\ref{subsec:normal-hartree-energy} we deal with it. The chemical potential is corrected by
 \begin{equation}\label{eq:local-hartree-mu-shift}
 	\mu \to \mu - nU
@@ -145,10 +143,10 @@ where ``all the rest'' collects all non-Hartree terms. Recalling the Ansatz of E
 	+ (\text{all the rest})
 \]
 with $E_{\mathrm{H}/V}^{(\mathrm{N})}$ the normal state shift to energy brought by $\hat H_V$. Both sums above give a number operator. Note that we sum over NNs: each site is connected to $z=4$ sites. Including this combinatorial factor, we have
-\[
+\begin{equation}\label{eq:normal-HV-approx}
 	\hat H_V \simeq -2nzV \times \hat N - E_{\mathrm{H}/V}^{(\mathrm{N})} + 
 	(\text{all the rest})
-\]
+\end{equation}
 This accounts for the final Hartree shift of $\mu$,
 \begin{equation}\label{eq:non-local-hartree-mu-shift}
 	\mu \to \mu + 2znV

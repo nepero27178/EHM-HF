@@ -1,19 +1,26 @@
 \def\GraphicsFolder{chapters/superconducting-instability/pictures}
 \chapter{Superconducting instability}\label{chap:mft-sc-instability}
 
-This chapter is devoted to studying the superconducting (SC) phase of the system. Superconductivity is obtained essentially by allowing for Cooper fluctuations, obtaining then a phase much different from normal and AF. The conventional, locally repulsive HM, cannot exhibit a BCS-like superconducting phase, an argument discussed in Sec.~\ref{appsubsec:sc-hm-impossible}. The $2$D EHM, supplied with non-local attraction, fixes this and makes a SC phase possible, by the means of a slightly more complex Cooper pairing mechanism. Not only, various SC topological classes are possible based on the competition between isotropic and anisotropic pairing. Finally, spin pairing algebra plays a role in the competition defining singlet and triplet pairing channels.
+In this chapter the HF methods introduced in Sec.~\ref{sec:sketch-hf-method} are applied to the SC phase. We study a translationally invariant superconductor, which breaks the conservation of total charge. Analytic calculations will lead us to various effects: bare bands renormalisation, anisotropic Cooper pairing and nematicity. Our description of the SC phase is closely related to the BCS solution for pure $s$-wave superconductivity.
 
-The most interesting effects with respect to conventional HM are the insurgence of a BCS-like superconducting phase, as well as the already discussed bands renormalization and resymmetrization and the extension of the gap function symmetry structure.
+As for previous phases, this chapter is divided in three parts. First, analysis of the SC phase symmetries based on the discussion of Chap.~\ref{chap:ehm-symmetries}, and implementation of HF methods. Second, search for theoretical constraints on the self-consistent solution. Third, numeric results.
 
 \section{The SC phase and its symmetries}\label{sec:sc-phase-theory}
 
-The starting point is, as done for the other phases, the discussion of the symmetries of the SC phase. The BCS-like phase we are dealing with is described by the full $\mathrm{U}^\mathrm{c}(1)$ SSB. All other symmetries are preserved, but as for the normal and AF phases we allow for 
+As for antiferromagnetism, superconductivity can establish in a variety of ways. We deal with the simplest realisation. In Sec.~\ref{subsec:ehm-sym-break} we anticipated that the SC phase is described by the two SSBs
 \[
-	\mathrm{C}_4 \SSB \mathrm{C}_2
+\begin{aligned}
+	\mathrm{U}^z(1) &\SSB 0 \\
+	\mathrm{C}_4 &\SSB \mathrm{C}_2
+\end{aligned}
 \]
-without breaking inversion symmetry. Therefore, being translational invariance fully preserved, the system density we assume to be uniform across all sites, similarly to the normal phase discussed in Chap.~\ref{chap:normal-phase}.
+Translational invariance is unbroken. Then electronic density needs to be uniform across all sites, similarly to the normal phase discussed in Chap.~\ref{chap:normal-phase}. Non-uniform density distributions are inconsistent with translational invariance in both directions. We have, then
+\begin{equation}\label{eq:sc-density-ansatz}
+	\ev{\hat n_{\mathbf{r}\sigma}} = n
+\end{equation}
+which is identical to Eq.~\eqref{eq:normal-density-ansatz} for the normal phase.
 
-Recall Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, collecting the RWCs for the AF phase,
+Recall Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}, collecting the selection rules for the local repulsion $\hat H_U$ and the non-local attraction $\hat H_V$. From Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV} for the SC phase we need to account for the following contractions:
 \[
 \begin{aligned}
 	&\hat H_U 
@@ -24,7 +31,7 @@ Recall Tabs.~\ref{tab:U-wick-terms-phases} and \ref{tab:V-wick-terms-phases}, co
 	&&\text{Hartree, Fock and Cooper contractions} \\
 \end{aligned}	
 \]
-We anticipate the role of all RWCs in Tab.~\ref{tab:sc-RWCs}.
+We anticipate their roles in Tab.~\ref{tab:sc-RWCs}.
 
 \begin{table}[t]
 	\centering
@@ -45,22 +52,7 @@ We anticipate the role of all RWCs in Tab.~\ref{tab:sc-RWCs}.
 	\label{tab:sc-RWCs}
 \end{table}
 
-Let us highlight now an important point regarding the Cooper class Wick's contractions performed on the general EHM of Eq.~\eqref{eq:extended-hubbard-model},
-\[
-	\hat H =
-	\underbrace{
-		-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	}_{\hat H_t} \underbrace{
-		+U \sum_i \hat c_{i\uparrow}^\dagger \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow} \hat c_{i\uparrow}
-		\vphantom{
-			\sum_{\langle ij \rangle}
-		}
-	}_{\hat H_U}
-	\underbrace{
-		- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat c_{i\sigma}^\dagger \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \hat c_{i\sigma}
-	}_{\hat H_V}
-\]
-As is discussed in Sec.~\ref{sec:mft-discussion-non-local-source}, when applying Wick's theorem the resulting terms break the natural symmetries of the model. The superconducting symmetry we study breaks just the $\mathrm{U}^\mathrm{c}(1)$ charge conservation. Now, when dealing with superconducting Cooper pairing we need to account also for the spatial structure of the Cooper pair itself. Consider the generic Cooper fluctuation
+The SSB of $\mathrm{U}^z(1)$ allows for EVs like $\langle \hat c^\dagger \hat c^\dagger \rangle$ to be non-zero. This leads to the formation of Cooper pairs. These are composite quantum objects with a specific spin-spatial structure. Consider the generic Cooper fluctuation
 \[
 	\big\langle
 	\hat c_{i\sigma}^\dagger \hat c_{j\sigma'}^\dagger
@@ -71,7 +63,9 @@ From basic Quantum Mechanics we know the summation rules of the spin algebra $\m
 \[
 	\frac 1 2 \otimes \frac 1 2 = 0 \oplus 1
 \]
-The two pairing channels are, at this level, the singlet channel associated to total spin $0$ and the triplet channel associated to total spin $1$. If we impose a specific spatial symmetry on the hamiltonian the ground state wavefunction will follow naturally, and the pairing channel will be the one providing a total anti-symmetry to the full wavefunction. This gives a selection rule over the relevant pairings: if we work with space symmetric structures -- say, $s^*$-wave or $d$-wave -- the pairing will take place in singlet channel, allowing us to eliminate the triplet pairing. Working with antisymmetric structures, inversely, we can eliminate the singlet channel. This concept is summarized in Tab.~\ref{tab:sc-pairings-symmetry-structures}.
+The two pairing channels are, at this level, the singlet channel associated to total spin $0$ and the triplet channel associated to total spin $1$. Now, when applying HF method to the quartic operators, we get the decomposition of Eq.~\eqref{eq:mft-V-decomposition}. We can impose to the approximated HF ground-state a particular spatial structure -- say, inversion symmetry or antisymmetry. This reflects in the requirement that Cooper pairs show the same spatial structure.
+
+This gives a selection rule over Cooper pairings: if we work with inversion-symmetric structures -- say, $s^*$-wave or $d$-wave -- the pairing will take place in singlet channel, allowing us to eliminate the triplet pairing. Working with antisymmetric structures, inversely, we can eliminate the singlet channel. This concept is summarised in Tab.~\ref{tab:sc-pairings-symmetry-structures}.
 
 \begin{table}
 	\centering
@@ -92,16 +86,187 @@ The two pairing channels are, at this level, the singlet channel associated to t
 	\label{tab:sc-pairings-symmetry-structures}
 \end{table}
 
-\subsection{Superconductivity in the HM}\label{subsec:sc-hm}
-
-In Sec.~\ref{appsec:superconducting-phase}, we discuss in detail the (impossibility of a stable) $s$-wave SC phase in the conventional HM. This is an obvious result, since the two-body interaction thereby present $\hat H_U$ is local and repulsive. We nevertheless treat the model within the MFT framework, and here recall the main widely known results, and later use them as groundwork for the EHM extension. Similarly to Sec.~\ref{subsec:af-hm}, let us define the operators
+We proceed as we did for the AF phase: in order to highlight the physical effects of $\hat H_V$, we first analyse the SC phase limitedly to the conventional HM. In next section we prove that BCS-like superconductivity is impossible at HF level on the pure HM, with just the local repulsion $\hat H_U$. It is the presence of the non-local attraction that enables Cooper pairing mechanism. Before starting, let
 \begin{align}
 	\hat n_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:sc-ehm-n-def} \\
 	\hat \phi_\mathbf{k} &\equiv \hat c_{-\mathbf{k}\downarrow} \hat c_{\mathbf{k}\uparrow}\label{eq:sc-ehm-phi-def}
 \end{align}
-whose EVs are relevant for the SC phase.
+where $\hat n_{\mathbf{k}\sigma}$ was defined as for the AF phase, in Eq.~\eqref{eq:af-ehm-n-def}. The HF approximation in reciprocal space to the EHM will be written in terms of these operators.
 
-The MFT hamiltonian is given explicitly for the HM in Eq.~\eqref{appeq:sc-hm-mft-h},
+\section{Local effects: (impossibility of) superconductivity in the HM}\label{sec:sc-local}
+
+Let us start from the local effects. Following Tab.~\ref{tab:HU-sel-rules} and Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}, we know the local repulsion decomposes in Hartree and Cooper channels,
+\[
+\begin{aligned}
+	\hat H_U &= U \sum_{\mathbf{r}\in\mathcal{L}} \hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}\downarrow} \label{eq:mft-HU} \\
+	&\simeq U \sum_{\mathbf{r}\in\mathcal{L}} \Big(
+	\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\uparrow} \big\langle \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} \big\rangle + \big\langle \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\uparrow} \big\rangle \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} - \big\langle \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\uparrow} \big\rangle  \big\langle \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} \big\rangle &&(\text{Hartree}) \\
+	&\phantom{\simeq \sum_{{\mathbf{r}\uparrow}\neq{\mathbf{r}\downarrow}} V_{{\mathbf{r}\uparrow}{\mathbf{r}\downarrow}}}
+	+ \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \big\langle \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow} \big\rangle + \big\langle \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \big\rangle \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow} - \big\langle \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \big\rangle  \big\langle \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow} \big\rangle
+	\Big) &&(\text{Cooper})
+\end{aligned}
+\]
+In next sections we deal with each channel separately.
+
+\subsection{Local Hartree channel in the SC phase: analytic derivation}\label{subsec:sc-l-hartree-analytic}
+
+For the Hartree channel, being the density uniform across sites, we can re-use the entirety of Sec.~\ref{subsec:normal-hartree-analytic} for the normal phase. Substituting Eq.~\eqref{eq:sc-density-ansatz}, we get the approximation of Eq.~\eqref{eq:normal-HU-approx},
+\begin{equation}\label{eq:sc-HU-approx}
+	\hat H_U \simeq nU \times \hat N - E_{\mathrm{H}/U}^{(\mathrm{SC})} + \text{(Cooper channel)}
+\end{equation}
+thus chemical potential renormalization $\tilde{\mu} \to \mu - nU$ is present also in the SC phase.
+
+\subsection{Local Hartree contraction energy}\label{subsec:sc-l-hartree-energy}
+
+As for the section above, we use the result of Sec.~\ref{subsec:normal-hartree-energy} for the normal phase. From Eq.~\eqref{eq:normal-hartree-U-contraction-energy}
+\begin{equation}\label{eq:sc-hartree-U-contraction-energy}
+	E_{\mathrm{H}/U}^{(\mathrm{SC})} = L_x L_y \times n^2 U
+\end{equation}
+For a locally repulsive model, the Hartree channel contributes negatively to ground state energy. Indeed, contraction energy is subtracted from the hamiltonian. We now move to the Cooper channel.
+
+\subsection{Local Cooper channel in the SC phase: analytic derivation}\label{subsec:sc-l-cooper-analytic}
+
+We move to reciprocal space, through the transformation of Eq.~\eqref{eq:HU-fourier}. Consider the Cooper channel of Eq.~\eqref{eq:mft-HU}. In reciprocal space we get:
+\begin{multline}
+	\hat H_U \simeq \text{(Hartree channel)} + \frac{U}{L_x L_y}
+	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \Big[
+	\big\langle
+	\hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \downarrow}^\dagger
+	\big\rangle \hat c_{\mathbf{K}-\mathbf{k}' \downarrow} \hat c_{\mathbf{K}+\mathbf{k}' \uparrow} \\
+	+ \hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \downarrow}^\dagger \big\langle
+	\hat c_{\mathbf{K}-\mathbf{k}' \downarrow} \hat c_{\mathbf{K}+\mathbf{k}' \uparrow} 
+	\big\rangle - \big\langle
+	\hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \downarrow}^\dagger
+	\big\rangle \big\langle 
+	\hat c_{\mathbf{K}-\mathbf{k}' \downarrow} \hat c_{\mathbf{K}+\mathbf{k}' \uparrow}
+	\big\rangle
+	\Big] \label{eq:sc-mft-HU}
+\end{multline}
+We are not breaking translational invariance, thus only Cooper fluctuations with net zero total momentum are allowed. This means only $\mathbf{K}=\mathbf{0}$ contributes. Let us prove this: consider the EV of the Cooper pair
+\[
+	\big\langle \hat c_{\mathbf{k}_1\uparrow}^\dagger \hat c_{\mathbf{k}_2\downarrow}^\dagger \big\rangle
+\]
+for two momenta $\mathbf{k}_1$, $\mathbf{k}_2$. Moving to real space via an $\mathcal{F}$-transform, we get
+\[
+	\big\langle \hat c_{\mathbf{k}_1\uparrow}^\dagger \hat c_{\mathbf{k}_2\downarrow}^\dagger \big\rangle \Feq \frac{1}{L_x L_y} \sum_{\mathbf{r}_1 \in \mathcal{L}} \sum_{\mathbf{r}_2 \in \mathcal{L}} e^{-i \left(\mathbf{k}_1 \cdot \mathbf{r}_1 + \mathbf{k}_2 \cdot \mathbf{r}_2\right)} \big\langle \hat c_{\mathbf{r}_1\uparrow}^\dagger \hat c_{\mathbf{r}_2\downarrow}^\dagger \big\rangle
+\]
+where we used the convention of Eq.~\eqref{eq:fourier-convention}. Let now $\mathbf{r}_1 \to \mathbf{r}$ and $\mathbf{r}_2 \to \Delta \mathbf{r}$. Translational invariance implies that
+\[
+	g(\Delta \mathbf{r}) = \big\langle \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}+\Delta\mathbf{r}\downarrow}^\dagger \big\rangle
+\]
+is independent of $\mathbf{r}$. Thus we have:
+\[
+\begin{aligned}
+	\big\langle \hat c_{\mathbf{k}_1\uparrow}^\dagger \hat c_{\mathbf{k}_2\downarrow}^\dagger \big\rangle &\Feq \sum_{\Delta\mathbf{r} \in \mathcal{L}} e^{-i \mathbf{k}_2 \cdot \Delta\mathbf{r}} g(\Delta \mathbf{r}) \frac{1}{L_x L_y} \sum_{\mathbf{r} \in \mathcal{L}} e^{-i \left(\mathbf{k}_1 + \mathbf{k}_2\right) \cdot \mathbf{r}} \\
+	&= \sum_{\Delta\mathbf{r} \in \mathcal{L}} e^{-i \mathbf{k}_2 \cdot \Delta\mathbf{r}} g(\Delta \mathbf{r}) \delta_{\mathbf{k}_1=\mathbf{k}_2}
+\end{aligned}
+\]
+where we used the identity of Eq.~\eqref{eq:ehm-delta}. Then the above EV vanishes for $\mathbf{k}_1\neq\mathbf{k}_2$. Getting back to Eq.~\eqref{eq:sc-mft-HU}, this proves that only pairs at null total momentum can have nonzero EVs.
+
+Let now $w_\mathbf{k}$ be the EV of $\phi_\mathbf{k}^\dagger$, and $w^{(s)}$ its $s$-wave projection:
+\begin{align}
+	w_\mathbf{k} &\equiv \big\langle
+	\phi_\mathbf{k}^\dagger
+	\big\rangle \label{eq:sc-wq-def} \\
+	w^{(s)} &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}} w_\mathbf{k} \label{eq:sc-hm-ws-self-consistency}
+\end{align}
+Eq.~\eqref{eq:sc-mft-HU} reduces to
+\begin{equation}\label{eq:sc-HU-<phi>-phi}
+	\hat H_U \simeq \text{(Hartree channel)} + \frac{U}{L_x L_y} \sum_{\mathbf{k},\mathbf{k}'} \left[
+	\big\langle
+	\hat \phi_\mathbf{k}^\dagger
+	\big\rangle \hat \phi_{\mathbf{k}'} + 
+	\hat \phi_\mathbf{k}^\dagger \big\langle
+	\hat \phi_{\mathbf{k}'}
+	\big\rangle
+	\right] - E_{\mathrm{C}/U}^{(\mathrm{SC})}
+\end{equation}
+being $E_{\mathrm{C}/U}^{(\mathrm{SC})}$ the HM Cooper contraction energy, written explicitly in Sec.~\ref{subsec:sc-l-cooper-energy}. Let now
+\[
+	\Delta^{(s)} \equiv -U w^{(s)}
+\]
+In the end, we reduce $\hat H_U$ from Eq.~\eqref{eq:sc-HU-<phi>-phi} to
+\begin{equation}\label{eq:sc-HU-gap-phi}
+	\hat H_U \simeq \text{(Hartree channel)} - \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
+	\Delta^{(s)} \hat \phi_\mathbf{k} + 
+	\Delta^{(s)*} \hat \phi_\mathbf{k}^\dagger
+	\right] - E_{\mathrm{C}/U}^{(\mathrm{SC})}
+\end{equation}
+This last decomposition resembles Eq.~\eqref{eq:af-HU-gap-psi}, obtained for the AF phase in the Hartree channel.
+
+\subsection{Local Cooper contraction energy}\label{subsec:sc-l-cooper-energy}
+
+The Cooper contraction energy in the Cooper channel is given by:
+\begin{align}
+	E_{\mathrm{C}/U}^{(\mathrm{SC})} &\equiv \frac{U}{L_x L_y} \sum_{\mathbf{k}\mathbf{k}'} \big\langle
+	\hat \phi_\mathbf{k}^\dagger
+	\big\rangle \big\langle
+	\hat \phi_{\mathbf{k}'}
+	\big\rangle \nonumber \\
+	&= L_x L_y \times U \big| w^{(s)} \big|^2 \label{eq:sc-cooper-U-contraction-energy}
+\end{align}
+As for the Hartree channel, also the Cooper channel contributes negatively to ground-state energy.
+
+\subsection{Superconductivity in the HM}\label{subsec:sc-hm}
+
+We proceed here as we did for the AF phase in Sec.~\ref{subsec:af-hm}. We start by giving a matricial representation of the approximated hamiltonian, then map it to a pseudospin problem and finally specify how to diagonalise it to retrieve its ground state.
+
+\paragraph{Matricial representation.}
+
+The Hubbard hamiltonian is approximated by:
+\begin{multline}
+	\hat H_t + \hat H_U \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_{\mathbf{k}\sigma}
+	\left[
+	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
+	- \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma}
+	\right] \\
+	- \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
+	\Delta^{(s)} \hat \phi_\mathbf{k} + 
+	\Delta^{(s)*} \hat \phi_\mathbf{k}^\dagger
+	\right] + nU \times \hat N - \left[
+	E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
+	\right]
+	\label{eq:sc-hm-mft-h} 
+\end{multline}
+Let the Nambu spinor
+\[
+	\hat \Phi_\mathbf{k} \equiv \begin{bmatrix}
+		\hat c_{\mathbf{k}\uparrow} \\
+		\hat c_{-\mathbf{k}\downarrow}^\dagger
+	\end{bmatrix}
+\] 
+%and the pseudo-spin operator:
+%\[
+%	\hat s_\mathbf{k}^\alpha \equiv \hat \Phi_\mathbf{k}^\dagger \tau^\alpha \hat \Phi_\mathbf{k}
+%\]
+Let now:
+\[
+	\xi_\mathbf{k} \equiv \epsilon_\mathbf{k} - \tilde{\mu}
+\]
+Notice we are using the renormalised chemical potential. 
+
+From Fermi anticommutation rules we have:
+\[
+	\hat n_{\mathbf{k}\uparrow} + \hat n_{-\mathbf{k}\downarrow} = \hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}\uparrow} - \hat c_{-\mathbf{k}\downarrow} \hat c_{-\mathbf{k}\downarrow}^\dagger + 1
+\]
+\textbf{FROM HERE}
+Then, considering the kinetic part of the gran-canonical hamiltonian,
+\[
+\begin{aligned}
+	\hat H_t - \tilde{\mu}\hat N &= \sum_\sigma \sum_{\mathbf{k} \in \mathrm{BZ}} \left(
+	\epsilon_{\mathbf{k}\sigma} - \tilde{\mu}
+	\right) \hat n_{\mathbf{k}\sigma} \\
+	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \left[ 
+	\xi_\mathbf{k} \hat n_{\mathbf{k}\uparrow} + \xi_{-\mathbf{k}} \hat n_{-\mathbf{k}\downarrow} 
+	\right] \\
+	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \xi_\mathbf{k} \hat s_\mathbf{k}^z + E_\mathrm{a}^{(\mathrm{SC})}
+\end{aligned}
+\]
+being $E_\mathrm{a}^{(\mathrm{SC})}$ the ``anticommutation energy'' coming from the kinetic term,
+\begin{equation}\label{appeq:sc-hm-anticommutation-energy}
+	E_\mathrm{a}^{(\mathrm{SC})} \equiv \sum_{\mathbf{k}\in\mathrm{BZ}} \xi_\mathbf{k}
+\end{equation}
+
 \begin{multline*}
 	\hat H_t + \hat H_U \stackrel{\mathrm{MFT}}{\simeq} \sum_{\mathbf{k} \in \mathrm{BZ}} \epsilon_\mathbf{k}
 	\left[
@@ -183,7 +348,7 @@ The Bogoliubov bands are $\pm E_\mathbf{k} = \sqrt{\xi_\mathbf{k}^2 + \abs{\Delt
 	\label{tab:sc-pseudospin-map}
 \end{table}
 
-\subsection{Extension to the EHM}\label{subsec:sc-ehm}
+\section{Extension to the EHM}\label{sec:sc-ehm}
 
 Add now the non-local interaction $\hat H_V$: translational invariance is preserved while charge conservation is broken, thus all three channels (Hartree, Fock and Cooper) contribute via RWCs to the MFT hamiltonian. As for the AF phase, we aim to derive a MFT solution for the SC phase which is an extension of the HM solution of Sec.~\ref{appsec:superconducting-phase}, with an effective redefinition of the various physical quantities and mathematical objects,
 \[
@@ -472,11 +637,11 @@ Anisotropic pairing in superconducting fluctuations is induced by the Cooper RWC
 \subsection{Cooper o.s. channel in the SC phase: analytic derivation}\label{subsec:sc-cooper-os-analytic}
 
 This section deals with Cooper fluctuations induced by the o.s. part of the non-local hamiltonian --referring to the notation of Eq.~\eqref{eq:ehm-non-local-ss-os-terms}-- somewhat the simplest form of Cooper pairing. This sector contributes both to singlet pairing and triplet pairing. Considering Cooper fluctuations in the singlet channel, we need to break $\mathrm{U}^\mathrm{c}(1)$ symmetry imposing space inversion symmetry, while for the triplet anti-symmetry is required. Set the EV
-\begin{equation}\label{eq:sc-wq-def}
+\[
 	w_\mathbf{k} = \langle
 		\hat \phi_\mathbf{k}^\dagger
 	\rangle
-\end{equation}
+\]
 Let us now break down the MFT discussion for the local and non-local interactions.
 
 \paragraph{Local repulsion.}
