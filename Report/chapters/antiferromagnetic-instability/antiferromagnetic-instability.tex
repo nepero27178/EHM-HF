@@ -321,7 +321,7 @@ which is the contraction energy in the local Hartree channel.
 
 One of the aims of this projects is to identify, theoretically, what changes for each phase due to the presence of the non-local attraction $\hat H_V$ with respect to the conventional HM. In this section we give a description of antiferromagnetism in the conventional HM, and later we move to the EHM.
 
-\paragraph{Matricial representation.}
+\paragraph{Matrix representation.}
 
 The HM hamiltonian contains the kinetic operator and the local repulsion,
 \[
@@ -376,15 +376,23 @@ This is a parametric hamiltonian. We need to identify its ground state for each 
 \[
 	h_{\mathbf{k}\sigma} = \epsilon_{\mathbf{k}\sigma} \tau^z - \Delta_{\mathbf{k}\sigma} \tau^x
 \]
-Let us define the pseudospin operators:
+Let us define the pseudospin operator $\hat{\mathbf{s}}_{\mathbf{k}\sigma}$
 \[
 	\hat s_{\mathbf{k}\sigma}^\alpha \equiv \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^\alpha \hat \Psi_{\mathbf{k}\sigma}
-	\qq{and}
+	\qq{with}
+	\hat{\mathbf{s}}_{\mathbf{k}\sigma} = \begin{bmatrix}
+		\hat s_{\mathbf{k}\sigma}^x \\
+		\hat s_{\mathbf{k}\sigma}^y \\
+		\hat s_{\mathbf{k}\sigma}^z
+	\end{bmatrix}
+\]
+and the pseudofield $\mathbf{b}_{\mathbf{k}\sigma}$:
+\[
 	\mathbf{b}_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
 		-\Delta_{\mathbf{k}\sigma} \\ 0 \\ \epsilon_{\mathbf{k}\sigma} 
 	\end{bmatrix}
 \]
-These operators satisfy a $\mathrm{SU}(2)$ algebra up to a constant $C$,
+These operators satisfy a $\mathfrak{su}(2)$ algebra up to a constant $C$,
 \[
 	\comm{\hat s_{\mathbf{k}\sigma}^\alpha}{\hat s_{\mathbf{k}\sigma}^\beta} = C \times i\sum_\gamma \epsilon_{\alpha\beta\gamma} \hat s_{\mathbf{k}\sigma}^\gamma
 \]
@@ -430,12 +438,6 @@ Let also:
 In pseudospin representation we get:
 \begin{equation}\label{eq:af-hm-spin-h}
 	\hat H_t + \hat H_U \simeq \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \mathbf{b}_{\mathbf{k}\sigma} \cdot \hat{\mathbf{s}}_{\mathbf{k}\sigma} + nU \hat N - E_{\mathrm{H}/U}^{(\mathrm{AF})}
-	\qq{where}
-	\hat{\mathbf{s}}_{\mathbf{k}\sigma} = \begin{bmatrix}
-		\hat s_{\mathbf{k}\sigma}^x \\
-		\hat s_{\mathbf{k}\sigma}^y \\
-		\hat s_{\mathbf{k}\sigma}^z
-	\end{bmatrix}
 \end{equation}
 The hamiltonian represents a system of spins subject to local magnetic fields. 
 %
@@ -503,7 +505,7 @@ In the end we have the non-interacting hamiltonian:
 \]
 where we intend $(\cdots) = nU \hat N -  E_{\mathrm{H}/U}^{(\mathrm{AF})}$. The final non-interacting hamiltonian describes a free Fermi gas of $\gamma^{(\pm)}$ fermions, respectively on the bands $\pm E_{\mathbf{k}\sigma}$. Note that these two bands are separated by a gap $\Delta_{\mathbf{k}\sigma}$.
 
-We could redefine the pseudospin operators dividing them by an appropriate constant, in order to satisfy exactly the $\mathrm{SU}(2)$ algebra, and at the same time multiply the pseudo-magnetic field by the same constant. The product $\mathbf{b}_{\mathbf{k}\sigma} \cdot \hat{\mathbf{s}}_{\mathbf{k}\sigma}$ would be unchanged, and the diagonalisation matrix $W_{\mathbf{k}\sigma}$ would be the same. Because of this, the aforementioned constant $C$ is irrelevant.
+We could redefine the pseudospin operators dividing them by an appropriate constant, in order to satisfy exactly the $\mathfrak{su}(2)$ algebra, and at the same time multiply the pseudo-magnetic field by the same constant. The product $\mathbf{b}_{\mathbf{k}\sigma} \cdot \hat{\mathbf{s}}_{\mathbf{k}\sigma}$ would be unchanged, and the diagonalisation matrix $W_{\mathbf{k}\sigma}$ would be the same. Because of this, the aforementioned constant $C$ is irrelevant.
 
 \subsection{Features of the AF solution}\label{subsec:af-features}
 
@@ -748,7 +750,23 @@ and similarly the angle $\tilde{\zeta}_{\mathbf{k}\sigma}$,
 	\qquad
 	\cos 2\tilde{\zeta}_{\mathbf{k}\sigma} = \frac{\Im\{\tilde{\Delta}_{\mathbf{k}\sigma}\}}{|\tilde{\Delta}_{\mathbf{k}\sigma}|}
 \end{equation}
-A sketch of these angles is given in Fig.~\ref{fig:pseudo-magnetic-field-ehm}. The following relations hold (\textit{tilde} sign indicates the renormalised quantity):
+A sketch of these angles is given in Fig.~\ref{fig:pseudo-magnetic-field-ehm}. For a complex gap function, the new diagonalisation matrix is given by:
+\begin{align}
+	\tilde{W}_{\mathbf{k}\sigma} &\equiv e^{-i \tilde{\theta}_{\mathbf{k}\sigma} \tau^y} e^{-i \tilde{\zeta}_{\mathbf{k}\sigma} \tau^z} \nonumber\\
+	&= \left(\cos \tilde{\theta}_{\mathbf{k}\sigma} -i \sin \tilde{\theta}_{\mathbf{k}\sigma} \tau^y \right) \left(\cos \tilde{\zeta}_{\mathbf{k}\sigma} -i \sin \tilde{\zeta}_{\mathbf{k}\sigma} \tau^z \right) \nonumber\\
+	&= \begin{bmatrix}
+		\cos \tilde{\theta}_{\mathbf{k}\sigma} & - \sin \tilde{\theta}_{\mathbf{k}\sigma} \\
+		\sin \tilde{\theta}_{\mathbf{k}\sigma} & \cos \tilde{\theta}_{\mathbf{k}\sigma}
+	\end{bmatrix} \begin{bmatrix}
+		e^{-i\tilde{\zeta}_{\mathbf{k}\sigma}} & \\ 
+		& e^{i\tilde{\zeta}_{\mathbf{k}\sigma}}
+	\end{bmatrix} \nonumber \\
+	&= \begin{bmatrix}
+		\cos \tilde{\theta}_{\mathbf{k}\sigma} e^{-i\tilde{\zeta}_{\mathbf{k}\sigma}} & - \sin \tilde{\theta}_{\mathbf{k}\sigma} e^{i\tilde{\zeta}_{\mathbf{k}\sigma}} \\
+		\sin \tilde{\theta}_{\mathbf{k}\sigma} e^{-i\tilde{\zeta}_{\mathbf{k}\sigma}} & \cos \tilde{\theta}_{\mathbf{k}\sigma} e^{i\tilde{\zeta}_{\mathbf{k}\sigma}}
+	\end{bmatrix} \nonumber
+\end{align}
+The following relations hold (\textit{tilde} sign indicates the renormalised quantity):
 \[
 \begin{aligned}
 	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^x \hat \Psi_{\mathbf{k}\sigma} \rangle &= -\sin 2\tilde{\theta}_{\mathbf{k}\sigma} \cos 2\tilde{\zeta}_{\mathbf{k}\sigma} \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \\
@@ -1558,7 +1576,7 @@ The new HFPs amplitudes contribute positively to contraction energy. The consequ
 \section{Full MFT hamiltonian and gap complexification}\label{sec:af-full-hamiltonian}
 
 Finally, it is time to collect everything in a single hamiltonian operator. The approximated hamiltonian is:
-\begin{multline*}
+\begin{multline}
 	\hat H - \mu \hat N \simeq \sum_\sigma \sum_{\mathbf{k}\in\mathrm{MBZ}} \tilde{\epsilon}_{\mathbf{k}\sigma} \left[
 		\hat n_{\mathbf{k}\sigma} - \hat n_{\mathbf{k}+\bm{\pi}\sigma}
 	\right]
@@ -1569,8 +1587,8 @@ Finally, it is time to collect everything in a single hamiltonian operator. The 
 	- \tilde{\mu} \hat N - \left[
 		E_{\mathrm{H}/U}^{(\mathrm{AF})} + 
 		E_{\mathrm{H}/V}^{(\mathrm{AF})} + E_{\mathrm{F}/V}^{(\mathrm{AF})}
-	\right]
-\end{multline*}
+	\right] \label{eq:af-full-h}
+\end{multline}
 where renormalized bands are given by:
 \[
 	\tilde{\epsilon}_{\mathbf{k}\sigma} = \epsilon_{\mathbf{k}\sigma} + V \sum_{\gamma\in\lbrace s^*,d \rbrace} u^{(\gamma)}_\sigma \varphi_{\mathbf{k}}^{(\gamma)*}
@@ -1676,7 +1694,7 @@ We name the two possible symmetries ``sAF'' (symmetric antiferromagnet) and ``aA
 	\label{tab:af-saf-aaf-hfps}
 \end{table}
 
-From now on we will omit $\sigma$ index, working just in the $\uparrow$ sector. As said in Sec.~\ref{sec:af-phase-theory}, the AF phase does not break $\mathbb{Z}_2$ spin inversion symmetry, being the SDW ordering generated by a staggered but globally symmetric spin density distribution among sites. The approximated quadratic hamiltonian of Eq.~\mref is invariant by a $\sigma \leftrightarrow \overline{\sigma}$ exchange, thus all measurable physical quantities must be.
+From now on we will omit $\sigma$ index, working just in the $\uparrow$ sector. As said in Sec.~\ref{sec:af-phase-theory}, the AF phase does not break $\mathbb{Z}_2$ spin inversion symmetry, being the SDW ordering generated by a staggered but globally symmetric spin density distribution among sites. The approximated quadratic hamiltonian of Eq.~\ref{eq:af-full-h} is invariant by a $\sigma \leftrightarrow \overline{\sigma}$ exchange, thus all measurable physical quantities must be.
 
 %{\section{(In)stability of commensurate AF phase}\label{sec:af-instability}
 %

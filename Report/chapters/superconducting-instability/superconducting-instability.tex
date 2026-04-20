@@ -182,9 +182,15 @@ Eq.~\eqref{eq:sc-mft-HU} reduces to
 	\right] - E_{\mathrm{C}/U}^{(\mathrm{SC})}
 \end{equation}
 being $E_{\mathrm{C}/U}^{(\mathrm{SC})}$ the HM Cooper contraction energy, written explicitly in Sec.~\ref{subsec:sc-l-cooper-energy}. Let now
-\[
+\begin{equation}\label{eq:sc-Delta^s}
 	\Delta^{(s)} \equiv -U w^{(s)}
+\end{equation}
+This is the $s$-wave component of the gap function. Note that, in general, $\Delta^{(s)} \in \mathbb{C}$. However, we can always choose $\Delta^{(s)}$ as purely real. This is due to the fact that the hamiltonian is gauge-invariant, then it suffices to apply the gauge map of Eq.~\eqref{eq:gauge-symmetry} to the fermionic operators with
+\[
+	\eta \equiv \frac{\arg \Delta^{(s)}}{2}
 \]
+to obtain $\Delta^{(s)} \in \mathbb{R}$.
+
 In the end, we reduce $\hat H_U$ from Eq.~\eqref{eq:sc-HU-<phi>-phi} to
 \begin{equation}\label{eq:sc-HU-gap-phi}
 	\hat H_U \simeq \text{(Hartree channel)} - \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
@@ -209,17 +215,14 @@ As for the Hartree channel, also the Cooper channel contributes negatively to gr
 
 \subsection{Superconductivity in the HM}\label{subsec:sc-hm}
 
-We proceed here as we did for the AF phase in Sec.~\ref{subsec:af-hm}. We start by giving a matricial representation of the approximated hamiltonian, then map it to a pseudospin problem and finally specify how to diagonalise it to retrieve its ground state.
+We proceed here as we did for the AF phase in Sec.~\ref{subsec:af-hm}. We start by giving a matrix representation of the approximated hamiltonian, then map it to a pseudospin problem and finally specify how to diagonalise it to retrieve its ground state.
 
-\paragraph{Matricial representation.}
+\paragraph{Matrix representation.}
 
-The Hubbard hamiltonian is approximated by:
+Collecting the results of the above paragraphs, we obtain the quadratic approximation to the Hubbard hamiltonian in the SC phase,
 \begin{multline}
 	\hat H_t + \hat H_U \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_{\mathbf{k}\sigma}
-	\left[
-	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
-	- \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma}
-	\right] \\
+	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \\
 	- \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
 	\Delta^{(s)} \hat \phi_\mathbf{k} + 
 	\Delta^{(s)*} \hat \phi_\mathbf{k}^\dagger
@@ -228,47 +231,45 @@ The Hubbard hamiltonian is approximated by:
 	\right]
 	\label{eq:sc-hm-mft-h} 
 \end{multline}
-Let the Nambu spinor
-\[
-	\hat \Phi_\mathbf{k} \equiv \begin{bmatrix}
-		\hat c_{\mathbf{k}\uparrow} \\
-		\hat c_{-\mathbf{k}\downarrow}^\dagger
-	\end{bmatrix}
-\] 
-%and the pseudo-spin operator:
-%\[
-%	\hat s_\mathbf{k}^\alpha \equiv \hat \Phi_\mathbf{k}^\dagger \tau^\alpha \hat \Phi_\mathbf{k}
-%\]
-Let now:
+We define the shifted bare bands:
 \[
 	\xi_\mathbf{k} \equiv \epsilon_\mathbf{k} - \tilde{\mu}
 \]
-Notice we are using the renormalised chemical potential. 
-
-From Fermi anticommutation rules we have:
-\[
-	\hat n_{\mathbf{k}\uparrow} + \hat n_{-\mathbf{k}\downarrow} = \hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}\uparrow} - \hat c_{-\mathbf{k}\downarrow} \hat c_{-\mathbf{k}\downarrow}^\dagger + 1
-\]
-\textbf{FROM HERE}
-Then, considering the kinetic part of the gran-canonical hamiltonian,
+Notice we are using the renormalised chemical potential. Due to inversion symmetry, it holds $\xi_\mathbf{k} = \xi_{-\mathbf{k}}$. Using Fermi anticommutation rules, the kinetic operator can be written as:
 \[
 \begin{aligned}
-	\hat H_t - \tilde{\mu}\hat N &= \sum_\sigma \sum_{\mathbf{k} \in \mathrm{BZ}} \left(
-	\epsilon_{\mathbf{k}\sigma} - \tilde{\mu}
-	\right) \hat n_{\mathbf{k}\sigma} \\
-	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \left[ 
-	\xi_\mathbf{k} \hat n_{\mathbf{k}\uparrow} + \xi_{-\mathbf{k}} \hat n_{-\mathbf{k}\downarrow} 
-	\right] \\
-	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \xi_\mathbf{k} \hat s_\mathbf{k}^z + E_\mathrm{a}^{(\mathrm{SC})}
+	\hat H_t - \tilde{\mu}\hat N &= \sum_\sigma \sum_{\mathbf{k} \in \mathrm{BZ}} \xi_{\mathbf{k}\sigma} \hat n_{\mathbf{k}\sigma} \\
+	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \left(
+		\xi_\mathbf{k} \hat n_{\mathbf{k}\uparrow} + \xi_{-\mathbf{k}} \hat n_{-\mathbf{k}\downarrow} 
+	\right) \\
+	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \xi_\mathbf{k} \left(
+		 \hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}\uparrow} - \hat c_{-\mathbf{k}\downarrow} \hat c_{-\mathbf{k}\downarrow}^\dagger + 1
+	\right) \\
+	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \xi_\mathbf{k} \left(
+		\hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}\uparrow} - \hat c_{-\mathbf{k}\downarrow} \hat c_{-\mathbf{k}\downarrow}^\dagger
+	\right) + E_\mathrm{a}^{(\mathrm{SC})}
 \end{aligned}
 \]
-being $E_\mathrm{a}^{(\mathrm{SC})}$ the ``anticommutation energy'' coming from the kinetic term,
-\begin{equation}\label{appeq:sc-hm-anticommutation-energy}
+%Then, considering the kinetic part of the gran-canonical hamiltonian,
+%\[
+%\begin{aligned}
+%	\hat H_t - \tilde{\mu}\hat N &= \sum_\sigma \sum_{\mathbf{k} \in \mathrm{BZ}} \left(
+%	\epsilon_{\mathbf{k}\sigma} - \tilde{\mu}
+%	\right) \hat n_{\mathbf{k}\sigma} \\
+%	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \left[ 
+%	\xi_\mathbf{k} \hat n_{\mathbf{k}\uparrow} + \xi_{-\mathbf{k}} \hat n_{-\mathbf{k}\downarrow} 
+%	\right] \\
+%	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \xi_\mathbf{k} \hat s_\mathbf{k}^z + E_\mathrm{a}^{(\mathrm{SC})}
+%\end{aligned}
+%\]
+being $E_\mathrm{a}^{(\mathrm{SC})}$ the ``anticommutation energy''
+\begin{equation}\label{eq:sc-anticommutation-energy}
 	E_\mathrm{a}^{(\mathrm{SC})} \equiv \sum_{\mathbf{k}\in\mathrm{BZ}} \xi_\mathbf{k}
 \end{equation}
 
+In the end, the hamiltonian is approximated by:
 \begin{multline*}
-	\hat H_t + \hat H_U \stackrel{\mathrm{MFT}}{\simeq} \sum_{\mathbf{k} \in \mathrm{BZ}} \epsilon_\mathbf{k}
+	\hat H_t + \hat H_U \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \epsilon_\mathbf{k}
 	\left[
 		\hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}\uparrow}
 		- \hat c_{\mathbf{k}\downarrow} \hat c_{\mathbf{k}\downarrow}^\dagger
@@ -280,16 +281,27 @@ being $E_\mathrm{a}^{(\mathrm{SC})}$ the ``anticommutation energy'' coming from 
 		E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
 	\right]
 \end{multline*}
-with $E_{\mathrm{H}/U}^{(\mathrm{SC})}$, $E_{\mathrm{C}/U}^{(\mathrm{SC})}$ the contraction energies arising from Hartree and Cooper channels, and $E_\mathrm{a}^{(\mathrm{SC})}$ the energy shift resulting from anticommutation rules, given respectively in Eq.~\eqref{appeq:sc-hm-hartree-U-Ec}, \eqref{appeq:sc-hm-hartree-C-Ec}, and \eqref{appeq:sc-hm-anticommutation-energy}.
+with $E_{\mathrm{H}/U}^{(\mathrm{SC})}$, $E_{\mathrm{C}/U}^{(\mathrm{SC})}$ the contraction energies arising from Hartree and Cooper channels, and $E_\mathrm{a}^{(\mathrm{SC})}$ the energy shift resulting from anticommutation rules, given respectively in Eqns.~\eqref{eq:sc-hartree-U-contraction-energy}, \eqref{eq:sc-cooper-U-contraction-energy}, and \eqref{eq:sc-anticommutation-energy}. We recognised the $s$-wave gap $\Delta^{(s)}$ from Eq.~\eqref{eq:sc-Delta^s}.
 
-In deriving this result we decomposed the interaction of the intermediate passage of Eq.~\eqref{appeq:sc-hm-U-int-2} and assumed the Cooper pair to have null total momentum. Moreover, we recognized in the passage of Eq.~\eqref{appeq:sc-hm-U-int-3} the presence of a $s$-wave harmonic transform of the function $w_\mathbf{q}$, and thus defined in Eq.~\eqref{appeq:sc-hm-ws-self-consistency},
+%In deriving this result we decomposed the interaction of the intermediate passage of Eq.~\eqref{appeq:sc-hm-U-int-2} and assumed the Cooper pair to have null total momentum. Moreover, we recognized in the passage of Eq.~\eqref{appeq:sc-hm-U-int-3} the presence of a $s$-wave harmonic transform of the function $w_\mathbf{q}$, and thus defined in Eq.~\eqref{appeq:sc-hm-ws-self-consistency},
+%\[
+%	w^{(s)} \equiv \frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}} w_\mathbf{q}
+%	\qq{and}
+%	\Delta^{(s)} \equiv -U w^{(s)}
+%\]
+
+Let the Nambu spinor
 \[
-	w^{(s)} \equiv \frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}} w_\mathbf{q}
-	\qq{and}
-	\Delta^{(s)} \equiv -U w^{(s)}
-\]
-
-Nambu-Bogoliubov representation of the MFT hamiltonian is given in Eq.~\eqref{appeq:sc-hm-bogoliubov-h} and equivalently in Eq.~\eqref{appeq:af-sc-spin-h},
+	\hat \Phi_\mathbf{k} \equiv \begin{bmatrix}
+			\hat c_{\mathbf{k}\uparrow} \\
+			\hat c_{-\mathbf{k}\downarrow}^\dagger
+		\end{bmatrix}
+\] 
+%and the pseudo-spin operator:
+%\[
+%	\hat s_\mathbf{k}^\alpha \equiv \hat \Phi_\mathbf{k}^\dagger \tau^\alpha \hat \Phi_\mathbf{k}
+%\]
+The approximated hamiltonian can be written in matrix form as:
 \[
 	\hat H_t + \hat H_U - \mu \hat N \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \hat \Phi_\mathbf{k}^\dagger h_\mathbf{k} \hat \Phi_\mathbf{k} + E_\mathrm{a}^{(\mathrm{SC})} - \left[
 		E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
@@ -304,49 +316,121 @@ being
 	\qq{with}
 	\xi_\mathbf{k} \equiv \epsilon_\mathbf{k} - \tilde{\mu}
 \]
-and $\Delta_\mathbf{k} = \Delta^{(s)}$. The hamiltonian can be written equivalently as
+and $\Delta_\mathbf{k} = \Delta^{(s)}$. 
+
+\paragraph{Pseudospin representation.}
+
+The hamiltonian can be written equivalently as
 \[
 	h_\mathbf{k} = \xi_\mathbf{k} \tau^z - \Re\lbrace \Delta_\mathbf{k} \rbrace \tau^x - \Im\lbrace \Delta_\mathbf{k} \rbrace \tau^y
 \]
-Nambu spinors are, in this case,
+Let now the pseudospin operator $\hat{\mathbf{s}}_\mathbf{k}$
 \[
-	\hat \Phi_\mathbf{k} \equiv \begin{bmatrix}
-		\hat c_{\mathbf{k}\uparrow} \\
-		\hat c_{-\mathbf{k}\downarrow}^\dagger
+	\hat s_\mathbf{k}^\alpha \equiv \hat \Phi_\mathbf{k}^\dagger \tau^\alpha \hat \Phi_\mathbf{k}
+	\qq{with}
+	\hat{\mathbf{s}}_{\mathbf{k}\sigma} = \begin{bmatrix}
+		\hat s_{\mathbf{k}\sigma}^x \\
+		\hat s_{\mathbf{k}\sigma}^y \\
+		\hat s_{\mathbf{k}\sigma}^z
 	\end{bmatrix}
 \]
-
-For the SC phase in the HM model, in general, we can admit for a complex gap function -- although being the gap a constant it can always be reduced to a purely real gap. Diagonalization by the angles defined in Eq.~\eqref{appeq:sc-hm-pseudofield} is performed via the composed rotation of Eq.~\eqref{appeq:sc-hm-diagonalizer},
+and the pseudofield $\mathbf{b}_\mathbf{k}$:
 \[
-	W_\mathbf{k} = \begin{bmatrix}
-		\cos \theta_\mathbf{k} e^{-i\zeta_\mathbf{k}} & - \sin \theta_\mathbf{k} e^{i\zeta_\mathbf{k}} \\
-		\sin \theta_\mathbf{k} e^{-i\zeta_\mathbf{k}} & \cos \theta_\mathbf{k} e^{i\zeta_\mathbf{k}}
+	\mathbf{b}_\mathbf{k} \equiv \begin{bmatrix}
+		- \Re \lbrace \Delta_\mathbf{k} \rbrace \\ - \Im \lbrace \Delta_\mathbf{k} \rbrace \\ \xi_\mathbf{k} 
 	\end{bmatrix}
 \]
-The Bogoliubov bands are $\pm E_\mathbf{k} = \sqrt{\xi_\mathbf{k}^2 + \abs{\Delta_\mathbf{k}}^2}$. The only crucial difference with the AF Bogoliubov bands it that here, apart from the absence of the spin index -- a degeneracy that is solved now by enlarging the computation to the entire BZ --, also the bare bands $\epsilon_\mathbf{k}$ are substituted by their shifted version $\xi_\mathbf{k}$. This difference is essential: it is this feature that makes the superconducting phase gapped in an insulating sense, which means, opening the gap at the position of $\tilde{\mu}$. Instead for the AF phase the gap was always opened at ``midband'', the MBZ contour where $\epsilon_\mathbf{k}=0$. As a final remark, as is proven trivially at the end of Sec.~\ref{appsubsec:sc-hm-impossible}, $s$-wave SC is impossible at MFT level on the pure HM. This was obvious, due to the necessity of an even small attractive interaction to form Cooper pairs. To conclude, in Tab.~\ref{tab:sc-pseudospin-map} we report the operator-pseudospin map for each direction.
+As was for the AF phase, these operators satisfy a $\mathfrak{SU}(2)$ algebra up to an constant, irrelevant in the context of this discussion. They satisfy the identities:
+\begin{align}
+	\hat s_\mathbf{k}^x &= \hat \psi_\mathbf{k} + \hat \phi_\mathbf{k}^\dagger \label{eq:sc-hm-x-psi} \\
+	\hat s_\mathbf{k}^y &= i \left(
+	\hat \phi_\mathbf{k} - \hat \phi_\mathbf{k}^\dagger 
+	\right) \label{eq:sc-hm-y-psi} \\
+	\hat s_\mathbf{k}^z &= \hat n_{\mathbf{k}\uparrow} + \hat n_{\mathbf{k}\downarrow} - 1\label{eq:sc-hm-z-psi} 
+\end{align}
+We report the EVs related to these identities Tab.~\ref{tab:sc-pseudo-spin-map}.
 
 \begin{table}
 	\centering
-	\begin{tabular}{c c c}
-		\textbf{EV} & \textbf{Meaning} & \textbf{Equation} \\
+	\begin{tabular}{c c}
+		\textbf{EV} & \textbf{Meaning} \\
 		\midrule
 		$\ev{\hat s_\mathbf{k}^x}$ & $\ev{
 			\hat \phi_\mathbf{k}
 			+ \hat \phi_\mathbf{k}^\dagger
-		}$ & \eqref{appeq:sc-hm-sx} \\[0.7em]
+		}$ \\[0.7em]
 		$\ev{\hat s_\mathbf{k}^y}$ & $i \ev{
 			\hat \phi_\mathbf{k}
 			- \hat \phi_\mathbf{k}^\dagger
-		}$ & \eqref{appeq:sc-hm-sy} \\[0.7em]
+		}$ \\[0.7em]
 		$\ev{\hat s_\mathbf{k}^z}$ & $\ev{
 			\hat n_{\mathbf{k}\uparrow}
 			+ \hat n_{\mathbf{k}\downarrow}
-		}  - 1$ & \eqref{appeq:sc-hm-sz} \\
+		} - 1$ \\
 		\midrule
 	\end{tabular}
-	\caption{List of the various expectation values (EVs) of each pseudospin component, their meaning in terms of fermionic operators and the reference equations from the pure HM. The $z$ component refers also to Eq.~\eqref{appeq:sc-hm-n-z}.}
-	\label{tab:sc-pseudospin-map}
+	\caption{List of the various expectation values (EVs) of each pseudospin component and their meaning in terms of fermionic operators.}
+	\label{tab:sc-pseudo-spin-map}
 \end{table}
+
+We express the approximated hamiltonian in pseudospin representation as:
+\begin{equation}\label{eq:sc-hm-spin-h}
+	\hat H_t + \hat H_U - \mu \hat N \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \mathbf{b}_\mathbf{k} \cdot \hat{\mathbf{s}}_\mathbf{k} + nU \hat N + E_\mathrm{a}^{(\mathrm{SC})} - \left[
+		E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
+	\right]
+\end{equation}
+This operator is similar enough to the one found for the AF phase, in Eq.~\eqref{eq:af-hm-spin-h}. It describes a set of pseudospin subject to a uniform field. As for the AF phase, we define the angles:
+\[
+	\cos (2\theta_\mathbf{k}) = \frac{\xi_\mathbf{k}}{E_\mathbf{k}}
+	\qquad
+	\sin (2\theta_\mathbf{k}) = \frac{\Delta_\mathbf{k}}{E_\mathbf{k}}
+	\qquad
+	E_\mathbf{k} \equiv \sqrt{\xi_\mathbf{k}^2 + \abs{\Delta_\mathbf{k}}^2}
+\]
+The key difference with the AF Bogoliubov bands of Eq.~\eqref{eq:af-bands} is that $E_\mathbf{k}$ now are functions of $\tilde{\mu}$, since $\xi_\mathbf{k}$ depends on the chemical potential. In other words, now the Bogoliubov bands depend on the shifted bands $\xi_\mathbf{k}$ instead of the bare bands $\epsilon_\mathbf{k}$.
+
+\paragraph{Diagonalisation.}
+
+For the SC phase, diagonalisation is essentially the same procedure as was for the AF phase. Indeed, the diagonalisation matrix is given by
+\begin{align}
+	W_\mathbf{k} &\equiv e^{-i \theta_\mathbf{k} \tau^y} \nonumber\\
+	&= \cos \theta_\mathbf{k} -i \sin \theta_\mathbf{k} \tau^y \nonumber\\
+	&= \begin{bmatrix}
+		\cos \theta_\mathbf{k} & - \sin \theta_\mathbf{k} \\
+		\sin \theta_\mathbf{k} & \cos \theta_\mathbf{k}
+	\end{bmatrix} \label{eq:sc-hm-diagonalizer}
+\end{align}
+and the graphic procedure is the same of Fig.~\ref{fig:pseudo-magnetic-field-hm}, with $\epsilon \to \xi$. We get:
+\begin{equation}\label{eq:sc-WhW+-hm}
+	d_\mathbf{k} = W_\mathbf{k} h_\mathbf{k} W_\mathbf{k}^\dagger
+	\qq{with}
+	d_\mathbf{k} \equiv \begin{bmatrix}
+		E_\mathbf{k} & \\
+		& - E_\mathbf{k}
+	\end{bmatrix}
+\end{equation}
+
+The Bogoliubov spinors are given by:
+\begin{equation}\label{eq:sc-Gamma=WPsi}
+	\hat\Gamma_\mathbf{k} = W_\mathbf{k} \hat \Psi_\mathbf{k} = \begin{bmatrix}
+		\hat \gamma_\mathbf{k}^{(+)} \\ \hat \gamma_\mathbf{k}^{(-)}
+	\end{bmatrix}
+\end{equation}
+The new Fermionic operators describe a Fermi gas on distributed on two mirrored bands,
+\[
+	\hat H_t + \hat H_U - \tilde{\mu} \hat N \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma E_\mathbf{k} \left(
+	\hat \gamma_\mathbf{k}^{(+)\dagger} \hat \gamma_\mathbf{k}^{(+)} - \hat \gamma_\mathbf{k}^{(-)\dagger} \hat \gamma_\mathbf{k}^{(-)}
+	\right) + (\cdots) 
+\]
+with $(\cdots)$ the various energy shifts.
+
+\subsection{Features of the SC solution}\label{subsec:sc-features}
+\todo
+
+\paragraph{Pseudospin EVs.}
+\paragraph{$s$-wave gap self-consistency equation.}
+\paragraph{Impossibility of $s$-wave superconductivity.}
+\paragraph{Density.}
 
 \section{Extension to the EHM}\label{sec:sc-ehm}
 
