@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.10)  20 APR 2026 19:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.10)  21 APR 2026 20:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1580,7 +1580,11 @@ tween.code.tex)))
 corations.softclip.code.tex))) (./misc/definitions.tex)
 \@quotelevel=\count556
 \@quotereset=\count557
- (./main.aux)
+ (./main.aux
+
+LaTeX Warning: Label `eq:hf-wick-hfc' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -1748,7 +1752,7 @@ een already used, duplicate ignored
                    \relax 
 l.41 \restoregeometry
                       [2]) (./misc/introduction.tex)
-(./chapters/superconducting-instability/superconducting-instability.tex
+(./chapters/hf-introduction/hf-introduction.tex
 
 [1
 
@@ -1760,353 +1764,90 @@ l.41 \restoregeometry
 
 [2
 
-]
-
-LaTeX Warning: Reference `sec:sketch-hf-method' on page 3 undefined on input li
-ne 4.
-
-
-LaTeX Warning: Reference `chap:ehm-symmetries' on page 3 undefined on input lin
-e 6.
-
-
-LaTeX Warning: Reference `subsec:ehm-sym-break' on page 3 undefined on input li
-ne 10.
-
-
-LaTeX Warning: Reference `chap:normal-phase' on page 3 undefined on input line 
-17.
-
-
-LaTeX Warning: Reference `eq:normal-density-ansatz' on page 3 undefined on inpu
-t line 21.
-
-
-LaTeX Warning: Reference `tab:HU-sel-rules' on page 3 undefined on input line 2
-3.
-
-
-LaTeX Warning: Reference `tab:HV-sel-rules' on page 3 undefined on input line 2
-3.
-
-
-LaTeX Warning: Reference `eq:mft-HV' on page 3 undefined on input line 23.
-
-
-LaTeX Warning: Reference `tab:normal-RWCs' on page 3 undefined on input line 51
-.
-
-
-LaTeX Warning: Reference `tab:af-RWCs' on page 3 undefined on input line 51.
-
-
-LaTeX Warning: Reference `tab:normal-RWCs' on page 3 undefined on input line 51
-.
-
-
-LaTeX Warning: Reference `tab:af-RWCs' on page 3 undefined on input line 51.
-
-LaTeX Font Info:    Trying to load font information for U+euf on input line 62.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)
-
-LaTeX Warning: Reference `eq:mft-V-decomposition' on page 3 undefined on input 
-line 66.
-
-
+] (./chapters/hf-introduction/pictures/gaussian-subspace.tex)
 
 [3]
 
-LaTeX Warning: Reference `eq:af-ehm-n-def' on page 4 undefined on input line 94
-.
-
-
-LaTeX Warning: Reference `tab:HU-sel-rules' on page 4 undefined on input line 9
-8.
-
-
-LaTeX Warning: Reference `eq:mft-HV' on page 4 undefined on input line 98.
-
-
-LaTeX Warning: Reference `subsec:normal-hartree-analytic' on page 4 undefined o
-n input line 113.
-
-
-LaTeX Warning: Reference `eq:normal-HU-approx' on page 4 undefined on input lin
-e 113.
-
-
-
 [4]
 
-LaTeX Warning: Reference `subsec:normal-hartree-energy' on page 5 undefined on 
-input line 121.
-
-
-LaTeX Warning: Reference `eq:normal-hartree-U-contraction-energy' on page 5 und
-efined on input line 121.
-
-
-LaTeX Warning: Reference `eq:HU-fourier' on page 5 undefined on input line 129.
-
-
-
-LaTeX Warning: Reference `eq:fourier-convention' on page 5 undefined on input l
-ine 153.
-
-
-LaTeX Warning: Reference `eq:ehm-delta' on page 5 undefined on input line 164.
-
-
-
 [5]
-
-LaTeX Warning: Reference `eq:gauge-symmetry' on page 6 undefined on input line 
-188.
-
-
-LaTeX Warning: Reference `eq:af-HU-gap-psi' on page 6 undefined on input line 2
-01.
-
-
-LaTeX Warning: Reference `subsec:af-hm' on page 6 undefined on input line 218.
-
-
 
 [6]
 
 [7]
 
-LaTeX Warning: Reference `eq:af-hm-spin-h' on page 8 undefined on input line 38
-4.
-
-
-LaTeX Warning: Reference `eq:af-bands' on page 8 undefined on input line 388.
-
-
-LaTeX Warning: Reference `fig:pseudo-magnetic-field-hm' on page 8 undefined on 
-input line 417.
-
-
-
 [8]
-
-LaTeX Warning: Reference `eq:af-<z>' on page 9 undefined on input line 480.
-
-
 
 [9]
 
-LaTeX Warning: Reference `appendix:sc-g-opt' on page 10 undefined on input line
- 528.
-
-
-LaTeX Warning: Reference `appsubsec:sc-hartree-channel' on page 10 undefined on
- input line 568.
-
-
-
 [10]
-
-LaTeX Warning: Reference `tab:HU-sel-rules' on page 11 undefined on input line 
-630.
-
-
-LaTeX Warning: Reference `tab:HV-sel-rules' on page 11 undefined on input line 
-630.
-
-
-LaTeX Warning: Reference `eq:mft-HV' on page 11 undefined on input line 630.
-
-
 
 [11]
 
-LaTeX Warning: Reference `eq:mft-HV' on page 12 undefined on input line 640.
-
-
-LaTeX Warning: Reference `sec:normal-hartree-mu' on page 12 undefined on input 
-line 640.
-
-
-LaTeX Warning: Reference `eq:normal-mu-shift' on page 12 undefined on input lin
-e 653.
-
-
-LaTeX Warning: Reference `eq:normal-hartree-V-contraction-energy' on page 12 un
-defined on input line 660.
-
-
-LaTeX Warning: Reference `eq:normal-hartree-U-contraction-energy' on page 12 un
-defined on input line 664.
-
-
-LaTeX Warning: Reference `eq:mft-HV' on page 12 undefined on input line 672.
-
-
-LaTeX Warning: Reference `sec:normal-fock-bands-renormalization' on page 12 und
-efined on input line 679.
-
-
-LaTeX Warning: Reference `tab:HV-sel-rules' on page 12 undefined on input line 
-679.
-
-
-LaTeX Warning: Reference `eq:normal-uqsigma-def' on page 12 undefined on input 
-line 683.
-
-
-LaTeX Warning: Reference `eq:af-uqsigma-def' on page 12 undefined on input line
- 683.
-
-
-LaTeX Warning: Reference `eq:normal-V-fock-int5' on page 12 undefined on input 
-line 690.
-
-
-
 [12]
-
-LaTeX Warning: Reference `appeq:sc-hm-gs' on page 13 undefined on input line 73
-4.
-
-
-LaTeX Warning: Reference `eq:normal-bands-renormalization' on page 13 undefined
- on input line 742.
-
-
-LaTeX Warning: Reference `eq:af-bands-renormalisation' on page 13 undefined on 
-input line 742.
-
-
-LaTeX Warning: Reference `eq:sc-ren-thermal-factors-def' on page 13 undefined o
-n input line 766.
-
-
 
 [13]
 
-LaTeX Warning: Reference `subfig:s*-wave-correlator' on page 14 undefined on in
-put line 832.
-
-
-LaTeX Warning: Reference `subfig:d-wave-correlator' on page 14 undefined on inp
-ut line 835.
-
-
-LaTeX Warning: Reference `eq:normal-fock-V-contraction-energy' on page 14 undef
-ined on input line 845.
-
-
-LaTeX Warning: Reference `eq:mft-HV' on page 14 undefined on input line 859.
-
-
-LaTeX Warning: Reference `eq:ehm-HV(ss)+HV(os)' on page 14 undefined on input l
-ine 866.
-
-
-
-[14]
-
-LaTeX Warning: Reference `eq:HV-os-fourier' on page 15 undefined on input line 
-906.
-
-
-LaTeX Warning: Reference `eq:coscos-symmetries-decomposition' on page 15 undefi
-ned on input line 966.
-
-
-LaTeX Warning: Reference `subfig:s-wave-correlator' on page 15 undefined on inp
-ut line 1013.
-
-
-LaTeX Warning: Reference `subfig:s*-wave-correlator' on page 15 undefined on in
-put line 1014.
-
-
-LaTeX Warning: Reference `subfig:px-wave-correlator' on page 15 undefined on in
-put line 1015.
-
-
-LaTeX Warning: Reference `subfig:py-wave-correlator' on page 15 undefined on in
-put line 1016.
-
-
-LaTeX Warning: Reference `subfig:d-wave-correlator' on page 15 undefined on inp
-ut line 1017.
-
-
+[14] (./chapters/hf-introduction/pictures/effective-model-scheme.tex)
 
 [15]
 
-LaTeX Warning: Reference `appeq:sc-hm-hartree-C-Ec' on page 16 undefined on inp
-ut line 1070.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 860.
 
 
-LaTeX Warning: Reference `eq:HV-ss-fourier' on page 16 undefined on input line 
-1504.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mu' on input line 860.
 
 
-LaTeX Warning: Reference `appsec:superconducting-phase' on page 16 undefined on
- input line 1538.
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 860.
 
 
 
 [16]
 
-LaTeX Warning: Reference `appeq:sc-hm-anticommutation-energy' on page 17 undefi
-ned on input line 1565.
-
-
-LaTeX Warning: Reference `appsubsec:sc-zero-T-half-filling-gs' on page 17 undef
-ined on input line 1604.
-
-
-LaTeX Warning: Reference `appeq:sc-hm-gs' on page 17 undefined on input line 16
-04.
-
-
-
 [17]
 
-LaTeX Warning: Reference `sec:normal-free-energy' on page 18 undefined on input
- line 1629.
-
-
-LaTeX Warning: Reference `sec:af-free-energy' on page 18 undefined on input lin
-e 1629.
-
-
-LaTeX Warning: Reference `eq:af-density-entropy' on page 18 undefined on input 
-line 1629.
+LaTeX Warning: Reference `subsec:normal-g-optimization' on page 18 undefined on
+ input line 962.
 
 
 
-[18]
+[18]) (./appendices/slater-gaussian/slater-gaussian.tex
 
-LaTeX Warning: Reference `subsec:af-gap-energy' on page 19 undefined on input l
-ine 1741.
+[19]
 
-
-LaTeX Warning: Reference `eq:af-ehm-gap-energy' on page 19 undefined on input l
-ine 1773.
-
-
-LaTeX Warning: Reference `appsubsec:sc-hm-impossible' on page 19 undefined on i
-nput line 1779.
-
-
-
-[19])
-
-[20]
-
-[21
+[20
 
 ]
-Overfull \hbox (3.53458pt too wide) in paragraph at lines 68--68
+
+[21]
+
+[22]
+
+[23]
+
+[24]) (./appendices/hf-mft/hf-mft.tex
+
+[25]
+
+[26
+
+]
+
+[27]
+
+[28])
+
+[29]
+
+[30
+
+]
+
+[31]
+Overfull \hbox (3.53458pt too wide) in paragraph at lines 70--70
 \OT1/cmr/m/it/10 Phys-ica C: Su-per-con-duc-tiv-ity and its Ap-pli-ca-tions \OT
 1/cmr/m/n/10 633 (June 2025), p. 1354719. \OT1/cmr/m/sc/10 issn\OT1/cmr/m/n/10 
 : 09214534.
@@ -2114,17 +1855,17 @@ Overfull \hbox (3.53458pt too wide) in paragraph at lines 68--68
 
 
 
-[22]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 6
-8.
+[32]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 7
+0.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 68.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 70.
 
 
-[23]
+[33]
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
@@ -2137,8 +1878,11 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E594B4827C008052CF157CBB8C59E6E0;6934.
+(rerunfilecheck)             Checksum: BEDE896DDDA45EA5F87ECBE9E7E49C67;4420.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -2149,42 +1893,40 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 52266 strings out of 473197
- 1180146 string characters out of 5718605
- 2204144 words of memory out of 5000000
- 74567 multiletter control sequences out of 15000+600000
- 577866 words of font info for 105 fonts, out of 8000000 for 9000
+ 52306 strings out of 473197
+ 1180979 string characters out of 5718605
+ 2215188 words of memory out of 5000000
+ 74598 multiletter control sequences out of 15000+600000
+ 577158 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  92i,18n,96p,2641b,1675s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/eu
-ler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbo
-ls/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/
-share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/ty
-pe1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/
-sfrm1000.pfb>
-Output written on main.pdf (25 pages, 400514 bytes).
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm06
+00.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/t
+exmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/pub
+lic/cm-super/sfrm1000.pfb>
+Output written on main.pdf (35 pages, 420296 bytes).
 PDF statistics:
- 679 PDF objects out of 1000 (max. 8388607)
- 574 compressed objects within 6 object streams
+ 697 PDF objects out of 1000 (max. 8388607)
+ 585 compressed objects within 6 object streams
  160 named destinations out of 1000 (max. 500000)
- 321 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 273 words of extra memory for PDF output out of 10000 (max. 10000000)
 

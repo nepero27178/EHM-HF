@@ -2,7 +2,9 @@
 
 \chapter{Introduction to Hartree-Fock methods}
 
-The Hartree-Fock (HF) method is a variational approach to determine the ground-state wavefunction of a many-body hamiltonian. The wavefunction is determined the one minimising energy, limiting search to a specific subspace of states. The general idea is to approximate the real hamiltonian with the best non-interacting fermionic hamiltonian.
+In this chapter we give a technical introduction to the Hartree-Fock (HF) method and its numerical implementation. We will keep this discussion as general as possible, without referring directly to the EHM.
+
+The HF method is a variational approach to approximate the ground-state wavefunction of a many-body hamiltonian. The wavefunction is determined by minimising energy, limiting our search to a specific subspace of states. The general idea is to approximate the real ground-state with the best possible many-body state that is an eigenstate of a non-interacting fermionic hamiltonian.
 
 To start, we need to define what Hilbert subspace we work with. Then we need to identify a way of parametrising the possible non-interacting hamiltonians and their respective ground-states, and finally a method to choose the best approximation to our original model. This is done in Sec.~\ref{sec:sketch-hf-method}, largely based on \cite{grosso2014solid, fabrizio2022course}.
 
@@ -10,7 +12,70 @@ Variational algorithms generally work by numeric minimisation of some given func
 
 \section{Prerequisites and generalities}
 
-Let us start by discussing the properties of the many-body states we use to approximate the real ground-state of the system. We introduce Slater determinants to grasp the general idea behind HF variational method, and then extend to a larger set of states.
+In this short section we give some motivation to the choice of the HF method, before moving to a technical explanation of how the method works. As we said before, we are performing a constrained search for an approximation to the ground-state wavefunction. 
+
+Let $\hat H$ be a generic hamiltonian, and $\mathcal{H}$ the Hilbert space. For any many-body state $\ket{\Psi} \in \mathcal{H}$, the energy is given by the expectation value (EV)
+\[
+	E[\Psi] = \mel{\Psi}{\hat H}{\Psi}
+\]
+Let $\mathcal{S} \subset \mathcal{H}$ be a subspace of states, ad let $\ket{\Psi}$ be a state inside that locally minimises energy,
+\[
+	\ket{\Psi} \in \mathcal{S}
+	\qquad
+	\fdv{E[\Psi]}{\ket{\Psi}} = 0
+\]
+If the true ground state does not belong to $\mathcal{S}$, the found local minimum $\ket{\Psi}$ approximates it. The energy $E[\Psi]$ is, in this case, bigger than the actual ground-state energy.
+
+\begin{figure}
+	\centering
+	\input{\GraphicsFolder/gaussian-subspace}
+	\caption{}
+	\label{fig:gaussian-subspace}
+\end{figure}
+
+In HF methods, we identify $\mathcal{S}$ with the set of so-called ``gaussian states''. These are all the ground-states of non-interacting hamiltonians. We give a complete description of them in App.~\ref{appendix:slater-gaussian}. We restrict minimisation to gaussian states because we can use Wick's theorem to simplify significantly the computation of expectation values. Indeed, by averaging a quartic operator over a gaussian state, we get the exact decomposition
+\begin{equation}\label{eq:hf-wick-hfc}
+	\langle
+	\hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta
+	\rangle \Weq \underbrace{
+		\langle 
+		\hat c_\alpha^\dagger \hat c_\delta
+		\rangle \langle	
+		\hat c_\beta^\dagger \hat c_\gamma 
+		\rangle
+	}_{\text{Hartree}}
+	- 
+	\underbrace{
+		\langle 
+		\hat c_\alpha^\dagger \hat c_\beta
+		\rangle \langle	
+		\hat c_\gamma^\dagger \hat c_\delta 
+		\rangle 
+	}_{\text{Fock}}
+	+ 
+	\underbrace{
+		\langle 
+		\hat c_\alpha^\dagger \hat c_\beta^\dagger
+		\rangle \langle	
+		\hat c_\gamma \hat c_\delta 
+		\rangle 
+	}_{\text{Cooper}}
+\end{equation}
+The subscripts indicate the names we will give to these terms throughout the text. The notation $\Weq$ indicates that we are using Wick's theorem.
+
+Let us rephrase: the HF method is a minimisation constrained to all states that satisfy exactly Eq.~\eqref{eq:hf-wick-hfc}. While this method simplifies a lot the computation of expectation values (reducing them to products of quadratic operators), the drawback is that the ground-state approximation is rather rough. Despite the roughness, HF methods are able to tackle various physical phenomena.
+
+Operatively, we are approximating the hamiltonian with a non-interacting hamiltonian
+\[
+	\hat H \HFsimeq	\hat H_\mathrm{HF} = \sum_{\alpha} E_\alpha \hat\gamma_\alpha^\dagger \hat\gamma_\alpha
+\]
+whose ground-state is obtained as a result of constrained minimisation. The notation $\HFsimeq$ indicates that this operatorial approximation only holds inside the subspace of gaussian states. To determine the energies $E_\alpha$ as well as the fermionic operators $\hat\gamma_\alpha$ is the point of the HF method. These operators satisfy Fermi anti-commutation rules,
+\[
+	\acomm{\hat\gamma_\alpha}{\hat\gamma_\beta^\dagger} = \delta_{\alpha\beta}
+\]
+and are connected to the conventional electronic operators $\hat c_\alpha$ through an unitary map. This is discussed in detail in App.~\ref{appendix:slater-gaussian}.
+
+{\color{tabred}
 
 \subsection{Slater determinants}
 
@@ -259,6 +324,8 @@ As in Sec.~\ref{subsec:slater-wick}, we conclude that:
 The subscripts indicate the name we will give to these terms throughout the text. Note that, differently from ``pure Slater states'' EVs with two annihilations or two creations do not vanish, in general.
 
 All of this holds when averaging is performed on a state, $\ket{\Psi}$, which is vacuum for a set of operators linked to fermionic Nambu spinor $\hat \Phi$ by some unitary operation. This set of states is the domain of our variational constrained search. This kind of unitary mapping is often referred to as Bogoliubov-Valatin transformation, and the method hereby presented as Hartree-Fock-Bogoliubov (HFB). For simplicity we will stick, from now on, to the name ``HF method'' referring to this discussion. {\color{tabred}\textbf{This argument has been carried out at zero temperature, but can be extended to finite temperature using appropriate path-integral techniques}}.
+
+}
 
 \section{Sketch of HF variational method}\label{sec:sketch-hf-method}
 
@@ -514,6 +581,8 @@ This set of equations defines our computational problem. We are searching a set 
 
 The list of parameters $\lbrace \Delta_{\alpha\beta}^{pq} \rbrace$ to be determined self-consistently may be not-so-short: by looking at Eq.~\eqref{eq:hf-self-consistency-general}, the indices $\alpha,\beta,p,q$ are spanning a large Hilbert space. However, this equation can be manipulated and transformed, reducing the set of parameters to be determined self-consistently to a very manageable number. For each phase we define these last as ``Hartree-Fock parameters'' (HFPs): a set of objects self-consistently determined by a set equivalent, but transformed, version of Eq.~\eqref{eq:hf-self-consistency-general}.
 
+{\color{tabred}
+
 \subsection{Connection with mean-field theories}
 
 This short last section concludes the theoretical introduction to HF methods, and bridges the gap between HF approaches and mean-field theory (MFT). {\color{tabred}\textbf{In general, in MFT approaches we substitute the two-body (or more) interactions of the hamiltonian with a single-body interaction with a mean field, determined locally via self-consistency equations. This is, for example, the Weiß mean-field solution to the quantum Ising model. The HF method we sketched here does not work like that. In the context of Hubbard models, the analogous of Weiß MFT would be dynamical mean-field theory (DMFT) \cite{georges1996dynamical}.}}
@@ -710,6 +779,8 @@ Let us summarise this section through a practical rule to decompose the quartic 
 	\Big) &&(\text{Cooper}) \nonumber
 \end{align}
 We will use these decomposition referring to each sector in dedicated chapters.
+
+}
 
 \section{Sketch of HF iterative algorithm}\label{sec:sketch-ihf-algorithm}
 
