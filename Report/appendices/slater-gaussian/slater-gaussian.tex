@@ -1,12 +1,10 @@
 \chapter{Gaussian states}\label{appendix:slater-gaussian}
 
-\section{Prerequisites and generalities}
+In this appendix we discuss the properties of the many-body states we use to approximate the real ground-state of the system within HF method. We introduce Slater determinants to grasp the general idea behind HF variational method, and then extend to a larger set of states.
 
-Let us start by discussing the properties of the many-body states we use to approximate the real ground-state of the system. We introduce Slater determinants to grasp the general idea behind HF variational method, and then extend to a larger set of states.
+\section{Slater determinants}
 
-\subsection{Slater determinants}
-
-A many-body wavefunction describing a collective electronic state needs to be antisymmetric under interchange of coordinates and spins ($\mathbf{r}_i,\sigma_i)$, $(\mathbf{r}_j,\sigma_j)$ of any couple of electrons. The simplest way to build a many-body wavefunction satisfying this rule is ``to antisymmetrise'' a set of orthonormal $N$ one-body spin-orbitals, being $N$ the total number of electrons and $D$ the total number of spin-orbitals. Let $\lbrace \psi_i \rbrace$ be said set,
+A many-body wavefunction describing a collective electronic state needs to be antisymmetric under interchange of coordinates and spins ($\mathbf{r}_i,\sigma_i)$, $(\mathbf{r}_j,\sigma_j)$ of any couple of electrons. The simplest way to build a many-body wavefunction satisfying this rule is ``to anti-symmetrise'' a set of orthonormal $N$ one-body spin-orbitals, being $N$ the total number of electrons and $D$ the total number of spin-orbitals. Let $\lbrace \psi_i \rbrace$ be said set,
 \[
 	\frac{1}{2\mathcal{V}} \sum_{\sigma \in \lbrace \uparrow,\downarrow \rbrace} \int \mathrm{d}\mathbf{r}\ \psi_i(\mathbf{r},\sigma) \psi_j(\mathbf{r},\sigma) = \delta_{ij}
 \]
@@ -24,7 +22,7 @@ Let $F_\mathrm{P}$ be the operator that implements the permutation $\mathrm{P}$ 
 \[
 	F_\mathrm{P} \left[ f (x_1, x_2, \cdots, x_N) \right] = f \left(x_{\mathrm{P}(1)},x_{\mathrm{P}(2)},\cdots,x_{\mathrm{P}(N)}\right)
 \]
-We define the antisymmetrisation operator:
+We define the anti-symmetrisation operator:
 \[
 	\mathcal{A}[f] \equiv \frac{1}{\sqrt{N!}} \sum_{\mathrm{P}\in \mathrm{S}_N} (-1)^{\sigma(\mathrm{P})} F_\mathrm{P}[f]
 \]
@@ -59,7 +57,7 @@ Any Slater state can be expressed in second-quantisation as:
 \end{equation}
 being $\ket{\Omega}$ the vacuum. Antisymmetry is guaranteed by Fermi anticommutation rules.
 
-\subsection{Wick's theorem applied to Slater determinants}\label{appsubsec:slater-wick}
+\section{Wick's theorem applied to Slater determinants}\label{appsec:slater-wick}
 
 The concept of vacuum state needs to be interpreted in relation to an appropriate choice of second-quantisation annihilation and creation operators. For a given set of fermion operators, the vacuum is that state mapped to zero by any annihilation operator. As we will see, to correctly define the vacuum state is crucial in order to apply Wick's theorem and develop an HF approximation of EHM. Before moving to generalisation, let us discuss a playground setup.
 
@@ -123,7 +121,7 @@ thus in the decomposition above only fully contracted terms survive. Going back 
 \]
 where sum is intended, implicitly, over all possible ways of choosing $k$ couples of indices from a starting set of $2k$ elements.
 
-Taking another step back, due to linearity we can apply this result to all terms of $\mathcal{O}$ and conclude that the EV of $\mathcal{O}$ decomposes as a sum of $2$-points EVs. {\color{tabred}\textbf{This is the defining property of gaussian states}}. In this procedure, the only key property of Slater states we used was the fact that they are vacuum to some fermionic basis. Finite-temperature extension of Wick's theorem as well as more complicated change of basis are possible, but the concept remains the same: on a Slater state, which is essentially a non-interacting state for some set of fermions, Wick's theorem is particularly well-behaved.
+Taking another step back, due to linearity we can apply this result to all terms of $\mathcal{O}$ and conclude that the EV of $\mathcal{O}$ decomposes as a sum of $2$-points EVs. This can be seen as the defining property of gaussian states. In this procedure, the only key property of Slater states we used was the fact that they are vacuum to some fermionic basis. Finite-temperature extension of Wick's theorem as well as more complicated change of basis are possible, but the concept remains the same: on a Slater state, which is essentially a non-interacting state for some set of fermions, Wick's theorem is particularly well-behaved.
 
 From the point above we can conclude that:
 \[
@@ -144,9 +142,9 @@ From the point above we can conclude that:
 \]
 being the average intended on a Slater state. In this context, only contractions with an equal number of creation and annihilation operators contribute.
 
-\subsection{Generalisation to Bogoliubov-Valatin states}
+\section{Generalisation to Bogoliubov-Valatin states}\label{appsec:bogoliubov-valatin}
 
-In HF theory we look for a good approximation of the true many-body wavefunction constraining search to a class of states. Introducing Slater determinants was useful to grasp the concrete idea behind the method. {\color{tabred}\textbf{However, in order to treat some physical phenomena we need to extend the variational procedure to a other sets of states. For example, Bardeen-Cooper-Shrieffer (BCS) theory of superconductivity gives a many-body ground-state which is not representable as a Slater determinant of ``standard'' electronic operators.}} In this section we extend the notions introduced before and set grounds for the generalised Hartree-Fock-Bogoliubov (HFB) method we use in this thesis.
+In HF theory we look for a good approximation of the true many-body wavefunction constraining search to a class of states. Introducing Slater determinants was useful to grasp the concrete idea behind the method. However, in order to treat some physical phenomena we need to extend the variational procedure to a other sets of states. For example, Bardeen-Cooper-Shrieffer (BCS) theory of superconductivity gives a many-body ground-state which is not representable as a Slater determinant of ``standard'' electronic operators. In this section we extend the notions introduced before and set grounds for the generalised Hartree-Fock-Bogoliubov (HFB) method we use in this thesis.
 
 Consider the Nambu spinor
 \[
@@ -250,4 +248,4 @@ As in Sec.~\ref{appsubsec:slater-wick}, we conclude that:
 \end{equation}
 The subscripts indicate the name we will give to these terms throughout the text. Note that, differently from ``pure Slater states'' EVs with two annihilations or two creations do not vanish, in general.
 
-All of this holds when averaging is performed on a state, $\ket{\Psi}$, which is vacuum for a set of operators linked to fermionic Nambu spinor $\hat \Phi$ by some unitary operation. This set of states is the domain of our variational constrained search. This kind of unitary mapping is often referred to as Bogoliubov-Valatin transformation, and the method hereby presented as Hartree-Fock-Bogoliubov (HFB). For simplicity we will stick, from now on, to the name ``HF method'' referring to this discussion. This argument has been carried out at zero temperature, but can be extended to finite temperature.
+All of this holds when averaging is performed on a state, $\ket{\Psi}$, which is vacuum for a set of operators linked to fermionic Nambu spinor $\hat \Phi$ by some unitary operation. This set of states is the domain of our variational constrained search. This kind of unitary mapping is often referred to as Bogoliubov-Valatin transformation, and the method hereby presented as Hartree-Fock-Bogoliubov. For simplicity, in this thesis we stick to the name ``HF method'' referring to this discussion. This argument has been carried out at zero temperature, but can be extended to finite temperature.

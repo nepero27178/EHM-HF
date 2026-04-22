@@ -1,6 +1,6 @@
 \chapter{Connection with mean-field theories}\label{appendix:hf-mft}
 
-This short last section concludes the theoretical introduction to HF methods, and bridges the gap between HF approaches and mean-field theory (MFT). {\color{tabred}\textbf{In general, in MFT approaches we substitute the two-body (or more) interactions of the hamiltonian with a single-body interaction with a mean field, determined locally via self-consistency equations. This is, for example, the Weiß mean-field solution to the quantum Ising model. The HF method we sketched here does not work like that. In the context of Hubbard models, the analogous of Weiß MFT would be dynamical mean-field theory (DMFT) \cite{georges1996dynamical}.}}
+In this appendix we bridge the gap between HF methods and mean-field theory (MFT). {\color{tabred}\textbf{In general, in MFT approaches we substitute the two-body (or more) interactions of the hamiltonian with a single-body interaction with a mean field, determined locally via self-consistency equations. This is, for example, the Weiß mean-field solution to the quantum Ising model. The HF method we sketched here does not work like that. In the context of Hubbard models, the analogous of Weiß MFT would be dynamical mean-field theory (DMFT) \cite{georges1996dynamical}.}}
 
 However, there are some points of connection. Let us sketch first the general scheme behind MFT. Suppose we have some operator $\hat A = \hat B \hat C$. Let
 \[
@@ -23,7 +23,11 @@ Up to now, this relation is exact. MFT relies on the idea that the last term, of
 \end{equation}
 Within the assumption that independently $\hat B$ and $\hat C$ fluctuations are ``small'', we are able to simplify $\hat A$ with a sum of three terms: the product of each operator with the averaged value of the other, minus the product of the averages.
 
-In the context of HF methods, we are in an slightly different situation. We are not making assumptions on the fluctuations of the quartic sectors of the hamiltonian. We are constraining the space of wavefunctions and minimising energy there. Now, Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}, although general and correct, are a little unpractical to use. To derive them was useful in order to prove that the self-consistent method is a variational search in disguise. We here sketch a more concrete method to obtain the approximated hamiltonian and connect it with MFT interpretation. What we derive here is a mere reformulation of the self-consistent result obtained above, presented in a somewhat lighter form.
+In the context of HF methods, we are in an slightly different situation. We are not making assumptions on the fluctuations of the quartic sectors of the hamiltonian. We are restricting the space of wavefunctions and minimising energy there. 
+
+%Now, Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}, although general and correct, are a little unpractical to use. To derive them was useful in order to prove that the self-consistent method is a variational search in disguise. We here sketch a more concrete method to obtain the approximated hamiltonian and connect it with MFT interpretation. 
+%
+%What we derive here is a mere reformulation of the self-consistent result obtained above, presented in a somewhat lighter form.
 
 Let us restart from the interacting hamiltonian of Eq.~\eqref{eq:hf-quartic-H}. In this thesis we deal with the EHM, thus (limitedly to this section) let us restrict to the two-body generic quartic interaction:
 \[
@@ -125,7 +129,7 @@ x_{\alpha\beta} = \pdv{\big\langle \hat V \big\rangle}{\big\langle \hat c_\alpha
 \qquad
 y_{\alpha\beta} = \pdv{\big\langle \hat V \big\rangle}{\big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \big\rangle}
 \]
-Applying Eqns.~\eqref{eq:mft-x-implicit} and \eqref{eq:mft-y-implicit}, we get the identities:
+Applying Eqns.~\eqref{appeq:mft-x-implicit} and \eqref{appeq:mft-y-implicit}, we get the identities:
 \begin{align}
 	x_{\alpha\beta} &= \delta_{\alpha\beta} \left[
 	\sum_\gamma V_{\alpha\gamma} \big\langle \hat c_\gamma^\dagger \hat c_\gamma \big\rangle
@@ -133,7 +137,7 @@ Applying Eqns.~\eqref{eq:mft-x-implicit} and \eqref{eq:mft-y-implicit}, we get t
 	\\
 	y_{\alpha\beta} &= V_{\alpha\beta} \big\langle \hat c_\beta \hat c_\alpha \big\rangle \label{appeq:mft-y-explicit}
 \end{align}
-These equations are a rephrasing of Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++} for the fields $h_{\alpha\beta}^{pq}$, setting $A_{\alpha\beta}=0$. This can be checked by using Eq.~\eqref{eq:mft-B=2V}.
+These equations are a rephrasing of Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++} for the fields $h_{\alpha\beta}^{pq}$, setting $A_{\alpha\beta}=0$. This can be checked by using Eq.~\eqref{appeq:mft-B=2V}.
 
 Now: consider the special case where $\forall \alpha \colon V_{\alpha\alpha}=0$. This is the case for the EHM. Then the above equations imply:
 \begin{multline*}
@@ -149,7 +153,7 @@ Now: consider the special case where $\forall \alpha \colon V_{\alpha\alpha}=0$.
 	}_{\text{Cooper}}
 	\Big) + (\text{some constant})
 \end{multline*}
-To determine the constant, we take the EV of the above equation. The result should equal Eq.~\eqref{eq:mft-wick-EV}. Take e.g. the Hartree sector:
+To determine the constant, we take the EV of the above equation. The result should equal Eq.~\eqref{appeq:mft-wick-EV}. Take e.g. the Hartree sector:
 \[
 \big\langle \hat c_\alpha^\dagger \hat c_\alpha \big\rangle \big\langle \hat c_\beta^\dagger \hat c_\beta \big\rangle + \big\langle \hat c_\alpha^\dagger \hat c_\alpha \big\rangle \big\langle \hat c_\beta^\dagger \hat c_\beta \big\rangle + C = \big\langle \hat c_\alpha^\dagger \hat c_\alpha \big\rangle  \big\langle \hat c_\beta^\dagger \hat c_\beta \big\rangle 
 \quad\implies\quad
@@ -158,7 +162,7 @@ C = - \big\langle \hat c_\alpha^\dagger \hat c_\alpha \big\rangle  \big\langle \
 with $C$ a constant. A similar implication holds for the Fock and the Cooper sectors. Then:
 \begin{align}
 	\hat V &= \sum_{\alpha\neq\beta} V_{\alpha\beta} \hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\beta \hat c_\alpha \label{appeq:mft-V-decomposition} \\
-	&\simeq \sum_{\alpha\neq\beta} V_{\alpha\beta} \Big(
+	&\HFsimeq \sum_{\alpha\neq\beta} V_{\alpha\beta} \Big(
 	\hat c_\alpha^\dagger \hat c_\alpha \big\langle \hat c_\beta^\dagger \hat c_\beta \big\rangle + \big\langle \hat c_\alpha^\dagger \hat c_\alpha \big\rangle \hat c_\beta^\dagger \hat c_\beta - \big\langle \hat c_\alpha^\dagger \hat c_\alpha \big\rangle  \big\langle \hat c_\beta^\dagger \hat c_\beta \big\rangle &&(\text{Hartree}) \nonumber\\
 	&\phantom{\simeq \sum_{\alpha\neq\beta} V_{\alpha\beta}}
 	- \hat c_\alpha^\dagger \hat c_\beta \big\langle \hat c_\beta^\dagger \hat c_\alpha \big\rangle - \big\langle \hat c_\alpha^\dagger \hat c_\beta \big\rangle \hat c_\beta^\dagger \hat c_\alpha + \big\langle \hat c_\alpha^\dagger \hat c_\beta \big\rangle  \big\langle \hat c_\beta^\dagger \hat c_\alpha \big\rangle &&(\text{Fock}) \nonumber\\
@@ -166,31 +170,4 @@ with $C$ a constant. A similar implication holds for the Fock and the Cooper sec
 	+ \hat c_\alpha^\dagger \hat c_\beta^\dagger \big\langle \hat c_\beta \hat c_\alpha \big\rangle + \big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \big\rangle \hat c_\beta \hat c_\alpha - \big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \big\rangle  \big\langle \hat c_\beta \hat c_\alpha \big\rangle
 	\Big) &&(\text{Cooper}) \nonumber
 \end{align}
-Passing from the first row to the following ones, we decomposed the original quartic operator to a sum of three decomposition much similar to Eq.~\eqref{eq:mft-A=BC}. This is the main connection with MFT. In HF theory, we do not write the quartic operator as a product of two quadratic operators and decompose it as we would do in MFT. Instead, a very similar decomposition (summed over the three sectors) is given by the fact that EVs are computed over HF states.
-
-Let us summarise this section through a practical rule to decompose the quartic part of $\hat H_U$ and $\hat H_V$ in the EHM.
-
-\paragraph{Local repulsion.} Applying the HF method, the local repulsion $\hat H_U$ is approximated by the quadratic operator:
-\begin{align}
-	\hat H_U &= U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow} \label{appeq:mft-HU} \\
-	&\simeq U \sum_i \Big(
-	\hat c_{i\uparrow}^\dagger \hat c_{i\uparrow} \big\langle \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow} \big\rangle + \big\langle \hat c_{i\uparrow}^\dagger \hat c_{i\uparrow} \big\rangle \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow} - \big\langle \hat c_{i\uparrow}^\dagger \hat c_{i\uparrow} \big\rangle  \big\langle \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow} \big\rangle &&(\text{Hartree}) \nonumber\\
-	&\phantom{\simeq \sum_{{i\uparrow}\neq{i\downarrow}} V_{{i\uparrow}{i\downarrow}}}
-	- \hat c_{i\uparrow}^\dagger \hat c_{i\downarrow} \big\langle \hat c_{i\downarrow}^\dagger \hat c_{i\uparrow} \big\rangle - \big\langle \hat c_{i\uparrow}^\dagger \hat c_{i\downarrow} \big\rangle \hat c_{i\downarrow}^\dagger \hat c_{i\uparrow} + \big\langle \hat c_{i\uparrow}^\dagger \hat c_{i\downarrow} \big\rangle  \big\langle \hat c_{i\downarrow}^\dagger \hat c_{i\uparrow} \big\rangle &&(\text{Fock}) \nonumber\\
-	&\phantom{\simeq \sum_{{i\uparrow}\neq{i\downarrow}} V_{{i\uparrow}{i\downarrow}}}
-	+ \hat c_{i\uparrow}^\dagger \hat c_{i\downarrow}^\dagger \big\langle \hat c_{i\downarrow} \hat c_{i\uparrow} \big\rangle + \big\langle \hat c_{i\uparrow}^\dagger \hat c_{i\downarrow}^\dagger \big\rangle \hat c_{i\downarrow} \hat c_{i\uparrow} - \big\langle \hat c_{i\uparrow}^\dagger \hat c_{i\downarrow}^\dagger \big\rangle  \big\langle \hat c_{i\downarrow} \hat c_{i\uparrow} \big\rangle
-	\Big) &&(\text{Cooper}) \nonumber
-\end{align}
-
-\paragraph{Non-local attraction.} Applying the HF method, the local repulsion $\hat H_V$ is approximated by the quadratic operator:
-\begin{align}
-	\hat H_V &= -V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \hat n_{i\sigma} \hat n_{j\sigma'} \label{appeq:mft-HV} \\
-	&\simeq -V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \Big(
-	\hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle + \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} - \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle  \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle &&(\text{Hartree}) \nonumber\\
-	&\phantom{\simeq \sum_{{i\sigma}\neq{j\sigma'}} V_{{i\sigma}{j\sigma'}}}
-	- \hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\langle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} \big\rangle - \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\rangle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} + \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\rangle  \big\langle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} \big\rangle &&(\text{Fock}) \nonumber\\
-	&\phantom{\simeq \sum_{{i\sigma}\neq{j\sigma'}} V_{{i\sigma}{j\sigma'}}}
-	+ \hat c_{i\sigma}^\dagger \hat c_{j\sigma'}^\dagger \big\langle \hat c_{j\sigma'} \hat c_{i\sigma} \big\rangle + \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'}^\dagger \big\rangle \hat c_{j\sigma'} \hat c_{i\sigma} - \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'}^\dagger \big\rangle  \big\langle \hat c_{j\sigma'} \hat c_{i\sigma} \big\rangle
-	\Big) &&(\text{Cooper}) \nonumber
-\end{align}
-We will use these decomposition referring to each sector in dedicated chapters.
+Passing from the first row to the following ones, we decomposed the original quartic operator to a sum of three decomposition much similar to Eq.~\eqref{appeq:mft-A=BC}. This is the main connection with MFT. In HF theory, we do not write the quartic operator as a product of two quadratic operators and decompose it as we would do in MFT. Instead, a very similar decomposition (summed over the three sectors) is given by the fact that EVs are computed over HF states.

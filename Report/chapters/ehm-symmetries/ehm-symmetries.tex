@@ -472,7 +472,7 @@ Before starting, let us define precisely the three phases we will investigate in
 	\item Antiferromagnetic phase: simultaneous $\mathrm{SU}(2) \SSB \mathrm{U}^z(1)$ and $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)} \SSB \mathrm{T}_2^{(x)} \otimes \mathrm{T}_2^{(y)}$. Among all possible realisations of antiferromagnetism, we realise a SDW with alternating distribution of spin densities;
 	\item Superconducting phase: simultaneous $\mathrm{U}^c(1) \SSB 0$ and $\mathrm{C}_4 \SSB \mathrm{C}_2$. We investigate anisotropic superconductivity, allowing for the particle number to be not conserved and for nematic effects.
 \end{itemize}
-{\color{tabred}\textbf{Nematic effects are observed in unconventional superconductors \cite{bohmer2022nematicity}, and this is the reason of our interest in the possibility of rotational SSBs.}} We will theoretically discuss the nematic SSB $\mathrm{C}_4 \to \mathrm{C}_2$ also for normal and AF phases, as if discrete rotational symmetry was broken. As we will see, while it not trivial to exclude it \textit{a priori}, it will actually turn out that the HF ground state preserves $\mathrm{C}_4$ in both cases.
+Nematic effects are observed in unconventional superconductors \cite{bohmer2022nematicity}, and this is the reason of our interest in the possibility of rotational SSBs. We will theoretically discuss the nematic SSB $\mathrm{C}_4 \to \mathrm{C}_2$ also for normal and AF phases, as if discrete rotational symmetry was broken. As we will see, while it not trivial to exclude it \textit{a priori}, it will actually turn out that the HF ground state preserves $\mathrm{C}_4$ in both cases.
 
 \begin{figure}
 	\centering
@@ -530,7 +530,7 @@ In order to obtain the self-consistent values of $h_{\alpha\beta}^{+-}$, $h_{\al
 		\rangle 
 	}_{\text{Cooper}}
 \end{equation}
-where the equal sign holds as long as we perform the averaging operation on the subspace of {\color{tabred}\textbf{gaussian states}}. Now we discuss the above EVs separately, identifying if any can be neglected based on selection rules in a given phase.
+where the equal sign holds as long as we perform the averaging operation on the subspace of gaussian states. Now we discuss the above EVs separately, identifying if any can be neglected based on selection rules in a given phase.
 
 \paragraph{Hartree term.} The Hartree part of the above decomposition is a product of density EVs,
 \[
@@ -546,7 +546,7 @@ Recalling the groups of Tab.~\ref{tab:symmetry-groups}, we see that the density 
 \[
 	\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow} = \hat S_\mathbf{r}^+
 \]
-being $S_\mathbf{r}^+$ the local raising operator. From $\mathrm{SU}(2)$ algebra we have:
+being $S_\mathbf{r}^+$ the local raising operator. From $\mathfrak{su}(2)$ algebra we have:
 \[
 	\comm{\hat S_\mathbf{r}^+}{\hat S^\alpha} \neq 0
 	\qquad
@@ -733,7 +733,7 @@ As it was for $\hat H_U$, Hartree EVs of Eqns.~\eqref{eq:ehm-HV(os)}, \eqref{eq:
 The Fock EVs from the two sectors behave differently. Let us compute the following generic commutation relations:
 \begin{align}
 	\comm{\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}+\bm{\delta}\sigma'}}{\hat S^z} &= \comm{\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}+\bm{\delta}\sigma'}}{\frac{1}{2} \sum_{\mathbf{r}'\in\mathcal{L}} (\hat n_{\mathbf{r}'\uparrow}-\hat n_{\mathbf{r}'\downarrow}) } \nonumber \\
-	&= \frac{(-1)^{\delta_{\sigma=\downarrow}}}{2} \comm{\hat c_{\mathbf{r}\sigma}^\dagger}{\hat n_{\mathbf{r}\sigma}} \hat c_{\mathbf{r}+\bm{\delta}\sigma'} + \frac{(-1)^{\delta_{\sigma'=\downarrow}}}{2} \hat c_{\mathbf{r}\sigma}^\dagger \comm{\hat c_{\mathbf{r}+\bm{\delta}\sigma'}}{\hat n_{\mathbf{r}+\bm{\delta}\sigma}} \nonumber \\
+	&= \frac{(-1)^{\delta_{\sigma=\downarrow}}}{2} \comm{\hat c_{\mathbf{r}\sigma}^\dagger}{\hat n_{\mathbf{r}\sigma}} \hat c_{\mathbf{r}+\bm{\delta}\sigma'} + \frac{(-1)^{\delta_{\sigma'=\downarrow}}}{2} \hat c_{\mathbf{r}\sigma}^\dagger \comm{\hat c_{\mathbf{r}+\bm{\delta}\sigma'}}{\hat n_{\mathbf{r}+\bm{\delta}\sigma'}} \nonumber \\
 	&= \left(
 		-\frac{(-1)^{\delta_{\sigma=\downarrow}}}{2} + \frac{(-1)^{\delta_{\sigma'=\downarrow}}}{2}
 	\right)\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}+\bm{\delta}\sigma'} \label{eq:ehm-HV-wick-int1}
@@ -742,9 +742,17 @@ where in last passage we used Eq.~\eqref{eq:[c+,n]} and its conjugate version,
 \[
 	\comm{\hat c_{\mathbf{r}+\bm{\delta}\sigma'}}{\hat n_{\mathbf{r}+\bm{\delta}\sigma}} = \hat c_{\mathbf{r}+\bm{\delta}\sigma'}
 \]
-Now, if $\sigma=\sigma'$ the last passage of Eq.~\eqref{eq:ehm-HV-wick-int1} is zero; otherwise is not. This proves that the o.s. Fock EVs are non-zero only for a phase that completely breaks $\mathrm{SU}(2)$; instead, in the s.s. sector we can have non-zero EVs for a phase that reduces $\mathrm{SU}(2)$ to $\mathrm{U}^z(1)$.
+Now, if $\sigma=\sigma'$ the last passage of Eq.~\eqref{eq:ehm-HV-wick-int1} is zero; otherwise is not. This proves that the o.s. Fock EVs are non-zero only for a phase that completely breaks $\mathrm{SU}(2)$; instead, in the s.s. sector we can have non-zero EVs for a phase that reduces $\mathrm{SU}(2)$ to $\mathrm{U}^z(1)$. {\color{tabred}[Commutation with $\hat S^+$?]}
 
-\paragraph{Cooper terms.} For the Cooper terms, identical considerations as for $\hat H_U$ hold. Gauge symmetry must be broken to allow for non zero EVs, while $\mathrm{SU}(2)$ symmetry survives. The proof is analogous to the one given for $\hat H_U$.
+\paragraph{Cooper terms.} Cooper terms are not gauge invariant. The proof is analogous to the one given for $\hat H_U$. Instead, the o.s. and s.s. spin sectors behave differently under global spin rotations. With an identical procedure as for Eq.~\eqref{eq:ehm-HV-wick-int1}, we get:
+\begin{align}
+	\comm{\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}+\bm{\delta}\sigma'}^\dagger}{\hat S^z} &= \comm{\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}+\bm{\delta}\sigma'}^\dagger}{\frac{1}{2} \sum_{\mathbf{r}'\in\mathcal{L}} (\hat n_{\mathbf{r}'\uparrow}-\hat n_{\mathbf{r}'\downarrow}) } \nonumber \\
+	&= \frac{(-1)^{\delta_{\sigma=\downarrow}}}{2} \comm{\hat c_{\mathbf{r}\sigma}^\dagger}{\hat n_{\mathbf{r}\sigma}} \hat c_{\mathbf{r}+\bm{\delta}\sigma'}^\dagger + \frac{(-1)^{\delta_{\sigma'=\downarrow}}}{2} \hat c_{\mathbf{r}\sigma}^\dagger \comm{\hat c_{\mathbf{r}+\bm{\delta}\sigma'}^\dagger}{\hat n_{\mathbf{r}+\bm{\delta}\sigma'}} \nonumber \\
+	&= \left(
+	-\frac{(-1)^{\delta_{\sigma=\downarrow}}}{2} - \frac{(-1)^{\delta_{\sigma'=\downarrow}}}{2}
+	\right)\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}+\bm{\delta}\sigma'}^\dagger \label{eq:ehm-HV-wick-int2}
+\end{align}
+We have a mirrored situation with respect to the Fock terms. For the Cooper channel, the s.s. EVs are zero if $\mathrm{U}^z(1)$ is broken, while the o.s. sector are not. {\color{tabred}[Commutation with $\hat S^+$?]}
 
 \begin{table}
 	\centering
@@ -757,7 +765,7 @@ Now, if $\sigma=\sigma'$ the last passage of Eq.~\eqref{eq:ehm-HV-wick-int1} is 
 		\midrule
 		& Hartree & & & \\
 		s.s. & Fock & & & \\
-		& Cooper & Prohibited & Prohibited & \\
+		& Cooper & Prohibited & Prohibited & Prohibited \\
 		\midrule
 	\end{tabular}
 	\caption{Summary of selection rules for the Wick's decomposition of Eqns.~\eqref{eq:ehm-HV(os)-wick}, \eqref{eq:ehm-HV(ss)-wick} of the non-local attraction $\hat H_V$. An empty entry indicates no selection rule.}
