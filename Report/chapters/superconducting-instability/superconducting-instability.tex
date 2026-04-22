@@ -497,11 +497,11 @@ Let us define the critical $U$,
 \end{equation}
 We call it ``critical'' because its value gives a sort of boundary for convergence. Indeed, as we show in App.~\ref{appendix:sc-g-opt}, for the SC phase in conventional HM, we are able to optimise parametrically the mixing parameter $g$ in order to ensure convergence, based on the ratio $U/U_\mathrm{c}[\beta]$. 
 
-Let us show that superconductivity is not possible in the conventional HM. Eq.~\eqref{eq:sc-hm-ws-self-consistency-2} can be rewritten as:
+Let us show that superconductivity is not possible in the conventional HM with $U>0$. Eq.~\eqref{eq:sc-hm-ws-self-consistency-2} can be rewritten as:
 \[
 	w^{(s)} = -\frac{U}{U_\mathrm{c}[\beta]} w^{(s)}
 \]
-By construction $U_\mathrm{c}[\beta] > 0$ (the thermal factor is negative-defined). Hence the unique possible self-consistent solution for the equation above is $w^{(s)}=0$. This implication terminates the argument: superconductivity cannot establish self-consistently at HF level in the HM.
+By construction $U_\mathrm{c}[\beta] > 0$ (the thermal factor is negative-defined). Hence the unique possible self-consistent solution for the equation above is $w^{(s)}=0$. This implication terminates the argument: superconductivity cannot establish self-consistently at HF level in the repulsive HM. If instead $U<0$, which is, if the model is attractive, we the aforementioned implication is not true and a self-consistent non-zero solution is possible.
 
 \paragraph{Density.}
 
@@ -1019,15 +1019,34 @@ making the gap function purely real. An inverse statement holds for the triplet 
 \]
 In this case, the gap is purely imaginary. When working in a specific channel, the gap function is either purely real or purely imaginary. This lets us discuss the shape of the renormalised ground-state.
 
-\subsection{The relative phase in the zero temperature half-filled ground state}\label{subsec:sc-zero-T-half-filling-gs}
+\section{The zero-temperature ground-state at half-filling}\label{sec:sc-gs}
 
-The conventional BCS ground state is widely known and derived for HM superconductivity in Sec.~\ref{appsubsec:sc-zero-T-half-filling-gs}. Jumping to Eq.~\eqref{appeq:sc-hm-gs} and extending it to the present context of the EHM, we get
+The HF approximation to the true ground-state in the SC phase is obtained by aligning the each pseudospin with the respective pseudo-field. Let the up and down states,
+\[
+	\ket{\Uparrow_\mathbf{k}}
+	\qquad
+	\ket{\Downarrow_\mathbf{k}}
+\]
+Using now Eq.~\eqref{eq:sc-<z>}, we have
+\[
+\begin{aligned}
+	\mel{\Downarrow_\mathbf{k}}{\hat s_\mathbf{k}^z + \hat \Id_\mathbf{k}}{\Downarrow_\mathbf{k}} &= 0 \\
+	\mel{\Uparrow_\mathbf{k}}{\hat s_\mathbf{k}^z + \hat \Id_\mathbf{k}}{\Uparrow_\mathbf{k}} &= 2
+\end{aligned}
+\]
+so up to a phase
+\[
+	\ket{\Downarrow_\mathbf{k}} \sim \ket{\Omega_\mathbf{k}}
+	\qquad
+	\ket{\Uparrow_\mathbf{k}} \sim \hat \phi_\mathbf{k}^\dagger \ket{\Omega_\mathbf{k}}
+\]
+The derivations carried out for the AF phase in Sec.~\ref{subsec:af-gs} can be re-used. We end up with the state:
 \[
 	\ket{\Psi} = \bigotimes_{\mathbf{k}\in\mathrm{BZ}} \left[
 		\cos \tilde{\theta}_\mathbf{k} + e^{2i\tilde{\zeta}_\mathbf{k}} \sin \tilde{\theta}_\mathbf{k} \hat \phi_\mathbf{k}^\dagger
 	\right] \ket{\Omega_\mathbf{k}}
 \]
-a BCS state described by the RMPs. Within this short section, we just illustrate some features of this state. First, the phase factor angle is the gap ``tilt'' in the complex plane. This is proven by:
+which is an extension of the conventional BCS state. The phase factor angle is the gap ``tilt'' in the complex plane. This is proven by:
 \[
 \begin{aligned}
 	\mel{\Psi}{\hat s_\mathbf{k}^x}{\Psi} &= \mel{\Psi}{\hat \phi_\mathbf{k} + \hat \phi_\mathbf{k}^\dagger}{\Psi} \\
@@ -1192,7 +1211,7 @@ Expand the right-hand side through Eq.~\eqref{eq:sc-ehm-full-gap},
 \]
 having we used the self-consistency equations of Tab.~\ref{tab:sc-ehm-wgamma-self-consistencies}. This proves Eq.\eqref{eq:sc-ehm-gap-energy}, which is similar to Eq.~\eqref{eq:af-ehm-gap-energy} with one exception. Since the right-hand side of Eq.\eqref{eq:sc-ehm-gap-energy} is positive, for $V>0$ we have the constraint
 \[
-	\sum_{\gamma} \big| w^{(\gamma)} \big|^2 \ge M
+	\sum_{\gamma} \big| w^{(\gamma)} \big|^2 \ge M^{(\mathrm{SC})}
 	\qq{being}
 	M^{(\mathrm{SC})} \equiv \big| w^{(s)} \big|^2 \frac U V
 \]
@@ -1202,3 +1221,15 @@ Now, as we state in Sec.~\ref{subsec:sc-features}, for the pure HM we have ident
 	\item The $s$-wave gap $w^{(s)}$ cannot converge to a finite value if for any $\gamma \neq s$ we have $w^{(\gamma)}=0$.
 \end{itemize}
 Of course, Eq.~\eqref{eq:sc-ehm-gap-energy} is also solved by a null gap on both sides: this indicates that when the constraint is impossible to fulfil self-consistently, the gap closes.
+
+\section{Theoretical constraints on the singlet SC phase HFPs}\label{sec:sc-singlet-constraints}
+\todo
+
+\section{Discussion of numeric results (singlet SC)}\label{sec:sc-singlet-numeric}
+\todo
+
+\section{Theoretical constraints on the triplet SC phase HFPs}\label{sec:sc-triplet-constraints}
+\todo
+
+\section{Discussion of numeric results (triplet SC)}\label{sec:sc-triplet-numeric}
+\todo

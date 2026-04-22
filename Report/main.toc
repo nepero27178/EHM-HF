@@ -1,163 +1,36 @@
-\contentsline {chapter}{\chapternumberline {1}Introduction to the Extended Hubbard Model}{3}{chapter.1}%
-\contentsline {chapter}{\chapternumberline {2}Introduction to Hartree-Fock methods}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Prerequisites and generalities}{5}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Sketch of HF variational method}{6}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Properties of the target quadratic hamiltonian}{7}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Self-consistent variational solution}{8}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Operative hamiltonian approximation}{10}{subsection.2.2.3}%
-\contentsline {paragraph}{Local repulsion.}{11}{section*.5}%
-\contentsline {paragraph}{Non-local attraction.}{11}{section*.6}%
-\contentsline {section}{\numberline {2.3}Sketch of HF iterative algorithm}{11}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Fixed density simulations and the role of $\mu $}{13}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}The reject-mix-iterate convergence scheme}{14}{subsection.2.3.2}%
-\contentsline {chapter}{\chapternumberline {3}Phase transitions and SSB in EHM}{17}{chapter.3}%
-\contentsline {section}{\numberline {3.1}The EHM symmetries}{17}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Lattice symmetries}{17}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Spin and charge symmetries}{19}{subsection.3.1.2}%
-\contentsline {paragraph}{Gauge symmetry.}{19}{section*.9}%
-\contentsline {paragraph}{Global spin symmetry}{19}{section*.10}%
-\contentsline {subsection}{\numberline {3.1.3}Particle-hole symmetry at half-filling}{22}{subsection.3.1.3}%
-\contentsline {paragraph}{Kinetic term.}{23}{section*.12}%
-\contentsline {paragraph}{Local repulsion.}{23}{section*.13}%
-\contentsline {paragraph}{Non-local attraction.}{23}{section*.14}%
-\contentsline {section}{\numberline {3.2}Symmetry breaking channels in real space}{24}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Local repulsion}{25}{subsection.3.2.1}%
-\contentsline {paragraph}{Hartree term.}{25}{section*.17}%
-\contentsline {paragraph}{Fock terms.}{26}{section*.18}%
-\contentsline {paragraph}{Cooper terms.}{26}{section*.19}%
-\contentsline {subsection}{\numberline {3.2.2}Non-local attraction}{27}{subsection.3.2.2}%
-\contentsline {paragraph}{Hartree terms.}{28}{section*.21}%
-\contentsline {paragraph}{Fock terms.}{28}{section*.22}%
-\contentsline {paragraph}{Cooper terms.}{28}{section*.23}%
-\contentsline {section}{\numberline {3.3}The EHM in reciprocal space}{28}{section.3.3}%
-\contentsline {paragraph}{Kinetic part.}{29}{section*.25}%
-\contentsline {paragraph}{Local repulsion.}{30}{section*.26}%
-\contentsline {paragraph}{Non-local attraction.}{30}{section*.27}%
-\contentsline {section}{\numberline {3.4}Square lattice spatial symmetry channels}{32}{section.3.4}%
-\contentsline {chapter}{\chapternumberline {4}The normal phase}{37}{chapter.4}%
-\contentsline {section}{\numberline {4.1}The ``normal'' phase and its symmetries}{37}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Hartree effects: chemical potential renormalization}{38}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Hartree channel in the normal phase: analytic derivation}{38}{subsection.4.2.1}%
-\contentsline {paragraph}{Local repulsion.}{38}{section*.33}%
-\contentsline {paragraph}{Non-local attraction.}{39}{section*.34}%
-\contentsline {subsection}{\numberline {4.2.2}Hartree contraction energy}{39}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Fock effects: bare bands renormalization}{40}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Fock channel in the normal phase: analytic derivation}{40}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Fock contraction energy}{42}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Nematicity: extending hopping to $d$-wave bands}{43}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}Normal free energy density}{44}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Theoretical constraints on the normal phase HFPs}{45}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Constraints in presence of a robust $\mathrm {C}_4$ symmetry and bands shrinking}{47}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Natural suppression of nematicity within $\mathrm {C}_2/\mathbb {Z}_2$ symmetry}{48}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Expected dependence on $\delta $ at low temperature}{51}{subsection.4.5.3}%
-\contentsline {section}{\numberline {4.6}Discussion of numeric results}{53}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Mott localisation effect}{54}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Solution free energy and entropy densities}{55}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Convergence problems and mixing fine-tuning}{57}{subsection.4.6.3}%
-\contentsline {chapter}{\chapternumberline {5}Antiferromagnetic instability}{59}{chapter.5}%
-\contentsline {section}{\numberline {5.1}The AF phase and its symmetries}{59}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Symmetries of the commensurate AF Ansatz}{60}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}The AF Ansatz in reciprocal space}{61}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}Local Hartree effects: antiferromagnetism in the HM}{63}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Local Hartree channel in the AF phase: analytic derivation}{63}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Local Hartree contraction energy}{64}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Antiferromagnetism in the HM}{65}{subsection.5.2.3}%
-\contentsline {paragraph}{Matrix representation.}{65}{section*.49}%
-\contentsline {paragraph}{Pseudospin representation.}{65}{section*.50}%
-\contentsline {paragraph}{Diagonalisation.}{66}{section*.53}%
-\contentsline {subsection}{\numberline {5.2.4}Features of the AF solution}{67}{subsection.5.2.4}%
-\contentsline {paragraph}{Pseudospin EVs.}{68}{section*.54}%
-\contentsline {paragraph}{Magnetisation self-consistency equation.}{68}{section*.55}%
-\contentsline {paragraph}{Density.}{68}{section*.56}%
-\contentsline {paragraph}{Unconventional metallicity.}{69}{figure.caption.58}%
-\contentsline {paragraph}{Instability of the doped antiferromagnet.}{69}{section*.59}%
-\contentsline {section}{\numberline {5.3}Extension to the EHM}{70}{section.5.3}%
-\contentsline {section}{\numberline {5.4}Non-local Hartree effects: chemical potential renormalisation}{71}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Non-local Hartree channel in the AF phase: analytic derivation}{72}{subsection.5.4.1}%
-\contentsline {paragraph}{Density terms.}{73}{section*.61}%
-\contentsline {paragraph}{Magnetization terms.}{73}{section*.62}%
-\contentsline {subsection}{\numberline {5.4.2}Non-local Hartree contraction energy}{73}{subsection.5.4.2}%
-\contentsline {paragraph}{s.s. sector double counting energy.}{73}{section*.63}%
-\contentsline {paragraph}{o.s. sector double counting energy.}{73}{section*.64}%
-\contentsline {section}{\numberline {5.5}Fock effects: gap and bands renormalisation}{74}{section.5.5}%
-\contentsline {subsection}{\numberline {5.5.1}Fock channel in the AF phase: analytic derivation}{74}{subsection.5.5.1}%
-\contentsline {paragraph}{Diagonal terms.}{74}{section*.65}%
-\contentsline {paragraph}{Off-diagonal terms.}{75}{section*.67}%
-\contentsline {subsection}{\numberline {5.5.2}Fock contraction energy}{77}{subsection.5.5.2}%
-\contentsline {section}{\numberline {5.6}Full MFT hamiltonian and gap complexification}{78}{section.5.6}%
-\contentsline {subsection}{\numberline {5.6.1}The relative phase in the zero temperature half-filled ground state}{79}{subsection.5.6.1}%
-\contentsline {subsection}{\numberline {5.6.2}AF phase flavours and spin degeneracy}{80}{subsection.5.6.2}%
-\contentsline {section}{\numberline {5.7}AF free energy density}{80}{section.5.7}%
-\contentsline {subsection}{\numberline {5.7.1}Energetic constraints on the HFPs}{82}{subsection.5.7.1}%
-\contentsline {subsection}{\numberline {5.7.2}Free energy at half-filling}{83}{subsection.5.7.2}%
-\contentsline {section}{\numberline {5.8}Theoretical constraints on the AF phase HFPs}{83}{section.5.8}%
-\contentsline {subsection}{\numberline {5.8.1}Robust $\mathrm {C}_4$ bands shrinking extension to AF phases}{83}{subsection.5.8.1}%
-\contentsline {subsection}{\numberline {5.8.2}HFPs vanishing in sAF phase}{84}{subsection.5.8.2}%
-\contentsline {subsection}{\numberline {5.8.3}HFPs vanishing in aAF phase}{88}{subsection.5.8.3}%
-\contentsline {subsection}{\numberline {5.8.4}Natural suppression of nematicity within $\mathrm {C}_2/\mathbb {Z}_2$ symmetry}{89}{subsection.5.8.4}%
-\contentsline {section}{\numberline {5.9}Discussion of numeric results}{91}{section.5.9}%
-\contentsline {subsection}{\numberline {5.9.1}Magnetization boost}{91}{subsection.5.9.1}%
-\contentsline {subsection}{\numberline {5.9.2}Bands shrinking}{92}{subsection.5.9.2}%
-\contentsline {subsection}{\numberline {5.9.3}Solution free energy and entropy densities}{93}{subsection.5.9.3}%
-\contentsline {subsection}{\numberline {5.9.4}Fixed-point interpretation of HF solution}{95}{subsection.5.9.4}%
-\contentsline {chapter}{\chapternumberline {6}Superconducting instability}{97}{chapter.6}%
-\contentsline {section}{\numberline {6.1}The SC phase and its symmetries}{97}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Local effects: (impossibility of) superconductivity in the HM}{98}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Local Hartree channel in the SC phase: analytic derivation}{99}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Local Hartree contraction energy}{99}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Local Cooper channel in the SC phase: analytic derivation}{99}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}Local Cooper contraction energy}{100}{subsection.6.2.4}%
-\contentsline {subsection}{\numberline {6.2.5}Superconductivity in the HM}{100}{subsection.6.2.5}%
-\contentsline {paragraph}{Matrix representation.}{100}{section*.81}%
-\contentsline {paragraph}{Pseudospin representation.}{101}{section*.82}%
-\contentsline {paragraph}{Diagonalisation.}{102}{section*.84}%
-\contentsline {subsection}{\numberline {6.2.6}Features of the SC solution}{103}{subsection.6.2.6}%
-\contentsline {paragraph}{Pseudospin EVs.}{103}{section*.85}%
-\contentsline {paragraph}{$s$-wave gap self-consistency equation.}{103}{section*.86}%
-\contentsline {paragraph}{Impossibility of $s$-wave superconductivity.}{104}{section*.87}%
-\contentsline {paragraph}{Density.}{104}{section*.88}%
-\contentsline {section}{\numberline {6.3}Extension to the EHM}{104}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Non-local Hartree effects: chemical potential renormalisation}{106}{section.6.4}%
-\contentsline {subsection}{\numberline {6.4.1}Non-local Hartree channel in the SC phase: analytic derivation}{106}{subsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.4.2}Non-local Hartree contraction energy}{106}{subsection.6.4.2}%
-\contentsline {section}{\numberline {6.5}Fock effects: bare bands renormalization}{106}{section.6.5}%
-\contentsline {subsection}{\numberline {6.5.1}Fock channel in the SC phase: analytic derivation}{106}{subsection.6.5.1}%
-\contentsline {subsection}{\numberline {6.5.2}Fock contraction energy}{108}{subsection.6.5.2}%
-\contentsline {section}{\numberline {6.6}Non-local Cooper effects: anisotropic pairing}{108}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Non-local Cooper o.s. channel in the SC phase: analytic derivation}{109}{subsection.6.6.1}%
-\contentsline {section}{\numberline {6.7}Full MFT hamiltonian and anisotropic pairing}{110}{section.6.7}%
-\contentsline {subsection}{\numberline {6.7.1}The relative phase in the zero temperature half-filled ground state}{111}{subsection.6.7.1}%
-\contentsline {section}{\numberline {6.8}SC free energy density}{111}{section.6.8}%
-\contentsline {subsection}{\numberline {6.8.1}The gap energy}{112}{subsection.6.8.1}%
-\contentsline {appendix}{\chapternumberline {A}Superexchange and virtual hopping in Hubbard lattices}{115}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Virtual hopping in the $2$-sites Hubbard lattice}{115}{section.A.1}%
-\contentsline {subsection}{\numberline {A.1.1}Exact solution of the half-filled model}{116}{subsection.A.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Virtual hopping}{116}{subsection.A.1.2}%
-\contentsline {appendix}{\chapternumberline {B}Gaussian states}{117}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Slater determinants}{117}{section.B.1}%
-\contentsline {section}{\numberline {B.2}Wick's theorem applied to Slater determinants}{118}{section.B.2}%
-\contentsline {section}{\numberline {B.3}Generalisation to Bogoliubov-Valatin states}{119}{section.B.3}%
-\contentsline {appendix}{\chapternumberline {C}Connection with mean-field theories}{123}{appendix.C}%
-\contentsline {appendix}{\chapternumberline {D}Antiferromagnetism in the HM}{127}{appendix.D}%
-\contentsline {section}{\numberline {D.1}Explicit AF ground state at half-filling and $\beta \to \infty $}{127}{section.D.1}%
-\contentsline {section}{\numberline {D.2}Instability of the commensurate AF phase}{129}{section.D.2}%
-\contentsline {section}{\numberline {D.3}iHF results}{130}{section.D.3}%
-\contentsline {section}{\numberline {D.4}Analytic expression of self-consistent magnetisation}{131}{section.D.4}%
-\contentsline {appendix}{\chapternumberline {E}Mean-Field Theory in Hubbard lattices}{135}{appendix.E}%
-\contentsline {section}{\numberline {E.1}Antiferromagnetic phase}{135}{section.E.1}%
-\contentsline {subsection}{\numberline {E.1.1}MFT treatment of the Hartree channel}{135}{subsection.E.1.1}%
-\contentsline {subsection}{\numberline {E.1.2}More on AF Ansatz}{136}{subsection.E.1.2}%
-\contentsline {subsection}{\numberline {E.1.3}Nambu representation of the AF phase and diagonalization}{137}{subsection.E.1.3}%
-\contentsline {subsection}{\numberline {E.1.4}Explicit zero-temperature AF ground state at half-filling}{139}{subsection.E.1.4}%
-\contentsline {subsection}{\numberline {E.1.5}Spin degeneracy removal}{140}{subsection.E.1.5}%
-\contentsline {subsection}{\numberline {E.1.6}Chemical potential and system density}{141}{subsection.E.1.6}%
-\contentsline {subsection}{\numberline {E.1.7}Self-consistency gap equation and magnetization}{142}{subsection.E.1.7}%
-\contentsline {section}{\numberline {E.2}(Impossibility of a stable) superconducting phase}{142}{section.E.2}%
-\contentsline {subsection}{\numberline {E.2.1}MFT treatment of the Hartree channel}{143}{subsection.E.2.1}%
-\contentsline {subsection}{\numberline {E.2.2}MFT treatment of the Cooper channel}{143}{subsection.E.2.2}%
-\contentsline {subsection}{\numberline {E.2.3}Nambu representation of the SC phase and diagonalization}{144}{subsection.E.2.3}%
-\contentsline {subsection}{\numberline {E.2.4}Explicit zero-temperature SC ground state at half-filling}{145}{subsection.E.2.4}%
-\contentsline {subsection}{\numberline {E.2.5}Superconducting fluctuations suppression in the conventional HM}{146}{subsection.E.2.5}%
-\contentsline {appendix}{\chapternumberline {F}Mixing optimization in HM model}{147}{appendix.F}%
-\contentsline {section}{\numberline {F.1}Map analysis for $s$-wave superconductivity in HM}{147}{section.F.1}%
-\contentsline {chapter}{Bibliography}{149}{section*.99}%
+\contentsline {chapter}{\chapternumberline {1}Superconducting instability}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}The SC phase and its symmetries}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Local effects: (impossibility of) superconductivity in the HM}{4}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Local Hartree channel in the SC phase: analytic derivation}{5}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Local Hartree contraction energy}{5}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Local Cooper channel in the SC phase: analytic derivation}{5}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Local Cooper contraction energy}{6}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Superconductivity in the HM}{6}{subsection.1.2.5}%
+\contentsline {paragraph}{Matrix representation.}{6}{section*.6}%
+\contentsline {paragraph}{Pseudospin representation.}{7}{section*.7}%
+\contentsline {paragraph}{Diagonalisation.}{8}{section*.9}%
+\contentsline {subsection}{\numberline {1.2.6}Features of the SC solution}{9}{subsection.1.2.6}%
+\contentsline {paragraph}{Pseudospin EVs.}{9}{section*.10}%
+\contentsline {paragraph}{$s$-wave gap self-consistency equation.}{9}{section*.11}%
+\contentsline {paragraph}{Impossibility of $s$-wave superconductivity.}{10}{section*.12}%
+\contentsline {paragraph}{Density.}{10}{section*.13}%
+\contentsline {section}{\numberline {1.3}Extension to the EHM}{10}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Non-local Hartree effects: chemical potential renormalisation}{12}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Non-local Hartree channel in the SC phase: analytic derivation}{12}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Non-local Hartree contraction energy}{12}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Fock effects: bare bands renormalization}{12}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Fock channel in the SC phase: analytic derivation}{12}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Fock contraction energy}{14}{subsection.1.5.2}%
+\contentsline {section}{\numberline {1.6}Non-local Cooper effects: anisotropic pairing}{14}{section.1.6}%
+\contentsline {subsection}{\numberline {1.6.1}Non-local Cooper o.s. channel in the SC phase: analytic derivation}{15}{subsection.1.6.1}%
+\contentsline {section}{\numberline {1.7}Full MFT hamiltonian and anisotropic pairing}{16}{section.1.7}%
+\contentsline {section}{\numberline {1.8}The zero-temperature ground-state at half-filling}{17}{section.1.8}%
+\contentsline {section}{\numberline {1.9}SC free energy density}{17}{section.1.9}%
+\contentsline {subsection}{\numberline {1.9.1}The gap energy}{19}{subsection.1.9.1}%
+\contentsline {section}{\numberline {1.10}Theoretical constraints on the singlet SC phase HFPs}{19}{section.1.10}%
+\contentsline {section}{\numberline {1.11}Discussion of numeric results (singlet SC)}{19}{section.1.11}%
+\contentsline {section}{\numberline {1.12}Theoretical constraints on the triplet SC phase HFPs}{19}{section.1.12}%
+\contentsline {section}{\numberline {1.13}Discussion of numeric results (triplet SC)}{19}{section.1.13}%
+\contentsline {appendix}{\chapternumberline {A}Mixing optimization in HM model}{21}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Map analysis for $s$-wave superconductivity in HM}{21}{section.A.1}%
+\contentsline {chapter}{Bibliography}{23}{section*.17}%
