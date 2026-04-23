@@ -47,7 +47,10 @@ function main()
 	for Setup in filter(contains(SetupClass), AvailableSetups)
 
 		# Look the layered data
-		DirPathIn::String = dirname(PROJECT_SRC_DIR) * "/data/layered/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)"
+		DirPathIn::String = dirname(PROJECT_SRC_DIR) * "/data/up-layered/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)"
+		if !isdir(DirPathIn)
+			replace!(DirPathIn,"up-layered" => "layered")
+		end
 
 		# Read present layers and select the largest
 		l = try
@@ -70,7 +73,8 @@ function main()
 	end
 
 	# Merge data and write on file
-	S::Simulation = MergeData(FilePathsIn)
+	Mode=="rs" ? pVar=yVar : false
+	S::Simulation = MergeData(FilePathsIn;cVar,xVar,pVar)
 	mkpath(DirPathOut)
 	FilePathOut = DirPathOut * "/RB=$(S.RB...)_Syms=$(S.Syms...).csv"
 	CSV.write(FilePathOut, S.DF)

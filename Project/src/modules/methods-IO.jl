@@ -96,7 +96,10 @@ function EnlargeDF!(
 end
 
 function MergeData(
-	FilePathsIn::Vector{String}
+	FilePathsIn::Vector{String};
+	cVar::String="U",
+	xVar::String="V",
+	pVar::String="δ"
 )::Simulation
 
 	UDF::DataFrame = DataFrame(UnpackFilePath.(FilePathsIn), ["Setup", "Phase", "Syms", "RB", "Layer"])
@@ -144,6 +147,8 @@ function MergeData(
 			i = findall( r==fDF[1,:] for r in eachrow(DF) )
 			deleteat!(DF, filter( !=(only(i)),ii ))
 		end
+
+		DF = sort(DF,[cVar,xVar,pVar])
 
 		return Simulation(DF,SetupClass,Phase,Syms,RB)
 	end

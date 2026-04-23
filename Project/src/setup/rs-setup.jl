@@ -90,6 +90,7 @@ elseif Setup=="A[128]-a"
 	g = 0.5
 	xVar = "U"
 	yVar = "V"
+	cVar = "δ"
 
 # --- EXTENDED UV plane RUN ---
 elseif Setup=="A[128]-b"
@@ -105,6 +106,7 @@ elseif Setup=="A[128]-b"
 	g = 0.05 # Difference with A[128]-a
 	xVar = "U"
 	yVar = "V"
+	cVar = "δ"
 
 # --- MAIN δV plane RUN ---
 elseif Setup=="B[128]-a"
@@ -120,11 +122,12 @@ elseif Setup=="B[128]-a"
 	g = 0.5
 	xVar = "δ"
 	yVar = "V"
+	cVar = "U"
 
 # --- EXTENDED δV plane RUN ---
 elseif Setup=="B[128]-b"
 	tt = [1.0]
-	UU = [0.0]
+	UU = [0.0, 4.0, 12.0]
 	VV = [V for V in 4.0:0.1:8.0] # Difference with B[128]-a
 	LL = [128]
 	δδ = [δ for δ in 0.0:0.01:0.49]
@@ -135,6 +138,7 @@ elseif Setup=="B[128]-b"
 	g = 0.05 # Difference with B[128]-a
 	xVar = "δ"
 	yVar = "V"
+	cVar = "U"
 
 # --- ZOOM UV plane RUN ---
 elseif Setup=="C[128]-a"
@@ -150,6 +154,7 @@ elseif Setup=="C[128]-a"
 	g = 0.5
 	xVar = "U"
 	yVar = "V"
+	cVar = "δ"
 
 # --- MAIN Uδ plane RUN ---
 elseif Setup=="D[128]-a"
@@ -165,6 +170,7 @@ elseif Setup=="D[128]-a"
 	g = 0.5
 	xVar = "U"
 	yVar = "δ"
+	cVar = "V"
 
 # --- EXTENDED Uδ plane RUN ---
 elseif Setup=="D[128]-b"
@@ -180,5 +186,6 @@ elseif Setup=="D[128]-b"
 	g = 0.5
 	xVar = "U"
 	yVar = "δ"
+	cVar = "V"
 
 end

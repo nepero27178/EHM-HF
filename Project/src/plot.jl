@@ -91,10 +91,9 @@ function main()
 				Skip,
 				compared,
 				cVar,
-				# Extension="png"
+				Extension="png"
 			)
 			if exchange
-				# Skip = xVar=="U" ? 1 : 0 # Adjust
 				SavePlot2D(
 					FilePathIn,
 					DirPathOut;
@@ -103,10 +102,10 @@ function main()
 					pVar=xVar,
 					cs,
 					xScale,
-					Skip,
+					Skip=2,
 					compared,
 					cVar,
-					# Extension="png"
+					Extension="png"
 				)
 			end
 		elseif Mode=="rs"
@@ -119,7 +118,7 @@ function main()
 				cs=:tabcoolerrev,
 				# Mode="surface",
 				# azm=0.7*pi
-				# Extension="png"
+				Extension="png"
 			)
 		end
 	end

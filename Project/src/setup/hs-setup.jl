@@ -98,7 +98,7 @@ elseif Setup=="A[256]-a"
 	pVar = "V"
 	xScale = identity
 	compared = true # false
-	cVar = "δ" # ""
+	cVar = "δ"
 	exchange = true
 	cs = :tabwarm
 	Skip = 2
@@ -118,8 +118,8 @@ elseif Setup=="A[256]-b"
 	xVar = "U"
 	pVar = "V"
 	xScale = identity
-	compared = false
-	cVar = ""
+	compared = true
+	cVar = "δ"
 	exchange = true
 	cs = :tabwarm
 	Skip = 2
@@ -139,8 +139,8 @@ elseif Setup=="B[256]-a"
 	xVar = "V"
 	pVar = "δ"
 	xScale = identity
-	compared = false
-	cVar = ""
+	compared = true
+	cVar = "U"
 	exchange = true
 	cs = :tabwarm
 	Skip = 0
@@ -160,10 +160,11 @@ elseif Setup=="B[256]-b"
 	xVar = "V"
 	pVar = "δ"
 	xScale = identity
-	compared = false
-	cVar = ""
+	compared = true
+	cVar = "U"
 	exchange = true
 	cs = :tabwarm
+	Skip = 0
 
 # --- MAIN βV plane RUN ---
 elseif Setup=="C[256]-a"
