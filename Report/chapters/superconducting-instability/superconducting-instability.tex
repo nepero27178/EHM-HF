@@ -1226,7 +1226,86 @@ Of course, Eq.~\eqref{eq:sc-ehm-gap-energy} is also solved by a null gap on both
 \todo
 
 \section{Discussion of numeric results (singlet SC)}\label{sec:sc-singlet-numeric}
-\todo
+
+In this section we discuss numeric results for the singlet pairing SC phase. The HFPs vector has five components:
+\[
+	\mathbf{v} = \begin{bmatrix}
+		u^{(s^*)} \\ u^{(d)} \\ w^{(s)} \\ w^{(s^*)} \\ w^{(d)}
+	\end{bmatrix}
+	\qquad
+	\mathbf{v} = \mathbb{R}^5
+\]
+This phase is described by three RMPs:
+\[
+\begin{aligned}
+	\tilde{t}_{ij}^{(s^*)} &\equiv \left(
+	t - \frac{u^{(s^*)}V}{2}
+	\right) \varphi_{ij}^{(s^*)} \\
+	\tilde{t}_{ij}^{(d)} &\equiv - \frac{u^{(s^*)}V}{2} \varphi_{ij}^{(d)} \\
+	\tilde{\mu} &\equiv \mu + n (2zV-U)
+\end{aligned}
+\]
+We ran simulations at $\beta=100.0$ within the boundaries:
+\[
+	0 \le U \le 20
+	\qquad
+	0 \le V \le 8
+	\qquad
+	0 \le \delta \le 0.45
+\]
+For the normal phase we did not vary $U$; for the AF phase we did not vary $\delta$. Here, we need to vary both in order to explore the entire parametric space.
+
+\subsection{Multi-symmetry singlet superconductivity}
+
+\begin{figure}
+	\centering
+	\subfloat[$U$ dependency of $w^{(s)}$ at various $\delta$s.]{
+		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=U_pVar=V/wd_t=1.0_L=256_δ=Compared_β=100.0.pdf}
+		\label{subfig:sc-data-wd-A256-compared}
+	}\\
+	\subfloat[$\delta$ dependency of $w^{(s)}$ at various $U$s.]{
+		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wd_t=1.0_U=Compared_L=256_β=100.0.pdf}
+		\label{subfig:sc-data-wd-B256-compared}
+	}
+	\caption{Dependency of the $s$-wave gap varying the doping $\delta$ and the local repulsion $U$. In the top panel we compare three doping levels $\delta=0.0,~0.2,~0.4$ varying $0 \le U \le 8$. In the bottom panel we compare three repulsion values $U=0.0,~5.0,~10.0$ varying $0 \le \delta \le 0.45$.}
+	\label{fig:sc-data-wd-AB256-compared}
+\end{figure}
+
+In singlet channel, the most general gap function is a combination of $s$, $s^*$ and $d$ components. However, whether the actual gap function $\tilde{\Delta}_{\mathbf{k}}$ exhibits all these symmetries is not an immediate question to answer. {\color{tabred}\textbf{Superconductivity in cuprates is observed in $d$-wave channel.}} In Fig.~\ref{fig:sc-data-wd-AB256-compared} we report our findings for the HFP $w^{(d)}$, recalling that the $d$-wave gap is given by:
+\[
+	\tilde{\Delta}^{(d)} = V w^{(d)}
+\]
+This gap component is approximately independent of $U$, as is visible in the top panel (Fig.~\ref{subfig:sc-data-wd-A256-compared}), and increases with $V$. Its dependence on doping $\delta$ is much different, as is visible in the bottom panel (Fig.~\ref{subfig:sc-data-wd-B256-compared}). At strong coupling ($V \gtrsim 5$) $w^{(d)}$ decreases with doping, maintaining non-zero values up to almost unitary filling. Note that the data show an hole at $\delta=0.4$. We were unable to understand why the algorithm failed to converge at that point, and fine-tuning of $g$ did not help in this case.
+
+\begin{figure}
+	\centering
+	\subfloat[$U$ dependency of $w^{(s)}$ at various $\delta$s.]{
+		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=U_pVar=V/ws_t=1.0_L=256_δ=Compared_β=100.0.pdf}
+		\label{subfig:sc-data-ws-A256-compared}
+	}\\
+	\subfloat[$\delta$ dependency of $w^{(s)}$ at various $U$s.]{
+		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/ws_t=1.0_U=Compared_L=256_β=100.0.pdf}
+		\label{subfig:sc-data-ws-B256-compared}
+	}
+	\caption{Dependency of the $s$-wave gap varying the doping $\delta$ and the local repulsion $U$. In the top panel we compare three doping levels $\delta=0.0,~0.2,~0.4$ varying $0 \le U \le 8$. In the bottom panel we compare three repulsion values $U=0.0,~5.0,~10.0$ varying $0 \le \delta \le 0.45$.}
+	\label{fig:sc-data-ws-AB256-compared}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\subfloat[$U$ dependency of $w^{(s)}$ at various $\delta$s.]{
+		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=U_pVar=V/wS_t=1.0_L=256_δ=Compared_β=100.0.pdf}
+		\label{subfig:sc-data-wS-A256-compared}
+	}\\
+	\subfloat[$\delta$ dependency of $w^{(s)}$ at various $U$s.]{
+		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wS_t=1.0_U=Compared_L=256_β=100.0.pdf}
+		\label{subfig:sc-data-wS-B256-compared}
+	}
+	\caption{Dependency of the $s$-wave gap varying the doping $\delta$ and the local repulsion $U$. In the top panel we compare three doping levels $\delta=0.0,~0.2,~0.4$ varying $0 \le U \le 8$. In the bottom panel we compare three repulsion values $U=0.0,~5.0,~10.0$ varying $0 \le \delta \le 0.45$.}
+	\label{fig:sc-data-wS-AB256-compared}
+\end{figure}
+
+\subsection{Rotational SSB and nematic superconductivity}
 
 \section{Theoretical constraints on the triplet SC phase HFPs}\label{sec:sc-triplet-constraints}
 \todo

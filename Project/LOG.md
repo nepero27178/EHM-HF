@@ -24,4 +24,4 @@ SC-Singlet [rs]
 A[128]-a => TODO refine => TODO plot
 A[128]-b => TODO layer (2nd on met-num) => TODO refine => TODO plot [OFF met-num]
 B[128]-a => TODO refine [U=4.0,12.0] => TODO plot
-B[128]-b => TODO simulate [U=4.0,12.0] => TODO layer => TODO up-layer => TODO refine [U=4.0,12.0] => TODO plot
+B[128]-b => TODO simulate [U=4.0,12.0] => TODO layer => TODO up-layer => TODO refine [U=4.0,12.0] => TODO plot [ON stubborn]
