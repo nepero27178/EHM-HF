@@ -45,3 +45,4 @@ colorschemes[:blacklight] = ColorScheme(BlackLight, "custom black-white from mat
 colorschemes[:tabcoolrev] = ColorScheme(reverse(Cool), "custom reversed cool from matplotlib", "perceptually uniform sequential")
 colorschemes[:tabcoolerrev] = ColorScheme(reverse(Cooler), "custom reversed cool from matplotlib", "perceptually uniform sequential")
 colorschemes[:tabwarmcool] = ColorScheme(WarmCool, "custom coolwarm from matplotlib with grey midpoint", "two-tones perceptually uniform sequential")
+colorschemes[:tabquietrev] = ColorScheme(reverse(Quiet), "custom reversed quiet from matplotlib", "perceptually uniform sequential")
