@@ -26,11 +26,19 @@ function FindGapMask(
 	SS = abs.(SS)
 	dd = abs.(dd)
 
-	mask = zeros(size(ss))
-	mask[ ss .>= Δs .&& SS .>= ΔS .&& dd .>= Δd ] .= 3.0
-	mask[ ss .>= Δs .&& SS .>= ΔS .&& dd .< Δd ] .= 2.0
-	mask[ ss .< Δs .&& SS .< ΔS .&& dd .>= Δd ] .= 1.0
-	mask[ ss .< Δs .&& SS .< ΔS .&& dd .< Δd ] .= 0.0
+	# mask = zeros(size(ss)) # INTRODUCES A BIAS
+	# mask[ ss .>= Δs .&& SS .>= ΔS .&& dd .>= Δd ] .= 3.0
+	# mask[ ss .>= Δs .&& SS .>= ΔS .&& dd .< Δd ] .= 2.0
+	# mask[ ss .< Δs .&& SS .< ΔS .&& dd .>= Δd ] .= 1.0
+	# mask[ ss .< Δs .&& SS .< ΔS .&& dd .< Δd ] .= 0.0
+
+	mask_s = ss .> Δs
+	mask_S = SS .> ΔS
+	mask_s = mask_s .* mask_S
+
+	mask_d = dd .> Δd
+
+	mask = 2*mask_s .+ mask_d
 
 	return mask
 end

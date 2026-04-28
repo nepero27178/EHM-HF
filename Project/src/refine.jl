@@ -49,7 +49,7 @@ function main()
 		# Look the layered data
 		DirPathIn::String = dirname(PROJECT_SRC_DIR) * "/data/up-layered/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)"
 		if !isdir(DirPathIn)
-			replace!(DirPathIn,"up-layered" => "layered")
+			DirPathIn = replace(DirPathIn,"up-layered" => "layered")
 		end
 
 		# Read present layers and select the largest
@@ -65,6 +65,7 @@ function main()
 		# Generate FilePathIn and FilePathOut
 		FilePathIn = nothing
 		if l==0
+			#TODO Fix: we do not want "up-raw" in general...
 			FilePathIn = replace(DirPathIn, "layered" => "raw") * "/RB=$(RB...)_Syms=$(Syms...).csv"
 		elseif l>0
 			FilePathIn = DirPathIn * "/RB=$(RB...)_Syms=$(Syms...)_Layer=$(l).csv"
@@ -73,8 +74,12 @@ function main()
 	end
 
 	# Merge data and write on file
-	Mode=="rs" ? pVar=yVar : false
-	S::Simulation = MergeData(FilePathsIn;cVar,xVar,pVar)
+	if Mode=="rs"
+		S::Simulation = MergeData(FilePathsIn;cVar,xVar,yVar)
+	elseif Mode=="hs"
+		S = MergeData(FilePathsIn;cVar,xVar,pVar)
+	end
+
 	mkpath(DirPathOut)
 	FilePathOut = DirPathOut * "/RB=$(S.RB...)_Syms=$(S.Syms...).csv"
 	CSV.write(FilePathOut, S.DF)
