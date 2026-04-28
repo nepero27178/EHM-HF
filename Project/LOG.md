@@ -5,11 +5,13 @@ B[256]-a => TODO plot
 B[128]-b [ON met-num]
 B[256]-b => TODO layer (EVIDENCE: USE 0.9) => TODO refine => TODO plot [OFF stubborn]
 
+# IGNORE UP
+
 SC-Triplet [hs]
 A[256]-a => TODO refine => TODO plot
 A[256]-b => TODO layer => TODO refine => TODO plot // NOTE: A[256]-b DO NOT DOWN-LAYER ANMORE, use custom up-layering technique
-B[256]-a => TODO layer => TODO refine => TODO plot
-B[256]-b => TODO layer on met-num => TODO refine => TODO plot [ON met-num]
+B[256]-a => TODO refine => TODO plot
+B[256]-b => TODO refine => TODO plot
 
 SC-Singlet [hs]
 A[256]-a => DONE (plot refined w/ -b)
