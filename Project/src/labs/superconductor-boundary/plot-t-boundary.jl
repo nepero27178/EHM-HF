@@ -1,4 +1,5 @@
 using Contour
+using Interpolations
 using Dierckx
 
 LAB_ROOT = @__DIR__
@@ -29,8 +30,8 @@ end
 function InterpolateBoundary(
 	x_l::Vector{Float64},
 	y_l::Vector{Float64};
-	k::Int64=5,
-	s::Float64=2.0,
+	k::Int64=4,
+	s::Float64=0.2,
 	L::Int64=100
 )
 
@@ -44,22 +45,43 @@ function InterpolateBoundary(
 
 end
 
+function InterpolateSurface(
+	xx::Vector{Float64},
+	yy::Vector{Float64},
+	zz::Matrix{Float64};
+	L::Int64=1000
+)::Tuple{Vector{Float64},Vector{Float64},Matrix{Float64}}
+
+	IntSurf = interpolate(
+		(xx, yy), zz,
+		( Gridded(Linear()), Gridded(Linear()) )
+	)
+	xx_I = range(extrema(xx)..., length=L)
+	yy_I = range(extrema(yy)..., length=L)
+	zz_I = [IntSurf(x,y) for x in xx_I, y in yy_I]
+
+	return [x for x in xx_I], [y for y in yy_I], zz_I
+
+end
+
 FilePathIn = "/home/nepero27178/Thesis/EHM-HF/Project/data/refined/Mode=rs/Setup=B[128]/Phase=SC-Singlet/RB=Sd_Syms=Ssd.csv"
 P = Plot3D(FilePathIn;Print=true,xVar="δ",yVar="V",zVar="td",cs=:tabcoolwarm)
-J = 2
+J = 3
 H = P[J].H
 ax_H = H.content[1]
 DF = DataFrame(P[J].DF)
 U = only(unique(DF.U))
 
-Setup,Phase,Syms,RB,Layer = UnpackFilePath(FilePathIn)
-DF = CSV.read(FilePathIn,DataFrame)
-Sim = Simulation(DF,Setup,Phase,Syms,RB)
-EnlargeDF!(Sim)
-filter!(:U => x -> x==U, DF)
+# Setup,Phase,Syms,RB,Layer = UnpackFilePath(FilePathIn)
+# DF = CSV.read(FilePathIn,DataFrame)
+# Sim = Simulation(DF,Setup,Phase,Syms,RB)
+# EnlargeDF!(Sim)
+# filter!(:U => x -> x==U, DF)
 
 xx,yy,zz = ReshapeData(DF;xVar="δ",yVar="V",zVar="td")
 zz = Matrix(zz)
+
+xx,yy,zz = InterpolateSurface(xx,yy,zz;L=1000)
 Δz = 0.002 # Change here
 mask = FindNematicMask(zz,Δz)
 lvs = Contour.levels(Contour.contours(xx,yy,mask,[0,-1]))
@@ -75,9 +97,9 @@ try
 catch
 end
 
-save("U=$(U)-curves.pdf",H)
+save("t-U=$(U)-curves.pdf",H)
 
-F = Figure()
+F = Figure(size=(600,400),figure_padding=1)
 ax_F = Axis(
 	F[1,1],
 	xlabel = ax_H.xlabel,
@@ -90,10 +112,10 @@ if J==1
 	text!(ax_F,0.1,6.0,text=L"$t^{(d)}\ge\Delta t$",color=:white,align=(:center,:center))
 	text!(ax_F,0.35,6.0,text=L"$t^{(d)}\le -\Delta t$",color=:white,align=(:center,:center))
 	text!(ax_F,0.25,1.0,text=L"$| t^{(d)} | < \Delta t$",color=:black,align=(:center,:center))
-elseif J==2
+elseif J==2 || J==3
 	heatmap!(ax_F,xx,yy,mask,colormap=Warm)
 	text!(ax_F,0.25,3.7,text=L"$t^{(d)}\ge\Delta t$",color=:white,align=(:center,:center))
 	text!(ax_F,0.25,1.0,text=L"$| t^{(d)} | < \Delta t$",color=:black,align=(:center,:center))
 end
 
-save("U=$(U)-solid.pdf",F)
+save("t-U=$(U)-solid.pdf",F)

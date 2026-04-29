@@ -573,12 +573,10 @@ Let also:
 	\right) \label{eq:sc-~Th}
 \end{align}
 For the SC phase, the thermal factors reduce to:
-\[
-\begin{aligned}
-	\tilde{\mathrm{Th}}_\mathbf{k}^{(+)} &= 1 \\
-	\tilde{\mathrm{Th}}_\mathbf{k}^{(-)} &= - \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
-\end{aligned}
-\]
+\begin{align}
+	\tilde{\mathrm{Th}}_\mathbf{k}^{(+)} &= 1 \label{eq:sc-Th+=1} \\
+	\tilde{\mathrm{Th}}_\mathbf{k}^{(-)} &= - \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) \label{eq:sc-Th-=tanh}
+\end{align}
 Hence, pseudospin expectation values are:
 \begin{align}
 	\ev{\hat s_\mathbf{k}^x} &= -\frac{\Re \lbrace \tilde{\Delta}_\mathbf{k} \rbrace}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) \label{eq:sc-ehm-sx} \\
@@ -1223,7 +1221,38 @@ Now, as we state in Sec.~\ref{subsec:sc-features}, for the pure HM we have ident
 Of course, Eq.~\eqref{eq:sc-ehm-gap-energy} is also solved by a null gap on both sides: this indicates that when the constraint is impossible to fulfil self-consistently, the gap closes.
 
 \section{Theoretical constraints on the singlet SC phase HFPs}\label{sec:sc-singlet-constraints}
+
+We here derive a set of constraints for the HFPs in SC phase, similarly to what we derived for the other two phases. \todo
+
+We will make use of the functional $F$ introduced in Eq.~\eqref{eq:saf-F-definition} for the AF phase, adapted to the SC phase. Indeed, we define:
+\begin{equation}\label{eq:sc-F-definition}
+	F[f(\mathbf{k})] \equiv \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{1}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) f(\mathbf{k})
+\end{equation}
+where we used Eq.~\eqref{eq:sc-Th-=tanh} to substitute the thermal factor with the hyperbolic tangent. Linearity and positivity rules, given respectively in Eqns.~\eqref{eq:saf-F-linearity}, \eqref{eq:saf-F-positivity}, hold identically. Let:
+\[
+	A \equiv F\left[c_x^2\right] \qquad B \equiv 2F[c_x c_y] \qquad C \equiv F\left[c_y^2\right] \qquad D \equiv F[c_x] \qquad E \equiv F[c_y] \qquad F \equiv F[1] \qquad
+\]
 \todo
+
+\subsection{Mixed-symmetry nematicity}
+
+In this section we discuss the breaking of planar rotational symmetry that follows from the mixing of gap topologies. We will prove that, in singlet channel, whenever the gap function $\tilde{\Delta}_\mathbf{k}$ exhibits both $s \oplus s^*$ and $d$-wave components, the resulting superconductor is nematic and $\abs{t^{(d)}}>0$.
+
+The five self-consistency equations for the singlet SC phase, enumerated in Tabs.~\ref{tab:sc-ehm-ugamma-self-consistencies}, \ref{tab:sc-ehm-wgamma-self-consistencies}, can be written identically as:
+\begin{align}
+	u^{(s^*)} &= \tilde{\mu} (D+E) + \left(2t-u^{(s^*)}V\right) (A+B+C) - u^{(d)} (A-C) \label{eq:sc-us*-map} \\
+	u^{(d)} &= \tilde{\mu} (D-E) + \left(2t-u^{(s^*)}V\right) (A-C) - u^{(d)} (A-B+C) \label{eq:sc-ud-map} \\
+	w^{(s)} &= -U w^{(s)} F + V w^{(s^*)} (D+E) + Vw^{(d)} (D-E) \label{eq:sc-ws-map} \\
+	w^{(s^*)} &= -U w^{(s)} (D+E) + V w^{(s^*)} (A+B+C) + Vw^{(d)} (A-C) \label{eq:sc-wS-map} \\
+	w^{(d)} &= -U w^{(s)} (D-E) + V w^{(s^*)} (A-C) + Vw^{(d)} (A-B+C) \label{eq:sc-wd-map}
+\end{align}
+We here prove that if the superconducting gap is purely $d$-wave or $s \oplus s^*$-wave, nematicity is absent. Then we prove that mixed symmetry imply nematicity.
+\begin{enumerate}
+	\item Let $w^{(d)}=0$ while $w^{(s)},w^{(s^*)} \neq 0$. Then, from Eq.~\eqref{eq:sc-wd-map},
+	\[
+		-U w^{(s)} (D-E) + V w^{(s^*)} (A-C) = 0
+	\]
+\end{enumerate}
 
 \section{Discussion of numeric results (singlet SC)}\label{sec:sc-singlet-numeric}
 
