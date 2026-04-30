@@ -76,7 +76,7 @@ end
 
 FilePathIn = "/home/nepero27178/Thesis/EHM-HF/Project/data/refined/Mode=rs/Setup=B[128]/Phase=SC-Singlet/RB=Sd_Syms=Ssd.csv"
 P = Plot3D(FilePathIn;Print=true,xVar="δ",yVar="V",zVar="td",cs=:tabcoolwarm)
-J = 3
+J = 1
 H = P[J].H
 ax_H = H.content[1]
 DF = DataFrame(P[J].DF)

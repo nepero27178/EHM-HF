@@ -1439,32 +1439,25 @@ Thus we consider $s$ and $s^*$ as part of the same isotropic channel.
 		\includegraphics[height=0.32\linewidth]{../Project/src/labs/superconductor-boundary/w-U=12.0-solid.pdf}
 		\label{subfig:sc-mix-U=12}
 	}
-	\caption{Depiction of the regions }
+	\caption{Depiction of the normal state region and the three singlet superconducting regions. Lighter blue indicates the pure $d$-wave SC phase, blue the isotropic $s \oplus s^*$ phase, deeper blue the mixed region. In text is described the convention we used to identify the boundaries.}
 	\label{fig:sc-mix}
 \end{figure}
 
-In Fig.~\ref{fig:sc-mix} we see that mixing occurs at $V/t \approx 3$ at low doping, while increasing doping the boundary moves up. Therefore, a critical value of $V_\mathrm{c}[\delta]$ exists at each doping, above which superconductivity is established in singlet channel with a mixed topology. This leads us to the subject of next section. The most dramatic consequence of mixing is the breaking of planar rotational symmetry, namely,
+Comparing the two panels of Fig.~\ref{fig:sc-mix}, we see that increasing the value of the local repulsion $U$ the intersection point of the four regions moves. In particular, the $d$-wave region expands to the right (larger $\delta$s), and the critical value for $V$ for the transition from normal state to $s \oplus s^*$ superconductor moves up (larger $V$s). The mixing region is pretty much unchanged, going from $V/t \approx 3$ at low doping to higher values at almost unitary filling.
+
+In next section we show that mixing is the root cause of nematic symmetry breaking,
 \[
 	\mathrm{C}_4 \SSB \mathrm{C}_2
 \]
+The mixed-symmetry region coincides with the portion of the $(\delta,V)$ plane where planar rotational symmetry is broken.
 
 \subsection{Rotational SSB and nematic superconductivity}
 
-\todo
-
-\begin{figure}
-	\centering
-	\subfloat[Dependency of $t^{(s)}$ on $V$ at various $U$s, compared at three values of $\delta$.]{
-		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=Compared_β=100.0.pdf}
-		\label{subfig:sc-data-tS-A256-compared}
-	}\\
-	\subfloat[Dependency of $t^{(s)}$ on $\delta$ at various $V$s, compared at three values of $U$.]{
-		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/tS_t=1.0_U=Compared_L=256_β=100.0.pdf}
-		\label{subfig:sc-data-tS-B256-compared}
-	}
-	\caption{Dependency of the $s^*$-wave renormalised hopping $t^{(s^*)}$ varying the doping $\delta$ and the local repulsion $U$. In the top panel we compare three doping levels $\delta=0.0,~0.2,~0.4$ varying $0 \le U \le 8$. In the bottom panel we compare three repulsion values $U=0.0,~5.0,~10.0$ varying $0 \le \delta \le 0.45$.}
-	\label{fig:sc-data-tS-AB256-compared}
-\end{figure}
+In the context of this thesis, nematicity is established whenever $\tilde{t}^{(d)}$ becomes non-zero. This was discussed in detail in the context of the normal phase. If the renormalised hopping parameter has a non-zero $d$-wave component, this means that bare hopping is effectively boosted in one direction and damped in the other. We must be careful with this interpretation: in the SC phase, the many body state is a gas of Bogoliubov quasiparticles which do not ``hop on neighbouring sites''. If $\tilde{t}^{(d)}$ is non-zero, the superconductor is nematic in the sense that Bogoliubov quasibands are not rotationally invariant,
+\[
+	\tilde{E}_\mathbf{k} \neq \tilde{E}_{\mathcal{R}\mathbf{k}}
+\]
+being $\mathcal{R}$ a $\pi/2$ rotation. We connect this effect to hopping renormalisation following the formal discussion of Sec.~\ref{subsec:normal-d-wave-hopping}.
 
 \begin{figure}
 	\centering
@@ -1480,6 +1473,19 @@ In Fig.~\ref{fig:sc-mix} we see that mixing occurs at $V/t \approx 3$ at low dop
 	\label{fig:sc-data-td-AB256-compared}
 \end{figure}
 
+For the normal and AF phases we were able to prove that $u^{(d)}=0$ for any choice of model parameters. For the SC phase, instead, $u^{(d)}$ converges to non-zero values. For the sake of simplicity, we plot directly
+\[
+	\tilde{t}^{(d)} = -\frac{V u^{(d)}}{2}
+\]
+in Fig.~\ref{fig:sc-data-td-AB256-compared}. In the top panel (Fig.~\ref{subfig:sc-data-td-A256-compared}), we see that a critical value of $V$ exists over which nematicity is established. Moreover, the $\delta=0.0$ case (left panel) is independent of $U$. In all cases, the convergence values for $\tilde{t}^{(d)}$ are two order of magnitudes smaller than $t=1.0$. In the region of parametric space we explore, nematicity is a sharp but small effect. Note that at $\delta=0.2$ (central panel) $\tilde{t}^{(d)}\ge0$, while at $\delta=0.4$ (right panel) $\tilde{t}^{(d)}\le0$. Increasing the doping we change the sign of $\tilde{t}^{(d)}$: if renormalised hopping was boosted in direction $x$ and damped in direction $y$, roles get reversed.
+
+This sign change is most evident in the first two figures of the bottom panel (Fig.~\ref{subfig:sc-data-td-B256-compared}), where we vary the doping level while keeping fixed the local repulsion $U$. The behaviour of $\tilde{t}^{(d)}$ is similar at low doping in the three cases, but changes significantly at larger doping. Indeed, at $U=0.0$ (left figure) and $U=5.0$ (central figure) at some point $\tilde{t}^{(d)}$ changes sign. This indicates that:
+\begin{itemize}
+	\item there exists a node, some special doping $\delta_0$ at which $\tilde{t}^{(d)}=0$ and the resulting superconductor is not nematic;
+	\item at higher doping the direction of nematic symmetry breaking is exchanged.
+\end{itemize}
+At $=10.0$ (right panel) we see that $t^{(d)}\ge0$ at all $V$s. Sign change, if present, must occur at higher values. In the end, increasing the value of the local repulsion $U$ we do not prevent nematicity, rather we suppress this secondary nematic effect, originated from the change of sign of $\tilde{t}^{(d)}$.
+
 \begin{figure}
 	\centering
 	\subfloat[Nematic hopping at $U=4$.]{
@@ -1492,4 +1498,22 @@ In Fig.~\ref{fig:sc-mix} we see that mixing occurs at $V/t \approx 3$ at low dop
 	}
 	\caption{}
 	\label{fig:sc-td}
+\end{figure}
+
+Nematic effects are directly related to symmetry mixing in the superconducting order parameter. Indeed, consider Fig.~\ref{fig:sc-td}. There, we plot the convergence values for $\tilde{t}^{(d)}$ in the $(\delta,V)$ plane. The superimposed white lines are the mixing boundaries, delimiting the deeper blue regions of Fig.~\ref{fig:sc-mix}. The anisotropic hopping $\tilde{t}^{(d)}$ is non-zero in the mixed region. \todo
+
+\subsection{Isotropic bands shrinking}
+
+\begin{figure}
+	\centering
+	\subfloat[Dependency of $t^{(s)}$ on $V$ at various $U$s, compared at three values of $\delta$.]{
+		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=Compared_β=100.0.pdf}
+		\label{subfig:sc-data-tS-A256-compared}
+	}\\
+	\subfloat[Dependency of $t^{(s)}$ on $\delta$ at various $V$s, compared at three values of $U$.]{
+		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/tS_t=1.0_U=Compared_L=256_β=100.0.pdf}
+		\label{subfig:sc-data-tS-B256-compared}
+	}
+	\caption{Dependency of the $s^*$-wave renormalised hopping $t^{(s^*)}$ varying the doping $\delta$ and the local repulsion $U$. In the top panel we compare three doping levels $\delta=0.0,~0.2,~0.4$ varying $0 \le U \le 8$. In the bottom panel we compare three repulsion values $U=0.0,~5.0,~10.0$ varying $0 \le \delta \le 0.45$.}
+	\label{fig:sc-data-tS-AB256-compared}
 \end{figure}
