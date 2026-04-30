@@ -160,11 +160,19 @@ function main()
 		FilePathIn = DirPathOut * "/RB=$(RB...)_Syms=$(Syms...)_Layer=$(l).csv"
 		false
 	catch
-		DirPathIn::String = replace(DirPathOut, "up-layered" => "layered")
-		Layers = [U[end] for U in UnpackFilePath.(DirPathIn .* "/" .* readdir(DirPathIn); Layered=true)]
-		l = maximum(Layers)
-		FilePathIn = DirPathIn * "/RB=$(RB...)_Syms=$(Syms...)_Layer=$(l).csv"
 		true
+	end
+
+	if FirstUp
+		try
+			DirPathIn::String = replace(DirPathOut, "up-layered" => "layered")
+			Layers = [U[end] for U in UnpackFilePath.(DirPathIn .* "/" .* readdir(DirPathIn); Layered=true)]
+			l = maximum(Layers)
+			FilePathIn = DirPathIn * "/RB=$(RB...)_Syms=$(Syms...)_Layer=$(l).csv"
+		catch
+			DirPathIn = replace(DirPathOut, "up-layered" => "raw")
+			FilePathIn = DirPathIn * "/RB=$(RB...)_Syms=$(Syms...).csv"
+		end
 	end
 
 	LogPathIn::String = replace(FilePathIn, ".csv" => ".log")
