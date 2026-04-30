@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  29 APR 2026 17:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.10)  30 APR 2026 18:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1367,7 +1367,7 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \bibhang=\skip259
 \blx@bcfin=\read4
 \blx@bcfout=\write6
-\blx@langwohyphens=\language9
+\blx@langwohyphens=\language90
 \c@mincomprange=\count469
 \c@maxcomprange=\count470
 \c@mincompwidth=\count471
@@ -1706,15 +1706,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
-dvips/cm-super/cm-super-ts1.enc}]
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.40 \clearpage
-                [2] (./misc/abbreviations.tex
+dvips/cm-super/cm-super-ts1.enc}] (./misc/abbreviations.tex
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1755,24 +1747,16 @@ een already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.41 \restoregeometry
-                      [3]) (./misc/introduction.tex
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.3 \chapter
-            *{Introduction} [4
-
-
-
-
-
-])
+                      [2]) (./misc/introduction.tex)
 (./chapters/superconducting-instability/superconducting-instability.tex
 
-[1]
+[1
+
+
+
+
+
+]
 
 [2
 
@@ -2098,23 +2082,11 @@ LaTeX Warning: Reference `eq:af-ehm-gap-energy' on page 19 undefined on input l
 ine 1210.
 
 
-LaTeX Warning: Reference `eq:saf-F-definition' on page 19 undefined on input li
-ne 1227.
-
-
-LaTeX Warning: Reference `eq:saf-F-linearity' on page 19 undefined on input lin
-e 1231.
-
-
-LaTeX Warning: Reference `eq:saf-F-positivity' on page 19 undefined on input li
-ne 1231.
-
-
 
 [19]
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/ws_t=1.0_L=256_δ=Compared_
-β=100.0.pdf, id=443, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=411, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/ws_t=1.0_L=256_δ=Comp
 ared_β=100.0.pdf Graphic file (type pdf)
@@ -2123,16 +2095,16 @@ glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/ws_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/ws_
-t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1300.
+t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1313.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1300--1300
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1313--1313
  [][] 
  []
 
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/ws_t=1.0_U=Compared_L=256_
-β=100.0.pdf, id=444, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=412, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/ws_t=1.0_U=Compared_L
 =256_β=100.0.pdf Graphic file (type pdf)
@@ -2141,19 +2113,16 @@ glet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/ws_t=1.0_U=Compared_L=
 256_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/ws
-_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1304.
+_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1317.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1304--1305
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1317--1320
  [][] 
  []
 
-
-
-[20]
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wS_t=1.0_L=256_δ=Compared_
-β=100.0.pdf, id=460, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=418, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wS_t=1.0_L=256_δ=Comp
 ared_β=100.0.pdf Graphic file (type pdf)
@@ -2162,16 +2131,16 @@ glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wS_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wS_
-t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1332.
+t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1347.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1332--1332
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1347--1347
  [][] 
  []
 
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wS_t=1.0_U=Compared_L=256_
-β=100.0.pdf, id=461, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=419, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wS_t=1.0_U=Compared_L
 =256_β=100.0.pdf Graphic file (type pdf)
@@ -2180,16 +2149,16 @@ glet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wS_t=1.0_U=Compared_L=
 256_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wS
-_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1336.
+_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1351.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1336--1337
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1351--1354
  [][] 
  []
 
 
 
-[21 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
+[20 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
 glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/ws_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf> </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=h
 s/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/ws_t=1.0
@@ -2202,7 +2171,7 @@ dfs with page group included in a single page
 >]
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wd_t=1.0_L=256_δ=Compared_
-β=100.0.pdf, id=543, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=498, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wd_t=1.0_L=256_δ=Comp
 ared_β=100.0.pdf Graphic file (type pdf)
@@ -2211,16 +2180,16 @@ glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wd_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wd_
-t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1364.
+t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1381.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1364--1364
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1381--1381
  [][] 
  []
 
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wd_t=1.0_U=Compared_L=256_
-β=100.0.pdf, id=544, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=499, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wd_t=1.0_U=Compared_L
 =256_β=100.0.pdf Graphic file (type pdf)
@@ -2229,16 +2198,16 @@ glet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wd_t=1.0_U=Compared_L=
 256_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wd
-_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1368.
+_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1385.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1368--1369
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1385--1388
  [][] 
  []
 
 
 
-[22 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
+[21 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
 glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wS_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf> </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=h
 s/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wS_t=1.0
@@ -2250,35 +2219,56 @@ ar=δ_pVar=V/wS_t=1.0_U=Compared_L=256_β=100.0.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
 >]
 </home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-gap/gap_U=4.0.
-pdf, id=612, 978.65625pt x 602.25pt>
+pdf, id=569, 978.65625pt x 602.25pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-gap/gap_U
 =4.0.pdf Graphic file (type pdf)
 <use /home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-gap/gap_U=
 4.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/src/labs/super
-conductor-gap/gap_U=4.0.pdf  used on input line 1395.
+conductor-gap/gap_U=4.0.pdf  used on input line 1414.
 (pdftex.def)             Requested size: 426.79135pt x 262.64746pt.
+<../Project/src/labs/superconductor-boundary/w-U=4.0-solid.pdf, id=570, 451.687
+5pt x 301.125pt>
+File: ../Project/src/labs/superconductor-boundary/w-U=4.0-solid.pdf Graphic fil
+e (type pdf)
+<use ../Project/src/labs/superconductor-boundary/w-U=4.0-solid.pdf>
+Package pdftex.def Info: ../Project/src/labs/superconductor-boundary/w-U=4.0-so
+lid.pdf  used on input line 1426.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/src/labs/superconductor-boundary/w-U=12.0-solid.pdf, id=571, 451.68
+75pt x 301.125pt>
+File: ../Project/src/labs/superconductor-boundary/w-U=12.0-solid.pdf Graphic fi
+le (type pdf)
+<use ../Project/src/labs/superconductor-boundary/w-U=12.0-solid.pdf>
+Package pdftex.def Info: ../Project/src/labs/superconductor-boundary/w-U=12.0-s
+olid.pdf  used on input line 1430.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 1426--1431
+ [][][] 
+ []
+
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
-/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=U_pVar=V/tS_t=1.0_L=256_δ=Compared_
-β=100.0.pdf, id=613, 1129.21875pt x 301.125pt>
+/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=Compared_
+β=100.0.pdf, id=573, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
-nglet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=U_pVar=V/tS_t=1.0_L=256_δ=Comp
+nglet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=Comp
 ared_β=100.0.pdf Graphic file (type pdf)
 <use /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
-glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=U_pVar=V/tS_t=1.0_L=256_δ=Compa
+glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
-Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=U_pVar=V/tS_
-t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1411.
+Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/tS_
+t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1448.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1411--1411
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1448--1448
  [][] 
  []
 
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/tS_t=1.0_U=Compared_L=256_
-β=100.0.pdf, id=614, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=574, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/tS_t=1.0_U=Compared_L
 =256_β=100.0.pdf Graphic file (type pdf)
@@ -2287,52 +2277,19 @@ glet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/tS_t=1.0_U=Compared_L=
 256_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/tS
-_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1415.
+_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1452.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1415--1416
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1452--1453
  [][] 
  []
 
-</home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
-/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=U_pVar=V/td_t=1.0_L=256_δ=Compared_
-β=100.0.pdf, id=615, 1129.21875pt x 301.125pt>
-File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
-nglet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=U_pVar=V/td_t=1.0_L=256_δ=Comp
-ared_β=100.0.pdf Graphic file (type pdf)
-<use /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
-glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=U_pVar=V/td_t=1.0_L=256_δ=Compa
-red_β=100.0.pdf>
-Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
-Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=U_pVar=V/td_
-t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1425.
-(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1425--1425
- [][] 
- []
+Underfull \vbox (badness 1997) has occurred while \output is active []
 
-</home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
-/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/td_t=1.0_U=Compared_L=256_
-β=100.0.pdf, id=616, 1129.21875pt x 301.125pt>
-File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
-nglet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/td_t=1.0_U=Compared_L
-=256_β=100.0.pdf Graphic file (type pdf)
-<use /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
-glet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/td_t=1.0_U=Compared_L=
-256_β=100.0.pdf>
-Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
-Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/td
-_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1429.
-(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1429--1430
- [][] 
- []
 
-)
-
-[23 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
+[22 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
 glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wd_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf> </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=h
 s/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wd_t=1.0
@@ -2344,18 +2301,82 @@ ar=δ_pVar=V/wd_t=1.0_U=Compared_L=256_β=100.0.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
 >]
 
-[24 </home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-gap/gap_U=
-4.0.pdf> </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=S
-C-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=U_pVar=V/tS_t=1.0_L=256_δ=
-Compared_β=100.0.pdf
+[23 </home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-gap/gap_U=
+4.0.pdf> <../Project/src/labs/superconductor-boundary/w-U=4.0-solid.pdf
 
-pdfTeX warning: /usr/bin/pdflatex (file /home/nepero27178/Thesis/EHM-HF/Project
-/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xV
-ar=U_pVar=V/tS_t=1.0_L=256_δ=Compared_β=100.0.pdf): PDF inclusion: multiple p
-dfs with page group included in a single page
-> </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singl
-et/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/tS_t=1.0_U=Compared_L=25
-6_β=100.0.pdf
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/superconductor-boun
+dary/w-U=4.0-solid.pdf): PDF inclusion: multiple pdfs with page group included 
+in a single page
+> <../Project/src/labs/superconductor-boundary/w-U=12.0-solid.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/superconductor-boun
+dary/w-U=12.0-solid.pdf): PDF inclusion: multiple pdfs with page group included
+ in a single page
+>]
+</home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
+/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/td_t=1.0_L=256_δ=Compared_
+β=100.0.pdf, id=697, 1129.21875pt x 301.125pt>
+File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
+nglet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/td_t=1.0_L=256_δ=Comp
+ared_β=100.0.pdf Graphic file (type pdf)
+<use /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
+glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/td_t=1.0_L=256_δ=Compa
+red_β=100.0.pdf>
+Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
+Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/td_
+t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1462.
+(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
+
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1462--1462
+ [][] 
+ []
+
+</home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
+/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/td_t=1.0_U=Compared_L=256_
+β=100.0.pdf, id=698, 1129.21875pt x 301.125pt>
+File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
+nglet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/td_t=1.0_U=Compared_L
+=256_β=100.0.pdf Graphic file (type pdf)
+<use /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
+glet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/td_t=1.0_U=Compared_L=
+256_β=100.0.pdf>
+Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
+Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/td
+_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1466.
+(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
+
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1466--1467
+ [][] 
+ []
+
+<../Project/src/labs/superconductor-boundary/w-U=4.0-curves.pdf, id=699, 451.68
+75pt x 301.125pt>
+File: ../Project/src/labs/superconductor-boundary/w-U=4.0-curves.pdf Graphic fi
+le (type pdf)
+<use ../Project/src/labs/superconductor-boundary/w-U=4.0-curves.pdf>
+Package pdftex.def Info: ../Project/src/labs/superconductor-boundary/w-U=4.0-cu
+rves.pdf  used on input line 1476.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/src/labs/superconductor-boundary/w-U=12.0-curves.pdf, id=700, 451.6
+875pt x 301.125pt>
+File: ../Project/src/labs/superconductor-boundary/w-U=12.0-curves.pdf Graphic f
+ile (type pdf)
+<use ../Project/src/labs/superconductor-boundary/w-U=12.0-curves.pdf>
+Package pdftex.def Info: ../Project/src/labs/superconductor-boundary/w-U=12.0-c
+urves.pdf  used on input line 1480.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 1476--1481
+ [][][] 
+ []
+
+)
+
+[24 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
+glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=Compa
+red_β=100.0.pdf> </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=h
+s/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/tS_t=1.0
+_U=Compared_L=256_β=100.0.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file /home/nepero27178/Thesis/EHM-HF/Project
 /plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xV
@@ -2364,7 +2385,7 @@ dfs with page group included in a single page
 >]
 
 [25 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
-glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=U_pVar=V/td_t=1.0_L=256_δ=Compa
+glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/td_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf> </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=h
 s/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/td_t=1.0
 _U=Compared_L=256_β=100.0.pdf
@@ -2373,6 +2394,16 @@ pdfTeX warning: /usr/bin/pdflatex (file /home/nepero27178/Thesis/EHM-HF/Project
 /plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xV
 ar=δ_pVar=V/td_t=1.0_U=Compared_L=256_β=100.0.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
+> <../Project/src/labs/superconductor-boundary/w-U=4.0-curves.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/superconductor-boun
+dary/w-U=4.0-curves.pdf): PDF inclusion: multiple pdfs with page group included
+ in a single page
+> <../Project/src/labs/superconductor-boundary/w-U=12.0-curves.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/superconductor-boun
+dary/w-U=12.0-curves.pdf): PDF inclusion: multiple pdfs with page group include
+d in a single page
 >]
 
 [26
@@ -2412,7 +2443,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0103951A26ABFC3E3C4DA75E314BBB5C;8105.
+(rerunfilecheck)             Checksum: F50B180ED687E58E77FF176E4232ECA6;6952.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -2423,12 +2454,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 52431 strings out of 475076
- 1195028 string characters out of 5763687
- 2203262 words of memory out of 5000000
- 74460 multiletter control sequences out of 15000+600000
- 578691 words of font info for 108 fonts, out of 8000000 for 9000
- 59 hyphenation exceptions out of 8191
+ 52442 strings out of 473197
+ 1196817 string characters out of 5718605
+ 2208435 words of memory out of 5000000
+ 74721 multiletter control sequences out of 15000+600000
+ 578338 words of font info for 107 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
  92i,18n,96p,2641b,1673s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
@@ -2447,21 +2478,20 @@ texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/sh
-are/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type
-1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
-rm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (33 pages, 2060880 bytes).
+ublic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></
+usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (31 pages, 2178739 bytes).
 PDF statistics:
- 1107 PDF objects out of 1200 (max. 8388607)
- 883 compressed objects within 9 object streams
- 191 named destinations out of 1000 (max. 500000)
- 416 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1181 PDF objects out of 1200 (max. 8388607)
+ 922 compressed objects within 10 object streams
+ 182 named destinations out of 1000 (max. 500000)
+ 404 words of extra memory for PDF output out of 10000 (max. 10000000)
 

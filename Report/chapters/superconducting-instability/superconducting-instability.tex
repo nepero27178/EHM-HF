@@ -1220,39 +1220,52 @@ Now, as we state in Sec.~\ref{subsec:sc-features}, for the pure HM we have ident
 \end{itemize}
 Of course, Eq.~\eqref{eq:sc-ehm-gap-energy} is also solved by a null gap on both sides: this indicates that when the constraint is impossible to fulfil self-consistently, the gap closes.
 
-\section{Theoretical constraints on the singlet SC phase HFPs}\label{sec:sc-singlet-constraints}
-
-We here derive a set of constraints for the HFPs in SC phase, similarly to what we derived for the other two phases. \todo
-
-We will make use of the functional $F$ introduced in Eq.~\eqref{eq:saf-F-definition} for the AF phase, adapted to the SC phase. Indeed, we define:
-\begin{equation}\label{eq:sc-F-definition}
-	F[f(\mathbf{k})] \equiv \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{1}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) f(\mathbf{k})
-\end{equation}
-where we used Eq.~\eqref{eq:sc-Th-=tanh} to substitute the thermal factor with the hyperbolic tangent. Linearity and positivity rules, given respectively in Eqns.~\eqref{eq:saf-F-linearity}, \eqref{eq:saf-F-positivity}, hold identically. Let:
-\[
-	A \equiv F\left[c_x^2\right] \qquad B \equiv 2F[c_x c_y] \qquad C \equiv F\left[c_y^2\right] \qquad D \equiv F[c_x] \qquad E \equiv F[c_y] \qquad F \equiv F[1] \qquad
-\]
-\todo
-
-\subsection{Mixed-symmetry nematicity}
-
-In this section we discuss the breaking of planar rotational symmetry that follows from the mixing of gap topologies. We will prove that, in singlet channel, whenever the gap function $\tilde{\Delta}_\mathbf{k}$ exhibits both $s \oplus s^*$ and $d$-wave components, the resulting superconductor is nematic and $\abs{t^{(d)}}>0$.
-
-The five self-consistency equations for the singlet SC phase, enumerated in Tabs.~\ref{tab:sc-ehm-ugamma-self-consistencies}, \ref{tab:sc-ehm-wgamma-self-consistencies}, can be written identically as:
-\begin{align}
-	u^{(s^*)} &= \tilde{\mu} (D+E) + \left(2t-u^{(s^*)}V\right) (A+B+C) - u^{(d)} (A-C) \label{eq:sc-us*-map} \\
-	u^{(d)} &= \tilde{\mu} (D-E) + \left(2t-u^{(s^*)}V\right) (A-C) - u^{(d)} (A-B+C) \label{eq:sc-ud-map} \\
-	w^{(s)} &= -U w^{(s)} F + V w^{(s^*)} (D+E) + Vw^{(d)} (D-E) \label{eq:sc-ws-map} \\
-	w^{(s^*)} &= -U w^{(s)} (D+E) + V w^{(s^*)} (A+B+C) + Vw^{(d)} (A-C) \label{eq:sc-wS-map} \\
-	w^{(d)} &= -U w^{(s)} (D-E) + V w^{(s^*)} (A-C) + Vw^{(d)} (A-B+C) \label{eq:sc-wd-map}
-\end{align}
-We here prove that if the superconducting gap is purely $d$-wave or $s \oplus s^*$-wave, nematicity is absent. Then we prove that mixed symmetry imply nematicity.
-\begin{enumerate}
-	\item Let $w^{(d)}=0$ while $w^{(s)},w^{(s^*)} \neq 0$. Then, from Eq.~\eqref{eq:sc-wd-map},
-	\[
-		-U w^{(s)} (D-E) + V w^{(s^*)} (A-C) = 0
-	\]
-\end{enumerate}
+%\section{Theoretical constraints on the singlet SC phase HFPs}\label{sec:sc-singlet-constraints}
+%
+%We here derive a set of constraints for the HFPs in SC phase, similarly to what we derived for the other two phases. \todo
+%
+%We will make use of the functional $F$ introduced in Eq.~\eqref{eq:saf-F-definition} for the AF phase, adapted to the SC phase. Indeed, we define:
+%\begin{equation}\label{eq:sc-F-definition}
+%	F[f(\mathbf{k})] \equiv \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{1}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) f(\mathbf{k})
+%\end{equation}
+%where we used Eq.~\eqref{eq:sc-Th-=tanh} to substitute the thermal factor with the hyperbolic tangent. Linearity and positivity rules, given respectively in Eqns.~\eqref{eq:saf-F-linearity}, \eqref{eq:saf-F-positivity}, hold identically. Let:
+%\[
+%	A \equiv F\left[c_x^2\right] \qquad B \equiv 2F[c_x c_y] \qquad C \equiv F\left[c_y^2\right] \qquad D \equiv F[c_x] \qquad E \equiv F[c_y] \qquad F \equiv F[1] \qquad
+%\]
+%\todo
+%
+%\subsection{Mixed-symmetry nematicity}
+%
+%In this section we discuss the breaking of planar rotational symmetry that follows from the mixing of gap topologies. We will prove that, in singlet channel, whenever the gap function $\tilde{\Delta}_\mathbf{k}$ exhibits both $s \oplus s^*$ and $d$-wave components, the resulting superconductor is nematic and $\abs{t^{(d)}}>0$.
+%
+%The five self-consistency equations for the singlet SC phase, enumerated in Tabs.~\ref{tab:sc-ehm-ugamma-self-consistencies}, \ref{tab:sc-ehm-wgamma-self-consistencies}, can be written identically as:
+%\begin{align}
+%	u^{(s^*)} &= \tilde{\mu} (D+E) + \left(2t-u^{(s^*)}V\right) (A+B+C) - u^{(d)} (A-C) \label{eq:sc-us*-map} \\
+%	u^{(d)} &= \tilde{\mu} (D-E) + \left(2t-u^{(s^*)}V\right) (A-C) - u^{(d)} (A-B+C) \label{eq:sc-ud-map} \\
+%	w^{(s)} &= -U w^{(s)} F + V w^{(s^*)} (D+E) + Vw^{(d)} (D-E) \label{eq:sc-ws-map} \\
+%	w^{(s^*)} &= -U w^{(s)} (D+E) + V w^{(s^*)} (A+B+C) + Vw^{(d)} (A-C) \label{eq:sc-wS-map} \\
+%	w^{(d)} &= -U w^{(s)} (D-E) + V w^{(s^*)} (A-C) + Vw^{(d)} (A-B+C) \label{eq:sc-wd-map}
+%\end{align}
+%We here prove that if the superconducting gap is purely $d$-wave or $s \oplus s^*$-wave, nematicity is absent. Then we prove that mixed symmetry imply nematicity.
+%
+%{\color{tabred}\textbf{
+%Before starting, we must anticipate that our proof relies partially on one claim for which we do not have a formal proof. The claim is that for any self-consistent solution it holds:
+%\[
+%	w^{(s)} \neq 0 \land w^{(s^*)} \neq 0
+%	\quad\implies\quad
+%	\sgn\,w^{(s)} = - \sgn\,w^{(s^*)}
+%	\qquad
+%	\text{(claim)}
+%\]
+%In the $s \oplus s^*$ channel, if both the local and the non-local HFPs are non-zero, their values have opposite sign factors. This statement needs to be proven and is confirmed by numerics.}}
+%
+%\begin{enumerate}
+%	\item Let $w^{(d)}=0$ while $w^{(s)},w^{(s^*)} \neq 0$. Then, from Eq.~\eqref{eq:sc-wd-map},
+%	\[
+%		-U w^{(s)} (D-E) + V w^{(s^*)} (A-C) = 0
+%	\]
+%	Since FANCULO STA DIMOSTRAZIONE NON MI RIESCE
+%\end{enumerate}
 
 \section{Discussion of numeric results (singlet SC)}\label{sec:sc-singlet-numeric}
 
@@ -1294,15 +1307,17 @@ We discuss the three channels separately. Note that next figures miss data at $\
 
 \begin{figure}
 	\centering
-	\subfloat[$U$ dependency of $w^{(s)}$ at various $\delta$s.]{
+	\subfloat[Dependency of $w^{(s)}$ on $V$ at various $U$s, compared at three values of $\delta$.]{
 		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/ws_t=1.0_L=256_δ=Compared_β=100.0.pdf}
 		\label{subfig:sc-data-ws-A256-compared}
 	}\\
-	\subfloat[$\delta$ dependency of $w^{(s)}$ at various $U$s.]{
+	\subfloat[Dependency of $w^{(s)}$ on $\delta$ at various $V$s, compared at three values of $U$.]{
 		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/ws_t=1.0_U=Compared_L=256_β=100.0.pdf}
 		\label{subfig:sc-data-ws-B256-compared}
 	}
-	\caption{Dependency of the $s$-wave gap varying the doping $\delta$ and the local repulsion $U$. In the top panel we compare three doping levels $\delta=0.0,~0.2,~0.4$ varying $0 \le U \le 8$. In the bottom panel we compare three repulsion values $U=0.0,~5.0,~10.0$ varying $0 \le \delta \le 0.45$.}
+	\caption{
+		Dependency of the $s$-wave HFP $w^{(s)}$ on $V$ at fixed $U$ and $\delta$ (top panel, compared figures) and on $\delta$ at fixed $V$ and $U$ (bottom panel, compared figures).
+	}
 	\label{fig:sc-data-ws-AB256-compared}
 \end{figure}
 
@@ -1310,7 +1325,7 @@ Let us discuss the local isotropic harmonic of the gap function, namely the $s$-
 \[
 	\tilde{\Delta}^{(s)} = -U w^{(s)}
 \]
-In the conventional HM we know that $s$-wave superconductivity is impossible at HF level. This was discussed in Sec.~\eqref{subsec:sc-hm}. Instead in the EHM there is no selection rule for $w^{(s)}$. The only constraint comes from Eq.~\eqref{eq:sc-wgamma-circle}: $w^{(s)}$ can be non-zero as long as at least one $w^{(\gamma)}$ (with $\gamma=s^*,d$) assumes a suitable value. 
+In the conventional HM we know that $s$-wave superconductivity is impossible at HF level. This was discussed in Sec.~\eqref{subsec:sc-hm}. Instead in the EHM there is no selection rule for $w^{(s)}$. The only constraint comes from Eq.~\eqref{eq:sc-wgamma-circle}: $w^{(s)}$ can be non-zero as long as at least one $w^{(\gamma)}$ with $\gamma=s^*,d$ is non-zero. This is a necessary but insufficient condition.
 
 In Fig.~\ref{subfig:sc-data-ws-A256-compared} we see that the local isotropic gap HFP $w^{(s)}$ is null at $\delta=0$ (left panel). Hence
 \[
@@ -1326,15 +1341,17 @@ The dependence of $w^{(s)}$ on doping is shown in Fig.~\ref{subfig:sc-data-ws-B2
 
 \begin{figure}
 	\centering
-	\subfloat[$U$ dependency of $w^{(s^*)}$ at various $\delta$s.]{
+	\subfloat[Dependency of $w^{(s^*)}$ on $V$ at various $U$s, compared at three values of $\delta$.]{
 		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wS_t=1.0_L=256_δ=Compared_β=100.0.pdf}
 		\label{subfig:sc-data-wS-A256-compared}
 	}\\
-	\subfloat[$\delta$ dependency of $w^{(s^*)}$ at various $U$s.]{
+	\subfloat[Dependency of $w^{(s^*)}$ on $\delta$ at various $V$s, compared at three values of $U$.]{
 		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wS_t=1.0_U=Compared_L=256_β=100.0.pdf}
 		\label{subfig:sc-data-wS-B256-compared}
 	}
-	\caption{Dependency of the $s$-wave gap varying the doping $\delta$ and the local repulsion $U$. In the top panel we compare three doping levels $\delta=0.0,~0.2,~0.4$ varying $0 \le U \le 8$. In the bottom panel we compare three repulsion values $U=0.0,~5.0,~10.0$ varying $0 \le \delta \le 0.45$.}
+	\caption{
+		Dependency of the $s^*$-wave HFP $w^{(s^*)}$ on $V$ at fixed $U$ and $\delta$ (top panel, compared figures) and on $\delta$ at fixed $V$ and $U$ (bottom panel, compared figures).
+	}
 	\label{fig:sc-data-wS-AB256-compared}
 \end{figure}
 
@@ -1350,7 +1367,7 @@ Consider first Fig.~\ref{subfig:sc-data-wS-A256-compared}. At null and finite fi
 	\quad\colon\quad
 	\tilde{\Delta}^{(s)}\big|_{\delta=0} = 0
 \]
-The local isotropic gap harmonic $\tilde{\Delta}^{(s)}$ was always null at half filling. Its non-local counterpart $\tilde{\Delta}^{(s^*)}$ is null up to the critical value delimiting the phase transition. Therefore, superconductivity can establish at half-filling with a gap whose rotationally invariant part is purely non-local.
+The local isotropic gap harmonic $\tilde{\Delta}^{(s)}$ was always null at half filling. Its non-local counterpart $\tilde{\Delta}^{(s^*)}$ is null up to the critical value delimiting the phase transition. Therefore, superconductivity can establish at half-filling with a gap whose isotropic part is purely non-local. Note that we are not saying that pure $s^*$-wave superconductivity is possible. As we discuss later, at half-filling the dominant harmonic of the gap function has $d$-wave symmetry.
 
 In Fig.~\ref{subfig:sc-data-wS-B256-compared} we see that the dependence on doping of $w^{(s^*)}$ is peculiar. At low doping ($\delta \lesssim 0.3$), $w^{(s^*)}$ is small for small values of $V$ (left side of the three panels). At higher doping (right side) we see that a local maximum emerges, indicating that $w^{(s^*)}$ converges to higher values at smaller $V$s.
 
@@ -1358,15 +1375,17 @@ In Fig.~\ref{subfig:sc-data-wS-B256-compared} we see that the dependence on dopi
 
 \begin{figure}
 	\centering
-	\subfloat[$V$ dependency of $w^{(d)}$ at various $U$s.]{
+	\subfloat[Dependency of $w^{(d)}$ on $V$ at various $U$s, compared at three values of $\delta$.]{
 		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wd_t=1.0_L=256_δ=Compared_β=100.0.pdf}
 		\label{subfig:sc-data-wd-A256-compared}
 	}\\
-	\subfloat[$\delta$ dependency of $w^{(d)}$ at various $U$s.]{
+	\subfloat[Dependency of $w^{(d)}$ on $\delta$ at various $V$s, compared at three values of $U$.]{
 		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wd_t=1.0_U=Compared_L=256_β=100.0.pdf}
 		\label{subfig:sc-data-wd-B256-compared}
 	}
-	\caption{Dependency of the $d$-wave gap varying the doping $\delta$ and the local repulsion $U$. In the top panel we compare three doping levels $\delta=0.0,~0.2,~0.4$ varying $0 \le U \le 8$. In the bottom panel we compare three repulsion values $U=0.0,~5.0,~10.0$ varying $0 \le \delta \le 0.45$.}
+	\caption{
+		Dependency of the $d$-wave HFP $w^{(d)}$ on $V$ at fixed $U$ and $\delta$ (top panel, compared figures) and on $\delta$ at fixed $V$ and $U$ (bottom panel, compared figures).
+	}
 	\label{fig:sc-data-wd-AB256-compared}
 \end{figure}
 
@@ -1388,16 +1407,34 @@ The dependence of $w^{(d)}$ on doping at different values of $U$ is shown in the
 
 \paragraph{Competition among the channels.}
 
-To get a valid understanding of the competition among channels, we need to compare the values of the harmonics $\tilde{\Delta}^{(\gamma)}$ for $\gamma=s,s^*,d$. Competition reflects in the relative ratio between different components. We report a comparison of such in Fig.~\ref{fig:sc-data-surface-wS-B256-surface}. The presented data are limited to the case $U=4$ for graphic reasons, but {\color{tabred}\textbf{data for other values of $U$ are openly accessible at our repository.}}
+To get a valid understanding of the competition among channels, we need to compare the values of the harmonics $\tilde{\Delta}^{(\gamma)}$ for $\gamma=s,s^*,d$. Competition reflects in the relative ratio between different components. We report a comparison of such in Fig.~\ref{fig:sc-data-surface-wS-B256}. The presented data are limited to the case $U=4$ for graphic reasons, but {\color{tabred}\textbf{data for other values of $U$ are openly accessible at our repository.}}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-gap/gap_U=4.0.pdf}
 	\caption{Plot of the singlet gap harmonics $\tilde{\Delta}^{(\gamma)}$, with $\gamma=s,s^*,d$ at $U=4$. The panels on the left show the three harmonics separately as heatmaps, while the surface plot on the right shows them comparatively.}
-	\label{fig:sc-data-surface-wS-B256-surface}
+	\label{fig:sc-data-surface-wS-B256}
 \end{figure}
 
-Consider the surface plot on the right: in a relevant portion of parametric space, the self-consistent solution exhibits a mixed symmetry, with all three components being non-zero. Looking at the heatmaps on the left side, we see that at low doping and low $V$ the gap is purely $d$-wave; at high doping and high $V/t$ is purely isotropic. Symmetry mixing takes place at high $V/t$ and doping $\delta \lesssim 0.4$.
+Consider the surface plot on the right: in a relevant portion of parametric space, the self-consistent solution exhibits a mixed symmetry, with all three components being non-zero. Looking at the heatmaps on the left side, we see that at low doping and low $V$ the gap is purely $d$-wave; at high doping and high $V/t$ is purely isotropic ($s \oplus s^*$-wave). Symmetry mixing takes place at high $V/t$ and doping $\delta \lesssim 0.4$. 
+
+\begin{figure}
+	\centering
+	\subfloat[SC regions at $U=4$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/src/labs/superconductor-boundary/w-U=4.0-solid.pdf}
+		\label{subfig:sc-mix-U=4}
+	}
+	\subfloat[SC regions at $U=12$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/src/labs/superconductor-boundary/w-U=12.0-solid.pdf}
+		\label{subfig:sc-mix-U=12}
+	}
+	\caption{Depiction of the regions }
+	\label{fig:sc-mix}
+\end{figure}
+
+Four phases can be distinguished: the normal state and three superconducting regions (pure $d$-wave, pure $s \oplus s^*$-wave, mixed). In Fig.~\ref{fig:sc-mix} we give a schematic depiction of how the plane $(\delta,V)$ divides in the four regions at $U=4,12$. The boundaries of the regions were computed setting an arbitrarily chosen threshold $\varepsilon$. \todo
+
+The most dramatic consequence of symmetry mixing is the breaking of rotational symmetry. This is the subject of next section.
 
 \subsection{Rotational SSB and nematic superconductivity}
 
@@ -1405,11 +1442,11 @@ Consider the surface plot on the right: in a relevant portion of parametric spac
 
 \begin{figure}
 	\centering
-	\subfloat[$U$ dependency of $t^{(s^*)}$ at various $\delta$s.]{
-		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=U_pVar=V/tS_t=1.0_L=256_δ=Compared_β=100.0.pdf}
+	\subfloat[Dependency of $t^{(s)}$ on $V$ at various $U$s, compared at three values of $\delta$.]{
+		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=Compared_β=100.0.pdf}
 		\label{subfig:sc-data-tS-A256-compared}
 	}\\
-	\subfloat[$\delta$ dependency of $t^{(s^*)}$ at various $U$s.]{
+	\subfloat[Dependency of $t^{(s)}$ on $\delta$ at various $V$s, compared at three values of $U$.]{
 		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/tS_t=1.0_U=Compared_L=256_β=100.0.pdf}
 		\label{subfig:sc-data-tS-B256-compared}
 	}
@@ -1419,11 +1456,11 @@ Consider the surface plot on the right: in a relevant portion of parametric spac
 
 \begin{figure}
 	\centering
-	\subfloat[$U$ dependency of $t^{(d)}$ at various $\delta$s.]{
-		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=U_pVar=V/td_t=1.0_L=256_δ=Compared_β=100.0.pdf}
+	\subfloat[Dependency of $t^{(d)}$ on $V$ at various $U$s, compared at three values of $\delta$.]{
+		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/td_t=1.0_L=256_δ=Compared_β=100.0.pdf}
 		\label{subfig:sc-data-td-A256-compared}
 	}\\
-	\subfloat[$\delta$ dependency of $t^{(d)}$ at various $U$s.]{
+	\subfloat[Dependency of $t^{(d)}$ on $\delta$ at various $V$s, compared at three values of $U$.]{
 		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/td_t=1.0_U=Compared_L=256_β=100.0.pdf}
 		\label{subfig:sc-data-td-B256-compared}
 	}
@@ -1431,8 +1468,16 @@ Consider the surface plot on the right: in a relevant portion of parametric spac
 	\label{fig:sc-data-td-AB256-compared}
 \end{figure}
 
-\section{Theoretical constraints on the triplet SC phase HFPs}\label{sec:sc-triplet-constraints}
-\todo
-
-\section{Discussion of numeric results (triplet SC)}\label{sec:sc-triplet-numeric}
-\todo
+\begin{figure}
+	\centering
+	\subfloat[Nematic hopping at $U=4$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/src/labs/superconductor-boundary/w-U=4.0-curves.pdf}
+		\label{subfig:sc-td-U=4}
+	}
+	\subfloat[Nematic hopping at $U=12$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/src/labs/superconductor-boundary/w-U=12.0-curves.pdf}
+		\label{subfig:sc-td-U=12}
+	}
+	\caption{}
+	\label{fig:sc-td}
+\end{figure}
