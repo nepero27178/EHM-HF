@@ -32,13 +32,14 @@ RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "B[128]-a" # ← Change here
+Setup::String = "B[128]-b-FIX" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test[30]",
 	"A[128]-a", # UV plane: V ≤ 4 sector
 	"A[128]-b", # UV plane: V ≥ 4 sector
 	"B[128]-a", # δV plane: V ≤ 4 sector
 	"B[128]-b", # δV plane: V ≥ 4 sector
+	"B[128]-b-FIX", # δV plane: V ≥ 4 sector
 	"C[128]-a", # UV plane: U,V ≤ 8 sector
 	"D[128]-a", # Uδ plane
 	"D[128]-b", # Uδ plane
@@ -128,6 +129,22 @@ elseif Setup=="B[128]-a"
 elseif Setup=="B[128]-b"
 	tt = [1.0]
 	UU = [0.0, 4.0, 12.0]
+	VV = [V for V in 4.0:0.1:8.0] # Difference with B[128]-a
+	LL = [128]
+	δδ = [δ for δ in 0.0:0.01:0.49]
+	ββ = [100.0]
+	p = 250 # Difference with B[128]-a
+	Δv = MainΔv
+	Δn = 1e-2
+	g = 0.05 # Difference with B[128]-a
+	xVar = "δ"
+	yVar = "V"
+	cVar = "U"
+
+#TODO REMOVE
+elseif Setup=="B[128]-b-FIX"
+	tt = [1.0]
+	UU = [4.0, 12.0]
 	VV = [V for V in 4.0:0.1:8.0] # Difference with B[128]-a
 	LL = [128]
 	δδ = [δ for δ in 0.0:0.01:0.49]

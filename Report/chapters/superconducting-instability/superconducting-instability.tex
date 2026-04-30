@@ -1418,13 +1418,24 @@ To get a valid understanding of the competition among channels, we need to compa
 
 Consider the surface plot on the right: in a relevant portion of parametric space, the self-consistent solution exhibits a mixed symmetry, with all three components being non-zero. Looking at the heatmaps on the left side, we see that at low doping and low $V$ the gap is purely $d$-wave; at high doping and high $V/t$ is purely isotropic ($s \oplus s^*$-wave). Symmetry mixing takes place at high $V/t$ and doping $\delta \lesssim 0.4$. 
 
+Four phases can be distinguished: the normal state and three superconducting regions (pure $d$-wave, pure $s \oplus s^*$-wave, mixed). In Fig.~\ref{fig:sc-mix} we give a schematic depiction of how the plane $(\delta,V)$ divides in the four regions at $U=4.0$ (left panel, Fig.~\ref{subfig:sc-mix-U=4}), and $U=12.0$ (right panel, Fig.~\ref{subfig:sc-mix-U=12}). The boundaries were computed by setting an arbitrary threshold $\varepsilon=10^{-2}$, with the following rule:
+\begin{center}
+	\begin{tabular}{r r c l c c}
+		Normal & $\big| \tilde{\Delta}^{(s)} \big| < \varepsilon$ & $\land$ & $\big| \tilde{\Delta}^{(s^*)} \big| < \varepsilon$ & $\land$ & $\big| \tilde{\Delta}^{(d)} \big| < \varepsilon$ \\[0.5em]
+		$d$-wave & $\big| \tilde{\Delta}^{(s)} \big| < \varepsilon$ & $\land$ & $\big| \tilde{\Delta}^{(s^*)} \big| < \varepsilon$ & $\land$ & $\big| \tilde{\Delta}^{(d)} \big| \ge \varepsilon$ \\[0.5em]
+		$s \oplus s^*$-wave & $\big[\, \big| \tilde{\Delta}^{(s)} \big| \ge \varepsilon$ & $\lor$ & $\big| \tilde{\Delta}^{(s^*)} \big| \ge \varepsilon \,\big]$ & $\land$ & $\big| \tilde{\Delta}^{(d)} \big| < \varepsilon$ \\[0.5em]
+		Mixed & $\big[\, \big| \tilde{\Delta}^{(s)} \big| \ge \varepsilon$ & $\lor$ & $\big| \tilde{\Delta}^{(s^*)} \big| \ge \varepsilon \,\big]$ & $\land$ & $\big| \tilde{\Delta}^{(d)} \big| \ge \varepsilon$
+	\end{tabular}
+\end{center}
+Thus we consider $s$ and $s^*$ as part of the same isotropic channel.
+
 \begin{figure}
 	\centering
-	\subfloat[SC regions at $U=4$.]{
+	\subfloat[SC regions at $U=4.0$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/src/labs/superconductor-boundary/w-U=4.0-solid.pdf}
 		\label{subfig:sc-mix-U=4}
 	}
-	\subfloat[SC regions at $U=12$.]{
+	\subfloat[SC regions at $U=12.0$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/src/labs/superconductor-boundary/w-U=12.0-solid.pdf}
 		\label{subfig:sc-mix-U=12}
 	}
@@ -1432,9 +1443,10 @@ Consider the surface plot on the right: in a relevant portion of parametric spac
 	\label{fig:sc-mix}
 \end{figure}
 
-Four phases can be distinguished: the normal state and three superconducting regions (pure $d$-wave, pure $s \oplus s^*$-wave, mixed). In Fig.~\ref{fig:sc-mix} we give a schematic depiction of how the plane $(\delta,V)$ divides in the four regions at $U=4,12$. The boundaries of the regions were computed setting an arbitrarily chosen threshold $\varepsilon$. \todo
-
-The most dramatic consequence of symmetry mixing is the breaking of rotational symmetry. This is the subject of next section.
+In Fig.~\ref{fig:sc-mix} we see that mixing occurs at $V/t \approx 3$ at low doping, while increasing doping the boundary moves up. Therefore, a critical value of $V_\mathrm{c}[\delta]$ exists at each doping, above which superconductivity is established in singlet channel with a mixed topology. This leads us to the subject of next section. The most dramatic consequence of mixing is the breaking of planar rotational symmetry, namely,
+\[
+	\mathrm{C}_4 \SSB \mathrm{C}_2
+\]
 
 \subsection{Rotational SSB and nematic superconductivity}
 
