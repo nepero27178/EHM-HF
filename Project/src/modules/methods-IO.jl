@@ -34,7 +34,7 @@ end
 function UnpackFilePath(
 	FilePathIn::String;
 	Layered::Bool=false
-)::Tuple{String,String,Set{String},Set{String},Int64}
+)::Tuple{String,String,Set{String},Set{String},String,Int64}
 
 	# Handle user forgetting to specify Layered
 	if !Layered
@@ -48,9 +48,11 @@ function UnpackFilePath(
 	Phase::String = GetVal("Phase")
 	Syms::Set{String} = Set([string(s) for s in GetVal("Syms")])
 	RB::Set{String} = Set([string(s) for s in GetVal("RB")])
+
+	Opt::String = Layered ? GetVal("Opt") : "None"
 	Layer::Int64 = Layered ? parse(Int64,GetVal("Layer")) : 0
 
-	return Setup,Phase,Syms,RB,Layer
+	return Setup,Phase,Syms,RB,Opt,Layer
 end
 
 function ReshapeData(

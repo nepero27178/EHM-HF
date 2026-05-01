@@ -33,7 +33,7 @@ function Plot3D(
 	xyVars::Vector{String} = ["t", "U", "V", "L", "δ", "β"]
 	Pars::Vector{String} = filter(!in([xVar,yVar]),xyVars)
 
-	# Input safecheck
+	# Input safecheckP = Plot3D(FilePathIn;Print=true,xVar="δ",yVar="V",zVar="td",cs=:tabcoolwarm)
 	!in(xVar, xyVars) ? error("Invalid x variable, choose one of $(xyVars)") : false
 	!in(yVar, xyVars) ? error("Invalid y variable, choose one of $(xyVars)") : false
 	xVar==yVar ? error("You have chosen xVar=yVar!") : false

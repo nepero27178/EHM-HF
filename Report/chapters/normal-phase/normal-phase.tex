@@ -548,23 +548,34 @@ where we including a prefactor that corrects double-counting. The RMP $\tilde{t}
 \]
 To limit the sum to NNs is a matter of the symmetry structure of the function $\tilde{t}_{ij\sigma}$.
 
-We can define the direction-dependent hopping as
-\begin{align}
-	\tilde{t}^{(x)} &\equiv t - \frac{u^{(s^*)} - u^{(d)}}{2} V \\
-	\tilde{t}^{(y)} &\equiv t - \frac{u^{(s^*)} + u^{(d)}}{2} V
-\end{align}
-Both components depend linearly on $V$. The HFP $u^{(s^*)}$ is a measure of the direction-averaged hopping shift with respect to $V$, while $u^{(d)}$ measures the anisotropy,
+Recall the functions of Tab.~\ref{tab:x-wave-real-factors}. We have the identities:
 \[
-	u^{(s^*)} = \frac{
+\begin{aligned}
+	\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}}&= \varphi_{\mathbf{r}\mathbf{r}'}^{(s^*)} + \varphi_{\mathbf{r}\mathbf{r}'}^{(d)} \\
+	\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}&= \varphi_{\mathbf{r}\mathbf{r}'}^{(s^*)} - \varphi_{\mathbf{r}\mathbf{r}'}^{(d)}
+\end{aligned}
+\]
+Then we can define the renormalised hopping on each direction as:
+\[
+\begin{aligned}
+	\tilde{t}^{(x)} &\equiv t - \frac{u^{(s^*)} + u^{(d)}}{2} V \\
+	\tilde{t}^{(y)} &\equiv t - \frac{u^{(s^*)} - u^{(d)}}{2} V
+\end{aligned}
+\]
+Both components depend linearly on $V$. The HFP $u^{(s^*)}$ is a measure of the direction-averaged hopping shift with respect to $V$, while $u^{(d)}$ measures the anisotropy,
+\begin{align}
+	u^{(s^*)} &= \frac{
 		\left(
 		t-\tilde{t}^{(x)}
 		\right) + \left(
 		t-\tilde{t}^{(y)}
 		\right)
-	}{V}
-	\qquad
-	u^{(d)} = \frac{\tilde{t}^{(y)} - \tilde{t}^{(x)}}{V}
-\]
+	}{V} \label{eq:normal-us*(tx,ty)}
+	\\
+	u^{(d)} &= \frac{\tilde{t}^{(x)} - \tilde{t}^{(y)}}{V} \label{eq:normal-ud(tx,ty)}
+\end{align}
+It follows that if $u^{(d)}>0$, the hopping in direction $x$ is boosted while in direction $y$ is damped. If $u^{(d)}<0$, the contrary. 
+
 This discussion is general, and not specific to the normal phase. In next chapters we will interpret phase renormalisation as in this section.
 
 \section{Normal free energy density}\label{sec:normal-free-energy}
@@ -1245,7 +1256,7 @@ When $V$ becomes larger than this critical value, the resulting RMP $\tilde{t}^{
 	\label{fig:normal-tS-data}
 \end{figure}
 
-While to extract the value of $V_\mathrm{c}[\beta,\delta]$ is a non-trivial analytic problem due to the insurgence of elliptic integrals and the smearing effects of temperature, for the high-$\beta$ half-filled case it is immediate from Eq.~\eqref{eq:normal-uS-half-filling} to see that
+To extract the value of $V_\mathrm{c}[\beta,\delta]$ is a non-trivial analytic problem due to the insurgence of elliptic integrals and the smearing effects of temperature. Instead, for the high-$\beta$ half-filled case we can use Eq.~\eqref{eq:normal-uS-half-filling} and get:
 \begin{equation}
 	V_\mathrm{c}[\beta \to \infty,0] = \frac{2t}{(2/\pi)^2} \approx 4.93 t \label{eq:normal-Vc-half-filling}
 \end{equation}

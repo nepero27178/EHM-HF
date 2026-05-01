@@ -35,7 +35,7 @@ function Plot2D(
 	xVar==pVar ? error("You have chosen xVar=pVar!") : false
 
 	# Unpack filepath and set graphics
-	Setup, Phase, Syms, RB, _ = UnpackFilePath(FilePathIn)
+	Setup, Phase, Syms, RB, _, _ = UnpackFilePath(FilePathIn)
 	if Print
 		# Activate backend
 		CairoMakie.activate!()
@@ -273,7 +273,7 @@ function SavePlot2D(
 	PlotVec = Plot2D(FilePathIn;Print,xVar,yVar,pVar,cs,Skip,xScale,legend,compared,cVar)
 
 	# Initialize directory structure
-	Setup, Phase, Syms, RB, _ = UnpackFilePath(FilePathIn)
+	Setup, Phase, Syms, RB, _, _ = UnpackFilePath(FilePathIn)
 	DirPathOut *= "/xVar=" * xVar * "_pVar=" * pVar * "/"
 	mkpath(DirPathOut)
 

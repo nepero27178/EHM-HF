@@ -21,6 +21,6 @@ B[256]-b => DONE (plot refined w/ -a and some holes here and there)
 
 SC-Singlet [rs]
 A[128]-a => TODO refine => TODO plot
-A[128]-b => TODO up-layer => TODO refine => TODO plot [ON met-num]
+A[128]-b => TODO fix and up-layer => TODO refine => TODO plot [ON met-num]
 B[128]-a => TODO refine [U=4.0,12.0] => TODO plot
-B[128]-b => TODO layer [U=4.0,12.0] => TODO up-layer [U=4.0,12.0] => TODO refine [U=4.0,12.0] => TODO plot [ON stubborn]
+B[128]-b => TODO fix and up-layer [U=4.0,12.0] => TODO refine [U=4.0,12.0] => TODO plot [ON stubborn]

@@ -5,15 +5,17 @@ using DataFrames
 using Term
 
 # Arguments handler
-if length(ARGS) != 1
+if length(ARGS) != 2
 	println("How to use this program?
-Type the following: \$ julia simulate.jl --mode
+Type the following: \$ julia simulate.jl --mode --opt
 Where:
-· mode = hs / rs")
+· mode = hs / rs
+· opt = up / mid / down")
 	exit()
 else
 	UserInput = ARGS
 	Mode = UserInput[1][3:end]
+	Opt = UserInput[2][3:end]
 end
 
 # Includer
@@ -23,11 +25,44 @@ if in(Mode, ["rs", "hs"])
 else
 	@error "Invalid argument. Use: mode = hs / rs"
 end
+
+if !in(Opt, ["up", "mid", "down"])
+	@error "Invalid argument. Use: opt = up / mid / down"
+end
+
 include(PROJECT_SRC_DIR * "/modules/structs.jl")
 include(PROJECT_SRC_DIR * "/modules/methods-simulating.jl")
 include(PROJECT_SRC_DIR * "/modules/methods-physics.jl")
 include(PROJECT_SRC_DIR * "/modules/methods-optimizations.jl")
 include(PROJECT_SRC_DIR * "/modules/methods-IO.jl")
+
+function GetNewg(
+	g::Float64;
+	k::Int64=2,
+	Opt::String="down"
+)::Float64
+
+	if g<=0.0 || g>=1.0
+		@error "Invalid g @ GetNewg" g
+		return NaN
+	end
+
+	if typeof(k) != Int64 || k <= 0
+		@error "Invalid k @ GetNewg" k
+		return NaN
+	end
+
+	if Opt=="down"
+		return g/k
+
+	elseif Opt=="mid"
+		return 1/2*(1-1/k) + g/k
+
+	elseif Opt=="up"
+		return (1-1/k) + g/k
+
+	end
+end
 
 function LayerHFScan(
 	DF::DataFrame,
@@ -40,8 +75,8 @@ function LayerHFScan(
 	FilePathOut::String="",
 	RBS::Bool=true,
 	RBd::Bool=true,
+	Opt::String="down",
 	OptBZ::Bool=true,
-	Optg::Bool=true,
 	record::Bool=false
 )
 
@@ -51,10 +86,11 @@ function LayerHFScan(
 	# HF iterations
 	i::Int64 = 1
 	j::Int64 = 1
-	c::Int64 = 1
+	c::Int64 = 0
 	for (r,Row) in enumerate(eachrow(DF))
 
-		Progress = @bold@yellow "[ Layering progress: $(round(r/size(DF,1)*100,digits=1))% | Layering convergence rate: $(round(c/i*100,digits=1))% ]"
+		g::Float64 = GetNewg(Row.g;k,Opt)
+		Progress = @bold@yellow "[ Layering progress: $(round(r/size(DF,1)*100,digits=1))% | Convergence rate: $(round(c/i*100,digits=1))% | Opt=$(Opt) ]"
 		Setting = @default@white " Phase=$(Phase)  RB=$(RB...)  Syms=$(Syms...)  t=$(Row.t)  U=$(Row.U)  V=$(Row.V)  L=$(Row.L)  β=$(Row.β)  δ=$(Row.δ)"
 		print(Panel(Progress * Setting;style="yellow",title="Row ($(r)/$(size(DF,1)))",title_justify=:right,fit=true))
 
@@ -74,7 +110,7 @@ function LayerHFScan(
 				"p" => p*k, # From setup
 				"Δv" => Δv, # From setup
 				"Δn" => Δn, # From setup
-				"g" => Row.g/k
+				"g" => g
 			))
 
 			# Initializers (use last converged value)
@@ -134,10 +170,9 @@ function LayerHFScan(
 
 	end
 
-	Completed = @bold@green "[ Completed ] "
+	Completed = @bold@green "[ Completed | Convergence rate: $(round(c/i*100,digits=1))%   ] "
 	Message = "The data have been saved at:"
 	print(Panel(Completed * Message * "\n" * FilePathOut;style="green",fit=true))
-
 
 end
 
@@ -150,12 +185,28 @@ function main()
 	DirPathOut::String = dirname(PROJECT_SRC_DIR) * "/data/layered/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)"
 
 	# Read present layers and select the largest
-	l = try
-		Layers::Vector{Int64} = [U[end] for U in UnpackFilePath.(DirPathOut .* "/" .* readdir(DirPathOut); Layered=true)]
-		maximum(Layers)
-	catch
-		0
+	# l = try
+	# 	Layers::Vector{Int64} = [U[end] for U in UnpackFilePath.(DirPathOut .* "/" .* readdir(DirPathOut); Layered=true)]
+	# 	maximum(Layers)
+	# catch
+	# 	0
+	# end
+
+	OptsDirPathIn::String = dirname(PROJECT_SRC_DIR) * "/data/layered"
+	OptKeys::Vector{String} = [S[2] for S in split.(readdir(DirPathIn),'=')] # All possible configurations
+	OptDict::Dict{String,Int64} = Dict([])
+	for Opt in OptKeys
+		l = try
+			DirPathIn = OptsDirPathIn * "/Opt=$(Opt)/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)"
+			Layers::Vector{Int64} = [U[end] for U in UnpackFilePath.(DirPathIn .* "/" .* readdir(DirPathIn); Layered=true)]
+			maximum(Layers)
+		catch
+			0
+		end
+		OptDict[Opt] = l
 	end
+
+	MaxLayer = maximum(OptDict)
 
 	# Generate FilePathIn and FilePathOut
 	FilePathIn = nothing
@@ -190,7 +241,7 @@ function main()
 			p0,Δv,Δn,k;
 			FilePathOut,
 			RBS,RBd,
-			OptBZ=false,Optg=true,record=false
+			OptBZ=false,Opt,record=false
 		)
 	end
 
