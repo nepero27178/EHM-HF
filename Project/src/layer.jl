@@ -38,7 +38,7 @@ include(PROJECT_SRC_DIR * "/modules/methods-IO.jl")
 
 function GetNewg(
 	g::Float64;
-	k::Int64=2,
+	k::Float64=2.0,
 	Opt::String="down"
 )::Float64
 
@@ -47,7 +47,7 @@ function GetNewg(
 		return NaN
 	end
 
-	if typeof(k) != Int64 || k <= 0
+	if typeof(k) != Float64 || k <= 0
 		@error "Invalid k @ GetNewg" k
 		return NaN
 	end
@@ -76,12 +76,14 @@ function LayerHFScan(
 	RBS::Bool=true,
 	RBd::Bool=true,
 	Opt::String="down",
+	Maxp::Int64=50,
 	OptBZ::Bool=true,
 	record::Bool=false
 )
 
 	# Get Hartree Fock Parameters labels
 	HFPs::Set{String} = GetHFPs(Phase,Syms,RBS,RBd)
+	p*k < Maxp ? p = p*k : p=Maxp # Avoid exponential blowup
 
 	# HF iterations
 	i::Int64 = 1
@@ -90,7 +92,7 @@ function LayerHFScan(
 	for (r,Row) in enumerate(eachrow(DF))
 
 		g::Float64 = GetNewg(Row.g;k,Opt)
-		Progress = @bold@yellow "[ Layering progress: $(round(r/size(DF,1)*100,digits=1))% | Convergence rate: $(round(c/i*100,digits=1))% | Opt=$(Opt) ]"
+		Progress = @bold@yellow "[ LP: $(round(r/size(DF,1)*100,digits=1))% | CR: $(round(c/i*100,digits=1))% | Opt: $(Opt) | g: $(Row.g) ➔ $(g) ]"
 		Setting = @default@white " Phase=$(Phase)  RB=$(RB...)  Syms=$(Syms...)  t=$(Row.t)  U=$(Row.U)  V=$(Row.V)  L=$(Row.L)  β=$(Row.β)  δ=$(Row.δ)"
 		print(Panel(Progress * Setting;style="yellow",title="Row ($(r)/$(size(DF,1)))",title_justify=:right,fit=true))
 
@@ -107,7 +109,7 @@ function LayerHFScan(
 			))
 
 			AlgPars::DataFrame = DataFrame(Dict(
-				"p" => p*k, # From setup
+				"p" => p, # From setup
 				"Δv" => Δv, # From setup
 				"Δn" => Δn, # From setup
 				"g" => g
@@ -182,7 +184,7 @@ function main()
 	# Create output directory
 	# For data: Setup > Phase > Syms (to make comparable data in the same folder)
 	# For plots: Phase > Setup > Syms (to make same-phase plots in the same folder)
-	DirPathOut::String = dirname(PROJECT_SRC_DIR) * "/data/layered/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)"
+	DirPathOut::String = dirname(PROJECT_SRC_DIR) * "/data/layered/Opt=$(Opt)/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)"
 
 	# Read present layers and select the largest
 	# l = try
@@ -193,27 +195,31 @@ function main()
 	# end
 
 	OptsDirPathIn::String = dirname(PROJECT_SRC_DIR) * "/data/layered"
-	OptKeys::Vector{String} = [S[2] for S in split.(readdir(DirPathIn),'=')] # All possible configurations
+	OptKeys::Vector{String} = [S[2] for S in split.(readdir(OptsDirPathIn),'=')] # All possible layerings
 	OptDict::Dict{String,Int64} = Dict([])
-	for Opt in OptKeys
+	for Key in OptKeys
+		DirPathIn = OptsDirPathIn * "/Opt=$(Key)/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)"
 		l = try
-			DirPathIn = OptsDirPathIn * "/Opt=$(Opt)/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)"
 			Layers::Vector{Int64} = [U[end] for U in UnpackFilePath.(DirPathIn .* "/" .* readdir(DirPathIn); Layered=true)]
 			maximum(Layers)
 		catch
 			0
 		end
-		OptDict[Opt] = l
+		OptDict[Key] = l
 	end
 
-	MaxLayer = maximum(OptDict)
+	OptVals = [v for v in values(OptDict) if v > 0]
+	if !allunique(OptVals)
+		@error "Corrupted layering. Detected multiple MaxLayers" OptDict
+	end
+	l, OptIn = findmax(OptDict) # Get last layer
 
 	# Generate FilePathIn and FilePathOut
 	FilePathIn = nothing
 	if l==0
-		FilePathIn = replace(DirPathOut, "layered" => "raw") * "/RB=$(RB...)_Syms=$(Syms...).csv"
+		FilePathIn = dirname(PROJECT_SRC_DIR) * "/data/raw/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)/RB=$(RB...)_Syms=$(Syms...).csv"
 	elseif l>0
-		FilePathIn = DirPathOut * "/RB=$(RB...)_Syms=$(Syms...)_Layer=$(l).csv"
+		FilePathIn = OptsDirPathIn * "/Opt=$(OptIn)/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)/RB=$(RB...)_Syms=$(Syms...)_Layer=$(l).csv"
 	end
 	LogPathIn::String = replace(FilePathIn, ".csv" => ".log")
 	FilePathOut::String = DirPathOut * "/RB=$(RB...)_Syms=$(Syms...)_Layer=$(l+1).csv"
@@ -232,7 +238,7 @@ function main()
 	c::Float64 = round(sum(DF.Converged)/length(DF.Converged) * 100, digits=1)
 	@info "Total iterations, algorithmic complexity (number of HFPs), source layer and source convergence rate" I C l c
 
-	k::Float64 = 2.0
+	k::Float64 = 4.0
 	RunStart::DateTime = now()
 	TotalRunTime = @elapsed begin
 		LayerHFScan(

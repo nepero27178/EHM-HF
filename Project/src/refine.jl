@@ -46,32 +46,38 @@ function main()
 	# Cycle over setups in the same class
 	for Setup in filter(contains(SetupClass), AvailableSetups)
 
-		# Look the layered data
-		DirPathIn::String = dirname(PROJECT_SRC_DIR) * "/data/up-layered/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)"
-		if !isdir(DirPathIn)
-			DirPathIn = replace(DirPathIn,"up-layered" => "layered")
+		OptsDirPathIn::String = dirname(PROJECT_SRC_DIR) * "/data/layered"
+		OptKeys::Vector{String} = [S[2] for S in split.(readdir(OptsDirPathIn),'=')] # All possible layerings
+		OptDict::Dict{String,Int64} = Dict([])
+		for Key in OptKeys
+			DirPathIn = OptsDirPathIn * "/Opt=$(Key)/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)"
+			l = try
+				Layers::Vector{Int64} = [U[end] for U in UnpackFilePath.(DirPathIn .* "/" .* readdir(DirPathIn); Layered=true)]
+				maximum(Layers)
+			catch
+				0
+			end
+			OptDict[Key] = l
 		end
 
-		# Read present layers and select the largest
-		l = try
-			Layers::Vector{Int64} = [U[end] for U in UnpackFilePath.(
-				DirPathIn .* "/" .* readdir(DirPathIn); Layered=true
-			)]
-			maximum(Layers)
-		catch
-			0
+		OptVals = [v for v in values(OptDict) if v > 0]
+		if !allunique(OptVals)
+			@error "Corrupted layering. Detected multiple MaxLayers" OptDict
 		end
+		l, OptIn = findmax(OptDict) # Get last layer
 
-		# Generate FilePathIn and FilePathOut
 		FilePathIn = nothing
 		if l==0
-			#TODO Fix: we do not want "up-raw" in general...
-			FilePathIn = replace(DirPathIn, "layered" => "raw") * "/RB=$(RB...)_Syms=$(Syms...).csv"
+			FilePathIn = dirname(PROJECT_SRC_DIR) * "/data/raw/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)/RB=$(RB...)_Syms=$(Syms...).csv"
 		elseif l>0
-			FilePathIn = DirPathIn * "/RB=$(RB...)_Syms=$(Syms...)_Layer=$(l).csv"
+			FilePathIn = OptsDirPathIn * "/Opt=$(OptIn)/Mode=$(Mode)/Setup=$(Setup)/Phase=$(Phase)/RB=$(RB...)_Syms=$(Syms...)_Layer=$(l).csv"
 		end
+		LogPathIn::String = replace(FilePathIn, ".csv" => ".log")
+
 		push!(FilePathsIn,FilePathIn)
 	end
+
+	@info "Merging data:" FilePathsIn
 
 	# Merge data and write on file
 	if Mode=="rs"
@@ -87,6 +93,8 @@ function main()
 	LogPathOut::String = replace(FilePathOut, ".csv" => ".log")
 	Log::DataFrame = DataFrame(Dict("FilePathsIn" => FilePathsIn))
 	CSV.write(LogPathOut,Log)
+
+	@info "Refined data saved at:" DirPathOut
 end
 
 if abspath(PROGRAM_FILE) == @__FILE__
