@@ -91,7 +91,7 @@ function main()
 				Skip,
 				compared,
 				cVar,
-				Extension="png"
+				# Extension="png"
 			)
 			if exchange
 				SavePlot2D(
@@ -105,20 +105,21 @@ function main()
 					Skip=2,
 					compared,
 					cVar,
-					Extension="png"
+					# Extension="png"
 				)
 			end
 		elseif Mode=="rs"
+			cs = obj=="f" ? :tabquieter : :tabcoolerrev
 			SavePlot3D(
 				FilePathIn,
 				DirPathOut;
 				xVar,
 				yVar,
 				zVar=obj,
-				cs=:tabcoolerrev,
+				cs,
 				# Mode="surface",
 				# azm=0.7*pi
-				Extension="png"
+				# Extension="png"
 			)
 		end
 	end

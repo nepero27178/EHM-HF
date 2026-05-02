@@ -104,7 +104,7 @@ function MergeData(
 	pVar::String="δ"
 )::Simulation
 
-	UDF::DataFrame = DataFrame(UnpackFilePath.(FilePathsIn), ["Setup", "Phase", "Syms", "RB", "Layer"])
+	UDF::DataFrame = DataFrame(UnpackFilePath.(FilePathsIn), ["Setup", "Phase", "Syms", "RB", "Opt", "Layer"])
 	Uniform::Bool = allequal(UDF.Phase) && allequal(UDF.Syms) && allequal(UDF.RB) && allequal([s[1] for s in split.(UDF.Setup,'-')])
 	if !Uniform
 		@error "Non uniform FilePathsIn @ MergeData" UDF
@@ -226,8 +226,8 @@ function GetLabels(
 		"μ" => "\\mu",
 		"g0" => "g_0",
 		"g" => "g",
-		"f" => "f_\\mathrm{MFT}",
-		"s" => "s_\\mathrm{MFT}",
+		"f" => "f/t",
+		"s" => "s/k_{\\mathrm{B}}",
 		# Shared HFPs
 		"uS" => "u^{(s^*)}",
 		"ud" => "u^{(d)}",

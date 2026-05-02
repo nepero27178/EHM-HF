@@ -17,7 +17,7 @@ set_theme!(fonts = (
 	bold = MT_DIR * "/NewCM10-Bold.otf"
 ))
 
-U = 0.0
+U = 4.0 # TO GET BACK, LIMIT 0 <= V <= 4
 
 FilePathIn = "/home/nepero27178/Thesis/EHM-HF/Project/data/refined/Mode=rs/Setup=B[128]/Phase=SC-Singlet/RB=Sd_Syms=Ssd.csv"
 DF = CSV.read(FilePathIn,DataFrame)
@@ -38,23 +38,23 @@ axs = Axis(
 	F[1,1],
 	xlabel = L"$\delta$",
 	ylabel = L"$V$",
-	title = L"$s$-wave",
+	title = L"$s$-wave gap harmonic",
 	yaxisposition = :right
 )
 hs = heatmap!(axs,xx,yy,ZZs,colormap=colorschemes[:tabwarm])
 Colorbar(F[1,0],hs,flipaxis=false)
-text!(axs,0.45,0.0,text=L"$\tilde{\Delta}^{(s)}$",color=tabred,align=(:left,:bottom),fontsize=20,offset=(-20,10))
+text!(axs,0.45,0.0,text=L"$\tilde{\Delta}^{(s)}$",color=tabred,align=(:left,:bottom),fontsize=18,offset=(-10,5))
 
 axS = Axis(
 	F[2,1],
 	xlabel = L"$\delta$",
 	ylabel = L"$V$",
-	title = L"$s^*$-wave",
+	title = L"$s^*$-wave gap harmonic",
 	yaxisposition = :right
 )
 hS = heatmap!(axS,xx,yy,ZZS,colormap=colorschemes[:tabcoolrev])
 Colorbar(F[2,0],hS,flipaxis=false)
-text!(axS,0.45,0.0,text=L"$\tilde{\Delta}^{(s^*)}$",color=tabblue,align=(:left,:bottom),fontsize=20,offset=(-20,10))
+text!(axS,0.45,0.0,text=L"$\tilde{\Delta}^{(s^*)}$",color=tabblue,align=(:left,:bottom),fontsize=18,offset=(-12,5))
 
 axd = Axis(
 	F[3,1],
@@ -65,10 +65,10 @@ axd = Axis(
 )
 axd.xlabel = L"$\delta$"
 axd.ylabel = L"$V$"
-axd.title = L"$d$-wave"
+axd.title = L"$d$-wave gap harmonic"
 hd = heatmap!(axd,xx,yy,ZZd,colormap=colorschemes[:tabquietrev])
 Colorbar(F[3,0],hd,flipaxis=false)
-text!(axd,0.45,0.0,text=L"$\tilde{\Delta}^{(d)}$",color=tabgreen,align=(:left,:bottom),fontsize=20,offset=(-20,10))
+text!(axd,0.45,0.0,text=L"$\tilde{\Delta}^{(d)}$",color=tabgreen,align=(:left,:bottom),fontsize=18,offset=(-10,5))
 
 linkxaxes!(axs,axS,axd)
 axs.xlabelvisible = false

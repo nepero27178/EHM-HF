@@ -15,47 +15,52 @@ include(LAB_ROOT * "/../../setup/graphic-setup.jl")
 include(LAB_ROOT * "/../../modules/methods-3D-plotting.jl")
 
 FilePathIn = LAB_ROOT * "/../../../data/refined/Mode=rs/Setup=A[128]/Phase=AF/RB=S_Syms=.csv"
-P = Plot3D(FilePathIn;Print=true,xVar="U",yVar="V",zVar="f",colorbar=false)
-ax_P = P[1].H.content[1]
-
-H = Figure(size=(600,400),figure_padding=1)
-ax = Axis(H[1,1])
-ax.xlabel = ax_P.xlabel.val
-ax.ylabel = ax_P.ylabel.val
-ax.title = latexstring(replace(ax_P.title.val, L"$f_\mathrm{MFT}$" => L"$\Delta f_\mathrm{MFT}$"))
-
-cs = colorschemes[:tabcoolwarm]
-
-DFAF = P[1].DF
-select!(DFAF, [:U,:V,:f])
-xx, yy, zzAF = ReshapeData(DataFrame(DFAF);xVar="U",yVar="V",zVar="f")
+Setup,Phase,Syms,RB,Opt,Layer = UnpackFilePath(FilePathIn)
+DF_AF = CSV.read(FilePathIn,DataFrame)
+Sim = Simulation(DF_AF,Setup,Phase,Syms,RB)
+EnlargeDF!(Sim)
 
 FilePathIn = LAB_ROOT * "/../../../data/refined/Mode=rs/Setup=B[128]/Phase=Normal/RB=S_Syms=.csv"
-
-# Read normal DF and filter out interface
-DFNormal = CSV.read(FilePathIn,DataFrame)
-DFNormal4 = filter(:V => x -> x==4.0, DFNormal)
-filter(:g => x -> x!=0.5, DFNormal4)
-filter!([:V,:g] => (x,y) -> x!=4.0, DFNormal)
-DFNormal = vcat(DFNormal,DFNormal4)
-filter!([:U,:δ] => (x,y) -> x==0.0 && y==0.0, DFNormal)
-select!(DFNormal, [:U,:V,:f])
-
-DF = copy(DFNormal)
-UU = unique(DFAF.U)[2:end]
+Setup,Phase,Syms,RB,Opt,Layer = UnpackFilePath(FilePathIn)
+DF_N = CSV.read(FilePathIn,DataFrame)
+filter!([:U,:δ] => (x,y) -> x==0.0 && y==0.0, DF_N)
+df = copy(DF_N)
+UU = unique(DF_AF.U)[2:end]
 for U in UU
-	DF.U .= fill(U,size(DF,1))
-	global DFNormal = vcat(DFNormal,DF)
+	df.U .= fill(U,size(df,1))
+	global DF_N = vcat(DF_N,df)
 end
+Sim = Simulation(DF_N,Setup,Phase,Syms,RB)
+EnlargeDF!(Sim)
 
-_, _, zzNormal = ReshapeData(DataFrame(DFNormal);xVar="U",yVar="V",zVar="f")
-zz = zzNormal .- zzAF
+H = Figure(size=(800,650),figure_padding=1)
+ax = Axis3(
+	H[1,1],
+	xlabel = L"$U$",
+	ylabel = L"$V$",
+	zlabel = L"$\Delta f/t$",
+	title = L"$\Delta f/t$ ($t=1.0$, $L=128$, $\delta=0.0$, $\beta=100.0$)",
+	aspect=(1,1,1),
+	azimuth=0.8*pi,
+	elevation=pi/10,
+	xlabelalign = (:center, :center),
+	ylabelalign = (:center, :center),
+	zlabelalign = (:center, :center),
+	xlabelrotation = 0, # Horizontal xlabel
+	ylabelrotation = 0, # Horizontal ylabel
+	zlabelrotation = 0, # Horizontal zlabel
+)
+
+cs = colorschemes[:tabquiet]
+xx, yy, zz_AF = ReshapeData(DF_AF;xVar="U",yVar="V",zVar="f")
+_, _, zz_N = ReshapeData(DF_N;xVar="U",yVar="V",zVar="f")
+zz = zz_N .- zz_AF
 clims=(
 	minimum(0.0),
 	maximum(zz)
 )
-h = heatmap!(ax,xx,yy,zz,colormap=cs)
-Colorbar(H[1,2], h)
+h = surface!(ax,xx,yy,zz,colormap=cs,shading=false)
+Colorbar(H[1,0], h)
 
-FilePathOut = LAB_ROOT * "/compare-f-normal-af.pdf"
-save(FilePathOut, H)
+FilePathOut = LAB_ROOT * "/f(N)-f(AF).png"
+save(FilePathOut, H, px_per_unit=6)

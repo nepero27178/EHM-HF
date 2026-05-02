@@ -3,7 +3,7 @@ SetupFilePath::String = @__FILE__
 
 # Phase
 AllPhases::Set{String} = Set(["Normal","AF","AF-Symmetric","AF-Antisymmetric","SC-Singlet","SC-Triplet"])
-Phase::String = "SC-Singlet" # ← Change here
+Phase::String = "AF" # ← Change here
 if !in(Phase, AllPhases)
 	@error "Invalid phase, please modify at: " * SetupFilePath
 	exit()
@@ -12,7 +12,7 @@ end
 # Syms
 SymmetricStructures::Set{String} = Set(["s", "S", "d"])
 AntisymmetricStructures::Set{String} = Set(["x", "y"])
-Syms::Set{String} = Set(["s","S","d"]) # ← Change here
+Syms::Set{String} = Set([]) # ← Change here
 
 Err::Bool = false # Handle assignment error
 (Phase=="Normal" && length(Syms)>0) ? Err = true : false
@@ -27,19 +27,19 @@ end
 
 # RB
 AllRB::Set{String} = Set(["S","d"])
-RB::Set{String} = Set(["S","d"]) # ← Change here
+RB::Set{String} = Set(["S"]) # ← Change here
 RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "B[128]-b-FIX" # ← Change here
+Setup::String = "C[128]-a" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test[30]",
 	"A[128]-a", # UV plane: V ≤ 4 sector
 	"A[128]-b", # UV plane: V ≥ 4 sector
 	"B[128]-a", # δV plane: V ≤ 4 sector
-	"B[128]-b", # δV plane: V ≥ 4 sector
-	"B[128]-b-FIX", # δV plane: V ≥ 4 sector
+	"B[128]-b", # δV plane: V ≥ 4 sector, U=0.0
+	"B[128]-c", # δV plane: V ≥ 4 sector, U=4.0,12.0
 	"C[128]-a", # UV plane: U,V ≤ 8 sector
 	"D[128]-a", # Uδ plane
 	"D[128]-b", # Uδ plane
@@ -128,7 +128,7 @@ elseif Setup=="B[128]-a"
 # --- EXTENDED δV plane RUN ---
 elseif Setup=="B[128]-b"
 	tt = [1.0]
-	UU = [0.0, 4.0, 12.0]
+	UU = [0.0]
 	VV = [V for V in 4.0:0.1:8.0] # Difference with B[128]-a
 	LL = [128]
 	δδ = [δ for δ in 0.0:0.01:0.49]
@@ -141,8 +141,8 @@ elseif Setup=="B[128]-b"
 	yVar = "V"
 	cVar = "U"
 
-#TODO REMOVE
-elseif Setup=="B[128]-b-FIX"
+# --- EXTENDED δV plane RUN ---
+elseif Setup=="B[128]-c"
 	tt = [1.0]
 	UU = [4.0, 12.0]
 	VV = [V for V in 4.0:0.1:8.0] # Difference with B[128]-a

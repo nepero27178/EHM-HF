@@ -81,12 +81,12 @@ Sim = Simulation(DF,Setup,Phase,Syms,RB)
 EnlargeDF!(Sim)
 
 # CHANGE WHEN DATA ARE FIXED
-filter!(:U => x -> x!=0.0, DF)
+# filter!(:U => x -> x!=0.0, DF)
 UU = unique(DF.U)
 SymmetricRange = (-maximum(abs.(DF.td)),maximum(abs.(DF.td)))
-AsymmetricRange = (-0.005,0.03) #extrema(DF.td)
-BlueSteps = 20
-RedSteps = 120
+AsymmetricRange = (-0.03,0.07) #extrema(DF.td)
+BlueSteps = 30
+RedSteps = 70
 AsymCoolWarm = vcat(
 	[Colors.convert(RGB, c) for c in range(TabBlueLab, stop=WhiteLab, length=BlueSteps)],
 	[Colors.convert(RGB, c) for c in range(WhiteLab, stop=TabRedLab, length=RedSteps)]
@@ -141,34 +141,38 @@ for (i,U) in enumerate(UU)
 		ax_H,
 		xx,yy,zz,
 		colormap=AsymCoolWarm,
-		colorrange=AsymmetricRange
+		colorrange=AsymmetricRange,
 	)
 
 	mask = FindGapMask(ss,Δs,SS,ΔS,dd,Δd)
 	lvs = Contour.levels(Contour.contours(xx,yy,mask,[2]))
 	xc, yc = Contour.coordinates( only(Contour.lines(lvs[1])) )
 	scatterlines!(ax_H,xc,yc,color=:black,markersize=5)
-	if U==4.0 || U==12.0
-		text!(ax_H,0.08,3.0,text="Mixing boundary",align=(:center,:top),color=:black)
-	end
+	text!(ax_H,0.08,3.0,text="Mixing boundary",align=(:center,:top),color=:black)
 
 	if U==0.0
-		heatmap!(ax_F,xx,yy,mask,colormap=CoolWarm)
-		# text!(ax_F,0.1,6.0,text=L"$t^{(d)}\ge\Delta t$",color=:white,align=(:center,:center))
-		# text!(ax_F,0.35,6.0,text=L"$t^{(d)}\le -\Delta t$",color=:white,align=(:center,:center))
-		# text!(ax_F,0.25,1.0,text=L"$| t^{(d)} | < \Delta t$",color=:black,align=(:center,:center))
+		text!(ax_H,0.1,6.2,text=L"$\mathrm{N}_y$",align=(:center,:top),color=:black)
+		text!(ax_H,0.35,6.7,text=L"$\mathrm{N}_x$",align=(:center,:top),color=:white)
+		heatmap!(ax_F,xx,yy,mask,colormap=colorschemes[:tabcoolrev])
+		text!(ax_F,0.3,0.6,text="Normal",align=(:center,:center))
+		text!(ax_F,0.18,1.9,text=L"$d$-wave",align=(:center,:center))
+		text!(ax_F,0.3,3.5,text="Mixed",align=(:center,:center),color=:white)
+		text!(ax_F,0.42,2.25,text=L"$s^*$-wave",align=(:center,:center),color=:white)
 	elseif U==4.0
+		text!(ax_H,0.1,6.2,text=L"$\mathrm{N}_y$",align=(:center,:top),color=:black)
+		text!(ax_H,0.37,6.7,text=L"$\mathrm{N}_x$",align=(:center,:top),color=:black)
 		heatmap!(ax_F,xx,yy,mask,colormap=colorschemes[:tabcoolrev])
 		text!(ax_F,0.35,0.75,text="Normal",align=(:center,:center))
 		text!(ax_F,0.2,2.0,text=L"$d$-wave",align=(:center,:center))
-		text!(ax_F,0.3,3.5,text="Mixed",align=(:center,:center),color=:white)
-		text!(ax_F,0.42,2.25,text=L"$s \oplus s^*$-wave",align=(:center,:center),color=:white)
+		text!(ax_F,0.32,3.5,text="Mixed",align=(:center,:center),color=:white)
+		text!(ax_F,0.43,2.35,text=L"$s \oplus s^*$-wave",align=(:center,:center),color=:white)
 	elseif U==12.0
+		text!(ax_H,0.18,6.2,text=L"$\mathrm{N}_y$",align=(:center,:top),color=:black)
 		heatmap!(ax_F,xx,yy,mask,colormap=colorschemes[:tabcoolrev])
 		text!(ax_F,0.375,1.0,text="Normal",align=(:center,:center))
 		text!(ax_F,0.26,2.1,text=L"$d$-wave",align=(:center,:center))
 		text!(ax_F,0.33,3.5,text="Mixed",align=(:center,:center),color=:white)
-		text!(ax_F,0.43,2.6,text=L"$s \oplus s^*$-wave",align=(:center,:center),color=:white)
+		text!(ax_F,0.43,2.52,text=L"$s \oplus s^*$-wave",align=(:center,:center),color=:white)
 	end
 end
 
@@ -181,7 +185,7 @@ Colorbar(
 	H[1,length(UU)+1],
 	colormap=AsymCoolWarm,
 	colorrange=AsymmetricRange,
-	ticks = [-0.005,0.0,0.01,0.02,0.03]
+	ticks = [-0.03,0.0,0.03,0.06,0.07]
 )
 save("w-U=$(UU)-curves.pdf",H)
 

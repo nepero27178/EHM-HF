@@ -1776,11 +1776,11 @@ With identical meaning of the notation with respect to Sec.~\ref{sec:normal-free
 \end{enumerate}
 Compose everything
 \[
-	f_\mathrm{MFT}^{(\mathrm{AF})} \equiv e_\mathrm{g}^{(\mathrm{AF})} + e_\mathrm{c}^{(\mathrm{AF})} + e_s^{(\mathrm{AF})} + e_n^{(\mathrm{AF})}
+	f^{(\mathrm{AF})} \equiv e_\mathrm{g}^{(\mathrm{AF})} + e_\mathrm{c}^{(\mathrm{AF})} + e_s^{(\mathrm{AF})} + e_n^{(\mathrm{AF})}
 \]
 and we get
 \begin{multline*}
-	f_\mathrm{MFT}^{(\mathrm{AF})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \left[
+	f^{(\mathrm{AF})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \left[
 		\ln \left(
 		1- f( \tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \right) + \ln \left(
 		1- f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \right)
@@ -1793,7 +1793,7 @@ and we get
 \end{multline*}
 As was for the normal phase, contraction energy and chemical potential energy corrections build up the RMP $\tilde{\mu}$ of Eq.~\eqref{eq:af-nl-mu},
 \begin{multline}
-	f_\mathrm{MFT}^{(\mathrm{AF})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \left[
+	f^{(\mathrm{AF})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \left[
 		\ln \left(
 			1- f( \tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) 
 		\right) + \ln \left(
@@ -1891,7 +1891,7 @@ Let now $x=\beta \tilde{E}_\mathbf{k}$. At low temperature for a band with no no
 \]
 Hence we get the half-filling free energy density substituting ,
 \[
-	f_\mathrm{MFT}^{(\mathrm{AF})} \simeq -\frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \tilde{E}_\mathbf{k} + U m^2 - V \sum_{\gamma} \left[
+	f^{(\mathrm{AF})} \simeq -\frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \tilde{E}_\mathbf{k} + U m^2 - V \sum_{\gamma} \left[
 		\big|u^{(\gamma)}\big|^2 + \big|v^{(\gamma)}\big|^2
 	\right]
 \]
@@ -1901,7 +1901,7 @@ This approximation makes sense when $\tilde{E}_\mathbf{k} \neq 0$ everywhere. Th
 \[
 	\tilde{E}_\mathbf{k} = \sqrt{\tilde{\epsilon}_\mathbf{k}^2 + (Um)^2 + \big| \Im\lbrace \Delta_\mathbf{k} \rbrace \big|^2} \ge Um
 \]
-At half filling and low temperature, the system is well approximated by a completely filled electronic band $-\tilde{E}_\mathbf{k}$. This gives the aforementioned approximation of the free energy $f_\mathrm{MFT}^{(\mathrm{AF})}$.
+At half filling and low temperature, the system is well approximated by a completely filled electronic band $-\tilde{E}_\mathbf{k}$. This gives the aforementioned approximation of the free energy $f^{(\mathrm{AF})}$.
 
 \section{Theoretical constraints on the AF phase HFPs}\label{sec:af-constraints}
 
@@ -2347,7 +2347,7 @@ while $u^{(s^*)}$ remains constrained in the limits of Eq.~\eqref{eq:af-us*-cons
 \[
 	m, u^{(s^*)}
 \]
-Perhaps not-so-excitingly, the real net effect of the non-local extension of the HM is, once again, the shrinking effect on bands. Now it is a matter of numeric analysis to assess if Mott localization takes place.
+Perhaps not-so-excitingly, the real net effect of the non-local extension of the HM is, once again, the shrinking effect on bands. Now it is a matter of numeric analysis to assess if Mott localisation takes place.
 
 \section{Discussion of numeric results}\label{sec:af-numeric}
 
@@ -2488,11 +2488,11 @@ In $(U,V)$ space there is not Mott-localised region of the kind we had in $(\del
 
 \begin{figure}
 	\centering
-	\subfloat[Heatmap of $f_\mathrm{MFT}$ in $\delta V$ plane.]{
+	\subfloat[Heatmap of $f$ in $\delta V$ plane.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=phys/xVar=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0.pdf}
 		\label{subfig:af-f-data-C128}
 	}
-	\subfloat[$V$-dependency of $f_\mathrm{MFT}$ varying $\delta$.]{
+	\subfloat[$V$-dependency of $f$ varying $\delta$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0.pdf}
 		\label{subfig:af-f-data-A256}
 	}
@@ -2500,24 +2500,24 @@ In $(U,V)$ space there is not Mott-localised region of the kind we had in $(\del
 	\label{fig:af-f-data}
 \end{figure}
 
-In Fig.~\ref{fig:af-f-data} the solution free energy is plotted. In the right panel, Fig.~\ref{subfig:af-f-data-A256}, we see that antiferromagnetism becomes more stable at low $V$, high $U$. The opposite limit of weak local repulsion, strong non-local attraction (top-left corner of Fig.~\ref{subfig:af-f-data-C128}) instead increases $f_\mathrm{MFT}$, reaching zero energy at $U=0$, $V>4.93t$. The latter isz the critical value discussed in Sec.~\ref{subsec:normal-mott-numeric} and computed in Eq.~\eqref{eq:normal-Vc-half-filling}.
+In Fig.~\ref{fig:af-f-data} the solution free energy is plotted. In the right panel, Fig.~\ref{subfig:af-f-data-A256}, we see that antiferromagnetism becomes more stable at low $V$, high $U$. The opposite limit of weak local repulsion, strong non-local attraction (top-left corner of Fig.~\ref{subfig:af-f-data-C128}) instead increases $f$, reaching zero energy at $U=0$, $V>4.93t$. The latter isz the critical value discussed in Sec.~\ref{subsec:normal-mott-numeric} and computed in Eq.~\eqref{eq:normal-Vc-half-filling}.
 
-It is then evident how, even if the macroscopic magnetic properties are the same along one isomagnetic line of those plotted in Fig.~\ref{fig:af-m-data-C128}, right panel, and thus the realized state exhibits an identical value of $m$, much different is the energetic content of the state itself. While in the $U \gg 1$, fixed $V$ limit free energy gain comes from gap amplification -- which moves down the Bogoliubov bands $\tilde{E}_\mathbf{k}$ --, in the $V \gg 1$, fixed $U$ limit energies of the lower Bogoliubov band (full at low temperature) are shifted upwards via the Mott localization effect.
+It is then evident how, even if the macroscopic magnetic properties are the same along one isomagnetic line of those plotted in Fig.~\ref{fig:af-m-data-C128}, right panel, and thus the realised state exhibits an identical value of $m$, much different is the energetic content of the state itself. While in the $U \gg 1$, fixed $V$ limit free energy gain comes from gap amplification -- which moves down the Bogoliubov bands $\tilde{E}_\mathbf{k}$ --, in the $V \gg 1$, fixed $U$ limit energies of the lower Bogoliubov band (full at low temperature) are shifted upwards via the Mott localisation effect.
 
-The AF phase is always energetically favoured at half-filling, with respect to the normal phase. Considering the energy difference,
+The AF phase is always energetically favoured at half-filling, with respect to the normal phase. Let us define the energy difference,
 \[
-	\Delta f_\mathrm{MFT} \equiv f_\mathrm{MFT}^{(\mathrm{N})} - f_\mathrm{MFT}^{(\mathrm{AF})}
+	\Delta f \equiv f^{(\mathrm{N})} - f^{(\mathrm{AF})}
 \]
-shown for a slightly more coarse-grained dataset in Fig.~\ref{fig:af-df-data-A128}, we see immediately how $\Delta f_\mathrm{MFT} \ge 0$ in all $(U,V)$ plane. The normal phase data of Sec.~\ref{sec:normal-numeric} having been simulated at $U=0$ due to their intrinsic $U$ independence. The AF phase is simulated in the same range $0 \le V \le 8$, but for $0 \le U \le 10$. The comparable normal phase dataset was just a repetition of the $U=0$ data at all $U$s.
+shown for a slightly more coarse-grained dataset in Fig.~\ref{fig:af-df-data-A128}, we see immediately how $\Delta f \ge 0$ in all $(U,V)$ plane. The normal phase data of Sec.~\ref{sec:normal-numeric} having been simulated at $U=0$ due to their intrinsic $U$ independence. The AF phase is simulated in the same range $0 \le V \le 8$, but for $0 \le U \le 10$. The comparable normal phase dataset was just a repetition of the $U=0$ data at all $U$s.
 %
 \begin{figure}
 	\centering
-	\includegraphics[height=0.32\linewidth]{../Project/src/labs/compare-f-normal-af/compare-f-normal-af.pdf}
+	\includegraphics[width=0.6\linewidth]{../Project/src/labs/compare-f-normal-af/f(N)-f(AF).pdf}
 	\caption{Difference of free energies for the normal phase minus the AF phase.}
 	\label{fig:af-df-data-A128}
 \end{figure}
 %
-As we expect, in the $V \gg 1$ and low $U$ limit the energy difference is null: in this limit the two phases tend to coincide, since at $U=0.0$ no magnetisation is physically possible. Moreover, the $U \gg 1$ limit makes the AF phase undoubtedly energetically favoured. Overall, at half filling the interesting free fermions Mott-localization effect is, at least when comparing these phases, existent but surpassed by the high energetic gain of establishing an AF structure at infinitesimal $U$. The situation could change at finite doping, a regime we do not investigate limitedly to AF Physics.
+As we expect, in the $V \gg 1$ and low $U$ limit the energy difference is null: in this limit the two phases tend to coincide, since at $U=0.0$ no magnetisation is physically possible. Moreover, the $U \gg 1$ limit makes the AF phase energetically favoured. Overall, at half filling the interesting free fermions Mott-localisation effect is, at least when comparing these phases, existent but surpassed by the high energetic gain of establishing an AF structure at infinitesimal $U$. The situation could change at finite doping, a regime we do not investigate limitedly to AF Physics.
 
 At low temperature and half filling, it is not worth plotting entropy density. Half-filled commensurate antiferromagnets are insulators, with two gapped Bogoliubov bands. At low temperature, electronic distribution fills completely the lower band and empties the upper one. Because of this, insulating gapped systems inherently are low entropic.
 

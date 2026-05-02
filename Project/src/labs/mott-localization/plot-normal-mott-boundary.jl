@@ -35,7 +35,7 @@ FilePathIn = "/home/nepero27178/Thesis/EHM-HF/Project/data/refined/Mode=rs/Setup
 
 # FilePathOut = LAB_ROOT * "/normal-mott-boundary-f.pdf"
 
-# P = Plot3D(FilePathIn;Print=true,xVar="δ",yVar="V",zVar="f",cs=:tabcoolwarm)
+# P = Plot3D(FilePathIn;Print=true,xVar="δ",yVar="V",zVar="f",cs=:tabquieter)
 # H = P[1].H
 # df = filter(:V => x -> x==0.0, P[1].DF)
 # xx = vcat(-0.05,df.δ)

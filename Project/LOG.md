@@ -17,10 +17,11 @@ SC-Singlet [hs]
 A[256]-a => DONE (plot refined w/ -b)
 A[256]-b => DONE (plot refined w/ -a)
 B[256]-a => DONE (plot refined w/ -b)
-B[256]-b => DONE (plot refined w/ -a and some holes here and there)
+B[256]-b => DONE (plot refined w/ -a and some holes here and there) [TRY MID LAYERING]
 
 SC-Singlet [rs]
 A[128]-a => TODO refine => TODO plot
 A[128]-b => TODO fix and up-layer => TODO refine => TODO plot [ON met-num]
-B[128]-a => TODO refine [U=4.0,12.0] => TODO plot
-B[128]-b => TODO fix and up-layer [U=4.0,12.0] => TODO refine [U=4.0,12.0] => TODO plot [ON stubborn]
+B[128]-a => DONE (plot refined w/ -b, -c)
+B[128]-b => DONE (plot refined w/ -a, -c)
+B[128]-c => DONE (plot refined w/ -a, -b)

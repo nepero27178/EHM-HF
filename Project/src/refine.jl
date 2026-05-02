@@ -81,7 +81,7 @@ function main()
 
 	# Merge data and write on file
 	if Mode=="rs"
-		S::Simulation = MergeData(FilePathsIn;cVar,xVar,yVar)
+		S::Simulation = MergeData(FilePathsIn;cVar,xVar,pVar=yVar)
 	elseif Mode=="hs"
 		S = MergeData(FilePathsIn;cVar,xVar,pVar)
 	end

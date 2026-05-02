@@ -26,6 +26,10 @@ const Warm::Vector{RGB{Float64}} = [Colors.convert(RGB, c) for c in range(WhiteL
 const CoolWarm::Vector{RGB{Float64}} = vcat(Cool,Warm)
 const WarmCool::Vector{RGB{Float64}} = reverse(CoolWarm)
 const Quiet::Vector{RGB{Float64}} = [Colors.convert(RGB, c) for c in range(TabGreenLab, stop=WhiteLab, length=TotalLabSteps)]
+const Quieter::Vector{RGB{Float64}} = vcat(
+	[Colors.convert(RGB, c) for c in range(TabGreenLab, stop=WhiteLab, length=TotalLabSteps)],
+	[Colors.convert(RGB, c) for c in range(WhiteLab, stop=WhiterLab, length=TotalLabSteps)]
+)
 const CoolQuiet::Vector{RGB{Float64}} = [Colors.convert(RGB, c) for c in range(TabBlueLab, stop=TabGreenLab, length=TotalLabSteps)]
 const BlackLight::Vector{RGB{Float64}} = vcat(
 	[Colors.convert(RGB, c) for c in range(BlackLab, stop=GrayLab, length=Int(TotalLabSteps*6/10))],
@@ -38,6 +42,7 @@ colorschemes[:tabcooler] = ColorScheme(Cooler, "custom cool from matplotlib", "p
 colorschemes[:tabwarm] = ColorScheme(Warm, "custom warm from matplotlib", "perceptually uniform sequential")
 colorschemes[:tabcoolwarm] = ColorScheme(CoolWarm, "custom coolwarm from matplotlib with grey midpoint", "two-tones perceptually uniform sequential")
 colorschemes[:tabquiet] = ColorScheme(Quiet, "custom greens from matplotlib", "perceptually uniform sequential")
+colorschemes[:tabquieter] = ColorScheme(Quieter, "custom greens from matplotlib", "perceptually uniform sequential")
 colorschemes[:tabcoolquiet] = ColorScheme(CoolQuiet, "custom blues-greens from matplotlib", "perceptually uniform sequential")
 colorschemes[:blacklight] = ColorScheme(BlackLight, "custom black-white from matplotlib", "two-tones perceptually non-uniform sequential")
 

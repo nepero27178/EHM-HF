@@ -76,7 +76,7 @@ function LayerHFScan(
 	RBS::Bool=true,
 	RBd::Bool=true,
 	Opt::String="down",
-	Maxp::Int64=50,
+	Maxp::Int64=200,
 	OptBZ::Bool=true,
 	record::Bool=false
 )
@@ -86,7 +86,7 @@ function LayerHFScan(
 	p*k < Maxp ? p = p*k : p=Maxp # Avoid exponential blowup
 
 	# HF iterations
-	i::Int64 = 1
+	i::Int64 = 0
 	j::Int64 = 1
 	c::Int64 = 0
 	for (r,Row) in enumerate(eachrow(DF))

@@ -582,7 +582,7 @@ This discussion is general, and not specific to the normal phase. In next chapte
 
 In the end, we want to compare phases. Thus we need a way to extract the free energy density of the approximated ground-state for each phase. The procedure sketched here will be re-used in next chapters. Let
 \[
-	f_\mathrm{MFT}^{(\mathrm{N})} \equiv \frac{F_\mathrm{MFT}^{(\mathrm{N})}}{L_x L_y}
+	f^{(\mathrm{N})} \equiv \frac{F_\mathrm{MFT}^{(\mathrm{N})}}{L_x L_y}
 \]
 being $F_\mathrm{MFT}$ the total free energy. Consider the complete hamiltonian
 \[
@@ -663,7 +663,7 @@ Let us now take together all terms. From now on, we will omit spin index $\sigma
 Thus, composing everything
 \[
 \begin{aligned}
-	f_\mathrm{MFT}^{(\mathrm{N})} &\equiv e_\mathrm{g}^{(\mathrm{N})} + e_\mathrm{c}^{(\mathrm{N})} + e_s^{(\mathrm{N})} + e_n^{(\mathrm{N})} \nonumber \\
+	f^{(\mathrm{N})} &\equiv e_\mathrm{g}^{(\mathrm{N})} + e_\mathrm{c}^{(\mathrm{N})} + e_s^{(\mathrm{N})} + e_n^{(\mathrm{N})} \nonumber \\
 	&= \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
 	1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - V \left[ 
 		\big|
@@ -682,7 +682,7 @@ In Sec.~\ref{subsec:fixed-density-role-mu} we argued that our iterative scheme c
 \]
 Then, the final expression is:
 \begin{equation}\label{eq:normal-fMFT}
-	f_\mathrm{MFT}^{(\mathrm{N})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
+	f^{(\mathrm{N})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
 	1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - V \left[ 
 		\big|
 			u^{(s^*)}
@@ -1265,11 +1265,11 @@ At half-filling, the effective bands amplitude reduction is so strong that small
 \begin{figure}
 	\centering
 	\subfloat[Temperature dependence of $u^{(s^*)}$ at various dopings.]{
-		\includegraphics[width=\linewidth]{../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf}
+		\includegraphics[width=\linewidth]{../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf}
 		\label{subfig:normal-data-uS-C256-compared}
 	}\\
 	\subfloat[Temperature dependence of $\tilde{t}^{(s^*)}$ at various dopings.]{
-		\includegraphics[width=\linewidth]{../Project/plots/raw/Mode=hs/Phase=Normal/Setup=C[256]-a/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf}
+		\includegraphics[width=\linewidth]{../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf}
 		\label{subfig:normal-data-tS-C256-compared}
 	}
 	\caption{Comparative plots of the HFP $u^{(s^*)}$ (top panel) and RMP $\tilde{t}^{(s^*)}$ (bottom panel) in null-doped (left plots), ``medium-doped'' ($\delta=0.2$, central plots) and ``heavily-doped'' ($\delta=0.4$, right plots) contexts. Increasing temperature progressively destroys Mott localisation, reducing the bands shrinking effect.}
@@ -1278,7 +1278,7 @@ At half-filling, the effective bands amplitude reduction is so strong that small
 
 Increasing temperature Mott localisation is suppressed. Also, out precedent argument were valid only at low temperature. In Fig.~\ref{subfig:normal-data-uS-C256-compared} we report results for the HFP $u^{(s^*)}$ computed at decreasingly lower temperature and three example doping levels,
 \[
-	\beta = 1.0, 2.0, 10.0, 20.0, 100.0
+	1.0 \le \beta \le 100.0
 	\qquad
 	\delta = 0.0, 0.2, 0.4
 \]
@@ -1286,7 +1286,7 @@ At high temperature the $V$-independence region that was visible in Fig.~\ref{su
 
 \subsection{Solution free energy and entropy densities}\label{subsec:normal-f-s}
 
-In order to compare phases, we need an estimation of free energy of each. The plots of Fig.~\ref{fig:normal-f-data} report our findings on the normal phase free energy, computed based on Eq.~\eqref{eq:normal-fMFT}. For a non-flat band, doping increases energy because the band fills up and electrons populate higher energy levels. 
+In order to compare phases, we need an estimation of free energy of each. The plots of Fig.~\ref{fig:normal-f-data} report our findings on the normal phase free energy, computed based on Eq.~\eqref{eq:normal-fMFT}. The free energy is intended in unities of $t$. For a non-flat band, doping increases energy because the band fills up and electrons populate higher energy levels. 
 
 Looking the data of Fig.~\ref{subfig:normal-f-data-B128}, at fixed $\delta$ free energy density remains pretty much constant up to the Mott boundary. This is simply because as long as a band with non-zero amplitude is present, the HFP correction of Eq.~\eqref{eq:normal-fMFT} compensates the free energy increase due to bands shrinking,
 \[
@@ -1303,11 +1303,11 @@ Recalling the first point of the derivation of Sec.~\ref{sec:normal-free-energy}
 
 \begin{figure}
 	\centering
-	\subfloat[Heatmap of $f_\mathrm{MFT}$ in $\delta V$ plane.]{
+	\subfloat[Heatmap of $f$ in $\delta V$ plane.]{
 		\includegraphics[height=0.32\linewidth]{../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf}
 		\label{subfig:normal-f-data-B128}
 	}
-	\subfloat[$V$-dependency of $f_\mathrm{MFT}$ varying $\delta$.]{
+	\subfloat[$V$-dependency of $f$ varying $\delta$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf}
 		\label{subfig:normal-f-data-B256}
 	}
@@ -1331,7 +1331,7 @@ represented in Fig.~\ref{subfig:normal-entropy}. The maximum is located at $f=1/
 		\includegraphics[height=0.32\linewidth]{../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf}
 		\label{subfig:normal-s-data-B128}
 	}
-	\subfloat[$V$-dependency of $f_\mathrm{MFT}$ varying $\delta$.]{
+	\subfloat[$V$-dependency of $f$ varying $\delta$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/src/labs/functions/entropy.pdf}
 		\label{subfig:normal-entropy}
 	}
