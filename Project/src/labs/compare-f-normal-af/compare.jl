@@ -10,9 +10,8 @@ set_theme!(fonts = (
 	bold = MT_DIR * "/NewCM10-Bold.otf"
 ))
 
-LAB_ROOT = @__DIR__
-include(LAB_ROOT * "/../../setup/graphic-setup.jl")
-include(LAB_ROOT * "/../../modules/methods-3D-plotting.jl")
+include("/home/nepero27178/Thesis/EHM-HF/Project/src/setup/graphic-setup.jl")
+include("/home/nepero27178/Thesis/EHM-HF/Project/src/modules/methods-3D-plotting.jl")
 
 FilePathIn = LAB_ROOT * "/../../../data/refined/Mode=rs/Setup=A[128]/Phase=AF/RB=S_Syms=.csv"
 Setup,Phase,Syms,RB,Opt,Layer = UnpackFilePath(FilePathIn)

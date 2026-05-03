@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  3 MAY 2026 00:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  3 MAY 2026 15:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1701,12 +1701,12 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (./main.toc)
+) (./main.toc
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
-dvips/cm-super/cm-super-ts1.enc}]
+dvips/cm-super/cm-super-ts1.enc}])
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
@@ -1769,8 +1769,7 @@ l.3 \chapter
 
 
 
-])
-(./chapters/superconducting-instability/superconducting-instability.tex
+]) (./chapters/normal-phase/normal-phase.tex
 
 [1]
 
@@ -1782,49 +1781,500 @@ LaTeX Warning: Reference `sec:sketch-hf-method' on page 3 undefined on input li
 ne 4.
 
 
+LaTeX Warning: Reference `tab:symmetry-groups' on page 3 undefined on input lin
+e 4.
+
+
 LaTeX Warning: Reference `chap:ehm-symmetries' on page 3 undefined on input lin
-e 6.
+e 8.
 
 
-LaTeX Warning: Reference `subsec:ehm-sym-break' on page 3 undefined on input li
-ne 10.
+LaTeX Warning: Reference `sec:ehm-syms' on page 3 undefined on input line 12.
 
 
-LaTeX Warning: Reference `chap:normal-phase' on page 3 undefined on input line 
-17.
+LaTeX Warning: Reference `eq:hf-wick-hfc' on page 3 undefined on input line 18.
 
 
-LaTeX Warning: Reference `eq:normal-density-ansatz' on page 3 undefined on inpu
-t line 21.
+
+LaTeX Warning: Reference `eq:mft-HV' on page 3 undefined on input line 18.
 
 
-LaTeX Warning: Reference `tab:HU-sel-rules' on page 3 undefined on input line 2
-3.
+LaTeX Warning: Reference `tab:HU-sel-rules' on page 3 undefined on input line 1
+8.
 
 
-LaTeX Warning: Reference `tab:HV-sel-rules' on page 3 undefined on input line 2
-3.
+LaTeX Warning: Reference `tab:HV-sel-rules' on page 3 undefined on input line 1
+8.
 
 
-LaTeX Warning: Reference `eq:mft-HV' on page 3 undefined on input line 23.
+LaTeX Warning: Reference `eq:ehm-HU-wick' on page 3 undefined on input line 18.
 
 
-LaTeX Warning: Reference `tab:normal-RWCs' on page 3 undefined on input line 50
+
+LaTeX Warning: Reference `eq:ehm-HV(os)-wick' on page 3 undefined on input line
+ 18.
+
+
+LaTeX Warning: Reference `eq:ehm-HV(ss)-wick' on page 3 undefined on input line
+ 18.
+
+
+LaTeX Warning: Reference `eq:hf-wick-hfc' on page 3 undefined on input line 51.
+
+
+
+
+[3]
+
+LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 4 undefined on 
+input line 53.
+
+
+LaTeX Warning: Reference `eq:mft-HV' on page 4 undefined on input line 57.
+
+
+LaTeX Warning: Reference `eq:ehm-HV(ss)+HV(os)' on page 4 undefined on input li
+ne 97.
+
+
+LaTeX Warning: Reference `eq:mft-HV' on page 4 undefined on input line 97.
+
+
+Underfull \vbox (badness 2035) has occurred while \output is active []
+
+
+
+[4]
+
+LaTeX Warning: Reference `subsec:af-nl-hartree-analytic' on page 5 undefined on
+ input line 159.
+
+
+LaTeX Warning: Reference `eq:square-NN-ghost-sum' on page 5 undefined on input 
+line 190.
+
+
+LaTeX Warning: Reference `eq:mft-HV' on page 5 undefined on input line 194.
+
+
+
+[5]
+
+LaTeX Warning: Reference `eq:hf-wick-hfc' on page 6 undefined on input line 206
 .
 
 
-LaTeX Warning: Reference `tab:af-RWCs' on page 3 undefined on input line 50.
+LaTeX Warning: Reference `eq:HV-ss-fourier' on page 6 undefined on input line 2
+30.
+
+(./chapters/normal-phase/pictures/Kk.tex)
+(./chapters/normal-phase/pictures/qq'.tex)
+
+[6]
+
+LaTeX Warning: Reference `eq:coscos-symmetries-decomposition' on page 7 undefin
+ed on input line 361.
 
 
-LaTeX Warning: Reference `tab:normal-RWCs' on page 3 undefined on input line 50
-.
+
+[7]
+
+LaTeX Warning: Reference `tab:x-wave-reciprocal-factors' on page 8 undefined on
+ input line 407.
 
 
-LaTeX Warning: Reference `tab:af-RWCs' on page 3 undefined on input line 50.
+LaTeX Warning: Reference `subfig:s*-wave-correlator' on page 8 undefined on inp
+ut line 424.
 
 
-LaTeX Warning: Reference `tab:HV-sel-rules' on page 3 undefined on input line 6
-1.
+LaTeX Warning: Reference `subfig:d-wave-correlator' on page 8 undefined on inpu
+t line 425.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 490.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 490.
+
+(./chapters/normal-phase/pictures/anisotropic-hopping.tex)
+
+[8]
+
+LaTeX Warning: Reference `tab:x-wave-real-factors' on page 9 undefined on input
+ line 501.
+
+
+LaTeX Warning: Reference `tab:x-wave-reciprocal-factors' on page 9 undefined on
+ input line 501.
+
+
+LaTeX Warning: Reference `eq:fourier-convention' on page 9 undefined on input l
+ine 513.
+
+
+LaTeX Warning: Reference `tab:x-wave-real-factors' on page 9 undefined on input
+ line 529.
+
+
+
+[9]
+
+LaTeX Warning: Reference `tab:x-wave-real-factors' on page 10 undefined on inpu
+t line 551.
+
+
+
+[10]
+
+LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 11 undefined on
+ input line 661.
+
+
+LaTeX Warning: Reference `subsec:fixed-density-role-mu' on page 11 undefined on
+ input line 679.
+
+<../Project/src/labs/bands/normal-nematic-bands.pdf, id=427, 602.25pt x 526.968
+75pt>
+File: ../Project/src/labs/bands/normal-nematic-bands.pdf Graphic file (type pdf
+)
+<use ../Project/src/labs/bands/normal-nematic-bands.pdf>
+Package pdftex.def Info: ../Project/src/labs/bands/normal-nematic-bands.pdf  us
+ed on input line 704.
+(pdftex.def)             Requested size: 384.1096pt x 336.109pt.
+
+LaTeX Warning: Reference `fig:x-wave-reciprocal-factors' on page 11 undefined o
+n input line 713.
+
+
+
+[11]
+
+LaTeX Warning: Reference `chap:mft-af-instability' on page 12 undefined on inpu
+t line 726.
+
+
+
+[12 <../Project/src/labs/bands/normal-nematic-bands.pdf>]
+(./chapters/normal-phase/pictures/MBZ-sectors.tex)
+(./chapters/normal-phase/pictures/NBZ-sectors.tex)
+
+[13]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 799.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 799.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 799.
+
+
+
+[14]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 873.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 873.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 873.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 873.
+
+<../Project/src/labs/bands/normal-nematic-bands-pp.pdf, id=521, 376.40625pt x 3
+01.125pt>
+File: ../Project/src/labs/bands/normal-nematic-bands-pp.pdf Graphic file (type 
+pdf)
+<use ../Project/src/labs/bands/normal-nematic-bands-pp.pdf>
+Package pdftex.def Info: ../Project/src/labs/bands/normal-nematic-bands-pp.pdf 
+ used on input line 885.
+(pdftex.def)             Requested size: 192.0548pt x 153.64981pt.
+<../Project/src/labs/bands/normal-nematic-bands-mp.pdf, id=522, 376.40625pt x 3
+01.125pt>
+File: ../Project/src/labs/bands/normal-nematic-bands-mp.pdf Graphic file (type 
+pdf)
+<use ../Project/src/labs/bands/normal-nematic-bands-mp.pdf>
+Package pdftex.def Info: ../Project/src/labs/bands/normal-nematic-bands-mp.pdf 
+ used on input line 890.
+(pdftex.def)             Requested size: 192.0548pt x 153.64981pt.
+
+
+[15 <../Project/src/labs/bands/normal-nematic-bands-pp.pdf> <../Project/src/lab
+s/bands/normal-nematic-bands-mp.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/bands/normal-nemati
+c-bands-mp.pdf): PDF inclusion: multiple pdfs with page group included in a sin
+gle page
+>]
+
+[16]
+\c@enumTemp=\count565
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1103.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\delta' on input line 1103.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1103.
+
+
+
+[17]
+
+[18]
+
+LaTeX Warning: Reference `subsec:reject-mix-iterate' on page 19 undefined on in
+put line 1179.
+
+
+LaTeX Warning: Reference `subsec:reject-mix-iterate' on page 19 undefined on in
+put line 1205.
+
+<../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=HFPs
+/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf, id=667, 451.6875pt x 301.125
+pt>
+File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
+=HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
+HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[
+128]/Syms=/RB=S/Obj=HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf  used
+ on input line 1212.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs
+/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf, id=668, 451.6875pt x 301.125
+pt>
+File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj
+=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=
+HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[
+256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf  used
+ on input line 1216.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 1212--1217
+ [][][] 
+ []
+
+
+
+[19 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
+HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf> <../Project/plots/refine
+d/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0
+_U=0.0_L=256_β=100.0.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
+Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=
+100.0.pdf): PDF inclusion: multiple pdfs with page group included in a single p
+age
+>]
+<../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=RMPs
+/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf, id=744, 451.6875
+pt x 376.40625pt>
+File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
+=RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf Graphic file
+ (type pdf)
+<use ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
+RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[
+128]/Syms=/RB=S/Obj=RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePl
+ot.pdf  used on input line 1250.
+(pdftex.def)             Requested size: 192.0548pt x 160.04807pt.
+<../Project/src/labs/mott-localization/normal-mott-boundary-uS.pdf, id=745, 451
+.6875pt x 301.125pt>
+File: ../Project/src/labs/mott-localization/normal-mott-boundary-uS.pdf Graphic
+ file (type pdf)
+<use ../Project/src/labs/mott-localization/normal-mott-boundary-uS.pdf>
+Package pdftex.def Info: ../Project/src/labs/mott-localization/normal-mott-boun
+dary-uS.pdf  used on input line 1254.
+(pdftex.def)             Requested size: 213.39568pt x 142.26393pt.
+
+
+[20 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
+RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf> <../Project/
+src/labs/mott-localization/normal-mott-boundary-uS.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/mott-localization/n
+ormal-mott-boundary-uS.pdf): PDF inclusion: multiple pdfs with page group inclu
+ded in a single page
+>]
+<../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=HFPs
+/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf, id=16571, 1129.21875pt x 
+301.125pt>
+File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj
+=HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf Graphic file (type pd
+f)
+<use ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=
+HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[
+256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf  u
+sed on input line 1270.
+(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
+
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1270--1270
+ [][] 
+ []
+
+<../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=RMPs
+/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf, id=16572, 1129.21875pt x 
+301.125pt>
+File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj
+=RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf Graphic file (type pd
+f)
+<use ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=
+RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[
+256]/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf  u
+sed on input line 1274.
+(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
+
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1274--1275
+ [][] 
+ []
+
+
+Underfull \vbox (badness 5893) has occurred while \output is active []
+
+
+
+[21 <../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=
+HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf> <../Project/plots/ref
+ined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=β/tS_t=
+1.0_U=0.0_L=256_δ=Compared.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
+Normal/Setup=C[256]/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=
+Compared.pdf): PDF inclusion: multiple pdfs with page group included in a singl
+e page
+>]
+<../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf, id=16642, 45
+1.6875pt x 301.125pt>
+File: ../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf Graphic 
+file (type pdf)
+<use ../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf>
+Package pdftex.def Info: ../Project/src/labs/mott-localization/normal-mott-boun
+dary-f.pdf  used on input line 1309.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=phys
+/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf, id=16643, 451.6875pt x 301.12
+5pt>
+File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj
+=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=
+phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[
+256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf  used 
+on input line 1313.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 1309--1314
+ [][][] 
+ []
+
+<../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf, id=16649, 45
+1.6875pt x 301.125pt>
+File: ../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf Graphic 
+file (type pdf)
+<use ../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf>
+Package pdftex.def Info: ../Project/src/labs/mott-localization/normal-mott-boun
+dary-s.pdf  used on input line 1333.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/src/labs/functions/entropy.pdf, id=16650, 376.40625pt x 301.125pt>
+File: ../Project/src/labs/functions/entropy.pdf Graphic file (type pdf)
+<use ../Project/src/labs/functions/entropy.pdf>
+Package pdftex.def Info: ../Project/src/labs/functions/entropy.pdf  used on inp
+ut line 1337.
+(pdftex.def)             Requested size: 170.72522pt x 136.57635pt.
+
+LaTeX Warning: Reference `subsec:reject-mix-iterate' on page 22 undefined on in
+put line 1346.
+
+<../Project/src/labs/tracks/tracks.pdf, id=16654, 1129.21875pt x 301.125pt>
+File: ../Project/src/labs/tracks/tracks.pdf Graphic file (type pdf)
+<use ../Project/src/labs/tracks/tracks.pdf>
+Package pdftex.def Info: ../Project/src/labs/tracks/tracks.pdf  used on input l
+ine 1350.
+(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
+
+LaTeX Warning: Reference `subsec:reject-mix-iterate' on page 22 undefined on in
+put line 1355.
+
+
+LaTeX Warning: Reference `eq:mix' on page 22 undefined on input line 1355.
+
+
+
+[22 <../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf> <../Proj
+ect/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=phys/xVar=V_
+pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
+Normal/Setup=B[256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=1
+00.0.pdf): PDF inclusion: multiple pdfs with page group included in a single pa
+ge
+>]) (./chapters/superconducting-instability/superconducting-instability.tex
+
+[23 <../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf> <../Proj
+ect/src/labs/functions/entropy.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/functions/entropy.p
+df): PDF inclusion: multiple pdfs with page group included in a single page
+> <../Project/src/labs/tracks/tracks.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/tracks/tracks.pdf):
+ PDF inclusion: multiple pdfs with page group included in a single page
+>]
+
+[24]
+
+LaTeX Warning: Reference `sec:sketch-hf-method' on page 25 undefined on input l
+ine 4.
+
+
+LaTeX Warning: Reference `chap:ehm-symmetries' on page 25 undefined on input li
+ne 6.
+
+
+LaTeX Warning: Reference `subsec:ehm-sym-break' on page 25 undefined on input l
+ine 10.
+
+
+LaTeX Warning: Reference `tab:HU-sel-rules' on page 25 undefined on input line 
+23.
+
+
+LaTeX Warning: Reference `tab:HV-sel-rules' on page 25 undefined on input line 
+23.
+
+
+LaTeX Warning: Reference `eq:mft-HV' on page 25 undefined on input line 23.
+
+
+LaTeX Warning: Reference `tab:af-RWCs' on page 25 undefined on input line 50.
+
+
+LaTeX Warning: Reference `tab:af-RWCs' on page 25 undefined on input line 50.
+
+
+LaTeX Warning: Reference `tab:HV-sel-rules' on page 25 undefined on input line 
+61.
 
 LaTeX Font Info:    Trying to load font information for U+euf on input line 61.
 
@@ -1832,277 +2282,229 @@ LaTeX Font Info:    Trying to load font information for U+euf on input line 61.
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 
-LaTeX Warning: Reference `eq:mft-V-decomposition' on page 3 undefined on input 
-line 65.
+LaTeX Warning: Reference `eq:mft-V-decomposition' on page 25 undefined on input
+ line 65.
 
 
 
-[3]
+[25
 
-LaTeX Warning: Reference `eq:af-ehm-n-def' on page 4 undefined on input line 87
+]
+
+LaTeX Warning: Reference `eq:af-ehm-n-def' on page 26 undefined on input line 8
+7.
+
+
+LaTeX Warning: Reference `tab:HU-sel-rules' on page 26 undefined on input line 
+91.
+
+
+LaTeX Warning: Reference `eq:mft-HV' on page 26 undefined on input line 91.
+
+
+
+[26]
+
+LaTeX Warning: Reference `eq:HU-fourier' on page 27 undefined on input line 122
 .
 
 
-LaTeX Warning: Reference `tab:HU-sel-rules' on page 4 undefined on input line 9
-1.
+LaTeX Warning: Reference `eq:fourier-convention' on page 27 undefined on input 
+line 146.
 
 
-LaTeX Warning: Reference `eq:mft-HV' on page 4 undefined on input line 91.
-
-
-LaTeX Warning: Reference `subsec:normal-hartree-analytic' on page 4 undefined o
-n input line 106.
-
-
-LaTeX Warning: Reference `eq:normal-HU-approx' on page 4 undefined on input lin
-e 106.
+LaTeX Warning: Reference `eq:ehm-delta' on page 27 undefined on input line 157.
 
 
 
-[4]
 
-LaTeX Warning: Reference `subsec:normal-hartree-energy' on page 5 undefined on 
-input line 114.
+[27]
 
-
-LaTeX Warning: Reference `eq:normal-hartree-U-contraction-energy' on page 5 und
-efined on input line 114.
+LaTeX Warning: Reference `eq:gauge-symmetry' on page 28 undefined on input line
+ 181.
 
 
-LaTeX Warning: Reference `eq:HU-fourier' on page 5 undefined on input line 122.
+LaTeX Warning: Reference `eq:af-HU-gap-psi' on page 28 undefined on input line 
+194.
 
 
-
-LaTeX Warning: Reference `eq:fourier-convention' on page 5 undefined on input l
-ine 146.
-
-
-LaTeX Warning: Reference `eq:ehm-delta' on page 5 undefined on input line 157.
+LaTeX Warning: Reference `subsec:af-hm' on page 28 undefined on input line 211.
 
 
 
-[5]
 
-LaTeX Warning: Reference `eq:gauge-symmetry' on page 6 undefined on input line 
-181.
+[28]
 
+[29]
 
-LaTeX Warning: Reference `eq:af-HU-gap-psi' on page 6 undefined on input line 1
-94.
-
-
-LaTeX Warning: Reference `subsec:af-hm' on page 6 undefined on input line 211.
+LaTeX Warning: Reference `eq:af-hm-spin-h' on page 30 undefined on input line 3
+54.
 
 
-
-[6]
-
-[7]
-
-LaTeX Warning: Reference `eq:af-hm-spin-h' on page 8 undefined on input line 35
-4.
+LaTeX Warning: Reference `eq:af-bands' on page 30 undefined on input line 358.
 
 
-LaTeX Warning: Reference `eq:af-bands' on page 8 undefined on input line 358.
-
-
-LaTeX Warning: Reference `fig:pseudo-magnetic-field-hm' on page 8 undefined on 
-input line 387.
+LaTeX Warning: Reference `fig:pseudo-magnetic-field-hm' on page 30 undefined on
+ input line 387.
 
 
 
-[8]
+[30]
 
-LaTeX Warning: Reference `eq:af-<z>' on page 9 undefined on input line 450.
+LaTeX Warning: Reference `eq:af-<z>' on page 31 undefined on input line 450.
 
 
 
-[9]
+[31]
 
-LaTeX Warning: Reference `appendix:sc-g-opt' on page 10 undefined on input line
+LaTeX Warning: Reference `appendix:sc-g-opt' on page 32 undefined on input line
  498.
 
 
-LaTeX Warning: Reference `appsubsec:sc-hartree-channel' on page 10 undefined on
- input line 538.
 
+[32]
 
+LaTeX Warning: Reference `appsubsec:sc-hartree-channel' on page 33 undefined on
+ input line 546.
 
-[10]
 
-LaTeX Warning: Reference `tab:HU-sel-rules' on page 11 undefined on input line 
-598.
+LaTeX Warning: Reference `tab:HU-sel-rules' on page 33 undefined on input line 
+606.
 
 
-LaTeX Warning: Reference `tab:HV-sel-rules' on page 11 undefined on input line 
-598.
+LaTeX Warning: Reference `tab:HV-sel-rules' on page 33 undefined on input line 
+606.
 
 
-LaTeX Warning: Reference `eq:mft-HV' on page 11 undefined on input line 598.
+LaTeX Warning: Reference `eq:mft-HV' on page 33 undefined on input line 606.
 
 
 
-[11]
+[33]
 
-LaTeX Warning: Reference `eq:mft-HV' on page 12 undefined on input line 608.
+LaTeX Warning: Reference `eq:mft-HV' on page 34 undefined on input line 616.
 
 
-LaTeX Warning: Reference `sec:normal-hartree-mu' on page 12 undefined on input 
-line 608.
+LaTeX Warning: Reference `eq:mft-HV' on page 34 undefined on input line 648.
 
 
-LaTeX Warning: Reference `eq:normal-mu-shift' on page 12 undefined on input lin
-e 621.
+LaTeX Warning: Reference `tab:HV-sel-rules' on page 34 undefined on input line 
+655.
 
 
-LaTeX Warning: Reference `eq:normal-hartree-V-contraction-energy' on page 12 un
-defined on input line 628.
+LaTeX Warning: Reference `eq:af-uqsigma-def' on page 34 undefined on input line
+ 659.
 
 
-LaTeX Warning: Reference `eq:normal-hartree-U-contraction-energy' on page 12 un
-defined on input line 632.
 
+[34]
 
-LaTeX Warning: Reference `eq:mft-HV' on page 12 undefined on input line 640.
+LaTeX Warning: Reference `appeq:sc-hm-gs' on page 35 undefined on input line 71
+0.
 
 
-LaTeX Warning: Reference `sec:normal-fock-bands-renormalization' on page 12 und
-efined on input line 647.
+LaTeX Warning: Reference `eq:af-bands-renormalisation' on page 35 undefined on 
+input line 718.
 
 
-LaTeX Warning: Reference `tab:HV-sel-rules' on page 12 undefined on input line 
-647.
+LaTeX Warning: Reference `eq:sc-ren-thermal-factors-def' on page 35 undefined o
+n input line 742.
 
 
-LaTeX Warning: Reference `eq:normal-uqsigma-def' on page 12 undefined on input 
-line 651.
 
+[35]
 
-LaTeX Warning: Reference `eq:af-uqsigma-def' on page 12 undefined on input line
- 651.
+LaTeX Warning: Reference `subfig:s*-wave-correlator' on page 36 undefined on in
+put line 808.
 
 
-LaTeX Warning: Reference `eq:normal-V-fock-int5' on page 12 undefined on input 
-line 658.
+LaTeX Warning: Reference `subfig:d-wave-correlator' on page 36 undefined on inp
+ut line 811.
 
 
+LaTeX Warning: Reference `eq:mft-HV' on page 36 undefined on input line 835.
 
-[12]
 
-LaTeX Warning: Reference `appeq:sc-hm-gs' on page 13 undefined on input line 70
-2.
+LaTeX Warning: Reference `eq:ehm-HV(ss)+HV(os)' on page 36 undefined on input l
+ine 842.
 
 
-LaTeX Warning: Reference `eq:normal-bands-renormalization' on page 13 undefined
- on input line 710.
+LaTeX Warning: Reference `tab:HV-sel-rules' on page 36 undefined on input line 
+842.
 
 
-LaTeX Warning: Reference `eq:af-bands-renormalisation' on page 13 undefined on 
-input line 710.
 
+[36]
 
-LaTeX Warning: Reference `eq:sc-ren-thermal-factors-def' on page 13 undefined o
-n input line 734.
+LaTeX Warning: Reference `eq:HV-os-fourier' on page 37 undefined on input line 
+848.
 
 
+LaTeX Warning: Reference `eq:coscos-symmetries-decomposition' on page 37 undefi
+ned on input line 908.
 
-[13]
 
-LaTeX Warning: Reference `subfig:s*-wave-correlator' on page 14 undefined on in
-put line 800.
+LaTeX Warning: Reference `subfig:s-wave-correlator' on page 37 undefined on inp
+ut line 954.
 
 
-LaTeX Warning: Reference `subfig:d-wave-correlator' on page 14 undefined on inp
-ut line 803.
+LaTeX Warning: Reference `subfig:s*-wave-correlator' on page 37 undefined on in
+put line 955.
 
 
-LaTeX Warning: Reference `eq:normal-fock-V-contraction-energy' on page 14 undef
-ined on input line 813.
+LaTeX Warning: Reference `subfig:px-wave-correlator' on page 37 undefined on in
+put line 956.
 
 
-LaTeX Warning: Reference `eq:mft-HV' on page 14 undefined on input line 827.
+LaTeX Warning: Reference `subfig:py-wave-correlator' on page 37 undefined on in
+put line 957.
 
 
-LaTeX Warning: Reference `eq:ehm-HV(ss)+HV(os)' on page 14 undefined on input l
-ine 834.
+LaTeX Warning: Reference `subfig:d-wave-correlator' on page 37 undefined on inp
+ut line 958.
 
 
-LaTeX Warning: Reference `tab:HV-sel-rules' on page 14 undefined on input line 
-834.
 
+[37]
 
+LaTeX Warning: Reference `appeq:sc-hm-anticommutation-energy' on page 38 undefi
+ned on input line 991.
 
-[14]
 
-LaTeX Warning: Reference `eq:HV-os-fourier' on page 15 undefined on input line 
-840.
 
+[38]
 
-LaTeX Warning: Reference `eq:coscos-symmetries-decomposition' on page 15 undefi
-ned on input line 900.
-
-
-LaTeX Warning: Reference `subfig:s-wave-correlator' on page 15 undefined on inp
-ut line 946.
-
-
-LaTeX Warning: Reference `subfig:s*-wave-correlator' on page 15 undefined on in
-put line 947.
-
-
-LaTeX Warning: Reference `subfig:px-wave-correlator' on page 15 undefined on in
-put line 948.
-
-
-LaTeX Warning: Reference `subfig:py-wave-correlator' on page 15 undefined on in
-put line 949.
-
-
-LaTeX Warning: Reference `subfig:d-wave-correlator' on page 15 undefined on inp
-ut line 950.
-
-
-
-[15]
-
-LaTeX Warning: Reference `appeq:sc-hm-anticommutation-energy' on page 16 undefi
-ned on input line 983.
-
-
-
-[16]
-
-LaTeX Warning: Reference `subsec:af-gs' on page 17 undefined on input line 1041
+LaTeX Warning: Reference `subsec:af-gs' on page 39 undefined on input line 1049
 .
 
 
-LaTeX Warning: Reference `sec:af-free-energy' on page 17 undefined on input lin
-e 1066.
+LaTeX Warning: Reference `sec:af-free-energy' on page 39 undefined on input lin
+e 1074.
 
 
-LaTeX Warning: Reference `eq:af-density-entropy' on page 17 undefined on input 
-line 1066.
-
-
-
-[17]
-
-LaTeX Warning: Reference `subsec:af-gap-energy' on page 18 undefined on input l
-ine 1179.
+LaTeX Warning: Reference `eq:af-density-entropy' on page 39 undefined on input 
+line 1074.
 
 
 
-[18]
+[39]
 
-LaTeX Warning: Reference `eq:af-ehm-gap-energy' on page 19 undefined on input l
-ine 1211.
+LaTeX Warning: Reference `subsec:af-gap-energy' on page 40 undefined on input l
+ine 1187.
 
 
 
-[19]
+[40]
+
+LaTeX Warning: Reference `eq:af-ehm-gap-energy' on page 41 undefined on input l
+ine 1219.
+
+
+
+[41]
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/ws_t=1.0_L=256_δ=Compared_
-β=100.0.pdf, id=433, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=17048, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/ws_t=1.0_L=256_δ=Comp
 ared_β=100.0.pdf Graphic file (type pdf)
@@ -2111,16 +2513,16 @@ glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/ws_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/ws_
-t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1269.
+t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1277.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1269--1269
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1277--1277
  [][] 
  []
 
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/ws_t=1.0_U=Compared_L=256_
-β=100.0.pdf, id=434, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=17049, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/ws_t=1.0_U=Compared_L
 =256_β=100.0.pdf Graphic file (type pdf)
@@ -2129,16 +2531,16 @@ glet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/ws_t=1.0_U=Compared_L=
 256_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/ws
-_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1273.
+_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1281.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1273--1276
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1281--1284
  [][] 
  []
 
 
 
-[20 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
+[42 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
 glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/ws_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf> </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=h
 s/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/ws_t=1.0
@@ -2151,7 +2553,7 @@ dfs with page group included in a single page
 >]
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wS_t=1.0_L=256_δ=Compared_
-β=100.0.pdf, id=516, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=17130, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wS_t=1.0_L=256_δ=Comp
 ared_β=100.0.pdf Graphic file (type pdf)
@@ -2160,16 +2562,16 @@ glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wS_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wS_
-t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1303.
+t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1311.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1303--1303
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1311--1311
  [][] 
  []
 
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wS_t=1.0_U=Compared_L=256_
-β=100.0.pdf, id=517, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=17131, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wS_t=1.0_U=Compared_L
 =256_β=100.0.pdf Graphic file (type pdf)
@@ -2178,16 +2580,16 @@ glet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wS_t=1.0_U=Compared_L=
 256_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wS
-_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1307.
+_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1315.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1307--1310
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1315--1318
  [][] 
  []
 
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wd_t=1.0_L=256_δ=Compared_
-β=100.0.pdf, id=521, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=17135, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wd_t=1.0_L=256_δ=Comp
 ared_β=100.0.pdf Graphic file (type pdf)
@@ -2196,16 +2598,16 @@ glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wd_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wd_
-t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1337.
+t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1345.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1337--1337
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1345--1345
  [][] 
  []
 
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wd_t=1.0_U=Compared_L=256_
-β=100.0.pdf, id=522, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=17136, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wd_t=1.0_U=Compared_L
 =256_β=100.0.pdf Graphic file (type pdf)
@@ -2214,16 +2616,16 @@ glet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wd_t=1.0_U=Compared_L=
 256_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wd
-_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1341.
+_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1349.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1341--1344
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1349--1352
  [][] 
  []
 
 
 
-[21 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
+[43 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
 glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wS_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf> </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=h
 s/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wS_t=1.0
@@ -2235,17 +2637,17 @@ ar=δ_pVar=V/wS_t=1.0_U=Compared_L=256_β=100.0.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
 >]
 </home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-gap/gap_U=4.0.
-pdf, id=591, 978.65625pt x 602.25pt>
+pdf, id=17202, 978.65625pt x 602.25pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-gap/gap_U
 =4.0.pdf Graphic file (type pdf)
 <use /home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-gap/gap_U=
 4.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/src/labs/super
-conductor-gap/gap_U=4.0.pdf  used on input line 1370.
+conductor-gap/gap_U=4.0.pdf  used on input line 1378.
 (pdftex.def)             Requested size: 426.79135pt x 262.64746pt.
 
 
-[22 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
+[44 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
 glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=V_pVar=U/wd_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf> </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=h
 s/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=HFPs/xVar=δ_pVar=V/wd_t=1.0
@@ -2257,36 +2659,24 @@ ar=δ_pVar=V/wd_t=1.0_U=Compared_L=256_β=100.0.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
 >]
 <../Project/src/labs/superconductor-boundary/w-U=[0.0, 4.0, 12.0]-solid.pdf, id
-=656, 978.65625pt x 301.125pt>
+=17268, 978.65625pt x 301.125pt>
 File: ../Project/src/labs/superconductor-boundary/w-U=[0.0, 4.0, 12.0]-solid.pd
 f Graphic file (type pdf)
 <use ../Project/src/labs/superconductor-boundary/w-U=[0.0, 4.0, 12.0]-solid.pdf
 >
 Package pdftex.def Info: ../Project/src/labs/superconductor-boundary/w-U=[0.0, 
-4.0, 12.0]-solid.pdf  used on input line 1392.
+4.0, 12.0]-solid.pdf  used on input line 1400.
 (pdftex.def)             Requested size: 426.79135pt x 131.32373pt.
 
 
-[23 </home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-gap/gap_U=
+[45 </home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-gap/gap_U=
 4.0.pdf>]
 
-[24 <../Project/src/labs/superconductor-boundary/w-U=[0.0, 4.0, 12.0]-solid.pdf
+[46 <../Project/src/labs/superconductor-boundary/w-U=[0.0, 4.0, 12.0]-solid.pdf
 >]
-
-LaTeX Warning: Reference `eq:normal-ud(tx,ty)' on page 25 undefined on input li
-ne 1423.
-
-
-LaTeX Warning: Reference `subsec:normal-d-wave-hopping' on page 25 undefined on
- input line 1427.
-
-
-LaTeX Warning: Reference `subsec:normal-d-wave-hopping' on page 25 undefined on
- input line 1431.
-
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/td_t=1.0_L=256_δ=Compared_
-β=100.0.pdf, id=707, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=17322, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/td_t=1.0_L=256_δ=Comp
 ared_β=100.0.pdf Graphic file (type pdf)
@@ -2295,16 +2685,16 @@ glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/td_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/td_
-t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1438.
+t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1446.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1438--1438
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1446--1446
  [][] 
  []
 
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/td_t=1.0_U=Compared_L=256_
-β=100.0.pdf, id=708, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=17323, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/td_t=1.0_U=Compared_L
 =256_β=100.0.pdf Graphic file (type pdf)
@@ -2313,16 +2703,16 @@ glet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/td_t=1.0_U=Compared_L=
 256_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/td
-_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1442.
+_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1450.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1442--1443
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1450--1451
  [][] 
  []
 
 
 
-[25 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
+[47 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
 glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/td_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf> </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=h
 s/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/td_t=1.0
@@ -2334,21 +2724,21 @@ ar=δ_pVar=V/td_t=1.0_U=Compared_L=256_β=100.0.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
 >]
 <../Project/src/labs/superconductor-boundary/w-U=[0.0, 4.0, 12.0]-curves.pdf, i
-d=784, 978.65625pt x 301.125pt>
+d=17400, 978.65625pt x 301.125pt>
 File: ../Project/src/labs/superconductor-boundary/w-U=[0.0, 4.0, 12.0]-curves.p
 df Graphic file (type pdf)
 <use ../Project/src/labs/superconductor-boundary/w-U=[0.0, 4.0, 12.0]-curves.pd
 f>
 Package pdftex.def Info: ../Project/src/labs/superconductor-boundary/w-U=[0.0, 
-4.0, 12.0]-curves.pdf  used on input line 1457.
+4.0, 12.0]-curves.pdf  used on input line 1465.
 (pdftex.def)             Requested size: 426.79135pt x 131.32373pt.
 
 
-[26 <../Project/src/labs/superconductor-boundary/w-U=[0.0, 4.0, 12.0]-curves.pd
+[48 <../Project/src/labs/superconductor-boundary/w-U=[0.0, 4.0, 12.0]-curves.pd
 f>]
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=Compared_
-β=100.0.pdf, id=835, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=17450, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=Comp
 ared_β=100.0.pdf Graphic file (type pdf)
@@ -2357,16 +2747,16 @@ glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/tS_
-t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1491.
+t=1.0_L=256_δ=Compared_β=100.0.pdf  used on input line 1499.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1491--1491
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1499--1499
  [][] 
  []
 
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/tS_t=1.0_U=Compared_L=256_
-β=100.0.pdf, id=836, 1129.21875pt x 301.125pt>
+β=100.0.pdf, id=17451, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/tS_t=1.0_U=Compared_L
 =256_β=100.0.pdf Graphic file (type pdf)
@@ -2375,16 +2765,16 @@ glet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/tS_t=1.0_U=Compared_L=
 256_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/tS
-_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1495.
+_t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1503.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1495--1496
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1503--1504
  [][] 
  []
 
 
 
-[27 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
+[49 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
 glet/Setup=A[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=V_pVar=U/tS_t=1.0_L=256_δ=Compa
 red_β=100.0.pdf> </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=h
 s/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=RMPs/xVar=δ_pVar=V/tS_t=1.0
@@ -2396,9 +2786,9 @@ ar=δ_pVar=V/tS_t=1.0_U=Compared_L=256_β=100.0.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
 >])
 
-[28]
+[50]
 
-[29
+[51
 
 ]
 Overfull \hbox (3.53458pt too wide) in paragraph at lines 72--72
@@ -2409,7 +2799,7 @@ Overfull \hbox (3.53458pt too wide) in paragraph at lines 72--72
 
 
 
-[30]
+[52]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 7
 2.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
@@ -2419,7 +2809,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 72.
 
 
-[31]
+[53]
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
@@ -2433,7 +2823,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 78E93A20A204B6425C8936A8CA5FEA44;7613.
+(rerunfilecheck)             Checksum: B171BBF2645626A883B65580711695EC;12543.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -2444,13 +2834,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 52437 strings out of 475076
- 1196045 string characters out of 5763687
- 2203851 words of memory out of 5000000
- 74467 multiletter control sequences out of 15000+600000
+ 53227 strings out of 475076
+ 1223093 string characters out of 5763687
+ 2218094 words of memory out of 5000000
+ 75127 multiletter control sequences out of 15000+600000
  578691 words of font info for 108 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 92i,18n,96p,2641b,1673s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 92i,18n,96p,2641b,2177s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></usr/share/texli
@@ -2462,27 +2852,31 @@ fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts
 c/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/sh
-are/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type
-1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
-rm0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (35 pages, 2350610 bytes).
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></u
+sr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (57 pages, 7520670 bytes).
 PDF statistics:
- 1195 PDF objects out of 1200 (max. 8388607)
- 946 compressed objects within 10 object streams
- 190 named destinations out of 1000 (max. 500000)
- 418 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 17850 PDF objects out of 18468 (max. 8388607)
+ 9475 compressed objects within 95 object streams
+ 300 named destinations out of 1000 (max. 500000)
+ 632 words of extra memory for PDF output out of 10000 (max. 10000000)
 

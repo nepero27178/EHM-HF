@@ -199,9 +199,9 @@ function GetObj(
 	s::Float64 = 0.0
 	NK::Matrix{Float64} = zeros(size(εK))
 	if Obj=="f"
-		vu = RBS || RBd ? [ select( v, Cols(contains.("u")) )[1,:]... ] : false
+		# vu = RBS || RBd ? [ select( v, Cols(contains.("u")) )[1,:]... ] : false
 		n::Float64 = 0.5 + first(Pars.δ)
-		f += μ*n - V*sum(vu.^2)
+		f += μ*n - V*(uS^2 + ud^2)
 	end
 
 	# Custom xlogx function to handle numeric Inf
@@ -227,7 +227,7 @@ function GetObj(
 				f += sum(esK)/LxLy * 2/β
 
 				# Free energy from bands
-				f += sum((εK.-μ).*FK)/LxLy
+				f += sum((εK.-μ).*FK) * 2/LxLy # sum((εK.-μ).*FK)/LxLy
 				return f
 
 			elseif Obj=="s"
@@ -298,12 +298,24 @@ function GetObj(
 
 		# Free energy
 		elseif Obj=="f" # Use equivalent form since numeric errors are avoided by construction
-			ws::Float64 = Readv(v,:ws;Cnd="s" in Syms)
-			vw = [ select(select(v, Cols(contains("w"))), Cols(!contains("S")))[1,:]... ]
-			f += -U*ws^2 + V*sum(vw.^2)
-			esK = log.( 1 .- FermiDirac.(EK,0.0,β) ) # Entropic part
-			ecK::Matrix{Float64} = ξK .- EK # Contraction part
-			f += ( sum(esK)*2/β + sum(ecK) )/LxLy
+
+			if Phase=="SC-Singlet"
+				ws::Float64 = Readv(v,:ws;Cnd="s" in Syms)
+				wS::Float64 = Readv(v,:wS;Cnd="S" in Syms)
+				wd::Float64 = Readv(v,:wd;Cnd="d" in Syms)
+				f += -U * ws^2 + V * (wS^2+wd^2)
+			elseif Phase=="SC-Singlet"
+				wx::Float64 = Readv(v,:wx;Cnd="x" in Syms)
+				wy::Float64 = Readv(v,:wy;Cnd="y" in Syms)
+				f += V * (wx^2+wy^2)
+			end
+
+			FK = FermiDirac.(EK,0.0,β)
+			epK = ξK .- EK.*tanh.(EK.*β/2)
+			f += sum(epK)/LxLy
+
+			esK = xlogx.(FK) + xlogx.(1 .- FK)
+			f += sum(esK)/LxLy * 2/β
 			return f
 
 		elseif Obj=="s"
