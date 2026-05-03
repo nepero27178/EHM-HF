@@ -109,7 +109,7 @@ function main()
 				)
 			end
 		elseif Mode=="rs"
-			cs = obj=="f" ? :tabquieter : :tabcoolerrev
+			# cs = obj=="f" ? :tabquieter : :tabcoolerrev
 			SavePlot3D(
 				FilePathIn,
 				DirPathOut;

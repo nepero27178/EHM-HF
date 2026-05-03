@@ -1263,9 +1263,7 @@ For the normal phase we did not vary $U$; for the AF phase we did not vary $\del
 
 \subsection{Multi-symmetry singlet superconductivity}
 
-In singlet channel, the most general gap function is a combination of $s$, $s^*$ and $d$ components. The resulting gap function $\tilde{\Delta}_{\mathbf{k}}$ emerges from a competition among these channels. Running unconstrained simulations, we are able to see directly the result of the competition in the self-consistent solution.
-
-We discuss the three channels separately. Note that next figures miss data at $\delta=0.4$. We were unable to understand why the algorithm failed to converge at that point, and fine-tuning of the mixing parameter $g$ did not help in this case.
+In singlet channel, the most general gap function is a combination of $s$, $s^*$ and $d$ components. The resulting gap function $\tilde{\Delta}_{\mathbf{k}}$ emerges from a competition among these channels. Running unconstrained simulations, we are able to see directly the result of the competition in the self-consistent solution. We discuss the three channels separately.
 
 \paragraph{$s$-wave gap.}
 
@@ -1487,7 +1485,7 @@ Note that the map were colour-corrected in order to enhance the visibility of th
 
 The three panels of Fig.~\ref{fig:sc-td} differ crucially in the fact that the data for $U/t=12$ (right) are all positive, while those for $U/t=0,4$ (left,centre) are negative in a portion of space. In other words, as we increase $U/t$, $\mathrm{N}_y$ expands and $\mathrm{N}_x$ shrinks. Moving from $U/t=0$ (left) to $U/t=4$ (centre) we see that the amplitude of $\tilde{t}^{(d)}$ decreases in $\mathrm{N}_x$ and not in $\mathrm{N}_y$. We already observed this in Fig.~\ref{subfig:sc-data-td-B256-compared}. Moreover, for $U/t=12$ (right) $\mathrm{N}_x$ is apparently absent and $\mathrm{N}_y$ takes up the entirety of the mixing region. Whether there exists some critical value of $U/t$ above which $\mathrm{N}_x$ disappears in the entirety of the $(\delta,V)$ plane, we do not know.
 
-Breaking of planar rotational symmetry and the insurgence of a $d$-wave harmonic for the renormalised hopping is certainly the most peculiar effect for the singlet SC phase. As was for the AF and normal phases, however, the isotropic shrinking of bands that lead to Mott localisation is present also here. We discuss it in next section.
+Breaking of planar rotational symmetry and the insurgence of a $d$-wave harmonic for the renormalised hopping is certainly the most peculiar effect for the singlet SC phase. It adds to the isotropic bands shrinking, which is, the $s^*$-wave renormalisation of the hopping parameter. We discuss it in next section.
 
 \subsection{Isotropic bands shrinking}
 
@@ -1505,16 +1503,54 @@ Breaking of planar rotational symmetry and the insurgence of a $d$-wave harmonic
 	\label{fig:sc-data-tS-AB256-compared}
 \end{figure}
 
-The last HFP to be checked is $u^{(s^*)}$, responsible of isotropic bands shrinking. We equivalently plot directly the $s^*$ component of the renormalised hopping parameter,
+The last HFP to be checked is $u^{(s^*)}$, responsible of bands shrinking. Its physical role is the isotropic renormalisation of the hopping parameter
 \[
 	\tilde{t}^{(s^*)} = t-\frac{V u^{(s^*)}}{2}
 \]
-which is shown in the panels of Fig.~\ref{fig:sc-data-tS-AB256-compared}. As was for the $d$-wave harmonic, we plot directly the data for $\tilde{t}^{(s^*)}$. 
+For the sake of conciseness, we skip plotting $u^{(s^*)}$ and plot directly $\tilde{t}^{(s^*)}$ in Fig.~\ref{fig:sc-data-tS-AB256-compared}.
 
-In the top panel (Fig.~\ref{subfig:sc-data-tS-A256-compared}), we show the dependence of $t^{(s^*)}$ on $V$. The three curves, obtained at three doping levels, are approximately independent of $U$. The common feature is that $\tilde{t}^{(s^*)}$ decreases somewhat linearly with $V$ up to some critical value, above which flattens to an horizontal asymptote. The doping changes primarily the high-$V$ horizontal asymptote: as was for the AF and normal phases, electronic doping disrupts the isotropic bands shrinking effect. At half-filling (left figure) we see that bands shrinking is most effective, reducing the hopping parameter to less than half its $V=0$ value. In the bottom panel (Fig.~\ref{subfig:sc-data-tS-B256-compared}) we show $t^{(s^*)}$ as a function of $\delta$, varying $V$ and $U$. As we already noted, the dependence on $U$ is very weak and the three figures are a lot alike. As we already noted, $t^{(s^*)}$ increases with doping. 
+In the top panel (Fig.~\ref{subfig:sc-data-tS-A256-compared}), we show the dependence of $t^{(s^*)}$ on $V$. The three curves, obtained at three doping levels, are approximately independent of $U$. The common feature is that $\tilde{t}^{(s^*)}$ decreases somewhat linearly with $V$ up to some critical value, above which it flattens to an horizontal asymptote. Electronic doping changes primarily the height of this asymptote
+
+As was for the AF and normal phases, electronic doping disrupts the isotropic bands shrinking effect. At half-filling (left figure) we see that bands shrinking is most effective, reducing the hopping parameter to less than half its $V=0$ value. In the bottom panel (Fig.~\ref{subfig:sc-data-tS-B256-compared}) we show $t^{(s^*)}$ as a function of $\delta$, varying $V$ and $U$. As we already noted, the dependence on $U$ is very weak and the three figures are a lot alike. As we already noted, $t^{(s^*)}$ increases with doping.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{../Project/src/labs/compare-tS-normal-sc/tS(N)+tS(SC).pdf}
+	\caption{Comparison of the isotropic part of the renormalised hopping $\tilde{t}^{(s^*)}$ for the SC (green) and normal (blue) phases on the $(\delta,V)$ plane. The data from the normal phase are the same of Fig.~\ref{fig:normal-tS-data}.}
+	\label{fig:sc-tS-vs-n}
+\end{figure}
+
+In Fig.~\ref{fig:sc-tS-vs-n} we compare $t^{(s^*)}$ for the normal phase (blue surface) and the SC phase (green surface). The two surfaces share a general feature: $t^{(s^*)}$ is approximately unitary at low $V/t$ and almost unitary doping, and decreases significantly in the low-$\delta$ and high-$V/t$ limit. In this region, for the normal phase we observe the Mott-localisation plateau discussed in Sec.~\ref{subsec:normal-mott-numeric}, where $t^{(s^*)} \approx 0$. In the SC phase, looking at the same region, $t^{(s^*)}$ is minimised but no plateau is formed. More importantly, isotropic hopping is reduced to roughly half the value of $t$ and not nullified. We do not observe a Mott-like area as for the normal phase.
+
+Recalling the plots of Fig.~\ref{fig:sc-mix}, the low-$\delta$ and high-$V/t$ limit (the corner where $t^{(s^*)}$ is minimised) falls deep within the mixed region. Recalling also Fig.~\ref{fig:sc-data-surface-wS-B256}, in this corner the $d$-wave and $s^*$-wave harmonics of the gap function are large and comparable. Finally, we know from Fig.~\ref{fig:sc-td} (central panel) that here nematic effects are small, but significantly non-zero. In particular, considering that 
+\[
+	\lim_{\delta \to 0} \lim_{V/t \gg 1} \frac{t^{(s^*)}}{t} \approx 0.4
+	\qquad
+	\lim_{\delta \to 0} \lim_{V/t \gg 1} \frac{t^{(d)}}{t} \approx 0.06
+\]
+we see that the two components differ just by one order of magnitude. Nematic effects account for a rather large portion of hopping renormalisation.
+
+With this consideration, we end the presentation of HFPs and RMPs and move to the last section, where we discuss the results regarding free energy and entropy densities.
 
 \subsection{Solution free energy and entropy densities}\label{subsec:sc-f-s}
-\todo
+
+For the SC phase, free energy density is given by Eq.~\eqref{eq:sc-fMFT}. Entropy density is obtained by Eq.~\eqref{eq:sc-density-entropy} using that $s=2s^{(+)}$, as we argued in the sequent lines.
+
+\begin{figure}
+	\centering
+	\subfloat[Dependency of $f$ on $V$ at various $U$s, compared at three values of $\delta$.]{
+		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=Compared_L=256_β=100.0.pdf}
+		\label{subfig:sc-data-f-B256-compared}
+	}\\
+	\subfloat[Dependency of $s$ on $V$ at various $\delta$s, compared at three values of $U$.]{
+		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xVar=V_pVar=δ/s_t=1.0_U=Compared_L=256_β=100.0.pdf}
+		\label{subfig:sc-data-s-B256-compared}
+	}
+	\caption{Dependency of free energy (top) and entropy (bottom) densities on $V$ varying the doping $\delta$ and the local repulsion $U$.}
+	\label{fig:sc-data-fs-B256-compared}
+\end{figure}
+
+In Fig.~\ref{fig:sc-data-fs-B256-compared} we show the data for $f$ and $s$ varying 
 
 \section{A final note}
 \todo
