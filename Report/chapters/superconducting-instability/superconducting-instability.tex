@@ -355,7 +355,7 @@ This operator is similar enough to the one found for the AF phase, in Eq.~\eqref
 \[
 	E_\mathbf{k} \equiv \sqrt{\xi_\mathbf{k}^2 + \abs{\Delta_\mathbf{k}}^2}
 \]
-The key difference with the AF Bogoliubov bands of Eq.~\eqref{eq:af-bands} is that $E_\mathbf{k}$ now are functions of $\tilde{\mu}$, since $\xi_\mathbf{k}$ depends on the chemical potential. In other words, now the Bogoliubov bands depend on the shifted bands $\xi_\mathbf{k}$ instead of the bare bands $\epsilon_\mathbf{k}$.
+The key difference with the AF Bogoliubov bands of Eq.~\eqref{eq:af-bands} is that $E_\mathbf{k}$ now are functions of $\tilde{\mu}$, since $\xi_\mathbf{k}$ depends on the chemical potential. In other words, now the Bogoliubov bands depend on the shifted bands $\xi_\mathbf{k}$ instead of the bare bands $\epsilon_\mathbf{k}$. This means that the gap is opened at the chemical potential, not at zero energy, as was for the AF phase.
 
 Moreover, let us define the angles $\theta_\mathbf{k}$, $\zeta_\mathbf{k}$ as
 \[
@@ -1524,9 +1524,9 @@ In Fig.~\ref{fig:sc-tS-vs-n} we compare $t^{(s^*)}$ for the normal phase (blue s
 
 Recalling the plots of Fig.~\ref{fig:sc-mix}, the low-$\delta$ and high-$V/t$ limit (the corner where $t^{(s^*)}$ is minimised) falls deep within the mixed region. Recalling also Fig.~\ref{fig:sc-data-surface-wS-B256}, in this corner the $d$-wave and $s^*$-wave harmonics of the gap function are large and comparable. Finally, we know from Fig.~\ref{fig:sc-td} (central panel) that here nematic effects are small, but significantly non-zero. In particular, considering that 
 \[
-	\lim_{\delta \to 0} \lim_{V/t \gg 1} \frac{t^{(s^*)}}{t} \approx 0.4
+	\lim_{\delta \to 0} \lim_{V/t \gg 1} \frac{\tilde{t}^{(s^*)}}{t} \approx 0.4
 	\qquad
-	\lim_{\delta \to 0} \lim_{V/t \gg 1} \frac{t^{(d)}}{t} \approx 0.06
+	\lim_{\delta \to 0} \lim_{V/t \gg 1} \frac{\tilde{t}^{(d)}}{t} \approx 0.06
 \]
 we see that the two components differ just by one order of magnitude. Nematic effects account for a rather large portion of hopping renormalisation.
 
@@ -1534,11 +1534,40 @@ With this consideration, we end the presentation of HFPs and RMPs and move to th
 
 \subsection{Solution free energy and entropy densities}\label{subsec:sc-f-s}
 
-For the SC phase, free energy density is given by Eq.~\eqref{eq:sc-fMFT}. Entropy density is obtained by Eq.~\eqref{eq:sc-density-entropy} using that $s=2s^{(+)}$, as we argued in the sequent lines.
+For the SC phase, free energy density is given by Eq.~\eqref{eq:sc-fMFT}. Entropy density is obtained by Eq.~\eqref{eq:sc-density-entropy},
+\begin{equation}\label{eq:sc-density-entropy-explicit}
+	s \equiv -\frac{2k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[
+	\left(
+	1- f( \tilde{E}_\mathbf{k}; \beta,0)
+	\right) \ln \left(
+	1- f( \tilde{E}_\mathbf{k}; \beta,0)
+	\right) \\
+	+ f(
+	\tilde{E}_\mathbf{k}; \beta,0)
+	\ln f( \tilde{E}_\mathbf{k}; \beta,0)
+	\Big]
+\end{equation}
+We used the fact that $s=2s^{(+)}$, as we argued at the beginning of Sec.~\ref{sec:sc-free-energy}.
 
 \begin{figure}
 	\centering
-	\subfloat[Dependency of $f$ on $V$ at various $U$s, compared at three values of $\delta$.]{
+	\includegraphics[height=0.32\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-plot-fs/fs_U=4.0.pdf}
+	\caption{Heatmaps of the free energy and entropy densities at $U/t=4$. The black dotted lines represent the internal boundaries of the singlet SC phase.}
+	\label{fig:sc-data-fs-B128}
+\end{figure}
+
+In Fig.~\ref{fig:sc-data-fs-B128} we plot, sided, the heatmaps for $f$ and $s$ at $U/t=4$ in the $(\delta,V)$ plane. Superimposed, we show the boundaries between the four regions identified in Fig.~\ref{fig:sc-mix}. Consider first the free energy, on the left: our data suggest that free energy is maximised in the $d$-wave phase, followed by the mixed phase. At high doping, the $s \oplus s^*$-wave phase is low-energetic. Overall, $f$ varies smoothly across phase boundaries, and we do not identify the black lines with some isoenergetic line separating phases.
+
+This is not the case for entropy density. Indeed, the entropic region on the right panel of Fig.~\ref{fig:sc-data-fs-B128} coincides with the normal phase. The three superconducting regions are low-entropic. This is explained by the following argument:
+\begin{itemize}
+	\item In the normal phase, the Bogoliubov band reduces to $\tilde{E}_\mathbf{k} \to \tilde{\xi}_\mathbf{k}$. The chemical potential crosses the bare band and a Fermi surface exists. Hence, at finite temperature, the Fermi-Dirac occupation of single-particle states varies continuously from almost unitary (deep in the Fermi sea) to almost zero (far outside). All those states in the middle, around the Fermi level, are highly entropic: we have shown this in Fig.~\ref{subfig:normal-entropy}. It  is the intrinsic metallic nature of the normal phase that makes is entropic.
+	\item In the SC phase, we open a gap at the chemical potential, not at zero energy (as instead was in the AF phase). In Eq.~\eqref{eq:sc-density-entropy-explicit} we apply the Fermi-Dirac distribution on the two bands $\pm\tilde{E}_\mathbf{k}$: as the gao widens, the lower one fills ($f \approx 1$), while the upper empties ($f \approx 0$). As we lower temperature, the above statement gets exact. Recalling Fig.~\ref{subfig:normal-entropy}, we see that entropy is minimised at $f=0,1$. Hence, the SC phase is low-entropic.
+\end{itemize}
+This is the reason behind the sharp separation of the normal region from the SC regions in the right panel of Fig.~\ref{fig:sc-data-fs-B128}.
+
+\begin{figure}
+	\centering
+	\subfloat[Dependency of $f$ on $V$ at various $\delta$s, compared at three values of $U$.]{
 		\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=Compared_L=256_β=100.0.pdf}
 		\label{subfig:sc-data-f-B256-compared}
 	}\\
@@ -1550,7 +1579,48 @@ For the SC phase, free energy density is given by Eq.~\eqref{eq:sc-fMFT}. Entrop
 	\label{fig:sc-data-fs-B256-compared}
 \end{figure}
 
-In Fig.~\ref{fig:sc-data-fs-B256-compared} we show the data for $f$ and $s$ varying 
+In Fig.~\ref{fig:sc-data-fs-B256-compared} we show $f$ and $s$ as functions of $V$, varying $\delta$ and comparing for three values of $U$. On both rows, moving from left to right we do not observe significant differences: $f$ and $s$ depend weakly on $U$. We already observed the presence of a maximum of the free energy at ratios $V/t$ comparable with $1$. In Fig.~\ref{subfig:sc-data-f-B256-compared} we see this maximum around $V/t \lesssim 4$. Comparing with the data of Fig.~\ref{fig:sc-data-fs-B128}, we can imagine that this maximum could be located at at the boundary between $d$-wave and mixed regions. Our data and methods are too rough to assert with certainty.
+
+In the bottom panel, entropy density (Fig.~\ref{subfig:sc-data-s-B256-compared}) shows the aforementioned sharp separation between normal and SC regions, and is maximised at half-filling and $V=0$. That is the case of the conventional HM. We already argued that superconductivity is impossible at HF level, while commensurate antiferromagnetism is favoured at null doping with respect to the normal phase.
+
+\begin{figure}
+	\centering
+	\subfloat[Energy difference with normal phase.]{
+		\includegraphics[width=0.45\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/src/labs/compare-f-normal-sc/f(N)-f(SC).pdf}
+		\label{subfig:sc-Δf-n}
+	}
+	\subfloat[Energy difference with AF phase.]{
+		\includegraphics[width=0.45\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/src/labs/compare-f-af-sc/f(AF)-f(SC).pdf}
+		\label{subfig:sc-Δf-af}
+	}
+	\caption{Surface plots of the energies among the three phases. For the normal phase, we use that fact that $f^{(\mathrm{SC})}$ depends weakly on $U$, while $f^{(\mathrm{N})}$ does not depend on it at all, to limit to the case $U/t=4$. For the AF phase, we limit to the half-filling condition and show data in the $(U,V)$ plane.}
+	\label{fig:sc-Δf}
+\end{figure}
+
+To conclude, we compare the free energy of the SC phase with that of the normal phase and the AF phase. We said that $f$ depends rather weakly on $U$ for the singlet SC phase, so we carry out the comparison with normal phase at $U/t=4$ in the $(\delta,V)$ plane. In Fig.~\ref{subfig:sc-Δf-n} we plot the quantity
+\[
+	f^{(\mathrm{N})} - f^{(\mathrm{SC})}
+\]
+and observe that it is greater or equal to zero over the entire explored region. The energy difference is null only at $V/t \lesssim 2$, where the superconducting gap is null. We plot, superimposed, the boundaries of the normal region extracted from Fig.~\ref{fig:sc-mix}. In the rest of the $(\delta,V)$ plane the SC phase is energetically favoured with respect to the normal phase. 
+
+In Fig.~\ref{subfig:sc-Δf-af} we show the energy difference between AF and SC phases,
+\[
+	f^{(\mathrm{AF})} - f^{(\mathrm{SC})} 
+\]
+We colour-corrected the surface plot to align the gray with the $f=0$ level. Colour separates positive and negative regions: the SC phase is dominant where $f^{(\mathrm{AF})} > f^{(\mathrm{SC})}$ (green region), in the rest of the plot the AF phase dominates (blue region). We indicate the contour level at $f=0$ as a black dotted line, obtained as the set of data points whose energy difference is closest to zero. At half-filling, commensurate antiferromagnetism is almost everywhere energetically favoured. Singlet superconductivity prevails in the $U/t \ll 1$, $V/t \gg 1$ limit. The fact that the phase boundary has somewhat a linear shape suggests the fact that possibly a critical ratio exists,
+\[
+	\text{(Critical ratio)}
+	\qquad
+	\left(\frac{V}{U}\right)_\mathrm{c}
+\]
+delimiting a phase transition from antiferromagnetic to superconducting ordering at half-filling.
 
 \section{A final note}
+
+We conclude this chapter with a note of method. We performed simulations on the singlet channel, but also gathered data for the triplet channel. We omitted to show them in order to avoid unnecessary complications. Indeed, we observed that triplet superconductivity (as we formulated it at HF level) is suppressed everywhere in the region of parametric space we are exploring. This means that 
+\[
+	w^{(p_x)} = w^{(p_y)} = 0
+\]
+Although non present in this discussions, the plots for these HFPs are openly accessible at our repository.
+
 \todo

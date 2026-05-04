@@ -1,6 +1,8 @@
 using CairoMakie
-using Colors
-using ColorSchemes
+
+include("/home/nepero27178/Thesis/EHM-HF/Project/src/setup/graphic-setup.jl")
+include("/home/nepero27178/Thesis/EHM-HF/Project/src/modules/structs.jl")
+include("/home/nepero27178/Thesis/EHM-HF/Project/src/modules/methods-IO.jl")
 
 CairoMakie.activate!()
 MT = Makie.MathTeXEngine
@@ -9,10 +11,6 @@ set_theme!(fonts = (
 	regular = MT_DIR * "/NewCM10-Regular.otf",
 	bold = MT_DIR * "/NewCM10-Bold.otf"
 ))
-
-include("/home/nepero27178/Thesis/EHM-HF/Project/src/setup/graphic-setup.jl")
-include("/home/nepero27178/Thesis/EHM-HF/Project/src/modules/structs.jl")
-include("/home/nepero27178/Thesis/EHM-HF/Project/src/modules/methods-IO.jl")
 
 FilePathIn = "/home/nepero27178/Thesis/EHM-HF/Project/data/refined/Mode=rs/Setup=B[128]/Phase=SC-Singlet/RB=Sd_Syms=Ssd.csv"
 Setup,Phase,Syms,RB,Opt,Layer = UnpackFilePath(FilePathIn)
@@ -32,25 +30,24 @@ ax = Axis3(
 	H[1,1],
 	xlabel = L"$\delta$",
 	ylabel = L"$V$",
-	zlabel = L"$\Delta f/t$",
+	zlabel = L"$[ f^{(\mathrm{N})}-f^{(\mathrm{SC})} ]/t$",
 	aspect=(1,1,1),
 	azimuth=-0.2*pi,
-	elevation=pi/6,
+	elevation=pi/9,
 	xlabelalign = (:center, :center),
 	ylabelalign = (:center, :center),
 	zlabelalign = (:center, :center),
 	xlabelrotation = 0, # Horizontal xlabel
 	ylabelrotation = 0, # Horizontal ylabel
-	zlabelrotation = 0, # Horizontal zlabel
 )
 
 xx,yy,ff_N = ReshapeData(df_N;xVar="δ",yVar="V",zVar="f")
 _,_,ff_SC = ReshapeData(df_SC;xVar="δ",yVar="V",zVar="f")
-ax.title = L"$\Delta f/t$ ($t=1.0$, $U=%$(U)$, $L=128$, $\delta=0.0$, $\beta=100.0$)"
+ax.title = L"$[ f^{(\mathrm{N})}-f^{(\mathrm{SC})} ]/t$ ($t=1.0$, $U=%$(U)$, $L=128$, $\beta=100.0$)"
 
-cs = colorschemes[:tabquiet]
+cs = colorschemes[:tabquietrev]
 zz = ff_N .- ff_SC
-surface!(ax,xx,yy,zz,colormap=cs,shading=false)
+s = surface!(ax,xx,yy,zz,colormap=cs,shading=false)
 # Colorbar(H[1,2],colormap=colorschemes[:tabquiet])
 
 DF_n = CSV.read("/home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-region-boundaries/n_U=$(U).csv",DataFrame)
@@ -65,7 +62,8 @@ for (i,x) in enumerate(x_n)
 end
 z_n = z_n .+ 0.005
 scatterlines!(ax,x_n,y_n,z_n,color=:black,markersize=2,linewidth=0.1)
-text!(ax,0.38,0.8,0.1,text="Normal",align=(:center,:center))
+text!(ax,0.4,0.7,0.1,text="Normal",align=(:center,:center))
 
-FilePathOut = "f(N)-f(SC).png"
-save(FilePathOut, H, px_per_unit=6)
+Colorbar(H[1,0],s)
+FilePathOut = "f(N)-f(SC).pdf"
+save(FilePathOut, H)

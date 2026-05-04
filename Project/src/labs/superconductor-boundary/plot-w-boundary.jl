@@ -147,7 +147,7 @@ for (i,U) in enumerate(UU)
 	mask = FindGapMask(ss,Δs,SS,ΔS,dd,Δd)
 	lvs = Contour.levels(Contour.contours(xx,yy,mask,[2]))
 	xc, yc = Contour.coordinates( only(Contour.lines(lvs[1])) )
-	scatterlines!(ax_H,xc,yc,color=:black,markersize=5)
+	scatterlines!(ax_H,xc,yc,color=:black,markersize=2,linewidth=0.1)
 	text!(ax_H,0.08,3.0,text="Mixing boundary",align=(:center,:top),color=:black)
 
 	if U==0.0

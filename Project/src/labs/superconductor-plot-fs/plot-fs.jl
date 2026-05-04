@@ -1,5 +1,8 @@
 using CairoMakie
 
+include("/home/nepero27178/Thesis/EHM-HF/Project/src/setup/graphic-setup.jl")
+include("/home/nepero27178/Thesis/EHM-HF/Project/src/modules/methods-3D-plotting.jl")
+
 CairoMakie.activate!()
 MT = Makie.MathTeXEngine
 MT_DIR = dirname(pathof(MT)) * "/../assets/fonts/NewComputerModern"
@@ -7,9 +10,6 @@ set_theme!(fonts = (
 	regular = MT_DIR * "/NewCM10-Regular.otf",
 	bold = MT_DIR * "/NewCM10-Bold.otf"
 ))
-
-include("/home/nepero27178/Thesis/EHM-HF/Project/src/setup/graphic-setup.jl")
-include("/home/nepero27178/Thesis/EHM-HF/Project/src/modules/methods-3D-plotting.jl")
 
 FilePathIn = "/home/nepero27178/Thesis/EHM-HF/Project/data/refined/Mode=rs/Setup=B[128]/Phase=SC-Singlet/RB=Sd_Syms=Ssd.csv"
 Setup,Phase,Syms,RB,Opt,Layer = UnpackFilePath(FilePathIn)
@@ -28,7 +28,7 @@ ax = axs[1]
 xx,yy,ff = ReshapeData(df_SC;xVar="δ",yVar="V",zVar="f")
 ax.title = L"$f/t$ ($t=1.0$, $U=%$(U)$, $L=128$, $\delta=0.0$, $\beta=100.0$)"
 
-cs = colorschemes[:tabquiet]
+cs = colorschemes[:tabquieterrev]
 f = heatmap!(ax,xx,yy,ff,colormap=cs)
 Colorbar(H[1,0],f,flipaxis=false)
 
@@ -67,5 +67,4 @@ text!(ax,0.2,2.0,text=L"$d$-wave",align=(:center,:center))
 text!(ax,0.32,3.5,text="Mixed",align=(:center,:center))
 text!(ax,0.43,2.35,text=L"$s \oplus s^*$-wave",align=(:center,:center))
 
-FilePathOut = "fs_U=$(U).pdf"
-save(FilePathOut, H)
+save("fs_U=$(U).pdf", H)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  3 MAY 2026 23:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.10)  4 MAY 2026 13:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1367,7 +1367,7 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \bibhang=\skip259
 \blx@bcfin=\read4
 \blx@bcfout=\write6
-\blx@langwohyphens=\language9
+\blx@langwohyphens=\language90
 \c@mincomprange=\count469
 \c@maxcomprange=\count470
 \c@mincompwidth=\count471
@@ -2368,19 +2368,19 @@ LaTeX Warning: Reference `appsubsec:sc-hartree-channel' on page 33 undefined on
  input line 546.
 
 
-LaTeX Warning: Reference `tab:HU-sel-rules' on page 33 undefined on input line 
-606.
-
-
-LaTeX Warning: Reference `tab:HV-sel-rules' on page 33 undefined on input line 
-606.
-
-
-LaTeX Warning: Reference `eq:mft-HV' on page 33 undefined on input line 606.
-
-
 
 [33]
+
+LaTeX Warning: Reference `tab:HU-sel-rules' on page 34 undefined on input line 
+606.
+
+
+LaTeX Warning: Reference `tab:HV-sel-rules' on page 34 undefined on input line 
+606.
+
+
+LaTeX Warning: Reference `eq:mft-HV' on page 34 undefined on input line 606.
+
 
 LaTeX Warning: Reference `eq:mft-HV' on page 34 undefined on input line 616.
 
@@ -2793,9 +2793,21 @@ pdfTeX warning: /usr/bin/pdflatex (file /home/nepero27178/Thesis/EHM-HF/Project
 ar=δ_pVar=V/tS_t=1.0_U=Compared_L=256_β=100.0.pdf): PDF inclusion: multiple p
 dfs with page group included in a single page
 >]
+</home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-plot-fs/fs_U=4
+.0.pdf, id=17526, 677.53125pt x 301.125pt>
+File: /home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-plot-fs/f
+s_U=4.0.pdf Graphic file (type pdf)
+<use /home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-plot-fs/fs
+_U=4.0.pdf>
+Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/src/labs/super
+conductor-plot-fs/fs_U=4.0.pdf  used on input line 1554.
+(pdftex.def)             Requested size: 307.30539pt x 136.57635pt.
+
+
+[50 <../Project/src/labs/compare-tS-normal-sc/tS(N)+tS(SC).pdf>]
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=Compared_L=256_�
-�=100.0.pdf, id=17525, 1129.21875pt x 301.125pt>
+�=100.0.pdf, id=17544, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=Compared_L=
 256_β=100.0.pdf Graphic file (type pdf)
@@ -2804,16 +2816,16 @@ glet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=Compared_L=2
 56_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xVar=V_pVar=δ/f_
-t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1544.
+t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1573.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1544--1544
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1573--1573
  [][] 
  []
 
 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singlet
 /Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xVar=V_pVar=δ/s_t=1.0_U=Compared_L=256_�
-�=100.0.pdf, id=17526, 1129.21875pt x 301.125pt>
+�=100.0.pdf, id=17545, 1129.21875pt x 301.125pt>
 File: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Si
 nglet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xVar=V_pVar=δ/s_t=1.0_U=Compared_L=
 256_β=100.0.pdf Graphic file (type pdf)
@@ -2822,34 +2834,69 @@ glet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xVar=V_pVar=δ/s_t=1.0_U=Compared_L=2
 56_β=100.0.pdf>
 Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/plots/refined/
 Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xVar=V_pVar=δ/s_
-t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1548.
+t=1.0_U=Compared_L=256_β=100.0.pdf  used on input line 1577.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1548--1549
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1577--1578
  [][] 
  []
 
-)
 
-[50 <../Project/src/labs/compare-tS-normal-sc/tS(N)+tS(SC).pdf>]
 
-[51 </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Sin
-glet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=Compared_L=2
-56_β=100.0.pdf> </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs
-/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xVar=V_pVar=δ/s_t=1.0_U
-=Compared_L=256_β=100.0.pdf
+[51 </home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-plot-fs/fs
+_U=4.0.pdf> </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phas
+e=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=Comp
+ared_L=256_β=100.0.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file /home/nepero27178/Thesis/EHM-HF/Project
+/plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xV
+ar=V_pVar=δ/f_t=1.0_U=Compared_L=256_β=100.0.pdf): PDF inclusion: multiple pd
+fs with page group included in a single page
+> </home/nepero27178/Thesis/EHM-HF/Project/plots/refined/Mode=hs/Phase=SC-Singl
+et/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xVar=V_pVar=δ/s_t=1.0_U=Compared_L=256
+_β=100.0.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file /home/nepero27178/Thesis/EHM-HF/Project
 /plots/refined/Mode=hs/Phase=SC-Singlet/Setup=B[256]/Syms=Ssd/RB=Sd/Obj=phys/xV
 ar=V_pVar=δ/s_t=1.0_U=Compared_L=256_β=100.0.pdf): PDF inclusion: multiple pd
 fs with page group included in a single page
 >]
+</home/nepero27178/Thesis/EHM-HF/Project/src/labs/compare-f-normal-sc/f(N)-f(SC
+).pdf, id=17654, 564.1075pt x 489.83pt>
+File: /home/nepero27178/Thesis/EHM-HF/Project/src/labs/compare-f-normal-sc/f(N)
+-f(SC).pdf Graphic file (type pdf)
+<use /home/nepero27178/Thesis/EHM-HF/Project/src/labs/compare-f-normal-sc/f(N)-
+f(SC).pdf>
+Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/src/labs/compa
+re-f-normal-sc/f(N)-f(SC).pdf  used on input line 1591.
+(pdftex.def)             Requested size: 192.0548pt x 166.76422pt.
+</home/nepero27178/Thesis/EHM-HF/Project/src/labs/compare-f-af-sc/f(AF)-f(SC).p
+df, id=17655, 564.1075pt x 489.83pt>
+File: /home/nepero27178/Thesis/EHM-HF/Project/src/labs/compare-f-af-sc/f(AF)-f(
+SC).pdf Graphic file (type pdf)
+<use /home/nepero27178/Thesis/EHM-HF/Project/src/labs/compare-f-af-sc/f(AF)-f(S
+C).pdf>
+Package pdftex.def Info: /home/nepero27178/Thesis/EHM-HF/Project/src/labs/compa
+re-f-af-sc/f(AF)-f(SC).pdf  used on input line 1595.
+(pdftex.def)             Requested size: 192.0548pt x 166.76422pt.
 
-[52
+
+[52 </home/nepero27178/Thesis/EHM-HF/Project/src/labs/compare-f-normal-sc/f(N)-
+f(SC).pdf> </home/nepero27178/Thesis/EHM-HF/Project/src/labs/compare-f-af-sc/f(
+AF)-f(SC).pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file /home/nepero27178/Thesis/EHM-HF/Project
+/src/labs/compare-f-af-sc/f(AF)-f(SC).pdf): PDF inclusion: multiple pdfs with p
+age group included in a single page
+>])
+
+[53]
+
+[54
 
 ]
 
-[53]
+[55]
 Overfull \hbox (3.53458pt too wide) in paragraph at lines 72--72
 \OT1/cmr/m/it/10 Phys-ica C: Su-per-con-duc-tiv-ity and its Ap-pli-ca-tions \OT
 1/cmr/m/n/10 633 (June 2025), p. 1354719. \OT1/cmr/m/sc/10 issn\OT1/cmr/m/n/10 
@@ -2858,7 +2905,7 @@ Overfull \hbox (3.53458pt too wide) in paragraph at lines 72--72
 
 
 
-[54]
+[56]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 7
 2.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
@@ -2868,7 +2915,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 72.
 
 
-[55]
+[57]
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
@@ -2882,7 +2929,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6B558B5830C4F106BCEC9210404F8206;12543.
+(rerunfilecheck)             Checksum: 67921507E6AE8359B0775B5BE2293955;12543.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -2893,12 +2940,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53258 strings out of 475076
- 1226290 string characters out of 5763687
- 2218934 words of memory out of 5000000
- 75154 multiletter control sequences out of 15000+600000
+ 53291 strings out of 473197
+ 1228439 string characters out of 5718605
+ 2224597 words of memory out of 5000000
+ 75422 multiletter control sequences out of 15000+600000
  578691 words of font info for 108 fonts, out of 8000000 for 9000
- 59 hyphenation exceptions out of 8191
+ 1141 hyphenation exceptions out of 8191
  92i,18n,96p,2641b,2177s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
@@ -2932,10 +2979,10 @@ exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/font
 s/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-su
 per/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></u
 sr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (59 pages, 8964478 bytes).
+Output written on main.pdf (61 pages, 14929151 bytes).
 PDF statistics:
- 17939 PDF objects out of 18468 (max. 8388607)
- 9538 compressed objects within 96 object streams
- 304 named destinations out of 1000 (max. 500000)
- 647 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46693 PDF objects out of 55141 (max. 8388607)
+ 23872 compressed objects within 239 object streams
+ 309 named destinations out of 1000 (max. 500000)
+ 662 words of extra memory for PDF output out of 10000 (max. 10000000)
 
