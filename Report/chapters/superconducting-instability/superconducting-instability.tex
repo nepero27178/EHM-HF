@@ -1,7 +1,7 @@
 \def\GraphicsFolder{chapters/superconducting-instability/pictures}
 \chapter{Superconducting instability}\label{chap:mft-sc-instability}
 
-In this chapter the HF methods introduced in Sec.~\ref{sec:sketch-hf-method} are applied to the SC phase. We study a translationally invariant superconductor, which breaks the conservation of total charge. Analytic calculations will lead us to various effects: bare bands renormalisation, anisotropic Cooper pairing and nematicity. Our description of the SC phase is closely related to the BCS solution for pure $s$-wave superconductivity.
+In this chapter the HF methods introduced in Sec.~\ref{sec:sketch-hf-method} are applied to the SC phase. We study translationally-invariant superconductivity. Analytic calculations will lead us to various effects: bare bands renormalisation, anisotropic Cooper pairing and nematicity. Our description of the SC phase is closely related to the BCS solution for pure $s$-wave superconductivity.
 
 As for previous phases, this chapter is divided in three parts. First, analysis of the SC phase symmetries based on the discussion of Chap.~\ref{chap:ehm-symmetries}, and implementation of HF methods. Second, search for theoretical constraints on the self-consistent solution. Third, numeric results.
 
@@ -31,7 +31,7 @@ Recall Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}, collecting the s
 	&&\text{Hartree and Fock contractions} \\
 \end{aligned}	
 \]
-We anticipate their roles in Tab.~\ref{tab:sc-RWCs}.
+Note that Cooper contractions in the non-local s.s. sector are neglected, because of the selection rule discussed at the end of Sec.~\ref{subsec:ehm-sym-break-HV}. We anticipate the role of each contraction channel in Tab.~\ref{tab:sc-RWCs}.
 
 \begin{table}[t]
 	\centering
@@ -51,18 +51,18 @@ We anticipate their roles in Tab.~\ref{tab:sc-RWCs}.
 	\label{tab:sc-RWCs}
 \end{table}
 
-The SSB of $\mathrm{U}^z(1)$ allows for EVs like $\langle \hat c^\dagger \hat c^\dagger \rangle$ to be non-zero. This leads to the formation of Cooper pairs. These are composite quantum objects with a specific spin-spatial structure. Consider the generic Cooper fluctuation
+Breaking $\mathrm{U}^z(1)$, we allow EVs like $\langle \hat c^\dagger \hat c^\dagger \rangle$ to be non-zero. This leads to the formation of Cooper pairs. These are composite quantum objects with a specific spin-spatial structure. Consider the generic Cooper fluctuation in o.s. sector,
 \[
 	\big\langle
 	\hat c_{i\sigma}^\dagger \hat c_{j\overline{\sigma}}^\dagger
 	\big\rangle
 	\qq{with $i,j$ nearest neighbours}
 \]
-We work in o.s. sector because we know from Tab.~\ref{tab:HV-sel-rules} that the s.s. sector is prohibited. From basic Quantum Mechanics we know the summation rules of the spin algebra $\mathfrak{su}(2)$,
+From basic Quantum Mechanics we know the summation rules of the spin algebra $\mathfrak{su}(2)$,
 \[
 	\frac 1 2 \otimes \frac 1 2 = 0 \oplus 1
 \]
-The two pairing channels are, at this level, the singlet channel associated to total spin $0$ and the triplet channel associated to total spin $1$. Now, when applying HF method to the quartic operators, we get the decomposition of Eq.~\eqref{eq:mft-V-decomposition}. We can impose to the approximated HF ground-state a particular spatial structure -- say, inversion symmetry or antisymmetry. This reflects in the requirement that Cooper pairs show the same spatial structure.
+The two pairing channels are, at this level: the singlet channel (associated to total spin $0$) and the triplet channel (associated to total spin $1$). Now, when applying HF methods, we can impose to the approximated HF ground-state a particular spatial structure -- say, inversion symmetry or antisymmetry. This reflects in the requirement that Cooper pairs show the same spatial structure.
 
 This gives a selection rule over Cooper pairings: if we work with inversion-symmetric structures -- say, $s^*$-wave or $d$-wave -- the pairing will take place in singlet channel, allowing us to eliminate the triplet pairing. Working with antisymmetric structures, inversely, we can eliminate the singlet channel. This concept is summarised in Tab.~\ref{tab:sc-pairings-symmetry-structures}.
 
@@ -88,40 +88,40 @@ where $\hat n_{\mathbf{k}\sigma}$ was defined as for the AF phase, in Eq.~\eqref
 
 \section{Local effects: (impossibility of) superconductivity in the HM}\label{sec:sc-local}
 
-Let us start from the local effects. Following Tab.~\ref{tab:HU-sel-rules} and Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}, we know the local repulsion decomposes in Hartree and Cooper channels,
+The conventional HM is given by $\hat H_t + \hat H_U$, thus its unique two-body interaction is the local repulsion. In this section we study the Cooper pairing channel in the conventional HM, and prove that superconductivity is impossible at HF level.
+
+Following Tab.~\ref{tab:HU-sel-rules} and Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}, we know the local repulsion decomposes in Hartree and Cooper channels,
 \[
 \begin{aligned}
-	\hat H_U &= U \sum_{\mathbf{r}\in\mathcal{L}} \hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}\downarrow} \label{eq:mft-HU} \\
-	&\simeq U \sum_{\mathbf{r}\in\mathcal{L}} \Big(
+	\hat H_U &= U \sum_{\mathbf{r}\in\mathcal{L}} \hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}\downarrow} \\
+	&\HFsimeq U \sum_{\mathbf{r}\in\mathcal{L}} \Big(
 	\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\uparrow} \big\langle \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} \big\rangle + \big\langle \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\uparrow} \big\rangle \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} - \big\langle \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\uparrow} \big\rangle  \big\langle \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} \big\rangle &&(\text{Hartree}) \\
-	&\phantom{\simeq \sum_{{\mathbf{r}\uparrow}\neq{\mathbf{r}\downarrow}} V_{{\mathbf{r}\uparrow}{\mathbf{r}\downarrow}}}
+	&\phantom{\HFsimeq \sum_{{\mathbf{r}\uparrow}\neq{\mathbf{r}\downarrow}} V_{{\mathbf{r}\uparrow}{\mathbf{r}\downarrow}}}
 	+ \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \big\langle \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow} \big\rangle + \big\langle \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \big\rangle \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow} - \big\langle \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \big\rangle  \big\langle \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow} \big\rangle
 	\Big) &&(\text{Cooper})
 \end{aligned}
 \]
 In next sections we deal with each channel separately.
 
-\subsection{Local Hartree channel in the SC phase: analytic derivation}\label{subsec:sc-l-hartree-analytic}
+\subsection{Local Hartree channel in the SC phase}\label{subsec:sc-l-hartree}
 
 For the Hartree channel, being the density uniform across sites, we can re-use the entirety of Sec.~\ref{subsec:normal-hartree-analytic} for the normal phase. Substituting Eq.~\eqref{eq:sc-density-ansatz}, we get the approximation of Eq.~\eqref{eq:normal-HU-approx},
 \begin{equation}\label{eq:sc-HU-approx}
-	\hat H_U \simeq nU \times \hat N - E_{\mathrm{H}/U}^{(\mathrm{SC})} + \text{(Cooper channel)}
+	\hat H_U \HFsimeq nU \times \hat N - E_{\mathrm{H}/U}^{(\mathrm{SC})} + \text{(Cooper channel)}
 \end{equation}
-thus chemical potential renormalization $\tilde{\mu} \to \mu - nU$ is present also in the SC phase.
+thus chemical potential renormalisation $\tilde{\mu} \to \mu - nU$ is present also in the SC phase.
 
-\subsection{Local Hartree contraction energy}\label{subsec:sc-l-hartree-energy}
-
-As for the section above, we use the result of Sec.~\ref{subsec:normal-hartree-energy} for the normal phase. From Eq.~\eqref{eq:normal-hartree-U-contraction-energy}
+The contraction energy is the same of Eq.~\eqref{eq:normal-hartree-U-contraction-energy}
 \begin{equation}\label{eq:sc-hartree-U-contraction-energy}
 	E_{\mathrm{H}/U}^{(\mathrm{SC})} = L_x L_y \times n^2 U
 \end{equation}
 For a locally repulsive model, the Hartree channel contributes negatively to ground state energy. Indeed, contraction energy is subtracted from the hamiltonian. We now move to the Cooper channel.
 
-\subsection{Local Cooper channel in the SC phase: analytic derivation}\label{subsec:sc-l-cooper-analytic}
+\subsection{Local Cooper channel in the SC phase}\label{subsec:sc-l-cooper}
 
 We move to reciprocal space, through the transformation of Eq.~\eqref{eq:HU-fourier}. Consider the Cooper channel of Eq.~\eqref{eq:mft-HU}. In reciprocal space we get:
 \begin{multline}
-	\hat H_U \simeq \text{(Hartree channel)} + \frac{U}{L_x L_y}
+	\hat H_U \HFsimeq \text{(Hartree channel)} + \frac{U}{L_x L_y}
 	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \Big[
 	\big\langle
 	\hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \downarrow}^\dagger
@@ -135,37 +135,41 @@ We move to reciprocal space, through the transformation of Eq.~\eqref{eq:HU-four
 	\big\rangle
 	\Big] \label{eq:sc-mft-HU}
 \end{multline}
-We are not breaking translational invariance, thus only Cooper fluctuations with net zero total momentum are allowed. This means only $\mathbf{K}=\mathbf{0}$ contributes. Let us prove this: consider the EV of the Cooper pair
-\[
-	\big\langle \hat c_{\mathbf{k}_1\uparrow}^\dagger \hat c_{\mathbf{k}_2\downarrow}^\dagger \big\rangle
-\]
-for two momenta $\mathbf{k}_1$, $\mathbf{k}_2$. Moving to real space via an $\mathcal{F}$-transform, we get
-\[
-	\big\langle \hat c_{\mathbf{k}_1\uparrow}^\dagger \hat c_{\mathbf{k}_2\downarrow}^\dagger \big\rangle \Feq \frac{1}{L_x L_y} \sum_{\mathbf{r}_1 \in \mathcal{L}} \sum_{\mathbf{r}_2 \in \mathcal{L}} e^{-i \left(\mathbf{k}_1 \cdot \mathbf{r}_1 + \mathbf{k}_2 \cdot \mathbf{r}_2\right)} \big\langle \hat c_{\mathbf{r}_1\uparrow}^\dagger \hat c_{\mathbf{r}_2\downarrow}^\dagger \big\rangle
-\]
-where we used the convention of Eq.~\eqref{eq:fourier-convention}. Let now $\mathbf{r}_1 \to \mathbf{r}$ and $\mathbf{r}_2 \to \Delta \mathbf{r}$. Translational invariance implies that
-\[
-	g(\Delta \mathbf{r}) = \big\langle \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}+\Delta\mathbf{r}\downarrow}^\dagger \big\rangle
-\]
-is independent of $\mathbf{r}$. Thus we have:
-\[
-\begin{aligned}
-	\big\langle \hat c_{\mathbf{k}_1\uparrow}^\dagger \hat c_{\mathbf{k}_2\downarrow}^\dagger \big\rangle &\Feq \sum_{\Delta\mathbf{r} \in \mathcal{L}} e^{-i \mathbf{k}_2 \cdot \Delta\mathbf{r}} g(\Delta \mathbf{r}) \frac{1}{L_x L_y} \sum_{\mathbf{r} \in \mathcal{L}} e^{-i \left(\mathbf{k}_1 + \mathbf{k}_2\right) \cdot \mathbf{r}} \\
-	&= \sum_{\Delta\mathbf{r} \in \mathcal{L}} e^{-i \mathbf{k}_2 \cdot \Delta\mathbf{r}} g(\Delta \mathbf{r}) \delta_{\mathbf{k}_1=\mathbf{k}_2}
-\end{aligned}
-\]
-where we used the identity of Eq.~\eqref{eq:ehm-delta}. Then the above EV vanishes for $\mathbf{k}_1\neq\mathbf{k}_2$. Getting back to Eq.~\eqref{eq:sc-mft-HU}, this proves that only pairs at null total momentum can have nonzero EVs.
+We are not breaking translational invariance, thus only Cooper fluctuations with net zero total momentum are allowed. This means only $\mathbf{K}=\mathbf{0}$ contributes. Let us prove this: 
 
-Let now $w_\mathbf{k}$ be the EV of $\phi_\mathbf{k}^\dagger$, and $w^{(s)}$ its $s$-wave projection:
+\begin{tabproof}[Cooper pairs have zero net momentum]
+	Consider the EV of the Cooper pair
+	\[
+		\big\langle \hat c_{\mathbf{k}_1\uparrow}^\dagger \hat c_{\mathbf{k}_2\downarrow}^\dagger \big\rangle
+	\]
+	for two momenta $\mathbf{k}_1$, $\mathbf{k}_2$. Moving to real space via an $\mathcal{F}$-transform, we get
+	\[
+		\big\langle \hat c_{\mathbf{k}_1\uparrow}^\dagger \hat c_{\mathbf{k}_2\downarrow}^\dagger \big\rangle \Feq \frac{1}{L_x L_y} \sum_{\mathbf{r}_1 \in \mathcal{L}} \sum_{\mathbf{r}_2 \in \mathcal{L}} e^{-i \left(\mathbf{k}_1 \cdot \mathbf{r}_1 + \mathbf{k}_2 \cdot \mathbf{r}_2\right)} \big\langle \hat c_{\mathbf{r}_1\uparrow}^\dagger \hat c_{\mathbf{r}_2\downarrow}^\dagger \big\rangle
+	\]
+	where we used the convention of Eq.~\eqref{eq:fourier-convention}. Let now $\mathbf{r}_1 \to \mathbf{r}$ and $\mathbf{r}_2 \to \Delta \mathbf{r}$. Translational invariance implies that
+	\[
+		g(\Delta \mathbf{r}) = \big\langle \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}+\Delta\mathbf{r}\downarrow}^\dagger \big\rangle
+	\]
+	is independent of $\mathbf{r}$. Thus we have:
+	\[
+	\begin{aligned}
+		\big\langle \hat c_{\mathbf{k}_1\uparrow}^\dagger \hat c_{\mathbf{k}_2\downarrow}^\dagger \big\rangle &\Feq \sum_{\Delta\mathbf{r} \in \mathcal{L}} e^{-i \mathbf{k}_2 \cdot \Delta\mathbf{r}} g(\Delta \mathbf{r}) \frac{1}{L_x L_y} \sum_{\mathbf{r} \in \mathcal{L}} e^{-i \left(\mathbf{k}_1 + \mathbf{k}_2\right) \cdot \mathbf{r}} \\
+		&= \sum_{\Delta\mathbf{r} \in \mathcal{L}} e^{-i \mathbf{k}_2 \cdot \Delta\mathbf{r}} g(\Delta \mathbf{r}) \delta_{\mathbf{k}_1=\mathbf{k}_2}
+	\end{aligned}
+	\]
+	where we used the identity of Eq.~\eqref{eq:ehm-delta}. Then the above EV vanishes for $\mathbf{k}_1\neq\mathbf{k}_2$. Getting back to Eq.~\eqref{eq:sc-mft-HU}, this proves that only pairs at null total momentum can have nonzero EVs.
+\end{tabproof}
+%
+Now, let $w_\mathbf{k}$ be the EV of $\phi_\mathbf{k}^\dagger$, and $w^{(s)}$ its $s$-wave harmonic:
 \begin{align}
 	w_\mathbf{k} &\equiv \big\langle
 	\phi_\mathbf{k}^\dagger
 	\big\rangle \label{eq:sc-wq-def} \\
-	w^{(s)} &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}} w_\mathbf{k} \label{eq:sc-hm-ws-self-consistency}
+	w^{(s)} &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} w_\mathbf{k} \label{eq:sc-hm-ws-self-consistency}
 \end{align}
 Eq.~\eqref{eq:sc-mft-HU} reduces to
 \begin{equation}\label{eq:sc-HU-<phi>-phi}
-	\hat H_U \simeq \text{(Hartree channel)} + \frac{U}{L_x L_y} \sum_{\mathbf{k},\mathbf{k}'} \left[
+	\hat H_U \HFsimeq \text{(Hartree channel)} + \frac{U}{L_x L_y} \sum_{\mathbf{k},\mathbf{k}'} \left[
 	\big\langle
 	\hat \phi_\mathbf{k}^\dagger
 	\big\rangle \hat \phi_{\mathbf{k}'} + 
@@ -174,11 +178,32 @@ Eq.~\eqref{eq:sc-mft-HU} reduces to
 	\big\rangle
 	\right] - E_{\mathrm{C}/U}^{(\mathrm{SC})}
 \end{equation}
-being $E_{\mathrm{C}/U}^{(\mathrm{SC})}$ the HM Cooper contraction energy, written explicitly in Sec.~\ref{subsec:sc-l-cooper-energy}. Let now
+being $E_{\mathrm{C}/U}^{(\mathrm{SC})}=L_x L_y \times U \big| w^{(s)} \big|^2$ the HM Cooper contraction energy.
+
+\begin{tabproof}[Local Hartree contraction energy.]
+	The Cooper contraction energy for the local interaction is given by:
+	\[
+		E_{\mathrm{C}/U}^{(\mathrm{SC})} \equiv \frac{U}{L_x L_y} \sum_{\mathbf{k}\mathbf{k}'} \big\langle
+		\hat \phi_\mathbf{k}^\dagger
+		\big\rangle \big\langle
+		\hat \phi_{\mathbf{k}'}
+		\big\rangle
+	\]
+	Substituting Eqns.~\eqref{eq:sc-wq-def}, \eqref{eq:sc-hm-ws-self-consistency} we get:
+	\begin{align}
+		E_{\mathrm{C}/U}^{(\mathrm{SC})} &= L_x L_y \times U \left(\frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} w_\mathbf{k}\right) \left(\frac{1}{L_x L_y} \sum_{\mathbf{k}'\in\mathrm{BZ}} w_{\mathbf{k}'}\right) \\
+		&= L_x L_y \times U \big| w^{(s)} \big|^2 \label{eq:sc-cooper-U-contraction-energy}
+	\end{align}
+	which proves our statement.
+\end{tabproof}
+%
+As for the Hartree channel, also the Cooper channel contributes negatively to ground-state energy.
+
+We now define the $s$-wave component of the gap function,
 \begin{equation}\label{eq:sc-Delta^s}
 	\Delta^{(s)} \equiv -U w^{(s)}
 \end{equation}
-This is the $s$-wave component of the gap function. Note that, in general, $\Delta^{(s)} \in \mathbb{C}$. However, we can always choose $\Delta^{(s)}$ as purely real. This is due to the fact that the hamiltonian is gauge-invariant, then it suffices to apply the gauge map of Eq.~\eqref{eq:gauge-symmetry} to the fermionic operators with
+Note that, in general, $\Delta^{(s)} \in \mathbb{C}$. However, we can always choose $\Delta^{(s)}$ as purely real. This is due to the fact that the hamiltonian is gauge-invariant, then it suffices to apply the gauge map of Eq.~\eqref{eq:gauge-symmetry} to the fermionic operators with
 \[
 	\eta \equiv \frac{\arg \Delta^{(s)}}{2}
 \]
@@ -186,25 +211,12 @@ to obtain $\Delta^{(s)} \in \mathbb{R}$. For the sake of generality, we proceed 
 
 In the end, we reduce $\hat H_U$ from Eq.~\eqref{eq:sc-HU-<phi>-phi} to
 \begin{equation}\label{eq:sc-HU-gap-phi}
-	\hat H_U \simeq \text{(Hartree channel)} - \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
+	\hat H_U \HFsimeq \text{(Hartree channel)} - \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
 	\Delta^{(s)} \hat \phi_\mathbf{k} + 
 	\Delta^{(s)*} \hat \phi_\mathbf{k}^\dagger
 	\right] - E_{\mathrm{C}/U}^{(\mathrm{SC})}
 \end{equation}
 This last decomposition resembles Eq.~\eqref{eq:af-HU-gap-psi}, obtained for the AF phase in the Hartree channel.
-
-\subsection{Local Cooper contraction energy}\label{subsec:sc-l-cooper-energy}
-
-The Cooper contraction energy in the Cooper channel is given by:
-\begin{align}
-	E_{\mathrm{C}/U}^{(\mathrm{SC})} &\equiv \frac{U}{L_x L_y} \sum_{\mathbf{k}\mathbf{k}'} \big\langle
-	\hat \phi_\mathbf{k}^\dagger
-	\big\rangle \big\langle
-	\hat \phi_{\mathbf{k}'}
-	\big\rangle \nonumber \\
-	&= L_x L_y \times U \big| w^{(s)} \big|^2 \label{eq:sc-cooper-U-contraction-energy}
-\end{align}
-As for the Hartree channel, also the Cooper channel contributes negatively to ground-state energy.
 
 \subsection{Superconductivity in the HM}\label{subsec:sc-hm}
 
@@ -214,7 +226,7 @@ We proceed here as we did for the AF phase in Sec.~\ref{subsec:af-hm}. We start 
 
 Collecting the results of the above paragraphs, we obtain the quadratic approximation to the Hubbard hamiltonian in the SC phase,
 \begin{multline}
-	\hat H_t + \hat H_U \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_{\mathbf{k}\sigma}
+	\hat H_t + \hat H_U \HFsimeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_{\mathbf{k}\sigma}
 	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \\
 	- \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
 	\Delta^{(s)} \hat \phi_\mathbf{k} + 
@@ -248,9 +260,9 @@ being $E_\mathrm{a}^{(\mathrm{SC})}$ the ``anticommutation energy''
 	E_\mathrm{a}^{(\mathrm{SC})} \equiv \sum_{\mathbf{k}\in\mathrm{BZ}} \xi_\mathbf{k}
 \end{equation}
 
-In the end, the hamiltonian is approximated by:
+In the end, the hamiltonian is approximated (in the sense of HF methods) by:
 \begin{multline*}
-	\hat H_t + \hat H_U \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \epsilon_\mathbf{k}
+	\hat H_t + \hat H_U \HFsimeq \sum_{\mathbf{k} \in \mathrm{BZ}} \epsilon_\mathbf{k}
 	\left[
 		\hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}\uparrow}
 		- \hat c_{\mathbf{k}\downarrow} \hat c_{\mathbf{k}\downarrow}^\dagger
@@ -273,7 +285,7 @@ Let the Nambu spinor
 \] 
 The approximated hamiltonian can be written in matrix form as:
 \[
-	\hat H_t + \hat H_U - \mu \hat N \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \hat \Phi_\mathbf{k}^\dagger h_\mathbf{k} \hat \Phi_\mathbf{k} + E_\mathrm{a}^{(\mathrm{SC})} - \left[
+	\hat H_t + \hat H_U - \mu \hat N \HFsimeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \hat \Phi_\mathbf{k}^\dagger h_\mathbf{k} \hat \Phi_\mathbf{k} + E_\mathrm{a}^{(\mathrm{SC})} - \left[
 		E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
 	\right]
 \]
@@ -347,7 +359,7 @@ We report the EVs related to these identities Tab.~\ref{tab:sc-pseudo-spin-map}.
 
 We express the approximated hamiltonian in pseudospin representation as:
 \begin{equation}\label{eq:sc-hm-spin-h}
-	\hat H_t + \hat H_U - \mu \hat N \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \mathbf{b}_\mathbf{k} \cdot \hat{\mathbf{s}}_\mathbf{k} + nU \hat N + E_\mathrm{a}^{(\mathrm{SC})} - \left[
+	\hat H_t + \hat H_U - \mu \hat N \HFsimeq \sum_{\mathbf{k} \in \mathrm{BZ}} \mathbf{b}_\mathbf{k} \cdot \hat{\mathbf{s}}_\mathbf{k} + nU \hat N + E_\mathrm{a}^{(\mathrm{SC})} - \left[
 		E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
 	\right]
 \end{equation}
@@ -418,7 +430,7 @@ Explicitly:
 \end{align}
 The new Fermionic operators describe a Fermi gas on distributed on two mirrored bands,
 \[
-	\hat H_t + \hat H_U - \tilde{\mu} \hat N \simeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma E_\mathbf{k} \left(
+	\hat H_t + \hat H_U - \tilde{\mu} \hat N \HFsimeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma E_\mathbf{k} \left(
 	\hat \gamma_\mathbf{k}^{(+)\dagger} \hat \gamma_\mathbf{k}^{(+)} - \hat \gamma_\mathbf{k}^{(-)\dagger} \hat \gamma_\mathbf{k}^{(-)}
 	\right) + (\cdots) 
 \]
@@ -485,31 +497,35 @@ Recall Eq.~\eqref{eq:sc-hm-ws-self-consistency} and expand it, to obtain
 	}{2} \nonumber \\
 	&= \frac{1}{2 L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\Delta_\mathbf{k}}{E_\mathbf{k}} \mathrm{Th}_\mathbf{k}^{(-)}[\beta] \label{eq:sc-hm-ws-self-consistency-2}
 \end{align}
-Last line is the explicit form of the self-consistency equation for $w^{(s)}$.
+The last line is the explicit form of the self-consistency equation for $w^{(s)}$.
 
 \paragraph{Impossibility of $s$-wave superconductivity.}
 
-Let us define the critical $U$,
-\begin{equation}\label{eq:sc-Uc}
+At HF level, the HM cannot host superconductivity. This means that $w^{(s)}$ = 0. To show this, we need to define the critical $U$,
+\begin{equation}\label{eq:sc-hm-Uc}
 	U_\mathrm{c}[\beta] \equiv \left[
 	\frac{1}{2 L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\mathrm{Th}_\mathbf{k}^{(-)}[\beta]}{E_\mathbf{k}}
 	\right]^{-1}
 \end{equation}
-We call it ``critical'' because its value gives a sort of boundary for convergence. Indeed, as we show in App.~\ref{appendix:sc-g-opt}, for the SC phase in conventional HM, we are able to optimise parametrically the mixing parameter $g$ in order to ensure convergence, based on the ratio $U/U_\mathrm{c}[\beta]$. 
+We call it ``critical'' because its value gives a sort of boundary for convergence. Indeed, {\color{tabred}\textbf{as we show in App.~\ref{appendix:sc-g-opt}}}, for the SC phase in conventional HM, we are able to optimise parametrically the mixing parameter $g$ in order to ensure convergence, based on the ratio $U/U_\mathrm{c}[\beta]$. Let us show that superconductivity is not possible in the conventional HM with $U>0$.
 
-Let us show that superconductivity is not possible in the conventional HM with $U>0$. Eq.~\eqref{eq:sc-hm-ws-self-consistency-2} can be rewritten as:
-\[
-	w^{(s)} = -\frac{U}{U_\mathrm{c}[\beta]} w^{(s)}
-\]
-By construction $U_\mathrm{c}[\beta] > 0$, being the thermal factor positive by construction:
-\[
-\begin{aligned}
-	\mathrm{Th}_\mathbf{k}^{(-)}[\beta] &= \frac{1}{e^{-\beta E_\mathbf{k}}+1} - \frac{1}{e^{\beta E_\mathbf{k}}+1} \\
-	&= \frac{e^{\beta E_\mathbf{k}}}{e^{\beta E_\mathbf{k}}+1} - \frac{1}{e^{\beta E_\mathbf{k}}+1} \\
-	&= \tanh(\frac{\beta E_\mathbf{k}}{2}) 
-\end{aligned}
-\]
-Hence the unique possible self-consistent solution for the equation above is $w^{(s)}=0$. This implication terminates the argument: superconductivity cannot establish self-consistently at HF level in the repulsive HM. If instead $U<0$, which is, if the model is attractive, we the aforementioned implication is not true and a self-consistent non-zero solution is possible.
+\begin{tabproof}[Impossibility of $s$-wave superconductivity in the conventional HM]
+	By construction $U_\mathrm{c}[\beta] > 0$, being the thermal factor positive by construction:
+	\[
+	\begin{aligned}
+		\mathrm{Th}_\mathbf{k}^{(-)}[\beta] &= \frac{1}{e^{-\beta E_\mathbf{k}}+1} - \frac{1}{e^{\beta E_\mathbf{k}}+1} \\
+		&= \frac{e^{\beta E_\mathbf{k}}}{e^{\beta E_\mathbf{k}}+1} - \frac{1}{e^{\beta E_\mathbf{k}}+1} \\
+		&= \tanh(\frac{\beta E_\mathbf{k}}{2}) 
+	\end{aligned}
+	\]
+	Using Eq.~\eqref{eq:sc-hm-Uc}
+	Eq.~\eqref{eq:sc-hm-ws-self-consistency-2} can be rewritten as:
+	\[
+		w^{(s)} = -\frac{U}{U_\mathrm{c}[\beta]} w^{(s)}
+	\]
+	The unique possible self-consistent solution for the equation above is $w^{(s)}=0$. This implication terminates the argument: superconductivity cannot establish self-consistently at HF level in the repulsive HM. 
+\end{tabproof}	
+Note that the above proof does not hold for $U<0$. An attractive model can host $s$-wave superconductivity.
 
 \paragraph{Density.}
 
@@ -543,11 +559,11 @@ Add now the non-local interaction $\hat H_V$. As we did for the AF phase, we loo
 	\qquad
 	\mu \to \tilde{\mu}
 \]
-To be completely correct, the chemical potential was already renormalized in the HM derivation in Sec.~\ref{appsubsec:sc-hartree-channel}. It here acquires yet another renormalization. The band energies renormalization is simply
+The chemical potential was already renormalised once in the HM derivation in Sec.~\ref{subsec:sc-l-hartree-analytic}. Renormalisation of Bogoliubov bands follows that of bare bands and gap function, 
 \[
 	\tilde{E}_\mathbf{k} \equiv \sqrt{\tilde{\xi}_\mathbf{k}^2 + |\tilde{\Delta}_\mathbf{k}|^2}
 \]
-Let the renormalised angle:
+Angles are changed too. Let $\tilde{\theta}$
 \begin{equation}\label{eq:sc-ehm-(~theta)}
 	\sin 2\tilde{\theta}_\mathbf{k} = \frac{|\tilde{\Delta}_\mathbf{k}|}{\tilde{E}_\mathbf{k}}
 	\qquad
@@ -559,13 +575,14 @@ and similarly the angle $\tilde{\zeta}_\mathbf{k}$,
 	\qquad
 	\cos 2\tilde{\zeta}_\mathbf{k} = \frac{\Im\{\tilde{\Delta}_\mathbf{k}\}}{|\tilde{\Delta}_\mathbf{k}|}
 \end{equation}
-The pseudospin EVs are renormalised too,
+which give the pseudospin EVs
 \begin{align}
 	\langle \hat \Phi_\mathbf{k}^\dagger \tau^x \hat \Phi_\mathbf{k} \rangle &= -\sin 2\tilde{\theta}_\mathbf{k} \sin 2\tilde{\zeta}_\mathbf{k} \langle \hat \Gamma_\mathbf{k}^\dagger \tau^z \hat \Gamma_\mathbf{k} \rangle \label{eq:sc-x-expectation-non-local} \\
 	\langle \hat \Phi_\mathbf{k}^\dagger \tau^y \hat \Phi_\mathbf{k} \rangle &= -\sin 2\tilde{\theta}_\mathbf{k} \cos 2\tilde{\zeta}_\mathbf{k} \langle \hat \Gamma_\mathbf{k}^\dagger \tau^z \hat \Gamma_\mathbf{k} \rangle \label{eq:sc-y-expectation-non-local} \\
 	\langle \hat \Phi_\mathbf{k}^\dagger \tau^z \hat \Phi_\mathbf{k} \rangle &= \cos 2\tilde{\theta}_\mathbf{k} \langle \hat \Gamma_\mathbf{k}^\dagger \tau^z \hat \Gamma_\mathbf{k} \rangle \label{eq:sc-z-expectation-non-local}
 \end{align}
-Let also:
+
+Renormalisation of thermal factors and $z$ pseudospin EV in tilted frame give:
 \begin{align}
 	\langle \hat \Gamma_\mathbf{k}^\dagger \tau^z \hat \Gamma_\mathbf{k} \rangle = 
 	f\left(
@@ -580,7 +597,7 @@ Let also:
 		\tilde{E}_\mathbf{k};\beta,0
 	\right) \label{eq:sc-~Th}
 \end{align}
-For the SC phase, the thermal factors reduce to:
+For the SC phase, the thermal factors are simpler than those of the AF phase. Indeed, using basic algebra, we see that:
 \begin{align}
 	\tilde{\mathrm{Th}}_\mathbf{k}^{(+)} &= 1 \label{eq:sc-Th+=1} \\
 	\tilde{\mathrm{Th}}_\mathbf{k}^{(-)} &= \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) \label{eq:sc-Th-=tanh}
@@ -601,69 +618,59 @@ We can rewrite the equations for $w^{(s)}$ and $n$ accordingly,
 	1 - \cos 2\tilde{\theta}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
 	\right] \label{eq:sc-ehm-n-BZ-Th}
 \end{align}
-where we used Eqns.~\eqref{eq:sc-hm-ws-self-consistency-2}, \eqref{eq:sc-hm-n-BZ-Th}.
-
-From Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules} we know none of the three channels (Hartree, Fock, Cooper) is subject to selection rules. Thus all terms of the decomposition of $\hat H_V$ given in Eq.~\eqref{eq:mft-HV} contribute. As always, we break down each.
+where we used Eqns.~\eqref{eq:sc-hm-ws-self-consistency-2}, \eqref{eq:sc-hm-n-BZ-Th}. From Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules} we know the selection rule for each channel. We break down each.
 
 \section{Non-local Hartree effects: chemical potential renormalisation}\label{sec:sc-hartree-mu}
 
 We start by analysing the non-local Hartree channel,
 \begin{multline*}
-	\hat H_V \simeq -V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \Big(
+	\hat H_V \HFsimeq -V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \Big(
 	\hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle + \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} - \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle  \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle \Big) \\
 	+ (\text{Fock channel}) + (\text{Cooper channel})
 \end{multline*}
-where we used Eq.~\eqref{eq:mft-HV}. This discussion is based on that for the normal phase in Sec.~\ref{sec:normal-hartree-mu}.
+where we used Eq.~\eqref{eq:mft-HV}. This discussion is based on that for the normal phase in Sec.~\ref{sec:normal-hartree-mu}, and leads to an identical result: the non-local Hartree channel renormalises the chemical potential.
 
-\subsection{Non-local Hartree channel in the SC phase: analytic derivation}\label{subsec:sc-hartree-analytic}
-
-Without repeating the calculations, the non-local attraction $\hat H_V$ is reduced in the Hartree channel to
+We do not repeat the calculations already carried out for the normal phase. The non-local attraction $\hat H_V$ is reduced in the Hartree channel to
 \[
-	\hat H_V \simeq -2nzV \times \hat N - E_{\mathrm{H}/V}^{(\mathrm{SC})} + 
+	\hat H_V \HFsimeq -2nzV \times \hat N - E_{\mathrm{H}/V}^{(\mathrm{SC})} + 
 	(\text{all the rest})
 \]
 This, together with the $\hat H_U$ Hartree channel decomposition
 \[
-	\hat H_U \simeq nU \times \hat N - E_{\mathrm{H}/U}^{(\mathrm{SC})}
+	\hat H_U \HFsimeq nU \times \hat N - E_{\mathrm{H}/U}^{(\mathrm{SC})}
 \]
-gives the chemical potential full renormalization, identical to Eq.~\eqref{eq:normal-mu-shift},
+gives the chemical potential full renormalisation, identical to Eq.~\eqref{eq:normal-mu-shift},
 \begin{equation}\label{eq:sc-mu-shift}
 	\tilde{\mu} \equiv \mu + n(2zV-U)
 \end{equation}
-
-\subsection{Non-local Hartree contraction energy}\label{subsec:sc-hartree-energy}
 
 The contraction energy for the non-local sector was derived in Eq.~\eqref{eq:normal-hartree-V-contraction-energy},
 \[
 	E_{\mathrm{H}/V}^{(\mathrm{SC})} = - L_x L_y \times 2zn^2 V
 \]
-and together with the local counterpart of  Eq.~\eqref{eq:normal-hartree-U-contraction-energy}
-\[
-	E_{\mathrm{H}/U}^{(\mathrm{SC})} = L_x L_y \times n^2U
-\]
 Now we move to the more interesting Fock sector.
 
-\section{Fock effects: bare bands renormalization}\label{sec:sc-fock}
+\section{Fock effects: bare bands renormalisation}\label{sec:sc-fock}
 
-As done for the other phases, we here discuss the bands renormalization effect derived from the Fock sector of the non-local attraction. From Eq.~\eqref{eq:mft-HV}, we have
+As done for the other phases, we here discuss the bands renormalisation effect derived from the Fock sector of the non-local attraction. From Eq.~\eqref{eq:mft-HV}, we have
 \begin{multline*}
-	\hat H_V \simeq (\text{Hartree channel}) \\
+	\hat H_V \HFsimeq (\text{Hartree channel}) \\
 	V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \Big(
 	\hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\langle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} \big\rangle + \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\rangle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} - \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\rangle  \big\langle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} \big\rangle \Big)
 	+ (\text{Cooper channel})
 \end{multline*}
-This discussion is essentially analogous the one done for the normal phase in Sec.~\ref{sec:normal-fock-bands-renormalization}. As for previous phases, following the selection rules of Tab.~\ref{tab:HV-sel-rules}, only the s.s. channel contributes. Therefore we use from now on, in this section, $\sigma=\sigma'$.
+This discussion is essentially analogous the one done for the normal phase in Sec.~\ref{sec:normal-fock-bands-renormalisation}. It will lead us to renormalisation of bare bands, which is given by a simultaneous shrinking of bare bands and emergence of an anisotropic component in hopping. As for previous phases, following the selection rules of Tab.~\ref{tab:HV-sel-rules}, only the s.s. sector contributes. Therefore we use from now on, in this section, $\sigma=\sigma'$.
 
-\subsection{Fock channel in the SC phase: analytic derivation}\label{subsec:sc-fock-analytic}
-
-Let us define, as done for the normal phase in Eq.~\eqref{eq:normal-uqsigma-def} and for the AF phase in Eq.~\eqref{eq:af-uqsigma-def},
-\begin{equation}\label{eq:sc-uqsigma-def}
-	u_{\mathbf{k}\sigma} \equiv \langle
+In the context of the normal phase, when analysing the Fock channel, we got to Eq.~\eqref{eq:normal-V-fock-int5}. For the SC phase the same argument holds. Let us define, as done for the normal phase in Eq.~\eqref{eq:normal-uqsigma-def} and for the AF phase in Eq.~\eqref{eq:af-uqsigma-def},
+\begin{align}
+	u_{\mathbf{k}\sigma} &\equiv \langle
 	\hat c_{\mathbf{k}\sigma}^\dagger
 	\hat c_{\mathbf{k}\sigma}
-	\rangle
-\end{equation}
-Eq.~\eqref{eq:normal-V-fock-int5} stands perfectly valid, translated to the SC phase
+	\rangle \label{eq:sc-uqsigma-def} \\
+	&= \langle
+	\hat n_{\mathbf{k}\sigma} \rangle \nonumber
+\end{align}
+Hence, Eq.~\eqref{eq:normal-V-fock-int5} becomes:
 \begin{multline}
 	V \sum_{\ev{ij}} \sum_\sigma \left[
 		\langle
@@ -687,9 +694,9 @@ Eq.~\eqref{eq:normal-V-fock-int5} stands perfectly valid, translated to the SC p
 	\hat c_{\mathbf{k}'\sigma}^\dagger
 	\hat c_{\mathbf{k}'\sigma} - E_{\mathrm{F}/V}^{(\mathrm{SC})} \label{eq:sc-V-fock-int1}
 \end{multline}
-being
-\begin{equation}\label{eq:sc-V-fock-double-counting}
-	E_{\mathrm{F}/V}^{(\mathrm{SC})} \equiv \frac{V}{L_x L_y} \sum_{\mathbf{k}, \mathbf{k}'} \sum_\sigma \left[
+with the energy shift being given by:
+\begin{align}
+	E_{\mathrm{F}/V}^{(\mathrm{SC})} &\equiv \frac{V}{L_x L_y} \sum_{\mathbf{k}, \mathbf{k}'} \sum_\sigma \left[
 	\cos \left(
 	\delta k_x
 	\right)	+ \cos \left(
@@ -701,71 +708,115 @@ being
 	\hat c_{\mathbf{k}\sigma}
 	\rangle \langle
 	\hat c_{\mathbf{k}'\sigma}^\dagger  \hat c_{\mathbf{k}'\sigma} 
-	\rangle
-\end{equation}
-To get to this point, we employed the assumption
+	\rangle \\
+	&= L_x L_y \times V \left[
+	\big|
+	u^{(s^*)}
+	\big|^2 + \big|
+	u^{(d)}
+	\big|^2
+	\right] \label{eq:sc-fock-V-contraction-energy}
+\end{align}
+where we used Eq.~\eqref{eq:normal-fock-V-contraction-energy}, which is formally identical in the SC phase with the only difference that EVs are now computed on the SC ground-state. To get to this point, we used the fact that:
 \[
 	\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}' \sigma'} \rangle = \delta_{\mathbf{k}=\mathbf{k}'} \delta_{\sigma=\sigma'} \langle \hat c_{\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{k} \sigma} \rangle
 \]
-which essentially states translational invariance and spin degeneracy. This assumption is verified by the BCS ground state of Eq.~\ref{appeq:sc-hm-gs}. Let us define each $\gamma$-wave component as
-\[
+which states translational invariance and spin degeneracy. 
+
+Let us define each $\gamma$-wave harmonic of $u_\mathbf{k}$ as
+\begin{equation}\label{sc-hm-ugamma-harmonics}
 	u^{(\gamma)}_\sigma = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}
 	\langle
 		\hat c_{\mathbf{k}\sigma}^\dagger
 		\hat c_{\mathbf{k}\sigma}
 	\rangle
-\]
-These are our HFPs in the Fock channel. The SC phase does not break inversion symmetry: then, as we concluded for the other phases, $p_\ell$ components are null. The renormalised bands are, as in Eqns.~\eqref{eq:normal-bands-renormalization}, \eqref{eq:af-bands-renormalisation},
+\end{equation}
+The set of these harmonics give the HFPs in the Fock channel. The SC phase does not break inversion symmetry: then, as we concluded for the other phases, $p_\ell$ components are null. The renormalised bands are, as in Eqns.~\eqref{eq:normal-bands-renormalisation}, \eqref{eq:af-bands-renormalisation},
 \[
 	\tilde{\epsilon}_\mathbf{k} \equiv \epsilon_\mathbf{k} + u^{(s^*)} V (\cos k_x + \cos k_y) + u^{(d)} V (\cos k_x - \cos k_y)
 \]
+Each component satisfies the self-consistency equation:
+\begin{equation}\label{sc-hm-ugamma-self-consistency}
+	u^{(\gamma)} = \frac{1}{2L_x L_y} 	\sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \left[
+	1 - \cos 2 \tilde{\theta}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
+	\right]
+\end{equation}
+In Tab.~\ref{tab:sc-ehm-ugamma-self-consistencies}
+we report these equations, writing explicitly the harmonics from Tab.~\ref{tab:x-wave-reciprocal-factors} and using the angular relations of Eq.~\eqref{eq:sc-ehm-(~theta)}.
 
-Let us compute the EVs of $u_{\mathbf{k}\sigma}$ in the two spin sectors,
-\begin{align}
-	u_{\mathbf{k}\uparrow} &= \langle \hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}\uparrow} \rangle \nonumber \\	
-	&= \ev{
-		\hat \Phi_\mathbf{k}^\dagger \frac{\Id + \tau^z}{2} \hat \Phi_\mathbf{k}
-	} \nonumber \\
-	&= \frac{1}{2} \left[
+\begin{table}
+	\centering
+	\begin{tabular}{r E l l}
+		\textbf{Symmetry} & \multicolumn{2}{c}{\textbf{Self-consistency equation}} & \textbf{Graph}\\
+		\midrule
+		$s^*$-wave & $u^{(s^*)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) \left[
+		1 - \frac{\tilde{\xi}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
+		\right] $ & Fig.~\ref{subfig:s*-wave-correlator} \\[1.5em]
+		$d_{x^2-y^2}$-wave & $u^{(d)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) \left[
+		1 - \frac{\tilde{\xi}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
+		\right] $ & Fig.~\ref{subfig:d-wave-correlator} \\
+		\midrule
+	\end{tabular}
+	\caption{Symmetry resolved self-consistency equations for the harmonics of $u_\mathbf{k}$. The shown equations are reformulations of Eq.~\eqref{sc-hm-ugamma-self-consistency}.}
+	\label{tab:sc-ehm-ugamma-self-consistencies}
+\end{table}
+\setlength{\extrarowheight}{0em}
+
+Let us prove the above equation. We proceed by proving first $u_{\mathbf{k}\uparrow} = 	u_{-\mathbf{k}\downarrow}$, and that both transform accordingly to Eq.~\eqref{sc-hm-ugamma-self-consistency}
+
+\begin{tabproof}[Self-consistency equations for $u^{(\gamma)}$]
+	
+	We start by computing explicitly $u_{\mathbf{k}\sigma}$. For $\sigma=\uparrow$, we get the chain of equalities:
+	\begin{align}
+		u_{\mathbf{k}\uparrow} &= \langle \hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}\uparrow} \rangle \nonumber \\	
+		&= \ev{
+			\hat \Phi_\mathbf{k}^\dagger \frac{\Id + \tau^z}{2} \hat \Phi_\mathbf{k}
+		} \nonumber \\
+		&= \frac{1}{2} \left[
+			\ev{
+				\hat \Gamma_\mathbf{k}^\dagger \hat \Gamma_\mathbf{k}
+			} + \ev{\hat s_\mathbf{k}^z}
+		\right] \nonumber \\
+		&= \frac{1}{2} \left[
+			\tilde{\mathrm{Th}}_\mathbf{k}^{(+)} [\beta] - 
+			\cos 2 \tilde{\theta}_\mathbf{k} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)} [\beta]
+		\right] \nonumber \\
+		&= \frac{1}{2} \left[
+			1 - \cos 2 \tilde{\theta}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
+		\right] \label{eq:sc-ehm-uUp-EV}
+	\end{align}
+	having we used Eq.~\eqref{eq:sc-~Th} and sequent. Inserting this result in Eq.~\eqref{sc-hm-ugamma-harmonics}, we get Eq.~\eqref{sc-hm-ugamma-self-consistency} in this spin sector. For $\sigma=\downarrow$,
+	\begin{align}
+		u_{-\mathbf{k}\downarrow} &= \langle \hat c_{-\mathbf{k}\downarrow}^\dagger \hat c_{-\mathbf{k}\downarrow} \rangle \nonumber \\	
+		&= 1 - \langle \hat c_{-\mathbf{k}\downarrow} \hat c_{-\mathbf{k}\downarrow}^\dagger \rangle \nonumber \\
+		&= 1 - \ev{
+			\hat \Phi_\mathbf{k}^\dagger \frac{\Id - \tau^z}{2} \hat \Phi_\mathbf{k}
+		} \nonumber \\
+		&= 1 - \frac{1}{2} \left[
 		\ev{
 			\hat \Gamma_\mathbf{k}^\dagger \hat \Gamma_\mathbf{k}
-		} + \ev{\hat s_\mathbf{k}^z}
-	\right] \nonumber \\
-	&= \frac{1}{2} \left[
-		\tilde{\mathrm{Th}}_\mathbf{k}^{(+)} [\beta] - 
-		\cos 2 \tilde{\theta}_\mathbf{k} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)} [\beta]
-	\right] \nonumber \\
-	&= \frac{1}{2} \left[
-		1 - \cos 2 \tilde{\theta}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
-	\right] \label{eq:sc-ehm-uUp-EV}
-\end{align}
-having we used Eq.~\eqref{eq:sc-ren-thermal-factors-def} and following. For the spin $\downarrow$ EV,
-\begin{align}
-	u_{-\mathbf{k}\downarrow} &= \langle \hat c_{-\mathbf{k}\downarrow}^\dagger \hat c_{-\mathbf{k}\downarrow} \rangle \nonumber \\	
-	&= 1 - \langle \hat c_{-\mathbf{k}\downarrow} \hat c_{-\mathbf{k}\downarrow}^\dagger \rangle \nonumber \\
-	&= 1 - \ev{
-		\hat \Phi_\mathbf{k}^\dagger \frac{\Id - \tau^z}{2} \hat \Phi_\mathbf{k}
-	} \nonumber \\
-	&= 1 - \frac{1}{2} \left[
-	\ev{
-		\hat \Gamma_\mathbf{k}^\dagger \hat \Gamma_\mathbf{k}
-	} - \ev{\hat s_\mathbf{k}^z}
-	\right] \nonumber \\
-	&= 1 - \frac{1}{2} \left[
-		\tilde{\mathrm{Th}}_\mathbf{k}^{(+)} [\beta] + 
-		\cos 2 \tilde{\theta}_\mathbf{k} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)} [\beta]
-	\right] \nonumber \\
-	&= 1 - \frac{1}{2} \left[
-	1 + \cos 2 \tilde{\theta}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
-	\right] \label{eq:sc-ehm-uDown-EV}
-\end{align}
-From the above results, note first that
+		} - \ev{\hat s_\mathbf{k}^z}
+		\right] \nonumber \\
+		&= 1 - \frac{1}{2} \left[
+			\tilde{\mathrm{Th}}_\mathbf{k}^{(+)} [\beta] + 
+			\cos 2 \tilde{\theta}_\mathbf{k} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)} [\beta]
+		\right] \nonumber \\
+		&= 1 - \frac{1}{2} \left[
+		1 + \cos 2 \tilde{\theta}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
+		\right] \label{eq:sc-ehm-uDown-EV}
+	\end{align}
+	We observe that the last line equals Eq.~\eqref{eq:sc-ehm-uUp-EV}. Hence
+	\[
+		u_{\mathbf{k}\uparrow} = 	u_{-\mathbf{k}\downarrow}
+	\]
+	which is coherent with our requirement of a uniform-density, spin uniform and inversion symmetric phase. This proves Eq.~\eqref{sc-hm-ugamma-self-consistency} for both spin sectors.
+\end{tabproof}
+%
+Note also that summing Eqns.~\eqref{eq:sc-ehm-uUp-EV}, \eqref{eq:sc-ehm-uDown-EV} we get the expression for density of Eq.~\eqref{eq:sc-ehm-n-BZ-Th}. This is expected, since
 \[
-	u_{\mathbf{k}\uparrow} = 	u_{-\mathbf{k}\downarrow}
-\]
-which is coherent with our requirement of a uniform-density, spin uniform and inversion symmetric phase. Note also that Eqns.~\eqref{eq:sc-ehm-uUp-EV}, \eqref{eq:sc-ehm-uDown-EV} combine to give the expression for density of Eq.~\eqref{eq:sc-ehm-n-BZ-Th}.
-
-If we take the $\tilde{\theta}_\mathbf{k} \to 0$ limit, we must retrieve the Fermi-Dirac distribution. Indeed, this limit coincides with $U \to 0$. Explicitly:
+	n = \sum_{\mathbf{k}\in\mathrm{BZ}} \langle \hat n_{\mathbf{k}\uparrow} + \hat n_{-\mathbf{k}\downarrow} \rangle
+\]	
+Finally, if we take the $\tilde{\theta}_\mathbf{k} \to 0$ limit, we must retrieve the Fermi-Dirac distribution. Indeed, this limit coincides with $U,V \to 0$. Explicitly:
 \[
 \begin{aligned}
 	\lim_{\tilde{\theta}_\mathbf{k} \to 0} u_{\mathbf{k}\sigma} &= \frac{1}{2} \left[
@@ -785,69 +836,22 @@ If we take the $\tilde{\theta}_\mathbf{k} \to 0$ limit, we must retrieve the Fer
 	&= f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
 \end{aligned}
 \]
-Correctly, the null-gap limit (for which the angle reduces to zero) gives back a perfectly degenerate Fermi gas.
-
-We can then derive the $u_\mathbf{k}$-related HFPs self-consistency equations. In next passages, we use $\sigma=\uparrow$ but could have used the opposite due to spin degeneracy discussed above. Then:
-\begin{align}
-	u^{(\gamma)} &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \big\langle
-		\hat n_{\mathbf{k}\uparrow}
-	\big\rangle \nonumber \\
-	&= \frac{1}{2L_x L_y} 	\sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \left[
-		1 - \cos 2 \tilde{\theta}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
-	\right]
-\end{align}
-reported explicitly for the only two inversion symmetric structures in Tab.~\ref{tab:sc-ehm-ugamma-self-consistencies}.
-
-\begin{table}
-	\centering
-	\begin{tabular}{r E l l}
-		\textbf{Symmetry} & \multicolumn{2}{c}{\textbf{Self-consistency equation}} & \textbf{Graph}\\
-		\midrule
-		$s^*$-wave & $u^{(s^*)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) \left[
-			1 - \frac{\tilde{\xi}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
-		\right] $ & Fig.~\ref{subfig:s*-wave-correlator} \\[1.5em]
-		$d_{x^2-y^2}$-wave & $u^{(d)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) \left[
-			1 - \frac{\tilde{\xi}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
-		\right] $ & Fig.~\ref{subfig:d-wave-correlator} \\
-		\midrule
-	\end{tabular}
-	\caption{Symmetry resolved self-consistency equations for the harmonics of $u_\mathbf{k}$.}
-	\label{tab:sc-ehm-ugamma-self-consistencies}
-\end{table}
-\setlength{\extrarowheight}{0em}
-
-\subsection{Fock contraction energy}\label{subsec:sc-fock-energy}
-
-In terms of the energy shift due to Wick's contraction, Eq.~\eqref{eq:normal-fock-V-contraction-energy} holds identically
-\[
-	E_{\mathrm{F}/V}^{(\mathrm{SC})} = L_x L_y \times V \left[
-		\big|
-			u^{(s^*)}
-		\big|^2 + \big|
-			u^{(d)}
-		\big|^2
-	\right]
-\]
-with the only obvious difference that the $u^{(\gamma)}$ are computed on the SC ground state by the means of Eqns.~\eqref{eq:sc-ehm-uUp-EV}, \eqref{eq:sc-ehm-uDown-EV}.
+Correctly, the null-gap limit (for which the angle reduces to zero) gives back a perfectly degenerate Fermi gas. These considerations end the algebraic derivations for the Fock channel. We pass to the Cooper part.
 
 \section{Non-local Cooper effects: anisotropic pairing}\label{sec:sc-cooper}
 
-In this section we deal with the Cooper part of Eq.~\eqref{eq:mft-HV},
+In this section we discuss the effects of Cooper contractions in the HF decomposition of $\hat H_V$, shown in Eq.~\eqref{eq:mft-HV},
 \begin{multline*}
-	\hat H_V = \simeq
+	\hat H_V \HFsimeq
 	(\text{Hartree channel}) + (\text{Fock channel}) \\
 	-V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \Big(
 	\hat c_{i\sigma}^\dagger \hat c_{j\sigma'}^\dagger \big\langle \hat c_{j\sigma'} \hat c_{i\sigma} \big\rangle + \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'}^\dagger \big\rangle \hat c_{j\sigma'} \hat c_{i\sigma} - \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'}^\dagger \big\rangle  \big\langle \hat c_{j\sigma'} \hat c_{i\sigma} \big\rangle \Big)
 \end{multline*}
-We know from Eq.~\eqref{eq:ehm-HV(ss)+HV(os)} that the non-local attraction can be separated in o.s. and s.s. channels. As we reported in Tab.~\ref{tab:HV-sel-rules} and stated in Sec.~\ref{sec:sc-phase-theory}, the only non-zero contribution comes from the o.s. sector.
+We know from Eq.~\eqref{eq:ehm-HV(ss)+HV(os)} that the non-local attraction can be separated in o.s. and s.s. channels. As we reported in Tab.~\ref{tab:HV-sel-rules} and stated in Sec.~\ref{sec:sc-phase-theory}, the only non-zero contribution comes from the o.s. sector. This sector contributes both to singlet and triplet pairing. Note that in singlet pairing channel the spatial wavefunction must be inversion-symmetric. On the contrary, in triplet pairing channel it needs to be inversion-antisymmetric. 
 
-\subsection{Non-local Cooper o.s. channel in the SC phase: analytic derivation}\label{subsec:sc-cooper-os-analytic}
-
-The o.s. Cooper sector contributes both to singlet and triplet pairing. Note that in singlet pairing channel the spatial wavefunction must be inversion-symmetric. On the contrary, in triplet pairing channel it needs to be inversion-antisymmetric. 
-
-We move to reciprocal space. From Eq.~\eqref{eq:HV-os-fourier}, we get
+Let us move to reciprocal space. From Eq.~\eqref{eq:HV-os-fourier}, we get
 \begin{multline*}
-	\hat H_V^{(\mathrm{o.s.})} \simeq \text{(Hartree channel)} \\
+	\hat H_V^{(\mathrm{o.s.})} \HFsimeq \text{(Hartree channel)} \\
 	-\frac{2V}{L_x L_y}
 	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
 		\cos \left(
@@ -875,9 +879,9 @@ We move to reciprocal space. From Eq.~\eqref{eq:HV-os-fourier}, we get
 		\big\rangle
 	\Big]
 \end{multline*}
-Identical considerations as for the local repulsion hold, and uniquely the $\mathbf{K}=\mathbf{0}$ term gives a non-zero contribution, in general. Therefore:
+Identical considerations as for the local repulsion hold: Cooper pairs have zero net momentum for translationally invariant SC phases. Hence, $\mathbf{K}=\mathbf{0}$. Therefore, the above operator is reduced to:
 \begin{multline*}
-	\hat H_V^{(\mathrm{o.s.})} \simeq \text{(Hartree channel)} \\
+	\hat H_V^{(\mathrm{o.s.})} \HFsimeq \text{(Hartree channel)} \\
 	-\frac{2V}{L_x L_y}
 	\sum_{\mathbf{k}, \mathbf{k}'} \left[
 		\cos \left(
@@ -905,46 +909,71 @@ Identical considerations as for the local repulsion hold, and uniquely the $\mat
 		\big\rangle
 	\Big]
 \end{multline*}
-Then, using the harmonics decomposition of Eq.~\eqref{eq:coscos-symmetries-decomposition}, we end up with:
+Recall now Eq.~\eqref{eq:sc-wq-def}, where we defined
+\[
+	w_\mathbf{k} \equiv \big\langle
+	\phi_\mathbf{k}^\dagger
+	\big\rangle
+\]
+Using the decomposition of Eq.~\eqref{eq:coscos-symmetries-decomposition}, we end up with:
 \begin{equation} \label{eq:sc-V-os-cooper-int1}
-	\hat H_V^{(\mathrm{o.s.})} \simeq \text{(Hartree channel)}
+	\hat H_V^{(\mathrm{o.s.})} \HFsimeq \text{(Hartree channel)}
 	- \frac{V}{L_x L_y} \sum_\gamma \sum_{\mathbf{k}, \mathbf{k}'} \varphi_\mathbf{k}^{(\gamma)} \varphi_{\mathbf{k}'}^{(\gamma)*}
 	\left[
 		w_\mathbf{k} \hat \phi_{\mathbf{k}'} + w_\mathbf{k}^* \hat \phi_{\mathbf{k}'}^\dagger
 	\right]	- E_{\mathrm{C}/V/\mathrm{o.s.}}^{(\mathrm{SC})}
 \end{equation}
-
-In the equation above the contraction energy is given by
-\begin{equation}\label{eq:sc-Vos-cooper-double-counting}
-	E_{\mathrm{C}/V/\mathrm{o.s.}}^{(\mathrm{SC})} \equiv - \frac{V}{L_x L_y} \sum_\gamma \sum_{\mathbf{k}, \mathbf{k}'} \varphi_\mathbf{k}^{(\gamma)} \varphi_{\mathbf{k}'}^{(\gamma)*} w_\mathbf{k} w_{\mathbf{k}'}^*
-\end{equation}
-Then, let the harmonics $w^{(\gamma)}$ be
+with the contraction energy being given by:
 \[
-	w^{(\gamma)} = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} w_\mathbf{k}
+	E_{\mathrm{F}/V/\mathrm{o.s.}}^{(\mathrm{SC})} \equiv - \frac{V}{L_x L_y} \sum_\gamma \sum_{\mathbf{k}, \mathbf{k}'}  w_\mathbf{k} w_{\mathbf{k}'}^*
 \]
-Eq.~\eqref{eq:sc-V-os-cooper-int1} becomes
+In both equations above, the sum is intended for $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$. The symmetry $s$ is not included.
 
+Now, the set of harmonics of $w_\mathbf{k}$ is part of the HFPs vector. In particular, as we will discuss in a moment, each define a different component of the superconducting gap function. The harmonics $w^{(\gamma)}$ are given by
+\begin{equation}\label{eq:sc-ehm-wgamma-harmonics}
+	w^{(\gamma)} \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} w_\mathbf{k}
+\end{equation}
+This definition includes $w^{(s)}$. With this definition, we get the explicit form of the contraction energy:
+\begin{equation}\label{eq:sc-cooper-V-contraction-energy}
+	E_{\mathrm{F}/V/\mathrm{o.s.}}^{(\mathrm{SC})} = - L_x L_y \times V \sum_\gamma \big| w^{(\gamma)} \big|^2
+\end{equation}
+Note that the above sum does not contain $\gamma=s$. We now prove this.
+
+\begin{tabproof}[Non-local Cooper contraction energy.]
+
+	The contraction energy is formally given  by:
+	\[
+		E_{\mathrm{C}/V/\mathrm{o.s.}}^{(\mathrm{SC})} \equiv - \frac{V}{L_x L_y} \sum_\gamma \sum_{\mathbf{k}, \mathbf{k}'} \varphi_\mathbf{k}^{(\gamma)} \varphi_{\mathbf{k}'}^{(\gamma)*} w_\mathbf{k} w_{\mathbf{k}'}^*
+	\]
+	Substituting the harmonics decomposition of Eq.~\eqref{eq:sc-ehm-wgamma-harmonics}, we get:
+	\[
+	\begin{aligned}
+		E_{\mathrm{C}/V/\mathrm{o.s.}}^{(\mathrm{SC})} & = - L_x L_y \times V \sum_\gamma \left(\frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} w_\mathbf{k} \right) \left(\frac{1}{L_x L_y} \sum_{\mathbf{k}'\in\mathrm{BZ}} \varphi_{\mathbf{k}'}^{(\gamma)*} w_{\mathbf{k}'} \right) \\
+		&= - L_x L_y \times V \sum_\gamma  w^{(\gamma)}  w^{(\gamma)*}  \\
+		&= - L_x L_y \times V \sum_\gamma \big| w^{(\gamma)} \big|^2
+		\qquad
+		\text{(with $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$)}
+	\end{aligned}
+	\]
+	which proves our statement.
+\end{tabproof}
+%
+For a non-locally attractive model ($V>0$) this contribution to energy is positive. This could suggest that the ground state would set $w^{(\gamma)}=0$ in order to minimise energy. This is not the case, as we will see thoroughly in next sections. After all, the fact that this energy contribution is positive (which means, energetically unfavourable) does not mean anything without considering all contributions to energy.
+
+Let us get back to the full operator. Applying the harmonic transformation of Eq.~\eqref{eq:sc-ehm-wgamma-harmonics}, Eq.~\eqref{eq:sc-V-os-cooper-int1} becomes
 \[	
-	\hat H_V^{(\mathrm{o.s.})} \simeq \text{(Hartree channel)}
+	\hat H_V^{(\mathrm{o.s.})} \HFsimeq \text{(Hartree channel)}
 	-V \sum_\gamma \sum_{\mathbf{k}\in\mathrm{BZ}}
 	\left[
 		w^{(\gamma)} \varphi_\mathbf{k}^{(\gamma)*} \hat \phi_\mathbf{k} + \hc 
 	\right] - E_{\mathrm{C}/V/\mathrm{o.s.}}^{(\mathrm{SC})}
 \]
-extending the symmetry sum to $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$.
-
-For the $\gamma$-wave component of the superconducting order parameter, the following chain, similar to Eq.~\eqref{eq:sc-hm-ws-self-consistency-2}, holds:
-\begin{align}
-	w^{(\gamma)} &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \big\langle
-		\hat \phi_\mathbf{k}^\dagger
-	\big\rangle \nonumber \\
-	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}  \big\langle
-		\hat \Phi_\mathbf{k}^\dagger \tau^+ \hat \Phi_\mathbf{k}
-	\big\rangle \nonumber \\
-	&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \frac{\ev{\hat s_\mathbf{k}^x} + i \ev{\hat s_\mathbf{k}^y} }{2} \nonumber \\
-	&= \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta] \label{sc-hm-wgamma-self-consistency}
-\end{align}
-where $\tau^+ = (\tau^x + i \tau^y)/2$. We used Eqns.~\eqref{eq:sc-x-expectation-non-local}, \eqref{eq:sc-y-expectation-non-local} and \eqref{eq:sc-<~z>} as well as the thermal factor defined in Eq.~\eqref{eq:sc-Th}. The derivation above holds for all symmetries, (including $s$-wave). Explicitly, five self-consistency equations are then derived and listed in Tab.~\ref{tab:sc-ehm-wgamma-self-consistencies}.
+Each harmonic, including $s$-wave, satisfies the self-consistency equation:
+\begin{equation}\label{eq:sc-ehm-wgamma-self-consistency}
+	w^{(\gamma)} = \frac{1}{2L_x L_y} 	\sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \sin 2 \tilde{\theta}_\mathbf{k} e^{i 2\tilde{\zeta}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
+\end{equation}
+In Tab.~\ref{tab:sc-ehm-wgamma-self-consistencies}
+we report these equations, writing explicitly the harmonics from Tab.~\ref{tab:x-wave-reciprocal-factors} and using the angular relations of Eq.~\eqref{eq:sc-ehm-(~theta)}.
 
 \begin{table}
 	\centering
@@ -958,27 +987,64 @@ where $\tau^+ = (\tau^x + i \tau^y)/2$. We used Eqns.~\eqref{eq:sc-x-expectation
 		$d_{x^2-y^2}$-wave & $w^{(d)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:d-wave-correlator} \\
 		\midrule
 	\end{tabular}
-	\caption{Symmetry resolved self-consistency equations for the harmonics of $w_\mathbf{k}$.}
+	\caption{Symmetry resolved self-consistency equations for the harmonics of $w_\mathbf{k}$. The shown equations are reformulations of Eq.~\eqref{eq:sc-ehm-wgamma-self-consistency}}
 	\label{tab:sc-ehm-wgamma-self-consistencies}
 \end{table}
 \setlength{\extrarowheight}{0em}
 
-Of these, the singlet channel admits for non-zero fluctuations of the superconducting order parameter uniquely in the $s^*$ and $d$ channels. This is because the gap function is inversion-symmetric and $p_\ell$ channels equations integrate it with an antisymmetric function.
-
-\section{Full MFT hamiltonian and anisotropic pairing}\label{sec:sc-full-hamiltonian}
-
-Let now the total contraction energy
+Before proving the above statement, we highlight the similarity of these equations with those for $u^{(\gamma)}$, expressed in Eq.~\eqref{sc-hm-ugamma-self-consistency}. Noting that the harmonic factors $\varphi_\mathbf{k}^{(\gamma)}$ are integrated to zero over the BZ, we could obtain one set of equations from the other by exchanging
 \[
-	E_\mathrm{c}^{(\mathrm{SC})} \equiv -
-	\left[
-		E_{\mathrm{H}/U}^{(\mathrm{SC})} +		E_{\mathrm{C}/U}^{(\mathrm{SC})} +
-		E_{\mathrm{H}/V}^{(\mathrm{SC})} + E_{\mathrm{F}/V}^{(\mathrm{SC})} + E_{\mathrm{C}/V/\mathrm{o.s.}}^{(\mathrm{SC})}
-	\right]
+	\sin 2 \tilde{\theta}_\mathbf{k} e^{i 2\tilde{\zeta}_\mathbf{k}} \leftrightarrow -\cos 2 \tilde{\theta}_\mathbf{k}
 \]
+Let us now give a proof to Eq.~\eqref{eq:sc-ehm-wgamma-self-consistency}.
 
-By composing all three channels we are able to derive the final form of the MFT gran-canonical hamiltonian,
+\begin{tabproof}[Self-consistency equations for $w^{(\gamma)}$]
+	
+	Consider Eq.~\eqref{eq:sc-ehm-wgamma-harmonics}. For the $\gamma$-wave component of the superconducting order parameter, the following chain, similar to Eq.~\eqref{eq:sc-hm-ws-self-consistency-2}, holds:
+	\[
+	\begin{aligned}
+		w^{(\gamma)} &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \big\langle
+		\hat \phi_\mathbf{k}^\dagger
+		\big\rangle\\
+		&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}  \big\langle
+		\hat \Phi_\mathbf{k}^\dagger \tau^+ \hat \Phi_\mathbf{k}
+		\big\rangle \\
+		&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \frac{\ev{\hat s_\mathbf{k}^x} + i \ev{\hat s_\mathbf{k}^y} }{2} \\
+		&= \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta]
+	\end{aligned}
+	\]
+	where $\tau^+ = (\tau^x + i \tau^y)/2$. We used Eqns.~\eqref{eq:sc-x-expectation-non-local}, \eqref{eq:sc-y-expectation-non-local} and \eqref{eq:sc-<~z>}. Use now Eqns.~\eqref{eq:sc-ehm-(~theta)}, \eqref{eq:sc-ehm-(~zeta)},
+	\[
+	\begin{aligned}
+		\frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} &= \frac{|\tilde{\Delta}_\mathbf{k}|}{\tilde{E}_\mathbf{k}} \left(	
+			\frac{\Re\{\tilde{\Delta}_\mathbf{k}\}}{|\tilde{\Delta}_\mathbf{k}|} + \frac{i\Im\{\tilde{\Delta}_\mathbf{k}\}}{|\tilde{\Delta}_\mathbf{k}|}
+		\right)  \\
+		&= \sin 2\tilde{\theta}_\mathbf{k} \left(
+			\cos 2\tilde{\zeta}_\mathbf{k}  + i \sin 2\tilde{\zeta}_\mathbf{k} 
+		\right) \\
+		&= \sin 2\tilde{\theta}_\mathbf{k}  e^{i 2\tilde{\zeta}_\mathbf{k}}
+	\end{aligned}
+	\]
+	Finally, from Eq.~\eqref{eq:sc-Th-=tanh}, we can substitute the thermal factor with the hyperbolic tangent. This gives Eq.~\eqref{eq:sc-ehm-wgamma-self-consistency}.
+	The derivation above holds for all symmetries, (including $s$-wave).
+\end{tabproof}
+%
+This proof concludes this cumbersome algebraic derivation. In next section we summarise the obtained results, give the final form of the HF hamiltonian and discuss the symmetries of the gap function.
+
+\section{The SC ground-state}
+\todo
+
+TODO
+\begin{itemize}
+	\item all from now on in subsections up to numerics
+	\item fix red text
+\end{itemize}
+
+\subsection{Full MFT hamiltonian and anisotropic pairing}\label{sec:sc-full-hamiltonian}
+
+In this section we take together everything we said so far. Adding $\hat H_V$ to the conventional HM, we have seen, produces renormalisation of the bare bands, the gap function and the chemical potential. By composing Hartree, Fock and Cooper channels we derive the final form of the HF gran-canonical hamiltonian,
 \[
-	\hat H - \mu \hat N \simeq \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{\xi}_\mathbf{k} \left[
+	\hat H - \mu \hat N \HFsimeq \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{\xi}_\mathbf{k} \left[
 		\hat c_{\mathbf{k}\uparrow}^\dagger
 		\hat c_{\mathbf{k}\uparrow} +
 		\hat c_{-\mathbf{k}\downarrow}
@@ -988,11 +1054,21 @@ By composing all three channels we are able to derive the final form of the MFT 
 		\hat \phi_\mathbf{k} + \tilde{\Delta}_\mathbf{k}^* \hat \phi_\mathbf{k}^\dagger
 	\right] + E_\mathrm{a}^{(\mathrm{SC})} + E_\mathrm{c}^{(\mathrm{SC})}	
 \]
-having we included the ``anticommutation energy'' also defined for the conventional HM in Eq.~\eqref{appeq:sc-hm-anticommutation-energy},
+having we included the ``anticommutation energy'' also defined for the conventional HM in Eq.~\eqref{eq:sc-anticommutation-energy},
 \[
 	E_\mathrm{a}^{(\mathrm{SC})} \equiv \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{\xi}_\mathbf{k}
 \]
-coming from fermionic anticommutation relations that are employed in order to get the kinetic term. The renormalized bands are
+coming from fermionic anticommutation relations that are employed in order to get the kinetic term. We also defined the total contraction energy
+\[
+	E_\mathrm{c}^{(\mathrm{SC})} \equiv -
+	\left[
+	E_{\mathrm{H}/U}^{(\mathrm{SC})} +		E_{\mathrm{C}/U}^{(\mathrm{SC})} +
+	E_{\mathrm{H}/V}^{(\mathrm{SC})} + E_{\mathrm{F}/V}^{(\mathrm{SC})} + E_{\mathrm{C}/V/\mathrm{o.s.}}^{(\mathrm{SC})}
+	\right]
+\]
+which include all double counting terms we encountered. Note the minus sign in front of it.
+
+We focus on the renormalised quantities. The bare bands are given by:
 \begin{equation}\label{eq:sc-ehm-full-bands}
 	\tilde{\xi}_\mathbf{k} = \epsilon_\mathbf{k} + V \sum_{\gamma\in\lbrace s^*,d \rbrace} u^{(\gamma)} \varphi_{\mathbf{k}}^{(\gamma)*} - \tilde{\mu}
 \end{equation}
@@ -1000,7 +1076,7 @@ and the full gap function by
 \begin{equation}\label{eq:sc-ehm-full-gap}
 	\tilde{\Delta}_\mathbf{k} = -Uw^{(s)} + V \sum_{\gamma} w^{(\gamma)} \varphi_\mathbf{k}^{(\gamma)*}
 \end{equation}
-We can identify the gap harmonics by
+We can identify the gap harmonics as
 \[
 	\tilde{\Delta}^{(s)} = -U w^{(s)}
 	\qquad
@@ -1009,7 +1085,8 @@ We can identify the gap harmonics by
 	\gamma\in\lbrace s^*, p_x, p_y, d \rbrace
 \]
 
-As anticipated, the singlet channel admits three components only,
+We anticipated in Tab.~\ref{tab:sc-pairings-symmetry-structures} that Cooper pairing in the singlet channel requires for the ground-state wavefunction to be inversion-symmetric. Triplet pairing, instead, requires inversion anti-symmetry.
+This gives a selection rule for the symmetries of the gap function: if we work in singlet channel, the gap must be symmetric, thus only three harmonics are allowed:
 \[
 	\text{Singlet channel}
 	\quad\colon\quad
@@ -1023,7 +1100,11 @@ making the gap function purely real. An inverse statement holds for the triplet 
 		\tilde{\Delta}^{(p_x)} \sin k_x +  \tilde{\Delta}^{(p_y)} \sin k_y
 	\right]
 \]
-In this case, the gap is purely imaginary. When working in a specific channel, the gap function is either purely real or purely imaginary. This lets us discuss the shape of the renormalised ground-state.
+In this case, the gap is purely imaginary. Anyway, we can absorb this phase shift through a gauge transform.
+
+In next section we give an explicit example of how the gap function and the wavefunction properties under spatial inversion are connected, at half filling and zero temperature.
+
+{\color{tabred}
 
 \section{The zero-temperature ground-state at half-filling}\label{sec:sc-gs}
 
@@ -1228,6 +1309,8 @@ Now, as we state in Sec.~\ref{subsec:sc-features}, for the pure HM we have ident
 	\item The $s$-wave gap $w^{(s)}$ cannot converge to a finite value if for any $\gamma \neq s$ we have $w^{(\gamma)}=0$.
 \end{itemize}
 Of course, Eq.~\eqref{eq:sc-ehm-gap-energy} is also solved by a null gap on both sides: this indicates that when the constraint is impossible to fulfil self-consistently, the gap closes.
+
+}
 
 \section{Discussion of numeric results for the singlet channel}\label{sec:sc-numeric}
 
@@ -1611,7 +1694,7 @@ We colour-corrected the surface plot to align the gray with the $f=0$ level. Col
 \[
 	\text{(Critical ratio)}
 	\qquad
-	\left(\frac{V}{U}\right)_\mathrm{c}
+	\left(\frac{V}{U}\right)_\mathrm{c} = k
 \]
 delimiting a phase transition from antiferromagnetic to superconducting ordering at half-filling.
 
@@ -1620,7 +1703,9 @@ delimiting a phase transition from antiferromagnetic to superconducting ordering
 We conclude this chapter with a note of method. We performed simulations on the singlet channel, but also gathered data for the triplet channel. We omitted to show them in order to avoid unnecessary complications. Indeed, we observed that triplet superconductivity (as we formulated it at HF level) is suppressed everywhere in the region of parametric space we are exploring. This means that 
 \[
 	w^{(p_x)} = w^{(p_y)} = 0
+	\qquad
+	\text{(Observed numerically)}
 \]
-Although non present in this discussions, the plots for these HFPs are openly accessible at our repository.
+Although non present in this discussions, {\color{tabred}\textbf{the plots for these HFPs are openly accessible at our repository.}}
 
-\todo
+We did not provide any theoretical constraint on the five HFPs for the singlet SC phase. We tried to obtain a proof similar to those presented for the normal and AF phases, but we did not find any. It would be interesting, if possible, to work out a method to express analytically the position of the various boundaries we identified.

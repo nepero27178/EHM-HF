@@ -144,3 +144,37 @@
 \captionsetup[sub]{
 	labelsep=quad,
 }
+
+
+% --- Ambiente esempio ---
+
+% Vecchia formattazione:
+% \theoremstyle{definition}
+% \newtheorem{eg}{Esempio}
+% \numberwithin{eg}{chapter}
+
+\newcounter{proof}
+\counterwithin{proof}{chapter}
+\newenvironment{tabproof}[1][]
+{
+\refstepcounter{proof}
+\vspace{1em}
+\noindent\normalfont   
+\textbf{Proof~\theproof} (#1).
+\nopagebreak
+\begin{mdframed}[
+	linewidth=0.5pt,
+	linecolor=tabblue,
+	leftmargin=1em,
+	bottomline=false,
+	topline=false,
+	rightline=false,
+	innerrightmargin=0pt,
+	innertopmargin=0pt,
+	innerbottommargin=0pt,
+	innerleftmargin=1em,
+	skipabove=1em,
+	skipbelow=1em
+	]
+}
+{\end{mdframed}}

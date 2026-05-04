@@ -10,7 +10,9 @@ In this appendix we give some details about the antiferromagnetic phase in the c
 	\qquad
 	t, U  > 0
 \end{equation}
-approximated by HF methods. We use the results discussed in Sec.~\ref{subsec:af-hm}. 
+approximated by HF methods. We use the results discussed in Sec.~\ref{subsec:af-hm}.
+
+\section{The AF ground-state for the conventional HM}
 
 Let the Nambu spinors:
 \[
@@ -270,19 +272,19 @@ where we used the relation
 \]
 In thermodynamic limit $L \to \infty$
 \[
-\frac{1}{U} = \frac{1}{2} \int_\mathrm{BZ} \frac{\mathrm{d}\mathbf{k}}{(2\pi)^2} \frac{1}{\sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2})
+	\frac{1}{U} = \frac{1}{2} \int_\mathrm{BZ} \frac{\mathrm{d}\mathbf{k}}{(2\pi)^2} \frac{1}{\sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2})
 \]
 Substitute the momentum integral with an integral over energies:
 \[
-\frac{2}{U} = \int_{-4t}^{4t}  \frac{\mathrm{d}\epsilon \rho(\epsilon)}{\sqrt{\epsilon^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon^2 + \Delta^2})
+	\frac{2}{U} = \int_{-4t}^{4t}  \frac{\mathrm{d}\epsilon \rho(\epsilon)}{\sqrt{\epsilon^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon^2 + \Delta^2})
 \]
 being $\rho(\epsilon)$ the $2$D square lattice DoS. Its explicit form is given by \cite{kogan2021greens}
 \[
-\rho(\epsilon) = \frac{1}{2\pi^2} K\left(
-\sqrt{1 - \left(\frac{\epsilon}{4t} \right)^2}
-\right)
-\qquad
-K(x) \equiv \int_0^{\pi/2} \frac{\mathrm{d}\theta}{\sqrt{1-x^2 \sin^2\theta}}
+	\rho(\epsilon) = \frac{1}{2\pi^2} K\left(
+	\sqrt{1 - \left(\frac{\epsilon}{4t} \right)^2}
+	\right)
+	\qquad
+	K(x) \equiv \int_0^{\pi/2} \frac{\mathrm{d}\theta}{\sqrt{1-x^2 \sin^2\theta}}
 \]
 $K(x)$ is the complete elliptic integral of the first kind, shown in Fig.~\ref{appsubfig:K(x)}.
 

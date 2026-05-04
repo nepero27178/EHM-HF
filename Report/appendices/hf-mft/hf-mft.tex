@@ -2,7 +2,11 @@
 
 In this appendix we bridge the gap between HF methods and mean-field theory (MFT). {\color{tabred}\textbf{In general, in MFT approaches we substitute the two-body (or more) interactions of the hamiltonian with a single-body interaction with a mean field, determined locally via self-consistency equations. This is, for example, the Weiß mean-field solution to the quantum Ising model. The HF method we sketched here does not work like that. In the context of Hubbard models, the analogous of Weiß MFT would be dynamical mean-field theory (DMFT) \cite{georges1996dynamical}.}}
 
-However, there are some points of connection. Let us sketch first the general scheme behind MFT. Suppose we have some operator $\hat A = \hat B \hat C$. Let
+However, there are some points of connection. Let us sketch first the general scheme behind MFT. 
+
+\section{Mean-field theory}
+
+Suppose we have some operator $\hat A = \hat B \hat C$. Let
 \[
 \delta \hat O \equiv \hat O - \big\langle \hat O \big\rangle
 \qquad
@@ -25,9 +29,7 @@ Within the assumption that independently $\hat B$ and $\hat C$ fluctuations are 
 
 In the context of HF methods, we are in an slightly different situation. We are not making assumptions on the fluctuations of the quartic sectors of the hamiltonian. We are restricting the space of wavefunctions and minimising energy there. 
 
-%Now, Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}, although general and correct, are a little unpractical to use. To derive them was useful in order to prove that the self-consistent method is a variational search in disguise. We here sketch a more concrete method to obtain the approximated hamiltonian and connect it with MFT interpretation. 
-%
-%What we derive here is a mere reformulation of the self-consistent result obtained above, presented in a somewhat lighter form.
+\section{Hartee-Fock methods}
 
 Let us restart from the interacting hamiltonian of Eq.~\eqref{eq:hf-quartic-H}. In this thesis we deal with the EHM, thus (limitedly to this section) let us restrict to the two-body generic quartic interaction:
 \[

@@ -460,7 +460,7 @@ Any other phase, as long as it alternates by $\pi$ on the two sublattices, is go
 	\label{tab:symmetry-groups}
 \end{table}
 
-\section{Symmetry breaking channels in real space}\label{subsec:ehm-sym-break}
+\section{Symmetry breaking channels in real space}\label{sec:ehm-sym-break}
 
 In many-body Physics, a phase transition is described by some order parameter rising from zero to a non-zero value. This is associated with some spontaneous symmetry breaking (SSB). In order to simulate different phases, we need a way to distinguish them based on which symmetries they break (or not). We also need a way to work computationally in a given symmetry sector. HF methods, by reducing the hamiltonian to a non-interacting approximation, offer a simple framework to these ends. Indeed, once we identified all symmetries of a given phase, we just impose them on our approximation of the full hamiltonian. The found ground-state approximation will entail these symmetries by construction.
 
@@ -493,7 +493,7 @@ with $x,y \in \mathbb{N}$. The lattice versors are:
 \]
 as in Fig.~\ref{fig:square-nearest-neighbors}.
 
-\subsection{Local repulsion}
+\subsection{Local repulsion}\label{subsec:ehm-sym-break-HU}
 
 The local repulsion $\hat H_U$ is the quartic operator of the conventional HM,
 \[
@@ -606,7 +606,7 @@ where we used the facts that every operator commutates with itself, and a square
 
 In Tab.~\ref{tab:HU-sel-rules} we collect the selection rules for the Hartree, Fock and Cooper terms of Eq.~\eqref{eq:ehm-HU-wick}, based on the symmetry specifications given for each phase in above paragraphs. Note that Fock-like EVs are prohibited for all phases.
 
-\subsection{Non-local attraction}
+\subsection{Non-local attraction}\label{subsec:ehm-sym-break-HV}
 
 In order to analyse similarly the non-local attraction $\hat H_V$, it is useful to decompose the operator in spin channels:
 \begin{align}
@@ -752,7 +752,7 @@ Now, if $\sigma=\sigma'$ the last passage of Eq.~\eqref{eq:ehm-HV-wick-int1} is 
 	-\frac{(-1)^{\delta_{\sigma=\downarrow}}}{2} - \frac{(-1)^{\delta_{\sigma'=\downarrow}}}{2}
 	\right)\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}+\bm{\delta}\sigma'}^\dagger \label{eq:ehm-HV-wick-int2}
 \end{align}
-We have a mirrored situation with respect to the Fock terms. For the Cooper channel, the s.s. EVs are zero if $\mathrm{U}^z(1)$ is broken, while the o.s. sector are not. {\color{tabred}[Commutation with $\hat S^+$?]}
+We have a mirrored situation with respect to the Fock terms. For the Cooper channel, the s.s. EVs are zero if $\mathrm{U}^z(1)$ is unbroken, while the o.s. sector are not.
 
 \begin{table}
 	\centering
