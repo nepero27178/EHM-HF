@@ -2,21 +2,21 @@
 
 \chapter{Introduction to Hartree-Fock methods}
 
-In this chapter we give a technical introduction to the Hartree-Fock (HF) method and its numerical implementation. We will keep this discussion as general as possible, without referring directly to the EHM.
+In this chapter we give a general introduction to the Hartree-Fock (HF) variational method and its numerical implementation. In Quantum Mechanics, variational methods allow to approximate the ground state of a many-body hamiltonian by minimising the energy computed for a specific substate of physical states. In particular, in the HF method we approximate the real ground-state with the best possible many-body state that is an eigenstate of a non-interacting fermionic hamiltonian.
 
-The HF method is a variational approach to approximate the ground-state wavefunction of a many-body hamiltonian. The wavefunction is determined by minimising energy, limiting our search to a specific subspace of states. The general idea is to approximate the real ground-state with the best possible many-body state that is an eigenstate of a non-interacting fermionic hamiltonian.
+Despite its simplicity, the method is very powerful for describing various types of quantum many-body phenomena and, in particular, spontaneous symmetry breaking (SSB). The description of HF method in this chapter is largely based on \cite{grosso2014solid, fabrizio2022course}.
 
-To start, we need to define what Hilbert subspace we work with. Then we need to identify a way of parametrising the possible non-interacting hamiltonians and their respective ground-states, and finally a method to choose the best approximation to our original model. This is done in Sec.~\ref{sec:sketch-hf-method}, largely based on \cite{grosso2014solid, fabrizio2022course}.
+\section{Variational principle and gaussian states}
 
-Variational algorithms generally work by numeric minimisation of some given functional. This is not the case. We implement HF theory starting from a theoretical minimisation procedure, with some derivative being set to zero, and then prove that this procedure leads to solving a self-consistency problem. We end up with a set of equations where the right-hand side depends non-trivially on the left-hand side, and through an iterative approach we determine the solution. This procedure is sketched in detail in Sec.~\ref{sec:sketch-ihf-algorithm}.
-
-\section{Prerequisites and generalities}
-
-In this short section we give some motivation to the choice of the HF method, before moving to a technical explanation about how it works. As we said before, we are performing a constrained search for an approximation to the ground-state wavefunction. 
-
-Let $\hat H$ be a generic hamiltonian, and $\mathcal{H}$ the Hilbert space. For any many-body state $\ket{\Psi} \in \mathcal{H}$, the energy is given by the expectation value (EV)
+Let $\hat H$ be a generic hamiltonian acting on the Hilbert space $\mathcal{H}$. For any many-body state $\ket{\Psi} \in \mathcal{H}$, the energy is given by the expectation value (EV)
 \[
 	E[\Psi] = \mel{\Psi}{\hat H}{\Psi}
+\]
+Let $\ket{\Psi_0}$ be the ground state of $\hat H$, and $E_0 \equiv E[\Psi_0]$. Then
+\[
+	\forall \ket{\Psi} \in \mathcal{H}
+	\quad\colon\quad
+	E[\Psi] \ge E_0
 \]
 Let $\mathcal{S} \subset \mathcal{H}$ be a subspace of states, ad let $\ket{\Psi}$ be a state inside that locally minimises energy,
 \[
@@ -24,7 +24,7 @@ Let $\mathcal{S} \subset \mathcal{H}$ be a subspace of states, ad let $\ket{\Psi
 	\qquad
 	\fdv{E[\Psi]}{\ket{\Psi}} = 0
 \]
-If the true ground state does not belong to $\mathcal{S}$, the found local minimum $\ket{\Psi}$ approximates it. The energy $E[\Psi]$ is, in this case, bigger than the actual ground-state energy. In Fig.~\ref{fig:gaussian-subspace} we give a pictorial representation of this idea: the state $\ket{\Psi}\in\mathcal{S}$ is an approximation, found by constrained minimisation, of the true ground-state.
+If the true ground state belongs to $\mathcal{S}$, the found local minimum coincides with $\ket{\Psi_0}$; otherwise, approximates it. In Fig.~\ref{fig:gaussian-subspace} we give a pictorial representation of this idea: the state $\ket{\Psi}\in\mathcal{S}$ is an approximation, found by constrained minimisation, of the true ground-state.
 
 \begin{figure}
 	\centering
@@ -33,11 +33,11 @@ If the true ground state does not belong to $\mathcal{S}$, the found local minim
 	\label{fig:gaussian-subspace}
 \end{figure}
 
-In HF methods, we identify $\mathcal{S}$ with the set of so-called ``gaussian states''. These are all the ground-states of non-interacting hamiltonians. We give a complete description of them in App.~\ref{appendix:slater-gaussian}. We restrict minimisation to gaussian states because we can use Wick's theorem to simplify significantly the computation of expectation values. Indeed, by averaging a quartic operator over a gaussian state, we get the exact decomposition
+In HF methods, we identify $\mathcal{S}$ with the set of so-called ``gaussian states''. These are all the ground-states of quadratic hamiltonians, namely the hamiltonians that are bilinear in the fermionic creations operators (see App.~\ref{appendix:slater-gaussian} for details). The restriction to gaussian states significantly simplifies the computation of expectation values. Indeed, thanks to Wick's theorem, the expectation value of quartic operators exactly decomposes as
 \begin{equation}\label{eq:hf-wick-hfc}
 	\langle
 	\hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta
-	\rangle \Weq \underbrace{
+	\rangle = \underbrace{
 		\langle 
 		\hat c_\alpha^\dagger \hat c_\delta
 		\rangle \langle	
@@ -61,25 +61,26 @@ In HF methods, we identify $\mathcal{S}$ with the set of so-called ``gaussian st
 		\rangle 
 	}_{\text{Cooper}}
 \end{equation}
-The subscripts indicate the names we will give to these terms throughout the text. The notation $\Weq$ indicates that we are using Wick's theorem.
+The subscripts indicate the standard names to the different types of contractions, that we adopt throughout the text.
 
-Let us rephrase: the HF method is a minimisation constrained to all states that satisfy exactly Eq.~\eqref{eq:hf-wick-hfc}. While this method simplifies a lot the computation of expectation values (reducing them to products of quadratic operators), the drawback is that the ground-state approximation is rather rough. Despite the roughness, HF methods are able to tackle various physical phenomena.
+%Let us rephrase: the HF method is a minimisation constrained to all states that satisfy exactly Eq.~\eqref{eq:hf-wick-hfc}. While this method simplifies a lot the computation of expectation values (reducing them to products of quadratic operators), the drawback is that the ground-state approximation is rather rough. Despite the roughness, HF methods are able to tackle various physical phenomena.
 
-Operatively, we are approximating the hamiltonian with a non-interacting hamiltonian
+Operatively, one can think of the HF merhod as an approximation of the the hamiltonian with a non-interacting hamiltonian
 \[
 	\hat H \HFsimeq	\hat H_\mathrm{HF} = \sum_{\alpha} E_\alpha \hat\gamma_\alpha^\dagger \hat\gamma_\alpha
 \]
-The notation $\HFsimeq$ indicates that this operatorial approximation only holds inside the subspace of gaussian states, and is explained rigorously in next paragraph. To determine the energies $E_\alpha$ as well as the fermionic operators $\hat\gamma_\alpha$ is the point of the HF method, and the result of minimisation procedure. These operators satisfy Fermi anti-commutation rules,
+%The notation $\HFsimeq$ indicates that this operatorial approximation only holds inside the subspace of gaussian states, and is explained rigorously in next paragraph. To determine the energies $E_\alpha$ as well as the fermionic operators $\hat\gamma_\alpha$ is the point of the HF method, and the result of minimisation procedure. These operators satisfy Fermi anti-commutation rules,
+where $\hat \gamma_\alpha$ are fermionic operators determined by the minimisation procedure
 \[
 	\acomm{\hat\gamma_\alpha}{\hat\gamma_\beta^\dagger} = \delta_{\alpha\beta}
 \]
-and are connected to the conventional electronic operators $\hat c_\alpha$ through an unitary map. This is discussed in detail in Sec.~\ref{appsec:bogoliubov-valatin}.
+and are connected to the conventional electronic operators $\hat c_\alpha$ through an unitary map. See App.~\ref{appendix:slater-gaussian} for details.
 
-Let us explain the approximation $\HFsimeq$. When applying the HF method, we are not approximating an operator, but a wavefunction. The operatorial approximation is a shorthand notation that must be intended as follows: $\hat H_\mathrm{HF}$ is that non-interacting operator whose ground-state is the best approximation to the ground-state of $\hat H$. This does not mean that in general the two operators are related.
+Let us stress that the operatorial approximation $\HFsimeq$ is a shorthand notation that must be intended as follows: $\hat H_\mathrm{HF}$ is that non-interacting operator whose ground-state is the best approximation to the ground-state of $\hat H$. This does not mean that in general the two operators are related.
 
-\section{Sketch of HF variational method}\label{sec:sketch-hf-method}
+\section{The HF variational method}\label{sec:sketch-hf-method}
 
-We have identified the features of the states we use to approximate the model ground-state. The central property of these states is expressed by Eq.~\eqref{eq:hf-wick-hfc}. Now, let us get to the core of HF method and give a technical introduction on how it works. Consider the generic quartic hamiltonian:
+We now dicuss the implementation of the variational HF method for the generic quartic hamiltonian:
 \begin{equation}\label{eq:hf-quartic-H}
 	\hat H = \sum_{\alpha,\beta} A_{\alpha\beta} \hat c_\alpha^\dagger \hat c_\beta + \frac{1}{2} \sum_{\alpha,\beta,\gamma,\delta} B_{\alpha\beta\gamma\delta} \hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta
 \end{equation}
@@ -89,11 +90,11 @@ where
 	\qquad
 	B_{\alpha\beta\gamma\delta} = B_{\delta\gamma\beta\alpha}^*
 \end{equation}
-to ensure hermiticity. Moreover, the model must show the following symmetry:
+to ensure hermiticity. Moreover, the following equation must hold:
 \begin{equation}\label{eq:hf-B-sym}
 	B_{\alpha\beta\gamma\delta} = B_{\beta\alpha\delta\gamma}
 \end{equation}
-because exchanging the position of the two annihilations and the two creations, the operator must remain the same.
+due to the property $\hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta = \hat c_\beta^\dagger \hat c_\alpha^\dagger \hat c_\delta \hat c_\gamma$, which follows from Fermi anticommutation rules.
 
 Our aim is to approximate the above hamiltonian with a non-interacting hamiltonian. The most general quadratic hamiltonian is given by:
 \begin{equation}\label{eq:hf-Hhf-k}
@@ -109,7 +110,7 @@ Note that, in terms of algebraic solution, $E_0$ is irrelevant. To determine it 
 
 \subsection{Properties of the target quadratic hamiltonian}
 
-In this short section we enumerate some useful properties of $\hat H_\mathrm{HF}$. We will use also the following notation:
+In this section we enumerate some useful properties of $\hat H_\mathrm{HF}$. We will use also the following notation:
 \[
 	\hat a_\alpha^- \equiv \hat c_\alpha
 	\qquad
@@ -119,63 +120,73 @@ Due to linearity of the unitary mapping, the operator $\hat H_\mathrm{HF}$ of Eq
 \begin{equation}\label{eq:hf-Hhf-h}
 	\hat H_\mathrm{HF} = E_0 + \sum_{\alpha,\beta} \sum_{p,q} h_{\alpha\beta}^{pq} \hat a_\alpha^p \hat a_\beta^q
 \end{equation}
-By changing basis from $\hat \gamma$ to $\hat c$ operators, we moved all our ignorance into the new $h_{\alpha\beta}^{pq}$ fields.
+By changing basis from $\hat \gamma$ to $\hat c$ operators, we moved all our ignorance into the new $h_{\alpha\beta}^{pq}$ matrix elements. These satisfy the relations:
+\begin{align}
+	h_{\alpha\beta}^{++} &= \left(h_{\beta\alpha}^{--}\right)^* \label{eq:hf-offdiag-relation} \\
+	h_{\beta\alpha}^{+-} &= - h_{\alpha\beta}^{-+} \label{eq:hf-ondiag-relation}
+\end{align}
+Because of this properties, we actually need to determine just half of the fields, since the other half will be uniquely determined.
 
-We can infer some mathematical properties of the fields $h_{\alpha\beta}^{pq}$. First, note that the hamiltonian can be represented through Nambu spinors as
-\[
-\begin{aligned}
-	\hat H_\mathrm{HF} &= E_0 + \hat \Phi^\dagger \mathbf{h} \hat \Phi \\
-	&= E_0 + \begin{bmatrix}
+\begin{tabproof}[Symmetry properties of the tensor $h_{\alpha\beta}^{pq}$]
+	
+	Let us start by proving Eq.~\eqref{eq:hf-offdiag-relation}. The HF hamiltonian can be represented through Nambu spinors as
+	\[
+	\begin{aligned}
+		\hat H_\mathrm{HF} &= E_0 + \hat \Phi^\dagger \mathbf{h} \hat \Phi \\
+		&= E_0 + \begin{bmatrix}
+			\hat{\mathbf{c}} \\ \hat{\mathbf{c}}^\dagger
+		\end{bmatrix}^\dagger \begin{bmatrix}
+			h^{+-} & h^{++} \\
+			h^{--} & h^{-+}
+		\end{bmatrix} \begin{bmatrix}
 		\hat{\mathbf{c}} \\ \hat{\mathbf{c}}^\dagger
-	\end{bmatrix}^\dagger \begin{bmatrix}
-		h^{+-} & h^{++} \\
-		h^{--} & h^{-+}
-	\end{bmatrix} \begin{bmatrix}
-	\hat{\mathbf{c}} \\ \hat{\mathbf{c}}^\dagger
-	\end{bmatrix}
-\end{aligned}
-\]
-Our hamiltonian must be hermitian. We conclude that:
-\[
-	\hat H_\mathrm{HF}^\dagger = \hat H_\mathrm{HF}
-	\quad\implies\quad
-	h^{++} = \begin{bmatrix}
-		h^{--}
-	\end{bmatrix}^\dagger
-\]
-which reads, element-wise:
-\begin{equation}\label{eq:hf-offdiag-relation}
-	h_{\alpha\beta}^{++} = \left(h_{\beta\alpha}^{--}\right)^*
-\end{equation}
-Same-sign off-diagonal fields are linked.
-
-We can set, without loss of generality,
-\[
-	\Tr h^{+-} + \Tr h^{-+} = 0
-\]
-This passage is guaranteed by the fact that if $\mathbf{h}$ is not traceless, we can redefine it by subtracting its trace and including the latter in the energy shift $E_0$. Then
-\[
-\begin{aligned}
-	\hat H_\mathrm{HF} &= E_0 + \sum_{\alpha,\beta} \left[
-		h_{\alpha\beta}^{+-} \hat c_\alpha^\dagger \hat c_\beta + h_{\alpha\beta}^{-+} \hat c_\alpha \hat c_\beta^\dagger
-	\right] + (\text{same sign terms}) \\
-	&= E_0 + \sum_{\alpha,\beta} \left[
-		h_{\alpha\beta}^{+-} \left(\delta_{\alpha\beta} - \hat c_\beta \hat c_\alpha^\dagger \vphantom{c_\beta^\dagger} \right) + h_{\alpha\beta}^{-+} \left(\delta_{\alpha\beta} - \hat c_\beta^\dagger \hat c_\alpha\right)
-	\right] + (\text{same sign terms}) \\
-	&= E_0 -\sum_{\alpha,\beta} \left[
-		h_{\beta\alpha}^{+-} \hat c_\alpha \hat c_\beta^\dagger + h_{\beta\alpha}^{-+} \hat c_\alpha^\dagger \hat c_\beta
-	\right] + (\text{same sign terms}) \\
-\end{aligned}
-\]
-In second row we got rid of the traces sum and exchanged indices $\alpha \leftrightarrow \beta$. Confronting last and first row we conclude:
-\begin{equation}\label{eq:hf-ondiag-relation}
-	h_{\beta\alpha}^{+-} = - h_{\alpha\beta}^{-+}
-\end{equation}
-thus, also on-diagonal fields are linked. We are allowed to determine, say, just $h^{+-}$: its counterpart $h^{-+}$ is completely determined. These properties were all we needed to get to the main argument of the method.
+		\end{bmatrix}
+	\end{aligned}
+	\]
+	Our hamiltonian must be hermitian. We conclude that:
+	\[
+		\hat H_\mathrm{HF}^\dagger = \hat H_\mathrm{HF}
+		\quad\implies\quad
+		h^{++} = \begin{bmatrix}
+			h^{--}
+		\end{bmatrix}^\dagger
+	\]
+	which reads, element-wise:
+	\[
+		h_{\alpha\beta}^{++} = \left(h_{\beta\alpha}^{--}\right)^*
+	\]
+	This proves Eq.~\eqref{eq:hf-offdiag-relation}.
+	
+	Eq.~\eqref{eq:hf-ondiag-relation} is proven as follows. We can set, without loss of generality,
+	\[
+		\Tr h^{+-} + \Tr h^{-+} = 0
+	\]
+	This passage is guaranteed by the fact that if $\mathbf{h}$ is not traceless, we can redefine it by subtracting its trace and including the latter in the energy shift $E_0$. Then
+	\[
+	\begin{aligned}
+		\hat H_\mathrm{HF} &= E_0 + \sum_{\alpha,\beta} \left[
+			h_{\alpha\beta}^{+-} \hat c_\alpha^\dagger \hat c_\beta + h_{\alpha\beta}^{-+} \hat c_\alpha \hat c_\beta^\dagger
+		\right] + (\text{same sign terms}) \\
+		&= E_0 + \sum_{\alpha,\beta} \left[
+			h_{\alpha\beta}^{+-} \left(\delta_{\alpha\beta} - \hat c_\beta \hat c_\alpha^\dagger \vphantom{c_\beta^\dagger} \right) + h_{\alpha\beta}^{-+} \left(\delta_{\alpha\beta} - \hat c_\beta^\dagger \hat c_\alpha\right)
+		\right] + (\text{same sign terms}) \\
+		&= E_0 -\sum_{\alpha,\beta} \left[
+			h_{\beta\alpha}^{+-} \hat c_\alpha \hat c_\beta^\dagger + h_{\beta\alpha}^{-+} \hat c_\alpha^\dagger \hat c_\beta
+		\right] + (\text{same sign terms}) \\
+	\end{aligned}
+	\]
+	In second row we got rid of the traces sum and exchanged indices $\alpha \leftrightarrow \beta$. Confronting last and first row we conclude:
+	\[
+		h_{\beta\alpha}^{+-} = - h_{\alpha\beta}^{-+}
+	\]
+	which proves Eq.~\eqref{eq:hf-ondiag-relation}.
+\end{tabproof}
+%
+These properties were all we needed to get to the main argument of the method.
 
 \subsection{Self-consistent variational solution}\label{subsec:hf-variational-solution}
 
-We follow and extend the variational scheme proposed by \citeauthor{fabrizio2022course} \cite{fabrizio2022course}. Let:
+This section gives the operational method to obtain the variational solution. We follow and extend the argument proposed by \citeauthor{fabrizio2022course} \cite{fabrizio2022course}. Let:
 \[
 	\Delta_{\alpha\beta}^{pq} \equiv \big\langle \hat a_\alpha^p \hat a_\beta^q \big\rangle
 \]
@@ -189,131 +200,61 @@ thus, explicitly
 	\qquad
 	\Delta_{\alpha\beta}^{--} = \big\langle \hat c_\alpha \hat c_\beta \big\rangle
 \end{equation}
-The first two are ``normal densities''; the second two are ``anomalous densities''. Conjugation of the last two gives a symmetry relation similar to Eq.~\eqref{eq:hf-offdiag-relation}:
+The first two are ``normal densities''; the second two are ``anomalous densities''. The reason for such names is the fact that these expectation values are non-zero if total charge conservation is broken. Conjugation of the last two gives a symmetry relation similar to Eq.~\eqref{eq:hf-offdiag-relation}:
 \begin{equation}\label{eq:hf-ss-Delta-conj}
 	\left( \Delta_{\alpha\beta}^{++} \right)^\dagger = \Delta_{\beta\alpha}^{--}
 \end{equation}
-
-The HF ground-state energy is given by:
-\[
-\begin{aligned}
-	E_\mathrm{HF} &= \ev{\hat H_\mathrm{HF}} \\
-	&= E_0 + \sum_{\alpha,\beta} \sum_{p,q} h_{\alpha\beta}^{pq} \Delta_{\alpha\beta}^{pq}
-\end{aligned}
-\]
-Here $\Delta_{\alpha\beta}^{pq}$ are functions of the fields $h_{\alpha\beta}^{pq}$. Derive energy:
-\[
-\begin{aligned}
-	\pdv{E_\mathrm{HF}}{h_{\mu\nu}^{rs}} &= \pdv{}{h_{\mu\nu}^{rs}} \sum_{\alpha,\beta} \sum_{p,q} h_{\alpha\beta}^{pq} \Delta_{\alpha\beta}^{pq} \\
-	&= \Delta_{\mu\nu}^{rs} + \sum_{\alpha,\beta} \sum_{p,q} h_{\alpha\beta}^{pq} \pdv{\Delta_{\alpha\beta}^{pq}}{h_{\mu\nu}^{rs}}
-\end{aligned}
-\]
-Note that by construction $E_\mathrm{HF}$ is greater than the actual ground-state energy, since our approximated wavefunction is not the actual ground-state wavefunction. Now, from Hellman-Feynman theorem \cite{grosso2014solid}, we know that for a parametric hamiltonian it holds:
-\[
-\begin{aligned}
-	\pdv{E_\mathrm{HF}}{h_{\mu\nu}^{rs}} &= \mel{\Psi}{\pdv{\hat H_\mathrm{HF}}{h_{\mu\nu}^{rs}}}{\Psi} \\
-	&= \mel{\Psi}{\pdv{}{h_{\mu\nu}^{rs}}\sum_{\alpha,\beta} \sum_{p,q} h_{\alpha\beta}^{pq} \hat a_\alpha^p \hat a_\beta^q}{\Psi} \\
-	&= \big\langle \hat a_\mu^r \hat a_\nu^s \big\rangle \\
-	&= \Delta_{\mu\nu}^{rs}
-\end{aligned}
-\]
-The last two results imply:
+Here $\Delta_{\alpha\beta}^{pq}$ are functions of the fields $h_{\alpha\beta}^{pq}$. These quantities satisfy the equation:
 \begin{equation}\label{eq:hf-variational-h}
 	\sum_{\alpha,\beta} \sum_{p,q} h_{\alpha\beta}^{pq} \pdv{\Delta_{\alpha\beta}^{pq}}{h_{\mu\nu}^{rs}} = 0
 \end{equation}
-This must hold for any possible choice of fields $h_{\alpha\beta}^{pq}$. Note that we did not impose the energy derivative to be zero: it is not the HF energy we are minimising.
+Let us prove this.
 
-Let us get back to the actual hamiltonian $\hat H$. To reduce it to a quadratic form is equivalent to assume that its ground-state has the properties described in previous sections. Then the following decomposition must hold:
-\[
-\begin{aligned}
-	E &= \big\langle \hat H \big\rangle \\
-	&= \sum_{\alpha,\beta} A_{\alpha\beta} \big\langle \hat c_\alpha^\dagger \hat c_\beta \big\rangle + \frac{1}{2} \sum_{\alpha,\beta,\gamma,\delta} B_{\alpha\beta\gamma\delta} \big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta \big\rangle \\
+\begin{tabproof}[Proof of Eq.~\eqref{eq:hf-variational-h}]
+	
+	The HF ground-state energy is given by:
+	\[
+	\begin{aligned}
+		E_\mathrm{HF} &= \ev{\hat H_\mathrm{HF}} \\
+		&= E_0 + \sum_{\alpha,\beta} \sum_{p,q} h_{\alpha\beta}^{pq} \Delta_{\alpha\beta}^{pq}
+	\end{aligned}
+	\]
+	where the expectation value is taken over the (up to now unknown) HF ground-state. Derive it:
+	\begin{align}
+		\pdv{E_\mathrm{HF}}{h_{\mu\nu}^{rs}} &= \pdv{}{h_{\mu\nu}^{rs}} \sum_{\alpha,\beta} \sum_{p,q} h_{\alpha\beta}^{pq} \Delta_{\alpha\beta}^{pq} \nonumber \\
+		&= \Delta_{\mu\nu}^{rs} + \sum_{\alpha,\beta} \sum_{p,q} h_{\alpha\beta}^{pq} \pdv{\Delta_{\alpha\beta}^{pq}}{h_{\mu\nu}^{rs}} \label{eq:hf-pdv(E)-1}
+	\end{align}
+	Note that by construction $E_\mathrm{HF}$ is greater than the actual ground-state energy, since our approximated wavefunction is not the actual ground-state wavefunction. From Hellman-Feynman theorem \cite{grosso2014solid}, we know that for a parametric hamiltonian it holds:
+	\begin{align}
+		\pdv{E_\mathrm{HF}}{h_{\mu\nu}^{rs}} &= \mel{\Psi}{\pdv{\hat H_\mathrm{HF}}{h_{\mu\nu}^{rs}}}{\Psi} \nonumber \\
+		&= \mel{\Psi}{\pdv{}{h_{\mu\nu}^{rs}}\sum_{\alpha,\beta} \sum_{p,q} h_{\alpha\beta}^{pq} \hat a_\alpha^p \hat a_\beta^q}{\Psi} \nonumber \\
+		&= \big\langle \hat a_\mu^r \hat a_\nu^s \big\rangle \nonumber \\
+		&= \Delta_{\mu\nu}^{rs} \label{eq:hf-pdv(E)-2}
+	\end{align}
+	Eqns.\eqref{eq:hf-pdv(E)-1} and \eqref{eq:hf-pdv(E)-2}, combined, imply:
+	\[
+		\sum_{\alpha,\beta} \sum_{p,q} h_{\alpha\beta}^{pq} \pdv{\Delta_{\alpha\beta}^{pq}}{h_{\mu\nu}^{rs}} = 0
+	\]
+	which ends the proof.
+\end{tabproof}
+
+We now use Eq.~\eqref{eq:hf-variational-h} to minimise the variational energy $E = \langle \hat H \rangle$. Performing Wick's contractions, the variational energy becomes
+\begin{align}
+	E &= \big\langle \hat H \big\rangle \nonumber \\
+	&= \sum_{\alpha,\beta} A_{\alpha\beta} \big\langle \hat c_\alpha^\dagger \hat c_\beta \big\rangle + \frac{1}{2} \sum_{\alpha,\beta,\gamma,\delta} B_{\alpha\beta\gamma\delta} \big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta \big\rangle \nonumber \\
 	&= \sum_{\alpha,\beta} A_{\alpha\beta} \big\langle \hat a_\alpha^+ \hat a_\beta^- \big\rangle + \frac{1}{2} \sum_{\alpha,\beta,\gamma,\delta} B_{\alpha\beta\gamma\delta} \left(
 		\big\langle \hat a_\alpha^+ \hat a_\beta^+ \big\rangle \big\langle \hat a_\gamma^- \hat a_\delta^- \big\rangle - \big\langle \hat a_\alpha^+ \hat a_\gamma^- \big\rangle \big\langle \hat a_\beta^+ \hat a_\delta^- \big\rangle + \big\langle \hat a_\alpha^+ \hat a_\delta^- \big\rangle \big\langle \hat a_\beta^+ \hat a_\gamma^- \big\rangle
-	\right) \\
+	\right) \nonumber \\
 	&= \sum_{\alpha,\beta} A_{\alpha\beta} \Delta_{\alpha\beta}^{+-} + \frac{1}{2} \sum_{\alpha,\beta,\gamma,\delta} B_{\alpha\beta\gamma\delta} \left(
 		\Delta_{\alpha\beta}^{++} \Delta_{\gamma\delta}^{--} - \Delta_{\alpha\gamma}^{+-} \Delta_{\beta\delta}^{+-} + \Delta_{\alpha\delta}^{+-} \Delta_{\beta\gamma}^{+-}
-	\right) \\
+	\right) \nonumber \\
 	&= \sum_{\alpha,\beta} A_{\alpha\beta} \Delta_{\alpha\beta}^{+-}
 	+ \frac{1}{2} \sum_{\alpha,\beta,\gamma,\delta} \left(
 		B_{\alpha\gamma\delta\beta} - B_{\alpha\gamma\beta\delta}
 	\right) \Delta_{\alpha\beta}^{+-} \Delta_{\gamma\delta}^{+-} 
-	+ \frac{1}{2} \sum_{\alpha,\beta,\gamma,\delta} B_{\alpha\beta\gamma\delta} \Delta_{\alpha\beta}^{++} \Delta_{\gamma\delta}^{--}
-\end{aligned}
-\]
-In second passage we inserted the the relations \eqref{eq:hf-Delta-explicit}. Take the derivative:
-\begin{multline*}
-	\pdv{E}{h_{\mu\nu}^{rs}} = \sum_{\alpha,\beta} A_{\alpha\beta} \pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} + \frac{1}{2} \sum_{\alpha,\beta,\gamma,\delta} \left(
-		B_{\alpha\gamma\delta\beta} - B_{\alpha\gamma\beta\delta}
-	\right) \left(
-		\pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} \Delta_{\gamma\delta}^{+-} + \Delta_{\alpha\beta}^{+-} \pdv{\Delta_{\gamma\delta}^{+-}}{h_{\mu\nu}^{rs}}
-	\right) \\
-	+ \frac{1}{2} \sum_{\alpha,\beta,\gamma,\delta} B_{\alpha\beta\gamma\delta} \left(
-		\pdv{\Delta_{\alpha\beta}^{++}}{h_{\mu\nu}^{rs}} \Delta_{\gamma\delta}^{--} + \Delta_{\alpha\beta}^{++} \pdv{\Delta_{\gamma\delta}^{--}}{h_{\mu\nu}^{rs}} 
-	\right)
-\end{multline*}
-Using Eq.~\eqref{eq:hf-B-sym} we end up with:
-\begin{multline*}
-	\pdv{E}{h_{\mu\nu}^{rs}} = \sum_{\alpha,\beta} \left[
-		A_{\alpha\beta} + \sum_{\gamma,\delta}
-		\left(
-			B_{\alpha\gamma\delta\beta} - B_{\alpha\gamma\beta\delta}
-		\right) \Delta_{\gamma\delta}^{+-} 
-	\right] \pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} \\
-	+ \sum_{\alpha,\beta,\gamma,\delta} \frac{B_{\alpha\beta\gamma\delta}
-	\Delta_{\gamma\delta}^{--}}{2} \pdv{\Delta_{\alpha\beta}^{++}}{h_{\mu\nu}^{rs}} + \sum_{\alpha,\beta,\gamma,\delta} \frac{B_{\alpha\beta\gamma\delta} \Delta_{\alpha\beta}^{++}}{2} \pdv{\Delta_{\gamma\delta}^{--}}{h_{\mu\nu}^{rs}} 
-\end{multline*}
-Let now:
-\begin{equation}\label{eq:hf-CD-definition}
-	C_{\alpha\beta} \equiv 
-	\frac{1}{2} \left[
-		A_{\alpha\beta} + \sum_{\gamma,\delta}
-		\left(
-			B_{\alpha\gamma\delta\beta} - B_{\alpha\gamma\beta\delta}
-		\right) \Delta_{\gamma\delta}^{+-} 
-	\right]
-	\qquad
-	D_{\alpha\beta} \equiv \sum_{\gamma,\delta} \frac{B_{\alpha\beta\gamma\delta} \Delta_{\gamma\delta}^{--}}{2}
-\end{equation}
-From Fermi anticommutation rules, we have:
-\[
-	\Delta_{\alpha\beta}^{+-} = \delta_{\alpha\beta} - \Delta_{\beta\alpha}^{-+}
-	\quad\implies\quad
-	\pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} = -\pdv{\Delta_{\beta\alpha}^{-+}}{h_{\mu\nu}^{rs}}
-\]
-which implies:
-\[
-\begin{aligned}
-	\sum_{\alpha,\beta} 2C_{\alpha\beta} \pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} &= \sum_{\alpha,\beta} \left( C_{\alpha\beta} \pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} + C_{\alpha\beta} \pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} \right) \\
-	&= \sum_{\alpha,\beta} \left( C_{\alpha\beta} \pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} - C_{\beta\alpha} \pdv{\Delta_{\alpha\beta}^{-+}}{h_{\mu\nu}^{rs}} \right)
-\end{aligned}
-\]
-Moreover, using Eqns.~\eqref{eq:hf-AB-syms}, \eqref{eq:hf-ss-Delta-conj},
-\[
-	\sum_{\alpha,\beta} \frac{B_{\alpha\beta\gamma\delta} \Delta_{\alpha\beta}^{++}}{2}
-	= \sum_{\alpha,\beta} \left(
-		\frac{B_{\delta\gamma\beta\alpha} \Delta_{\beta\alpha}^{--}}{2}
-	\right)^*
-\]
-Using these two relations, we conclude:
-\[
-	\sum_{\alpha,\beta,\gamma,\delta} \frac{B_{\alpha\beta\gamma\delta} \Delta_{\alpha\beta}^{++}}{2} \pdv{\Delta_{\gamma\delta}^{--}}{h_{\mu\nu}^{rs}}
-	= \sum_{\gamma,\delta}
-	D_{\delta\gamma}^*
-	\pdv{\Delta_{\gamma\delta}^{--}}{h_{\mu\nu}^{rs}}
-\]
-
-Recollect everything and impose the solution to be a stationary point of energy,
-\[
-	\pdv{E}{h_{\mu\nu}^{rs}} \stackrel{!}{=} 0
-\]
-The notation ``$\stackrel{!}{=}$'' indicates, throughout the thesis, that we are imposing some condition. In the end we have:
-\begin{equation}\label{eq:hf-variational-CD}
-	\pdv{E}{h_{\mu\nu}^{rs}} = \sum_{\alpha,\beta} \left( 
-		C_{\alpha\beta} \pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} - C_{\beta\alpha} \pdv{\Delta_{\alpha\beta}^{-+}}{h_{\mu\nu}^{rs}} + D_{\alpha\beta} \pdv{\Delta_{\alpha\beta}^{++}}{h_{\mu\nu}^{rs}} + D_{\beta\alpha}^* 	\pdv{\Delta_{\alpha\beta}^{--}}{h_{\mu\nu}^{rs}}
-	\right) \stackrel{!}{=} 0
-\end{equation}
-Now compare Eqns.~\eqref{eq:hf-variational-h} and \eqref{eq:hf-variational-CD}. We recognise $h_{\alpha\beta}^{+-} = C_{\alpha\beta}$ and $h_{\alpha\beta}^{++} = D_{\alpha\beta}$; the remaining fields are determined by the symmetry relations \eqref{eq:hf-ondiag-relation} and \eqref{eq:hf-offdiag-relation}. Explicitly, the fields are self-consistently determined by the following two equations:
+	+ \frac{1}{2} \sum_{\alpha,\beta,\gamma,\delta} B_{\alpha\beta\gamma\delta} \Delta_{\alpha\beta}^{++} \Delta_{\gamma\delta}^{--} \label{eq:E=<H>}
+\end{align}
+where in the second line, we inserted the relations \eqref{eq:hf-Delta-explicit}. Our argument is completely contained in the following statement: the HF approximation to the real ground state it obtained as the ground state of a quadratic hamiltonian whose fields $h_{\alpha\beta}^{pq}$ satisfy the following relations:
 \begin{align}
 	h_{\alpha\beta}^{+-} &= \frac{1}{2} \left[
 	A_{\alpha\beta} + \sum_{\gamma,\delta}
@@ -323,17 +264,104 @@ Now compare Eqns.~\eqref{eq:hf-variational-h} and \eqref{eq:hf-variational-CD}. 
 	\right] \label{eq:hf-solution-h+-} \\
 	h_{\alpha\beta}^{++} &= \sum_{\gamma,\delta} \frac{B_{\alpha\beta\gamma\delta} \Delta_{\gamma\delta}^{--}}{2} \label{eq:hf-solution-h++}
 \end{align}
-The right-hand side of both equations depends on the fields themselves: $\Delta_{\alpha\beta}^{pq}$ are defined as expectation values of two-points fermionic operators over the ground-state $\ket{\Psi}$. For a given set of fields $h_{\alpha\beta}^{pq}$, the latter is determined (up to some unitary transformation) as the ground-state of a fermionic non-interacting model. In other words, being $\mathbf{h}$ the tensor containing all fields,
+These equations, operationally, give the instructions to build the best possible fermionic non-interacting hamiltonian to reproduce our original hamiltonian. These equations are proven as follows:
+
+\begin{tabproof}[Proof of Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}]
+
+	Consider $E$ as expressed in Eq.~\eqref{eq:E=<H>}. Upon taking the derivative, we obtain
+	\begin{multline*}
+		\pdv{E}{h_{\mu\nu}^{rs}} = \sum_{\alpha,\beta} A_{\alpha\beta} \pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} + \frac{1}{2} \sum_{\alpha,\beta,\gamma,\delta} \left(
+			B_{\alpha\gamma\delta\beta} - B_{\alpha\gamma\beta\delta}
+		\right) \left(
+			\pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} \Delta_{\gamma\delta}^{+-} + \Delta_{\alpha\beta}^{+-} \pdv{\Delta_{\gamma\delta}^{+-}}{h_{\mu\nu}^{rs}}
+		\right) \\
+		+ \frac{1}{2} \sum_{\alpha,\beta,\gamma,\delta} B_{\alpha\beta\gamma\delta} \left(
+			\pdv{\Delta_{\alpha\beta}^{++}}{h_{\mu\nu}^{rs}} \Delta_{\gamma\delta}^{--} + \Delta_{\alpha\beta}^{++} \pdv{\Delta_{\gamma\delta}^{--}}{h_{\mu\nu}^{rs}} 
+		\right)
+	\end{multline*}
+	which, by using Eq.~\eqref{eq:hf-B-sym}, becomes:
+	\begin{multline*}
+		\pdv{E}{h_{\mu\nu}^{rs}} = \sum_{\alpha,\beta} \left[
+			A_{\alpha\beta} + \sum_{\gamma,\delta}
+			\left(
+				B_{\alpha\gamma\delta\beta} - B_{\alpha\gamma\beta\delta}
+			\right) \Delta_{\gamma\delta}^{+-} 
+		\right] \pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} \\
+		+ \sum_{\alpha,\beta,\gamma,\delta} \frac{B_{\alpha\beta\gamma\delta}
+		\Delta_{\gamma\delta}^{--}}{2} \pdv{\Delta_{\alpha\beta}^{++}}{h_{\mu\nu}^{rs}} + \sum_{\alpha,\beta,\gamma,\delta} \frac{B_{\alpha\beta\gamma\delta} \Delta_{\alpha\beta}^{++}}{2} \pdv{\Delta_{\gamma\delta}^{--}}{h_{\mu\nu}^{rs}} 
+	\end{multline*}
+	Let us define
+	\begin{equation}\label{eq:hf-CD-definition}
+		C_{\alpha\beta} \equiv 
+		\frac{1}{2} \left[
+			A_{\alpha\beta} + \sum_{\gamma,\delta}
+			\left(
+				B_{\alpha\gamma\delta\beta} - B_{\alpha\gamma\beta\delta}
+			\right) \Delta_{\gamma\delta}^{+-} 
+		\right]
+		\qquad
+		D_{\alpha\beta} \equiv \sum_{\gamma,\delta} \frac{B_{\alpha\beta\gamma\delta} \Delta_{\gamma\delta}^{--}}{2}
+	\end{equation}
+	From Fermi anticommutation rules, we have
+	\[
+		\Delta_{\alpha\beta}^{+-} = \delta_{\alpha\beta} - \Delta_{\beta\alpha}^{-+}
+		\quad\implies\quad
+		\pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} = -\pdv{\Delta_{\beta\alpha}^{-+}}{h_{\mu\nu}^{rs}}
+	\]
+	which implies
+	\[
+	\begin{aligned}
+		\sum_{\alpha,\beta} 2C_{\alpha\beta} \pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} &= \sum_{\alpha,\beta} \left( C_{\alpha\beta} \pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} + C_{\alpha\beta} \pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} \right) \\
+		&= \sum_{\alpha,\beta} \left( C_{\alpha\beta} \pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} - C_{\beta\alpha} \pdv{\Delta_{\alpha\beta}^{-+}}{h_{\mu\nu}^{rs}} \right)
+	\end{aligned}
+	\]
+	Moreover, using Eqns.~\eqref{eq:hf-AB-syms}, \eqref{eq:hf-ss-Delta-conj},
+	\[
+		\sum_{\alpha,\beta} \frac{B_{\alpha\beta\gamma\delta} \Delta_{\alpha\beta}^{++}}{2}
+		= \sum_{\alpha,\beta} \left(
+			\frac{B_{\delta\gamma\beta\alpha} \Delta_{\beta\alpha}^{--}}{2}
+		\right)^*
+	\]
+	and, recognising $D_{\gamma\delta}$ from Eq.~\eqref{eq:hf-CD-definition}, we conclude
+	\[
+		\sum_{\alpha,\beta,\gamma,\delta} \frac{B_{\alpha\beta\gamma\delta} \Delta_{\alpha\beta}^{++}}{2} \pdv{\Delta_{\gamma\delta}^{--}}{h_{\mu\nu}^{rs}}
+		= \sum_{\gamma,\delta}
+		D_{\delta\gamma}^*
+		\pdv{\Delta_{\gamma\delta}^{--}}{h_{\mu\nu}^{rs}}
+	\]
+	
+	Recollect everything and impose the solution to be a stationary point of energy,
+	\[
+		\pdv{E}{h_{\mu\nu}^{rs}} \stackrel{!}{=} 0
+	\]
+	The notation ``$\stackrel{!}{=}$'' indicates, throughout the thesis, that we are imposing some condition. In the end we have:
+	\begin{equation}\label{eq:hf-variational-CD}
+		\pdv{E}{h_{\mu\nu}^{rs}} = \sum_{\alpha,\beta} \left( 
+			C_{\alpha\beta} \pdv{\Delta_{\alpha\beta}^{+-}}{h_{\mu\nu}^{rs}} - C_{\beta\alpha} \pdv{\Delta_{\alpha\beta}^{-+}}{h_{\mu\nu}^{rs}} + D_{\alpha\beta} \pdv{\Delta_{\alpha\beta}^{++}}{h_{\mu\nu}^{rs}} + D_{\beta\alpha}^* 	\pdv{\Delta_{\alpha\beta}^{--}}{h_{\mu\nu}^{rs}}
+		\right) \Ieq 0
+	\end{equation}
+	Comparing this equation with Eq.~\eqref{eq:hf-variational-h}. It must hold:
+	\[
+		h_{\alpha\beta}^{+-} = C_{\alpha\beta}
+		\qquad
+		h_{\alpha\beta}^{++} = D_{\alpha\beta} 
+	\]
+	Recalling their explicit form from Eq.~\eqref{eq:hf-CD-definition}, we prove Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}.
+\end{tabproof}
+
+We notice that the right-hand side of both Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++} depends on the fields themselves, as $\Delta_{\alpha\beta}^{pq}$ are defined as expectation values of two-points fermionic operators over the ground-state $\ket{\Psi}$. For a given set of fields $h_{\alpha\beta}^{pq}$, the latter is determined (up to some unitary transformation) as the ground-state of a fermionic non-interacting model. In other words, being $\mathbf{h}$ the tensor containing all fields,
 \begin{equation}\label{eq:hf-self-consistency-general}
 	\Delta_{\alpha\beta}^{pq}[\mathbf{h}] = \mel{\Psi[\mathbf{h}]}{\hat a_\alpha^p \hat a_\beta^q}{\Psi[\mathbf{h}]}
 \end{equation}
-This set of equations defines our computational problem. We are searching a set of parameters $\lbrace \Delta_{\alpha\beta}^{pq} \rbrace$ such that, determining the fields via Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}, then Eq.~\eqref{eq:hf-self-consistency-general} is respected. The great advantage of this scheme is that, with an appropriate choice of the Hilbert space basis (for example, moving to reciprocal space for a translationally-invariant model), we can implement easily model symmetries.
+The three Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++} and \eqref{eq:hf-self-consistency-general} define the solution of the HF variational method. Specifically, we need to determine $\Delta_{\alpha\beta}^{pq}$ such that, for given fields, Eq.~\eqref{eq:hf-self-consistency-general} is respected.
 
-The list of parameters $\lbrace \Delta_{\alpha\beta}^{pq} \rbrace$ to be determined self-consistently may be not-so-short: by looking at Eq.~\eqref{eq:hf-self-consistency-general}, the indices $\alpha,\beta,p,q$ are spanning a large Hilbert space. However, this equation can be manipulated and transformed, reducing the set of parameters to be determined self-consistently to a very manageable number. For each phase we define these last as ``Hartree-Fock parameters'' (HFPs): a set of objects self-consistently determined by a set equivalent, but transformed, version of Eq.~\eqref{eq:hf-self-consistency-general}.
+The list of parameters $\lbrace \Delta_{\alpha\beta}^{pq} \rbrace$ to be determined self-consistently may be not that short: by looking at Eq.~\eqref{eq:hf-self-consistency-general}, the indices $\alpha,\beta,p,q$ are spanning a large Hilbert space. However, this equation can be manipulated and transformed, reducing the set of parameters to be determined self-consistently to a very manageable number. For each phase we define these last as ``Hartree-Fock parameters'' (HFPs): a set of objects self-consistently determined by a set equivalent, but transformed, version of Eq.~\eqref{eq:hf-self-consistency-general}.
+
+The great advantage of this scheme is that, with an appropriate choice of the Hilbert space basis (for example, moving to reciprocal space for a translationally-invariant model), we can implement easily model symmetries.
 
 \subsection{Operative hamiltonian approximation}
 
-The derived Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}, although general and correct, are a little unpractical to use. To derive them was useful in order to prove that the self-consistent method is a variational search in disguise. Operatively, they can be rewritten in a simpler way. For a generic two-body quartic operator, the HF approximation is given by the decomposition
+In this section we give an alternative expression for Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}, by using an equivalent (but more straightforward) operatorial approximation. For a generic two-body quartic operator, the HF approximation is given by the decomposition
 \[
 \begin{aligned}
 	\hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\beta \hat c_\alpha \HFsimeq &\hat c_\alpha^\dagger \hat c_\beta^\dagger \big\langle \hat c_\beta \hat c_\alpha \big\rangle + \big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \big\rangle \hat c_\beta \hat c_\alpha - \big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \big\rangle \big\langle \hat c_\beta \hat c_\alpha \big\rangle \quad&&(\text{Hartree})\\
@@ -341,7 +369,7 @@ The derived Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}, althou
 	+ &\hat c_\alpha^\dagger \hat c_\alpha \big\langle \hat c_\beta^\dagger \hat c_\beta \big\rangle + \big\langle \hat c_\alpha^\dagger \hat c_\alpha \big\rangle \hat c_\beta^\dagger \hat c_\beta - \big\langle \hat c_\alpha^\dagger \hat c_\alpha \big\rangle \big\langle \hat c_\beta^\dagger \hat c_\beta \big\rangle \quad&&(\text{Cooper})
 \end{aligned}
 \]
-The proof of this statement is given in App.~\ref{appendix:hf-mft}, where we also argue the interpretation of HF method as a mean-field theory (MFT). Let us summarise this section through a practical rule to decompose the quartic part of $\hat H_U$ and $\hat H_V$ in the EHM, by applying Eq.~\eqref{appeq:mft-V-decomposition}.
+The proof of this statement is given in App.~\ref{appendix:hf-mft}, where we also argue the interpretation of HF method as a mean-field theory (MFT). Let us summarise this section through a practical rule to decompose the quartic part of the local repulsion $\hat H_U$ and the non-local attraction $\hat H_V$ in the EHM, by applying Eq.~\eqref{appeq:mft-V-decomposition}.
 
 \paragraph{Local repulsion.} Applying the HF method, the local repulsion $\hat H_U$ is approximated by the quadratic operator:
 \begin{align}
@@ -368,9 +396,9 @@ The proof of this statement is given in App.~\ref{appendix:hf-mft}, where we als
 \end{align}
 We will use these decomposition referring to each sector in dedicated chapters.
 
-\section{Sketch of HF iterative algorithm}\label{sec:sketch-ihf-algorithm}
+\section{The iHF algorithm}\label{sec:sketch-ihf-algorithm}
 
-In this section we give a practical sketch of the algorithm we use to compute Eq.~\eqref{eq:hf-self-consistency-general} for all given phases. We refer to this technique as ``iterative Hartree Fock'' (iHF). Let $\mathbf{v}$ be the vector containing all HFPs. Suppose we have $N$ HFPs $v_i$: then
+In this section we describe the algorithm we used to compute Eq.~\eqref{eq:hf-self-consistency-general}. We refer to this technique as ``iterative Hartree Fock'' (iHF). Let $\mathbf{v}$ be the vector containing all HFPs. Suppose we have $N$ HFPs $v_i$
 \[
 	\mathbf{v} \in \mathbb{C}^N
 	\qquad
@@ -390,7 +418,7 @@ Let $\mathrm{A}$ be the non-linear operator collecting all these functions. The 
 	\quad\implies\quad
 	\text{$\mathbf{v}$ is a solution.}
 \end{equation}
-We implement a rather easy scheme: first, we obtain an analytic expression for $\mathrm{A}$. Then we choose an initialiser $\mathbf{v}_0$ and apply $\mathrm{A}$ to it, obtaining a new HFPs vector. Iterating this procedure, we ``follow'' the non-linear map $\mathrm{A}$ until we claim to have converged.
+We implement the search for a self-consistent solution as follows: first, we obtain an analytic expression for $\mathrm{A}$. Then we choose an initialiser $\mathbf{v}_0$ and apply $\mathrm{A}$ to it, obtaining a new HFPs vector. Iterating this procedure, we ``follow'' the non-linear map $\mathrm{A}$ until we converge.
 %
 \begin{figure}
 	\centering
@@ -399,24 +427,24 @@ We implement a rather easy scheme: first, we obtain an analytic expression for $
 	\label{fig:effective-model-scheme}
 \end{figure}
 %
-Let us explain in detail:
+Specifically:
 \begin{enumerate}
-	\item Start with a generic quartic hamiltonian:
+	\item We start with a generic quartic hamiltonian:
 	\[
 		\hat H = \sum_{\alpha\beta} A_{\alpha\beta} \hat c_\alpha^\dagger \hat c_\beta + \sum_{\alpha\beta\gamma\delta} B_{\alpha\beta\gamma\delta} \hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta
 	\]
-	Choose the model parameters and set an electronic density;
+	We choose the model parameters and set the electronic density target;
 	%
-	\item Following the discussion of Sec.~\ref{sec:sketch-hf-method}, approximate analytically $\hat H$ with a quadratic hamiltonian
+	\item Following the discussion of Sec.~\ref{sec:sketch-hf-method}, we approximate analytically $\hat H$ with a quadratic hamiltonian
 	\[
 		\hat H \simeq \hat H_\mathrm{HF} \equiv \sum_{\alpha\beta} \left[
 			h_{\alpha\beta}^{+-} \hat c_\alpha^\dagger \hat c_\beta - h_{\beta\alpha}^{+-} \hat c_\alpha \hat c_\beta^\dagger + 			h_{\alpha\beta}^{++} \hat c_\alpha^\dagger \hat c_\beta^\dagger + \left(h_{\beta\alpha}^{++}\right)^* \hat c_\alpha \hat c_\beta
 		\right]
 	\]
 	with the fields given by Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++};
-	\item Impose selection rules on the fields $h_{\alpha\beta}^{+-}$, $h_{\alpha\beta}^{++}$, eventually eliminating those not respecting the symmetry sector we are working in.	As an example: if we choose not to break total charge conservation, set $\forall\alpha,\beta \colon h_{\alpha\beta}^{++}=0$;
-	\item Choose a starting value for the HFPs vector $\mathbf{v}_0$;
-	\item Set $\mathbf{v} = \mathbf{v}_0$ and enter the iterative scheme of Fig.~\ref{fig:effective-model-scheme}:
+	\item We impose selection rules on the fields $h_{\alpha\beta}^{+-}$, $h_{\alpha\beta}^{++}$, eventually eliminating those not respecting the symmetry sector we are targeting. For example, if we choose not to break total charge conservation, set $\forall\alpha,\beta \colon h_{\alpha\beta}^{++}=0$;
+	\item We choose a starting value for the HFPs vector $\mathbf{v}_0$;
+	\item We set $\mathbf{v} = \mathbf{v}_0$ and enter the iterative scheme of Fig.~\ref{fig:effective-model-scheme}:
 	\begin{enumerate}
 		\item Get a numeric approximation of the hamiltonian for the current value of $\mathbf{v}$, $\hat H_\mathrm{HF}[\mathbf{v}]$;
 		\item Determine the value $\mu [\mathbf{v}]$ giving the desired density;
@@ -425,27 +453,11 @@ Let us explain in detail:
 		\item If the algorithm converged, exit; otherwise, update the value of $\mathbf{v}$ repeat from point a).
 	\end{enumerate}
 \end{enumerate}
-We voluntarily left unspecified three details: 
-\begin{itemize}
-	\item How is the chemical potential $\mathbf{\mu}$ determined?
-	\item What criterion do we use to claim that the algorithm ``converged''?
-	\item How is the HFPs vector $\mathbf{v}$ updated?
-\end{itemize}
-The sections that follows deal with these questions.
-
-%\subsection{Self-consistency and RMPs}
-%
-%As will be thoroughly discussed in the following derivations for each physical phase we treat, treating the EHM via MFT keeping under strict control the effects of Wick's theorem produces ground states whose parametric properties (band structures, gap functions, chemical potential) are controlled self-consistently by the model two-body interactions $\hat H_U$ and $\hat H_V$. Let us define the concept of Renormalized model parameter (RMP), indicating any of the model parameters that is effectively renormalized via interactions. 
-%
-%Let us propose a relevant example of RMP. Suppose that under MFT, for a given phase, the decomposition $\hat H_V$ has a net effect of renormalizing the hopping amplitude
-%\[
-%t \stackrel{\hat H_V}{\to} \tilde{t}
-%\]
-%In other words, the decomposition of $\hat H_V$ produces a free Fermionic hamiltonian whose diffusive parameter is $\tilde{t}$. We define $\tilde{t}$ as an RMP, being the result of the original model parameter $t$ plus the effect of interactions.
+In the following subsections we describe technical details concerning the chemical potential fixing and the convergence criteria used for the practical implementation of the above iterative scheme.
 
 \subsection{Fixed density simulations and the role of $\mu$}\label{subsec:fixed-density-role-mu}
 
-In this thesis all derivations and simulations are carried out at fixed density. This requires a way to fix $\mu$ during iterations of the algorithm. This must be done iteratively: changing at each step the HFPs vector, we are actively modifying the approximate hamiltonian. Chemical potential must be determined accordingly to maintain the required density. 
+In this thesis all derivations and simulations are carried out at fixed target density. This is done by fixing the chemical potential $\mu$ during iterations of the algorithm. This must be done iteratively: changing at each step the HFPs vector, we are actively modifying the approximate hamiltonian. Chemical potential must be determined accordingly to maintain the required density. 
 
 For a given choice of HFPs vector and chemical potential, the ground state $\ket{\Psi[\mathbf{v},\mu]}$ is uniquely determined; then we compute density as
 \[
@@ -500,7 +512,7 @@ As will turn out in the derivation, chemical potential will be renormalised by i
 \[
 	\mu \to \mu + F[\mathbf{v}] \equiv \tilde{\mu} [\mathbf{v}]
 \]
-being $F$ some function of the HFPs. The chemical potential $\mu$ is an example of Renormalised Model Parameter (RMP). As we will see, also the hopping $t$ will turn out to be renormalised by interactions. 
+being $F$ some function of the HFPs. The chemical potential $\mu$ is an example of Renormalised Model Parameter (RMP).
 
 Note that at step $i$ of the iHF algorithm, our bisection procedure determines $\tilde{\mu}_i$, not $\mu_i$. This consideration is relevant when dealing with ground state energy estimation. Let us abstract from the EHM and iHF, and consider a generic hamiltonian $\hat H$. To find the ground state $\ket{\Psi}$ means precisely to solve
 \[
@@ -529,7 +541,7 @@ In the first line $\mu N$ is derived to zero; the constraint is imposed in the s
 \]
 being $\Omega$ the expectation value (EV) of $\hat K$. To correctly compute energy, we need to add $+\mu N$; since we determine $\tilde{\mu}[\mathbf{v}] \neq \mu$, everything needs to be expressed in terms of it. Using this relation, when the algorithm has converged, we can estimate ground-state energy.
 
-\subsection{The reject-mix-iterate convergence scheme}\label{subsec:reject-mix-iterate}
+\subsection{The convergence scheme}\label{subsec:reject-mix-iterate}
 
 Let us discuss briefly the convergence criterion of our algorithm and the iteration mechanism. The iHF scheme we design is a sequential loop that runs up to a logical halt condition. In order to specify such condition, we need to define our notion of ``convergence''. Recall the definition of $\mathrm{A}(\mathbf{v})$, the non-linear map in HFPs space whose component are given by a set of self-consistency equations: we claim to have reached convergence when $\mathbf{v}$ comes ``close enough'' to a fixed point of the map $\mathrm{A}$, as in Eq.~\eqref{eq:hf-A-fixed-point}. Explicitly, we stop whenever the following logic condition is satisfied for each component of $\mathbf{v} = (v_1, v_2, \cdots)$:
 \[
@@ -549,6 +561,6 @@ Let us give some concrete justification about the relevance of controlling $g$. 
 \[
 	\cdots \stackrel{\mathrm{A},g}{\longrightarrow} \mathbf{v}^{(a)} \stackrel{\mathrm{A},g}{\longrightarrow} \mathbf{v}^{(b)} \stackrel{\mathrm{A},g}{\longrightarrow} \mathbf{v}^{(a)} \stackrel{\mathrm{A},g}{\longrightarrow} \mathbf{v}^{(b)} \stackrel{\mathrm{A},g}{\longrightarrow} \cdots
 \]
-With the notation ``$\stackrel{\mathrm{A},g}{\longrightarrow}$'' we intend one algorithmic step at mixing parameter $g$. We are stuck forever in this loop. Now, to predict if couples like $(\mathbf{v}^{(a)},\mathbf{v}^{(b)})$ exist, how they depend on $g$, where they are located in HFPs space... is impossible at this level. Thus there is no immediate way to avoid these loops \textit{a priori}. One workaround we found, however, was to just make $g$ smaller. We gained empirical evidence that to ``slow down'' in HFPs space makes numeric instabilities less frequent. The trade-off, however, is that if we move too slow, runtime could get very large. Note that inaccurate setup of the algorithm could lead to resources-intensive runs also in ``ordinary'' situations, when we are not stuck in a loop.
+With the notation ``$\stackrel{\mathrm{A},g}{\longrightarrow}$'' we intend one algorithmic step at mixing parameter $g$. We are stuck forever in this loop. Now, to predict if couples like $(\mathbf{v}^{(a)},\mathbf{v}^{(b)})$ exist, how they depend on $g$, where they are located in HFPs space... is impossible at this level. Thus there is no immediate way to avoid these loops \textit{a priori}. One workaround we found to work in most cases, however, was to just make $g$ smaller. We gained empirical evidence that to ``slow down'' in HFPs space makes numeric instabilities less frequent. The trade-off, however, is that if we move too slow, runtime could get very large. Note that inaccurate setup of the algorithm could lead to resources-intensive runs also in ``ordinary'' situations, when we are not stuck in a loop.
 
 To keep the number of iterations under control, we also defined an upper bound $p$ to the total number of steps. If after $p$ steps we algorithm failed to converge, it halts. In that case, $\mathbf{v}$ is saved as a ``\texttt{NaN}'' (Not a number) vector and we move to another simulation. Introducing this simple rule, runtime is controlled and we gain an easy method to identify the regions of parameter space requiring more care -- just read from the raw data where \texttt{NaN}s have been saved and repeat simulations fine-tuning the parameters. This basically means to lower $g$ and increase $p$. These considerations end this technical introductory chapter on iHF methods.

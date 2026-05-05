@@ -89,7 +89,9 @@ The planar square lattice is bipartite: it can be divided in two square lattices
 
 The conventional HM shows a global $\mathrm{U}(2)$ symmetry, extended to $\mathrm{SU}(2) \times \mathrm{SU}(2) / \mathbb{Z}_2 = \mathrm{SO}(4)$ symmetry at half-filling on a bipartite lattice \cite{arovas2022hubbard}, such as the square lattice. For the EHM, we limit to prove that we can identify a $\mathrm{U}(2) \subset \mathrm{SO}(4)$ global symmetry.
 
-\paragraph{Gauge symmetry.} The EHM is symmetric under the global transformation
+\paragraph{Gauge symmetry.} 
+
+The EHM is symmetric under the global transformation
 \begin{equation}\label{eq:gauge-symmetry}
 	\hat c_{i\sigma} \to e^{-i\eta} \hat c_{i\sigma}
 	\qquad
@@ -103,7 +105,7 @@ To prove this, it suffices to note that
 	\quad\to\quad
 	e^{i\eta} \hat c_{i\sigma}^\dagger e^{-i\eta} \hat c_{j\sigma'} = \hat c_{i\sigma}^\dagger \hat c_{j\sigma'}
 \end{equation}
-As a consequence, any product of fermionic operators with an equal number of annihilations and creations is symmetric. Hence the kinetic part $\hat H_t$ and the interactions $\hat H_U$, $\hat H_V$ are invariant. As a consequence, the total number of particles (charge)
+As a consequence, any product of fermionic operators with an equal number of annihilations and creations is gauge-symmetric. Hence the kinetic part $\hat H_t$ and the interactions $\hat H_U$, $\hat H_V$ are invariant. As a consequence, the total number of particles (charge)
 \[
 	\hat{N} = \sum_{i\sigma} \hat c_{i\sigma}^\dagger \hat c_{i\sigma}
 \]
@@ -142,42 +144,48 @@ We define the local spin operator as:
 	\qquad
 	\left[ \hat S_j^\alpha, \hat S_j^\beta \right] = i \sum_\gamma \epsilon_{\alpha\beta\gamma} \hat S_j^\gamma
 \end{equation}
-with $\epsilon_{\alpha\beta\gamma}$ the Levi-Civita tensor. It can be checked by explicit calculation that the $\mathfrak{su}(2)$ spin algebra is actually respected. For example, consider $\alpha=x$, $\beta=y$:
-\[
-\begin{aligned}
-	\left[ \hat S_j^x, \hat S_j^y \right] &= \frac{1}{4} \left[
-		\hat \Psi_j^\dagger \begin{bmatrix}
-			& 1 \\
-			1 &
-		\end{bmatrix} \hat \Psi_j, \hat \Psi_j^\dagger \begin{bmatrix}
-			& -i \\
-			i &
-		\end{bmatrix} \hat \Psi_j
-	\right] \\
-	&= \frac{1}{4} \left[
-		\hat c_{j\uparrow}^\dagger \hat c_{j\downarrow} + \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}, -i\hat c_{j\uparrow}^\dagger \hat c_{j\downarrow} + i \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}
-	\right] \\
-	&= \frac{i}{4} \left[
-		\hat c_{j\uparrow}^\dagger \hat c_{j\downarrow}, \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}
-	\right] - \frac{i}{4} \left[
-		\hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}, \hat c_{j\uparrow}^\dagger \hat c_{j\downarrow}
-	\right] \\
-	&= \frac{i}{2} \left[
-		\hat c_{j\uparrow}^\dagger \hat c_{j\downarrow}, \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}
-	\right] \\
-	&= \frac{i}{2} \left(
-		\hat c_{j\uparrow}^\dagger \hat c_{j\downarrow} \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow} - \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow} \hat c_{j\uparrow}^\dagger \hat c_{j\downarrow}
-	\right) \\
-	&= \frac{i}{2} \left(
-		- \hat c_{j\uparrow}^\dagger \hat c_{j\downarrow}^\dagger \hat c_{j\downarrow} \hat c_{j\uparrow} + \hat c_{j\uparrow}^\dagger \hat c_{j\uparrow} + \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}^\dagger \hat c_{j\uparrow} \hat c_{j\downarrow} - \hat c_{j\downarrow}^\dagger \hat c_{j\downarrow}
-	\right) \\
-	&= \frac{i}{2} \left( 
-		\hat c_{j\uparrow}^\dagger \hat c_{j\uparrow} - \hat c_{j\downarrow}^\dagger \hat c_{j\downarrow}
-	\right) \\
-	&= i \hat S_j^z
-\end{aligned}
-\]
-We used Fermi anticommutation rules, $\lbrace \hat c_{i\sigma}, \hat c_{j\sigma'}^\dagger \rbrace = \delta_{ij} \delta_{\sigma\sigma'}$. Identical derivations can be carried out for all other components.
+with $\epsilon_{\alpha\beta\gamma}$ the Levi-Civita tensor. The $\mathfrak{su}(2)$ spin algebra is actually respected:
+
+\begin{tabproof}[Spin operators respect the $\mathfrak{su}(2)$ algebra]
+	
+	To prove that $\mathfrak{su}(2)$ algebra is respected, we must compute all possible commutators. This involves many very similar calculations. For the sake of conciseness, we sketch the proof for $\alpha=x$, $\beta=y$:
+	\[
+	\begin{aligned}
+		\left[ \hat S_j^x, \hat S_j^y \right] &= \frac{1}{4} \left[
+			\hat \Psi_j^\dagger \begin{bmatrix}
+				& 1 \\
+				1 &
+			\end{bmatrix} \hat \Psi_j, \hat \Psi_j^\dagger \begin{bmatrix}
+				& -i \\
+				i &
+			\end{bmatrix} \hat \Psi_j
+		\right] \\
+		&= \frac{1}{4} \left[
+			\hat c_{j\uparrow}^\dagger \hat c_{j\downarrow} + \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}, -i\hat c_{j\uparrow}^\dagger \hat c_{j\downarrow} + i \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}
+		\right] \\
+		&= \frac{i}{4} \left[
+			\hat c_{j\uparrow}^\dagger \hat c_{j\downarrow}, \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}
+		\right] - \frac{i}{4} \left[
+			\hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}, \hat c_{j\uparrow}^\dagger \hat c_{j\downarrow}
+		\right] \\
+		&= \frac{i}{2} \left[
+			\hat c_{j\uparrow}^\dagger \hat c_{j\downarrow}, \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}
+		\right] \\
+		&= \frac{i}{2} \left(
+			\hat c_{j\uparrow}^\dagger \hat c_{j\downarrow} \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow} - \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow} \hat c_{j\uparrow}^\dagger \hat c_{j\downarrow}
+		\right) \\
+		&= \frac{i}{2} \left(
+			- \hat c_{j\uparrow}^\dagger \hat c_{j\downarrow}^\dagger \hat c_{j\downarrow} \hat c_{j\uparrow} + \hat c_{j\uparrow}^\dagger \hat c_{j\uparrow} + \hat c_{j\downarrow}^\dagger \hat c_{j\uparrow}^\dagger \hat c_{j\uparrow} \hat c_{j\downarrow} - \hat c_{j\downarrow}^\dagger \hat c_{j\downarrow}
+		\right) \\
+		&= \frac{i}{2} \left( 
+			\hat c_{j\uparrow}^\dagger \hat c_{j\uparrow} - \hat c_{j\downarrow}^\dagger \hat c_{j\downarrow}
+		\right) \\
+		&= i \hat S_j^z
+	\end{aligned}
+	\]
+	We used Fermi anticommutation rules, $\lbrace \hat c_{i\sigma}, \hat c_{j\sigma'}^\dagger \rbrace = \delta_{ij} \delta_{\sigma\sigma'}$. Identical derivations can be carried out for all other commutators, giving in the end the $\mathfrak{su}(2)$ spin algebra.
+
+\end{tabproof}
 
 Let the raising and lowering operators:
 \[
@@ -207,93 +215,104 @@ The EHM hamiltonian and the number operator commutate with the global spin opera
 	\qquad
 	\comm{\hat N}{\hat{\mathbf{S}}} = 0
 \]
-For the non-local attraction, since it depends solely on total densities on neighbouring sites, spin-rotational invariance must hold. Anyway, let us give a short formal proof following this chain of results:
-\begin{enumerate}
-	\item The non-local attraction can be written as:
-	\begin{align}
-		\hat H_V &= V\sum_{\ev{ij}} \sum_{\sigma\sigma'} \hat n_{i\sigma} \hat n_{j\sigma'} \nonumber \\
-		&= V\sum_{\ev{ij}} \hat \Psi_i^\dagger \hat \Psi_i \hat \Psi_j^\dagger \hat \Psi_j \label{eq:ehm-HV-4xPsi}
-	\end{align}
-	having we used $\hat \Psi_i^\dagger \hat \Psi_i = \hat c_{i\uparrow}^\dagger \hat c_{i\uparrow} + \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow}$.
-	%
-	\item Similarly, the number operator is given by:
-	\begin{align}
-		\hat N &= \sum_{i \in \mathcal{L}} \sum_{\sigma} \hat n_{i\sigma} \nonumber \\
-		&= \sum_{i \in \mathcal{L}} \hat \Psi_i^\dagger \hat \Psi_i \label{eq:ehm-N-2xPsi}
-	\end{align}
-	%
-	\item Let now $\hat R(\bm{\theta})$ be any global spin rotation,
-	\[
-		\hat R (\bm{\theta}) \equiv \exp \left(-i \bm{\theta} \cdot \hat{\mathbf{S}}\right)
-		\qq{where}
-		\bm{\theta} = (\theta_x,\theta_y,\theta_z)
-	\]
-	Spinors transform as:
-	\[
-		\hat R (\bm{\theta}) \hat \Psi_i \hat R (\bm{\theta})^\dagger = \mathcal{R}(\bm{\theta}) \hat \Psi_i
-	\]
-	with $\mathcal{R}(\bm{\theta}) \in \mathrm{SU}(2)$ the unitary matrix associated to said rotation,
-	\begin{equation}\label{eq:ehm-R-exp}
-		\mathcal{R}(\bm{\theta}) = \exp(- \frac{i}{2} \bm{\theta} \cdot \bm{\tau})
-		\qq{where}
-		\bm{\tau} = (\tau_x,\tau_y,\tau_z)
-	\end{equation}
-	Let us prove this. Let $\hat A = i \bm{\theta} \cdot \hat{\mathbf{S}}$ e $\hat B = \hat \Psi_i$. The following identity, a consequence of Baker-Campbell-Housdorff formula, holds:
-	\[
-		e^{\hat A} \hat B e^{-\hat A} = \hat B + \comm{\hat A}{\hat B} + \frac{1}{2!} \comm{\hat A}{ \comm{\hat A}{\hat B}} + \frac{1}{3!} \comm{\hat A}{\comm{\hat A}{\comm{\hat A}{\hat B}}} + \cdots
-	\]
-	The first order of the expansion gives:
-	\[
-	\begin{aligned}
-		[i \bm{\theta} \cdot \hat{\mathbf{S}}, \hat \Psi_i] &= i \sum_\alpha \theta_\alpha [\hat S^\alpha, \hat \Psi_i] \\
-		&= -\frac{i}{2} \sum_\alpha \theta_\alpha \tau^\alpha \hat{\Psi}_i \\
-		&= -\frac{i}{2} \bm{\theta} \cdot \bm{\tau} \hat \Psi_i
-	\end{aligned}
-	\]
-	We omitted some purely algebraic passages. The second order:
-	\[
+For the non-local attraction, since it depends solely on total densities on neighbouring sites, spin-rotational invariance must hold,
+\begin{equation}\label{eq:[HV,S]=0}
+	\comm{\hat H_t + \hat H_U}{\hat{\mathbf{S}}} = 0
+\end{equation}
+Let us give a formal proof.
+
+\begin{tabproof}[The non-local attraction $\hat H_V$ is symmetric under global spin rotations.]
+	
+	The proof is organised through a sequence of results:	
+	\begin{enumerate}
+		\item The non-local attraction can be written as:
+		\begin{align}
+			\hat H_V &= V\sum_{\ev{ij}} \sum_{\sigma\sigma'} \hat n_{i\sigma} \hat n_{j\sigma'} \nonumber \\
+			&= V\sum_{\ev{ij}} \hat \Psi_i^\dagger \hat \Psi_i \hat \Psi_j^\dagger \hat \Psi_j \label{eq:ehm-HV-4xPsi}
+		\end{align}
+		having we used $\hat \Psi_i^\dagger \hat \Psi_i = \hat c_{i\uparrow}^\dagger \hat c_{i\uparrow} + \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow}$.
+		%
+%		\item Similarly, the number operator is given by:
+%		\begin{align}
+%			\hat N &= \sum_{i \in \mathcal{L}} \sum_{\sigma} \hat n_{i\sigma} \nonumber \\
+%			&= \sum_{i \in \mathcal{L}} \hat \Psi_i^\dagger \hat \Psi_i \label{eq:ehm-N-2xPsi}
+%		\end{align}
+%		%
+		\item Let now $\hat R(\bm{\theta})$ be any global spin rotation,
+		\[
+			\hat R (\bm{\theta}) \equiv \exp \left(-i \bm{\theta} \cdot \hat{\mathbf{S}}\right)
+			\qq{where}
+			\bm{\theta} = (\theta_x,\theta_y,\theta_z)
+		\]
+		Spinors transform as:
+		\[
+			\hat R (\bm{\theta}) \hat \Psi_i \hat R (\bm{\theta})^\dagger = \mathcal{R}(\bm{\theta}) \hat \Psi_i
+		\]
+		with $\mathcal{R}(\bm{\theta}) \in \mathrm{SU}(2)$ the unitary matrix associated to said rotation,
+		\begin{equation}\label{eq:ehm-R-exp}
+			\mathcal{R}(\bm{\theta}) = \exp(- \frac{i}{2} \bm{\theta} \cdot \bm{\tau})
+			\qq{where}
+			\bm{\tau} = (\tau_x,\tau_y,\tau_z)
+		\end{equation}
+		Let us prove this. Let $\hat A = i \bm{\theta} \cdot \hat{\mathbf{S}}$ e $\hat B = \hat \Psi_i$. The following identity, a consequence of Baker-Campbell-Housdorff formula, holds:
+		\[
+			e^{\hat A} \hat B e^{-\hat A} = \hat B + \comm{\hat A}{\hat B} + \frac{1}{2!} \comm{\hat A}{ \comm{\hat A}{\hat B}} + \frac{1}{3!} \comm{\hat A}{\comm{\hat A}{\comm{\hat A}{\hat B}}} + \cdots
+		\]
+		The first order of the expansion gives:
+		\[
 		\begin{aligned}
-			\comm{
-				i \bm{\theta} \cdot \hat{\mathbf{S}}
-			}{
-				\comm{ i \bm{\theta} \cdot \hat{\mathbf{S}} }{ \hat{\Psi}_i }
-			}
-			&= \comm{
-				i \bm{\theta} \cdot \hat{\mathbf{S}}
-			}{
-				-\frac{i}{2} (\bm{\theta} \cdot \bm{\tau}) \hat \Psi_i
-			} \\
-			&= -\frac{i}{2} \bm{\theta} \cdot \bm{\tau} \comm{
-				i \bm{\theta} \cdot \hat{\mathbf{S}}
-			}{
-				\Psi_i
-			} \\
-			&= \frac{1}{4} (\bm{\theta} \cdot \bm{\tau})^2 \hat{\Psi}_i
+			[i \bm{\theta} \cdot \hat{\mathbf{S}}, \hat \Psi_i] &= i \sum_\alpha \theta_\alpha [\hat S^\alpha, \hat \Psi_i] \\
+			&= -\frac{i}{2} \sum_\alpha \theta_\alpha \tau^\alpha \hat{\Psi}_i \\
+			&= -\frac{i}{2} \bm{\theta} \cdot \bm{\tau} \hat \Psi_i
 		\end{aligned}
-	\]
-	and so on. Collecting all terms,
-	\[
-	\begin{aligned}
-		\hat R (\bm{\theta}) \hat \Psi_i \hat R (\bm{\theta})^\dagger &= \hat \Psi_i -\frac{i}{2} \bm{\theta} \cdot \bm{\tau} \hat \Psi_i + \frac{1}{2! \times 4} (\bm{\theta} \cdot \bm{\tau})^2 \hat{\Psi}_i + \cdots \\
-		&= \sum_{k=1}^\infty \frac{1}{k!} \left( - \frac{i}{2} \bm{\theta} \cdot \bm{\tau} \right)^k \hat \Psi_i \\
-		&= \mathcal{R}(\bm{\theta}) \hat \Psi_i
-	\end{aligned}
-	\]
-	In last passage, we identified the series as the Taylor expansion of the exponential, recognising the expression for $\mathcal{R}(\bm{\theta})$ given in Eq.~\eqref{eq:ehm-R-exp}.
-	%
-	\item Then, the group acts on the product $\hat \Psi_i^\dagger \hat \Psi_i$ as
-	\[
+		\]
+		We omitted some purely algebraic passages. The second order:
+		\[
+			\begin{aligned}
+				\comm{
+					i \bm{\theta} \cdot \hat{\mathbf{S}}
+				}{
+					\comm{ i \bm{\theta} \cdot \hat{\mathbf{S}} }{ \hat{\Psi}_i }
+				}
+				&= \comm{
+					i \bm{\theta} \cdot \hat{\mathbf{S}}
+				}{
+					-\frac{i}{2} (\bm{\theta} \cdot \bm{\tau}) \hat \Psi_i
+				} \\
+				&= -\frac{i}{2} \bm{\theta} \cdot \bm{\tau} \comm{
+					i \bm{\theta} \cdot \hat{\mathbf{S}}
+				}{
+					\Psi_i
+				} \\
+				&= \frac{1}{4} (\bm{\theta} \cdot \bm{\tau})^2 \hat{\Psi}_i
+			\end{aligned}
+		\]
+		and so on. Collecting all terms,
+		\[
 		\begin{aligned}
-			\hat R \hat \Psi_i^\dagger \hat \Psi_i \hat R^\dagger &= \hat R \hat \Psi_i^\dagger \hat R^\dagger \hat R \hat \Psi_i \hat R^\dagger \\
-			&= \hat \Psi_i^\dagger \mathcal{R}^\dagger \mathcal{R} \hat \Psi_i\\
-			&= \hat \Psi_i^\dagger \hat \Psi_i
+			\hat R (\bm{\theta}) \hat \Psi_i \hat R (\bm{\theta})^\dagger &= \hat \Psi_i -\frac{i}{2} \bm{\theta} \cdot \bm{\tau} \hat \Psi_i + \frac{1}{2! \times 4} (\bm{\theta} \cdot \bm{\tau})^2 \hat{\Psi}_i + \cdots \\
+			&= \sum_{k=1}^\infty \frac{1}{k!} \left( - \frac{i}{2} \bm{\theta} \cdot \bm{\tau} \right)^k \hat \Psi_i \\
+			&= \mathcal{R}(\bm{\theta}) \hat \Psi_i
 		\end{aligned}
-	\]
-	being $\mathcal{R} \in \mathrm{SU}(2)$. Recalling Eqns.~\eqref{eq:ehm-HV-4xPsi}, \eqref{eq:ehm-N-2xPsi}, both $\hat H_V$ and $\hat N$ are $\mathrm{SU}(2)$ symmetric.
-\end{enumerate}
+		\]
+		In last passage, we identified the series as the Taylor expansion of the exponential, recognising the expression for $\mathcal{R}(\bm{\theta})$ given in Eq.~\eqref{eq:ehm-R-exp}.
+		%
+		\item Then, the group acts on the product $\hat \Psi_i^\dagger \hat \Psi_i$ as
+		\[
+			\begin{aligned}
+				\hat R \hat \Psi_i^\dagger \hat \Psi_i \hat R^\dagger &= \hat R \hat \Psi_i^\dagger \hat R^\dagger \hat R \hat \Psi_i \hat R^\dagger \\
+				&= \hat \Psi_i^\dagger \mathcal{R}^\dagger \mathcal{R} \hat \Psi_i\\
+				&= \hat \Psi_i^\dagger \hat \Psi_i
+			\end{aligned}
+		\]
+		being $\mathcal{R} \in \mathrm{SU}(2)$. Recalling Eqns.~\eqref{eq:ehm-HV-4xPsi}, we conclude that $\hat H_V$ is $\mathrm{SU}(2)$ symmetric -- which means, it does not change under global spin rotations. This fact implies Eq.~\eqref{eq:[HV,S]=0}.
+	\end{enumerate}
+
+\end{tabproof}
+
 The EHM is symmetric under global spin rotations. Note that $\hat H_V$ is actually symmetric under local spin rotations, meaning that we could rotate the spin at each site by a different amount and get the same interaction. The same holds for $\hat H_U$. It is the kinetic operator that makes the EHM globally (and not locally) $\mathrm{SU}(2)$ symmetric.
 
-Note that the $U^\mathrm{c}(1)$ gauge symmetry and the $\mathrm{SU}(2)$ spin rotations symmetry can be combined,
+The $U^\mathrm{c}(1)$ gauge symmetry and the $\mathrm{SU}(2)$ spin rotations symmetry can be combined,
 \[
 	\mathrm{U}^\mathrm{c}(1) \otimes \mathrm{SU}(2) = \mathrm{U}(2)
 \]
@@ -337,100 +356,8 @@ being in general $\eta_i$ a phase dependent on the fermionic quantum state $(i\s
 	+U \sum_i \hat h_{i\uparrow} \hat h_{i\downarrow} \hat h_{i\downarrow}^\dagger \hat h_{i\uparrow}^\dagger
 	- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger \hat h_{i\sigma}^\dagger
 \]
-For the two interactions $\hat H_U$, $\hat H_V$ the phase factors cancelled out. We aim to find the conditions under which the above hamiltonian is mapped onto the EHM of \eqref{eq:extended-hubbard-model},
-\[
-	\mathrm{P} \lbrace \hat H \rbrace \stackrel{?}{=}
-	-t \sum_{\langle ij \rangle} \sum_\sigma \hat h_{i\sigma}^\dagger \hat h_{j\sigma}
-	+U \sum_{i\in\mathcal{L}} \hat h_{i\uparrow}^\dagger \hat h_{i\downarrow}^\dagger \hat h_{i\downarrow} \hat h_{i\uparrow}
-	- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'} \hat h_{j\sigma'} \hat h_{i\sigma}
-\]
-
-Before starting the derivation, which is an extension of the argument carried out for the conventional HM \cite{arovas2022hubbard}, let us discuss some properties of the hole operators. Due to the presence of the phase factors in the PHS operative definition, the Fermi anticommutation rules hold regardlessly of the phase factor:
-\[
-\begin{aligned}
-	\lbrace \hat h_{i\sigma}, \hat h_{j\sigma'}^\dagger \rbrace &= e^{i(\eta_{i\sigma}-\eta_{j\sigma'})} \lbrace \hat c_{i\sigma}^\dagger, \hat c_{j\sigma'} \rbrace \\
-	&= e^{i(\eta_{i\sigma}-\eta_{j\sigma'})} \delta_{ij} \delta_{\sigma\sigma'} \\
-	&= \delta_{ij} \delta_{\sigma\sigma'}
-\end{aligned}
-\]
-The on-site density operator is given by:
-\[
-	\hat h_{i\sigma} \hat h_{i\sigma}^\dagger = \hat n_{i\sigma}
-\]
-being $\hat n_{i\sigma}$ the fermionic number operator on site $i$ with spin $\sigma$. It follows, for quartic interactions
-\begin{align}
-	\hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger \hat h_{i\sigma}^\dagger &= -\hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \nonumber \\
-	&= \hat h_{i\sigma} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma} \hat h_{j\sigma'}^\dagger \delta_{ij}\delta_{\sigma\sigma'} \nonumber \\
-	&= - \hat h_{i\sigma}^\dagger \hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger + \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma} \hat h_{j\sigma'}^\dagger \delta_{ij}\delta_{\sigma\sigma'} \nonumber \\
-	&= \hat h_{i\sigma}^\dagger \hat h_{i\sigma} \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} - \hat h_{i\sigma}^\dagger \hat h_{i\sigma} + \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma} \hat h_{j\sigma'}^\dagger \delta_{ij}\delta_{\sigma\sigma'} \nonumber \\
-	&= - \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{i\sigma} \hat h_{j\sigma'} - \hat h_{i\sigma}^\dagger \hat h_{i\sigma} + \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger - \left(
-		\hat h_{i\sigma} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}
-	\right) \delta_{ij}\delta_{\sigma\sigma'} \nonumber \\
-	&= \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} + \left(
-		\hat n_{i\sigma} + \hat n_{j\sigma'}
-	\right) - 1 - \left(
-		\hat h_{i\sigma} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}
-	\right) \delta_{ij}\delta_{\sigma\sigma'} \label{eq:phs-hhhh-chain}
-\end{align}
-The first term of the last passage is mirrored with respect to the starting term. Now, let us deal with the kinetic, local and non-local interactions separately.
-
-\paragraph{Kinetic term.}
-
-Consider the kinetic term,
-\[
-	\hat H_t = -t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-\]
-Apply the PH transform of Eq.~\eqref{eq:phs-P-general}
-\[
-	\mathrm{P} \lbrace \hat H_t \rbrace = -t \sum_{\langle ij \rangle} \sum_\sigma e^{i(\eta_{i\sigma} + \eta_{j\sigma})} \hat h_{i\sigma} \hat h_{j\sigma}^\dagger
-\]
-Anti-commutate the two fermionic operators, and exchange site labels $i \leftrightarrow j$. We get:
-\[
-	\mathrm{P} \lbrace \hat H_t \rbrace = -t \sum_{\langle ij \rangle} \sum_\sigma e^{i(\eta_{i\sigma} + \eta_{j\sigma}+\pi)} \hat h_{i\sigma}^\dagger \hat h_{j\sigma}
-\]
-A necessary condition on the unitary operation $\mathrm{P}$ is the following,
-\begin{equation}\label{eq:phs-P-condition}
-	\eta_{i\sigma} + \eta_{j\sigma} = (2k-1)\pi
-	\qq{with}
-	k\in\mathbb{Z}
-\end{equation}
-valid for NN sites.
-
-\paragraph{Local repulsion.}
-
-Substitute Eq.~\eqref{eq:phs-hhhh-chain} in $\hat H_U$,
-\[
-\begin{aligned}
-	\mathrm{P} \lbrace \hat H_U \rbrace &= U \sum_{i\in\mathcal{L}} \hat h_{i\uparrow} \hat h_{i\downarrow} \hat h_{i\downarrow}^\dagger \hat h_{i\uparrow}^\dagger \\
-	&= U \sum_{i\in\mathcal{L}} \hat h_{i\uparrow}^\dagger \hat h_{i\downarrow}^\dagger \hat h_{i\downarrow}\hat h_{i\uparrow} + U \sum_{i\in\mathcal{L}} \left(
-		\hat n_{i\uparrow} + \hat n_{i\downarrow}
-	\right) - U \sum_{i\in\mathcal{L}} (1) \\
-	&= U \sum_i \hat h_{i\uparrow}^\dagger \hat h_{i\downarrow}^\dagger \hat h_{i\downarrow}\hat h_{i\uparrow} + U (\hat N - L_x L_y)
-\end{aligned}
-\]
-For the half-filled state $\langle \hat N \rangle = L_x L_y$. The unitary map of Eq.~\eqref{eq:phs-P-general}, independently of the condition of Eq.~\eqref{eq:phs-P-condition}, leaves the hamiltonian identical at half-filling.
-
-\paragraph{Non-local attraction.}
-
-Proceed identically for $\hat H_V$,
-\[
-\begin{aligned}
-	\mathrm{P} \lbrace \hat H_V \rbrace &= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger \hat h_{i\sigma}^\dagger \\
-	&= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \left(
-		\hat n_{i\sigma} + \hat n_{j\sigma'}
-	\right) + V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} (1) \\
-	&= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} - 2zV (\hat N - L_x L_y)
-\end{aligned}
-\]
-with $z=4$ the lattice coordination number. In the last passage, we used that on the square lattice
-\begin{align}
-	\sum_{\ev{ij}} (1) &= \sum_{i\in\mathcal{L}/2} z \nonumber \\
-	&= \frac{L_x L_y}{2} \times z \label{eq:square-NN-ghost-sum}
-\end{align}
-As before, the non-local attraction is particle-hole symmetric at half-filling. As for the local repulsion, PHS is given just the operation of Eq.~\eqref{eq:phs-P-general}. The condition of Eq.~\eqref{eq:phs-P-condition} is irrelevant.
-
-Recollecting everything, if $\mathrm{P}$ is defined by the unitary operation
-\[
+For the two interactions $\hat H_U$, $\hat H_V$ the phase factors cancelled out. For a specific choice of the $\eta_i$ phases, 
+\begin{equation}\label{eq:phs}
 	\mathrm{P}
 	\quad\colon\quad
 	\begin{cases}
@@ -441,9 +368,105 @@ Recollecting everything, if $\mathrm{P}$ is defined by the unitary operation
 		&\qq{for}
 		i \in \mathcal{S}_2
 	\end{cases}
+\end{equation}
+the above hamiltonian is mapped onto the EHM of \eqref{eq:extended-hubbard-model},
+\[
+	\mathrm{P} \lbrace \hat H \rbrace =
+	-t \sum_{\langle ij \rangle} \sum_\sigma \hat h_{i\sigma}^\dagger \hat h_{j\sigma}
+	+U \sum_{i\in\mathcal{L}} \hat h_{i\uparrow}^\dagger \hat h_{i\downarrow}^\dagger \hat h_{i\downarrow} \hat h_{i\uparrow}
+	- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'} \hat h_{j\sigma'} \hat h_{i\sigma}
 \]
-and the system is half-filled, PHS is respected.
-Any other phase, as long as it alternates by $\pi$ on the two sublattices, is good enough. As for the conventional HM \cite{arovas2022hubbard}, this result can be generalised to any bipartite lattice. In turn, if a lattice is not bipartite, PHS is not present. To summarise, we report in Tab.~\ref{tab:symmetry-groups} all identified symmetries.
+The equality $\mathrm{P} \lbrace \hat H \rbrace = \hat H$ expresses PHS. This holds as long as we work at half-filling.
+
+\begin{tabproof}[PHS at half filling, with $\eta_i$ given by Eq.~\eqref{eq:phs}]
+
+	This proof is an extension of the argument carried out for the conventional HM \cite{arovas2022hubbard}. For the hole operators, Fermi anticommutation rules hold regardlessly of the phase factor:
+	\[
+	\begin{aligned}
+		\lbrace \hat h_{i\sigma}, \hat h_{j\sigma'}^\dagger \rbrace &= e^{i(\eta_{i\sigma}-\eta_{j\sigma'})} \lbrace \hat c_{i\sigma}^\dagger, \hat c_{j\sigma'} \rbrace \\
+		&= e^{i(\eta_{i\sigma}-\eta_{j\sigma'})} \delta_{ij} \delta_{\sigma\sigma'} \\
+		&= \delta_{ij} \delta_{\sigma\sigma'}
+	\end{aligned}
+	\]
+	The on-site density operator is given by:
+	\[
+		\hat h_{i\sigma} \hat h_{i\sigma}^\dagger = \hat n_{i\sigma}
+	\]
+	being $\hat n_{i\sigma}$ the fermionic number operator on site $i$ with spin $\sigma$. It follows, for quartic interactions
+	\begin{align}
+		\hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger \hat h_{i\sigma}^\dagger &= -\hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \nonumber \\
+		&= \hat h_{i\sigma} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma} \hat h_{j\sigma'}^\dagger \delta_{ij}\delta_{\sigma\sigma'} \nonumber \\
+		&= - \hat h_{i\sigma}^\dagger \hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger + \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma} \hat h_{j\sigma'}^\dagger \delta_{ij}\delta_{\sigma\sigma'} \nonumber \\
+		&= \hat h_{i\sigma}^\dagger \hat h_{i\sigma} \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} - \hat h_{i\sigma}^\dagger \hat h_{i\sigma} + \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma} \hat h_{j\sigma'}^\dagger \delta_{ij}\delta_{\sigma\sigma'} \nonumber \\
+		&= - \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{i\sigma} \hat h_{j\sigma'} - \hat h_{i\sigma}^\dagger \hat h_{i\sigma} + \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger - \left(
+			\hat h_{i\sigma} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}
+		\right) \delta_{ij}\delta_{\sigma\sigma'} \nonumber \\
+		&= \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} + \left(
+			\hat n_{i\sigma} + \hat n_{j\sigma'}
+		\right) - 1 - \left(
+			\hat h_{i\sigma} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}
+		\right) \delta_{ij}\delta_{\sigma\sigma'} \label{eq:phs-hhhh-chain}
+	\end{align}
+	The first term of the last passage is mirrored with respect to the starting term. Now, let us deal with the kinetic, local and non-local interactions separately.
+	
+	\paragraph{Kinetic term.}
+	
+	Consider the kinetic term,
+	\[
+		\hat H_t = -t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+	\]
+	Apply the PH transform of Eq.~\eqref{eq:phs-P-general}
+	\[
+		\mathrm{P} \lbrace \hat H_t \rbrace = -t \sum_{\langle ij \rangle} \sum_\sigma e^{i(\eta_{i\sigma} + \eta_{j\sigma})} \hat h_{i\sigma} \hat h_{j\sigma}^\dagger
+	\]
+	Anti-commutate the two fermionic operators, and exchange site labels $i \leftrightarrow j$. We get:
+	\[
+		\mathrm{P} \lbrace \hat H_t \rbrace = -t \sum_{\langle ij \rangle} \sum_\sigma e^{i(\eta_{i\sigma} + \eta_{j\sigma}+\pi)} \hat h_{i\sigma}^\dagger \hat h_{j\sigma}
+	\]
+	To get $\mathrm{P} \lbrace \hat H_t \rbrace = \hat H_t$, a necessary condition on the unitary operation $\mathrm{P}$ is the following,
+	\begin{equation}\label{eq:phs-P-condition}
+		\eta_{i\sigma} + \eta_{j\sigma} \Ieq (2k-1)\pi
+		\qq{with}
+		k\in\mathbb{Z}
+	\end{equation}
+	valid for NN sites. This requirement on the phases $\eta_i$ gives Eq.~\eqref{eq:phs}.
+	
+	\paragraph{Local repulsion.}
+	
+	Substitute Eq.~\eqref{eq:phs-hhhh-chain} in $\hat H_U$,
+	\[
+	\begin{aligned}
+		\mathrm{P} \lbrace \hat H_U \rbrace &= U \sum_{i\in\mathcal{L}} \hat h_{i\uparrow} \hat h_{i\downarrow} \hat h_{i\downarrow}^\dagger \hat h_{i\uparrow}^\dagger \\
+		&= U \sum_{i\in\mathcal{L}} \hat h_{i\uparrow}^\dagger \hat h_{i\downarrow}^\dagger \hat h_{i\downarrow}\hat h_{i\uparrow} + U \sum_{i\in\mathcal{L}} \left(
+			\hat n_{i\uparrow} + \hat n_{i\downarrow}
+		\right) - U \sum_{i\in\mathcal{L}} (1) \\
+		&= U \sum_i \hat h_{i\uparrow}^\dagger \hat h_{i\downarrow}^\dagger \hat h_{i\downarrow}\hat h_{i\uparrow} + U (\hat N - L_x L_y)
+	\end{aligned}
+	\]
+	At half filling, $\langle \hat N \rangle = L_x L_y$. The unitary map of Eq.~\eqref{eq:phs-P-general}, independently of the condition of Eq.~\eqref{eq:phs-P-condition}, leaves the hamiltonian identical at half-filling.
+	
+	\paragraph{Non-local attraction.}
+	
+	Proceed identically for $\hat H_V$,
+	\[
+	\begin{aligned}
+		\mathrm{P} \lbrace \hat H_V \rbrace &= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger \hat h_{i\sigma}^\dagger \\
+		&= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \left(
+			\hat n_{i\sigma} + \hat n_{j\sigma'}
+		\right) + V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} (1) \\
+		&= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} - 2zV (\hat N - L_x L_y)
+	\end{aligned}
+	\]
+	with $z=4$ the lattice coordination number. In the last passage, we used that on the square lattice
+	\begin{align}
+		\sum_{\ev{ij}} (1) &= \sum_{i\in\mathcal{L}/2} z \nonumber \\
+		&= \frac{L_x L_y}{2} \times z \label{eq:square-NN-ghost-sum}
+	\end{align}
+	As before, the non-local attraction is particle-hole symmetric at half-filling. We conclude that the entire EHM exhibits PHS at half filling, if $\mathrm{P}$ is defined as in Eq.~\eqref{eq:phs}.
+	%
+\end{tabproof}
+%
+As for the conventional HM \cite{arovas2022hubbard}, this result can be generalised to any bipartite lattice. In turn, if a lattice is not bipartite, PHS is not present. To summarise, we report in Tab.~\ref{tab:symmetry-groups} all identified symmetries.
 
 \begin{table}
 	\centering
@@ -560,36 +583,43 @@ If the ground-state is invariant under global spin rotations, these EVs must be 
 	\quad\to\quad
 	e^{2i\eta} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger
 \]
-to conclude that this operator is in general not gauge invariant. It is instead $\mathrm{SU}(2)$-symmetric. To prove this, it suffices to compute commutators of $\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger$ with $\hat S^z$, $\hat S^+$:
-\[
-\begin{aligned}
-	\comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\hat S^z} &= \comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\frac{1}{2} \sum_{\mathbf{r}'\in\mathcal{L}} (\hat n_{\mathbf{r}'\uparrow}-\hat n_{\mathbf{r}'\downarrow})} \\
-	&= \frac{1}{2} \comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\hat n_{\mathbf{r}\uparrow}-\hat n_{\mathbf{r}\downarrow}} \\
-	&= \frac{1}{2} \comm{\hat c_{\mathbf{r}\uparrow}^\dagger}{\hat n_{\mathbf{r}\uparrow}} \hat c_{\mathbf{r}\downarrow}^\dagger - \frac{1}{2} \hat c_{\mathbf{r}\uparrow}^\dagger \comm{\hat c_{\mathbf{r}\downarrow}^\dagger}{\hat n_{\mathbf{r}\downarrow}}
-\end{aligned}
-\]
-Since:
-\begin{align}
-	\comm{\hat c_{\mathbf{r}\sigma}^\dagger}{\hat n_{\mathbf{r}\sigma}} &= \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} - \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \hat c_{\mathbf{r}\sigma}^\dagger \nonumber \\
-	&= -\hat c_{\mathbf{r}\sigma}^\dagger \left(
-	1 - \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \right) \nonumber \\
-	&= -\hat c_{\mathbf{r}\sigma}^\dagger \label{eq:[c+,n]}
-\end{align}
-we have:
-\[
-	\comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\hat S^z} = -\frac{1}{2} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger + \frac{1}{2} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger = 0
-\]
+to conclude that this operator is in general not gauge invariant. It is instead $\mathrm{SU}(2)$-symmetric. Let us provide a proof:
 
-Moreover, considering the raising operator:
-\[
-\begin{aligned}
-	\comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\hat S^+} &= \comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\frac{1}{2} \sum_{\mathbf{r}'\in\mathcal{L}} \hat c_{\mathbf{r}^\uparrow}^\dagger \hat c_{\mathbf{r}^\downarrow}} \\
-	&= \comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}} \\
-	&= \comm{\hat c_{\mathbf{r}\uparrow}^\dagger}{\hat c_{\mathbf{r}\uparrow}^\dagger} \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} - \left( \hat c_{\mathbf{r}\uparrow}^\dagger \right)^2 \comm{\hat c_{\mathbf{r}\downarrow}^\dagger}{\hat c_{\mathbf{r}\downarrow}} \\
-	&= 0
-\end{aligned}
-\]
-where we used the facts that every operator commutates with itself, and a squared creation operator is null. These commutation relations, together, prove that Cooper EVs are legitimately non-zero for a $\mathrm{SU}(2)$-preserving phase.
+\begin{tabproof}[Local Cooper terms are $\mathrm{SU}(2)$-symmetric]
+
+	We must compute the commutators of $\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger$ with $\hat S^z$, $\hat S^+$:
+	\[
+	\begin{aligned}
+		\comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\hat S^z} &= \comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\frac{1}{2} \sum_{\mathbf{r}'\in\mathcal{L}} (\hat n_{\mathbf{r}'\uparrow}-\hat n_{\mathbf{r}'\downarrow})} \\
+		&= \frac{1}{2} \comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\hat n_{\mathbf{r}\uparrow}-\hat n_{\mathbf{r}\downarrow}} \\
+		&= \frac{1}{2} \comm{\hat c_{\mathbf{r}\uparrow}^\dagger}{\hat n_{\mathbf{r}\uparrow}} \hat c_{\mathbf{r}\downarrow}^\dagger - \frac{1}{2} \hat c_{\mathbf{r}\uparrow}^\dagger \comm{\hat c_{\mathbf{r}\downarrow}^\dagger}{\hat n_{\mathbf{r}\downarrow}}
+	\end{aligned}
+	\]
+	Since:
+	\begin{align}
+		\comm{\hat c_{\mathbf{r}\sigma}^\dagger}{\hat n_{\mathbf{r}\sigma}} &= \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} - \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \hat c_{\mathbf{r}\sigma}^\dagger \nonumber \\
+		&= -\hat c_{\mathbf{r}\sigma}^\dagger \left(
+		1 - \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \right) \nonumber \\
+		&= -\hat c_{\mathbf{r}\sigma}^\dagger \label{eq:[c+,n]}
+	\end{align}
+	we have:
+	\[
+		\comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\hat S^z} = -\frac{1}{2} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger + \frac{1}{2} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger = 0
+	\]
+	Hence, $\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger$ is $\mathrm{U}^z(1)$-symmetric.
+	
+	Moreover, considering the raising operator:
+	\[
+	\begin{aligned}
+		\comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\hat S^+} &= \comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\frac{1}{2} \sum_{\mathbf{r}'\in\mathcal{L}} \hat c_{\mathbf{r}^\uparrow}^\dagger \hat c_{\mathbf{r}^\downarrow}} \\
+		&= \comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}} \\
+		&= \comm{\hat c_{\mathbf{r}\uparrow}^\dagger}{\hat c_{\mathbf{r}\uparrow}^\dagger} \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} - \left( \hat c_{\mathbf{r}\uparrow}^\dagger \right)^2 \comm{\hat c_{\mathbf{r}\downarrow}^\dagger}{\hat c_{\mathbf{r}\downarrow}} \\
+		&= 0
+	\end{aligned}
+	\]
+	where we used the facts that every operator commutates with itself, and a squared creation operator is null. These commutation relations, together, prove that Cooper EVs are legitimately non-zero for a $\mathrm{SU}(2)$-preserving phase.
+
+\end{tabproof}
 
 \begin{table}
 	\centering
@@ -648,14 +678,14 @@ These two operators are ``complementary'': $\sigma=\uparrow$ densities act on $\
 	&= - V 
 	\sum_{\mathbf{r}\in\mathcal{L}} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left(\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}+\bm{\delta}\downarrow} + \hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}-\bm{\delta}\downarrow}\right) \label{eq:ehm-HV(os)}
 \end{align}
-Wick's theorem applied to this quartic operator gives:
+In the context of the HF method, Wick's theorem applied to this quartic operator gives:
 \begin{align}
 	\langle 
 	\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r} \pm \bm{\delta} \downarrow}
 	\rangle &= \langle
 		\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \downarrow}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \downarrow} \hat c_{\mathbf{r}\uparrow}
 	\rangle \nonumber \\
-	&\simeq
+	&=
 	\underbrace{
 		\langle 
 		\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\uparrow}
@@ -681,6 +711,7 @@ Wick's theorem applied to this quartic operator gives:
 	}_{\text{Cooper}}	
 	\label{eq:ehm-HV(os)-wick}
 \end{align}
+This equality is to be intended limitedly to the subspace of states that we are considering for the HF variational search.
 
 For the same-spin sector we define
 \begin{align}
@@ -696,7 +727,7 @@ Note that, with respect to the o.s. sector, we are summing on half the sites two
 	\rangle &= \langle
 	\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \sigma}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \sigma} \hat c_{\mathbf{r}\sigma}
 	\rangle \nonumber \\
-	&\simeq
+	&=
 	\underbrace{
 		\langle 
 		\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma}
@@ -772,7 +803,7 @@ We have a mirrored situation with respect to the Fock terms. For the Cooper chan
 	\label{tab:HV-sel-rules}
 \end{table}
 
-In Tab.~\ref{tab:HV-sel-rules} we summarise these considerations, giving the selection rules on the EVs of Eqns.~\eqref{eq:ehm-HV(os)-wick}, \eqref{eq:ehm-HV(ss)-wick}, dividing in the two sectors ``o.s.'' and ``s.s.''. By identifying these selection rules, we set grounds for the detailed derivation of each chapter and heavily simplify application of HF model to the EHM. We now move to the last part of this chapter: reciprocal space description of the EHM.
+In Tab.~\ref{tab:HV-sel-rules} we summarise these considerations, listing a set of selection rules about the EVs of Eqns.~\eqref{eq:ehm-HV(os)-wick}, \eqref{eq:ehm-HV(ss)-wick}, dividing in the two sectors ``o.s.'' and ``s.s.''. By identifying these selection rules, we set grounds for the detailed derivation of each chapter and heavily simplify application of HF model to the EHM. We now move to the last part of this chapter: reciprocal space description of the EHM.
 
 \section{The EHM in reciprocal space}
 
@@ -794,147 +825,85 @@ The notation $\mathcal{L}/2$ is shorthand to indicate $\mathcal{S}_1$ or $\mathc
 
 \paragraph{Kinetic part.}
 
-Let us transform $\hat H_t$:
-\begin{align}
-	\hat H_t &= -t \sum_{\langle \mathbf{r}\mathbf{r}' \rangle} \sum_\sigma \left[
-	\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}'\sigma} + \hc
-	\right] \nonumber \\
-	&\stackrel{\mathcal{F}}{=} -t \sum_{\langle \mathbf{r}\mathbf{r}' \rangle} \sum_\sigma \frac{1}{\sqrt{L_xL_y}} \sum_{\mathbf{k}\in\mathrm{BZ}} e^{i\mathbf{k}\cdot\mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \frac{1}{\sqrt{L_xL_y}} \sum_{\mathbf{k}'\in\mathrm{BZ}} e^{-i\mathbf{k}'\cdot\mathbf{r}'} \hat c_{\mathbf{k}'\sigma} + \hc \nonumber \\
-	&= -2t\sum_{\mathbf{k},\mathbf{k}'} \sum_\sigma \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \times \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}/2} e^{i(\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}} \times \sum_{\bm{\delta} \in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} e^{i \mathbf{k}' \cdot \bm{\delta}} \nonumber \\
-	&= -2t\sum_{\mathbf{k},\mathbf{k}'} \sum_\sigma \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \left[
-		\frac{e^{i k_x}+e^{-i k_x}}{2} + \frac{e^{i k_y}+e^{-i k_y}}{2}
-	\right] \nonumber \\
-	&= \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_\mathbf{k} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:Ht-Fourier}
-\end{align}
-where we used Eqns.~\eqref{eq:ehm-NNs-sum(f)}, \eqref{eq:ehm-delta/2}. We defined the bare bands: 
+The kinetic operators transforms as follows:
+\begin{equation}\label{eq:Ht-Fourier}
+	\hat H_t \Feq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_\mathbf{k} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
+\end{equation}
+where we defined the bare bands: 
 \begin{equation}\label{eq:bare-bands}
 	\epsilon_\mathbf{k} \equiv -2t \left(
 	\cos k_x + \cos k_y
 	\right)
 \end{equation}
+Let us prove this first transform.
+
+\begin{tabproof}[$\mathcal{F}$-transform of $\hat H_t$]
+	
+	Consider the kinetic operator $\hat H_t$:
+	\[
+		\hat H_t = -t \sum_{\langle \mathbf{r}\mathbf{r}' \rangle} \sum_\sigma \left[
+		\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}'\sigma} + \hc
+		\right] 
+	\]
+	Applying the convention of Eq.~\eqref{eq:fourier-convention}, we get:
+	\[
+	\begin{aligned}
+		\hat H_t &\Feq -t \sum_{\langle \mathbf{r}\mathbf{r}' \rangle} \sum_\sigma \left(\frac{1}{\sqrt{L_xL_y}} \sum_{\mathbf{k}\in\mathrm{BZ}} e^{i\mathbf{k}\cdot\mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger\right) \left(\frac{1}{\sqrt{L_xL_y}} \sum_{\mathbf{k}'\in\mathrm{BZ}} e^{-i\mathbf{k}'\cdot\mathbf{r}'} \hat c_{\mathbf{k}'\sigma} \right)+ \hc \\
+		&= -2t\sum_{\mathbf{k},\mathbf{k}'} \sum_\sigma \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \times \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}/2} e^{i(\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}} \times \sum_{\bm{\delta} \in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} e^{i \mathbf{k}' \cdot \bm{\delta}}
+	\end{aligned}
+	\]
+	We used Eq.~\eqref{eq:ehm-NNs-sum(f)} and recognised that the h.c. term gives an identical contribution. We recognise in the central term the relation of Eq.~\eqref{eq:ehm-delta/2}. Hence,
+	\[
+	\begin{aligned}
+		\hat H_t &\Feq -2t\sum_{\mathbf{k},\mathbf{k}'} \sum_\sigma \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \left[
+			\frac{e^{i k_x}+e^{-i k_x}}{2} + \frac{e^{i k_y}+e^{-i k_y}}{2}
+		\right] \\
+		&= \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_\mathbf{k} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
+	\end{aligned}
+	\]
+	which proves Eq.~\eqref{eq:Ht-Fourier}.
+
+\end{tabproof}
 
 \paragraph{Local repulsion.}
 
-The local repulsion transforms as:
-\[
-\begin{aligned}
-	\hat H_U &= U \sum_{\mathbf{r}\in\mathcal{L}} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow} \\
-	&\Feq U \sum_{\mathbf{r}\in\mathcal{L}} \frac{1}{(L_x L_y)^2} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{k}_3,\mathbf{k}_4} e^{i \mathbf{k}_1 \cdot \mathbf{r}} \hat c_{\mathbf{k}_1 \uparrow}^\dagger e^{i \mathbf{k}_2 \cdot \mathbf{r}} \hat c_{\mathbf{k}_2 \downarrow}^\dagger e^{-i \mathbf{k}_3 \cdot \mathbf{r}} \hat c_{\mathbf{k}_3 \downarrow} e^{-i \mathbf{k}_4 \cdot \mathbf{r}} \hat c_{\mathbf{k}_4 \uparrow} \\
-	&= \frac{U}{L_x L_y} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{k}_3,\mathbf{k}_4} \hat c_{\mathbf{k}_1 \uparrow}^\dagger \hat c_{\mathbf{k}_2 \downarrow}^\dagger \hat c_{\mathbf{k}_3 \downarrow} \hat c_{\mathbf{k}_4 \uparrow} \times \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} \\
-	&= \frac{U}{L_x L_y} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{k}_3,\mathbf{k}_4} \hat c_{\mathbf{k}_1 \uparrow}^\dagger \hat c_{\mathbf{k}_2 \downarrow}^\dagger \hat c_{\mathbf{k}_3 \downarrow} \hat c_{\mathbf{k}_4 \uparrow} \delta_{\mathbf{k}_1+\mathbf{k}_2 = \mathbf{k}_3+\mathbf{k}_4}
-\end{aligned}
-\]
-where we used Eq.~\eqref{eq:ehm-delta}. Let $\mathbf{k}_1 + \mathbf{k}_2 = \mathbf{k}_3 + \mathbf{k}_4 = \mathbf{K}$, and define $\mathbf{k}$, $\mathbf{k}'$ such that
-\[
-	\mathbf{k}_1 \equiv \mathbf{K} + \mathbf{k}
-	\qquad
-	\mathbf{k}_2 \equiv \mathbf{K} - \mathbf{k}
-	\qquad
-	\mathbf{k}_3 \equiv \mathbf{K} - \mathbf{k}'
-	\qquad
-	\mathbf{k}_4 \equiv \mathbf{K} + \mathbf{k}'
-\]
-Sums over these variables must be intended as over the Brillouin Zone ($\mathrm{BZ}$). Hence:
+The local repulsion transforms as follows:
 \begin{equation}\label{eq:HU-fourier}
 	\hat H_U \Feq \frac{U}{L_x L_y}
 	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \downarrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}' \downarrow} \hat c_{\mathbf{K}+\mathbf{k}' \uparrow}
 \end{equation}
+where sums over the variables $\mathbf{K}, \mathbf{k}, \mathbf{k}'$ must be intended as over the BZ.
 
+\begin{tabproof}[$\mathcal{F}$-transform of $\hat H_U$]
+	
+	Using the convention of Eq.~\eqref{eq:fourier-convention}, we get for $\hat H_U$:
+	\[
+	\begin{aligned}
+		\hat H_U &= U \sum_{\mathbf{r}\in\mathcal{L}} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow} \\
+		&\Feq U \sum_{\mathbf{r}\in\mathcal{L}} \frac{1}{(L_x L_y)^2} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{k}_3,\mathbf{k}_4} e^{i \mathbf{k}_1 \cdot \mathbf{r}} \hat c_{\mathbf{k}_1 \uparrow}^\dagger e^{i \mathbf{k}_2 \cdot \mathbf{r}} \hat c_{\mathbf{k}_2 \downarrow}^\dagger e^{-i \mathbf{k}_3 \cdot \mathbf{r}} \hat c_{\mathbf{k}_3 \downarrow} e^{-i \mathbf{k}_4 \cdot \mathbf{r}} \hat c_{\mathbf{k}_4 \uparrow} \\
+		&= \frac{U}{L_x L_y} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{k}_3,\mathbf{k}_4} \hat c_{\mathbf{k}_1 \uparrow}^\dagger \hat c_{\mathbf{k}_2 \downarrow}^\dagger \hat c_{\mathbf{k}_3 \downarrow} \hat c_{\mathbf{k}_4 \uparrow} \times \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} \\
+		&= \frac{U}{L_x L_y} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{k}_3,\mathbf{k}_4} \hat c_{\mathbf{k}_1 \uparrow}^\dagger \hat c_{\mathbf{k}_2 \downarrow}^\dagger \hat c_{\mathbf{k}_3 \downarrow} \hat c_{\mathbf{k}_4 \uparrow} \delta_{\mathbf{k}_1+\mathbf{k}_2 = \mathbf{k}_3+\mathbf{k}_4}
+	\end{aligned}
+	\]
+	where we used Eq.~\eqref{eq:ehm-delta}. Let $\mathbf{k}_1 + \mathbf{k}_2 = \mathbf{k}_3 + \mathbf{k}_4 = \mathbf{K}$, and define $\mathbf{k}$, $\mathbf{k}'$ such that
+	\[
+		\mathbf{k}_1 \equiv \mathbf{K} + \mathbf{k}
+		\qquad
+		\mathbf{k}_2 \equiv \mathbf{K} - \mathbf{k}
+		\qquad
+		\mathbf{k}_3 \equiv \mathbf{K} - \mathbf{k}'
+		\qquad
+		\mathbf{k}_4 \equiv \mathbf{K} + \mathbf{k}'
+	\]
+	Substituting, we get the expression of Eq.~\eqref{eq:HU-fourier}.
 
-\paragraph{Non-local attraction.} 
+\end{tabproof}
 
-To transform the non-local attraction $\hat H_V$, it is useful to start by defining:
-\[
-	h_{\mathbf{r}\sigma\sigma'} \equiv - V \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left(
-		\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} + \bm{\delta} \sigma'} + \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} - \bm{\delta} \sigma'}
-	\right)
-\]
-with:
-\[
-	\hat H_V = \sum_{\mathbf{r}\in\mathcal{L}/2} \sum_{\sigma,\sigma'} h_{\mathbf{r}\sigma\sigma'}
-\]
-The product of densities on neighbouring sites transforms as:
-\[
-\begin{aligned}
-	\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} \pm \bm{\delta} \sigma'} &= \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \sigma'}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \sigma'} \hat c_{\mathbf{r}\sigma} \\
-	&\Feq \frac{1}{(L_xL_y)^2} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{k}_3,\mathbf{k}_4}
-	e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} e^{\pm i(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}}  \hat c_{\mathbf{k}_1 \sigma}^\dagger \hat c_{\mathbf{k}_2 \sigma'}^\dagger \hat c_{\mathbf{k}_3 \sigma'} \hat c_{\mathbf{k}_4\sigma}
-\end{aligned}
-\]
-Then:
-\[
-\begin{aligned}
-	h_{\mathbf{r}\sigma\sigma'} &\Feq -\frac{V}{(L_xL_y)^2} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{k}_3,\mathbf{k}_4} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} \\
-	&\hspace{0.3\textwidth} \times \left(
-	e^{ i(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}} + e^{ -i(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}}
-	\right)
-	\hat c_{\mathbf{k}_1 \sigma}^\dagger \hat c_{\mathbf{k}_2 \sigma'}^\dagger \hat c_{\mathbf{k}_3 \sigma'} \hat c_{\mathbf{k}_4\sigma} \\
-	&= -\frac{2V}{(L_xL_y)^2} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{k}_3,\mathbf{k}_4} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} \cos\left[
-	(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}
-	\right]	\hat c_{\mathbf{k}_1 \sigma}^\dagger \hat c_{\mathbf{k}_2 \sigma'}^\dagger \hat c_{\mathbf{k}_3 \sigma'} \hat c_{\mathbf{k}_4\sigma}
-\end{aligned}
-\]
-The full non-local interaction is given by summing over all sites of $\mathcal{L}/2$ (which is, one sublattice). Applying Eq.~\eqref{eq:ehm-delta/2} gives back momentum conservation
-\[
-	\frac{1}{L_xL_y} \sum_{\mathbf{r} \in \mathcal{L}/2} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} = \frac{1}{2} \delta_{\mathbf{k}_1 + \mathbf{k}_2 = \mathbf{k}_3 + \mathbf{k}_4}
-\]
-where we used Eq.~\eqref{eq:ehm-delta/2}. Define $\mathbf{k}$, $\mathbf{k}'$ and $\mathbf{K}$ as we did fo the local repulsion, and
-\[
-	\delta \mathbf{k} \equiv \mathbf{k}-\mathbf{k}'
-\]
-Hence:
-\begin{align}
-	\hat H_V &= \sum_{\mathbf{r} \in \mathcal{L}/2} \sum_{\sigma,\sigma'} h_{\mathbf{r}\sigma\sigma'} \nonumber \\
-	&\Feq - \frac{V}{L_x L_y} \sum_{\sigma\sigma'} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \cos\left(
-	\delta \mathbf{k} \cdot \bm{\delta}
-	\right)	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \sigma'}^\dagger \hat c_{\mathbf{K}-\mathbf{k}' \sigma'} \hat c_{\mathbf{K}+\mathbf{k}'\sigma} \nonumber \\
-	&= - \frac{V}{L_x L_y} 	\sum_{\sigma\sigma'}
-	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
-	\cos \left(
-	\delta k_x
-	\right)	+ \cos \left(
-	\delta k_y
-	\right)	
-	\right]	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \sigma'}^\dagger \hat c_{\mathbf{K}-\mathbf{k}' \sigma'} \hat c_{\mathbf{K}+\mathbf{k}'\sigma} \label{eq:HV-fourier}
-\end{align}
+\paragraph{Non-local attraction.}
 
-Finally, we can separate in same spin and opposite spin channels. This gives:
-\begin{multline*}
-	\hat H_V \Feq 
-	\overbrace{
-		- \frac{V}{L_x L_y} \sum_{\sigma}
-		\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
-		\cos \left(
-		\delta k_x
-		\right)	+ \cos \left(
-		\delta k_y
-		\right)	
-		\right]	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\sigma} \hat c_{\mathbf{K}+\mathbf{k}'\sigma}
-	}^{\mathrm{s.s.}} \\
-	\underbrace{
-		- \frac{V}{L_x L_y} \sum_{\sigma}
-		\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
-		\cos \left(
-		\delta k_x
-		\right)	+ \cos \left(
-		\delta k_y
-		\right)	
-		\right]	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\overline{\sigma}}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\overline{\sigma}} \hat c_{\mathbf{K}+\mathbf{k}'\sigma}
-	}_{\mathrm{o.s.}}
-\end{multline*}
-The o.s. part can be simplified: since
-\[
-	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\overline{\sigma}}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\overline{\sigma}} \hat c_{\mathbf{K}+\mathbf{k}'\sigma} = \hat c_{\mathbf{K}-\mathbf{k}\overline{\sigma}}^\dagger \hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}+\mathbf{k}'\sigma} \hat c_{\mathbf{K}-\mathbf{k}'\overline{\sigma}} 
-\]
-due to fermionic anti-commutation rules, and since the composite transform
-\[
-	\mathbf{k} \to -\mathbf{k}
-	\qquad
-	\mathbf{k}' \to -\mathbf{k}'	
-\]
-leaves the form factor $\cos \left( \delta k_x \right)	+ \cos \left( \delta k_y \right)$ invariant, we reduce the spin sum to two times the $\sigma=\uparrow$ part,
+In o.s. sector, the non-local attraction transforms as:
 \begin{equation}\label{eq:HV-os-fourier}
-	\hat H_V^{(\mathrm{o.s.})} = - \frac{2V}{L_x L_y}
+	\hat H_V^{(\mathrm{o.s.})} \Feq - \frac{2V}{L_x L_y}
 	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
 	\cos \left(
 	\delta k_x
@@ -943,9 +912,9 @@ leaves the form factor $\cos \left( \delta k_x \right)	+ \cos \left( \delta k_y 
 	\right)	
 	\right]	\hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\downarrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\downarrow} \hat c_{\mathbf{K}+\mathbf{k}'\uparrow}
 \end{equation}
-The $\mathcal{F}$-transform of the s.s. part is given explicitly by:
+In the s.s. sector:
 \begin{multline}\label{eq:HV-ss-fourier}
-	\hat H_V^{(\mathrm{s.s.})} = - \frac{V}{L_x L_y}
+	\hat H_V^{(\mathrm{s.s.})} \Feq - \frac{V}{L_x L_y}
 	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
 	\cos \left(
 	\delta k_x
@@ -957,6 +926,102 @@ The $\mathcal{F}$-transform of the s.s. part is given explicitly by:
 	\hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\uparrow} \hat c_{\mathbf{K}+\mathbf{k}'\uparrow} + \hat c_{\mathbf{K}+\mathbf{k} \downarrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\downarrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\downarrow} \hat c_{\mathbf{K}+\mathbf{k}'\downarrow}
 	\right]
 \end{multline}
+Sums over the variables $\mathbf{K}, \mathbf{k}, \mathbf{k}'$ must be intended as over the BZ.
+
+\begin{tabproof}[$\mathcal{F}$-transform of $\hat H_V$]
+	
+	To prove Eqns.~\eqref{eq:HV-os-fourier}, \eqref{eq:HV-ss-fourier}, it is useful to start by defining:
+	\[
+		h_{\mathbf{r}\sigma\sigma'} \equiv - V \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left(
+			\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} + \bm{\delta} \sigma'} + \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} - \bm{\delta} \sigma'}
+		\right)
+	\]
+	with:
+	\[
+		\hat H_V = \sum_{\mathbf{r}\in\mathcal{L}/2} \sum_{\sigma,\sigma'} h_{\mathbf{r}\sigma\sigma'}
+	\]
+	The product of densities on neighbouring sites transforms as:
+	\[
+	\begin{aligned}
+		\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} \pm \bm{\delta} \sigma'} &= \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \sigma'}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \sigma'} \hat c_{\mathbf{r}\sigma} \\
+		&\Feq \frac{1}{(L_xL_y)^2} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{k}_3,\mathbf{k}_4}
+		e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} e^{\pm i(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}}  \hat c_{\mathbf{k}_1 \sigma}^\dagger \hat c_{\mathbf{k}_2 \sigma'}^\dagger \hat c_{\mathbf{k}_3 \sigma'} \hat c_{\mathbf{k}_4\sigma}
+	\end{aligned}
+	\]
+	Then:
+	\[
+	\begin{aligned}
+		h_{\mathbf{r}\sigma\sigma'} &\Feq -\frac{V}{(L_xL_y)^2} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{k}_3,\mathbf{k}_4} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} \\
+		&\hspace{0.3\textwidth} \times \left(
+		e^{ i(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}} + e^{ -i(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}}
+		\right)
+		\hat c_{\mathbf{k}_1 \sigma}^\dagger \hat c_{\mathbf{k}_2 \sigma'}^\dagger \hat c_{\mathbf{k}_3 \sigma'} \hat c_{\mathbf{k}_4\sigma} \\
+		&= -\frac{2V}{(L_xL_y)^2} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{k}_3,\mathbf{k}_4} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} \cos\left[
+		(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}
+		\right]	\hat c_{\mathbf{k}_1 \sigma}^\dagger \hat c_{\mathbf{k}_2 \sigma'}^\dagger \hat c_{\mathbf{k}_3 \sigma'} \hat c_{\mathbf{k}_4\sigma}
+	\end{aligned}
+	\]
+	The full non-local interaction is given by summing over all sites of $\mathcal{L}/2$ (which is, one sublattice). Applying Eq.~\eqref{eq:ehm-delta/2} gives back momentum conservation
+	\[
+		\frac{1}{L_xL_y} \sum_{\mathbf{r} \in \mathcal{L}/2} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} = \frac{1}{2} \delta_{\mathbf{k}_1 + \mathbf{k}_2 = \mathbf{k}_3 + \mathbf{k}_4}
+	\]
+	where we used Eq.~\eqref{eq:ehm-delta/2}. Define $\mathbf{k}$, $\mathbf{k}'$ and $\mathbf{K}$ as we did fo the local repulsion, and
+	\[
+		\delta \mathbf{k} \equiv \mathbf{k}-\mathbf{k}'
+	\]
+	Hence:
+	\begin{align}
+		\hat H_V &= \sum_{\mathbf{r} \in \mathcal{L}/2} \sum_{\sigma,\sigma'} h_{\mathbf{r}\sigma\sigma'} \nonumber \\
+		&\Feq - \frac{V}{L_x L_y} \sum_{\sigma\sigma'} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \cos\left(
+		\delta \mathbf{k} \cdot \bm{\delta}
+		\right)	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \sigma'}^\dagger \hat c_{\mathbf{K}-\mathbf{k}' \sigma'} \hat c_{\mathbf{K}+\mathbf{k}'\sigma} \nonumber \\
+		&= - \frac{V}{L_x L_y} 	\sum_{\sigma\sigma'}
+		\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
+		\cos \left(
+		\delta k_x
+		\right)	+ \cos \left(
+		\delta k_y
+		\right)	
+		\right]	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \sigma'}^\dagger \hat c_{\mathbf{K}-\mathbf{k}' \sigma'} \hat c_{\mathbf{K}+\mathbf{k}'\sigma} \label{eq:HV-fourier}
+	\end{align}
+	
+	Finally, we can separate in same spin and opposite spin channels. This gives:
+	\begin{multline*}
+		\hat H_V \Feq 
+		\overbrace{
+			- \frac{V}{L_x L_y} \sum_{\sigma}
+			\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
+			\cos \left(
+			\delta k_x
+			\right)	+ \cos \left(
+			\delta k_y
+			\right)	
+			\right]	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\sigma} \hat c_{\mathbf{K}+\mathbf{k}'\sigma}
+		}^{\mathrm{s.s.}} \\
+		\underbrace{
+			- \frac{V}{L_x L_y} \sum_{\sigma}
+			\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
+			\cos \left(
+			\delta k_x
+			\right)	+ \cos \left(
+			\delta k_y
+			\right)	
+			\right]	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\overline{\sigma}}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\overline{\sigma}} \hat c_{\mathbf{K}+\mathbf{k}'\sigma}
+		}_{\mathrm{o.s.}}
+	\end{multline*}
+	The s.s. part confirms Eq.~\eqref{eq:HV-ss-fourier}. The o.s. part can be simplified: since
+	\[
+		\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\overline{\sigma}}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\overline{\sigma}} \hat c_{\mathbf{K}+\mathbf{k}'\sigma} = \hat c_{\mathbf{K}-\mathbf{k}\overline{\sigma}}^\dagger \hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}+\mathbf{k}'\sigma} \hat c_{\mathbf{K}-\mathbf{k}'\overline{\sigma}} 
+	\]
+	due to fermionic anti-commutation rules, and since the composite transform
+	\[
+		\mathbf{k} \to -\mathbf{k}
+		\qquad
+		\mathbf{k}' \to -\mathbf{k}'	
+	\]
+	leaves the form factor $\cos \left( \delta k_x \right)	+ \cos \left( \delta k_y \right)$ invariant, we reduce the spin sum to two times the $\sigma=\uparrow$ part. This confirms Eq.~\eqref{eq:HV-os-fourier}
+
+\end{tabproof}
 
 All these expressions are going to be used in the analysis of each phase. In reciprocal space, following the general decomposition presented in Eq.~\eqref{appeq:mft-V-decomposition} for a quartic operator $\hat c_{\mathbf{k}_1}^\dagger \hat c_{\mathbf{k}_2}^\dagger \hat c_{\mathbf{k}_3} \hat c_{\mathbf{k}_4}$, we distinguish contractions as follows:
 \begin{itemize}

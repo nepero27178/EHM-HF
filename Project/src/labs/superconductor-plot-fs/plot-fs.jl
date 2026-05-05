@@ -19,7 +19,7 @@ EnlargeDF!(Sim)
 df_SC = filter(:U => x -> x==4.0, DF_SC)
 U = 4.0
 
-H = Figure(size=(900,400),figure_padding=1)
+H = Figure(size=(1100,400),figure_padding=1)
 axs = [Axis(H[1,j],xlabel = L"$\delta$",ylabel = L"$V$") for j in 1:2]
 linkyaxes!(axs...)
 
@@ -43,8 +43,8 @@ y_d = DF_d.y_d
 scatterlines!(ax,x_d,y_d,color=:black,markersize=2,linewidth=0.1)
 
 text!(ax,0.35,0.75,text="Normal",align=(:center,:center))
-text!(ax,0.2,2.0,text=L"$d$-wave",align=(:center,:center))
-text!(ax,0.32,3.5,text="Mixed",align=(:center,:center))
+text!(ax,0.2,2.0,text=L"$d$-wave",align=(:center,:center),color=:white)
+text!(ax,0.32,3.5,text="Mixed",align=(:center,:center),color=:white)
 text!(ax,0.43,2.35,text=L"$s \oplus s^*$-wave",align=(:center,:center))
 
 # Entropy

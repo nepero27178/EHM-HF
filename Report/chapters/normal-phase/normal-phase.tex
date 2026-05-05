@@ -5,9 +5,9 @@ In this chapter we apply the HF methods sketched in Sec.~\ref{sec:sketch-hf-meth
 
 HF methods applied in this context will lead us to a self-consistent hopping renormalisation effect. For certain values of the non-local attraction $V$ and the doping level, a complete Mott localisation effect takes place. The resulting bands shrinking and flattening is the main net effect of the presence of $\hat H_V$ in the EHM.
 
-This chapter is divided in three main parts. First, we discuss the symmetries of the normal phase, following the general discussion of Chap.~\ref{chap:ehm-symmetries}, and apply HF methods to derive the self-consistent approximated hamiltonian. Second, we impose some theoretical constraints on the self-consistent solution. Lastly, we present numeric results.
+This chapter is divided in three main parts. First, we discuss the symmetries of the normal phase, following the general discussion of Chap.~\ref{chap:ehm-symmetries}. Second,  we apply HF methods to derive the self-consistent approximated hamiltonian and impose some theoretical constraints on the self-consistent solution. Lastly, we present numeric results.
 
-\section{The ``normal'' phase and its  symmetries}\label{sec:normal-phase-theory}
+\section{The normal phase and its  symmetries}\label{sec:normal-phase-theory}
 
 In the normal phase no symmetry is broken. Thus, the HF wavefunction approximating the ground state must exhibit the full $\mathrm{U}(2) \otimes \mathrm{C}_4 \otimes \mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$ symmetry discussed in Sec.~\ref{sec:ehm-syms}. We take a slight detour from this, and instead allow for
 \[
@@ -19,9 +19,9 @@ Our HF method relies on the application of Wick's theorem on the quartic part of
 \[
 \begin{aligned}
 	&\hat H_U 
-	&&\text{Hartree contraction} \\
+	&&\text{Hartree contractions} \\
 	&\hat H_V \text{ (o.s. sector)}
-	&&\text{Hartree contraction} \\
+	&&\text{Hartree contractions} \\
 	&\hat H_V \text{ (s.s. sector)}
 	&&\text{Hartree and Fock contractions} \\
 \end{aligned}	
@@ -46,21 +46,19 @@ As we will see in detail and is summarised in Tab.~\ref{tab:normal-RWCs}, Hartre
 
 In the normal phase, spin is a pure physical degeneracy, being the $\uparrow$ and $\downarrow$ sectors separated; moreover, $\hat H$ is $\mathbb{Z}_2$ invariant with respect to spin inversion, $\sigma \leftrightarrow \overline{\sigma}$. This implies that all physical quantities, as is for the normal phase, should not depend on the spin index. We will perform all computations leaving $\sigma$ explicit and using this consideration at the end.
 
-\section{Hartree effects: chemical potential renormalisation}\label{sec:normal-hartree-mu}
+\section{Application of HF methods to the normal phase}\label{sec:normal-hm}
 
-Let us start by the analysis of the Hartree channel. The Hartree channel is defined as operator resulting from summing Hartree-like terms originating from Wick's decomposition of the quartic parts of $\hat H$. Each quartic term decomposes as a sum of fully contracted pairs, as in Eq.~\eqref{eq:hf-wick-hfc}.
+The quartic part of $\hat H$ is given by the the local repulsion $\hat H_U$ and the non-local attraction $\hat H_V$. Applying HF methods to them, we get the decomposition of Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}. In the next section we analyse the Hartree channel, which contains all Hartree-like terms. We will see that $\hat H_U$ and $\hat H_V$ are approximated, in this channel, by a multiple of the number operator. In the section that follows, we deal with Fock terms, and show how $\hat H_V$ is approximated, in that channel, by a kinetic-like operator.
 
-In the final hamiltonian, the net effect originating from Hartree terms will be a renormalisation of $\mu$. To derive analytically this effect is only important to the ends of computing correctly the free energy density of the approximated ground state. As is discussed in Sec.~\ref{subsec:fixed-density-role-mu}, in the context of numerical simulations at fixed density, the chemical potential is determined self-consistently at each step; thus any net effect that shifts $\mu$ is effectively ignored within (and limitedly to) the iterative algorithm.
+\subsection{Hartree effects: chemical potential renormalisation}\label{subsec:normal-hartree-mu}
 
-\subsection{Hartree channel in the normal phase: analytic derivation}\label{subsec:normal-hartree-analytic}
-
-The quartic part of $\hat H$ is given by the the local repulsion $\hat H_U$ and the non-local attraction $\hat H_V$. Applying HF methods to them, we get the decomposition of Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}. Let us deal with the Hartree sector of both separately.
+Both the two-body operators $\hat H_U$, $\hat H_V$ have non-zero Hartree EVs. We deal with them separately, and show that both lead to a renormalisation of $\mu$.
 
 \paragraph{Local repulsion.}
 
 In the normal phase, the local repulsion $\hat H_U$ decomposes in Hartree channel as specified in Eq.~\eqref{eq:mft-HU}
 \[
-	\hat H_U \simeq
+	\hat H_U \HFsimeq
 	U \sum_{i} \left[
 		\langle 
 			\hat n_{i\uparrow}
@@ -79,15 +77,19 @@ For a translationally invariant phase such as the normal phase, it holds
 \end{equation}
 which gives
 \begin{align}
-	\hat H_U &\simeq
+	\hat H_U &\HFsimeq
 	nU \sum_i \left[
 		 \hat n_{i\uparrow} + \hat n_{i\downarrow}
 	\right]
 	- U \sum_i n^2 \nonumber \\
-	&= nU \times \hat N - E_{\mathrm{H}/U}^{(\mathrm{N})} \label{eq:normal-HU-approx}
+	&= nU \times \hat N - E_{\mathrm{H}/U}^{(\mathrm{N})} \label{eq:normal-HU-hartree-approx}
 \end{align}
-being $\hat N$ the total number operator and $ E_{\mathrm{H}/U}^{(\mathrm{N})}$ the ``contraction energy'' (also known as double counting term). In Sec.~\ref{subsec:normal-hartree-energy} we deal with it. The chemical potential is corrected by
-\begin{equation}\label{eq:local-hartree-mu-shift}
+being $\hat N$ the total number operator and $ E_{\mathrm{H}/U}^{(\mathrm{N})}$ the ``local Hartree contraction energy'' (also known as double counting term),
+\begin{equation}\label{eq:normal-HU-hartree-Ec}
+	E_{\mathrm{H}/U}^{(\mathrm{N})} = L_x L_y \times n^2U 
+\end{equation}
+This energy contributes negatively to the ground-state energy, for $U>0$. The chemical potential is corrected by
+\begin{equation}\label{eq:normal-mu-hU}
 	\mu \to \mu - nU
 \end{equation}
 The non-local attraction further corrects $\mu$.
@@ -95,8 +97,8 @@ The non-local attraction further corrects $\mu$.
 \paragraph{Non-local attraction.}
 
 The non-local attraction is divided in two sectors, as in Eq.~\eqref{eq:ehm-HV(ss)+HV(os)}. From Eq.~\eqref{eq:mft-HV}, its Hartree-like terms are:
-\begin{multline}
-	\hat H_V \simeq 
+\begin{multline*}
+	\hat H_V \HFsimeq 
 	\overbrace{
 		-V \sum_{\ev{ij}} \sum_\sigma \left[
 			\langle 
@@ -125,11 +127,10 @@ The non-local attraction is divided in two sectors, as in Eq.~\eqref{eq:ehm-HV(s
 		\right]
 	}_{\mathrm{o.s.}} \, +\, 
 	(\text{all the rest})
-	\label{eq:normal-V-wick-decomposition}
-\end{multline}
+\end{multline*}
 where ``all the rest'' collects all non-Hartree terms. Recalling the Ansatz of Eq.~\eqref{eq:normal-density-ansatz}, we get
-\[
-	\hat H_V \simeq  \underbrace{
+\begin{equation}\label{eq:normal-hartree-HV-int1}
+	\hat H_V \HFsimeq  \underbrace{
 		-nV \sum_{\ev{ij}} \sum_\sigma \left[
 		\hat n_{j\sigma} + \hat n_{i\sigma}
 		\right]
@@ -141,9 +142,29 @@ where ``all the rest'' collects all non-Hartree terms. Recalling the Ansatz of E
 	}_{\mathrm{o.s.}} 
 	- E_{\mathrm{H}/V}^{(\mathrm{N})}
 	+ (\text{all the rest})
-\]
-with $E_{\mathrm{H}/V}^{(\mathrm{N})}$ the normal state shift to energy brought by $\hat H_V$. Both sums above give a number operator. Note that we sum over NNs: each site is connected to $z=4$ sites. Including this combinatorial factor, we have
-\begin{equation}\label{eq:normal-HV-approx}
+\end{equation}
+with $E_{\mathrm{H}/V}^{(\mathrm{N})}$ the normal state shift to energy brought by $\hat H_V$:
+\begin{align}
+	E_{\mathrm{H}/V}^{(\mathrm{N})} &= - V \sum_{\ev{ij}} \sum_\sigma \left[
+	\langle 
+	\hat n_{i\sigma}
+	\rangle \langle 
+	\hat n_{j\sigma}
+	\rangle
+	+
+	\langle 
+	\hat n_{i\sigma}
+	\rangle \langle 
+	\hat n_{j\overline{\sigma}}
+	\rangle
+	\right] \nonumber \\
+	&= -2V \sum_{\ev{ij}} \sum_\sigma n^2 \nonumber \\
+	&= - L_x L_y \times 2zn^2 V \label{eq:normal-HV-hartree-Ec}
+\end{align}
+Note the similarity with Eq.~\eqref{eq:normal-Ec-hU}.
+
+Getting back to Eq.~\eqref{eq:normal-hartree-HV-int1}, both sums give a number operator. Note that we sum over NNs: each site is connected to $z=4$ sites. Including this combinatorial factor, we have
+\begin{equation}\label{eq:normal-HV-hartree-approx}
 	\hat H_V \simeq -2nzV \times \hat N - E_{\mathrm{H}/V}^{(\mathrm{N})} + 
 	(\text{all the rest})
 \end{equation}
@@ -152,48 +173,21 @@ This accounts for the final Hartree shift of $\mu$,
 	\mu \to \mu + 2znV
 \end{equation}
 
-Considering the net shift to $\mu$ due to both interactions by combining Eqns.~\eqref{eq:local-hartree-mu-shift}, \eqref{eq:non-local-hartree-mu-shift}, we get the final RMP anticipated in Tab.~\ref{tab:normal-RWCs},
+Collecting everything, we get the HF approximation to the two interactions in the Hartree channel:
+\[
+	\hat H_U + \hat H_V \HFsimeq -n(2zV-U) \hat N 
+\]
+Considering the net shift to $\mu$ due to both interactions by combining Eqns.~\eqref{eq:normal-mu-hU}, \eqref{eq:non-local-hartree-mu-shift}, we get the final RMP anticipated in Tab.~\ref{tab:normal-RWCs},
 \begin{equation}\label{eq:normal-mu-shift}
 	\tilde{\mu} \equiv \mu + n(2zV-U)
 \end{equation}
-This result will remain valid throughout all phases discussed in this text. For the AF phase, Sec.~\ref{subsec:af-nl-hartree-analytic}, the SDW character leaves this shift untouched. The SC phase, Sec.~\ref{subsec:sc-hartree-analytic}, we will discuss is inherently translational invariant, thus the computation will be the same as here.
+This result will remain valid throughout all phases discussed in this text.
 
-\subsection{Hartree contraction energy}\label{subsec:normal-hartree-energy}
-
-The double counting terms accounting for energy shifts in the Hartree channel are, as anticipated:
-\begin{align}
-	E_{\mathrm{H}/U}^{(\mathrm{N})} &= \sum_i \langle 
-		\hat n_{i\downarrow}
-	\rangle \langle 
-		\hat n_{i\uparrow}
-	\rangle \nonumber \\
-	&= L_x L_y \times n^2U \label{eq:normal-hartree-U-contraction-energy}
-\end{align}
-for the local repulsion and 
-\begin{align}
-	E_{\mathrm{H}/V}^{(\mathrm{N})} &= - V \sum_{\ev{ij}} \sum_\sigma \left[
-		\langle 
-			\hat n_{i\sigma}
-		\rangle \langle 
-			\hat n_{j\sigma}
-		\rangle
-		+
-		\langle 
-			\hat n_{i\sigma}
-		\rangle \langle 
-			\hat n_{j\overline{\sigma}}
-		\rangle
-	\right] \nonumber \\
-	&= -2V \sum_{\ev{ij}} \sum_\sigma n^2 \nonumber \\
-	&= - L_x L_y \times 2zn^2 V \label{eq:normal-hartree-V-contraction-energy}
-\end{align}
-for the non-local attraction. In the last passage, we used Eq.~\eqref{eq:square-NN-ghost-sum} and spin degeneracy. The contraction energy is an extensive quantity. When computing total free energy density, we will use the contraction energy per site.
-
-\section{Fock effects: bare bands renormalisation}\label{sec:normal-fock-bands-renormalisation}
-
-Analysis of Fock terms will lead us to the effect that makes the normal phase interesting, when compared to the free Fermi gas on the square lattice. From Wick's decomposition of $\hat H_V$, the unique allowed Fock term comes from the same-spin sector. This selection rules is implied by the $\mathrm{SU}(2)$ symmetry of the normal phase. Then, from Eq.~\eqref{eq:mft-HV}:
-\begin{equation}\label{eq:real-space-non-local-interaction-fock}
-	\hat H_V \simeq (\text{Hartree channel}) + 
+\subsection{Fock effects: bare bands renormalisation}\label{subsec:normal-fock-bandsn}
+ 
+We move to Fock terms. From Wick's decomposition of $\hat H_V$, the unique allowed Fock term comes from the same-spin sector. This selection rules is implied by the $\mathrm{SU}(2)$ symmetry of the normal phase and was stated in Tab.~\ref{tab:HV-sel-rules}. Then, from Eq.~\eqref{eq:mft-HV}:
+\begin{equation}\label{eq:normal-HV-fock}
+	\hat H_V \HFsimeq (\text{Hartree channel}) + 
 	V \sum_{\ev{ij}} \sum_\sigma \left[
 		\langle
 		\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
@@ -203,41 +197,36 @@ Analysis of Fock terms will lead us to the effect that makes the normal phase in
 		\rangle \langle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle
 	\right]
 \end{equation}
-Note the $+$ sign in front of the displayed term: it originates from the $-$ sign in Fock term of Eq.~\eqref{eq:hf-wick-hfc}. A bond-wise hopping amplitude can be defined,
-\[
-	\tilde{t}_{ij\sigma} \equiv t - V \langle
-	\hat c_{j\sigma}^\dagger \hat c_{i\sigma}
-	\rangle
-\]
-The effective kinetic hamiltonian is given by
-\[
-\begin{aligned}
-	\hat H_{\tilde{t}} &= \hat H_t + V \sum_{\ev{ij}} \sum_\sigma \left[
-	\langle
-	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	\rangle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} + \hc
-	\right] \\
-	&= - \sum_{\ev{ij}} \sum_\sigma 
-	\left[
-	\tilde{t}_{ij\sigma} \hat c_{i\sigma}^\dagger \hat c_{j\sigma} + \hc
-	\right]
-\end{aligned}
-\]
-To proceed, it is useful to move to reciprocal space.
+Note the plus sign in front of the displayed term: it comes from the minus sign in Fock term of Eq.~\eqref{eq:hf-wick-hfc}. 
 
-\subsection{Fock channel in the normal phase: analytic derivation}\label{subsec:normal-fock-analytic}
+%{\color{tabred}
+%A bond-wise hopping amplitude can be defined,
+%\[
+%	\tilde{t}_{ij\sigma} \equiv t - V \langle
+%	\hat c_{j\sigma}^\dagger \hat c_{i\sigma}
+%	\rangle
+%\]
+%The effective kinetic hamiltonian is given by
+%\[
+%\begin{aligned}
+%	\hat H_{\tilde{t}} &= \hat H_t + V \sum_{\ev{ij}} \sum_\sigma \left[
+%	\langle
+%	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+%	\rangle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} + \hc
+%	\right] \\
+%	&= - \sum_{\ev{ij}} \sum_\sigma 
+%	\left[
+%	\tilde{t}_{ij\sigma} \hat c_{i\sigma}^\dagger \hat c_{j\sigma} + \hc
+%	\right]
+%\end{aligned}
+%\]
+%To proceed, it is useful to move to reciprocal space.
+%}
 
-In reciprocal space, the effective hopping must be transformed as well. Consider the Fourier Transform $\mathcal{F}$ given in Eq.~\eqref{eq:HV-ss-fourier}, applied to the displayed part of Eq.~\eqref{eq:real-space-non-local-interaction-fock},
+Consider the Fourier Transform $\mathcal{F}$ given in Eq.~\eqref{eq:HV-ss-fourier}, which gives
 \begin{multline}
-	V \sum_{\ev{ij}} \sum_\sigma \left[
-		\langle
-		\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-		\rangle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} + 
-		\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-		\langle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle - \langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-		\rangle \langle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle
-	\right] \\
-	\stackrel{\mathcal{F}}{=} \frac{2V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left[
+	\hat H_V \HFsimeq (\text{Hartree channel}) \\
+	+ \frac{2V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left[
 	\cos \left(
 	\delta k_x
 	\right)	+ \cos \left(
@@ -250,8 +239,8 @@ In reciprocal space, the effective hopping must be transformed as well. Consider
 	\rangle
 	\hat c_{\mathbf{K}-\mathbf{k} \sigma}^\dagger  \hat c_{\mathbf{K}+\mathbf{k}'\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \label{eq:normal-V-fock-int1}
 \end{multline}
-Here, the $2$ prefactor comes from recognizing that the first two operators in square brackets in the first line generate identical contributions to the full sum (as is easy to see by performing trivial variables changes); the double counting energy shift is given by
-\begin{equation}\label{eq:normal-V-fock-double-counting}
+Here, the $2$ prefactor comes from the fact that the first two operators in square brackets in Eq.~\eqref{eq:normal-HV-fock} are equal in reciprocal space. The double counting energy shift is given by
+\begin{align}\label{eq:normal-V-fock-double-counting}
 	E_{\mathrm{F}/V}^{(\mathrm{N})} \equiv \frac{V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left[
 		\cos \left(
 			\delta k_x
@@ -265,45 +254,39 @@ Here, the $2$ prefactor comes from recognizing that the first two operators in s
 	\rangle \langle
 		\hat c_{\mathbf{K}-\mathbf{k} \sigma}^\dagger  \hat c_{\mathbf{K}+\mathbf{k}'\sigma} 
 	\rangle
-\end{equation}
+\end{align}
 
-Up to this point, this derivation is general and will be re-used in next chapters. Here the specificity of the physical phase settles in: if we assume the normal state to be a free degenerate Fermi gas with renormalized bands $\tilde{\epsilon}_\mathbf{k}$, we get
-\begin{equation}\label{eq:normal-cc-EV}
-	\langle \hat c_{\mathbf{k}_1\sigma_1}^\dagger \hat c_{\mathbf{k}_2 \sigma_2} \rangle = \delta_{\mathbf{k}_1=\mathbf{k}_2} \delta_{\sigma_1=\sigma_2} f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-\end{equation}
-being $f$ the Fermi-Dirac distribution,
-\[
-	f(\epsilon;\beta,\mu) \equiv \frac{1}{e^{\beta(\epsilon-\mu)}+1}
-\]
-It follows that Eq.~\eqref{eq:normal-V-fock-int1} becomes
-\begin{multline}
-	V \sum_{\ev{ij}} \sum_\sigma \left[
-		\langle
-			\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-		\rangle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} + 
-		\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-		\langle 
-			\hat c_{j\sigma}^\dagger  \hat c_{i\sigma} 
-		\rangle - \langle 
-			\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-		\rangle \langle 
-			\hat c_{j\sigma}^\dagger  \hat c_{i\sigma}
-		\rangle
-	\right] \\
-	\stackrel{\mathcal{F}}{=} \frac{2V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}} \sum_\sigma \left[
-	\cos \left(
-	2 k_x
-	\right)	+ \cos \left(
-	2 k_y
-	\right)	
-	\right]	
-	\langle
-	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger 
-	\hat c_{\mathbf{K}+\mathbf{k} \sigma}
+We define
+\begin{equation}\label{eq:normal-uqsigma-def}
+	u_{\mathbf{k}\sigma} \equiv \langle
+	\hat c_{\mathbf{k}\sigma}^\dagger
+	\hat c_{\mathbf{k}\sigma}
 	\rangle
-	\hat c_{\mathbf{K}-\mathbf{k} \sigma}^\dagger  \hat c_{\mathbf{K}-\mathbf{k}\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \label{eq:normal-V-fock-int2}
-\end{multline}
-since the only contribution comes from $\mathbf{k}'=-\mathbf{k}$.
+	\qquad
+	u_{\mathbf{k}\sigma} = u_{\mathbf{k}\sigma}^*
+\end{equation}
+Using the functions of Tab.~\ref{tab:x-wave-reciprocal-factors}, we define its harmonics:
+\begin{equation}\label{eq:normal-ugamma-harmonics}
+	u^{(\gamma)}_\sigma \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}
+	\langle
+	\hat c_{\mathbf{k}\sigma}^\dagger
+	\hat c_{\mathbf{k}\sigma}
+	\rangle
+\end{equation}
+The non-local attraction $\hat H_V$ is approximated, in Fock channel, by:
+\begin{equation}\label{eq:normal-HV-fock-approx}
+	\hat H_V \HFsimeq (\text{Hartree channel}) + 
+	V
+	\sum_{\mathbf{k}\in\mathrm{BZ}} \sum_\sigma
+	\left[
+	u^{(s^*)}_\sigma
+	\varphi_\mathbf{k}^{(s^*)*} + u^{(d)}_\sigma
+	\varphi_\mathbf{k}^{(d)*}
+	\right]
+	\hat c_{\mathbf{k}\sigma}^\dagger
+	\hat c_{\mathbf{k}\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})}
+\end{equation}
+Let us prove these this.
 
 \begin{figure}
 	\def\Kx{0.5}
@@ -312,13 +295,13 @@ since the only contribution comes from $\mathbf{k}'=-\mathbf{k}$.
 	\def\ky{0.7}
 	\centering
 	\subfloat[
-		Generic vectors.
+	Generic vectors.
 	]{
 		\label{subfig:Kk-qq'-generic}
 		\input{\GraphicsFolder/Kk}
 	}
 	\subfloat[
-		Change of variables.
+	Change of variables.
 	]{
 		\label{subfig:Kk-qq'-newvariables}
 		\input{\GraphicsFolder/qq'}
@@ -327,94 +310,103 @@ since the only contribution comes from $\mathbf{k}'=-\mathbf{k}$.
 	\label{fig:Kk-qq'}
 \end{figure}
 
-Let now $\mathbf{q}\equiv\mathbf{K}+\mathbf{k}$, $\mathbf{q}'\equiv\mathbf{K}-\mathbf{k}$. A representation of this variables change is given in Fig.~\ref{fig:Kk-qq'}. Being for $\ell=x,y$
-\[
-\begin{aligned}
-	\delta q_\ell &\equiv q_\ell - q_\ell' \\
-	&= (K_\ell+k_\ell) - (K_\ell-k_\ell) \\
-	&= 2k_\ell
-\end{aligned}
-\]
-we reduce Eq.~\eqref{eq:normal-V-fock-int1} to
-\begin{multline}
-	V \sum_{\ev{ij}} \sum_\sigma \left[
-	\langle
-	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	\rangle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} + 
-	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	\langle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle - \langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	\rangle \langle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle
-	\right] \\
-	\stackrel{\mathcal{F}}{=} \frac{2V}{L_x L_y} \sum_{\mathbf{q}, \mathbf{q}'} \sum_\sigma \left[
+\begin{tabproof}[Proof of Eq.~\eqref{eq:normal-HV-fock-approx}]
+	
+	The normal phase is described by a perfectly degenerate Fermi gas, hence it must hold:
+	\begin{equation}\label{eq:normal-cc-EV}
+		\langle \hat c_{\mathbf{k}_1\sigma_1}^\dagger \hat c_{\mathbf{k}_2 \sigma_2} \rangle = \delta_{\mathbf{k}_1=\mathbf{k}_2} \delta_{\sigma_1=\sigma_2} f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+	\end{equation}
+	being $f$ the Fermi-Dirac distribution,
+	\[
+		f(\epsilon;\beta,\mu) \equiv \frac{1}{e^{\beta(\epsilon-\mu)}+1}
+	\]
+	
+	Consider now Eq.~\eqref{eq:normal-V-fock-int1}. Applying Eq.~\eqref{eq:normal-cc-EV}, it becomes:
+	\begin{multline}
+		\hat H_V \HFsimeq (\text{Hartree channel})\\ + 
+		\frac{2V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}} \sum_\sigma \left[
 		\cos \left(
-			\delta q_x
+		2 k_x
 		\right)	+ \cos \left(
-			\delta q_y
+		2 k_y
 		\right)	
-	\right]	
-	\langle
-		\hat c_{\mathbf{q}\sigma}^\dagger 
-		\hat c_{\mathbf{q}\sigma}
-	\rangle
-	\hat c_{\mathbf{q}'\sigma}^\dagger  \hat c_{\mathbf{q}'\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \label{eq:normal-V-fock-int3}
-\end{multline}
-Recall now the result of the symmetry channels decomposition of Eq.~\eqref{eq:coscos-symmetries-decomposition},
-\[
-	\cos \left( \delta q_x \right)	+ \cos \left( \delta q_y  \right) = \frac 1 2 \sum_\gamma \varphi_\mathbf{q}^{(\gamma)} \varphi_{\mathbf{q}'}^{(\gamma)*}
-	\qq{for $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$}
-\]
-Thanks to this handy property, we reduce Eq.~\eqref{eq:normal-V-fock-int3} to
-\begin{multline}
-	V \sum_{\ev{ij}} \sum_\sigma \left[
-	\langle
-	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	\rangle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} + 
-	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	\langle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle - \langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	\rangle \langle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle
-	\right] \\
-	\stackrel{\mathcal{F}}{=} \sum_{\gamma,\sigma} \left[
-		\frac{1}{L_x L_y} \sum_\mathbf{q\in\mathrm{BZ}} \varphi_\mathbf{q}^{(\gamma)}
-		u_{\mathbf{q}\sigma}
-	\right] \times V
-	\sum_{\mathbf{q}'\in\mathrm{BZ}}
-	\varphi_{\mathbf{q}'}^{(\gamma)*}
-	\hat c_{\mathbf{q}'\sigma}^\dagger
-	\hat c_{\mathbf{q}'\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \label{eq:normal-V-fock-int4}
-\end{multline}
-where we defined the EV:
-\begin{equation}\label{eq:normal-uqsigma-def}
-	u_{\mathbf{q}\sigma} \equiv \langle
-		\hat c_{\mathbf{q}\sigma}^\dagger
-		\hat c_{\mathbf{q}\sigma}
-	\rangle
-	\qquad
-	u_{\mathbf{q}\sigma} = u_{\mathbf{q}\sigma}^*
-\end{equation}
-The numeric value of $u_{\mathbf{q}\sigma}$ is given by the Fermi-Dirac distribution, but leaving it implicit we can re-use this computation later. Let $u^{(\gamma)}_\sigma$ be its $\gamma$-wave component,
-\[
-	u^{(\gamma)}_\sigma = \frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}} \varphi_\mathbf{q}^{(\gamma)}
-	\langle
-	\hat c_{\mathbf{q}\sigma}^\dagger
-	\hat c_{\mathbf{q}\sigma}
-	\rangle
-\]
+		\right]	
+		\langle
+		\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger 
+		\hat c_{\mathbf{K}+\mathbf{k} \sigma}
+		\rangle
+		\hat c_{\mathbf{K}-\mathbf{k} \sigma}^\dagger  \hat c_{\mathbf{K}-\mathbf{k}\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \label{eq:normal-V-fock-int2}
+	\end{multline}
+	Let now $\mathbf{q}\equiv\mathbf{K}+\mathbf{k}$, $\mathbf{q}'\equiv\mathbf{K}-\mathbf{k}$. A representation of this variables change is given in Fig.~\ref{fig:Kk-qq'}. Being (for $\ell=x,y$)
+	\[
+	\begin{aligned}
+		\delta q_\ell &\equiv q_\ell - q_\ell' \\
+		&= (K_\ell+k_\ell) - (K_\ell-k_\ell) \\
+		&= 2k_\ell
+	\end{aligned}
+	\]
+	we reduce Eq.~\eqref{eq:normal-V-fock-int1} to
+	\begin{multline}
+		\hat H_V \HFsimeq (\text{Hartree channel}) \\
+		+ \frac{2V}{L_x L_y} \sum_{\mathbf{q}, \mathbf{q}'} \sum_\sigma \left[
+			\cos \left(
+				\delta q_x
+			\right)	+ \cos \left(
+				\delta q_y
+			\right)	
+		\right]	
+		\underbrace{\langle
+			\hat c_{\mathbf{q}\sigma}^\dagger 
+			\hat c_{\mathbf{q}\sigma}
+		\rangle}_{u_{\mathbf{q}\sigma}}
+		\hat c_{\mathbf{q}'\sigma}^\dagger  \hat c_{\mathbf{q}'\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \label{eq:normal-V-fock-int3}
+	\end{multline}
+	where we recognised $u_{\mathbf{q}\sigma}$, as was defined in Eq.~\eqref{eq:normal-uqsigma-def}. Using Eq.~\eqref{eq:coscos-symmetries-decomposition}, we obtain
+	\begin{multline}
+		\hat H_V \HFsimeq (\text{Hartree channel}) \\
+		+ \sum_{\gamma,\sigma} \left[
+			\frac{1}{L_x L_y} \sum_\mathbf{q\in\mathrm{BZ}} \varphi_\mathbf{q}^{(\gamma)}
+			u_{\mathbf{q}\sigma}
+		\right] \times V
+		\sum_{\mathbf{q}'\in\mathrm{BZ}}
+		\varphi_{\mathbf{q}'}^{(\gamma)*}
+		\hat c_{\mathbf{q}'\sigma}^\dagger
+		\hat c_{\mathbf{q}'\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \label{eq:normal-V-fock-int4}
+	\end{multline}
+	where we used the functions defined in Tab.~\ref{tab:x-wave-reciprocal-factors}. We recognise the harmonics $u_\sigma^{(\gamma)}$ from Eq.~\eqref{eq:normal-ugamma-harmonics},
+	\begin{equation}\label{eq:normal-V-fock-int5}
+		\hat H_V \HFsimeq (\text{Hartree channel}) + V \sum_{\mathbf{q}'\in\mathrm{BZ}} \sum_{\gamma,\sigma} u_\sigma^{(\gamma)}
+		\varphi_{\mathbf{q}'}^{(\gamma)*}
+		\hat c_{\mathbf{q}'\sigma}^\dagger
+		\hat c_{\mathbf{q}'\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})}
+	\end{equation}
+	which is almost Eq.~\eqref{eq:normal-HV-fock-approx}. 
+	
+	To complete the proof, we recognise that in the normal phase inversion symmetry is not broken, thus
+	\[
+		u_{\mathbf{q}\sigma} = u_{-\mathbf{q}\sigma}
+	\]
+	This follows from the fact that in the normal phase the EV of the operator $\hat n_{\mathbf{k}\sigma}$ must be inversion-symmetric. It follows that antisymmetric harmonics are zero,
+	\[
+		u_\sigma^{(p_\ell)} = 0
+		\qq{for}
+		\ell\in\lbrace x,y \rbrace
+	\]
+	Using this observation in Eq.~\eqref{eq:normal-V-fock-int5}, we obtain Eq.~\eqref{eq:normal-HV-fock-approx}.
+	
+\end{tabproof}
 
-The bare bands $\epsilon_\mathbf{k}$ are $s^*$-wave symmetric,
-\[
+Composing Eq.~\eqref{eq:normal-HV-fock-approx} with Eqns.~\eqref{eq:normal-HU-hartree-approx}, \eqref{eq:normal-HV-hartree-approx} we obtain the quadratic HF approximation to the EHM, for the normal phase. Its parameters are:
+\begin{enumerate}
+	\item The chemical potential $\tilde{\mu}$, which is fixed by density and determined during computations;
+	\item The two HFPs $u_\sigma^{(s^*)}$, $u_\sigma^{(d)}$.
+\end{enumerate}
+To find the ground-state, we must determine self-consistently these two HFPs through the self-consistency Eq.~\eqref{eq:normal-ugamma-harmonics}.
+
+	{\color{tabred}The bare bands $\epsilon_\mathbf{k}$ are $s^*$-wave symmetric,
+	\[
 	\epsilon_\mathbf{k} = -2t (\cos k_x + \cos k_y) = -4t \varphi_\mathbf{k}^{(s^*)}
-\]
-We used one function of those listed in Tab.~\ref{tab:x-wave-reciprocal-factors}. The renormalised bands $\tilde{\epsilon}_\mathbf{k}$ can exhibit a more complex symmetry. In the normal phase inversion symmetry is unbroken, thus
-\[
-	u_{\mathbf{q}\sigma} = u_{-\mathbf{q}\sigma}
-\]
-It follows that antisymmetric harmonics are zero,
-\[
-	u_\sigma^{(p_\ell)} = 0
-	\qq{for}
-	\ell\in\lbrace x,y \rbrace
-\]
-The remaining $s^*$ and $d$ symmetries give legitimate HFPs with the respective self-consistency equations, reported in Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}.Spin index is omitted due to spin degeneracy.
+	\]}
 
 \begin{table}
 	\centering
@@ -430,33 +422,24 @@ The remaining $s^*$ and $d$ symmetries give legitimate HFPs with the respective 
 \end{table}
 \setlength{\extrarowheight}{0em}
 
-The two HFPs $u_\sigma^{(s^*)}$ and $u_\sigma^{(d)}$ are in general non-zero, since we are allowing for $\mathrm{C}_4 \SSB \mathrm{C}_2$. Note that when imposing $\mathrm{C}_4$ invariance the $u_\sigma^{(d)}$ HFP vanishes, while in general $u_\sigma^{(s^*)}$ is non-zero. From these considerations Eq.~\eqref{eq:normal-V-fock-int4} becomes
-\begin{multline}
-	V \sum_{\ev{ij}} \sum_\sigma \left[
-	\langle
-	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	\rangle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} + 
-	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	\langle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle - \langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	\rangle \langle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle
-	\right] \\
-	\stackrel{\mathcal{F}}{=} V
-	\sum_{\mathbf{q}\in\mathrm{BZ}} \sum_\sigma
-	\left[
-		u^{(s^*)}_\sigma
-		\varphi_\mathbf{q}^{(s^*)*} + u^{(d)}_\sigma
-		\varphi_\mathbf{q}^{(d)*}
-	\right]
-	\hat c_{\mathbf{q}\sigma}^\dagger
-	\hat c_{\mathbf{q}\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \label{eq:normal-V-fock-int5}
-\end{multline}
 Let 
 \begin{equation}\label{eq:normal-bands-renormalisation}
 	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv \epsilon_{\mathbf{k}\sigma} + u^{(s^*)}_\sigma V (\cos k_x + \cos k_y) + u^{(d)}_\sigma V (\cos k_x - \cos k_y)
 \end{equation}
 This equation defines the bands renormalisation anticipated in Tab.~\ref{tab:normal-RWCs}, and is actually spin-independent. The fact that we have both $s^*$ and a $d$-wave components introduces an anisotropy that is discussed in next section. However, we anticipate here that, as will result from Sec.~\ref{subsec:normal-bands-shrinking-C2}, the $d$-wave harmonic will be suppressed. For now we keep this component ignoring these anticipations.
 
-\subsection{Fock contraction energy}\label{subsec:normal-fock-energy}
+-------------------------------
+
+while the contraction energy is given by:
+\begin{equation}\label{eq:normal-HU-fock-Ec}
+	E_{\mathrm{F}/V}^{(\mathrm{N})} = L_x L_y \times \frac{V}{2} \sum_\sigma \left[
+	\big|
+	u_\sigma^{(s^*)}
+	\big|^2 + \big|
+	u_\sigma^{(d)}
+	\big|^2
+	\right]
+\end{equation}
 
 Finally, let us derive the Fock contraction energy by expanding Eq.~\eqref{eq:normal-V-fock-double-counting}:
 \begin{align}
@@ -595,7 +578,7 @@ where $E_\mathrm{c}^{(\mathrm{N})}$ is the (negative) total contraction energy f
 		E_{\mathrm{H}/U}^{(\mathrm{N})} + E_{\mathrm{H}/V}^{(\mathrm{N})} +  E_{\mathrm{F}/V}^{(\mathrm{N})}
 	\right]
 \]
-having included the various contraction energies from Eqns.~\eqref{eq:normal-hartree-U-contraction-energy}, \eqref{eq:normal-hartree-V-contraction-energy} and \eqref{eq:normal-fock-V-contraction-energy}.
+having included the various contraction energies from Eqns.~\eqref{eq:normal-HU-hartree-Ec}, \eqref{eq:normal-HV-hartree-Ec} and \eqref{eq:normal-fock-V-contraction-energy}.
 
 Let us now take together all terms. From now on, we will omit spin index $\sigma$, making use of the always present $\mathbb{Z}_2$ spin inversion symmetry discussed in Sec.~\ref{sec:normal-phase-theory}. For a free Fermi gas, the free energy density is made of four contributions:
 \begin{enumerate}

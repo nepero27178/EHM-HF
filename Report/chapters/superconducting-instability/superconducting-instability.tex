@@ -3,11 +3,11 @@
 
 In this chapter the HF methods introduced in Sec.~\ref{sec:sketch-hf-method} are applied to the SC phase. We study translationally-invariant superconductivity. Analytic calculations will lead us to various effects: bare bands renormalisation, anisotropic Cooper pairing and nematicity. Our description of the SC phase is closely related to the BCS solution for pure $s$-wave superconductivity.
 
-As for previous phases, this chapter is divided in three parts. First, analysis of the SC phase symmetries based on the discussion of Chap.~\ref{chap:ehm-symmetries}, and implementation of HF methods. Second, search for theoretical constraints on the self-consistent solution. Third, numeric results.
+As for previous phases, this chapter is divided conceptually in three parts. First, analysis of the SC phase symmetries based on the discussion of Chap.~\ref{chap:ehm-symmetries}. Second, implementation of HF methods and search for theoretic constraints on the resulting HFPs vector. Third, numeric results.
 
 \section{The SC phase and its symmetries}\label{sec:sc-phase-theory}
 
-As for antiferromagnetism, superconductivity can establish in a variety of ways. We deal with the simplest realisation. In Sec.~\ref{subsec:ehm-sym-break} we anticipated that the SC phase is described by the two SSBs
+As for antiferromagnetism, superconductivity can establish in a variety of ways. We deal with the simplest realisation. In Sec.~\ref{sec:ehm-sym-break} we anticipated that the SC phase is described by the two SSBs
 \[
 \begin{aligned}
 	\mathrm{U}^z(1) &\SSB 0 \\
@@ -36,7 +36,7 @@ Note that Cooper contractions in the non-local s.s. sector are neglected, becaus
 \begin{table}[t]
 	\centering
 	\begin{tabular}{c c c l}
-		\textbf{Operator} & \textbf{Sector} & \textbf{RWCs} & \textbf{Net effect} \\
+		\textbf{Operator} & \textbf{Sector} & \textbf{Channel} & \textbf{Net effect} \\
 		\midrule
 		\multirow{2}{*}{$\hat H_U$} && Hartree & $\mu$ shift by $-nU$ \\
 		&& Cooper & Isotropic pairing in singlet channel \\
@@ -47,35 +47,44 @@ Note that Cooper contractions in the non-local s.s. sector are neglected, becaus
 		&& Fock & Band renormalisation and resymmetrisation \\
 		\midrule
 	\end{tabular}
-	\caption{Relevant Wick's contractions and net effect in the SC phase. This RWCs table is more structured than Tabs.~\ref{tab:normal-RWCs} and \ref{tab:af-RWCs}.}
+	\caption{Wick's contractions for each interaction and channel in the HF framework, and their net effect in the SC phase.}
 	\label{tab:sc-RWCs}
 \end{table}
 
-Breaking $\mathrm{U}^z(1)$, we allow EVs like $\langle \hat c^\dagger \hat c^\dagger \rangle$ to be non-zero. This leads to the formation of Cooper pairs. These are composite quantum objects with a specific spin-spatial structure. Consider the generic Cooper fluctuation in o.s. sector,
+In the SC phase we are breaking charge conservation $\mathrm{U}^\mathrm{c}(1)$. This reflects in the fact that EVs like
 \[
 	\big\langle
-	\hat c_{i\sigma}^\dagger \hat c_{j\overline{\sigma}}^\dagger
-	\big\rangle
-	\qq{with $i,j$ nearest neighbours}
+	\hat c_{i\sigma}^\dagger \hat c_{j\sigma'}^\dagger \rangle \neq 0
+	\qquad
+	(\text{with $i,j$ NNs})
 \]
-From basic Quantum Mechanics we know the summation rules of the spin algebra $\mathfrak{su}(2)$,
+are, in general, non-zero. The ground state plus two electrons can have a finite superposition with itself. This is a reformulation of the following statement: the HF ground-state wavefunction is written in terms of pairs of electrons bound together by some interaction. This is the phenomenon of Cooper pairing \cite{coleman2015introduction}.
+
+These pairs are composite quantum objects, with spatial and spin structure. Being couples of electrons, they must be antisymmetric under internal exchange. Moreover, as any composite object, a Cooper pair has a total spin whose algebra follows the composition rules of basic Quantum Mechanics,
 \[
 	\frac 1 2 \otimes \frac 1 2 = 0 \oplus 1
 \]
-The two pairing channels are, at this level: the singlet channel (associated to total spin $0$) and the triplet channel (associated to total spin $1$). Now, when applying HF methods, we can impose to the approximated HF ground-state a particular spatial structure -- say, inversion symmetry or antisymmetry. This reflects in the requirement that Cooper pairs show the same spatial structure.
+which means that two $\mathfrak{su}(2)$ algebras are composed into a singlet and a triplet. The first is anti-symmetric under spin exchange; the second is symmetric. Hence, we can distinguish two Cooper pairing channels:
+\begin{enumerate}
+	\item Singlet, with total spin projection equal to $0$. In this channel, the Cooper pairs must exhibit spatial inversion symmetry.
+	\item Triplet, with total spin projection equal to $1$. In this channel, the Cooper pairs must exhibit spatial inversion anti-symmetry.
+\end{enumerate}
+Now, the HF hamiltonian will be expressed in terms of a set of HFPs which are linked to EVs of operators that create a Cooper pair. Hence, the symmetry properties of Cooper pairs reflects in those of the HF hamiltonian.
 
-This gives a selection rule over Cooper pairings: if we work with inversion-symmetric structures -- say, $s^*$-wave or $d$-wave -- the pairing will take place in singlet channel, allowing us to eliminate the triplet pairing. Working with antisymmetric structures, inversely, we can eliminate the singlet channel. This concept is summarised in Tab.~\ref{tab:sc-pairings-symmetry-structures}.
+When dealing superconductivity, we can choose to restrict to just one of these pairing channels. In terms of the HF method, this means that we limit the variational search to the subset of states that are expressed in terms of pairs bound via a Cooper mechanism in the singlet or triplet channel. This limitations will provide specific selection rules on the superconducting gap function. In this thesis, we take on computations in general and in the end restrict to the singlet channel.
+
+Let us rephrase: the spatial structure of Cooper pairs is linked to the composite spin state. This distinguishes two pairing channels, singlet and triplet. We separate these channels and limit search to just one. This operation will impose selection rules on the HFPs vector that are linked to the spatial symmetry of the gap function. This concept is summarised in Tab.~\ref{tab:sc-pairings-symmetry-structures}.
 
 \begin{table}
 	\centering
 	\begin{tabular}{c c}
-		\textbf{Spatial structure} & \textbf{Pairing channel} \\
+		\textbf{Spatial structure of Cooper pairs} & \textbf{Pairing channel} \\
 		\midrule
-		Symmetric wave function & Singlet pairing \\
-		Anti-symmetric wave function & Triplet pairing \\
+		Inversion symmetric & Singlet pairing \\
+		Inversion anti-symmetric & Triplet pairing \\
 		\midrule
 	\end{tabular}
-	\caption{Relation of the Cooper pairing channel with the wavefunction spatial symmetry (intended as the inversion $(x,y) \to (-x,-y)$).}
+	\caption{Relation between the spatial inversion (intended as $(x,y) \to (-x,-y)$) symmetry properties and the pairing channel for Cooper pairs.}
 	\label{tab:sc-pairings-symmetry-structures}
 \end{table}
 
@@ -86,7 +95,7 @@ We proceed as we did for the AF phase: in order to highlight the physical effect
 \end{align}
 where $\hat n_{\mathbf{k}\sigma}$ was defined as for the AF phase, in Eq.~\eqref{eq:af-ehm-n-def}. The HF approximation in reciprocal space to the EHM will be written in terms of these operators.
 
-\section{Local effects: (impossibility of) superconductivity in the HM}\label{sec:sc-local}
+\section{(Impossibility of) superconductivity in the HM: application of HF methods}\label{sec:sc-hm}
 
 The conventional HM is given by $\hat H_t + \hat H_U$, thus its unique two-body interaction is the local repulsion. In this section we study the Cooper pairing channel in the conventional HM, and prove that superconductivity is impossible at HF level.
 
@@ -103,21 +112,19 @@ Following Tab.~\ref{tab:HU-sel-rules} and Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft
 \]
 In next sections we deal with each channel separately.
 
-\subsection{Local Hartree channel in the SC phase}\label{subsec:sc-l-hartree}
+\subsection{Local Hartree effects: chemical potential renormalisation}\label{subsec:sc-l-hartree}
 
-For the Hartree channel, being the density uniform across sites, we can re-use the entirety of Sec.~\ref{subsec:normal-hartree-analytic} for the normal phase. Substituting Eq.~\eqref{eq:sc-density-ansatz}, we get the approximation of Eq.~\eqref{eq:normal-HU-approx},
+For the Hartree channel, being the density uniform across sites, we can re-use the entirety of Sec.~\ref{subsec:normal-hartree-analytic} for the normal phase. Substituting Eq.~\eqref{eq:sc-density-ansatz}, we get the approximation of Eq.~\eqref{eq:normal-HU-hartree-approx},
 \begin{equation}\label{eq:sc-HU-approx}
 	\hat H_U \HFsimeq nU \times \hat N - E_{\mathrm{H}/U}^{(\mathrm{SC})} + \text{(Cooper channel)}
 \end{equation}
-thus chemical potential renormalisation $\tilde{\mu} \to \mu - nU$ is present also in the SC phase.
-
-The contraction energy is the same of Eq.~\eqref{eq:normal-hartree-U-contraction-energy}
+thus chemical potential renormalisation $\tilde{\mu} \to \mu - nU$ is present also in the SC phase. The contraction energy is the same of Eq.~\eqref{eq:normal-Ec-hU}
 \begin{equation}\label{eq:sc-hartree-U-contraction-energy}
 	E_{\mathrm{H}/U}^{(\mathrm{SC})} = L_x L_y \times n^2 U
 \end{equation}
 For a locally repulsive model, the Hartree channel contributes negatively to ground state energy. Indeed, contraction energy is subtracted from the hamiltonian. We now move to the Cooper channel.
 
-\subsection{Local Cooper channel in the SC phase}\label{subsec:sc-l-cooper}
+\subsection{Local Cooper channel effects: isotropic pairing}\label{subsec:sc-l-cooper}
 
 We move to reciprocal space, through the transformation of Eq.~\eqref{eq:HU-fourier}. Consider the Cooper channel of Eq.~\eqref{eq:mft-HU}. In reciprocal space we get:
 \begin{multline}
@@ -180,7 +187,7 @@ Eq.~\eqref{eq:sc-mft-HU} reduces to
 \end{equation}
 being $E_{\mathrm{C}/U}^{(\mathrm{SC})}=L_x L_y \times U \big| w^{(s)} \big|^2$ the HM Cooper contraction energy.
 
-\begin{tabproof}[Local Hartree contraction energy.]
+\begin{tabproof}[Local Cooper contraction energy.]
 	The Cooper contraction energy for the local interaction is given by:
 	\[
 		E_{\mathrm{C}/U}^{(\mathrm{SC})} \equiv \frac{U}{L_x L_y} \sum_{\mathbf{k}\mathbf{k}'} \big\langle
@@ -191,13 +198,13 @@ being $E_{\mathrm{C}/U}^{(\mathrm{SC})}=L_x L_y \times U \big| w^{(s)} \big|^2$ 
 	\]
 	Substituting Eqns.~\eqref{eq:sc-wq-def}, \eqref{eq:sc-hm-ws-self-consistency} we get:
 	\begin{align}
-		E_{\mathrm{C}/U}^{(\mathrm{SC})} &= L_x L_y \times U \left(\frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} w_\mathbf{k}\right) \left(\frac{1}{L_x L_y} \sum_{\mathbf{k}'\in\mathrm{BZ}} w_{\mathbf{k}'}\right) \\
+		E_{\mathrm{C}/U}^{(\mathrm{SC})} &= L_x L_y \times U \left(\frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} w_\mathbf{k}^*\right) \left(\frac{1}{L_x L_y} \sum_{\mathbf{k}'\in\mathrm{BZ}} w_{\mathbf{k}'}\right) \\
 		&= L_x L_y \times U \big| w^{(s)} \big|^2 \label{eq:sc-cooper-U-contraction-energy}
 	\end{align}
 	which proves our statement.
 \end{tabproof}
 %
-As for the Hartree channel, also the Cooper channel contributes negatively to ground-state energy.
+As for the Hartree channel, also the Cooper channel contributes negatively to ground-state energy. This could suggest that it is energetically favourable to develop $s$-wave superconductivity, but in the end is not.
 
 We now define the $s$-wave component of the gap function,
 \begin{equation}\label{eq:sc-Delta^s}
@@ -267,9 +274,9 @@ In the end, the hamiltonian is approximated (in the sense of HF methods) by:
 		\hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{\mathbf{k}\uparrow}
 		- \hat c_{\mathbf{k}\downarrow} \hat c_{\mathbf{k}\downarrow}^\dagger
 	\right] + E_\mathrm{a}^{(\mathrm{SC})} \\
-	- \sum_{\mathbf{q}\in\mathrm{BZ}} \left[
-		\Delta^{(s)} \hat \phi_\mathbf{q} + 
-		\Delta^{(s)*} \hat \phi_\mathbf{q}^\dagger
+	- \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
+		\Delta^{(s)} \hat \phi_\mathbf{k} + 
+		\Delta^{(s)*} \hat \phi_\mathbf{k}^\dagger
 	\right] + nU \times \hat N - \left[
 		E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
 	\right]
@@ -357,7 +364,7 @@ We report the EVs related to these identities Tab.~\ref{tab:sc-pseudo-spin-map}.
 	\label{tab:sc-pseudo-spin-map}
 \end{table}
 
-We express the approximated hamiltonian in pseudospin representation as:
+In pseudospin representation, the approximated hamiltonian can be expressed as:
 \begin{equation}\label{eq:sc-hm-spin-h}
 	\hat H_t + \hat H_U - \mu \hat N \HFsimeq \sum_{\mathbf{k} \in \mathrm{BZ}} \mathbf{b}_\mathbf{k} \cdot \hat{\mathbf{s}}_\mathbf{k} + nU \hat N + E_\mathrm{a}^{(\mathrm{SC})} - \left[
 		E_{\mathrm{H}/U}^{(\mathrm{SC})} + E_{\mathrm{C}/U}^{(\mathrm{SC})}
@@ -549,7 +556,7 @@ We can now move to the EHM.
 
 \section{Extension to the EHM}\label{sec:sc-ehm}
 
-Add now the non-local interaction $\hat H_V$. As we did for the AF phase, we look for a solution with an identical mathematical structure as the one here described for the conventional HM. We define the renormalised quantities
+In this section we add to the hamiltonian the non-local attraction $\hat H_V$. As we did for the AF phase, we look for a solution with an identical mathematical structure as the one here described for the conventional HM. We define the renormalised quantities
 \[
 	\xi_\mathbf{k} \to \tilde{\xi}_\mathbf{k}
 	\qquad
@@ -608,9 +615,7 @@ Hence, pseudospin expectation values are:
 	\ev{\hat s_\mathbf{k}^y} &= \frac{\Im \lbrace \tilde{\Delta}_\mathbf{k} \rbrace}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) \label{eq:sc-ehm-sy}\\
 	\ev{\hat s_\mathbf{k}^z} &=  -\frac{\tilde{\xi}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) \label{eq:sc-ehm-sz}
 \end{align}
-These equations are an extension of Eqns.~\eqref{eq:sc-ehm-sx}, \eqref{eq:sc-ehm-sy}, \eqref{eq:sc-ehm-sz} for the EHM.
-
-We can rewrite the equations for $w^{(s)}$ and $n$ accordingly,
+These equations are an extension of Eqns.~\eqref{eq:sc-ehm-sx}, \eqref{eq:sc-ehm-sy}, \eqref{eq:sc-ehm-sz} for the EHM. We can rewrite the equations for $w^{(s)}$ and $n$ accordingly,
 \begin{align}
 	w^{(s)} &= \frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
 	\label{eq:sc-ehm-ws-self-consistency} \\
@@ -618,9 +623,11 @@ We can rewrite the equations for $w^{(s)}$ and $n$ accordingly,
 	1 - \cos 2\tilde{\theta}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
 	\right] \label{eq:sc-ehm-n-BZ-Th}
 \end{align}
-where we used Eqns.~\eqref{eq:sc-hm-ws-self-consistency-2}, \eqref{eq:sc-hm-n-BZ-Th}. From Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules} we know the selection rule for each channel. We break down each.
+where we used Eqns.~\eqref{eq:sc-hm-ws-self-consistency-2}, \eqref{eq:sc-hm-n-BZ-Th}. 
 
-\section{Non-local Hartree effects: chemical potential renormalisation}\label{sec:sc-hartree-mu}
+We have set ground for the search of the HF solution for the EHM. From Tab.~\ref{tab:HV-sel-rules} we know the selection rules for Hartree, Fock and Cooper channel for the non-local attraction. We break down each.
+
+\subsection{Non-local Hartree effects: chemical potential renormalisation}\label{subsec:sc-hartree-mu}
 
 We start by analysing the non-local Hartree channel,
 \begin{multline*}
@@ -628,18 +635,14 @@ We start by analysing the non-local Hartree channel,
 	\hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle + \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} - \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle  \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle \Big) \\
 	+ (\text{Fock channel}) + (\text{Cooper channel})
 \end{multline*}
-where we used Eq.~\eqref{eq:mft-HV}. This discussion is based on that for the normal phase in Sec.~\ref{sec:normal-hartree-mu}, and leads to an identical result: the non-local Hartree channel renormalises the chemical potential.
+where we used Eq.~\eqref{eq:mft-HV}. This discussion is based on that for the normal phase in Sec.~\ref{subsubsec:normal-hartree-mu}, and leads to an identical result: the non-local Hartree channel renormalises the chemical potential.
 
 We do not repeat the calculations already carried out for the normal phase. The non-local attraction $\hat H_V$ is reduced in the Hartree channel to
 \[
 	\hat H_V \HFsimeq -2nzV \times \hat N - E_{\mathrm{H}/V}^{(\mathrm{SC})} + 
 	(\text{all the rest})
 \]
-This, together with the $\hat H_U$ Hartree channel decomposition
-\[
-	\hat H_U \HFsimeq nU \times \hat N - E_{\mathrm{H}/U}^{(\mathrm{SC})}
-\]
-gives the chemical potential full renormalisation, identical to Eq.~\eqref{eq:normal-mu-shift},
+This, together Eq.~\eqref{eq:sc-HU-approx}, gives the chemical potential full renormalisation, identical to Eq.~\eqref{eq:normal-mu-shift},
 \begin{equation}\label{eq:sc-mu-shift}
 	\tilde{\mu} \equiv \mu + n(2zV-U)
 \end{equation}
@@ -650,7 +653,7 @@ The contraction energy for the non-local sector was derived in Eq.~\eqref{eq:nor
 \]
 Now we move to the more interesting Fock sector.
 
-\section{Fock effects: bare bands renormalisation}\label{sec:sc-fock}
+\subsection{Fock effects: bare bands renormalisation}\label{subsec:sc-fock}
 
 As done for the other phases, we here discuss the bands renormalisation effect derived from the Fock sector of the non-local attraction. From Eq.~\eqref{eq:mft-HV}, we have
 \begin{multline*}
@@ -659,17 +662,16 @@ As done for the other phases, we here discuss the bands renormalisation effect d
 	\hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\langle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} \big\rangle + \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\rangle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} - \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\rangle  \big\langle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} \big\rangle \Big)
 	+ (\text{Cooper channel})
 \end{multline*}
-This discussion is essentially analogous the one done for the normal phase in Sec.~\ref{sec:normal-fock-bands-renormalisation}. It will lead us to renormalisation of bare bands, which is given by a simultaneous shrinking of bare bands and emergence of an anisotropic component in hopping. As for previous phases, following the selection rules of Tab.~\ref{tab:HV-sel-rules}, only the s.s. sector contributes. Therefore we use from now on, in this section, $\sigma=\sigma'$.
+This discussion is essentially analogous the one done for the normal phase in Sec.~\ref{subsec:normal-fock-bandsn}. It will lead us to renormalisation of bare bands, which is given by a simultaneous shrinking of bare bands and emergence of an anisotropic component in hopping. As for previous phases, following the selection rules of Tab.~\ref{tab:HV-sel-rules}, only the s.s. sector contributes. Therefore we use from now on, in this section, $\sigma=\sigma'$.
 
 In the context of the normal phase, when analysing the Fock channel, we got to Eq.~\eqref{eq:normal-V-fock-int5}. For the SC phase the same argument holds. Let us define, as done for the normal phase in Eq.~\eqref{eq:normal-uqsigma-def} and for the AF phase in Eq.~\eqref{eq:af-uqsigma-def},
-\begin{align}
-	u_{\mathbf{k}\sigma} &\equiv \langle
+\begin{equation}
+	u_{\mathbf{k}\sigma} \equiv \langle
 	\hat c_{\mathbf{k}\sigma}^\dagger
 	\hat c_{\mathbf{k}\sigma}
-	\rangle \label{eq:sc-uqsigma-def} \\
-	&= \langle
+	\rangle \label{eq:sc-uqsigma-def} = \langle
 	\hat n_{\mathbf{k}\sigma} \rangle \nonumber
-\end{align}
+\end{equation}
 Hence, Eq.~\eqref{eq:normal-V-fock-int5} becomes:
 \begin{multline}
 	V \sum_{\ev{ij}} \sum_\sigma \left[
@@ -724,7 +726,7 @@ where we used Eq.~\eqref{eq:normal-fock-V-contraction-energy}, which is formally
 which states translational invariance and spin degeneracy. 
 
 Let us define each $\gamma$-wave harmonic of $u_\mathbf{k}$ as
-\begin{equation}\label{sc-hm-ugamma-harmonics}
+\begin{equation}\label{eq:sc-hm-ugamma-harmonics}
 	u^{(\gamma)}_\sigma = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}
 	\langle
 		\hat c_{\mathbf{k}\sigma}^\dagger
@@ -785,7 +787,7 @@ Let us prove the above equation. We proceed by proving first $u_{\mathbf{k}\upar
 			1 - \cos 2 \tilde{\theta}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
 		\right] \label{eq:sc-ehm-uUp-EV}
 	\end{align}
-	having we used Eq.~\eqref{eq:sc-~Th} and sequent. Inserting this result in Eq.~\eqref{sc-hm-ugamma-harmonics}, we get Eq.~\eqref{sc-hm-ugamma-self-consistency} in this spin sector. For $\sigma=\downarrow$,
+	having we used Eq.~\eqref{eq:sc-~Th} and sequent. Inserting this result in Eq.~\eqref{eq:sc-hm-ugamma-harmonics}, we get Eq.~\eqref{sc-hm-ugamma-self-consistency} in this spin sector. For $\sigma=\downarrow$,
 	\begin{align}
 		u_{-\mathbf{k}\downarrow} &= \langle \hat c_{-\mathbf{k}\downarrow}^\dagger \hat c_{-\mathbf{k}\downarrow} \rangle \nonumber \\	
 		&= 1 - \langle \hat c_{-\mathbf{k}\downarrow} \hat c_{-\mathbf{k}\downarrow}^\dagger \rangle \nonumber \\
@@ -838,7 +840,7 @@ Finally, if we take the $\tilde{\theta}_\mathbf{k} \to 0$ limit, we must retriev
 \]
 Correctly, the null-gap limit (for which the angle reduces to zero) gives back a perfectly degenerate Fermi gas. These considerations end the algebraic derivations for the Fock channel. We pass to the Cooper part.
 
-\section{Non-local Cooper effects: anisotropic pairing}\label{sec:sc-cooper}
+\subsection{Non-local Cooper effects: generalised pairing}\label{subsec:sc-cooper}
 
 In this section we discuss the effects of Cooper contractions in the HF decomposition of $\hat H_V$, shown in Eq.~\eqref{eq:mft-HV},
 \begin{multline*}
@@ -973,7 +975,7 @@ Each harmonic, including $s$-wave, satisfies the self-consistency equation:
 	w^{(\gamma)} = \frac{1}{2L_x L_y} 	\sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \sin 2 \tilde{\theta}_\mathbf{k} e^{i 2\tilde{\zeta}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
 \end{equation}
 In Tab.~\ref{tab:sc-ehm-wgamma-self-consistencies}
-we report these equations, writing explicitly the harmonics from Tab.~\ref{tab:x-wave-reciprocal-factors} and using the angular relations of Eq.~\eqref{eq:sc-ehm-(~theta)}.
+we report these equations, writing explicitly the harmonics from Tab.~\ref{tab:x-wave-reciprocal-factors} and using the angular relations of Eq.~\eqref{eq:sc-ehm-(~theta)}. Let us now give a proof to Eq.~\eqref{eq:sc-ehm-wgamma-self-consistency}.
 
 \begin{table}
 	\centering
@@ -991,12 +993,6 @@ we report these equations, writing explicitly the harmonics from Tab.~\ref{tab:x
 	\label{tab:sc-ehm-wgamma-self-consistencies}
 \end{table}
 \setlength{\extrarowheight}{0em}
-
-Before proving the above statement, we highlight the similarity of these equations with those for $u^{(\gamma)}$, expressed in Eq.~\eqref{sc-hm-ugamma-self-consistency}. Noting that the harmonic factors $\varphi_\mathbf{k}^{(\gamma)}$ are integrated to zero over the BZ, we could obtain one set of equations from the other by exchanging
-\[
-	\sin 2 \tilde{\theta}_\mathbf{k} e^{i 2\tilde{\zeta}_\mathbf{k}} \leftrightarrow -\cos 2 \tilde{\theta}_\mathbf{k}
-\]
-Let us now give a proof to Eq.~\eqref{eq:sc-ehm-wgamma-self-consistency}.
 
 \begin{tabproof}[Self-consistency equations for $w^{(\gamma)}$]
 	
@@ -1025,24 +1021,17 @@ Let us now give a proof to Eq.~\eqref{eq:sc-ehm-wgamma-self-consistency}.
 		&= \sin 2\tilde{\theta}_\mathbf{k}  e^{i 2\tilde{\zeta}_\mathbf{k}}
 	\end{aligned}
 	\]
-	Finally, from Eq.~\eqref{eq:sc-Th-=tanh}, we can substitute the thermal factor with the hyperbolic tangent. This gives Eq.~\eqref{eq:sc-ehm-wgamma-self-consistency}.
+	and insert in previous equation. Finally, from Eq.~\eqref{eq:sc-Th-=tanh}, we can substitute the thermal factor with the hyperbolic tangent. This gives Eq.~\eqref{eq:sc-ehm-wgamma-self-consistency}.
 	The derivation above holds for all symmetries, (including $s$-wave).
 \end{tabproof}
 %
-This proof concludes this cumbersome algebraic derivation. In next section we summarise the obtained results, give the final form of the HF hamiltonian and discuss the symmetries of the gap function.
+With this proof we conclude this cumbersome algebraic derivation. In next section we summarise the obtained results, give the final form of the HF hamiltonian and discuss the symmetries of the gap function.
 
-\section{The SC ground-state}
-\todo
+\section{The HF hamiltonian and its properties}\label{sec:sc-hf-hamiltonian}
 
-TODO
-\begin{itemize}
-	\item all from now on in subsections up to numerics
-	\item fix red text
-\end{itemize}
+In this section we take together everything we said so far. Adding $\hat H_V$ to the conventional HM, we have seen, produces renormalisation of the bare bands, the gap function and the chemical potential. 
 
-\subsection{Full MFT hamiltonian and anisotropic pairing}\label{sec:sc-full-hamiltonian}
-
-In this section we take together everything we said so far. Adding $\hat H_V$ to the conventional HM, we have seen, produces renormalisation of the bare bands, the gap function and the chemical potential. By composing Hartree, Fock and Cooper channels we derive the final form of the HF gran-canonical hamiltonian,
+By composing Hartree, Fock and Cooper channels we derive the final form of the HF gran-canonical hamiltonian,
 \[
 	\hat H - \mu \hat N \HFsimeq \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{\xi}_\mathbf{k} \left[
 		\hat c_{\mathbf{k}\uparrow}^\dagger
@@ -1068,6 +1057,8 @@ coming from fermionic anticommutation relations that are employed in order to ge
 \]
 which include all double counting terms we encountered. Note the minus sign in front of it.
 
+\subsection{Gap symmetries and and anisotropic pairing}\label{sec:sc-gap-syms}
+
 We focus on the renormalised quantities. The bare bands are given by:
 \begin{equation}\label{eq:sc-ehm-full-bands}
 	\tilde{\xi}_\mathbf{k} = \epsilon_\mathbf{k} + V \sum_{\gamma\in\lbrace s^*,d \rbrace} u^{(\gamma)} \varphi_{\mathbf{k}}^{(\gamma)*} - \tilde{\mu}
@@ -1084,15 +1075,16 @@ We can identify the gap harmonics as
 	\qq{being}
 	\gamma\in\lbrace s^*, p_x, p_y, d \rbrace
 \]
+We will investigate competition among these components.
 
-We anticipated in Tab.~\ref{tab:sc-pairings-symmetry-structures} that Cooper pairing in the singlet channel requires for the ground-state wavefunction to be inversion-symmetric. Triplet pairing, instead, requires inversion anti-symmetry.
+We anticipated in Tab.~\ref{tab:sc-pairings-symmetry-structures} that Cooper pairing in the singlet channel requires for the gap wavefunction to be inversion-symmetric. Triplet pairing, instead, requires inversion anti-symmetry.
 This gives a selection rule for the symmetries of the gap function: if we work in singlet channel, the gap must be symmetric, thus only three harmonics are allowed:
 \[
 	\text{Singlet channel}
 	\quad\colon\quad
 	\tilde{\Delta}_\mathbf{k} = \tilde{\Delta}^{(s)} + \tilde{\Delta}^{(s^*)} (\cos k_x + \cos k_y) + \tilde{\Delta}^{(d)} (\cos k_x - \cos k_y)
 \]
-making the gap function purely real. An inverse statement holds for the triplet pairing, for which
+An inverse statement holds for the triplet pairing, for which
 \[
 	\text{Triplet channel}
 	\quad\colon\quad
@@ -1100,13 +1092,9 @@ making the gap function purely real. An inverse statement holds for the triplet 
 		\tilde{\Delta}^{(p_x)} \sin k_x +  \tilde{\Delta}^{(p_y)} \sin k_y
 	\right]
 \]
-In this case, the gap is purely imaginary. Anyway, we can absorb this phase shift through a gauge transform.
+Before moving to the last part of this section, which gives an operative procedure to estimate the ground-state free energy and entropy densities, we dedicate a short section to the explicit form of the SC ground-state at zero temperature. We give a practical intepretation of the gap function as a parameter tuning the shape of the ground-state.
 
-In next section we give an explicit example of how the gap function and the wavefunction properties under spatial inversion are connected, at half filling and zero temperature.
-
-{\color{tabred}
-
-\section{The zero-temperature ground-state at half-filling}\label{sec:sc-gs}
+\subsection{The zero-temperature ground-state at half-filling}\label{subsec:sc-gs}
 
 The HF approximation to the true ground-state in the SC phase is obtained by aligning the each pseudospin with the respective pseudo-field. Let the up and down states,
 \[
@@ -1133,49 +1121,117 @@ The derivations carried out for the AF phase in Sec.~\ref{subsec:af-gs} can be r
 		\cos \tilde{\theta}_\mathbf{k} + e^{2i\tilde{\zeta}_\mathbf{k}} \sin \tilde{\theta}_\mathbf{k} \hat \phi_\mathbf{k}^\dagger
 	\right] \ket{\Omega_\mathbf{k}}
 \]
-which is an extension of the conventional BCS state. The phase factor angle is the gap ``tilt'' in the complex plane. This is proven by:
+which is an extension of the conventional BCS state. The phase factor angle is the gap ``tilt'' in the complex plane. Indeed,
 \[
 \begin{aligned}
 	\mel{\Psi}{\hat s_\mathbf{k}^x}{\Psi} &= \mel{\Psi}{\hat \phi_\mathbf{k} + \hat \phi_\mathbf{k}^\dagger}{\Psi} \\
 	&= \sin \tilde{\theta}_\mathbf{k} \cos \tilde{\theta}_\mathbf{k} \left(
 		e^{2i \tilde{\zeta}_\mathbf{k}} + e^{-2i \tilde{\zeta}_\mathbf{k}}
 	\right) \\
-	&= \sin \normalfont(2\tilde{\theta}_\mathbf{k}) \cos \normalfont(2 \tilde{\zeta}_\mathbf{k}) \\[1em]
+	&= \sin 2\tilde{\theta}_\mathbf{k} \cos 2 \tilde{\zeta}_\mathbf{k} \\[1em]
 	\mel{\Psi}{\hat s_\mathbf{k}^y}{\Psi} &= i \mel{\Psi}{\hat \phi_\mathbf{k} - \hat \phi_\mathbf{k}^\dagger}{\Psi} \\
 	&= i \sin \tilde{\theta}_\mathbf{k} \cos \tilde{\theta}_\mathbf{k} \left(
 	e^{-2i \tilde{\zeta}_\mathbf{k}} - e^{2i \tilde{\zeta}_\mathbf{k}}
 	\right) \\
-	&= \sin \normalfont(2\tilde{\theta}_\mathbf{k}) \sin \normalfont(2 \tilde{\zeta}_\mathbf{k})
+	&= \sin 2\tilde{\theta}_\mathbf{k} \sin 2 \tilde{\zeta}_\mathbf{k}
 \end{aligned}
 \]
-These results are coherent with Eqns.~\eqref{eq:sc-x-expectation-non-local} as well as \eqref{eq:sc-y-expectation-non-local} and allow us to identify the phase with angle of the pseudofield in the $xy$ plane.
+These results are coherent with Eqns.~\eqref{eq:sc-x-expectation-non-local} as well as \eqref{eq:sc-y-expectation-non-local} and allow us to identify the phase with angle of the pseudofield in the $xy$ plane. The ground state out of half-filling, and at finite temperature, is in general more complicated but retains the same essential features. Although it is not trivial to write down an analytic expression for the state, we can extract its entropy and free energy densities quite straightforwardly. This is done in next sections.
 
-\section{SC free energy density}\label{sec:sc-free-energy}
+\subsection{The entropy density of the SC ground-state}\label{subsec:sc-s}
 
-Free energy density of the SC phase is derived following the procedure used for the other two phases. As for the AF phase of Sec.~\ref{sec:af-free-energy}, two fermionic bands are present; however, recalling the antiferromagnet entropy density of Eq.~\eqref{eq:af-density-entropy}, the key differences are here given by the fact that the chemical potential inside the Fermi-Dirac factors is null and the sum is extended on the full BZ (but not later on spin index),
+The approximated ground-state in the SC phase is given by a gas of free $\hat \gamma^{(\pm)}$ fermions populating the two bands $\pm \tilde{E}_\mathbf{k}$ following a Fermi-Dirac distribution. Hence, the total entropy density of the ground state is given by that of a Fermi gas \cite{grosso2014solid}:
+\[
+	s = s^{(-)} + s^{(+)}
+\]
+where the superscript indicates the band,
 \begin{multline}
 	s^{(\pm)} \equiv -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[
 	\left(
-		1- f( \pm\tilde{E}_\mathbf{k}; \beta,0)
+	1- f( \pm\tilde{E}_\mathbf{k}; \beta,0)
 	\right) \ln \left(
-		1- f( \pm\tilde{E}_\mathbf{k}; \beta,0)
+	1- f( \pm\tilde{E}_\mathbf{k}; \beta,0)
 	\right) \\
 	+ f(
-		\pm\tilde{E}_\mathbf{k}; \beta,0)
+	\pm\tilde{E}_\mathbf{k}; \beta,0)
 	\ln f( \pm\tilde{E}_\mathbf{k}; \beta,0)
 	\Big] \label{eq:sc-density-entropy}
 \end{multline}
-with identical meaning of the notation. Using the relation
-\[
-	\frac{1}{e^x +1} + \frac{1}{e^{-x} +1} = 1
-\]
-we conclude that
+Note the fact that the Fermi-Dirac distributions are computed at null chemical potential. Because of this, we get:
 \[
 	s^{(-)} = s^{(+)}
 	\quad\implies\quad
 	s \equiv s^{(-)} + s^{(+)} = 2 s^{(+)}
 \]
-being $s$ the total entropy density. The five contributions to free energy are:
+Let us prove this.
+
+\begin{tabproof}[Bogoliubov bands $\pm \tilde{E}_\mathbf{k}$ give equal entropy densities.]
+	
+	Consider the entropy of the lower band,
+	\begin{multline*}
+		s^{(-)} \equiv -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[
+			\left(
+			1- f( -\tilde{E}_\mathbf{k}; \beta,0)
+			\right) \ln \left(
+			1- f( -\tilde{E}_\mathbf{k}; \beta,0)
+			\right) \\
+			+ f(
+			-\tilde{E}_\mathbf{k}; \beta,0)
+			\ln f( -\tilde{E}_\mathbf{k}; \beta,0)
+		\Big]
+	\end{multline*}
+	and consider the identity:
+	\[
+		\frac{1}{e^x +1} + \frac{1}{e^{-x} +1} = 1
+	\]
+	Which implies:
+	\[
+		f(\epsilon;\beta,0) = 1-f(-\epsilon;\beta,\mu)
+	\]
+	Inserting the latter for $\epsilon=\tilde{E}_\mathbf{k}$ in the expression for $s^{(-)}$, we get
+	\[
+		s^{(-)} \equiv -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[
+			f(
+			\tilde{E}_\mathbf{k}; \beta,0)
+			\ln f( \tilde{E}_\mathbf{k}; \beta,0) \\
+			+ \left(
+			1- f( \tilde{E}_\mathbf{k}; \beta,0)
+			\right) \ln \left(
+			1- f( \tilde{E}_\mathbf{k}; \beta,0)
+			\right)
+		\Big]
+	\]
+	hence $s^{(-)}=s^{(+)}$.	
+\end{tabproof}
+%
+The two Bogoliubov bands give equal contribution to entropy. This is a consequence of the fact that for the SC phase the gap is always opened at the chemical potential, filling the lower band and symmetrically emptying the upper band.
+
+The expression for the entropy density can be simplified by using Eq.~\mref, which implies
+\begin{multline*}
+	\left(
+		1-f( \tilde{E}_\mathbf{k}; \beta,0)
+	\right) \ln \left(
+		1-f( \tilde{E}_\mathbf{k}; \beta,0)
+	\right) = \ln \left(
+	1-f( \tilde{E}_\mathbf{k}; \beta,0)
+	\right) \\ 
+	-f( \tilde{E}_\mathbf{k}; \beta,0)
+	\left(
+		\tilde{E}_\mathbf{k}\beta + \ln  f( \tilde{E}_\mathbf{k}; \beta,0)
+	\right)
+\end{multline*}
+It follows that $s=2s^{(+)}$ can be written as:
+\[
+	s \equiv -\frac{2 k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
+		1- f( \tilde{E}_\mathbf{k}; \beta,0)
+	\right) 
+	+ \frac{2 k_B \beta}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{E}_\mathbf{k} f( \tilde{E}_\mathbf{k}; \beta,0)
+\]
+Note that, as the gap closes and $\tilde{E}_\mathbf{k} \to \tilde{\xi}_\mathbf{k}$, the above expression reduces to the entropy density for the normal phase reported in Eq.~\mref.
+
+\subsection{The free energy density of the SC ground-state}\label{subsec:sc-f}
+
+Free energy density of the SC phase is derived following the procedure used for the other two phases. The five contributions to free energy are:
 \begin{enumerate}
 	\item Quasiparticles energy:
 	\[
@@ -1207,24 +1263,33 @@ being $s$ the total entropy density. The five contributions to free energy are:
 	\]
 	\item Entropic energy
 	\[
-		e_s^{(\mathrm{SC})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
+	\begin{aligned}
+		e_s^{(\mathrm{SC})} &= - \frac{s}{k_\mathrm{B}\beta} \\
+		&= \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
 			1- f( \tilde{E}_\mathbf{k}; \beta,0) 
 		\right) - \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{E}_\mathbf{k} f(\tilde{E}_\mathbf{k}; \beta,0) 
+	\end{aligned}
 	\]
 	\item Chemical potential correction
 	\[
 		e_n^{(\mathrm{SC})} = \mu n
 	\]
 \end{enumerate}
-Compose everything
+Now, compose everything
 \[
 	f^{(\mathrm{SC})} \equiv e_\mathrm{g}^{(\mathrm{SC})} + e_\mathrm{a}^{(\mathrm{SC})} + e_\mathrm{c}^{(\mathrm{SC})} + e_s^{(\mathrm{SC})} + e_n^{(\mathrm{SC})}
 \]
-and use that:
+In particular, note that $e_\mathrm{g}^{(\mathrm{SC})}$ and the second term of $e_s^{(\mathrm{SC})}$ can be composed nicely,
+\[
+	-\frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \tilde{E}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) - \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{E}_\mathbf{k} f(\tilde{E}_\mathbf{k}; \beta,0) = - \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{E}_\mathbf{k}
+\]
+Indeed, this is proven by noting that
 \[
 	\tanh(\frac{x}{2}) + \frac{2}{e^x + 1} = 1
 \]
-In the end we get:
+which follows from basic algebra.
+
+Taking everything together, in the end we get the following expression for free energy density:
 \begin{multline*}
 	f^{(\mathrm{SC})} = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \left[
 		\tilde{\xi}_\mathbf{k} - \tilde{E}_\mathbf{k}
@@ -1261,11 +1326,11 @@ As was for the normal and AF phases, we recognise the chemical potential shift o
 	\right] + \tilde{\mu} n
 	\label{eq:sc-fMFT}
 \end{multline}
-which gives the analytic expression for the free energy.
+which gives the analytic expression for the free energy. Note that, as the gap closes and $\tilde{E}_\mathbf{k} \to \tilde{\xi}_\mathbf{k}$, the above expression reduces to the entropy density for the normal phase reported in Eq.~\mref.
 
-\subsection{The gap energy}\label{subsec:sc-gap-energy}
+\subsection{Energy constraints on the HFPs}
 
-Similarly to Sec.~\ref{subsec:af-gap-energy}, let us prove the following equation about the gap energy:
+We derived the expression of Eq.~\eqref{eq:sc-fMFT}, which contains in its second row the HFPs $u^{(\gamma)}$ and $w^{(\gamma)}$. In this section, similarly to what was done in Sec.~\mref for the AF phase, we give a proof of the following equation:
 \begin{equation}\label{eq:sc-ehm-gap-energy}
 	-U \big|
 		w^{(s)}
@@ -1273,44 +1338,75 @@ Similarly to Sec.~\ref{subsec:af-gap-energy}, let us prove the following equatio
 		w^{(\gamma)}
 	\big|^2 = \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\big| \tilde{\Delta}_\mathbf{k} \big|^2 }{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})
 \end{equation}
-Expand the right-hand side through Eq.~\eqref{eq:sc-ehm-full-gap},
-\[
-\begin{aligned}
-	\frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \frac{\big|
-		\tilde{\Delta}_\mathbf{k}
-	\big|^2}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})
-	&= \frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \left[
-		-Uw^{(s)*} + V \sum_{\gamma} w^{(\gamma)*} \varphi_\mathbf{k}^{(\gamma)} 
-	\right]
-	\frac{
-		\tilde{\Delta}_\mathbf{k}
-	}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) \\
-	&= -Uw^{(s)*} \times \overbrace{
-		\frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \frac{
+which we will use to derive a constraint on the HFPs themselves.
+
+\begin{tabproof}[Proof of Eq.~\eqref{eq:sc-ehm-gap-energy}]
+
+	Recall the explicit form of the conjugate gap function from Eq.~\eqref{eq:sc-ehm-full-gap},
+	\[
+		\tilde{\Delta}_\mathbf{k}^* = -Uw^{(s)*} + V \sum_{\gamma} w^{(\gamma)*} \varphi_\mathbf{k}^{(\gamma)} 
+	\]
+	Expand the right-hand side of Eq.~\eqref{eq:sc-ehm-gap-energy} and insert the above equation,
+	\begin{multline*}
+		\frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \frac{\big|
 			\tilde{\Delta}_\mathbf{k}
-		}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})
-	}^{w^{(s)}} \\
-	&\hspace{5.5em} + V \sum_{\gamma} w^{(\gamma)*} \times \underbrace{
-		\frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \frac{
-		\tilde{\Delta}_\mathbf{k}
-		}{\tilde{E}_\mathbf{k}} 	\tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})
-	}_{w^{(\gamma)}}
-\end{aligned}
+		\big|^2}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})
+		= \frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \tilde{\Delta}_\mathbf{k}^*
+		\frac{
+			\tilde{\Delta}_\mathbf{k}
+		}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) \\
+		= \frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \left[
+			-Uw^{(s)*} + V \sum_{\gamma} w^{(\gamma)*} \varphi_\mathbf{k}^{(\gamma)} 
+		\right]
+		\frac{
+			\tilde{\Delta}_\mathbf{k}
+		}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) 
+	\end{multline*}
+	In last line, the sum over $\gamma$ is intended as limited to the symmetries $s^*,p_x,p_y,d$. Now, use the self-consistency equations of Tab.~\ref{tab:sc-ehm-wgamma-self-consistencies} to recognise the various harmonics. We reduce the right-hand side of Eq.~\eqref{eq:sc-ehm-gap-energy} to:
+	\begin{multline*}
+		\frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \frac{\big|
+			\tilde{\Delta}_\mathbf{k}
+			\big|^2}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})= -Uw^{(s)*} \times \overbrace{
+			\frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \frac{
+				\tilde{\Delta}_\mathbf{k}
+			}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})
+		}^{w^{(s)}} \\
+		+ V \sum_{\gamma} w^{(\gamma)*} \times \underbrace{
+			\frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \frac{
+			\tilde{\Delta}_\mathbf{k}
+			}{\tilde{E}_\mathbf{k}} 	\tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2})
+		}_{w^{(\gamma)}}
+	\end{multline*}
+	which coincides with the left-hand side.
+\end{tabproof}
+%
+The right-hand side of Eq.\eqref{eq:sc-ehm-gap-energy} is a sum of positive terms, hence is positive (or zero, if the gap is null). So must be the right hand side. Then we have the constraint
+\[
+	-U \big|
+	w^{(s)}
+	\big|^2 + V \sum_\gamma \big|
+	w^{(\gamma)}
+	\big|^2 \ge 0
 \]
-having we used the self-consistency equations of Tab.~\ref{tab:sc-ehm-wgamma-self-consistencies}. This proves Eq.\eqref{eq:sc-ehm-gap-energy}, which is similar to Eq.~\eqref{eq:af-ehm-gap-energy} with one exception. Since the right-hand side of Eq.\eqref{eq:sc-ehm-gap-energy} is positive, for $V>0$ we have the constraint
+If the gap is null, the above constraint is satisfied because $w^{(\gamma)}=0$ for all $\gamma$s. If the gap is finite, the above requirement translates to:
 \begin{equation}\label{eq:sc-wgamma-circle}
 	\sum_{\gamma} \big| w^{(\gamma)} \big|^2 \ge M^{(\mathrm{SC})}
-	\qq{being}
-	M^{(\mathrm{SC})} \equiv \big| w^{(s)} \big|^2 \frac U V
+	\qq{and}
+	\gamma \neq s
 \end{equation}
-Now, as we state in Sec.~\ref{subsec:sc-features}, for the pure HM we have identically $w^{(s)}=0$. The pure HM cannot exhibit BCS-like superconductivity. For the EHM instead we see that:
+where we defined the radius:
+\[
+	M^{(\mathrm{SC})} \equiv \big| w^{(s)} \big|^2 \frac U V
+\]
+Now, as we stated in Sec.~\ref{subsec:sc-features}, for the pure HM we have identically $w^{(s)}=0$. For the EHM, instead, we see that:
 \begin{itemize}
-	\item In the strong coupling limit $U \ll V$, even small $s$-wave gaps impose larger $\gamma \neq s$ components;
-	\item The $s$-wave gap $w^{(s)}$ cannot converge to a finite value if for any $\gamma \neq s$ we have $w^{(\gamma)}=0$.
+	\item There is no reason \textit{a priori} for $w^{(s)}=0$ to be null;
+	\item If $w^{(s)}\neq0$ (in the singlet channel) the other harmonics -- namely, $s^*$ and $d$-wave -- must ``compensate'' and be large enough, as is stated in Eq.~\eqref{eq:sc-wgamma-circle}. This means that $w^{(s)}$ cannot be non-zero without at least one of the other two singlet harmonics being non-zero;
+	\item In the strong coupling limit $U/t \gg V/t$, the value of $M^{(\mathrm{SC})}$ can become rather large even for relatively small values of $w^{(s)}$. This is a convoluted way of saying that increasing $U/t$ at fixed $V/t$ we should expect the harmonic $w^{(s)}$ to decrease or the other two to increase (or a mix of these two behaviours).
 \end{itemize}
-Of course, Eq.~\eqref{eq:sc-ehm-gap-energy} is also solved by a null gap on both sides: this indicates that when the constraint is impossible to fulfil self-consistently, the gap closes.
+In the singlet channel, adding the non-local attraction to the conventional HM fixes (in principle) the impossibility for superconductivity at HF level. 
 
-}
+These considerations end the theoretical discussion of the SC phase. Unfortunately, we are not able to provide any more constraints on the HFPs, differently from AF and normal phase. Fortunately, as we will show with the analysis of numerics in next section, there is no particular need for additional constraints, at least for the $w^{(\gamma)}$ HFPs. We would have liked to have a proof that $0 \le u^{(s^*)} \le 2t/V$ also for the SC phase, but we do not have any. 
 
 \section{Discussion of numeric results for the singlet channel}\label{sec:sc-numeric}
 
@@ -1366,13 +1462,13 @@ In singlet channel, the most general gap function is a combination of $s$, $s^*$
 	\label{fig:sc-data-ws-AB256-compared}
 \end{figure}
 
-Let us discuss the local isotropic harmonic of the gap function, namely the $s$-wave component. In Fig.~\ref{fig:sc-data-ws-AB256-compared}, we show the data for $w^{(s)}$. The isotropic local gap is given by:
+Consider the isotropic harmonic of the gap function, namely the $s$-wave component. In Fig.~\ref{fig:sc-data-ws-AB256-compared}, we show the data for $w^{(s)}$. It is given by:
 \[
 	\tilde{\Delta}^{(s)} = -U w^{(s)}
 \]
-In the conventional HM we know that $s$-wave superconductivity is impossible at HF level. This was discussed in Sec.~\eqref{subsec:sc-hm}. Instead in the EHM there is no selection rule for $w^{(s)}$. The only constraint comes from Eq.~\eqref{eq:sc-wgamma-circle}: $w^{(s)}$ can be non-zero as long as at least one $w^{(\gamma)}$ with $\gamma=s^*,d$ is non-zero. This is a necessary but insufficient condition.
+In the conventional HM we know that $s$-wave superconductivity is impossible at HF level. This was discussed in Sec.~\eqref{subsec:sc-features}. Instead in the EHM there is no selection rule for $w^{(s)}$. The only constraint comes from Eq.~\eqref{eq:sc-wgamma-circle}: $w^{(s)}$ can be non-zero as long as at least one $w^{(\gamma)}$ with $\gamma=s^*,d$ is non-zero. This is a necessary but insufficient condition.
 
-In Fig.~\ref{subfig:sc-data-ws-A256-compared} we see that the local isotropic gap HFP $w^{(s)}$ is null at $\delta=0$ (left panel). Hence
+In Fig.~\ref{subfig:sc-data-ws-A256-compared} we see that $w^{(s)}$ is null at $\delta=0$ (left panel). Hence
 \begin{equation}\label{eq:sc-Delta^s=0}
 	\forall\ U/t, V/t
 	\quad\colon\quad
@@ -1380,7 +1476,7 @@ In Fig.~\ref{subfig:sc-data-ws-A256-compared} we see that the local isotropic ga
 \end{equation}
 at least within the range of parameters we explored. Increasing doping (central and right panels), $w^{(s)}$ is null up to a critical value $V_\mathrm{c}^{(s)}$, which depends also on $U$. For $V \ge V_\mathrm{c}^{(s)}$, $w^{(s)}$ is negative and the shape of the curve depends strongly on $U$. In particular, the amplitude $\abs{w^{(s)}}$ exhibits a local maximum. At almost unitary filling, ratios $V/t$ comparable with $1$ are sufficient to develop a finite convergence value for $w^{(s)}$. Therefore, doping lowers the critical value of the non-local attraction that is needed in order to establish an isotropic gap in the local channel.
 
-The dependence of $w^{(s)}$ on doping is shown in Fig.~\ref{subfig:sc-data-ws-B256-compared}. As anticipated, $w^{(s)}=0$ at half-filling. Varying $U/t$ and $V/t$ we see that $w^{(s)}=0$ reaches some negative minimum whose amplitude is lower at higher $U$s.
+The dependence of $w^{(s)}$ on doping is shown in Fig.~\ref{subfig:sc-data-ws-B256-compared}. As anticipated, $w^{(s)}=0$ at half-filling. Varying $U/t$ and $V/t$ we see that $w^{(s)}=0$ reaches some negative minimum whose absolute value is lower at higher $U$s.
 
 \paragraph{$s^*$-wave gap.}
 
@@ -1410,11 +1506,11 @@ Consider first Fig.~\ref{subfig:sc-data-wS-A256-compared}. At null and finite fi
 	\quad\land\quad
 	\forall V < V_\mathrm{c}^{(s^*)}
 	\quad\colon\quad
-	\tilde{\Delta}^{(s)}\big|_{\delta=0} = 0
+	\tilde{\Delta}^{(s^*)}\big|_{\delta=0} = 0
 \]
 The local isotropic gap harmonic $\tilde{\Delta}^{(s)}$ was always null at half filling. Its non-local counterpart $\tilde{\Delta}^{(s^*)}$ is null up to the critical value delimiting the phase transition. Therefore, superconductivity can establish at half-filling with a gap whose isotropic part is purely non-local. Note that we are not saying that pure $s^*$-wave superconductivity is possible. As we discuss later, at half-filling the dominant harmonic of the gap function has $d$-wave symmetry.
 
-In Fig.~\ref{subfig:sc-data-wS-B256-compared} we see that the dependence on doping of $w^{(s^*)}$ is peculiar. At low doping ($\delta \lesssim 0.3$), $w^{(s^*)}$ is small for small values of $V$ (left side of the three panels). At higher doping (right side) we see that a local maximum emerges, indicating that $w^{(s^*)}$ converges to higher values at smaller $V$s.
+In Fig.~\ref{subfig:sc-data-wS-B256-compared} we see that the dependence on doping of $w^{(s^*)}$ is peculiar. At low doping ($\delta \lesssim 0.3$), $w^{(s^*)}$ is small for small values of $V$ (left panel). At higher doping (central and right panels) we see that a local maximum emerges, indicating that $w^{(s^*)}$ converges to higher values at smaller $V$s.
 
 \paragraph{$d$-wave gap.}
 
@@ -1438,17 +1534,17 @@ In Fig.~\ref{fig:sc-data-wd-AB256-compared} we report our findings for the HFP $
 \[
 	\tilde{\Delta}^{(d)} = V w^{(d)}
 \]
-We see from the top panel (Fig.~\ref{subfig:sc-data-wd-A256-compared}) that $w^{(d)}$ depends weakly on $U$. At half-filling (left panel), a $d$-wave gap is present at any $V>0$:
+We see from the top panel (Fig.~\ref{subfig:sc-data-wd-A256-compared}) that $w^{(d)}$ depends weakly on $U$. At half-filling (left panel), the $d$-wave gap is zero only at $V=0$:
 \[
 	\forall\ U/t
 	\quad\land\quad
 	V=0
 	\quad\colon\quad
-	\tilde{\Delta}^{(s)}\big|_{\delta=0} = 0
+	\tilde{\Delta}^{(d)}\big|_{\delta=0} = 0
 \]
-This is a key difference with respect to $w^{(s)}$, $w^{(s^*)}$. The self-consistent superconducting order parameter can be purely $d$-wave, or a mixture of $d$ and $s^*$ symmetries. In the first case, the gap changes sign when subject to rotations of angle $\pi/2$; in the second no symmetry is present under said rotations. At finite filling (central and right panels) a critical value $V_\mathrm{c}^{(d)}$ emerges such that the $d$-wave gap appears at $V > V_\mathrm{c}^{(d)}$.
+Differently from the other components, $w^{(d)}$ grows to finite values already at infinitesimal $V/t$. Recalling what we said in the above paragraph, we note that when the strength of the non-local attraction grows enough, the $s^*$-wave part sets in and symmetries mix. At finite filling (central and right panels) a critical value $V_\mathrm{c}^{(d)}$ emerges such that the $d$-wave gap appears at $V > V_\mathrm{c}^{(d)}$.
 
-The dependence of $w^{(d)}$ on doping at different values of $U$ is shown in the bottom row (Fig.~\ref{subfig:sc-data-wd-B256-compared}). For any $V$, the HFP $w^{(d)}$ is a monotonically decreasing function of $\delta$. As we said, the critical value $V_\mathrm{c}^{(d)}$ increases with doping. Because of this, we see that the lighter curves of Fig.~\ref{subfig:sc-data-wd-B256-compared}, corresponding to lower values of $V$, reach zero quite rapidly. The curves for larger values of $V$, instead, reach zero at almost unitary filling. In all three panels of Fig.~\ref{subfig:sc-data-wd-B256-compared} we see that at doping $\delta \approx 0.3$ all lines intersect. In particular, decreasing $V$ the curve gets steeper. At low doping, there exists a finite value of $V$ that maximises $w^{(d)}$.
+The dependence of $w^{(d)}$ on doping at different values of $U$ is shown in the bottom row (Fig.~\ref{subfig:sc-data-wd-B256-compared}). For any $V/t$, the HFP $w^{(d)}$ is a monotonically decreasing function of $\delta$. As we said, the critical value $V_\mathrm{c}^{(d)}$ increases with doping. Because of this, we see that the lighter curves of Fig.~\ref{subfig:sc-data-wd-B256-compared}, corresponding to lower values of $V$, reach zero quite rapidly. The curves for larger values of $V$, instead, reach zero at almost unitary filling. In all three panels of Fig.~\ref{subfig:sc-data-wd-B256-compared} we see that at doping $\delta \approx 0.3$ various lines cross at $w^{(d)} \approx 0.3$. Finally, at null doping, there exists a finite value of $V$ that maximises $w^{(d)}$: it is visible in Fig.~\ref{subfig:sc-data-wd-A256-compared}.
 
 \paragraph{Competition among the channels.}
 
@@ -1461,7 +1557,7 @@ To get a valid understanding of the competition among channels, we need to compa
 	\label{fig:sc-data-surface-wS-B256}
 \end{figure}
 
-On the left column we plot three heatmaps, one for each harmonic in singlet SC phase. The same data are shown, superimposed, in the surface plot on the right. The harmonics $\tilde{\Delta}^{(\gamma)}$ cross if $V/t$ gets large enough, with the $d$-wave component reaching the largest values in the parametric region we investigated, followed closely by the $s^*$-wave harmonic. Isotropic harmonics ($s$ and $s^*$) are significantly non-zero in the same region, as we see in the first two rows of the left column. The two channel differ in amplitude significantly: the maximum value reached by the local gap harmonic $\tilde{\Delta}^{(s)}$ is approximately an order of magnitude smaller than the maximum of the non-local harmonic $\tilde{\Delta}^{(s^*)}$. Indeed, the colorbars on the left of each heatmap is rendered such that the highest point corresponds to the maximum of the dataset. Moreover, we see that at $\delta=0.0$ the local isotropic harmonic $\tilde{\Delta}^{(s)}$ is completely suppressed, as we expressed in Eq.~\eqref{eq:sc-Delta^s=0}.
+On the left column we plot three heatmaps, one for each harmonic in singlet SC phase. The same data are shown, superimposed, in the surface plot on the right. The harmonics $\tilde{\Delta}^{(\gamma)}$ cross if $V/t$ gets large enough, with the $d$-wave component reaching the largest values in the parametric region we investigated, followed closely by the $s^*$-wave harmonic. Isotropic harmonics ($s$ and $s^*$) are significantly non-zero in the same region, as we see in the first two rows of the left column. The two channel differ in amplitude significantly: the maximum value reached by the local gap harmonic $\tilde{\Delta}^{(s)}$ is approximately an order of magnitude smaller than the maximum of the non-local harmonic $\tilde{\Delta}^{(s^*)}$. Moreover, we see that at $\delta=0.0$ the local isotropic harmonic $\tilde{\Delta}^{(s)}$ is completely suppressed, as we expressed in Eq.~\eqref{eq:sc-Delta^s=0}.
 
 All harmonics share a quite strange boundary around $\delta \approx 0.34$, $V/t \approx 2.5$, visible as a sharp vertical segment in the three heatmaps on the left column of Fig.~\ref{fig:sc-data-surface-wS-B256}. The isotropic harmonics suddenly change from zero to large values moving from left to right, while the $d$-wave part does the opposite. Whether this behaviour underlies some deeper structure we were not able to tackle with our coarse-grained simulations, or is a numeric artifact, we do not know.
 
@@ -1533,11 +1629,11 @@ being $\mathcal{R}$ a $\pi/2$ rotation. We connect this effect to hopping renorm
 	\label{fig:sc-data-td-AB256-compared}
 \end{figure}
 
-For the normal and AF phases we were able to prove that $u^{(d)}=0$ for any choice of model parameters. For the SC phase, instead, $u^{(d)}$ converges to non-zero values. In Fig.~\ref{fig:sc-data-td-AB256-compared}, we plot the convergence value of
+For the normal and AF phases we were able to prove that $u^{(d)}=0$ for any choice of model parameters. For the SC phase, instead, $u^{(d)}$ converges to non-zero values. For the sake of conciseness, we skip plotting the curves for $u^{(d)}$ {\color{tabred}\textbf{(which are, anyway, openly accessible at our repository)}}, and show directly the curves for the quantity
 \[
 	\tilde{t}^{(d)} = -\frac{V u^{(d)}}{2}
 \]
-instead of the HFP $u^{(d)}$: nematicity is undoubtedly present. In the top panel (Fig.~\ref{subfig:sc-data-td-A256-compared}), we see that a critical value of $V$ exists over which nematicity is established. Moreover, the $\delta=0.0$ case (left panel) is independent of $U$. In all cases, the convergence values for $\tilde{t}^{(d)}$ are two order of magnitudes smaller than $t=1.0$: in the region of parametric space we explore, nematicity is a sharp but small effect. Note that at $\delta=0.2$ (central panel) $\tilde{t}^{(d)}\ge0$, while at $\delta=0.4$ (right panel) $\tilde{t}^{(d)}\le0$. Increasing the doping we change the sign of $\tilde{t}^{(d)}$
+This is done in Fig.~\ref{fig:sc-data-td-AB256-compared}: nematicity is undoubtedly present. In the top panel (Fig.~\ref{subfig:sc-data-td-A256-compared}), we see that a critical value of $V$ exists over which nematicity is established. Moreover, the $\delta=0.0$ case (left panel) is independent of $U$. In all cases, the convergence values for $\tilde{t}^{(d)}$ are two order of magnitudes smaller than $t=1.0$: in the region of parametric space we explore, nematicity is a sharp but small effect. Note that at $\delta=0.2$ (central panel) $\tilde{t}^{(d)}\ge0$, while at $\delta=0.4$ (right panel) $\tilde{t}^{(d)}\le0$. Increasing the doping we change the sign of $\tilde{t}^{(d)}$
 
 This sign change is most evident in the first two figures of the bottom panel (Fig.~\ref{subfig:sc-data-td-B256-compared}), where we vary the doping level while keeping fixed the local repulsion $U$. The behaviour of $\tilde{t}^{(d)}$ is similar at low doping in the three cases, but changes significantly at larger doping. Indeed, at $U/t=0$ (left figure) and $U/t=5$ (central figure) at some point $\tilde{t}^{(d)}$ changes sign. At $U/t=10$ (right figure), all our data points are positive (possibly the sign flip occurs at higher $V$s). Moreover, as $U$ increases, the amplitude of the oscillation of $\tilde{t}^{(d)}$ as a function of $\delta$ reduces. We conclude that both the local repulsion and electronic doping disrupt nematicity, which is instead most effective for a purely NNs attractive model.
 
@@ -1590,9 +1686,7 @@ The last HFP to be checked is $u^{(s^*)}$, responsible of bands shrinking. Its p
 \[
 	\tilde{t}^{(s^*)} = t-\frac{V u^{(s^*)}}{2}
 \]
-For the sake of conciseness, we skip plotting $u^{(s^*)}$ and plot directly $\tilde{t}^{(s^*)}$ in Fig.~\ref{fig:sc-data-tS-AB256-compared}.
-
-In the top panel (Fig.~\ref{subfig:sc-data-tS-A256-compared}), we show the dependence of $t^{(s^*)}$ on $V$. The three curves, obtained at three doping levels, are approximately independent of $U$. The common feature is that $\tilde{t}^{(s^*)}$ decreases somewhat linearly with $V$ up to some critical value, above which it flattens to an horizontal asymptote. Electronic doping changes primarily the height of this asymptote
+again, we skip plotting $u^{(s^*)}$ and plot directly $\tilde{t}^{(s^*)}$ in Fig.~\ref{fig:sc-data-tS-AB256-compared}. In the top panel (Fig.~\ref{subfig:sc-data-tS-A256-compared}), we show the dependence of $t^{(s^*)}$ on $V$. The three curves, obtained at three doping levels, are approximately independent of $U$. The common feature is that $\tilde{t}^{(s^*)}$ decreases somewhat linearly with $V$ up to some critical value, above which it flattens to an horizontal asymptote. Electronic doping changes primarily the height of this asymptote
 
 As was for the AF and normal phases, electronic doping disrupts the isotropic bands shrinking effect. At half-filling (left figure) we see that bands shrinking is most effective, reducing the hopping parameter to less than half its $V=0$ value. In the bottom panel (Fig.~\ref{subfig:sc-data-tS-B256-compared}) we show $t^{(s^*)}$ as a function of $\delta$, varying $V$ and $U$. As we already noted, the dependence on $U$ is very weak and the three figures are a lot alike. As we already noted, $t^{(s^*)}$ increases with doping.
 
@@ -1617,34 +1711,19 @@ With this consideration, we end the presentation of HFPs and RMPs and move to th
 
 \subsection{Solution free energy and entropy densities}\label{subsec:sc-f-s}
 
-For the SC phase, free energy density is given by Eq.~\eqref{eq:sc-fMFT}. Entropy density is obtained by Eq.~\eqref{eq:sc-density-entropy},
-\begin{equation}\label{eq:sc-density-entropy-explicit}
-	s \equiv -\frac{2k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[
-	\left(
-	1- f( \tilde{E}_\mathbf{k}; \beta,0)
-	\right) \ln \left(
-	1- f( \tilde{E}_\mathbf{k}; \beta,0)
-	\right) \\
-	+ f(
-	\tilde{E}_\mathbf{k}; \beta,0)
-	\ln f( \tilde{E}_\mathbf{k}; \beta,0)
-	\Big]
-\end{equation}
-We used the fact that $s=2s^{(+)}$, as we argued at the beginning of Sec.~\ref{sec:sc-free-energy}.
-
 \begin{figure}
 	\centering
 	\includegraphics[height=0.32\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-plot-fs/fs_U=4.0.pdf}
-	\caption{Heatmaps of the free energy and entropy densities at $U/t=4$. The black dotted lines represent the internal boundaries of the singlet SC phase.}
+	\caption{Heatmaps of the free energy and entropy densities at $U/t=4$. The black dotted lines represent the internal boundaries of the singlet SC phase, extracted from Fig.~\ref{fig:sc-mix}.}
 	\label{fig:sc-data-fs-B128}
 \end{figure}
 
-In Fig.~\ref{fig:sc-data-fs-B128} we plot, sided, the heatmaps for $f$ and $s$ at $U/t=4$ in the $(\delta,V)$ plane. Superimposed, we show the boundaries between the four regions identified in Fig.~\ref{fig:sc-mix}. Consider first the free energy, on the left: our data suggest that free energy is maximised in the $d$-wave phase, followed by the mixed phase. At high doping, the $s \oplus s^*$-wave phase is low-energetic. Overall, $f$ varies smoothly across phase boundaries, and we do not identify the black lines with some isoenergetic line separating phases.
+For the SC phase, free energy density is given by Eq.~\eqref{eq:sc-fMFT}, while entropy density is given by Eq.~\eqref{eq:sc-density-entropy}. In Fig.~\ref{fig:sc-data-fs-B128} we plot, sided, the heatmaps for $f$ and $s$ at $U/t=4$ in the $(\delta,V)$ plane. Superimposed, we show the boundaries between the four regions identified in Fig.~\ref{fig:sc-mix}. Consider first the free energy, on the left: our data suggest that free energy is maximised in the $d$-wave phase, followed by the mixed phase. At high doping, the $s \oplus s^*$-wave phase is low-energetic. Overall, $f$ varies smoothly across phase boundaries, and we do not identify the black lines with some isoenergetic line separating phases.
 
 This is not the case for entropy density. Indeed, the entropic region on the right panel of Fig.~\ref{fig:sc-data-fs-B128} coincides with the normal phase. The three superconducting regions are low-entropic. This is explained by the following argument:
 \begin{itemize}
 	\item In the normal phase, the Bogoliubov band reduces to $\tilde{E}_\mathbf{k} \to \tilde{\xi}_\mathbf{k}$. The chemical potential crosses the bare band and a Fermi surface exists. Hence, at finite temperature, the Fermi-Dirac occupation of single-particle states varies continuously from almost unitary (deep in the Fermi sea) to almost zero (far outside). All those states in the middle, around the Fermi level, are highly entropic: we have shown this in Fig.~\ref{subfig:normal-entropy}. It  is the intrinsic metallic nature of the normal phase that makes is entropic.
-	\item In the SC phase, we open a gap at the chemical potential, not at zero energy (as instead was in the AF phase). In Eq.~\eqref{eq:sc-density-entropy-explicit} we apply the Fermi-Dirac distribution on the two bands $\pm\tilde{E}_\mathbf{k}$: as the gao widens, the lower one fills ($f \approx 1$), while the upper empties ($f \approx 0$). As we lower temperature, the above statement gets exact. Recalling Fig.~\ref{subfig:normal-entropy}, we see that entropy is minimised at $f=0,1$. Hence, the SC phase is low-entropic.
+	\item In the SC phase, we open a gap at the chemical potential, not at zero energy (as instead was in the AF phase). Computing entropy as in Sec.~\ref{subsec:sc-s}, we apply the Fermi-Dirac distribution on the two bands $\pm\tilde{E}_\mathbf{k}$. As the gap opens, the lower one fills ($f \approx 1$), while the upper empties ($f \approx 0$). As we lower temperature, the above statement gets exact. Recalling Fig.~\ref{subfig:normal-entropy}, we see that entropy is minimised at $f=0,1$. Hence, the SC phase is low-entropic.
 \end{itemize}
 This is the reason behind the sharp separation of the normal region from the SC regions in the right panel of Fig.~\ref{fig:sc-data-fs-B128}.
 
