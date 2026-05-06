@@ -1,0 +1,415 @@
+\def\GraphicsFolder{appendices/normal-constraints/pictures}
+
+\chapter{Theoretical constraints on the HFPs of the normal phase}\label{app:normal-constraints}
+
+In this appendix we discuss some theoretical constraints on the two HFPs of the normal phase,
+\[
+	u^{(s^*)}
+	\qquad
+	u^{(d)}
+\]
+The discussion is divided in two parts: first we consider the simpler case of unbroken $\mathrm{C}_4$ symmetry, then we move to anisotropic hopping and $\mathrm{C}_4 \SSB \mathrm{C}_2$.
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.9\linewidth]{../Project/src/labs/bands/normal-nematic-bands.pdf}
+	\caption{Theoretical representation of mixed-symmetry nematic bands for the normal phase. The white contour represent level lines. In top-left panel, the MBZ and NBZ are depicted. While these plots only account for positive-defined components, in text is described how to map each one on its counterpart with different sign.}
+	\label{fig:normal-nematic-bands}
+\end{figure}
+
+Before starting, it is useful to spend a few words on the spatial structure of a mixed $s^* \otimes d$-wave band. Let $\tilde{\epsilon}_\mathbf{k}$ be a generic mixed band,
+\[
+	\tilde{\epsilon}_\mathbf{k} = \epsilon^{(s^*)} (\cos k_x + \cos k_y) + \epsilon^{(d)} (\cos k_x - \cos k_y)
+\]
+\todo
+
+
+It is the balance between the two components $\epsilon^{(s^*)}$ and $\epsilon^{(d)}$ that gives the main features of the renormalised band. Consider the $s^*$-wave and $d$-wave structure factors already presented in Fig.~\ref{fig:x-wave-reciprocal-factors}, and define the Magnetic Brillouin Zone (MBZ) and Nematic Brillouin Zone (NBZ) as follows:
+\begin{align}
+	\mathrm{MBZ} &\equiv \left\lbrace
+	\mathbf{k}\in\mathrm{BZ}
+	\mid 
+	\varphi_\mathbf{k}^{(s^*)} \ge 0
+	\right\rbrace \label{eq:MBZ-def} \\
+	\mathrm{NBZ} &\equiv \left\lbrace
+	\mathbf{k}\in\mathrm{BZ}
+	\mid 
+	\varphi_\mathbf{k}^{(d)} \ge 0
+	\right\rbrace \label{eq:NBZ-def}
+\end{align}
+represented in the top-left panel of Fig.~\ref{fig:normal-nematic-bands}. In the rest of the panels of Fig.~\ref{fig:normal-nematic-bands} are reported examples of mixed symmetry bands, for positive components. The respective opposite sign plots are obtained by the following rules:
+\[
+\begin{aligned}
+	\epsilon^{(s^*)} < 0 \qq{and} \epsilon^{(d)} < 0
+	\quad&\implies\quad \text{Invert colors in Fig.~\ref{fig:normal-nematic-bands}} \\
+	\epsilon^{(s^*)} > 0 \qq{and} \epsilon^{(d)} < 0
+	\quad&\implies\quad \text{Rotate plots by $\pi/2$ in Fig.~\ref{fig:normal-nematic-bands}} \\
+	\epsilon^{(s^*)} < 0 \qq{and} \epsilon^{(d)} > 0
+	\quad&\implies\quad \text{Rotate plots by $\pi/2$ and invert colors in Fig.~\ref{fig:normal-nematic-bands}} \\
+\end{aligned}
+\]
+
+\begin{figure}
+	\centering
+	\subfloat[
+	MBZ sectors.
+	]{
+		\input{\GraphicsFolder/MBZ-sectors}
+		\label{subfig:MBZ-sectors}
+	}
+	\subfloat[
+	NBZ sectors.
+	]{
+		\input{\GraphicsFolder/NBZ-sectors}
+		\label{subfig:NBZ-sectors}
+	}
+	\caption{Depiction of the sectors composing the MBZ (Fig.~\ref{subfig:MBZ-sectors}) and the NBZ (Fig.~\ref{subfig:NBZ-sectors}), based on the divisions shown in the top-left panel of Fig.~\ref{fig:normal-nematic-bands}. The full green zone composes $\mathcal{A}$, the region where both the $s^*$-wave and $d$-wave structure factors are positive defined; its MBZ complementary white counterpart in the left panel gives $\mathcal{B}$, for which the $s^*$-wave structure factors is positive-definite while the $d$-wave is negative. Similarly the NBZ complementary white counterpart in the right panel gives $\mathcal{C}$, for which signs are exchanged. The black dots, at the contours intersection, are band nodes.}
+	\label{fig:BZ-sectors}
+\end{figure}
+
+Let us focus on the MBZ and the NBZ. Starting from the intersections of the two zones, both can be factored in two sectors of interest,
+\[
+\mathrm{MBZ} = \mathcal{A} \cup \mathcal{B}
+\qquad
+\mathrm{NBZ} = \mathcal{A} \cup \mathcal{C}
+\]
+being, accordingly to Fig.~\ref{fig:BZ-sectors},
+\[
+\mathcal{A} \equiv \mathcal{A}_1 \cup \mathcal{A}_2
+\qquad
+\mathcal{B} \equiv \mathcal{B}_1 \cup \mathcal{B}_2
+\qquad
+\mathcal{C} \equiv \mathcal{C}_1 \cup \mathcal{C}_2
+\]
+These domains satisfy:
+\begin{align}
+	\mathcal{A} &\equiv \left\lbrace
+	\mathbf{k}\in\mathrm{BZ}
+	\mid 
+	\varphi_\mathbf{k}^{(s^*)} \ge 0 \land 	\varphi_\mathbf{k}^{(d)} \ge 0
+	\right\rbrace \label{eq:BZ-A-def} \\
+	&= \mathrm{MBZ} \cap \mathrm{NBZ} \nonumber\\[0.5em]
+	\mathcal{B} &\equiv \left\lbrace
+	\mathbf{k}\in\mathrm{BZ}
+	\mid 
+	\varphi_\mathbf{k}^{(s^*)} \ge 0 \land 	\varphi_\mathbf{k}^{(d)} \le 0
+	\right\rbrace \label{eq:BZ-B-def} \\
+	&= \mathrm{MBZ} \setminus \mathrm{NBZ} \nonumber\\[0.5em]
+	\mathcal{C} &\equiv \left\lbrace
+	\mathbf{k}\in\mathrm{BZ}
+	\mid 
+	\varphi_\mathbf{k}^{(s^*)} \le 0 \land 	\varphi_\mathbf{k}^{(d)} \ge 0
+	\right\rbrace \label{eq:BZ-C-def} \\
+	&= \mathrm{NBZ} \setminus \mathrm{MBZ} \nonumber
+\end{align}
+and will be used later on. Whatever the shape of the mixed band, the following equation always holds
+\[
+\abs{k_x} = \frac{\pi}{2} \qq{and} \abs{k_y} = \frac{\pi}{2}
+\quad\implies\quad
+\tilde{\epsilon}_{(k_x,k_y)} = 0
+\]
+since only cosines are involved. This identifies four node points, represented as black dots in Fig.~\ref{fig:BZ-sectors}.
+
+\subsection{Constraints in presence of a robust $\mathrm{C}_4$ symmetry and bands shrinking}\label{subsec:normal-bands-shrinking}
+
+Consider the simpler situation where $\mathrm{C}_4$ symmetry is imposed. This implies that the renormalised bands are
+\[
+\tilde{\epsilon}_\mathbf{k} \equiv (u^{(s^*)} V - 2t) (\cos k_x + \cos k_y)
+\]
+with a single self-consistency equation
+\[
+u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+\]
+The following chain of deductions leads us to a constraint on the possible values of $u^{(s^*)}$:
+\begin{enumerate}
+	\item For $t>0$, there is no self-consistent solution admitting $u^{(s^*)}\le0$. Let us prove this: suppose instead $u^{(s^*)}\le0$. For any function $g_\mathbf{k}$ defined on the BZ:
+	\[
+	\sum_{\mathbf{k}\in\mathrm{BZ}} g_\mathbf{k} = \sum_{\mathbf{k}\in\mathrm{MBZ}} \left[
+	g_\mathbf{k} + g_{\mathbf{k}+\bm{\pi}}
+	\right]
+	\]
+	where we defined the vector $\bm{\pi}\equiv(\pi,\pi)$. The self-consistency equation thus reads
+	\begin{align}
+		u^{(s^*)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \left[
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) + f(\tilde{\epsilon}_{\mathbf{k}+\bm{\pi}};\beta,\tilde{\mu})
+		\right] \nonumber \\
+		&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \left[
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+		\right] \label{eq:normal-us*-constraint-int1}
+	\end{align}
+	having we used the antisymmetry of $s^*$-wave functions by $\bm{\pi}$ shifts. Now, if $u^{(s^*)}\le0$ the renormalised band $\tilde{\epsilon}_\mathbf{k}$ is negative inside the MBZ and positive outside, implying
+	\[
+	\forall \mathbf{k} \in \mathrm{MBZ}
+	\quad\colon\quad
+	f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \ge f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+	\]
+	the equality only being satisfied on the MBZ contour. Then, since inside the MBZ it holds by definition $\cos k_x + \cos k_y \ge 0$, the above equations imply
+	\[
+	u^{(s^*)} \le 0 
+	\quad\implies\quad
+	u^{(s^*)} \ge 0
+	\]
+	To exclude the possibility of $u^{(s^*)}=0$, it suffices to notice that from the argument above such a situation only arises when the MBZ contour degenerates to the entirety of the MBZ itself -- which is, when the band is flat. But that cannot be the case for $u^{(s^*)} = 0$, as long as $t>0$. Thus we have proven that
+	\[
+	u^{(s^*)} > 0
+	\]
+	\item For $t>0$, there is no self-consistent solution admitting $u^{(s^*)} \ge 2t/V$. We proceed exactly as did for the previous point, up to the passage:
+	\[
+	u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \left[
+	f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+	\right]
+	\]
+	Now, if $u^{(s^*)} \ge 2t/V$ this means the prefactor in front of the renormalised bands is positive. Then $\tilde{\epsilon}_\mathbf{k}$ is positive inside the MBZ and negative outside, implying
+	\[
+	\forall \mathbf{k} \in \mathrm{MBZ}
+	\quad\colon\quad
+	f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \le f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+	\]
+	thus we have
+	\[
+	u^{(s^*)} \ge 2t/V
+	\quad\implies\quad
+	u^{(s^*)} \le 0
+	\]
+	which is absurd. Thus
+	\[
+	u^{(s^*)} < 2t/V
+	\]
+\end{enumerate}
+Collecting the two points above, we have the constraint on $u^{(s^*)}$
+\begin{equation}\label{eq:normal-us*-constraint}
+	\mathrm{C}_4
+	\quad\implies\quad
+	0 < u^{(s^*)} < 2t/V
+\end{equation}
+The effective hopping is smaller than the original hopping. We can denominate this net effect ``bands shrinking''.
+
+\subsection{Natural suppression of nematicity within $\mathrm{C}_2/\mathbb{Z}_2$ symmetry}\label{subsec:normal-bands-shrinking-C2}
+
+Let us extend the arguments above to a weaker symmetry, allowing for
+\[
+\mathrm{C}_4 \SSB \mathrm{C}_2/\mathbb{Z}_2
+\]
+%
+\begin{figure}[t]
+	\centering
+	\subfloat[Same-sign mixed bands.]{
+		\includegraphics[width=0.45\linewidth]{../Project/src/labs/bands/normal-nematic-bands-pp.pdf}
+		\label{subfig:normal-nematic-bands-detail-pp}
+	}
+	\hspace{0.5em}
+	\subfloat[Opposite-sign mixed bands.]{
+		\includegraphics[width=0.45\linewidth]{../Project/src/labs/bands/normal-nematic-bands-mp.pdf}
+		\label{subfig:normal-nematic-bands-detail-mp}
+	}
+	\caption{Theoretical example of bands with $u^{(s^*)} > 2t/V$, $u^{(d)}>0$ (top-left) and $u^{(s^*)} < 0$, $u^{(d)}>0$ (top right). Two example points are reported, connected by a $\pi/2$ rotation as given in Eqns.~\eqref{eq:normal-A=RB}, \eqref{eq:normal-B=RA}.}
+	\label{fig:normal-nematic-bands-detail}
+\end{figure}
+%
+We work with the full, anisotropic band of Eq.~\eqref{eq:normal-bands-renormalisation}. From the following chain of deductions we conclude that $\mathrm{C}_4$ is not broken:
+\begin{enumerate}
+	\item Let for instance
+	\[
+	u^{(s^*)} \ge 2t/V > 0
+	\qquad
+	u^{(d)} > 0
+	\quad\implies\quad
+	\epsilon^{(s^*)} \ge 0
+	\qquad
+	\epsilon^{(d)} > 0
+	\]
+	In Fig.~\ref{subfig:normal-nematic-bands-detail-pp} an example band is shown for $\epsilon^{(s^*)}=1$, $\epsilon^{(d)}=1/2$. Note that if $u^{(s^*)}=2t/V$, the renormalised band is purely $d$-wave since $\epsilon^{(s^*)}=0$. 
+	
+	Recall Eq.~\eqref{eq:normal-us*-constraint-int1}, and separate in two sums over $\mathcal{A}$ and $\mathcal{B}$:
+	\begin{multline*}
+		u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathcal{A}} (\cos k_x + \cos k_y) \left[
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+		\right] \\
+		+ \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathcal{B}} (\cos k_x + \cos k_y) \left[
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+		\right]
+	\end{multline*}
+	
+	Consider the sum over $\mathcal{B}$. Looking at the bottom-left panel of Fig.~\ref{fig:normal-nematic-bands}, such a region contains nodal curves across which bands change sign.	
+	Let $\mathcal{R}$ be the clockwise $\pi/2$ rotation: then, any point in $\mathcal{B}$ can be seen as the rotation of a point in $\mathcal{A}$
+	\begin{equation}\label{eq:normal-B=RA}
+		\forall \mathbf{k}' \in \mathcal{B} 
+		\quad\exists\quad \mathbf{k} \in \mathcal{A} \mid \mathbf{k}' = \mathcal{R} \mathbf{k}
+	\end{equation}
+	A graphical rendition of this idea is given in Fig.~\ref{subfig:normal-nematic-bands-detail-pp}. Then we can rewrite $u^{(s^*)}$ as a single sum over $\mathcal{A}$,
+	\begin{multline}
+		u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathcal{A}} (\cos k_x + \cos k_y) \\
+		\times \left[
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) + f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu})
+		\right]
+		\label{eq:normal-us*-AR}
+	\end{multline}
+	
+	From Eq.~\eqref{eq:BZ-A-def}, $\forall \mathbf{k} \in \mathcal{A}$ the form factors $\cos k_x \pm \cos k_y$ are positive by construction. By hypothesis $\epsilon^{(s^*)} \ge 0$ and $\epsilon^{(d)} > 0$. Hence:
+	\[
+	\forall \mathbf{k} \in \mathcal{A}
+	\quad\colon\quad
+	\begin{aligned}
+		\tilde{\epsilon}_\mathbf{k} &= \overbrace{\epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right)}^{\ge 0} + \overbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }^{\ge 0} \\
+		\tilde{\epsilon}_{\mathcal{R}\mathbf{k}} &= \underbrace{\epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right)}_{\ge 0} - \underbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }_{\ge 0}
+	\end{aligned}
+	\]
+	Summing the two equations above we have:
+	\[
+	\forall \mathbf{k} \in \mathcal{A}
+	\quad\colon\quad
+	\tilde{\epsilon}_\mathbf{k} + \tilde{\epsilon}_{\mathcal{R}\mathbf{k}} \ge 0
+	\]
+	thus $\tilde{\epsilon}_\mathbf{k} \ge -\tilde{\epsilon}_{\mathcal{R}\mathbf{k}}$.	The Fermi-Dirac distribution is monotonically descendent. Then:
+	\[
+	\forall \mathbf{k} \in \mathcal{A}
+	\quad\colon\quad
+	\begin{aligned}
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) &\le f(-\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) \\
+		f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) &\ge f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) 
+	\end{aligned}
+	\]
+	This condition, inserted in Eq.~\eqref{eq:normal-us*-AR}, leads to an absurd:
+	\[
+	u^{(s^*)} \ge 2t/V \qquad
+	u^{(d)} > 0
+	\quad\implies\quad
+	u^{(s^*)} \le 0
+	\]
+	%
+	\item An identical argument, exchanging the roles of $\mathcal{A}$ and $\mathcal{B}$, can be carried out to show that
+	\[
+	u^{(s^*)} \ge 2t/V > 0
+	\qquad
+	u^{(d)} < 0
+	\quad\implies\quad
+	u^{(s^*)} \le 0
+	\]
+	%
+	\item The two points above imply that it is possible to have $u^{(s^*)} \ge 2t/V$ if and only if $u^{(d)}=0$. But from Sec.~\ref{subsec:normal-bands-shrinking}, we conclude that the upper boundary $u^{(s^*)} < 2t/V$ always holds.
+	%
+	\item Let for instance
+	\[
+	u^{(s^*)} \le 0
+	\qquad
+	u^{(d)} > 0
+	\quad\implies\quad
+	\epsilon^{(s^*)} < 0
+	\qquad
+	\epsilon^{(d)} > 0
+	\]
+	In Fig.~\ref{subfig:normal-nematic-bands-detail-mp} an example band is shown for $\epsilon^{(s^*)}=-1$, $\epsilon^{(d)}=1/2$.
+	
+	Proceed as for the first point. Similarly to Eq.~\eqref{eq:normal-B=RA}, Any point in $\mathcal{A}$ can be obtained by rotating some point in $\mathcal{B}$,
+	\begin{equation}\label{eq:normal-A=RB}
+		\forall \mathbf{k}' \in \mathcal{A} 
+		\quad\exists\quad \mathbf{k} \in \mathcal{B} \mid \mathbf{k}' = \mathcal{R} \mathbf{k}
+	\end{equation}
+	An equation similar to Eq.~\eqref{eq:normal-us*-AR} holds, the sum being performed over $\mathcal{B}$
+	\begin{multline}
+		u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathcal{B}} (\cos k_x + \cos k_y) \\
+		\times \left[
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) + f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu})
+		\right]
+		\label{eq:normal-us*-BR}
+	\end{multline}
+	
+	From Eq.~\eqref{eq:BZ-B-def}, $\forall \mathbf{k} \in \mathcal{B}$ the form factor $\cos k_x + \cos k_y$ is positive by construction; the form factor $\cos k_x - \cos k_y$ is negative by construction. By hypothesis $\epsilon^{(s^*)} < 0$ and $\epsilon^{(d)} > 0$. Hence:
+	\[
+	\forall \mathbf{k} \in \mathcal{B}
+	\quad\colon\quad
+	\begin{aligned}
+		\tilde{\epsilon}_\mathbf{k} &= \overbrace{\epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right)}^{\le 0} + \overbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }^{\le 0} \\
+		\tilde{\epsilon}_{\mathcal{R}\mathbf{k}} &= \underbrace{\epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right)}_{\le 0} - \underbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }_{\le 0}
+	\end{aligned}
+	\]
+	Summing the two equations above we have:
+	\[
+	\forall \mathbf{k} \in \mathcal{B}
+	\quad\colon\quad
+	\tilde{\epsilon}_\mathbf{k} + \tilde{\epsilon}_{\mathcal{R}\mathbf{k}} \le 0
+	\]
+	thus $\tilde{\epsilon}_\mathbf{k} \le -\tilde{\epsilon}_{\mathcal{R}\mathbf{k}}$.	The Fermi-Dirac distribution is monotonically descendent. Then:
+	\[
+	\forall \mathbf{k} \in \mathcal{B}
+	\quad\colon\quad
+	\begin{aligned}
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) &\ge f(-\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) \\
+		f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) &\le f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) 
+	\end{aligned}
+	\]
+	This condition, inserted in Eq.~\eqref{eq:normal-us*-AR}, leads to an absurd:
+	\[
+	u^{(s^*)} \le 0 \qquad
+	u^{(d)} > 0
+	\quad\implies\quad
+	u^{(s^*)} > 0
+	\]
+	%
+	\item can be carried out to show that
+	\[
+	u^{(s^*)} \le 0
+	\qquad
+	u^{(d)} < 0
+	\quad\implies\quad
+	u^{(s^*)} > 0
+	\]
+	%
+	\item The two points above imply that it is possible to have $u^{(s^*)} \le 0$ if and only if $u^{(d)}=0$. But from Sec.~\ref{subsec:normal-bands-shrinking}, we conclude that the lower boundary $u^{(s^*)} > 0$ always holds.
+	\newcounter{enumTemp}
+	\setcounter{enumTemp}{\theenumi}
+\end{enumerate}
+From the chain of derivations above, we can conclude self-consistently that also in the nematic structure the constraint of Eq.~\eqref{eq:normal-us*-constraint},
+\[
+0 < u^{(s^*)} < 2t/V
+\]
+holds. In the $s^*$-wave channel, partial breaking of rotational symmetry is not enough to modify the main effect identified under $\mathrm{C}_4$ symmetry, ``bands shrinking''. What is missing is the behaviour of the $d$-wave channel when said effect takes place. Continuing the enumeration above,
+
+\begin{enumerate}
+	\setcounter{enumi}{\theenumTemp}
+	\item Let $0 < u^{(s^*)} < 2t/V$ and $u^{(d)} > 0$. Then $\epsilon^{(d)}>0$. The self-consistency equation for $u^{(d)}$ reads
+	\[
+	\begin{aligned}
+		u^{(d)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \\
+		&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{NBZ}} (\cos k_x - \cos k_y) \left[
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu})
+		\right]
+	\end{aligned}
+	\]
+	where we recognised, as is shown in Fig.~\ref{subfig:NBZ-sectors}, that $\mathrm{BZ} \setminus \mathrm{NBZ} = \mathcal{R} \mathrm{NBZ}$. It holds:
+	\[
+	\forall \mathbf{k} \in \mathrm{NBZ}
+	\quad\colon\quad
+	\begin{aligned}
+		\tilde{\epsilon}_\mathbf{k} &= \epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right) + \overbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }^{\ge 0} \\
+		\tilde{\epsilon}_{\mathcal{R}\mathbf{k}} &= \epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right) - \underbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }_{\ge 0}
+	\end{aligned}
+	\]
+	thus $\tilde{\epsilon}_{\mathcal{R}\mathbf{k}} < \tilde{\epsilon}_\mathbf{k}$, and inserting this fact in the self-consistency equation above we get
+	\[
+	0 < u^{(s^*)} < 2t/V
+	\qq{and}
+	u^{(d)} > 0
+	\quad\implies\quad
+	u^{(d)} < 0
+	\]
+	which is absurd.
+	%
+	\item An identical argument, with inverted inequalities, can be carried out to show that
+	\[
+	0 < u^{(s^*)} < 2t/V
+	\qq{and}
+	u^{(d)} < 0
+	\quad\implies\quad
+	u^{(d)} > 0
+	\]
+	%
+	\item The two points above imply that it is possible to satisfy the constraint $0 < u^{(s^*)} < 2t/V$ if and only if $u^{(d)}=0$.
+\end{enumerate}
+All the deductions above indicate that $u^{(d)}=0$ everywhere. Nematic effects are always absent, 
+\begin{equation}\label{eq:normal-us*-ud-constraint}
+	0 < u^{(s^*)} < 2t/V
+	\qq{and}
+	u^{(d)} = 0
+\end{equation}
+This is physically expected but non trivial. The normal phase does not break $\mathrm{C}_4$ and we can ignore $u^{(d)}$ at all. In next section we identify the expected self-consistent value for $u^{(s^*)}$.

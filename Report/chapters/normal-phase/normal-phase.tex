@@ -453,7 +453,7 @@ Note the formal similarity with Eq.~\eqref{eq:normal-bands-vphi}. Bands renormal
 Therefore, $t$ is an RMP. In Sec.~\ref{subsec:normal-d-wave-hopping} we will show how all of this is translated in real space.
 
 We conclude this section by proving that the Fock contraction energy is given by:
-\begin{equation}\label{eq:normal-HU-fock-Ec}
+\begin{equation}\label{eq:normal-HV-fock-Ec}
 	E_{\mathrm{F}/V}^{(\mathrm{N})} = L_x L_y \times \frac{V}{2} \sum_\sigma \left(
 		\big|
 			u_\sigma^{(s^*)}
@@ -495,7 +495,7 @@ Later, using spin degeneracy, we will omit the sum on $\sigma$ and the $1/2$ pre
 		\big|^2
 	\end{aligned}
 	\]
-	which, using the fact that $u_\sigma^{(p_\ell)}=0$, proves Eq.~\eqref{eq:normal-HU-fock-Ec}.
+	which, using the fact that $u_\sigma^{(p_\ell)}=0$, proves Eq.~\eqref{eq:normal-HV-fock-Ec}.
 \end{tabproof}
 %
 In next section we collect all we found so far and discuss the properties of the HF hamiltonian.
@@ -640,9 +640,15 @@ It follows that if $u^{(d)}>0$, the hopping in direction $x$ is larger than in d
 
 \subsection{The entropy density of the SC ground-state}\label{subsec:normal-s}
 
-The HF hamiltonian of Eq.~\eqref{eq:normal-Hhf} describes a non-interacting Fermi gas. The entropy density of the ground state is given by \cite{grosso2014solid},
+In this section we compute the density of entropy of the ground state in the normal phase. Entropy density is given by
+\[
+	s^{(\mathrm{N})} = \frac{S^{(\mathrm{N})}}{L_x L_y}
+\]
+being $S^{(\mathrm{N})}$ the total entropy.
+
+The HF hamiltonian of Eq.~\eqref{eq:normal-Hhf} describes a non-interacting Fermi gas. The entropy density of a free Fermi gas in its ground state \cite{grosso2014solid} is
 \begin{equation}\label{eq:normal-s}
-	s = -\frac{2k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
+	s^{(\mathrm{N})} = -\frac{2k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
 		\left(
 			1- f(\tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
 		\right) \ln \left(
@@ -655,7 +661,7 @@ The HF hamiltonian of Eq.~\eqref{eq:normal-Hhf} describes a non-interacting Ferm
 \end{equation}
 The $2$ prefactor was included to account for spin degeneracy. The above equation can be written in another way:
 \begin{equation}\label{eq:normal-s-variant}
-		s = -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left[ \ln \left(
+		s^{(\mathrm{N})} = -\frac{2k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left[ \ln \left(
 		1-f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right)
 		- \beta  (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu}) f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) 
 	\right]
@@ -676,7 +682,7 @@ The $2$ prefactor was included to account for spin degeneracy. The above equatio
 	\end{align}
 	Substituting $x=\beta (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu})$and using Eq.~\eqref{eq:ln-x-id} in Eq.~\eqref{eq:normal-s} we obtain
 	\begin{multline*}
-		s = -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[ \ln \left(
+		s^{(\mathrm{N})} = -\frac{2k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[ \ln \left(
 		1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) + f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \ln f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \\
 		- \beta (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu}) f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) - f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \ln f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
 		\Big]
@@ -687,114 +693,17 @@ The $2$ prefactor was included to account for spin degeneracy. The above equatio
 
 \subsection{The free energy density of the SC ground-state}\label{subsec:normal-f}
 
-\todo
-
-\section{Normal free energy density}\label{sec:normal-free-energy}
-
-In the end, we want to compare phases. Thus we need a way to extract the free energy density of the approximated ground-state for each phase. The procedure sketched here will be re-used in next chapters. Let
-\[
-	f^{(\mathrm{N})} \equiv \frac{F_\mathrm{MFT}^{(\mathrm{N})}}{L_x L_y}
-\]
-being $F_\mathrm{MFT}$ the total free energy. Consider the complete hamiltonian
-\[
-	\hat H -\mu \hat N \simeq \sum_{\mathbf{k},\sigma} \tilde{\epsilon}_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} + E_\mathrm{c}^{(\mathrm{N})} - \tilde{\mu} \hat N
-\]
-where $E_\mathrm{c}^{(\mathrm{N})}$ is the (negative) total contraction energy for the normal phase,
-\[
-	E_\mathrm{c}^{(\mathrm{N})} \equiv
-	-\left[
-		E_{\mathrm{H}/U}^{(\mathrm{N})} + E_{\mathrm{H}/V}^{(\mathrm{N})} +  E_{\mathrm{F}/V}^{(\mathrm{N})}
-	\right]
-\]
-having included the various contraction energies from Eqns.~\eqref{eq:normal-HU-hartree-Ec}, \eqref{eq:normal-HV-hartree-Ec} and \eqref{eq:normal-fock-V-contraction-energy}.
-
-Let us now take together all terms. From now on, we will omit spin index $\sigma$, making use of the always present $\mathbb{Z}_2$ spin inversion symmetry discussed in Sec.~\ref{sec:normal-phase-theory}. For a free Fermi gas, the free energy density is made of four contributions:
-\begin{enumerate}
-	\item The free particles ground state energy density,
-	\[
-		e_\mathrm{g}^{(\mathrm{N})} = \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu}) f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu} )
-	\]
-	\item The contraction energy density,
-	\[
-	\begin{aligned}
-		e_\mathrm{c}^{(\mathrm{N})} &\equiv \frac{E_\mathrm{c}^{(\mathrm{N})}}{L_x L_y} \\
-		&= - n^2 U + V \left[
-			2zn^2 - 
-			\big|
-				u^{(s^*)}
-			\big|^2 - \big|
-				u^{(d)}
-			\big|^2
-		\right]
-	\end{aligned}
-	\]
-	\item The entropic contribution to free energy
-	\[
-		e_s^{(\mathrm{N})} \equiv -Ts
-	\]
-	with $T = 1/k_B \beta$ and $s$ {\color{tabred}the free Fermi gas entropy density for a single spin sector \cite{grosso2014solid},
-	\begin{equation}\label{eq:normal-entropy-density}
-		s = -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
-			\left(
-				1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
-			\right) \ln \left(
-				1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
-			\right) + f(
-				\tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
-			\ln f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
-			\vphantom{A^A}
-		\right]
-	\end{equation}
-	We use the identity:
-	\[
-		\ln \left(
-			1-\frac{1}{e^x+1}
-		\right) = x+\ln \left(
-			\frac{1}{e^x+1}
-		\right) 
-	\]
-	and, substituting $x=\beta (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu})$, reduce the above expression to:
-	\begin{multline*}
-		s = -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[ \ln \left(
-		1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) + f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \ln f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \\
-		- \beta (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu}) f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) - f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \ln f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
-		\Big]
-	\end{multline*}
-	Second and fourth terms cancel out, and multiplying by $-2T$ (taking care of spin degeneracy)} we have
-	\[
-		e_s^{(\mathrm{N})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
-		1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu}) f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
-	\]
-	\item The chemical potential correction
-	\[
-		e_n^{(\mathrm{N})} = \mu n
-	\]
-	Note here that we are using the ``physical'' value of $\mu$, not its RMP counterpart $\tilde{\mu}$. The reason for this is discussed in Sec.~\ref{subsec:fixed-density-role-mu}.
-\end{enumerate}
-Thus, composing everything
-\[
-\begin{aligned}
-	f^{(\mathrm{N})} &\equiv e_\mathrm{g}^{(\mathrm{N})} + e_\mathrm{c}^{(\mathrm{N})} + e_s^{(\mathrm{N})} + e_n^{(\mathrm{N})} \nonumber \\
-	&= \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
-	1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - V \left[ 
-		\big|
-			u^{(s^*)}
-		\big|^2 + \big|
-			u^{(d)}
-		\big|^2
-	\right] + \left[
-		\mu + n(2zV-U)
-	\right] n
-\end{aligned}
-\]
-In Sec.~\ref{subsec:fixed-density-role-mu} we argued that our iterative scheme computes $\tilde{\mu}$, not $\mu$. Using Eq.~\eqref{eq:normal-mu-shift}, we see
-\[
-	\mu + n(2zV-U) = \tilde{\mu}
-\]
-Then, the final expression is:
+In this section we compute the free energy density of the ground state, for the normal phase. The density of free energy is given by
+\begin{equation}\label{eq:normal-fMFT-def}
+	f^{(\mathrm{N})} \equiv \frac{F^{(\mathrm{N})}}{L_x L_y}
+\end{equation}
+being $F^{(\mathrm{N})}$ the total free energy,
+\begin{equation}\label{eq:normal-FMFT-def}
+	F^{(\mathrm{N})} = E_\mathrm{HF}^{(\mathrm{N})} - \frac{S^{(\mathrm{N})}}{k_\mathrm{B} \beta}
+\end{equation}
+Here $E_\mathrm{HF}^{(\mathrm{N})}$ is the ground-state energy for the HF hamiltonian. In the normal phase, we compute $f^{(\mathrm{N})}$ using the following formula:
 \begin{equation}\label{eq:normal-fMFT}
-	f^{(\mathrm{N})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
-	1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - V \left[ 
+	f^{(\mathrm{N})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(1-f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})\right) - V \left[ 
 		\big|
 			u^{(s^*)}
 		\big|^2 + \big|
@@ -802,498 +711,231 @@ Then, the final expression is:
 		\big|^2
 	\right] + \tilde{\mu} n 
 \end{equation}
-including all effects.
 
-\section{Theoretical constraints on the normal phase HFPs}\label{sec:normal-constraints}
-
-{\color{tabred}[Move this section to appendix?]}
-
-Within this section we discuss some theoretical constraints on the two HFPs of the normal phase. The discussion is divided in two parts: first we consider the simpler case of unviolated $\mathrm{C}_4$ symmetry, then we move to anisotropic hopping and $\mathrm{C}_4 \SSB \mathrm{C}_2$.
-
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=0.9\linewidth]{../Project/src/labs/bands/normal-nematic-bands.pdf}
-	\caption{Theoretical representation of mixed-symmetry nematic bands for the normal phase. The white contour represent level lines. In top-left panel, the MBZ and NBZ are depicted. While these plots only account for positive-defined components, in text is described how to map each one on its counterpart with different sign.}
-	\label{fig:normal-nematic-bands}
-\end{figure}
-
-Before starting, it is useful to spend a few words on the spatial structure of a mixed $s^* \otimes d$-wave band. Let in general for notational simplicity
-\[
-	\tilde{\epsilon}_\mathbf{k} = \epsilon^{(s^*)} (\cos k_x + \cos k_y) + \epsilon^{(d)} (\cos k_x - \cos k_y)
-\]
-It is the balance between the two components $\epsilon^{(s^*)}$ and $\epsilon^{(d)}$ that gives the main features of the renormalised band. Consider the $s^*$-wave and $d$-wave structure factors already presented in Fig.~\ref{fig:x-wave-reciprocal-factors}, and define the Magnetic Brillouin Zone (MBZ) and Nematic Brillouin Zone (NBZ) as follows:
-\begin{align}
-	\mathrm{MBZ} &\equiv \left\lbrace
-	\mathbf{k}\in\mathrm{BZ}
-	\mid 
-	\varphi_\mathbf{k}^{(s^*)} \ge 0
-	\right\rbrace \label{eq:MBZ-def} \\
-	\mathrm{NBZ} &\equiv \left\lbrace
-	\mathbf{k}\in\mathrm{BZ}
-	\mid 
-	\varphi_\mathbf{k}^{(d)} \ge 0
-	\right\rbrace \label{eq:NBZ-def}
-\end{align}
-represented in the top-left panel of Fig.~\ref{fig:normal-nematic-bands}. The reason for the name of the MBZ will be clear in Chap.~\ref{chap:mft-af-instability}. In the rest of the panels of Fig.~\ref{fig:normal-nematic-bands} are reported examples of mixed symmetry bands, for positive components. The respective opposite sign plots are obtained by the following rules:
-\[
-\begin{aligned}
-	\epsilon^{(s^*)} < 0 \qq{and} \epsilon^{(d)} < 0
-	\quad&\implies\quad \text{Invert colors in Fig.~\ref{fig:normal-nematic-bands}} \\
-	\epsilon^{(s^*)} > 0 \qq{and} \epsilon^{(d)} < 0
-	\quad&\implies\quad \text{Rotate plots by $\pi/2$ in Fig.~\ref{fig:normal-nematic-bands}} \\
-	\epsilon^{(s^*)} < 0 \qq{and} \epsilon^{(d)} > 0
-	\quad&\implies\quad \text{Rotate plots by $\pi/2$ and invert colors in Fig.~\ref{fig:normal-nematic-bands}} \\
-\end{aligned}
-\]
-
-\begin{figure}
-	\centering
-	\subfloat[
-		MBZ sectors.
-	]{
-		\input{\GraphicsFolder/MBZ-sectors}
-		\label{subfig:MBZ-sectors}
-	}
-	\subfloat[
-		NBZ sectors.
-	]{
-		\input{\GraphicsFolder/NBZ-sectors}
-		\label{subfig:NBZ-sectors}
-	}
-	\caption{Depiction of the sectors composing the MBZ (Fig.~\ref{subfig:MBZ-sectors}) and the NBZ (Fig.~\ref{subfig:NBZ-sectors}), based on the divisions shown in the top-left panel of Fig.~\ref{fig:normal-nematic-bands}. The full green zone composes $\mathcal{A}$, the region where both the $s^*$-wave and $d$-wave structure factors are positive defined; its MBZ complementary white counterpart in the left panel gives $\mathcal{B}$, for which the $s^*$-wave structure factors is positive-definite while the $d$-wave is negative. Similarly the NBZ complementary white counterpart in the right panel gives $\mathcal{C}$, for which signs are exchanged. The black dots, at the contours intersection, are band nodes.}
-	\label{fig:BZ-sectors}
-\end{figure}
-
-Let us focus on the MBZ and the NBZ. Starting from the intersections of the two zones, both can be factored in two sectors of interest,
-\[
-	\mathrm{MBZ} = \mathcal{A} \cup \mathcal{B}
-	\qquad
-	\mathrm{NBZ} = \mathcal{A} \cup \mathcal{C}
-\]
-being, accordingly to Fig.~\ref{fig:BZ-sectors},
-\[
-	\mathcal{A} \equiv \mathcal{A}_1 \cup \mathcal{A}_2
-	\qquad
-	\mathcal{B} \equiv \mathcal{B}_1 \cup \mathcal{B}_2
-	\qquad
-	\mathcal{C} \equiv \mathcal{C}_1 \cup \mathcal{C}_2
-\]
-These domains satisfy:
-\begin{align}
-	\mathcal{A} &\equiv \left\lbrace
-	\mathbf{k}\in\mathrm{BZ}
-	\mid 
-	\varphi_\mathbf{k}^{(s^*)} \ge 0 \land 	\varphi_\mathbf{k}^{(d)} \ge 0
-	\right\rbrace \label{eq:BZ-A-def} \\
-	&= \mathrm{MBZ} \cap \mathrm{NBZ} \nonumber\\[0.5em]
-	\mathcal{B} &\equiv \left\lbrace
-	\mathbf{k}\in\mathrm{BZ}
-	\mid 
-	\varphi_\mathbf{k}^{(s^*)} \ge 0 \land 	\varphi_\mathbf{k}^{(d)} \le 0
-	\right\rbrace \label{eq:BZ-B-def} \\
-	&= \mathrm{MBZ} \setminus \mathrm{NBZ} \nonumber\\[0.5em]
-	\mathcal{C} &\equiv \left\lbrace
-	\mathbf{k}\in\mathrm{BZ}
-	\mid 
-	\varphi_\mathbf{k}^{(s^*)} \le 0 \land 	\varphi_\mathbf{k}^{(d)} \ge 0
-	\right\rbrace \label{eq:BZ-C-def} \\
-	&= \mathrm{NBZ} \setminus \mathrm{MBZ} \nonumber
-\end{align}
-and will be used later on. Whatever the shape of the mixed band, the following equation always holds
-\[
-	\abs{k_x} = \frac{\pi}{2} \qq{and} \abs{k_y} = \frac{\pi}{2}
-	\quad\implies\quad
-	\tilde{\epsilon}_{(k_x,k_y)} = 0
-\]
-since only cosines are involved. This identifies four node points, represented as black dots in Fig.~\ref{fig:BZ-sectors}.
-
-\subsection{Constraints in presence of a robust $\mathrm{C}_4$ symmetry and bands shrinking}\label{subsec:normal-bands-shrinking}
-
-Consider the simpler situation where $\mathrm{C}_4$ symmetry is imposed. This implies that the renormalised bands are
-\[
-	\tilde{\epsilon}_\mathbf{k} \equiv (u^{(s^*)} V - 2t) (\cos k_x + \cos k_y)
-\]
-with a single self-consistency equation
-\[
-	u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-\]
-The following chain of deductions leads us to a constraint on the possible values of $u^{(s^*)}$:
-\begin{enumerate}
-	\item For $t>0$, there is no self-consistent solution admitting $u^{(s^*)}\le0$. Let us prove this: suppose instead $u^{(s^*)}\le0$. For any function $g_\mathbf{k}$ defined on the BZ:
-	\[
-		\sum_{\mathbf{k}\in\mathrm{BZ}} g_\mathbf{k} = \sum_{\mathbf{k}\in\mathrm{MBZ}} \left[
-		g_\mathbf{k} + g_{\mathbf{k}+\bm{\pi}}
-		\right]
-	\]
-	where we defined the vector $\bm{\pi}\equiv(\pi,\pi)$. The self-consistency equation thus reads
-	\begin{align}
-		u^{(s^*)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \left[
-			f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) + f(\tilde{\epsilon}_{\mathbf{k}+\bm{\pi}};\beta,\tilde{\mu})
-		\right] \nonumber \\
-		&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \left[
-			f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-		\right] \label{eq:normal-us*-constraint-int1}
-	\end{align}
-	having we used the antisymmetry of $s^*$-wave functions by $\bm{\pi}$ shifts. Now, if $u^{(s^*)}\le0$ the renormalised band $\tilde{\epsilon}_\mathbf{k}$ is negative inside the MBZ and positive outside, implying
-	\[
-		\forall \mathbf{k} \in \mathrm{MBZ}
-		\quad\colon\quad
-		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \ge f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-	\]
-	the equality only being satisfied on the MBZ contour. Then, since inside the MBZ it holds by definition $\cos k_x + \cos k_y \ge 0$, the above equations imply
-	\[
-		u^{(s^*)} \le 0 
-		\quad\implies\quad
-		u^{(s^*)} \ge 0
-	\]
-	To exclude the possibility of $u^{(s^*)}=0$, it suffices to notice that from the argument above such a situation only arises when the MBZ contour degenerates to the entirety of the MBZ itself -- which is, when the band is flat. But that cannot be the case for $u^{(s^*)} = 0$, as long as $t>0$. Thus we have proven that
-	\[
-		u^{(s^*)} > 0
-	\]
-	\item For $t>0$, there is no self-consistent solution admitting $u^{(s^*)} \ge 2t/V$. We proceed exactly as did for the previous point, up to the passage:
-	\[
-		u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \left[
-		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-		\right]
-	\]
-	Now, if $u^{(s^*)} \ge 2t/V$ this means the prefactor in front of the renormalised bands is positive. Then $\tilde{\epsilon}_\mathbf{k}$ is positive inside the MBZ and negative outside, implying
-	\[
-		\forall \mathbf{k} \in \mathrm{MBZ}
-		\quad\colon\quad
-		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \le f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-	\]
-	thus we have
-	\[
-		u^{(s^*)} \ge 2t/V
-		\quad\implies\quad
-		u^{(s^*)} \le 0
-	\]
-	which is absurd. Thus
-	\[
-		u^{(s^*)} < 2t/V
-	\]
-\end{enumerate}
-Collecting the two points above, we have the constraint on $u^{(s^*)}$
-\begin{equation}\label{eq:normal-us*-constraint}
-	\mathrm{C}_4
-	\quad\implies\quad
-	0 < u^{(s^*)} < 2t/V
-\end{equation}
-The effective hopping is smaller than the original hopping. We can denominate this net effect ``bands shrinking''.
-
-\subsection{Natural suppression of nematicity within $\mathrm{C}_2/\mathbb{Z}_2$ symmetry}\label{subsec:normal-bands-shrinking-C2}
-
-Let us extend the arguments above to a weaker symmetry, allowing for
-\[
-	\mathrm{C}_4 \SSB \mathrm{C}_2/\mathbb{Z}_2
-\]
-%
-\begin{figure}[t]
-	\centering
-	\subfloat[Same-sign mixed bands.]{
-		\includegraphics[width=0.45\linewidth]{../Project/src/labs/bands/normal-nematic-bands-pp.pdf}
-		\label{subfig:normal-nematic-bands-detail-pp}
-	}
-	\hspace{0.5em}
-	\subfloat[Opposite-sign mixed bands.]{
-		\includegraphics[width=0.45\linewidth]{../Project/src/labs/bands/normal-nematic-bands-mp.pdf}
-		\label{subfig:normal-nematic-bands-detail-mp}
-	}
-	\caption{Theoretical example of bands with $u^{(s^*)} > 2t/V$, $u^{(d)}>0$ (top-left) and $u^{(s^*)} < 0$, $u^{(d)}>0$ (top right). Two example points are reported, connected by a $\pi/2$ rotation as given in Eqns.~\eqref{eq:normal-A=RB}, \eqref{eq:normal-B=RA}.}
-	\label{fig:normal-nematic-bands-detail}
-\end{figure}
-%
-We work with the full, anisotropic band of Eq.~\eqref{eq:normal-bands-renormalisation}. From the following chain of deductions we conclude that $\mathrm{C}_4$ is not broken:
-\begin{enumerate}
-	\item Let for instance
-	\[
-		u^{(s^*)} \ge 2t/V > 0
-		\qquad
-		u^{(d)} > 0
-		\quad\implies\quad
-		\epsilon^{(s^*)} \ge 0
-		\qquad
-		\epsilon^{(d)} > 0
-	\]
-	In Fig.~\ref{subfig:normal-nematic-bands-detail-pp} an example band is shown for $\epsilon^{(s^*)}=1$, $\epsilon^{(d)}=1/2$. Note that if $u^{(s^*)}=2t/V$, the renormalised band is purely $d$-wave since $\epsilon^{(s^*)}=0$. 
+\begin{tabproof}[Free energy density for the normal phase]
 	
-	Recall Eq.~\eqref{eq:normal-us*-constraint-int1}, and separate in two sums over $\mathcal{A}$ and $\mathcal{B}$:
-	\begin{multline*}
-		u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathcal{A}} (\cos k_x + \cos k_y) \left[
-		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-		\right] \\
-		+ \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathcal{B}} (\cos k_x + \cos k_y) \left[
-		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-		\right]
-	\end{multline*}
-	
-	Consider the sum over $\mathcal{B}$. Looking at the bottom-left panel of Fig.~\ref{fig:normal-nematic-bands}, such a region contains nodal curves across which bands change sign.	
-	Let $\mathcal{R}$ be the clockwise $\pi/2$ rotation: then, any point in $\mathcal{B}$ can be seen as the rotation of a point in $\mathcal{A}$
-	\begin{equation}\label{eq:normal-B=RA}
-		\forall \mathbf{k}' \in \mathcal{B} 
-		\quad\exists\quad \mathbf{k} \in \mathcal{A} \mid \mathbf{k}' = \mathcal{R} \mathbf{k}
-	\end{equation}
-	A graphical rendition of this idea is given in Fig.~\ref{subfig:normal-nematic-bands-detail-pp}. Then we can rewrite $u^{(s^*)}$ as a single sum over $\mathcal{A}$,
-	\begin{multline}
-		u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathcal{A}} (\cos k_x + \cos k_y) \\
-		\times \left[
-		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) + f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu})
-		\right]
-		\label{eq:normal-us*-AR}
-	\end{multline}
-	
-	From Eq.~\eqref{eq:BZ-A-def}, $\forall \mathbf{k} \in \mathcal{A}$ the form factors $\cos k_x \pm \cos k_y$ are positive by construction. By hypothesis $\epsilon^{(s^*)} \ge 0$ and $\epsilon^{(d)} > 0$. Hence:
+	Using Eqns.~\eqref{eq:normal-fMFT-def}, \eqref{eq:normal-FMFT-def}, we have
 	\[
-	\forall \mathbf{k} \in \mathcal{A}
-	\quad\colon\quad
-	\begin{aligned}
-		\tilde{\epsilon}_\mathbf{k} &= \overbrace{\epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right)}^{\ge 0} + \overbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }^{\ge 0} \\
-		\tilde{\epsilon}_{\mathcal{R}\mathbf{k}} &= \underbrace{\epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right)}_{\ge 0} - \underbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }_{\ge 0}
-	\end{aligned}
+		f^{(\mathrm{N})} = \frac{E_\mathrm{HF}^{(\mathrm{N})}}{L_x L_y} - \frac{s^{(\mathrm{N})}}{k_\mathrm{B} \beta}
 	\]
-	Summing the two equations above we have:
-	\[
-	\forall \mathbf{k} \in \mathcal{A}
-	\quad\colon\quad
-	\tilde{\epsilon}_\mathbf{k} + \tilde{\epsilon}_{\mathcal{R}\mathbf{k}} \ge 0
-	\]
-	thus $\tilde{\epsilon}_\mathbf{k} \ge -\tilde{\epsilon}_{\mathcal{R}\mathbf{k}}$.	The Fermi-Dirac distribution is monotonically descendent. Then:
-	\[
-	\forall \mathbf{k} \in \mathcal{A}
-	\quad\colon\quad
-	\begin{aligned}
-		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) &\le f(-\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) \\
-		f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) &\ge f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) 
-	\end{aligned}
-	\]
-	This condition, inserted in Eq.~\eqref{eq:normal-us*-AR}, leads to an absurd:
-	\[
-		u^{(s^*)} \ge 2t/V \qquad
-		u^{(d)} > 0
-		\quad\implies\quad
-		u^{(s^*)} \le 0
-	\]
-	%
-	\item An identical argument, exchanging the roles of $\mathcal{A}$ and $\mathcal{B}$, can be carried out to show that
-	\[
-		u^{(s^*)} \ge 2t/V > 0
-		\qquad
-		u^{(d)} < 0
-		\quad\implies\quad
-		u^{(s^*)} \le 0
-	\]
-	%
-	\item The two points above imply that it is possible to have $u^{(s^*)} \ge 2t/V$ if and only if $u^{(d)}=0$. But from Sec.~\ref{subsec:normal-bands-shrinking}, we conclude that the upper boundary $u^{(s^*)} < 2t/V$ always holds.
-	%
-	\item Let for instance
-	\[
-		u^{(s^*)} \le 0
-		\qquad
-		u^{(d)} > 0
-		\quad\implies\quad
-		\epsilon^{(s^*)} < 0
-		\qquad
-		\epsilon^{(d)} > 0
-	\]
-	In Fig.~\ref{subfig:normal-nematic-bands-detail-mp} an example band is shown for $\epsilon^{(s^*)}=-1$, $\epsilon^{(d)}=1/2$.
-	
-	Proceed as for the first point. Similarly to Eq.~\eqref{eq:normal-B=RA}, Any point in $\mathcal{A}$ can be obtained by rotating some point in $\mathcal{B}$,
-	\begin{equation}\label{eq:normal-A=RB}
-		\forall \mathbf{k}' \in \mathcal{A} 
-		\quad\exists\quad \mathbf{k} \in \mathcal{B} \mid \mathbf{k}' = \mathcal{R} \mathbf{k}
-	\end{equation}
-	An equation similar to Eq.~\eqref{eq:normal-us*-AR} holds, the sum being performed over $\mathcal{B}$
-	\begin{multline}
-		u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathcal{B}} (\cos k_x + \cos k_y) \\
-		\times \left[
-		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) + f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu})
-		\right]
-		\label{eq:normal-us*-BR}
-	\end{multline}
-	
-	From Eq.~\eqref{eq:BZ-B-def}, $\forall \mathbf{k} \in \mathcal{B}$ the form factor $\cos k_x + \cos k_y$ is positive by construction; the form factor $\cos k_x - \cos k_y$ is negative by construction. By hypothesis $\epsilon^{(s^*)} < 0$ and $\epsilon^{(d)} > 0$. Hence:
-	\[
-		\forall \mathbf{k} \in \mathcal{B}
-		\quad\colon\quad
+	with $s^{(\mathrm{N})}$ the entropy density computed in Eq.~\eqref{eq:normal-s-variant}. Then, $f^{(\mathrm{N})}$ is obtained by summing the following terms:
+	\begin{enumerate}
+		\item The free particles ground state energy density,
+		\[
+			e_\mathrm{g}^{(\mathrm{N})} = \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu}) f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu} )
+		\]
+		The prefactor $2$ accounts for spin degeneracy.
+		\item The contraction energy density,
+		\[
 		\begin{aligned}
-			\tilde{\epsilon}_\mathbf{k} &= \overbrace{\epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right)}^{\le 0} + \overbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }^{\le 0} \\
-			\tilde{\epsilon}_{\mathcal{R}\mathbf{k}} &= \underbrace{\epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right)}_{\le 0} - \underbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }_{\le 0}
+			e_\mathrm{c}^{(\mathrm{N})} &\equiv \frac{E_\mathrm{c}^{(\mathrm{N})}}{L_x L_y} \\
+			&= - n^2 U + V \left[
+				2zn^2 - 
+				\big|
+					u^{(s^*)}
+				\big|^2 - \big|
+					u^{(d)}
+				\big|^2
+			\right]
 		\end{aligned}
-	\]
-		Summing the two equations above we have:
-	\[
-		\forall \mathbf{k} \in \mathcal{B}
-		\quad\colon\quad
-		\tilde{\epsilon}_\mathbf{k} + \tilde{\epsilon}_{\mathcal{R}\mathbf{k}} \le 0
-	\]
-	thus $\tilde{\epsilon}_\mathbf{k} \le -\tilde{\epsilon}_{\mathcal{R}\mathbf{k}}$.	The Fermi-Dirac distribution is monotonically descendent. Then:
-	\[
-	\forall \mathbf{k} \in \mathcal{B}
-	\quad\colon\quad
-	\begin{aligned}
-		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) &\ge f(-\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) \\
-		f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) &\le f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) 
-	\end{aligned}
-	\]
-	This condition, inserted in Eq.~\eqref{eq:normal-us*-AR}, leads to an absurd:
-	\[
-		u^{(s^*)} \le 0 \qquad
-		u^{(d)} > 0
-		\quad\implies\quad
-		u^{(s^*)} > 0
-	\]
-	%
-	\item can be carried out to show that
-	\[
-		u^{(s^*)} \le 0
-		\qquad
-		u^{(d)} < 0
-		\quad\implies\quad
-		u^{(s^*)} > 0
-	\]
-	%
-	\item The two points above imply that it is possible to have $u^{(s^*)} \le 0$ if and only if $u^{(d)}=0$. But from Sec.~\ref{subsec:normal-bands-shrinking}, we conclude that the lower boundary $u^{(s^*)} > 0$ always holds.
-	\newcounter{enumTemp}
-	\setcounter{enumTemp}{\theenumi}
-\end{enumerate}
-From the chain of derivations above, we can conclude self-consistently that also in the nematic structure the constraint of Eq.~\eqref{eq:normal-us*-constraint},
-\[
-	0 < u^{(s^*)} < 2t/V
-\]
-holds. In the $s^*$-wave channel, partial breaking of rotational symmetry is not enough to modify the main effect identified under $\mathrm{C}_4$ symmetry, ``bands shrinking''. What is missing is the behaviour of the $d$-wave channel when said effect takes place. Continuing the enumeration above,
-
-\begin{enumerate}
-	\setcounter{enumi}{\theenumTemp}
-	\item Let $0 < u^{(s^*)} < 2t/V$ and $u^{(d)} > 0$. Then $\epsilon^{(d)}>0$. The self-consistency equation for $u^{(d)}$ reads
-	\[
-	\begin{aligned}
-		u^{(d)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \\
-		&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{NBZ}} (\cos k_x - \cos k_y) \left[
-			f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu})
-		\right]
-	\end{aligned}
-	\]
-	where we recognised, as is shown in Fig.~\ref{subfig:NBZ-sectors}, that $\mathrm{BZ} \setminus \mathrm{NBZ} = \mathcal{R} \mathrm{NBZ}$. It holds:
-	\[
-		\forall \mathbf{k} \in \mathrm{NBZ}
-		\quad\colon\quad
+		\]
+		where in first line we included the all contraction energies from Eqns.~\eqref{eq:normal-HU-hartree-Ec}, \eqref{eq:normal-HV-hartree-Ec} and \eqref{eq:normal-HV-fock-Ec} in $E_\mathrm{c}^{(\mathrm{N})}$,
+		\[
+			E_\mathrm{c}^{(\mathrm{N})} \equiv
+			-\left[
+			E_{\mathrm{H}/U}^{(\mathrm{N})} + E_{\mathrm{H}/V}^{(\mathrm{N})} +  E_{\mathrm{F}/V}^{(\mathrm{N})}
+			\right]
+		\]
+		\item The entropic contribution to free energy
+		\[
 		\begin{aligned}
-			\tilde{\epsilon}_\mathbf{k} &= \epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right) + \overbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }^{\ge 0} \\
-			\tilde{\epsilon}_{\mathcal{R}\mathbf{k}} &= \epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right) - \underbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }_{\ge 0}
+			e_s^{(\mathrm{N})} &\equiv -\frac{s^{(\mathrm{N})}}{k_\mathrm{B} \beta} \\
+			&= \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
+			1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu}) f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
 		\end{aligned}
-	\]
-	thus $\tilde{\epsilon}_{\mathcal{R}\mathbf{k}} < \tilde{\epsilon}_\mathbf{k}$, and inserting this fact in the self-consistency equation above we get
+		\]
+		We used Eq.~\eqref{eq:normal-s-variant}.
+		\item The chemical potential correction
+		\[
+			e_n^{(\mathrm{N})} = \mu n
+		\]
+		We explained at the end of Sec.~\ref{subsec:fixed-density-role-mu} why this correction is needed. 	Note here that we are using the ``physical'' value of $\mu$, not its RMP counterpart $\tilde{\mu}$.
+	\end{enumerate}
+	Thus, composing everything
 	\[
-		0 < u^{(s^*)} < 2t/V
-		\qq{and}
-		u^{(d)} > 0
-		\quad\implies\quad
-		u^{(d)} < 0
+	\begin{aligned}
+		f^{(\mathrm{N})} &\equiv e_\mathrm{g}^{(\mathrm{N})} + e_\mathrm{c}^{(\mathrm{N})} + e_s^{(\mathrm{N})} + e_n^{(\mathrm{N})} \nonumber \\
+		&= \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
+		1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - V \left[ 
+			\big|
+				u^{(s^*)}
+			\big|^2 + \big|
+				u^{(d)}
+			\big|^2
+		\right] + \left[
+			\mu + n(2zV-U)
+		\right] n
+	\end{aligned}
 	\]
-	which is absurd.
-	%
-	\item An identical argument, with inverted inequalities, can be carried out to show that
+	Using Eq.~\eqref{eq:normal-mu-shift}, we recognise
 	\[
-		0 < u^{(s^*)} < 2t/V
-		\qq{and}
-		u^{(d)} < 0
-		\quad\implies\quad
-		u^{(d)} > 0
+		\mu + n(2zV-U) = \tilde{\mu}
 	\]
-	%
-	\item The two points above imply that it is possible to satisfy the constraint $0 < u^{(s^*)} < 2t/V$ if and only if $u^{(d)}=0$.
-\end{enumerate}
-All the deductions above indicate that $u^{(d)}=0$ everywhere. Nematic effects are always absent, 
+	Hence Eq.~\eqref{eq:normal-fMFT} is proven.
+	
+\end{tabproof}
+
+\section{Analysis of the self-consistency equations} \label{sec:normal-sceq-analysis}
+
+\textbf{RESTART FROM HERE...}
+
+In this section we collect some results that follow from a formal analysis of the self-consistency problem for the normal phase. This phase is described by the HFPs $u^{(s^*)}$ and $u^{(d)}$. It is possible to prove that:
 \begin{equation}\label{eq:normal-us*-ud-constraint}
 	0 < u^{(s^*)} < 2t/V
 	\qq{and}
 	u^{(d)} = 0
 \end{equation}
-This is physically expected but non trivial. The normal phase does not break $\mathrm{C}_4$ and we can ignore $u^{(d)}$ at all. In next section we identify the expected self-consistent value for $u^{(s^*)}$.
-
-\subsection{Expected dependence on $\delta$ at low temperature}\label{subsec:normal-uS-doping}
-
-We understood that $u^{(d)}=0$. Moreover, the unique HFP $u^{(s^*)}$ is independent of $U$, but in general it will depend in some way on the doping level. We work at low-temperature, $\beta \to \infty$. Consider the self-consistency equation of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies} as a function of temperature and chemical potential,
+for any choice of $U,V>0$ and doping $\delta$. The proof follows from the detailed analysis of the self-consistency equations of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}, and is reported in App.~\ref{app:normal-constraints}. Eq.~\eqref{eq:normal-us*-ud-constraint} implies that in the normal phase there is no nematic effect, and the renormalised hopping parameter $\tilde{t}_{ij}$ is isotropic with a smaller amplitude than $t$,
 \[
+	0 < \tilde{t}^{(s^*)} < t
+\]
+Here we used Eq.~\eqref{eq:normal-tS-td}. Then, bands renormalisation
+\[
+	\epsilon_\mathbf{k}
+	\quad\to\quad
+	\tilde{\epsilon}_\mathbf{k}
+\]
+is actually a flattening. We denote this effect as ``shrinking''.
+
+\begin{figure}
+	\centering
+	\input{\GraphicsFolder/MBZ}
+	\caption{Representation of the MBZ. The dashed lines represent the boundaries of the BZ.}
+	\label{fig:normal-MBZ}
+\end{figure}
+
+Let us define the Magnetic Brillouin Zone (MBZ):
+\begin{equation}\label{eq:MBZ-def}
+	\mathrm{MBZ} \equiv \left\lbrace
+	\mathbf{k}\in\mathrm{BZ}
+	\mid 
+	\varphi_\mathbf{k}^{(s^*)} \ge 0
+	\right\rbrace
+\end{equation}
+The MBZ coincides with the set of points $(k_x,k_y)$ that satisfy the relation
+\[
+	\abs{k_x} + \abs{k_y} \le \pi
+\]
+We draw the MBZ in Fig.~\ref{fig:normal-MBZ}. The renormalised bands satisfy
+\[
+	\tilde{\epsilon}_\mathbf{k} = - 4 \tilde{t}^{(s^*)} \varphi_\mathbf{k}^{(s^*)}
+\]
+Hence, $\tilde{\epsilon}_\mathbf{k}<0$ inside the MBZ and $\tilde{\epsilon}_\mathbf{k}>0$ outside. Along the boundary $\partial \mathrm{MBZ}$ we have $\tilde{\epsilon}_\mathbf{k}=0$.
+
+We conclude this section by proving some analytic properties of the unique HFP of the normal phase, $u^{(s^*)}$. Its self-consistency equation, from Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}, reads
+\begin{equation}\label{eq:normal-us*(beta,mu)}
 	u^{(s^*)}(\beta,\tilde{\mu}) = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-\]
-in the zero-temperature limit, as long as the band is not flat, it holds
-\[
-	\lim_{\beta \to \infty} u^{(s^*)}(\beta,\tilde{\mu}) = \frac{1}{L_x L_y} \sum_{\epsilon_\mathbf{k} \le \tilde{\mu}} (\cos k_x + \cos k_y)
-\]
-Let $\mathrm{FS}(\delta)$ be the Fermi surface for a given doping level $\delta$. We denote with $\mathrm{Int}(\mathrm{FS})$ be its internal part, the Fermi sea:
-\[
-\begin{aligned}
-	\mathrm{FS} = \left\lbrace \mathbf{k} \in \mathrm{BZ} \mid \tilde{\epsilon}_\mathbf{k} = \tilde{\mu} \right\rbrace \\
-	\mathrm{Int}(\mathrm{FS}) = \left\lbrace \mathbf{k} \in \mathrm{BZ} \mid \tilde{\epsilon}_\mathbf{k} \le \tilde{\mu} \right\rbrace
-\end{aligned}
-\]
+\end{equation}
+We wrote $u^{(s^*)}$ as a function of chemical potential and temperature. Note that the renormalised bands, inside the Fermi-Dirac factor on the right-hand side, depend on $u^{(s^*)}$. We now prove that in the low-temperature limit the above equation implies that $u^{(s^*)}$ is a monotonically descendent function of doping.
 
-At half filling, the Fermi surface coincides with the boundary of the MBZ:
-\[
-	\delta = 0
-	\quad\implies\quad
-	\mathrm{FS} = \partial \mathrm{MBZ}
-\]
-This is implied by the fact that renormalised bands are antisymmetric by $\bm{\pi}$ shifts,
-\[
-	\tilde{\epsilon}_{\mathbf{k}\sigma} = -\tilde{\epsilon}_{\mathbf{k}+\bm{\pi}\sigma}
-\]
-The portion of an $s^*$-wave band outside the MBZ is mirrored with respect to the portion inside the MBZ. This implies that half the states lie in the MBZ, half out.
-
-At $\delta>0$ the FS expands in the region $\mathrm{BZ}\setminus\mathrm{MBZ}$ where the form factor $\cos k_x + \cos k_y$ becomes negative. This gives the self-consistency equation
-\[
-	\lim_{\beta \to \infty} u^{(s^*)}[\beta,\tilde{\mu}] \simeq \frac{1}{L_x L_y} \sum_{\epsilon_\mathbf{k} \le 0} \abs{\cos k_x + \cos k_y} - \frac{1}{L_x L_y} \sum_{0<\epsilon_\mathbf{k} \le \tilde{\mu}} \abs{\cos k_x + \cos k_y}
-\]
-which, being the sum of a positive and a negative term, is maximised whenever $\tilde{\mu}=0$, at half filling. This holds as long as the band is not flat. Indeed, if the effective hopping is not zero, to rise the doping level means to 
-\[
-	\delta_1 > \delta_2
-	\quad\implies\quad
-	\mathrm{Int}(\mathrm{FS}_1) \subset \mathrm{Int}(\mathrm{FS}_2)
-\]
-with obvious meaning of the notation. Using this property we conclude
-\[
-	\tilde{t} > 0
-	\qq{and}
-	\delta_1 > \delta_2
-	\quad\implies\quad
-	\lim_{\beta \to \infty} u^{(s^*)}[\beta,\tilde{\mu}] \Big|_{\delta_1} < 
-	\lim_{\beta \to \infty} u^{(s^*)}[\beta,\tilde{\mu}] \Big|_{\delta_2}
-\]
-This is the first expected behaviour of the self-consistent functional $u^{(s^*)}$: if there exists a region of parametric space where the shrinking effect is not strong enough to flatten the band, a rise in the doping level must lower $u^{(s^*)}$. Such a region must exist: at least all the segment $(V=0,\delta)$ is included, since on said region of parametric space the model is just the common free electronic model.
-
-Following this line of reasoning, we can extract the two low-temperature limits of $u^{(s^*)}$ at half-filling and unitary filling.
-\begin{enumerate}
-	\item At half-filling, the self-consistency equation reduces to
+\begin{tabproof}[$u^{(s^*)}$ decreases with doping at low temperature]
+	
+	We work at low temperature, $\beta \to 0$. The Fermi-Dirac distribution is approximately a step function. Assume the renormalised band is not flat, hence $u^{(s^*)} < 2t/V$. Then Eq.~\eqref{eq:normal-us*(beta,mu)} becomes
 	\[
-		u^{(s^*)}[\beta,0] \big|_{\beta \gg 1} \simeq \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y)
+		\lim_{\beta \to \infty} u^{(s^*)}(\beta,\tilde{\mu}) = \frac{1}{L_x L_y} \sum_{\epsilon_\mathbf{k} \le \tilde{\mu}} (\cos k_x + \cos k_y)
 	\]
-	In thermodynamic limit, performing integration on the MBZ shown in the top-left panel of Fig.~\ref{fig:normal-nematic-bands}:
-	\begin{align}
-		\lim_{\beta \to \infty} u^{(s^*)}[\beta,0] &\simeq \frac{1}{(2\pi)^2} \int_{-\pi}^{\pi} \mathrm{d} k_y \int_{-\pi+\abs{k_y}}^{\pi-\abs{k_y}} \mathrm{d} k_x \cos k_x + \frac{1}{(2\pi)^2} \int_{-\pi}^{\pi} \mathrm{d} k_x \int_{-\pi+\abs{k_x}}^{\pi-\abs{k_x}} \mathrm{d} k_y \cos k_y \nonumber \\
-		&= \frac{1}{2\pi^2} \int_{-\pi}^{0} \mathrm{d} k_y \int_{-\pi-k_y}^{\pi+k_y} \mathrm{d} k_x \cos k_x + \frac{1}{2\pi^2} \int_{0}^{\pi} \mathrm{d} k_y \int_{-\pi+k_y}^{\pi-k_y} \mathrm{d} k_x \cos k_x \nonumber \\
-		&= \frac{1}{\pi^2} \int_{-\pi}^{0} \mathrm{d} k_y \sin (\pi+k_y) + \frac{1}{\pi^2} \int_{0}^{\pi} \mathrm{d} k_y \sin (\pi-k_y) \nonumber \\
-		&= \left( \frac{2}{\pi} \right)^2 \approx 0.405 \label{eq:normal-uS-half-filling}
-	\end{align}
-	\item At unitary filling we have
+	Let $\mathrm{FS}(\delta)$ be the Fermi surface for a given doping level $\delta$. We denote with $\mathrm{Int}(\mathrm{FS})$ be its internal part, the Fermi sea:
 	\[
-		\lim_{\beta \to \infty} u^{(s^*)}\left[
-			\beta,2\tilde{t}^{(s^*)}
-		\right] = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) = 0
+		\begin{aligned}
+			\mathrm{FS} = \left\lbrace \mathbf{k} \in \mathrm{BZ} \mid \tilde{\epsilon}_\mathbf{k} = \tilde{\mu} \right\rbrace \\
+			\mathrm{Int}(\mathrm{FS}) = \left\lbrace \mathbf{k} \in \mathrm{BZ} \mid \tilde{\epsilon}_\mathbf{k} \le \tilde{\mu} \right\rbrace
+		\end{aligned}
 	\]
-	which vanishes due to the structure factor periodicity by $\bm{\pi}$.
-\end{enumerate}
-To summarise: around $V=0$, $u^{(s^*)}$ is expected to descend monotonically from $4/\pi^2$ to $0$ at increasing doping.
+	At half filling, the Fermi surface coincides with the boundary of the MBZ. 
+	\[
+		\delta = 0
+		\quad\implies\quad
+		\mathrm{FS} = \partial \mathrm{MBZ}
+	\]
+	This is implied by the fact that renormalised bands are antisymmetric by $\bm{\pi}$ shifts,
+	\[
+		\tilde{\epsilon}_{\mathbf{k}\sigma} = -\tilde{\epsilon}_{\mathbf{k}+\bm{\pi}\sigma}
+	\]
+	The portion of an $s^*$-wave band outside the MBZ is mirrored with respect to the portion inside the MBZ. This implies that half the states lie in the MBZ, half out.
+	
+	At $\delta>0$ the FS expands in the region $\mathrm{BZ}\setminus\mathrm{MBZ}$ where the form factor $\cos k_x + \cos k_y$ becomes negative. Then Eq.~\eqref{eq:normal-us*(beta,mu)} becomes
+	\[
+		\lim_{\beta \to \infty} u^{(s^*)}(\beta,\tilde{\mu}) \simeq \frac{1}{L_x L_y} \sum_{\epsilon_\mathbf{k} \le 0} \abs{\cos k_x + \cos k_y} - \frac{1}{L_x L_y} \sum_{0<\epsilon_\mathbf{k} \le \tilde{\mu}} \abs{\cos k_x + \cos k_y}
+	\]
+	which, being the sum of a positive and a negative term, is maximised whenever $\tilde{\mu}=0$, so at half filling. 
+	
+	As long as the band is not completely flattened by renormalisation, increasing the doping, the FS expands. Hence
+	\[
+		\delta_1 > \delta_2
+		\quad\implies\quad
+		\mathrm{Int}(\mathrm{FS}_1) \subset \mathrm{Int}(\mathrm{FS}_2)
+	\]
+	where $\mathrm{FS}_i$ is the FS associated to the doping level $\delta_i$. Using this property we conclude
+	\[
+		\tilde{t} > 0
+		\qq{and}
+		\delta_1 > \delta_2
+		\quad\implies\quad
+		\lim_{\beta \to \infty} u^{(s^*)}(\beta,\tilde{\mu}) \Big|_{\delta_1} < 
+		\lim_{\beta \to \infty} u^{(s^*)}(\beta,\tilde{\mu}) \Big|_{\delta_2}
+	\]
+	This proves that $u^{(s^*)}$ decreases with doping at low temperature.
+
+\end{tabproof}
+
+This is the first expected behaviour of the self-consistent functional $u^{(s^*)}$: if there exists a region of parametric space where the shrinking effect is not strong enough to flatten the band, a rise in the doping level must lower $u^{(s^*)}$. Such a region must exist: at least all the segment $(V=0,\delta)$ is included, since on said region of parametric space the HF hamiltonian reduces to the that of the free Fermi gas.
+
+We conclude this section with the analytic computation of $u^{(s^*)}$ at half filling and unitary filling, both at low temperature:
+\begin{align}
+	\lim_{\beta \to \infty} u^{(s^*)}[\beta,0] &= \left( \frac{2}{\pi} \right)^2 \label{eq:normal-uS-half-filling} \\
+	\lim_{\beta \to \infty} u^{(s^*)}\left[
+	\beta,2\tilde{t}^{(s^*)}
+	\right] &= 0 \label{eq:normal-uS-unitary-filling}
+\end{align}
+At unitary filling we set the chemical potential equal to the maximum energy reached by a band of amplitude $4\tilde{t}^{(s^*)}$.
+
+\begin{tabproof}[Proof of Eqns.~\eqref{eq:normal-uS-half-filling}, \eqref{eq:normal-uS-unitary-filling}]
+
+	The two proofs are:
+	\begin{enumerate}
+		\item At half-filling, Eq.~\eqref{eq:normal-us*(beta,mu)} reduces to
+		\[
+			\lim_{\beta \to \infty} u^{(s^*)}(\beta,0) \simeq \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y)
+		\]
+		In thermodynamic limit, performing integration on the MBZ shown in Fig.~\ref{fig:normal-MBZ}:
+		\[
+		\begin{aligned}
+			\lim_{\beta \to \infty} u^{(s^*)}(\beta,0) &\simeq \frac{1}{(2\pi)^2} \int_{-\pi}^{\pi} \mathrm{d} k_y \int_{-\pi+\abs{k_y}}^{\pi-\abs{k_y}} \mathrm{d} k_x \cos k_x + \frac{1}{(2\pi)^2} \int_{-\pi}^{\pi} \mathrm{d} k_x \int_{-\pi+\abs{k_x}}^{\pi-\abs{k_x}} \mathrm{d} k_y \cos k_y \\
+			&= \frac{1}{2\pi^2} \int_{-\pi}^{0} \mathrm{d} k_y \int_{-\pi-k_y}^{\pi+k_y} \mathrm{d} k_x \cos k_x + \frac{1}{2\pi^2} \int_{0}^{\pi} \mathrm{d} k_y \int_{-\pi+k_y}^{\pi-k_y} \mathrm{d} k_x \cos k_x \\
+			&= \frac{1}{\pi^2} \int_{-\pi}^{0} \mathrm{d} k_y \sin (\pi+k_y) + \frac{1}{\pi^2} \int_{0}^{\pi} \mathrm{d} k_y \sin (\pi-k_y) \\ 
+			&= \left( \frac{2}{\pi} \right)^2 \approx 0.405 
+		\end{aligned}
+		\]
+		which proves Eq.~\eqref{eq:normal-uS-half-filling}.
+		\item At unitary filling we have
+		\[
+			\lim_{\beta \to \infty} u^{(s^*)}\left(
+				\beta,2\tilde{t}^{(s^*)}
+			\right) = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) = 0
+		\]
+		which vanishes due to the structure factor periodicity by $\bm{\pi}$. This proves Eq.~\eqref{eq:normal-uS-unitary-filling}.
+	\end{enumerate}
+\end{tabproof}
 
 \section{Discussion of numeric results}\label{sec:normal-numeric}
 
-In this section we present and discuss the numeric results, the physical relevance of the found phenomena and the boundaries of the algorithm. Let us start by sketching the algorithm used to determine self-consistently the mean-field structure of the normal phase in parameter space. For the normal phase, the HFPs ``vector'' defined in Sec.~\ref{subsec:reject-mix-iterate} has just one component:
+In this section we present and discuss the numeric results, the physical relevance of the found phenomena and the boundaries of the algorithm. For the normal phase, the HFPs ``vector'' defined in Sec.~\ref{subsec:reject-mix-iterate} has just one component:
 \[
 	\mathbf{v} = \begin{bmatrix}
 		u^{(s^*)}
 	\end{bmatrix}
 \]
-As before, we treat spin as a pure degeneracy. The only HFP is characterised by the first self-consistency equation of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}. The resulting model has two RMPs:
+We have two RMPs:
 \[
 \begin{aligned}
 	\tilde{t}_{ij} &\equiv \left(
@@ -1335,9 +977,9 @@ In Fig.~\ref{subfig:normal-uS-data-B128} are reported the results obtained for t
 	\qquad
 	\delta = 0,~0.01,~0.02,~\dots,~0.49
 \]
-The expectations of Sec.~\ref{subsec:normal-uS-doping} are satisfied: at low $V$ (indicatively $V \lesssim 5$) the trend is monotonically descendent at increasing doping. As $V$ gets bigger, however, $u^{(s^*)}$ starts decreasing in the top-left corner of Fig.~\ref{subfig:normal-uS-data-B128}. This effect is more visible in Fig.~\ref{subfig:normal-uS-data-B256}, where we doubled $L$ and ran simulations with a smaller $\delta$ resolution: the convergence value of $u^{(s^*)}$ is approximately independent of $V$ up to some point, where this behaviour is broken. Note that, as was expected from the discussion of Sec.~\ref{subsec:normal-uS-doping}, the half-filled convergence value of $u^{(s^*)}$ in the $V$-independent region is approximately given by Eq.~\eqref{eq:normal-uS-half-filling}.
+The expectations of Sec.~\ref{sec:normal-sceq-analysis} are satisfied: at low $V$ (indicatively $V \lesssim 5$) the trend is monotonically descendent at increasing doping. As $V$ gets bigger, however, $u^{(s^*)}$ starts decreasing in the top-left corner of Fig.~\ref{subfig:normal-uS-data-B128}. This effect is more visible in Fig.~\ref{subfig:normal-uS-data-B256}, where we doubled $L$ and ran simulations with a smaller $\delta$ resolution: the convergence value of $u^{(s^*)}$ is approximately independent of $V$ up to some point, where this behaviour is broken. Note that, as was expected from the discussion of Sec.~\ref{sec:normal-sceq-analysis}, the half-filled convergence value of $u^{(s^*)}$ in the $V$-independent region is approximately given by Eq.~\eqref{eq:normal-uS-half-filling}.
 
-This effect can only be interpreted in one way, as we discuss in next section: $u^{(s^*)}$ maintains a constant value at fixed doping, as is described in Sec.~\ref{subsec:normal-uS-doping}, as long as $\tilde{t}^{(s^*)}>0$. When $V$ gets large enough,  $u^{(s^*)}$ starts decreasing because of its constraints. The net effect is the nullification of $\tilde{t}^{(s^*)}$, which is, a total localisation effect.
+From Sec.~\ref{sec:normal-sceq-analysis} we know that $u^{(s^*)}$ decreases as we increase doping, as long as $\tilde{t}^{(s^*)}>0$. When $V$ gets large enough,  $u^{(s^*)}$ starts decreasing because of its constraints. The net effect is the nullification of $\tilde{t}^{(s^*)}$, which is, a total localisation effect.
 
 \subsection{Mott localisation effect}\label{subsec:normal-mott-numeric}
 
