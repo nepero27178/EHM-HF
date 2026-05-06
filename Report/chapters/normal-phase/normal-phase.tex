@@ -7,19 +7,17 @@ This chapter is divided in three parts. First, we discuss the symmetries of the 
 
 \section{The normal phase and its  symmetries}\label{sec:normal-phase-theory}
 
-In the normal phase no symmetry is broken. Thus, the HF wavefunction approximating the ground state must exhibit the full $\mathrm{U}(2) \otimes \mathrm{C}_4 \otimes \mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$ symmetry discussed in Sec.~\ref{sec:ehm-syms}. Using translational invariance and global spin rotational symmetry, we have:
-\begin{equation}\label{eq:normal-<cc>}
-	\langle \hat c_{\mathbf{k}_1\sigma_1}^\dagger \hat c_{\mathbf{k}_2 \sigma_2} \rangle = \delta_{\mathbf{k}_1=\mathbf{k}_2} \delta_{\sigma_1=\sigma_2} f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+In the normal phase no symmetry is broken. Thus, the HF wavefunction approximating the ground state must exhibit the full $\mathrm{U}(2) \otimes \mathrm{C}_4 \otimes \mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$ symmetry discussed in Sec.~\ref{sec:ehm-syms}. Translational invariance and spin rotational symmetry imply that the site occupation is independent of site and spin indices,
+\begin{equation}\label{eq:normal-<n_i>}
+	\ev{\hat n_{i\sigma}} = n
 \end{equation}
-being $f$ the Fermi-Dirac distribution,
-\[
-	f(\epsilon;\beta,\mu) \equiv \frac{1}{e^{\beta(\epsilon-\mu)}+1}
-\]
-We define the single-state occupation operator
+with $n \in [0,1]$.
+
+We define the single-state occupation operator in reciprocal space:
 \[
 	\hat n_{\mathbf{k}\sigma} \equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
 \]
-Let us define its EV:
+and its EV
 \begin{equation}\label{eq:normal-uqsigma-def}
 	u_{\mathbf{k}\sigma} \equiv \langle
 		\hat n_{\mathbf{k}\sigma}
@@ -27,7 +25,34 @@ Let us define its EV:
 	\qquad
 	u_{\mathbf{k}\sigma} = u_{\mathbf{k}\sigma}^*
 \end{equation}
-The relation on the right follows from the fact that $\hat n_{\mathbf{k}\sigma}$ is hermitian by construction. Note that $\hat n_{\mathbf{k}\sigma}$ is not the Fourier-transform of $\hat n_{i\sigma}$.
+The relation on the right follows from the fact that $\hat n_{\mathbf{k}\sigma}$ is hermitian by construction. Note that $\hat n_{\mathbf{k}\sigma}$ is not the Fourier-transform of $\hat n_{i\sigma}$. Translational invariance implies the following result:
+\begin{equation}\label{eq:normal-<cc>}
+	\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'} \rangle = \delta_{\mathbf{k}=\mathbf{k}'} \delta_{\sigma=\sigma'} \langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \rangle
+\end{equation}
+
+\begin{tabproof}[Proof of Eq.~\eqref{eq:normal-<cc>}]
+	
+	Consider the generic EV
+	\[
+		\big\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'} \big\rangle
+	\]
+	for two momenta $\mathbf{k}$, $\mathbf{k}'$. Moving to real space via an $\mathcal{F}$-transform, we get
+	\[
+		\big\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'} \big\rangle \Feq \frac{1}{L_x L_y} \sum_{\mathbf{r} \in \mathcal{L}} \sum_{\mathbf{r}' \in \mathcal{L}} e^{-i \left(\mathbf{k} \cdot \mathbf{r} - \mathbf{k}' \cdot \mathbf{r}' \right)} \big\langle \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}'\sigma'}^\dagger \big\rangle
+	\]
+	where we used the convention of Eq.~\eqref{eq:fourier-convention}. Let now $\Delta \mathbf{r} \equiv \mathbf{r}_2 - \mathbf{r}_1$. Translational invariance implies that
+	\[
+		g(\Delta \mathbf{r}) = \big\langle \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}+\Delta\mathbf{r}\sigma'}^\dagger \big\rangle
+	\]
+	is independent of $\mathbf{r}$. Thus we have:
+	\[
+	\begin{aligned}
+		\big\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'}^\dagger \big\rangle &\Feq \sum_{\Delta\mathbf{r} \in \mathcal{L}} e^{-i \mathbf{k}' \cdot \Delta\mathbf{r}} g(\Delta \mathbf{r}) \frac{1}{L_x L_y} \sum_{\mathbf{r} \in \mathcal{L}} e^{-i \left(\mathbf{k} - \mathbf{k}'\right) \cdot \mathbf{r}} \\
+		&= \sum_{\Delta\mathbf{r} \in \mathcal{L}} e^{-i \mathbf{k}' \cdot \Delta\mathbf{r}} g(\Delta \mathbf{r}) \delta_{\mathbf{k}=\mathbf{k}'}
+	\end{aligned}
+	\]
+	where we used the identity of Eq.~\eqref{eq:ehm-delta}. Then the above EV vanishes for $\mathbf{k}\neq\mathbf{k}'$. This proves Eq.~\eqref{eq:normal-<cc>}.
+\end{tabproof}
 
 We anticipate here that we will actually allow for $\mathrm{C}_4 \SSB \mathrm{C}_2$, namely, breaking of planar rotational symmetry. As will result from our discussion, the normal phase does not break $\mathrm{C}_4$ even if we allow it to. Nevertheless we carry out this general derivation because breaking of planar rotational symmetry will be observed in Chap.~\ref{chap:sc} in the context of superconductivity, and the computations carried out for the normal phase will be re-used.
 
@@ -477,21 +502,102 @@ In next section we collect all we found so far and discuss the properties of the
 
 \section{The HF hamiltonian and its properties}
 
-\textbf{\color{tabred}[FROM NOW ON: WORK IN PROGRESS]}
-
-In the normal phase, the HF approximation to the hamiltonian is given by the following operator:
-\[
+In the normal phase, the HF approximation to the EHM hamiltonian is given by the following operator:
+\begin{equation}\label{eq:normal-Hhf}
 	\hat H - \mu \hat N \HFsimeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \tilde{\epsilon}_{\mathbf{k}\sigma}
 	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} - \tilde{\mu} \hat N
 	- \left(
 		E_{\mathrm{H}/U}^{(\mathrm{N})} + E_{\mathrm{H}/V}^{(\mathrm{N})} + 		E_{\mathrm{F}/V}^{(\mathrm{N})}
 	\right)
+\end{equation}
+Apart from energy shifts, this hamiltonian describes a perfectly degenerate Fermi gas whose bare bands are $\tilde{\epsilon}_{\mathbf{k}\sigma}$ as defined in Eq.~\eqref{eq:normal-bands-renormalisation}, and chemical potential $\tilde{\mu}$ as defined in Eq.~\eqref{eq:normal-mu-shift}. The latter is completely determined by the model parameters; the former must be determined self-consistently. The ground state of the approximated hamiltonian obeys Fermi-Dirac statistics,
+\begin{equation}\label{eq:normal-<cc>-FD}
+	\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'} \rangle = \delta_{\mathbf{k}=\mathbf{k}'} \delta_{\sigma=\sigma'} f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+\end{equation}
+being $f$ the Fermi-Dirac distribution,
+\[
+	f(\epsilon;\beta,\mu) \equiv \frac{1}{e^{\beta(\epsilon-\mu)}+1}
 \]
-Apart from energy shifts, this hamiltonian describes a perfectly degenerate Fermi gas whose bare bands are $\tilde{\epsilon}_{\mathbf{k}\sigma}$ as defined in Eq.~\eqref{eq:normal-bands-renormalisation}, and chemical potential $\tilde{\mu}$ as defined in Eq.~\eqref{eq:normal-mu-shift}. The latter is completely determined by the model parameters; the former must be determined self-consistently.
+Eq.~\eqref{eq:normal-<cc>-FD} is the explicit version of Eq.~\eqref{eq:normal-<cc>}.
 
 In next subsection we discuss in detail the renormalisation of the hopping parameter in real space, with a focus on the meaning of the $d$-wave component. In the subsection that follow, we derive the free energy and entropy densities for the ground-state
 
-\subsection{Nematicity: extending hopping to $d$-wave bands}\label{subsec:normal-d-wave-hopping}
+\subsection{Nematicity: $d$-wave bands and anisotropic hopping}\label{subsec:normal-d-wave-hopping}
+
+In Eq.~\eqref{eq:normal-H~t} we defined $\hat H_{\tilde{t}}$ in reciprocal space. Using Eq.~\eqref{eq:normal-HV-fock} we get
+\[
+\begin{aligned}
+	\hat H_{\tilde{t}} &= \hat H_t + V \sum_{\ev{ij}} \sum_\sigma \left[
+	\langle
+	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+	\rangle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} + \hc
+	\right] \\
+	&= - \sum_{i,j} \sum_\sigma 
+	\left[
+	\tilde{t}_{ij\sigma} \hat c_{i\sigma}^\dagger \hat c_{j\sigma} + \hc
+	\right]
+\end{aligned}
+\]
+Note that in second line we are not summing over NNs, but on two site indices $i,j \in \mathcal{L}$. We defined the effective hopping amplitude
+\[
+	\tilde{t}_{ij\sigma} \equiv \frac{1}{2} \left(
+		t - V \langle
+		\hat c_{j\sigma}^\dagger \hat c_{i\sigma} \rangle
+	\right)
+	\qquad
+	(\text{for $i,j$ NNs})
+\]
+The $1/2$ prefactor was included to avoid double counting.
+
+Due to translational invariance, the renormalised hopping $\tilde{t}_{ij\sigma}$ depends only on the difference $i-j$. Therefore we can use the decomposition of Eq.~\eqref{eq:f-decomposition},
+\[
+	\tilde{t}_{ij\sigma} = \sum_\gamma \tilde{t}^{(\gamma)}_\sigma \varphi_{ij}^{(\gamma)}
+\]
+The harmonics, given by Eq.~\eqref{eq:f-gamma}, are identified with $\tilde{t}_\sigma^{(s^*)}$, $\tilde{t}_\sigma^{(d)}$ already introduced in Eq.~\eqref{eq:normal-tS-td}. From the same argument we know that $\tilde{t}_\sigma^{(p_x)}=\tilde{t}_\sigma^{(p_y)}=0$. Then, the renormalised hopping is explicitly given by
+\begin{multline*}
+	\tilde{t}_{\mathbf{r}\mathbf{r}'\sigma} = \frac{\tilde{t}_\sigma^{(s^*)}}{2} \left[
+		\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
+	\right] \\
+	+ \frac{\tilde{t}_\sigma^{(d)}}{2} \left[
+		\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}} - \delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} - \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
+	\right]
+\end{multline*}
+Let us define:
+\begin{align}
+	\tilde{t}_\sigma^{(x)} &\equiv \frac{\tilde{t}_\sigma^{(s^*)} + \tilde{t}_\sigma^{(d)}}{2} \label{eq:normal-tx} \\
+	\tilde{t}_\sigma^{(y)} &\equiv \frac{\tilde{t}_\sigma^{(s^*)} - \tilde{t}_\sigma^{(d)}}{2} \label{eq:normal-ty}
+\end{align}
+With this definition, we can rewrite $\hat H_{\tilde{t}}$ as:
+\[
+	\hat H_{\tilde{t}} = - \sum_{\mathbf{r}\in\mathcal{L}} \sum_\sigma \left[
+		\tilde{t}_\sigma^{(x)} \left(
+			\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}+\underline{\mathbf{x}}\sigma} + \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}-\underline{\mathbf{x}}\sigma}
+		\right) + \tilde{t}_\sigma^{(y)} \left(
+			\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}+\underline{\mathbf{y}}\sigma} + \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}-\underline{\mathbf{y}}\sigma}
+		\right) + \hc
+	\right]
+\]
+This is what we intend for ``nematic effects'': the breaking of planar rotational symmetry, with the consequence that the kinetic operators in $x$ and $y$ directions differ. Breaking of planar rotational symmetry and uniform density are compatible.
+
+\begin{tabproof}[A $d$-wave hopping is compatible with uniform density]
+
+	Consider the on-site occupation operator $\hat n_{\mathbf{r}\sigma} = \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma}$. Applying a Fourier transform as defined in Eq.~\eqref{eq:fourier-convention}, we obtain
+	\[
+		\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \stackrel{\mathcal{F}}{=} \frac{1}{L_x L_y} \sum_{\mathbf{k}, \mathbf{k}'} e^{i (\mathbf{k}-\mathbf{k}') \cdot\mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma}
+	\]
+	We compute the expectation value of the above operator and apply Eq.~\eqref{eq:normal-<cc>-FD},
+	\[
+	\begin{aligned}
+		\ev{\hat n_{\mathbf{r}\sigma}} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}, \mathbf{k}'} e^{i (\mathbf{k}-\mathbf{k}') \cdot\mathbf{r}} \langle
+			\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma}
+		\rangle \\
+		&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+	\end{aligned}
+	\]
+	The right-hand side of last line is independent of $\mathbf{r}$, therefore $\ev{\hat n_{\mathbf{r}\sigma}}$ is.
+\end{tabproof}
+%
+Note that we never used the actual topology of the renormalised bands $\tilde{\epsilon}_\mathbf{k}$, but only the fact that the ground-state obeys the Fermi-Dirac distribution. A perfectly degenerate Fermi gas is always translational invariant and thus cannot exhibit non-uniform symmetry.
 
 \begin{figure}
 	\centering
@@ -500,102 +606,25 @@ In next subsection we discuss in detail the renormalisation of the hopping param
 	\label{fig:anisotropic-hopping}
 \end{figure}
 
-In Eq.~\eqref{eq:normal-H~t} we defined $\hat H_{\tilde{t}}$ in reciprocal space. Repeating the same derivation in real space, we get:
+A schematics of anisotropic hopping is given in Fig.~\ref{fig:anisotropic-hopping}: for each bond linking two sites, the hopping parameter can be a positive or negative combination of the two components, as the link direction is vertical or horizontal.
+
+From now on, we will omit the spin index $\sigma$ from both the renormalised bands and the renormalised hopping,
 \[
-\begin{aligned}
-	\hat H_{\tilde{t}} &= \hat H_t + V \sum_{\ev{ij}} \sum_\sigma \left[
-	\langle
-	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	\rangle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} + \hc
-	\right] \\
-	&= - \sum_{\ev{ij}} \sum_\sigma 
-	\left[
-	\tilde{t}_{ij\sigma} \hat c_{i\sigma}^\dagger \hat c_{j\sigma} + \hc
-	\right]
-\end{aligned}
-\]
-where we defined the effective hopping amplitude
-\[
-\tilde{t}_{ij\sigma} \equiv t - V \langle
-\hat c_{j\sigma}^\dagger \hat c_{i\sigma}
-\rangle
-\qquad
-(\text{for $i,j$ NNs})
-\]
-Due to translational invariance, the renormalised hopping $\tilde{t}_{ij\sigma}$ depends only on the difference $i-j$. 
-
-
-
-
-
-
-------------------------------
-
-From Tabs.~\ref{tab:x-wave-real-factors} and \ref{tab:x-wave-reciprocal-factors} we can inverse-Fourier transform the form factors to get the full effective hopping,
-\[
-	\tilde{t}_{ij\sigma} = \sum_{\gamma\in\lbrace s^*,d \rbrace} t^{(\gamma)}_\sigma \varphi_{ij}^{(\gamma)}
-\]
-with
-\[
-	t^{(s^*)}_\sigma = t - \frac{u_\sigma^{(s^*)} V}{2}
+	\tilde{\epsilon}_{\mathbf{k}\sigma} \to \tilde{\epsilon}_\mathbf{k}
 	\qquad
-	t^{(d)}_\sigma = - \frac{u_\sigma^{(d)} V}{2}
+	\forall \alpha
+	\quad\colon\quad
+	\tilde{t}_\sigma^{(\alpha)} \to \tilde{t}^{(\alpha)}
 \]
-This is what we intend for ``nematic effects''. The possibility that planar rotational symmetry is broken in such a way that the kinetic operators in $x$ and $y$ directions differ. A schematics of anisotropic hopping is given in Fig.~\ref{fig:anisotropic-hopping}: for each bond linking two sites, the hopping parameter can be a positive or negative combination of the two components, whether the link direction is vertical or horizontal. The solution needs to be invariant under exchange $x \leftrightarrow y$, thus the actual SSB is $\mathrm{C}_4 \SSB \mathrm{C}_2 / \mathbb{Z}_2$.
-
-The fact that hopping is here anisotropic does not break full translational invariance $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$. Imposing a free degenerate Fermi gas ground state in Eq.~\eqref{eq:normal-<cc>} leads to a uniform density. This is proven by Fourier-transforming the site number operator according to the convention of Eq.~\eqref{eq:fourier-convention},
-\[
-	\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \stackrel{\mathcal{F}}{=} \frac{1}{L_x L_y} \sum_{\mathbf{k}, \mathbf{k}'} e^{i (\mathbf{k}-\mathbf{k}') \cdot\mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma}
-\]
-Then the on-site density EV is
-\[
-	\ev{\hat n_{\mathbf{r}\sigma}} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-\]
-A perfectly degenerate Fermi gas is always translational invariant and thus cannot exhibit non-uniform symmetry. The fact that hopping is allowed to be anisotropic does not interfere with that.
-
-Note that for null HFPs,
-\[
-	u_\sigma^{(s^*)} = 0
-	\qquad
-	u_\sigma^{(d)} = 0
-\]
-we have, recalling Tab.~\ref{tab:x-wave-real-factors}:
-\[
-	\tilde{t}_{\mathbf{r}\mathbf{r}'\sigma} = \frac{t}{2} \left[
-		\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
-	\right]
-\]
-The fact that $t/2$ appears here instead of $t$ is a consequence of the equivalence:
-\[
-	-t \sum_{\ev{ij}} \sum_\sigma \left[
-		\hat c_{i\sigma}^\dagger \hat c_{j\sigma} + \hc
-	\right] = -\frac{t}{2} \sum_{i,j \in \mathcal{S}} \sum_\sigma \left[
-		\hat c_{i\sigma}^\dagger \hat c_{j\sigma} + \hc
-	\right]
-\]
-where we including a prefactor that corrects double-counting. The RMP $\tilde{t}_{ij\sigma}$ must be interpreted like the right-hand side of the above equation, with the kinetic operator becoming:
-\[
-	\hat H_{\tilde{t}} \equiv -\frac{1}{2} \sum_{i,j \in \mathcal{S}} \sum_\sigma \left[
-		\tilde{t}_{ij\sigma} \hat c_{i\sigma}^\dagger \hat c_{j\sigma} + \hc
-	\right]
-\]
-To limit the sum to NNs is a matter of the symmetry structure of the function $\tilde{t}_{ij\sigma}$.
-
-Recall the functions of Tab.~\ref{tab:x-wave-real-factors}. We have the identities:
-\[
-\begin{aligned}
-	\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}}&= \varphi_{\mathbf{r}\mathbf{r}'}^{(s^*)} + \varphi_{\mathbf{r}\mathbf{r}'}^{(d)} \\
-	\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}&= \varphi_{\mathbf{r}\mathbf{r}'}^{(s^*)} - \varphi_{\mathbf{r}\mathbf{r}'}^{(d)}
-\end{aligned}
-\]
-Then we can define the renormalised hopping on each direction as:
+The normal phase does not break spin rotational invariance. Therefore the renormalised bands must be independent of the spin index. Inverting Eq.~\eqref{eq:normal-tS-td}, we can
+express $\tilde{t}^{(x)}$ and $\tilde{t}^{(y)}$ in terms of the HFPs $u^{(s^*)}$ and $u^{(d)}$
 \[
 \begin{aligned}
 	\tilde{t}^{(x)} &\equiv t - \frac{u^{(s^*)} + u^{(d)}}{2} V \\
 	\tilde{t}^{(y)} &\equiv t - \frac{u^{(s^*)} - u^{(d)}}{2} V
 \end{aligned}
 \]
-Both components depend linearly on $V$. The HFP $u^{(s^*)}$ is a measure of the direction-averaged hopping shift with respect to $V$, while $u^{(d)}$ measures the anisotropy,
+Inverting these relations we obtain:
 \begin{align}
 	u^{(s^*)} &= \frac{
 		\left(
@@ -607,9 +636,58 @@ Both components depend linearly on $V$. The HFP $u^{(s^*)}$ is a measure of the 
 	\\
 	u^{(d)} &= \frac{\tilde{t}^{(x)} - \tilde{t}^{(y)}}{V} \label{eq:normal-ud(tx,ty)}
 \end{align}
-It follows that if $u^{(d)}>0$, the hopping in direction $x$ is boosted while in direction $y$ is damped. If $u^{(d)}<0$, the contrary. 
+It follows that if $u^{(d)}>0$, the hopping in direction $x$ is larger than in direction $y$ is damped. If $u^{(d)}<0$, roles are inverted.
 
-This discussion is general, and not specific to the normal phase. In next chapters we will interpret phase renormalisation as in this section.
+\subsection{The entropy density of the SC ground-state}\label{subsec:normal-s}
+
+The HF hamiltonian of Eq.~\eqref{eq:normal-Hhf} describes a non-interacting Fermi gas. The entropy density of the ground state is given by \cite{grosso2014solid},
+\begin{equation}\label{eq:normal-s}
+	s = -\frac{2k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
+		\left(
+			1- f(\tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
+		\right) \ln \left(
+			1-f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
+		\right) + f(
+			\tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
+			\ln f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
+		\vphantom{A^A}
+	\right]
+\end{equation}
+The $2$ prefactor was included to account for spin degeneracy. The above equation can be written in another way:
+\begin{equation}\label{eq:normal-s-variant}
+		s = -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left[ \ln \left(
+		1-f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right)
+		- \beta  (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu}) f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) 
+	\right]
+\end{equation}
+
+\begin{tabproof}[Proof of Eq.~\eqref{eq:normal-s-variant}]
+
+	The following identity
+	\begin{align}
+		\ln \left(
+		1-\frac{1}{e^x+1}
+		\right) &= \ln \left(
+		\frac{e^x}{e^x+1}
+		\right) \nonumber \\
+		&= x+\ln \left(
+		\frac{1}{e^x+1}
+		\right) \label{eq:ln-x-id}
+	\end{align}
+	Substituting $x=\beta (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu})$and using Eq.~\eqref{eq:ln-x-id} in Eq.~\eqref{eq:normal-s} we obtain
+	\begin{multline*}
+		s = -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[ \ln \left(
+		1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) + f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \ln f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \\
+		- \beta (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu}) f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) - f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \ln f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
+		\Big]
+	\end{multline*}
+	Second and fourth terms cancel out. The remaining parts give Eq.~\eqref{eq:normal-s-variant}.
+	
+\end{tabproof}
+
+\subsection{The free energy density of the SC ground-state}\label{subsec:normal-f}
+
+\todo
 
 \section{Normal free energy density}\label{sec:normal-free-energy}
 
@@ -654,7 +732,7 @@ Let us now take together all terms. From now on, we will omit spin index $\sigma
 	\[
 		e_s^{(\mathrm{N})} \equiv -Ts
 	\]
-	with $T = 1/k_B \beta$ and $s$ the free Fermi gas entropy density for a single spin sector \cite{grosso2014solid},
+	with $T = 1/k_B \beta$ and $s$ {\color{tabred}the free Fermi gas entropy density for a single spin sector \cite{grosso2014solid},
 	\begin{equation}\label{eq:normal-entropy-density}
 		s = -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
 			\left(
@@ -682,7 +760,7 @@ Let us now take together all terms. From now on, we will omit spin index $\sigma
 		- \beta (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu}) f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) - f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \ln f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
 		\Big]
 	\end{multline*}
-	Second and fourth terms cancel out, and multiplying by $-2T$ (taking care of spin degeneracy) we have
+	Second and fourth terms cancel out, and multiplying by $-2T$ (taking care of spin degeneracy)} we have
 	\[
 		e_s^{(\mathrm{N})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
 		1- f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \right) - \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu}) f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})

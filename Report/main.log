@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.10)  6 MAY 2026 14:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2026.2.10)  6 MAY 2026 18:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1820,40 +1820,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
-dvips/cm-super/cm-super-ts1.enc}]
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
-een already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.124 ...e SC ground-state}{114}{subsection.6.4.3}
-                                                  % [2]
-Overfull \hbox (1.74986pt too wide) detected at line 137
- \OT1/cmr/bx/n/10 131
- []
-
-
-Overfull \hbox (1.74986pt too wide) detected at line 141
- \OT1/cmr/bx/n/10 137
- []
-
-
-Overfull \hbox (1.74986pt too wide) detected at line 144
- \OT1/cmr/bx/n/10 141
- []
-
-
-Overfull \hbox (1.74986pt too wide) detected at line 150
- \OT1/cmr/bx/n/10 149
- []
-
-
-Overfull \hbox (1.74986pt too wide) detected at line 152
- \OT1/cmr/bx/n/10 151
- []
-
-)
+dvips/cm-super/cm-super-ts1.enc}])
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
@@ -1861,7 +1828,7 @@ een already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.40 \clearpage
-                [3] (./misc/abbreviations.tex
+                [2] (./misc/abbreviations.tex
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1902,16 +1869,24 @@ een already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.41 \restoregeometry
-                      [4]) (./misc/introduction.tex)
+                      [3]) (./misc/introduction.tex
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
+een already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.3 \chapter
+            *{Introduction} [4
+
+
+
+
+
+])
 (./chapters/theoretical-introduction/theoretical-introduction.tex
 
-[1
-
-
-
-
-
-]
+[1]
 
 [2
 
@@ -1923,7 +1898,21 @@ l.41 \restoregeometry
 
 ] (./chapters/hf-introduction/pictures/gaussian-subspace.tex)
 
+LaTeX Warning: Reference `appendix:slater-gaussian' on page 5 undefined on inpu
+t line 36.
+
+
+
 [5]
+
+LaTeX Warning: Reference `appendix:slater-gaussian' on page 6 undefined on inpu
+t line 77.
+
+
+LaTeX Warning: Reference `appsec:bogoliubov-valatin' on page 6 undefined on inp
+ut line 103.
+
+
 
 [6]
 Package mdframed Info: mdframed works in twoside mode on input line 130.
@@ -1951,6 +1940,15 @@ Package mdframed Info: mdframed works in twoside mode on input line 269.
 [9]
 
 [10]
+
+LaTeX Warning: Reference `appendix:hf-mft' on page 11 undefined on input line 3
+72.
+
+
+LaTeX Warning: Reference `appeq:mft-V-decomposition' on page 11 undefined on in
+put line 372.
+
+
 
 [11] (./chapters/hf-introduction/pictures/effective-model-scheme.tex)
 
@@ -2085,7 +2083,12 @@ Package mdframed Info: Box was splittet wrong
 (mdframed)              on input line 1067.
 
 
-[31] (./chapters/ehm-symmetries/pictures/s-wave-correlator.tex)
+[31]
+
+LaTeX Warning: Reference `appeq:mft-V-decomposition' on page 32 undefined on in
+put line 1069.
+
+(./chapters/ehm-symmetries/pictures/s-wave-correlator.tex)
 (./chapters/ehm-symmetries/pictures/s*-wave-correlator.tex)
 (./chapters/ehm-symmetries/pictures/px-wave-correlator.tex)
 (./chapters/ehm-symmetries/pictures/py-wave-correlator.tex)
@@ -2095,8 +2098,8 @@ Package mdframed Info: Box was splittet wrong
 
 [33]
 Package mdframed Info: mdframed works in twoside mode on input line 1187.
-<../Project/src/labs/structure-factors/plot-structure-factors.pdf, id=1080, 602
-.25pt x 526.96875pt>
+<../Project/src/labs/structure-factors/plot-structure-factors.pdf, id=731, 602.
+25pt x 526.96875pt>
 File: ../Project/src/labs/structure-factors/plot-structure-factors.pdf Graphic 
 file (type pdf)
 <use ../Project/src/labs/structure-factors/plot-structure-factors.pdf>
@@ -2113,117 +2116,137 @@ Package mdframed Info: mdframed works in twoside mode on input line 1274.
 (./chapters/normal-phase/normal-phase.tex
 
 [36]
+Package mdframed Info: mdframed works in twoside mode on input line 33.
+
 
 [37
 
 ]
 
+LaTeX Warning: Reference `chap:sc' on page 38 undefined on input line 57.
+
+
+
 [38]
 
 [39] (./chapters/normal-phase/pictures/Kk.tex)
 (./chapters/normal-phase/pictures/qq'.tex)
-Package mdframed Info: mdframed works in twoside mode on input line 307.
-Package mdframed Info: Box was splittet wrong
- starting loop to iterate the splitting point
-(mdframed)              on input line 377.
+Package mdframed Info: mdframed works in twoside mode on input line 332.
 
 
 [40]
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 402.
+
 
 [41]
-Package mdframed Info: mdframed works in twoside mode on input line 442.
+Package mdframed Info: mdframed works in twoside mode on input line 467.
 
 
 [42]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 494.
+Package mdframed Info: Not enough space on this page on input line 499.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 494.
+(hyperref)                removing `math shift' on input line 525.
 
-(./chapters/normal-phase/pictures/anisotropic-hopping.tex)
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 525.
+
+
 
 [43]
+Package mdframed Info: mdframed works in twoside mode on input line 582.
+ (./chapters/normal-phase/pictures/anisotropic-hopping.tex)
 
 [44]
-
-LaTeX Warning: Reference `eq:normal-fock-V-contraction-energy' on page 45 undef
-ined on input line 631.
-
+Package mdframed Info: mdframed works in twoside mode on input line 664.
 
 
 [45]
-<../Project/src/labs/bands/normal-nematic-bands.pdf, id=1308, 602.25pt x 526.96
-875pt>
+
+LaTeX Warning: Reference `eq:normal-fock-V-contraction-energy' on page 46 undef
+ined on input line 709.
+
+
+
+[46]
+<../Project/src/labs/bands/normal-nematic-bands.pdf, id=985, 602.25pt x 526.968
+75pt>
 File: ../Project/src/labs/bands/normal-nematic-bands.pdf Graphic file (type pdf
 )
 <use ../Project/src/labs/bands/normal-nematic-bands.pdf>
 Package pdftex.def Info: ../Project/src/labs/bands/normal-nematic-bands.pdf  us
-ed on input line 737.
+ed on input line 815.
 (pdftex.def)             Requested size: 384.1096pt x 336.109pt.
- (./chapters/normal-phase/pictures/MBZ-sectors.tex)
+
+
+LaTeX Warning: Reference `chap:mft-af-instability' on page 47 undefined on inpu
+t line 837.
+
+(./chapters/normal-phase/pictures/MBZ-sectors.tex)
 (./chapters/normal-phase/pictures/NBZ-sectors.tex)
 
-[46]
+[47]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[48 <../Project/src/labs/bands/normal-nematic-bands.pdf>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 832.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 832.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 832.
-
-
-Underfull \vbox (badness 5652) has occurred while \output is active []
-
-
-
-[47 <../Project/src/labs/bands/normal-nematic-bands.pdf>]
-
-[48]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 906.
+(hyperref)                removing `math shift' on input line 910.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 906.
+(hyperref)                removing `subscript' on input line 910.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 906.
+(hyperref)                removing `math shift' on input line 910.
+
+
+
+[49]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 984.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 906.
+(hyperref)                removing `subscript' on input line 984.
 
-<../Project/src/labs/bands/normal-nematic-bands-pp.pdf, id=1392, 376.40625pt x 
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 984.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 984.
+
+<../Project/src/labs/bands/normal-nematic-bands-pp.pdf, id=1067, 376.40625pt x 
 301.125pt>
 File: ../Project/src/labs/bands/normal-nematic-bands-pp.pdf Graphic file (type 
 pdf)
 <use ../Project/src/labs/bands/normal-nematic-bands-pp.pdf>
 Package pdftex.def Info: ../Project/src/labs/bands/normal-nematic-bands-pp.pdf 
- used on input line 918.
+ used on input line 996.
 (pdftex.def)             Requested size: 192.0548pt x 153.64981pt.
-<../Project/src/labs/bands/normal-nematic-bands-mp.pdf, id=1393, 376.40625pt x 
+<../Project/src/labs/bands/normal-nematic-bands-mp.pdf, id=1068, 376.40625pt x 
 301.125pt>
 File: ../Project/src/labs/bands/normal-nematic-bands-mp.pdf Graphic file (type 
 pdf)
 <use ../Project/src/labs/bands/normal-nematic-bands-mp.pdf>
 Package pdftex.def Info: ../Project/src/labs/bands/normal-nematic-bands-mp.pdf 
- used on input line 923.
+ used on input line 1001.
 (pdftex.def)             Requested size: 192.0548pt x 153.64981pt.
 
 
-[49]
+[50]
 
-[50 <../Project/src/labs/bands/normal-nematic-bands-pp.pdf> <../Project/src/lab
+[51 <../Project/src/labs/bands/normal-nematic-bands-pp.pdf> <../Project/src/lab
 s/bands/normal-nematic-bands-mp.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/bands/normal-nemati
@@ -2233,26 +2256,26 @@ gle page
 \c@enumTemp=\count574
 
 
-[51]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1136.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\delta' on input line 1136.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1136.
-
-
-
 [52]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1214.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\delta' on input line 1214.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1214.
+
+
+
 [53]
+
+[54]
 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=HFPs
-/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf, id=1545, 451.6875pt x 301.12
+/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf, id=1221, 451.6875pt x 301.12
 5pt>
 File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
 =HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf Graphic file (type pdf)
@@ -2260,10 +2283,10 @@ File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
 HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf>
 Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[
 128]/Syms=/RB=S/Obj=HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf  used
- on input line 1245.
+ on input line 1323.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
 <../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs
-/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf, id=1546, 451.6875pt x 301.12
+/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf, id=1222, 451.6875pt x 301.12
 5pt>
 File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj
 =HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
@@ -2271,16 +2294,16 @@ File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj
 HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf>
 Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[
 256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf  used
- on input line 1249.
+ on input line 1327.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
 
-Overfull \hbox (2.94913pt too wide) in paragraph at lines 1245--1250
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 1323--1328
  [][][] 
  []
 
 
 
-[54 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
+[55 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
 HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf> <../Project/plots/refine
 d/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0
 _U=0.0_L=256_β=100.0.pdf
@@ -2291,7 +2314,7 @@ Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=
 age
 >]
 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=RMPs
-/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf, id=1621, 451.687
+/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf, id=1297, 451.687
 5pt x 376.40625pt>
 File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
 =RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf Graphic file
@@ -2300,53 +2323,19 @@ File: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj
 RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf>
 Package pdftex.def Info: ../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[
 128]/Syms=/RB=S/Obj=RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePl
-ot.pdf  used on input line 1283.
+ot.pdf  used on input line 1361.
 (pdftex.def)             Requested size: 192.0548pt x 160.04807pt.
-<../Project/src/labs/mott-localization/normal-mott-boundary-uS.pdf, id=1622, 45
+<../Project/src/labs/mott-localization/normal-mott-boundary-uS.pdf, id=1298, 45
 1.6875pt x 301.125pt>
 File: ../Project/src/labs/mott-localization/normal-mott-boundary-uS.pdf Graphic
  file (type pdf)
 <use ../Project/src/labs/mott-localization/normal-mott-boundary-uS.pdf>
 Package pdftex.def Info: ../Project/src/labs/mott-localization/normal-mott-boun
-dary-uS.pdf  used on input line 1287.
+dary-uS.pdf  used on input line 1365.
 (pdftex.def)             Requested size: 213.39568pt x 142.26393pt.
-<../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=HFPs
-/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf, id=1627, 1129.21875pt x 3
-01.125pt>
-File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj
-=HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf Graphic file (type pd
-f)
-<use ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=
-HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf>
-Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[
-256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf  u
-sed on input line 1303.
-(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
-
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1303--1303
- [][] 
- []
-
-<../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=RMPs
-/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf, id=1628, 1129.21875pt x 3
-01.125pt>
-File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj
-=RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf Graphic file (type pd
-f)
-<use ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=
-RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf>
-Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[
-256]/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf  u
-sed on input line 1307.
-(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
-
-Overfull \hbox (9.99998pt too wide) in paragraph at lines 1307--1308
- [][] 
- []
 
 
-
-[55 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
+[56 <../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=
 RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf> <../Project/
 src/labs/mott-localization/normal-mott-boundary-uS.pdf
 
@@ -2354,33 +2343,46 @@ pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/mott-localization/n
 ormal-mott-boundary-uS.pdf): PDF inclusion: multiple pdfs with page group inclu
 ded in a single page
 >]
-<../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf, id=17458, 45
-1.6875pt x 301.125pt>
-File: ../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf Graphic 
-file (type pdf)
-<use ../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf>
-Package pdftex.def Info: ../Project/src/labs/mott-localization/normal-mott-boun
-dary-f.pdf  used on input line 1342.
-(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-<../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=phys
-/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf, id=17459, 451.6875pt x 301.12
-5pt>
-File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj
-=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
-<use ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=
-phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf>
-Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[
-256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf  used 
-on input line 1346.
-(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=HFPs
+/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf, id=17124, 1129.21875pt x 
+301.125pt>
+File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj
+=HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf Graphic file (type pd
+f)
+<use ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=
+HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[
+256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf  u
+sed on input line 1381.
+(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
-Overfull \hbox (2.94913pt too wide) in paragraph at lines 1342--1347
- [][][] 
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1381--1381
+ [][] 
+ []
+
+<../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=RMPs
+/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf, id=17125, 1129.21875pt x 
+301.125pt>
+File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj
+=RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf Graphic file (type pd
+f)
+<use ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=
+RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[
+256]/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=Compared.pdf  u
+sed on input line 1385.
+(pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
+
+Overfull \hbox (9.99998pt too wide) in paragraph at lines 1385--1386
+ [][] 
  []
 
 
+Underfull \vbox (badness 5893) has occurred while \output is active []
 
-[56 <../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=
+
+
+[57 <../Project/plots/refined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=
 HFPs/xVar=V_pVar=β/uS_t=1.0_U=0.0_L=256_δ=Compared.pdf> <../Project/plots/ref
 ined/Mode=hs/Phase=Normal/Setup=C[256]/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=β/tS_t=
 1.0_U=0.0_L=256_δ=Compared.pdf
@@ -2390,29 +2392,53 @@ Normal/Setup=C[256]/Syms=/RB=S/Obj=RMPs/xVar=V_pVar=β/tS_t=1.0_U=0.0_L=256_δ=
 Compared.pdf): PDF inclusion: multiple pdfs with page group included in a singl
 e page
 >]
-<../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf, id=17524, 45
+<../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf, id=17195, 45
+1.6875pt x 301.125pt>
+File: ../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf Graphic 
+file (type pdf)
+<use ../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf>
+Package pdftex.def Info: ../Project/src/labs/mott-localization/normal-mott-boun
+dary-f.pdf  used on input line 1420.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+<../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=phys
+/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf, id=17196, 451.6875pt x 301.12
+5pt>
+File: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj
+=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf Graphic file (type pdf)
+<use ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=
+phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf>
+Package pdftex.def Info: ../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[
+256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf  used 
+on input line 1424.
+(pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
+
+Overfull \hbox (2.94913pt too wide) in paragraph at lines 1420--1425
+ [][][] 
+ []
+
+<../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf, id=17202, 45
 1.6875pt x 301.125pt>
 File: ../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf Graphic 
 file (type pdf)
 <use ../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf>
 Package pdftex.def Info: ../Project/src/labs/mott-localization/normal-mott-boun
-dary-s.pdf  used on input line 1366.
+dary-s.pdf  used on input line 1444.
 (pdftex.def)             Requested size: 204.87025pt x 136.57635pt.
-<../Project/src/labs/functions/entropy.pdf, id=17525, 376.40625pt x 301.125pt>
+<../Project/src/labs/functions/entropy.pdf, id=17203, 376.40625pt x 301.125pt>
 File: ../Project/src/labs/functions/entropy.pdf Graphic file (type pdf)
 <use ../Project/src/labs/functions/entropy.pdf>
 Package pdftex.def Info: ../Project/src/labs/functions/entropy.pdf  used on inp
-ut line 1370.
+ut line 1448.
 (pdftex.def)             Requested size: 170.72522pt x 136.57635pt.
-<../Project/src/labs/tracks/tracks.pdf, id=17530, 1129.21875pt x 301.125pt>
+<../Project/src/labs/tracks/tracks.pdf, id=17208, 1129.21875pt x 301.125pt>
 File: ../Project/src/labs/tracks/tracks.pdf Graphic file (type pdf)
 <use ../Project/src/labs/tracks/tracks.pdf>
 Package pdftex.def Info: ../Project/src/labs/tracks/tracks.pdf  used on input l
-ine 1383.
+ine 1461.
 (pdftex.def)             Requested size: 426.79135pt x 113.81297pt.
 
 
-[57 <../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf> <../Proj
+[58 <../Project/src/labs/mott-localization/normal-mott-boundary-f.pdf> <../Proj
 ect/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=phys/xVar=V_
 pVar=δ/f_t=1.0_U=0.0_L=256_β=100.0.pdf
 
@@ -2420,20 +2446,22 @@ pdfTeX warning: /usr/bin/pdflatex (file ../Project/plots/refined/Mode=hs/Phase=
 Normal/Setup=B[256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=δ/f_t=1.0_U=0.0_L=256_β=1
 00.0.pdf): PDF inclusion: multiple pdfs with page group included in a single pa
 ge
-> <../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf
+>])
 
-pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/mott-localization/n
-ormal-mott-boundary-s.pdf): PDF inclusion: multiple pdfs with page group includ
-ed in a single page
-> <../Project/src/labs/functions/entropy.pdf
+[59 <../Project/src/labs/mott-localization/normal-mott-boundary-s.pdf> <../Proj
+ect/src/labs/functions/entropy.pdf
 
 pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/functions/entropy.p
 df): PDF inclusion: multiple pdfs with page group included in a single page
->])
+> <../Project/src/labs/tracks/tracks.pdf
 
-[58 <../Project/src/labs/tracks/tracks.pdf>]
+pdfTeX warning: /usr/bin/pdflatex (file ../Project/src/labs/tracks/tracks.pdf):
+ PDF inclusion: multiple pdfs with page group included in a single page
+>]
 
-[59
+[60]
+
+[61
 
 ]
 Overfull \hbox (3.53458pt too wide) in paragraph at lines 73--73
@@ -2444,7 +2472,7 @@ Overfull \hbox (3.53458pt too wide) in paragraph at lines 73--73
 
 
 
-[60]
+[62]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 7
 3.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
@@ -2454,7 +2482,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 73.
 
 
-[61]
+[63]
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
@@ -2467,14 +2495,8 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were undefined references.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 7F8AD1722779767807D8E4476A57FC17;26874
-(rerunfilecheck)             After:  2F4DF8BF9BBD2E0AF54A8535B3838C54;8869.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 29C1566CDCE55C45DFBB8DFCAD5343DF;9487.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -2485,339 +2507,51 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 55853 strings out of 473197
- 1267375 string characters out of 5718605
- 2326466 words of memory out of 5000000
- 77803 multiletter control sequences out of 15000+600000
+ 55385 strings out of 473197
+ 1257783 string characters out of 5718605
+ 2297738 words of memory out of 5000000
+ 77392 multiletter control sequences out of 15000+600000
  579163 words of font info for 110 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  93i,16n,104p,2641b,2177s stack positions out of 10000i,1000n,20000p,200000b,200000s
-
-pdfTeX warning (dest): name{equation.B.9} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section*.113} has been referenced but does not exis
-t, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.D.1} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{appendix.D} has been referenced but does not exist,
- replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.C.5} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.C.4} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.C.3} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.C.2} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.C.1} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{appendix.C} has been referenced but does not exist,
- replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.B.2} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.B.1} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{appendix.B} has been referenced but does not exist,
- replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.A.3} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.A.2} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.A.1} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{appendix.A} has been referenced but does not exist,
- replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.6.6} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.5.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.5.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.5.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.5.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.6.5} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.4.5} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.4.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.4.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.4.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.4.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.6.4} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.3.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.3.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.3.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.6.3} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.2.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.2.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.2.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.6.2.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.6.2} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.6.1} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{chapter.6} has been referenced but does not exist, 
-replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.9.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.9.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.9.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.9.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.5.9} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.8.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.8.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.8.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.8.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.5.8} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.7.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.7.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.5.7} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.6.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.6.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.5.6} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.5.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.5.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.5.5} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.4.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.4.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.5.4} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.5.3} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.2.4} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.2.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.2.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.2.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.5.2} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.1.2} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{subsection.5.1.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{section.5.1} has been referenced but does not exist
-, replaced by a fixed one
-
-
-pdfTeX warning (dest): name{chapter.5} has been referenced but does not exist, 
-replaced by a fixed one
-
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/c
-m-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb
-></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/f
-onts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (65 pages, 6379049 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public
+/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.p
+fb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf
+/fonts/type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (67 pages, 6372646 bytes).
 PDF statistics:
- 18063 PDF objects out of 18468 (max. 8388607)
- 9772 compressed objects within 98 object streams
- 424 named destinations out of 1000 (max. 500000)
- 1064 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 17733 PDF objects out of 18468 (max. 8388607)
+ 9443 compressed objects within 95 object streams
+ 367 named destinations out of 1000 (max. 500000)
+ 520 words of extra memory for PDF output out of 10000 (max. 10000000)
 
