@@ -1,21 +1,21 @@
 \def\GraphicsFolder{chapters/normal-phase/pictures}
 \chapter{The normal phase}\label{chap:normal-phase}
 
-In this chapter we apply the HF methods sketched in Sec.~\ref{sec:sketch-hf-method} to the ``normal phase''. We are studying the model in a state were no symmetry of those enumerated in Tab.~\ref{tab:symmetry-groups} is broken. Even though this phase may appear not so interesting, it actually shows a significant physical difference with respect to the conventional perfectly degenerate Fermi gas.
+In this chapter we apply the HF methods sketched in Sec.~\ref{sec:sketch-hf-method} to the ``normal phase''. We are studying the model in a state were no symmetry of those enumerated in Tab.~\ref{tab:symmetry-groups} is broken. The application of HF methods in this context will lead to a self-consistent renormalisation of the hopping parameter $t$, which will produce a Mott localisation effect.
 
-HF methods applied in this context will lead us to a self-consistent hopping renormalisation effect. For certain values of the non-local attraction $V$ and the doping level, a complete Mott localisation effect takes place. The resulting bands shrinking and flattening is the main net effect of the presence of $\hat H_V$ in the EHM.
-
-This chapter is divided in three main parts. First, we discuss the symmetries of the normal phase, following the general discussion of Chap.~\ref{chap:ehm-symmetries}. Second,  we apply HF methods to derive the self-consistent approximated hamiltonian and impose some theoretical constraints on the self-consistent solution. Lastly, we present numeric results.
+This chapter is divided in three parts. First, we discuss the symmetries of the normal phase, following the general discussion of Chap.~\ref{chap:ehm-symmetries}. Second, we apply HF methods to derive the self-consistent approximated hamiltonian and impose some theoretical constraints on the solution. Lastly, we present numeric results.
 
 \section{The normal phase and its  symmetries}\label{sec:normal-phase-theory}
 
-In the normal phase no symmetry is broken. Thus, the HF wavefunction approximating the ground state must exhibit the full $\mathrm{U}(2) \otimes \mathrm{C}_4 \otimes \mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$ symmetry discussed in Sec.~\ref{sec:ehm-syms}. We take a slight detour from this, and instead allow for
+In the normal phase no symmetry is broken. Thus, the HF wavefunction approximating the ground state must exhibit the full $\mathrm{U}(2) \otimes \mathrm{C}_4 \otimes \mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$ symmetry discussed in Sec.~\ref{sec:ehm-syms}. {\color{tabred}We take a slight detour from this, and instead allow for
 \[
 	\mathrm{C}_4 \SSB \mathrm{C}_2
 \]
-This is the only potential SSB we consider. It will turn out in Sec.~\ref{subsec:normal-bands-shrinking-C2} that even allowing for breaking of rotational symmetry, the ground-state actually does not break $\mathrm{C}_4$. This can be seen as a convolute way to confirm that there is not a normal-nematic phase. While this may seem as an useless complication, the derivation will set grounds for actual nematic effects found in the superconducting phase.
+This is the only potential SSB we consider. It will turn out in Sec.~\ref{subsec:normal-bands-shrinking-C2} that even allowing for breaking of rotational symmetry, the ground-state actually does not break $\mathrm{C}_4$. This can be seen as a convolute way to confirm that there is not a normal-nematic phase. While this may seem as an useless complication, the derivation will set grounds for actual nematic effects found in the superconducting phase.}
 
 Our HF method relies on the application of Wick's theorem on the quartic part of the interacting hamiltonian, expressed in Eq.~\eqref{eq:hf-wick-hfc}. We will decompose the quartic operators according to Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}. Recalling Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}, for the normal phase we must consider the following contributes to the EVs of Eqns.~\eqref{eq:ehm-HU-wick}, \eqref{eq:ehm-HV(os)-wick}, \eqref{eq:ehm-HV(ss)-wick}:
+
+We use the HF decomposition of interactions of Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}, and the selection rules of Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}. Hence, only the following contractions are allowed in \todo
 \[
 \begin{aligned}
 	&\hat H_U 
@@ -394,9 +394,31 @@ be the renormalised bare bands. In Fock channel, we have:
 		\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
 	}_{\hat H_{\tilde{t}}} - E_{\mathrm{F}/V}^{(\mathrm{N})}
 \]
-where we defined the effective kinetic operator, $\hat H_{\tilde{t}}$. The renormalised bands of Eq.~\eqref{eq:normal-bands-renormalisation} are a sum of $s^*$ and $d$-wave components. Instead, bare bands as defined Eq.~\eqref{eq:bare-bands} are purely $s^*$-symmetric functions, $\epsilon_{\mathbf{k}\sigma} = -4t \varphi_\mathbf{k}^{(\gamma)}$.
+where we defined the effective kinetic operator, $\hat H_{\tilde{t}}$. 
 
-In real space, $\hat H_{\tilde{t}}$ is given by:
+The renormalised bands of Eq.~\eqref{eq:normal-bands-renormalisation} are a sum of $s^*$ and $d$-wave components. Instead, bare bands as defined Eq.~\eqref{eq:bare-bands} are purely $s^*$-symmetric functions, 
+\begin{equation}\label{eq:normal-bands-vphi}
+	\epsilon_{\mathbf{k}\sigma} = -2t (\cos k_x + \cos k_y) = -4t \varphi_\mathbf{k}^{(s^*)}
+\end{equation}
+We define:
+\begin{equation}\label{eq:normal-tS-td}
+	\tilde{t}^{(s^*)}_\sigma \equiv t - \frac{u_\sigma^{(s^*)} V}{2}
+	\qquad
+	\tilde{t}^{(d)}_\sigma \equiv - \frac{u_\sigma^{(d)} V}{2}
+\end{equation}
+Hence, Eq.~\eqref{eq:normal-bands-renormalisation} can be written as follows:
+\begin{equation}\label{eq:normal-bands-renormalisation-vphi}
+	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv -4\tilde{t}^{(s^*)}_\sigma \varphi_\mathbf{k}^{(s^*)} -4\tilde{t}^{(d)}_\sigma \varphi_\mathbf{k}^{(d)}
+\end{equation}
+Note the formal similarity with Eq.~\eqref{eq:normal-bands-vphi}. Bands renormalisation is actually a renormalisation of the hopping parameter $t$,
+\[
+	\text{$t$ ($s^*$-wave)}
+	\quad\to\quad
+	\text{$\tilde{t}^{(s^*)}_\sigma$ ($s^*$-wave) and $\tilde{t}^{(d)}_\sigma$ ($d$-wave)}
+\]
+Therefore, $t$ is an RMP. In Sec.~\ref{subsec:normal-d-wave-hopping} we will show how all of this is translated in real space.
+
+{\color{tabred}In real space, $\hat H_{\tilde{t}}$ is given by:
 \[
 \begin{aligned}
 	\hat H_{\tilde{t}} &= \hat H_t + V \sum_{\ev{ij}} \sum_\sigma \left[
@@ -418,7 +440,7 @@ where we defined the effective hopping amplitude
 	\qquad
 	(\text{for $i,j$ NNs})
 \]
-The renormalised hopping $\tilde{t}_{ij\sigma}$ is related via a Fourier transform to the renormalised bands $\tilde{\epsilon}_{\mathbf{k}\sigma}$.
+The renormalised hopping $\tilde{t}_{ij\sigma}$ is related via a Fourier transform to the renormalised bands $\tilde{\epsilon}_{\mathbf{k}\sigma}$.}
 
 We conclude this section by proving that the Fock contraction energy is given by:
 \begin{equation}\label{eq:normal-HU-fock-Ec}
@@ -430,6 +452,7 @@ We conclude this section by proving that the Fock contraction energy is given by
 		\big|^2
 	\right)
 \end{equation}
+Later, using spin degeneracy, we will omit the sum on $\sigma$ and the $1/2$ prefactor.
 
 \begin{tabproof}[Non-local Fock contraction energy.]
 
@@ -467,11 +490,17 @@ We conclude this section by proving that the Fock contraction energy is given by
 %
 In next section we collect all we found so far, discuss the properties of the HF hamiltonian and derive the free energy and entropy densities for its ground-state.
 
-\textbf{FROM HERE...}
-
 \section{The HF hamiltonian and its properties}
 
-This equation defines the bands renormalisation anticipated in Tab.~\ref{tab:normal-RWCs}, and is actually spin-independent. The fact that we have both $s^*$ and a $d$-wave components introduces an anisotropy that is discussed in next section. However, we anticipate here that, as will result from Sec.~\ref{subsec:normal-bands-shrinking-C2}, the $d$-wave harmonic will be suppressed. For now we keep this component ignoring these anticipations.
+In the normal phase, the HF approximation to the hamiltonian is given by the following operator:
+\[
+	\hat H - \mu \hat N \HFsimeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \tilde{\epsilon}_{\mathbf{k}\sigma}
+	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} - \tilde{\mu} \hat N
+	- \left(
+		E_{\mathrm{H}/U}^{(\mathrm{N})} + E_{\mathrm{H}/V}^{(\mathrm{N})} + 		E_{\mathrm{F}/V}^{(\mathrm{N})}
+	\right)
+\]
+Apart from energy shifts, this hamiltonian describes a perfectly degenerate Fermi gas whose bare bands are $\tilde{\epsilon}_{\mathbf{k}\sigma}$ as defined in Eq.~\eqref{eq:normal-bands-renormalisation}, and chemical potential $\tilde{\mu}$ as defined in Eq.~\eqref{eq:normal-mu-shift}. The latter is completely determined by the model parameters; the former must be determined self-consistently.
 
 \subsection{Nematicity: extending hopping to $d$-wave bands}\label{subsec:normal-d-wave-hopping}
 
@@ -481,8 +510,6 @@ This equation defines the bands renormalisation anticipated in Tab.~\ref{tab:nor
 	\caption{Graphic rendition of anisotropic hopping, with a $s^*$-wave component (symmetric by $\pi/$ rotations) and a $d$-wave component (antisymmetric).}
 	\label{fig:anisotropic-hopping}
 \end{figure}
-
-For the normal phase, there is no reason to expect nematic effects, nor to exclude them. They are observed in superconducting phase \cite{bohmer2022nematicity}. Thus, we allow the possibility.
 
 From Tabs.~\ref{tab:x-wave-real-factors} and \ref{tab:x-wave-reciprocal-factors} we can inverse-Fourier transform the form factors to get the full effective hopping,
 \[
