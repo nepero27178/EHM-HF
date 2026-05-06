@@ -7,15 +7,31 @@ This chapter is divided in three parts. First, we discuss the symmetries of the 
 
 \section{The normal phase and its  symmetries}\label{sec:normal-phase-theory}
 
-In the normal phase no symmetry is broken. Thus, the HF wavefunction approximating the ground state must exhibit the full $\mathrm{U}(2) \otimes \mathrm{C}_4 \otimes \mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$ symmetry discussed in Sec.~\ref{sec:ehm-syms}. {\color{tabred}We take a slight detour from this, and instead allow for
+In the normal phase no symmetry is broken. Thus, the HF wavefunction approximating the ground state must exhibit the full $\mathrm{U}(2) \otimes \mathrm{C}_4 \otimes \mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$ symmetry discussed in Sec.~\ref{sec:ehm-syms}. Using translational invariance and global spin rotational symmetry, we have:
+\begin{equation}\label{eq:normal-<cc>}
+	\langle \hat c_{\mathbf{k}_1\sigma_1}^\dagger \hat c_{\mathbf{k}_2 \sigma_2} \rangle = \delta_{\mathbf{k}_1=\mathbf{k}_2} \delta_{\sigma_1=\sigma_2} f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+\end{equation}
+being $f$ the Fermi-Dirac distribution,
 \[
-	\mathrm{C}_4 \SSB \mathrm{C}_2
+	f(\epsilon;\beta,\mu) \equiv \frac{1}{e^{\beta(\epsilon-\mu)}+1}
 \]
-This is the only potential SSB we consider. It will turn out in Sec.~\ref{subsec:normal-bands-shrinking-C2} that even allowing for breaking of rotational symmetry, the ground-state actually does not break $\mathrm{C}_4$. This can be seen as a convolute way to confirm that there is not a normal-nematic phase. While this may seem as an useless complication, the derivation will set grounds for actual nematic effects found in the superconducting phase.}
+We define the single-state occupation operator
+\[
+	\hat n_{\mathbf{k}\sigma} \equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
+\]
+Let us define its EV:
+\begin{equation}\label{eq:normal-uqsigma-def}
+	u_{\mathbf{k}\sigma} \equiv \langle
+		\hat n_{\mathbf{k}\sigma}
+	\rangle
+	\qquad
+	u_{\mathbf{k}\sigma} = u_{\mathbf{k}\sigma}^*
+\end{equation}
+The relation on the right follows from the fact that $\hat n_{\mathbf{k}\sigma}$ is hermitian by construction. Note that $\hat n_{\mathbf{k}\sigma}$ is not the Fourier-transform of $\hat n_{i\sigma}$.
 
-Our HF method relies on the application of Wick's theorem on the quartic part of the interacting hamiltonian, expressed in Eq.~\eqref{eq:hf-wick-hfc}. We will decompose the quartic operators according to Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}. Recalling Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}, for the normal phase we must consider the following contributes to the EVs of Eqns.~\eqref{eq:ehm-HU-wick}, \eqref{eq:ehm-HV(os)-wick}, \eqref{eq:ehm-HV(ss)-wick}:
+We anticipate here that we will actually allow for $\mathrm{C}_4 \SSB \mathrm{C}_2$, namely, breaking of planar rotational symmetry. As will result from our discussion, the normal phase does not break $\mathrm{C}_4$ even if we allow it to. Nevertheless we carry out this general derivation because breaking of planar rotational symmetry will be observed in Chap.~\ref{chap:sc} in the context of superconductivity, and the computations carried out for the normal phase will be re-used.
 
-We use the HF decomposition of interactions of Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}, and the selection rules of Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}. Hence, only the following contractions are allowed in \todo
+Applying the HF methods to the interactions $\hat H_U$ and $\hat H_V$, from Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}, we know that in the normal phase the allowed contractions are:
 \[
 \begin{aligned}
 	&\hat H_U 
@@ -26,7 +42,7 @@ We use the HF decomposition of interactions of Eqns.~\eqref{eq:mft-HU}, \eqref{e
 	&&\text{Hartree and Fock contractions} \\
 \end{aligned}	
 \]
-As we will see in detail and is summarised in Tab.~\ref{tab:normal-RWCs}, Hartree contractions give a chemical potential shift, while the unique Fock contraction effectively renormalises the bare bands.
+As we will see in detail and is summarised in Tab.~\ref{tab:normal-RWCs}, Hartree contractions give a chemical potential shift, while the Fock contraction renormalises the bare bands.
 
 \begin{table}[t]
 	\centering
@@ -48,11 +64,22 @@ In the normal phase, spin is a pure physical degeneracy, being the $\uparrow$ an
 
 \section{Application of HF methods to the normal phase}\label{sec:normal-hm}
 
-The quartic part of $\hat H$ is given by the the local repulsion $\hat H_U$ and the non-local attraction $\hat H_V$. Applying HF methods to them, we get the decomposition of Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}. In the next section we analyse the Hartree channel, which contains all Hartree-like terms. We will see that $\hat H_U$ and $\hat H_V$ are approximated, in this channel, by a multiple of the number operator. In the section that follows, we deal with Fock terms, and show how $\hat H_V$ is approximated, in that channel, by a kinetic-like operator.
+The quartic part of $\hat H$ is given by the the local repulsion $\hat H_U$ and the non-local attraction $\hat H_V$. Applying HF methods, we get the decomposition of Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}. In the next section we analyse the Hartree channel, which contains all Hartree-like terms. We will see that $\hat H_U$ and $\hat H_V$ are approximated, in this channel, by a multiple of the number operator. In the section that follows, we deal with Fock terms, and show how $\hat H_V$ is approximated, in that channel, by an operator that is formally equivalent to the kinetic operator $\hat H_t$.
 
 \subsection{Hartree effects: chemical potential renormalisation}\label{subsec:normal-hartree-mu}
 
-Both the two-body operators $\hat H_U$, $\hat H_V$ have non-zero Hartree EVs. We deal with them separately, and show that both lead to a renormalisation of $\mu$.
+Consider the Hartree channel of Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV},
+\[
+\begin{aligned}
+	\hat H_U &\HFsimeq U \sum_i \left(
+		\hat c_{i\uparrow}^\dagger \hat c_{i\uparrow} \big\langle \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow} \big\rangle + \big\langle \hat c_{i\uparrow}^\dagger \hat c_{i\uparrow} \big\rangle \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow} - \big\langle \hat c_{i\uparrow}^\dagger \hat c_{i\uparrow} \big\rangle  \big\langle \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow} \big\rangle 
+	\right) + (\text{all the rest}) \\
+	\hat H_V &\HFsimeq -V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \left(
+		\hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle + \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} - \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle  \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle
+	\right) + (\text{all the rest})
+\end{aligned}
+\]
+Let us deal with those separately.
 
 \paragraph{Local repulsion.}
 
@@ -128,7 +155,7 @@ The non-local attraction is divided in two sectors, as in Eq.~\eqref{eq:ehm-HV(s
 	}_{\mathrm{o.s.}} \, +\, 
 	(\text{all the rest})
 \end{multline*}
-where ``all the rest'' collects all non-Hartree terms. Recalling the Ansatz of Eq.~\eqref{eq:normal-density-ansatz}, we get
+where ``all the rest'' collects all non-Hartree terms. From Eq.~\eqref{eq:normal-density-ansatz}, we get
 \begin{equation}\label{eq:normal-hartree-HV-int1}
 	\hat H_V \HFsimeq  \underbrace{
 		-nV \sum_{\ev{ij}} \sum_\sigma \left(
@@ -161,7 +188,7 @@ with $E_{\mathrm{H}/V}^{(\mathrm{N})}$ the normal state shift to energy brought 
 	&= -2V \sum_{\ev{ij}} \sum_\sigma n^2 \nonumber \\
 	&= - L_x L_y \times 2zn^2 V \label{eq:normal-HV-hartree-Ec}
 \end{align}
-Note the similarity with Eq.~\eqref{eq:normal-Ec-hU}.
+Note the similarity with Eq.~\eqref{eq:normal-HU-hartree-Ec}.
 
 Getting back to Eq.~\eqref{eq:normal-hartree-HV-int1}, both sums give a number operator. Note that we sum over NNs: each site is connected to $z=4$ sites. Including this combinatorial factor, we have
 \begin{equation}\label{eq:normal-HV-hartree-approx}
@@ -183,7 +210,7 @@ Considering the net shift to $\mu$ due to both interactions by combining Eqns.~\
 \end{equation}
 This result will remain valid throughout all phases discussed in this text.
 
-\subsection{Fock effects: bare bands renormalisation}\label{subsec:normal-fock-bandsn}
+\subsection{Fock effects: bare bands renormalisation}\label{subsec:normal-fock-bands}
  
 We move to Fock terms. From Wick's decomposition of $\hat H_V$, the unique allowed Fock term comes from the same-spin sector. This selection rules is implied by the $\mathrm{SU}(2)$ symmetry of the normal phase and was stated in Tab.~\ref{tab:HV-sel-rules}. Then, from Eq.~\eqref{eq:mft-HV}:
 \begin{equation}\label{eq:normal-HV-fock}
@@ -232,16 +259,7 @@ Here, the $2$ prefactor comes from the fact that the first two operators in squa
 	\rangle
 \end{align}
 
-We define
-\begin{equation}\label{eq:normal-uqsigma-def}
-	u_{\mathbf{k}\sigma} \equiv \langle
-	\hat c_{\mathbf{k}\sigma}^\dagger
-	\hat c_{\mathbf{k}\sigma}
-	\rangle
-	\qquad
-	u_{\mathbf{k}\sigma} = u_{\mathbf{k}\sigma}^*
-\end{equation}
-Using the functions of Tab.~\ref{tab:x-wave-reciprocal-factors}, we define its harmonics:
+Recall the definition of $u_{\mathbf{k}\sigma}$ given in Eq.~\eqref{eq:normal-uqsigma-def}. Using the functions of Tab.~\ref{tab:x-wave-reciprocal-factors}, we define its harmonics:
 \begin{equation}\label{eq:normal-ugamma-harmonics}
 	u^{(\gamma)}_\sigma \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}
 	\langle
@@ -288,16 +306,7 @@ We provide a proof.
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:normal-HV-fock-approx}]
 	
-	The normal phase is described by a perfectly degenerate Fermi gas, hence it must hold:
-	\begin{equation}\label{eq:normal-<cc>}
-		\langle \hat c_{\mathbf{k}_1\sigma_1}^\dagger \hat c_{\mathbf{k}_2 \sigma_2} \rangle = \delta_{\mathbf{k}_1=\mathbf{k}_2} \delta_{\sigma_1=\sigma_2} f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-	\end{equation}
-	being $f$ the Fermi-Dirac distribution,
-	\[
-		f(\epsilon;\beta,\mu) \equiv \frac{1}{e^{\beta(\epsilon-\mu)}+1}
-	\]
-	
-	Consider now Eq.~\eqref{eq:normal-V-fock-int1}. Applying Eq.~\eqref{eq:normal-<cc>}, it becomes:
+	Consider Eq.~\eqref{eq:normal-V-fock-int1}. Applying Eq.~\eqref{eq:normal-<cc>}, it becomes:
 	\begin{multline}
 		\hat H_V \HFsimeq (\text{Hartree channel})\\ + 
 		\frac{2V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}} \sum_\sigma \left( \cos 2 k_x + \cos 2 k_y	
@@ -383,17 +392,17 @@ Composing Eq.~\eqref{eq:normal-HV-fock-approx} with Eqns.~\eqref{eq:normal-HU-ha
 \end{table}
 \setlength{\extrarowheight}{0em}
 
-The operator of Eq.~\eqref{eq:normal-HV-fock-approx} has the same algebraic structure of the kinetic operator $\hat H_t$ in reciprocal space, given in Eq.~\eqref{eq:Ht-Fourier}. Hence, we can collapse the two into one effective kinetic operator. Let 
+The operator of Eq.~\eqref{eq:normal-HV-fock-approx} has the same algebraic structure of the kinetic operator $\hat H_t$ in reciprocal space, given in Eq.~\eqref{eq:Ht-Fourier}. Hence, we can collapse the two into one effective kinetic operator. Let the renormalised bare bands be
 \begin{equation}\label{eq:normal-bands-renormalisation}
 	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv \epsilon_{\mathbf{k}\sigma} + u^{(s^*)}_\sigma V (\cos k_x + \cos k_y) + u^{(d)}_\sigma V (\cos k_x - \cos k_y)
 \end{equation}
-be the renormalised bare bands. In Fock channel, we have:
-\[
+In Fock channel, we have:
+\begin{equation}\label{eq:normal-H~t}
 	\hat H_t + \hat H_V \HFsimeq (\text{Hartree channel}) + \underbrace{
 		\sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \tilde{\epsilon}_{\mathbf{k}\sigma}
 		\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
 	}_{\hat H_{\tilde{t}}} - E_{\mathrm{F}/V}^{(\mathrm{N})}
-\]
+\end{equation}
 where we defined the effective kinetic operator, $\hat H_{\tilde{t}}$. 
 
 The renormalised bands of Eq.~\eqref{eq:normal-bands-renormalisation} are a sum of $s^*$ and $d$-wave components. Instead, bare bands as defined Eq.~\eqref{eq:bare-bands} are purely $s^*$-symmetric functions, 
@@ -417,30 +426,6 @@ Note the formal similarity with Eq.~\eqref{eq:normal-bands-vphi}. Bands renormal
 	\text{$\tilde{t}^{(s^*)}_\sigma$ ($s^*$-wave) and $\tilde{t}^{(d)}_\sigma$ ($d$-wave)}
 \]
 Therefore, $t$ is an RMP. In Sec.~\ref{subsec:normal-d-wave-hopping} we will show how all of this is translated in real space.
-
-{\color{tabred}In real space, $\hat H_{\tilde{t}}$ is given by:
-\[
-\begin{aligned}
-	\hat H_{\tilde{t}} &= \hat H_t + V \sum_{\ev{ij}} \sum_\sigma \left[
-	\langle
-	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	\rangle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} + \hc
-	\right] \\
-	&= - \sum_{\ev{ij}} \sum_\sigma 
-	\left[
-	\tilde{t}_{ij\sigma} \hat c_{i\sigma}^\dagger \hat c_{j\sigma} + \hc
-	\right]
-\end{aligned}
-\]
-where we defined the effective hopping amplitude
-\[
-	\tilde{t}_{ij\sigma} \equiv t - V \langle
-		\hat c_{j\sigma}^\dagger \hat c_{i\sigma}
-	\rangle
-	\qquad
-	(\text{for $i,j$ NNs})
-\]
-The renormalised hopping $\tilde{t}_{ij\sigma}$ is related via a Fourier transform to the renormalised bands $\tilde{\epsilon}_{\mathbf{k}\sigma}$.}
 
 We conclude this section by proving that the Fock contraction energy is given by:
 \begin{equation}\label{eq:normal-HU-fock-Ec}
@@ -488,9 +473,11 @@ Later, using spin degeneracy, we will omit the sum on $\sigma$ and the $1/2$ pre
 	which, using the fact that $u_\sigma^{(p_\ell)}=0$, proves Eq.~\eqref{eq:normal-HU-fock-Ec}.
 \end{tabproof}
 %
-In next section we collect all we found so far, discuss the properties of the HF hamiltonian and derive the free energy and entropy densities for its ground-state.
+In next section we collect all we found so far and discuss the properties of the HF hamiltonian.
 
 \section{The HF hamiltonian and its properties}
+
+\textbf{\color{tabred}[FROM NOW ON: WORK IN PROGRESS]}
 
 In the normal phase, the HF approximation to the hamiltonian is given by the following operator:
 \[
@@ -502,6 +489,8 @@ In the normal phase, the HF approximation to the hamiltonian is given by the fol
 \]
 Apart from energy shifts, this hamiltonian describes a perfectly degenerate Fermi gas whose bare bands are $\tilde{\epsilon}_{\mathbf{k}\sigma}$ as defined in Eq.~\eqref{eq:normal-bands-renormalisation}, and chemical potential $\tilde{\mu}$ as defined in Eq.~\eqref{eq:normal-mu-shift}. The latter is completely determined by the model parameters; the former must be determined self-consistently.
 
+In next subsection we discuss in detail the renormalisation of the hopping parameter in real space, with a focus on the meaning of the $d$-wave component. In the subsection that follow, we derive the free energy and entropy densities for the ground-state
+
 \subsection{Nematicity: extending hopping to $d$-wave bands}\label{subsec:normal-d-wave-hopping}
 
 \begin{figure}
@@ -510,6 +499,37 @@ Apart from energy shifts, this hamiltonian describes a perfectly degenerate Ferm
 	\caption{Graphic rendition of anisotropic hopping, with a $s^*$-wave component (symmetric by $\pi/$ rotations) and a $d$-wave component (antisymmetric).}
 	\label{fig:anisotropic-hopping}
 \end{figure}
+
+In Eq.~\eqref{eq:normal-H~t} we defined $\hat H_{\tilde{t}}$ in reciprocal space. Repeating the same derivation in real space, we get:
+\[
+\begin{aligned}
+	\hat H_{\tilde{t}} &= \hat H_t + V \sum_{\ev{ij}} \sum_\sigma \left[
+	\langle
+	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+	\rangle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} + \hc
+	\right] \\
+	&= - \sum_{\ev{ij}} \sum_\sigma 
+	\left[
+	\tilde{t}_{ij\sigma} \hat c_{i\sigma}^\dagger \hat c_{j\sigma} + \hc
+	\right]
+\end{aligned}
+\]
+where we defined the effective hopping amplitude
+\[
+\tilde{t}_{ij\sigma} \equiv t - V \langle
+\hat c_{j\sigma}^\dagger \hat c_{i\sigma}
+\rangle
+\qquad
+(\text{for $i,j$ NNs})
+\]
+Due to translational invariance, the renormalised hopping $\tilde{t}_{ij\sigma}$ depends only on the difference $i-j$. 
+
+
+
+
+
+
+------------------------------
 
 From Tabs.~\ref{tab:x-wave-real-factors} and \ref{tab:x-wave-reciprocal-factors} we can inverse-Fourier transform the form factors to get the full effective hopping,
 \[

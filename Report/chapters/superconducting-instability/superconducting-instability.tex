@@ -1,5 +1,5 @@
 \def\GraphicsFolder{chapters/superconducting-instability/pictures}
-\chapter{Superconducting instability}\label{chap:mft-sc-instability}
+\chapter{Superconducting instability}\label{chap:sc}
 
 In this chapter the HF methods introduced in Sec.~\ref{sec:sketch-hf-method} are applied to the SC phase. We study translationally-invariant superconductivity. Analytic calculations will lead us to various effects: bare bands renormalisation, anisotropic Cooper pairing and nematicity. Our description of the SC phase is closely related to the BCS solution for pure $s$-wave superconductivity.
 
@@ -114,11 +114,11 @@ In next sections we deal with each channel separately.
 
 \subsection{Local Hartree effects: chemical potential renormalisation}\label{subsec:sc-l-hartree}
 
-For the Hartree channel, being the density uniform across sites, we can re-use the entirety of Sec.~\ref{subsec:normal-hartree-analytic} for the normal phase. Substituting Eq.~\eqref{eq:sc-density-ansatz}, we get the approximation of Eq.~\eqref{eq:normal-HU-hartree-approx},
+For the Hartree channel, being the density uniform across sites, we can re-use the entirety of Sec.~\ref{subsec:normal-hartree-mu} for the normal phase. Substituting Eq.~\eqref{eq:sc-density-ansatz}, we get the approximation of Eq.~\eqref{eq:normal-HU-hartree-approx},
 \begin{equation}\label{eq:sc-HU-approx}
 	\hat H_U \HFsimeq nU \times \hat N - E_{\mathrm{H}/U}^{(\mathrm{SC})} + \text{(Cooper channel)}
 \end{equation}
-thus chemical potential renormalisation $\tilde{\mu} \to \mu - nU$ is present also in the SC phase. The contraction energy is the same of Eq.~\eqref{eq:normal-Ec-hU}
+thus chemical potential renormalisation $\tilde{\mu} \to \mu - nU$ is present also in the SC phase. The contraction energy is the same of Eq.~\eqref{eq:normal-HU-hartree-Ec}
 \begin{equation}\label{eq:sc-hartree-U-contraction-energy}
 	E_{\mathrm{H}/U}^{(\mathrm{SC})} = L_x L_y \times n^2 U
 \end{equation}
@@ -635,7 +635,7 @@ We start by analysing the non-local Hartree channel,
 	\hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle + \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} - \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle  \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle \Big) \\
 	+ (\text{Fock channel}) + (\text{Cooper channel})
 \end{multline*}
-where we used Eq.~\eqref{eq:mft-HV}. This discussion is based on that for the normal phase in Sec.~\ref{subsubsec:normal-hartree-mu}, and leads to an identical result: the non-local Hartree channel renormalises the chemical potential.
+where we used Eq.~\eqref{eq:mft-HV}. This discussion is based on that for the normal phase in Sec.~\ref{subsec:normal-hartree-mu}, and leads to an identical result: the non-local Hartree channel renormalises the chemical potential.
 
 We do not repeat the calculations already carried out for the normal phase. The non-local attraction $\hat H_V$ is reduced in the Hartree channel to
 \[
@@ -647,7 +647,7 @@ This, together Eq.~\eqref{eq:sc-HU-approx}, gives the chemical potential full re
 	\tilde{\mu} \equiv \mu + n(2zV-U)
 \end{equation}
 
-The contraction energy for the non-local sector was derived in Eq.~\eqref{eq:normal-hartree-V-contraction-energy},
+The contraction energy for the non-local sector was derived in Eq.~\eqref{eq:normal-HV-hartree-Ec},
 \[
 	E_{\mathrm{H}/V}^{(\mathrm{SC})} = - L_x L_y \times 2zn^2 V
 \]
@@ -662,7 +662,7 @@ As done for the other phases, we here discuss the bands renormalisation effect d
 	\hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\langle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} \big\rangle + \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\rangle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} - \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\rangle  \big\langle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} \big\rangle \Big)
 	+ (\text{Cooper channel})
 \end{multline*}
-This discussion is essentially analogous the one done for the normal phase in Sec.~\ref{subsec:normal-fock-bandsn}. It will lead us to renormalisation of bare bands, which is given by a simultaneous shrinking of bare bands and emergence of an anisotropic component in hopping. As for previous phases, following the selection rules of Tab.~\ref{tab:HV-sel-rules}, only the s.s. sector contributes. Therefore we use from now on, in this section, $\sigma=\sigma'$.
+This discussion is essentially analogous the one done for the normal phase in Sec.~\ref{subsec:normal-fock-bands}. It will lead us to renormalisation of bare bands, which is given by a simultaneous shrinking of bare bands and emergence of an anisotropic component in hopping. As for previous phases, following the selection rules of Tab.~\ref{tab:HV-sel-rules}, only the s.s. sector contributes. Therefore we use from now on, in this section, $\sigma=\sigma'$.
 
 In the context of the normal phase, when analysing the Fock channel, we got to Eq.~\eqref{eq:normal-V-fock-int5}. For the SC phase the same argument holds. Let us define, as done for the normal phase in Eq.~\eqref{eq:normal-uqsigma-def} and for the AF phase in Eq.~\eqref{eq:af-uqsigma-def},
 \begin{equation}

@@ -1,17 +1,9 @@
  \def\GraphicsFolder{chapters/ehm-symmetries/pictures}
 \chapter{Phase transitions and SSB in EHM}\label{chap:ehm-symmetries}
 
-The general idea of this project is to apply HF methods to the EHM, derive analytically the approximated quadratic hamiltonian of Eq.~\eqref{eq:hf-Hhf-k} and then apply the iHF procedure sketched in Sec.~\ref{sec:sketch-ihf-algorithm} to extract the self-consistent values of the various HFPs. One of the advantages of using iHF methods is that we can impose rather simply the symmetries of the HF approximated wavefunction.
+In this chapter we discuss the symmetries of the EHM, and describe the phases we will investigate in next chapter based on which symmetry they break. Then we connect this discussion with the HF method by deriving a set of selection rules on the HF approximation of the EHM hamiltonian for each phase. 
 
-This is most useful when dealing with competing phases. A phase transition is basically described by some spontaneous symmetry breaking (SSB) and the rising to a non-zero value of an order parameter. We will deal with three phases:
-\begin{enumerate}
-	\item the normal phase, where no symmetry is broken;
-	\item the antiferromagnetic phase, where we allow for spin density to be non-uniform across sites;
-	\item the superconducting phase, where we do not conserve particle number.
-\end{enumerate}
-Each phase is discussed in a separate chapter. Many other ``phases'' are possible, based on which symmetries are respected and which are not.
-
-For each phase, we will extract the best approximation to the true ground state wavefunction. In computational terms, we will find three solutions to the general self-consistency problem of Eq.~\eqref{eq:hf-self-consistency-general}. In the end we want to compare the free energy of these three solutions, assessing which one is the most stable. Any HF approximation, being by construction not the true ground state, overestimates energy. Thus, comparing energies of our solutions we get a hint of the features of the true ground state.
+This chapter serves as groundwork for the solution of the self-consistency problem posed in Eq.~\eqref{eq:hf-self-consistency-general} for each phase. We start by enumerating and demonstrating the symmetries of the EHM.
 
 \section{The EHM symmetries}\label{sec:ehm-syms}
 
@@ -29,7 +21,7 @@ In this section we present the symmetries of the extended Hubbard model introduc
 		- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat n_{i\sigma} \hat n_{j\sigma'}
 	}_{\hat H_V}
 \]
-The symmetries of the model can be divided in two groups: the ones related to the geometry of the square lattice, and those related to the algebraic properties of $\hat H_\mathrm{EHM}$. We start by the lattice symmetries.
+The symmetries of the model can be divided in two groups: the ones related to the geometry of the square lattice, and those related to the algebraic properties of $\hat H_\mathrm{EHM}$. We start with the lattice symmetries.
 
 \subsection{Lattice symmetries}\label{subsec:lattice-syms}
 
@@ -105,17 +97,25 @@ To prove this, it suffices to note that
 	\quad\to\quad
 	e^{i\eta} \hat c_{i\sigma}^\dagger e^{-i\eta} \hat c_{j\sigma'} = \hat c_{i\sigma}^\dagger \hat c_{j\sigma'}
 \end{equation}
-As a consequence, any product of fermionic operators with an equal number of annihilations and creations is gauge-symmetric. Hence the kinetic part $\hat H_t$ and the interactions $\hat H_U$, $\hat H_V$ are invariant. As a consequence, the total number of particles (charge)
+Any product of fermionic operators with an equal number of annihilations and creations is gauge-symmetric. Hence the kinetic part $\hat H_t$ and the interactions $\hat H_U$, $\hat H_V$ are invariant.
+
+We observe that the on-site density is gauge invariant,
+\begin{equation}\label{eq:ehm-n-gauge}
+	\hat n_{i\sigma} \to \hat n_{i\sigma}
+\end{equation}
+It follows that the total number of particles (charge)
 \[
 	\hat{N} = \sum_{i\sigma} \hat c_{i\sigma}^\dagger \hat c_{i\sigma}
 \]
-is a good quantum number. The symmetry is described by the transformation of Eq.~\eqref{eq:gauge-symmetry}, which is a pure phase shift by $\eta$. The relative group is $\mathrm{U}^\mathrm{c}(1)$, with a superscript ``$\mathrm{c}$'' indicating ``charge''.
+is a good quantum number. 
+
+Gauge symmetry is described by the transformation of Eq.~\eqref{eq:gauge-symmetry}, which is a pure phase shift by $\eta$. The gauge group is $\mathrm{U}^\mathrm{c}(1)$, with a superscript ``$\mathrm{c}$'' indicating ``charge''.
 
 \paragraph{Global spin symmetry}
 
-The EHM is described by three operators: NN hopping, independent of $\sigma$; local repulsion between opposite-spin densities; non-local attraction, independent of $\sigma$. If we rotate all spins by an equal amount, the hamiltonian must remain identical. An identical observation holds for the number operator, $\hat N$. Thus $\hat H_\mathrm{EHM}-\mu\hat N$ must be exhibit a global $\mathrm{SU}(2)$ symmetry, related to the rotation in $3$D space of all spins altogether.
+The EHM is described by three operators: the kinetic operator $\hat H_t$, independent of $\sigma$; the local repulsion $\hat H_U$ between opposite-spin densities; the non-local attraction $\hat H_V$, independent of $\sigma$. If we rotate all spins by an equal amount, the hamiltonian does not change. An identical observation holds for the number operator, $\hat N$. Thus $\hat H-\mu\hat N$ must be exhibit a global $\mathrm{SU}(2)$ symmetry, related to the rotation in $3$D space of all spins altogether.
 
-Let us prove this rigorously. Let the on-site spinor:
+Let us discuss this rigorously. We define the spinors $\hat \Psi_i$,
 \begin{equation}\label{eq:Psi-onsite}
 	\hat \Psi_i \equiv \begin{bmatrix}
 		\hat c_{i\uparrow} \\ \hat c_{i\downarrow}
@@ -138,7 +138,7 @@ and the Pauli matrices
 		& -1
 	\end{bmatrix}
 \]
-We define the local spin operator as:
+The local spin operator are defined as
 \begin{equation}\label{eq:local-S}
 	\hat S_i^\alpha \equiv \frac{1}{2} \hat \Psi_i^\dagger \tau^\alpha \hat \Psi_i
 	\qquad
@@ -187,7 +187,7 @@ with $\epsilon_{\alpha\beta\gamma}$ the Levi-Civita tensor. The $\mathfrak{su}(2
 
 \end{tabproof}
 
-Let the raising and lowering operators:
+We define the on-site raising and lowering operators:
 \[
 	\hat S_j^+ \equiv \frac{\hat S_j^x + i\hat S_j^y}{2}
 	\qquad
@@ -217,7 +217,7 @@ The EHM hamiltonian and the number operator commutate with the global spin opera
 \]
 For the non-local attraction, since it depends solely on total densities on neighbouring sites, spin-rotational invariance must hold,
 \begin{equation}\label{eq:[HV,S]=0}
-	\comm{\hat H_t + \hat H_U}{\hat{\mathbf{S}}} = 0
+	\comm{\hat H_V}{\hat{\mathbf{S}}} = 0
 \end{equation}
 Let us give a formal proof.
 
@@ -295,7 +295,7 @@ Let us give a formal proof.
 			&= \mathcal{R}(\bm{\theta}) \hat \Psi_i
 		\end{aligned}
 		\]
-		In last passage, we identified the series as the Taylor expansion of the exponential, recognising the expression for $\mathcal{R}(\bm{\theta})$ given in Eq.~\eqref{eq:ehm-R-exp}.
+		In the last line, we identified the series as the Taylor expansion of the exponential, recognising the expression for $\mathcal{R}(\bm{\theta})$ given in Eq.~\eqref{eq:ehm-R-exp}.
 		%
 		\item Then, the group acts on the product $\hat \Psi_i^\dagger \hat \Psi_i$ as
 		\[
@@ -307,12 +307,18 @@ Let us give a formal proof.
 		\]
 		being $\mathcal{R} \in \mathrm{SU}(2)$. Recalling Eqns.~\eqref{eq:ehm-HV-4xPsi}, we conclude that $\hat H_V$ is $\mathrm{SU}(2)$ symmetric -- which means, it does not change under global spin rotations. This fact implies Eq.~\eqref{eq:[HV,S]=0}.
 	\end{enumerate}
-
 \end{tabproof}
+%
+We observe that the above proof can be used to show that the on-site number operator is spin-invariant,
+\begin{equation}\label{eq:ehm-n-spin}
+	\hat n_{i\sigma} = \hat \Psi_i^\dagger \hat \Psi_i 
+	\quad\implies\quad
+	\comm{\hat n_{i\sigma}}{\hat{\mathbf{S}}} = 0
+\end{equation}
 
-The EHM is symmetric under global spin rotations. Note that $\hat H_V$ is actually symmetric under local spin rotations, meaning that we could rotate the spin at each site by a different amount and get the same interaction. The same holds for $\hat H_U$. It is the kinetic operator that makes the EHM globally (and not locally) $\mathrm{SU}(2)$ symmetric.
+The EHM is symmetric under global spin rotations. Specifically, both $\hat H_U$ and $\hat H_V$ are symmetric also under local spin rotations, meaning that we could rotate the spin at each site by a different amount and get the same interaction. It is the kinetic operator that makes the EHM globally (and not locally) $\mathrm{SU}(2)$ symmetric.
 
-The $U^\mathrm{c}(1)$ gauge symmetry and the $\mathrm{SU}(2)$ spin rotations symmetry can be combined,
+The $\mathrm{U}^\mathrm{c}(1)$ gauge symmetry and the $\mathrm{SU}(2)$ spin rotations symmetry can be combined,
 \[
 	\mathrm{U}^\mathrm{c}(1) \otimes \mathrm{SU}(2) = \mathrm{U}(2)
 \]
@@ -320,7 +326,7 @@ We will refer to $\mathrm{U}(2)$ symmetry to indicate full charge-spin conservat
 \[
 	\mathrm{U}^z(1) \subset \mathrm{SU}(2)
 \]
-where the $z$ superscript serves to distinguish from the gauge group. The $z$ axis does not need to be identified with the ``real'' $z$ axis, perpendicular with the lattice plane. Any given direction works. Inverting our logic, we can build the $\mathrm{SU}(2)$ generators, starting from $\hat S^z$, after we have chosen the direction $z$. In terms of commutation relations, a given operator can respect $\mathrm{U}^z(1)$ but not $\mathrm{SU}(2)$: in that case, it will commutate to zero with $\hat S^z$, and not the other spin operators.
+where the $z$ superscript serves to distinguish from the gauge group. The $z$ axis does not need to be identified with the ``real'' $z$ axis, perpendicular with the lattice plane. Any given direction works. Inverting our logic, we can build the $\mathrm{SU}(2)$ generators, starting from $\hat S^z$, after we have chosen the direction $z$. In terms of commutation relations, a given operator can respect $\mathrm{U}^z(1)$ but not $\mathrm{SU}(2)$: in that case, it will commutate with $\hat S^z$, and not the other spin operators.
 %
 \begin{figure}
 	\centering
@@ -337,11 +343,11 @@ where the $z$ superscript serves to distinguish from the gauge group. The $z$ ax
 	\label{fig:su2-u1-domains}
 \end{figure}
 %
-A graphic rendition of this SSB is given in Fig.~\ref{fig:su2-u1-domains}, representing for a given vector $\mathbf{m}$ the passage from full $\mathrm{SU}(2)$ rotational symmetry around any direction to reduced $\mathrm{U}(1)$ rotational symmetry around just one direction.
+A graphic rendition of this SSB is given in Fig.~\ref{fig:su2-u1-domains}, representing for a given vector $\mathbf{m}$ the passage from full $\mathrm{SU}(2)$ rotational symmetry around any direction to reduced $\mathrm{U}^z(1)$ rotational symmetry around just one direction.
 
 \subsection{Particle-hole symmetry at half-filling}\label{subsec:phs}
 
-The half-filled EHM on the square lattice exhibits particle-hole symmetry (PHS). The presence of this additional symmetry is a consequence of the fact that the square lattice is bipartite. Let us prove this. Consider the generic unitary particle-hole (PH) transformation
+The half-filled EHM on the square lattice exhibits particle-hole symmetry (PHS). The presence of this additional symmetry is a consequence of the fact that the square lattice is bipartite. The generic unitary particle-hole (PH) transformation is given by
 \begin{equation}\label{eq:phs-P-general}
 	\mathrm{P}
 	\quad\colon\quad
@@ -376,7 +382,7 @@ the above hamiltonian is mapped onto the EHM of \eqref{eq:extended-hubbard-model
 	+U \sum_{i\in\mathcal{L}} \hat h_{i\uparrow}^\dagger \hat h_{i\downarrow}^\dagger \hat h_{i\downarrow} \hat h_{i\uparrow}
 	- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'} \hat h_{j\sigma'} \hat h_{i\sigma}
 \]
-The equality $\mathrm{P} \lbrace \hat H \rbrace = \hat H$ expresses PHS. This holds as long as we work at half-filling.
+The equality $\mathrm{P} \lbrace \hat H \rbrace = \hat H$ expresses PHS, which holds as long as we work at half-filling. Let us give a proof.
 
 \begin{tabproof}[PHS at half filling, with $\eta_i$ given by Eq.~\eqref{eq:phs}]
 
@@ -407,7 +413,7 @@ The equality $\mathrm{P} \lbrace \hat H \rbrace = \hat H$ expresses PHS. This ho
 			\hat h_{i\sigma} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}
 		\right) \delta_{ij}\delta_{\sigma\sigma'} \label{eq:phs-hhhh-chain}
 	\end{align}
-	The first term of the last passage is mirrored with respect to the starting term. Now, let us deal with the kinetic, local and non-local interactions separately.
+	The first term of the last passage is mirrored with respect to the starting term. In next paragraphs we derive the constraint of Eq.~\eqref{eq:phs} and the requirement to work at half-filling.
 	
 	\paragraph{Kinetic term.}
 	
@@ -415,15 +421,15 @@ The equality $\mathrm{P} \lbrace \hat H \rbrace = \hat H$ expresses PHS. This ho
 	\[
 		\hat H_t = -t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
 	\]
-	Apply the PH transform of Eq.~\eqref{eq:phs-P-general}
+	We apply the PH transform of Eq.~\eqref{eq:phs-P-general}
 	\[
 		\mathrm{P} \lbrace \hat H_t \rbrace = -t \sum_{\langle ij \rangle} \sum_\sigma e^{i(\eta_{i\sigma} + \eta_{j\sigma})} \hat h_{i\sigma} \hat h_{j\sigma}^\dagger
 	\]
-	Anti-commutate the two fermionic operators, and exchange site labels $i \leftrightarrow j$. We get:
+	Anti-commutating the two fermionic operators, and exchanging site labels $i \leftrightarrow j$, we get:
 	\[
 		\mathrm{P} \lbrace \hat H_t \rbrace = -t \sum_{\langle ij \rangle} \sum_\sigma e^{i(\eta_{i\sigma} + \eta_{j\sigma}+\pi)} \hat h_{i\sigma}^\dagger \hat h_{j\sigma}
 	\]
-	To get $\mathrm{P} \lbrace \hat H_t \rbrace = \hat H_t$, a necessary condition on the unitary operation $\mathrm{P}$ is the following,
+	To obtain $\mathrm{P} \lbrace \hat H_t \rbrace \Ieq \hat H_t$, a necessary condition on the unitary operation $\mathrm{P}$ is the following,
 	\begin{equation}\label{eq:phs-P-condition}
 		\eta_{i\sigma} + \eta_{j\sigma} \Ieq (2k-1)\pi
 		\qq{with}
@@ -447,7 +453,7 @@ The equality $\mathrm{P} \lbrace \hat H \rbrace = \hat H$ expresses PHS. This ho
 	
 	\paragraph{Non-local attraction.}
 	
-	Proceed identically for $\hat H_V$,
+	We proceed identically for $\hat H_V$,
 	\[
 	\begin{aligned}
 		\mathrm{P} \lbrace \hat H_V \rbrace &= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger \hat h_{i\sigma}^\dagger \\
@@ -457,7 +463,7 @@ The equality $\mathrm{P} \lbrace \hat H \rbrace = \hat H$ expresses PHS. This ho
 		&= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} - 2zV (\hat N - L_x L_y)
 	\end{aligned}
 	\]
-	with $z=4$ the lattice coordination number. In the last passage, we used that on the square lattice
+	with $z=4$ the lattice coordination number. In the last line, we used that on the square lattice
 	\begin{align}
 		\sum_{\ev{ij}} (1) &= \sum_{i\in\mathcal{L}/2} z \nonumber \\
 		&= \frac{L_x L_y}{2} \times z \label{eq:square-NN-ghost-sum}
@@ -483,19 +489,19 @@ As for the conventional HM \cite{arovas2022hubbard}, this result can be generali
 	\label{tab:symmetry-groups}
 \end{table}
 
-\section{Symmetry breaking channels in real space}\label{sec:ehm-sym-break}
+\section{The HF method and symmetry breaking}\label{sec:ehm-sym-break}
 
-In many-body Physics, a phase transition is described by some order parameter rising from zero to a non-zero value. This is associated with some spontaneous symmetry breaking (SSB). In order to simulate different phases, we need a way to distinguish them based on which symmetries they break (or not). We also need a way to work computationally in a given symmetry sector. HF methods, by reducing the hamiltonian to a non-interacting approximation, offer a simple framework to these ends. Indeed, once we identified all symmetries of a given phase, we just impose them on our approximation of the full hamiltonian. The found ground-state approximation will entail these symmetries by construction.
-
-Recall now the discussion of the HF method of Sec.~\ref{sec:sketch-hf-method}. The ending point were Eqns.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}, which identify the self-consistent single-particle fields which approximate the original quartic hamiltonian. In order to get there, we applied Wick's theorem to the quartic part of the hamiltonian and derived the most general expressions of $\mathbf{h}$. In next sections here apply Wick's theorem to the quartic operators of $\hat H_\mathrm{EHM}$ and discuss the symmetry properties of the resulting decomposition.
-
-Before starting, let us define precisely the three phases we will investigate in terms of symmetries:
+In Quantum Mechanics, a phase transition is described by the breaking of some natural symmetry of the hamiltonian. In this thesis we investigate three phases:
 \begin{itemize}
 	\item Normal phase: no broken symmetry.
-	\item Antiferromagnetic phase: simultaneous $\mathrm{SU}(2) \SSB \mathrm{U}^z(1)$ and $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)} \SSB \mathrm{T}_2^{(x)} \otimes \mathrm{T}_2^{(y)}$. Among all possible realisations of antiferromagnetism, we realise a SDW with alternating distribution of spin densities;
-	\item Superconducting phase: simultaneous $\mathrm{U}^c(1) \SSB 0$ and $\mathrm{C}_4 \SSB \mathrm{C}_2$. We investigate anisotropic superconductivity, allowing for the particle number to be not conserved and for nematic effects.
+	\item Antiferromagnetic phase: simultaneous $\mathrm{SU}(2) \SSB \mathrm{U}^z(1)$ and $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)} \SSB \mathrm{T}_2^{(x)} \otimes \mathrm{T}_2^{(y)}$. We study the so-called ``commensurate antiferromagnetism''.
+	\item Superconducting phase: simultaneous $\mathrm{U}^c(1) \SSB 0$ and $\mathrm{C}_4 \SSB \mathrm{C}_2$. We investigate anisotropic superconductivity and breaking of planar rotational symmetry, observed in unconventional superconductors \cite{bohmer2022nematicity}.
 \end{itemize}
-Nematic effects are observed in unconventional superconductors \cite{bohmer2022nematicity}, and this is the reason of our interest in the possibility of rotational SSBs. We will theoretically discuss the nematic SSB $\mathrm{C}_4 \to \mathrm{C}_2$ also for normal and AF phases, as if discrete rotational symmetry was broken. As we will see, while it not trivial to exclude it \textit{a priori}, it will actually turn out that the HF ground state preserves $\mathrm{C}_4$ in both cases.
+In the subsections that follow we discuss how to implement these SSBs in the context of the HF method. Indeed, we investigate each of these phases by approximating the EHM hamiltonian 
+\[
+	\hat H \HFsimeq \hat H_\mathrm{HF}
+\]
+with an operator $\hat H_\mathrm{HF}$ that respects the symmetries of the given phase. Hence, starting by the general decomposition of the two interactions $\hat H_U$ and $\hat H_V$, given respectively in Eqns.~\eqref{eq:mft-HU} and \eqref{eq:mft-HV}, we discuss the symmetry properties of each sector.
 
 \begin{figure}
 	\centering
@@ -504,7 +510,7 @@ Nematic effects are observed in unconventional superconductors \cite{bohmer2022n
 	\label{fig:square-nearest-neighbors}
 \end{figure}
 
-We now move to a more detailed discussion of each hamiltonian contribution. In next sections, we switch from the site index $i$ to the vector notation $\mathbf{r}$, indicating the site 2D position on the lattice
+In next subsections, we switch from the site index $i \in \mathcal{L}$ to the vector notation $\mathbf{r} \in \mathbb{N}^2$, indicating the site 2D position on the lattice
 \[
 	i \quad\to\quad \mathbf{r} = (x,y)
 \]
@@ -518,14 +524,14 @@ as in Fig.~\ref{fig:square-nearest-neighbors}.
 
 \subsection{Local repulsion}\label{subsec:ehm-sym-break-HU}
 
-The local repulsion $\hat H_U$ is the quartic operator of the conventional HM,
+The local repulsion $\hat H_U$ is given by:
 \[
 \begin{aligned}
 	\hat H_U &= U \sum_{\mathbf{r}\in\mathcal{L}} \hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}\downarrow} \\
 	&= U \sum_{\mathbf{r}\in\mathcal{L}} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow}
 \end{aligned}
 \]
-In order to obtain the self-consistent values of $h_{\alpha\beta}^{+-}$, $h_{\alpha\beta}^{++}$ we need to compute an expectation value of the full hamiltonian. Wick's theorem guarantees that, for the wavefunctions we are using, the expectation value of a quartic fermionic operator is the sum of all fully contracted terms. Recalling the nomenclature of Eq.~\eqref{eq:hf-wick-hfc},
+Applying Wick's theorem and using the denominations of Eq.~\eqref{eq:hf-wick-hfc} we have:
 \begin{equation}\label{eq:ehm-HU-wick}
 	\langle
 		\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow}
@@ -553,7 +559,7 @@ In order to obtain the self-consistent values of $h_{\alpha\beta}^{+-}$, $h_{\al
 		\rangle 
 	}_{\text{Cooper}}
 \end{equation}
-where the equal sign holds as long as we perform the averaging operation on the subspace of gaussian states. Now we discuss the above EVs separately, identifying if any can be neglected based on selection rules in a given phase.
+where the equality holds exactly as long as we perform the averaging operation on the subspace of gaussian states. We now discuss the above EVs separately, obtaining selection rules for each phase.
 
 \paragraph{Hartree term.} The Hartree part of the above decomposition is a product of density EVs,
 \[
@@ -563,7 +569,7 @@ where the equal sign holds as long as we perform the averaging operation on the 
 		\hat n_{\mathbf{r}\downarrow}
 	\rangle
 \]
-Recalling the groups of Tab.~\ref{tab:symmetry-groups}, we see that the density operator preserves all symmetries. Single-site density operators commutate with spin operators and are gauge-invariant. Moreover, shifting or rotating the lattice leaves density operators unchanged. Thus no selection rule applies, and the above EVs are in principle non-zero.
+From Eq.~\eqref{eq:ehm-n-gauge}, \eqref{eq:ehm-n-spin} we know that  single-site number operators are invariant under the entire group $\mathrm{U}(2)$. Moreover, shifting or rotating the lattice leaves density operators unchanged. Thus no selection rule applies, and the above EVs are in principle non-zero.
 
 \paragraph{Fock terms.} For the Fock part, notice that
 \[
@@ -575,7 +581,7 @@ being $S_\mathbf{r}^+$ the local raising operator. From $\mathfrak{su}(2)$ algeb
 	\qquad
 	\alpha \in \lbrace x,y,z \rbrace
 \]
-If the ground-state is invariant under global spin rotations, these EVs must be zero. Gauge symmetry gives no selection rules, due to Eq.~\eqref{eq:gauge-symmetry-c+c-}.
+If the ground-state is invariant under global spin rotations, $\langle \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow} \rangle$ must be zero. instead, gauge symmetry gives no selection rules, due to Eq.~\eqref{eq:gauge-symmetry-c+c-}.
 
 \paragraph{Cooper terms.} The Cooper part can be non-zero only if charge is not conserved. In terms of the gauge symmetry, it suffices to apply the map of Eq.~\eqref{eq:gauge-symmetry} to $\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger$ 
 \[
@@ -638,89 +644,36 @@ In Tab.~\ref{tab:HU-sel-rules} we collect the selection rules for the Hartree, F
 
 \subsection{Non-local attraction}\label{subsec:ehm-sym-break-HV}
 
-In order to analyse similarly the non-local attraction $\hat H_V$, it is useful to decompose the operator in spin channels:
+The non-local attraction $\hat H_V$ is given by:
 \begin{align}
-	\hat H_V &\equiv 
+	\hat H_V &= -V \sum_{\langle \mathbf{r}\mathbf{r}' \rangle} \sum_{\sigma,\sigma'} \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}\sigma'} \label{eq:ehm-HV-full} \\
+	&= V \sum_{\langle \mathbf{r}\mathbf{r}' \rangle} \sum_{\sigma,\sigma'} \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}'\sigma'}^\dagger \hat c_{\mathbf{r}'\sigma'} \hat c_{\mathbf{r}\sigma} \nonumber
+\end{align}
+Let
+\[
+	\hat H_V^{\sigma\sigma'} \equiv - V \sum_{\langle \mathbf{r},\mathbf{r}' \rangle} \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}'\sigma'}
+\]
+The interaction decomposes in two ``spin sectors''
+\begin{align}
+	\hat H_V &= 
 	\underbrace{
 		\hat H_V^{\uparrow\uparrow} + \hat H_V^{\downarrow\downarrow}
 	}_{\text{Same spin}} +
 	\underbrace{
 		\hat H_V^{\uparrow\downarrow} + \hat H_V^{\downarrow\uparrow}
 	}_{\text{Opposite spin}} \nonumber \\
-	&= \hat H^{(\mathrm{s.s.})} + \hat H^{(\mathrm{o.s.})} \label{eq:ehm-HV(ss)+HV(os)}
+	&\equiv \hat H^{(\mathrm{s.s.})} + \hat H^{(\mathrm{o.s.})} \label{eq:ehm-HV(ss)+HV(os)}
 \end{align}
-being
-\[
-	\hat H_V^{\sigma\sigma'} \equiv - V \sum_{\langle \mathbf{r},\mathbf{r}' \rangle} \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}'\sigma'}
-\]
+where we further separated in s.s. and o.s. operators.
 
-Let us start from the opposite spin sector. On the square lattice (as for any bipartite lattice) NNs belong to different sublattices. This implies that any NNs sum can be rewritten as:
-\begin{equation}\label{eq:ehm-NNs-sum(f)}
-	\sum_{\langle \mathbf{r}\mathbf{r}' \rangle} f(\mathbf{r},\mathbf{r}') = \sum_{\mathbf{r}\in\mathcal{L}/2} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} f(\mathbf{r},\mathbf{r}+\bm{\delta})
-\end{equation}
-with $f$ some function. We are using the notation of Fig.~\ref{fig:square-nearest-neighbors}. The symbol ``$\mathcal{L}/2$'' indicates one of the two sublattices $\mathcal{S}_1$, $\mathcal{S}_2$ represented in Fig.~\ref{fig:square-sublattices}. We can rewrite:
-\[
-	\hat H_V^{\sigma\sigma'} = - V 
-	\sum_{\mathbf{r}\in\mathcal{L}/2} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left(\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}+\bm{\delta}\sigma'} + \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}-\bm{\delta}\sigma'}\right)
-\]
-Now, if we choose $\mathcal{L}/2 = \mathcal{S}_1$, this gives:
-\[
-\begin{aligned}
-	\hat H_V^{\uparrow\downarrow} &= - V 
-	\sum_{\mathbf{r}\in\mathcal{S}_1} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left(\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}+\bm{\delta}\downarrow} + \hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}-\bm{\delta}\downarrow}\right) \\
-	\hat H_V^{\downarrow\uparrow} &= - V 
-	\sum_{\mathbf{r}\in\mathcal{S}_1} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left(\hat n_{\mathbf{r}\downarrow} \hat n_{\mathbf{r}+\bm{\delta}\uparrow} + \hat n_{\mathbf{r}\downarrow} \hat n_{\mathbf{r}-\bm{\delta}\uparrow}\right)
-\end{aligned}
-\]
-These two operators are ``complementary'': $\sigma=\uparrow$ densities act on $\mathcal{S}_1$ for $\hat H_V^{\uparrow\downarrow}$, on $\mathcal{S}_2$ for $\hat H_V^{\downarrow\uparrow}$; $\sigma=\downarrow$ densities, the opposite. Then their sum can be expressed as:
-\begin{align}
-	\hat H_V^{(\text{o.s.})} &\equiv \hat H_V^{\uparrow\downarrow}  + \hat H_V^{\downarrow\uparrow} \nonumber \\
-	&= - V 
-	\sum_{\mathbf{r}\in\mathcal{L}} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left(\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}+\bm{\delta}\downarrow} + \hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}-\bm{\delta}\downarrow}\right) \label{eq:ehm-HV(os)}
-\end{align}
-In the context of the HF method, Wick's theorem applied to this quartic operator gives:
-\begin{align}
-	\langle 
-	\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r} \pm \bm{\delta} \downarrow}
-	\rangle &= \langle
-		\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \downarrow}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \downarrow} \hat c_{\mathbf{r}\uparrow}
-	\rangle \nonumber \\
-	&=
-	\underbrace{
-		\langle 
-		\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\uparrow}
-		\rangle \langle	
-		\hat c_{\mathbf{r} \pm \bm{\delta} \downarrow}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \downarrow}
-		\rangle
-	}_{\text{Hartree}}
-	- 
-	\underbrace{
-		\langle 
-		\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \downarrow}
-		\rangle \langle	
-		\hat c_{\mathbf{r} \pm \bm{\delta} \downarrow}^\dagger \hat c_{\mathbf{r}\uparrow}
-		\rangle 
-	}_{\text{Fock}}
-	+
-	\underbrace{
-		\langle 
-		\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \downarrow}^\dagger
-		\rangle \langle	
-		\hat c_{\mathbf{r} \pm \bm{\delta} \downarrow} \hat c_{\mathbf{r}\uparrow}
-		\rangle 
-	}_{\text{Cooper}}	
-	\label{eq:ehm-HV(os)-wick}
-\end{align}
-This equality is to be intended limitedly to the subspace of states that we are considering for the HF variational search.
-
-For the same-spin sector we define
+The operator $\hat H^{(\mathrm{s.s.})}$ can be written as follows:
 \begin{align}
 	\hat H_V^{(\mathrm{s.s.})} &\equiv \hat H_V^{\uparrow\uparrow}  + \hat H_V^{\downarrow\downarrow} \nonumber \\
 	&= -V \sum_{\mathbf{r} \in \mathcal{L}/2} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \sum_{\sigma \in \lbrace \uparrow, \downarrow \rbrace} \left(
-		\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}+\bm{\delta} \sigma} + \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}-\bm{\delta}\sigma}
+	\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}+\bm{\delta} \sigma} + \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}-\bm{\delta}\sigma}
 	\right) \label{eq:ehm-HV(ss)}
 \end{align}
-Note that, with respect to the o.s. sector, we are summing on half the sites two times: one for spin $\uparrow$, one for spin $\downarrow$. Applying Wick's theorem:
+where the sum over $\mathcal{L}/2$, in last line, means that we are summing over just one sublattice (it does not matter which one). Applying Wick's theorem in the subspace of gaussian states, we get:
 \begin{align}
 	\langle 
 	\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} \pm \bm{\delta} \sigma}
@@ -753,11 +706,101 @@ Note that, with respect to the o.s. sector, we are summing on half the sites two
 	}_{\text{Cooper}}	
 	\label{eq:ehm-HV(ss)-wick}
 \end{align}
-As we did for $\hat H_U$, we analyse each separately.
+Let us demonstrate Eq.~\eqref{eq:ehm-HV(ss)}.
+
+\begin{tabproof}[Proof of Eq.~\eqref{eq:ehm-HV(ss)}]
+
+	Let $f(\mathbf{r},\mathbf{r}')$ be a function of two variables on the square lattice. Summing over NNs, we get the identity
+	\[
+		\sum_{\langle \mathbf{r}\mathbf{r}' \rangle} f(\mathbf{r},\mathbf{r}') = \sum_{\mathbf{r}\mathbf{r}'} f(\mathbf{r},\mathbf{r}') \left(
+			\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
+		\right)
+	\]
+	where we used the notation of Fig.~\ref{fig:square-nearest-neighbors}. The above sum is identically written as:
+	\begin{equation}\label{eq:ehm-NNs-sum(f)}
+		\sum_{\langle \mathbf{r}\mathbf{r}' \rangle} f(\mathbf{r},\mathbf{r}') = \sum_{\mathbf{r}\in\mathcal{L}/2} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left[
+			f(\mathbf{r},\mathbf{r}+\bm{\delta}) + f(\mathbf{r},\mathbf{r}-\bm{\delta})
+		\right]
+	\end{equation}
+	The symbol ``$\mathcal{L}/2$'' indicates one of the two sublattices $\mathcal{S}_1$, $\mathcal{S}_2$ represented in Fig.~\ref{fig:square-sublattices}. Inserting Eq.~\eqref{eq:ehm-NNs-sum(f)} in Eq.~\eqref{eq:ehm-HV-full}, we obtain:
+	\begin{equation}\label{eq:ehm-HV-full-NNs}
+		\hat H_V = -V \sum_{\mathbf{r} \in \mathcal{L}/2} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \sum_{\sigma,\sigma'} \left(
+			\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}+\bm{\delta} \sigma'} + \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}-\bm{\delta}\sigma'}
+		\right)
+	\end{equation}
+	By taking the s.s. sector of the above equation, namely $\sigma=\sigma'$, we obtain Eq.~\eqref{eq:ehm-HV(ss)}.
+
+\end{tabproof}
+
+The operator $\hat H^{(\mathrm{o.s.})}$ can be written as follows:
+\begin{align}
+	\hat H_V^{(\text{o.s.})} &\equiv \hat H_V^{\uparrow\downarrow}  + \hat H_V^{\downarrow\uparrow} \nonumber \\
+	&= - V 
+	\sum_{\mathbf{r}\in\mathcal{L}} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left(\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}+\bm{\delta}\downarrow} + \hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}-\bm{\delta}\downarrow}\right) \label{eq:ehm-HV(os)}
+\end{align}
+From Wick's theorem:
+\begin{align}
+	\langle 
+	\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r} \pm \bm{\delta} \downarrow}
+	\rangle &= \langle
+	\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \downarrow}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \downarrow} \hat c_{\mathbf{r}\uparrow}
+	\rangle \nonumber \\
+	&=
+	\underbrace{
+		\langle 
+		\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\uparrow}
+		\rangle \langle	
+		\hat c_{\mathbf{r} \pm \bm{\delta} \downarrow}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \downarrow}
+		\rangle
+	}_{\text{Hartree}}
+	- 
+	\underbrace{
+		\langle 
+		\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \downarrow}
+		\rangle \langle	
+		\hat c_{\mathbf{r} \pm \bm{\delta} \downarrow}^\dagger \hat c_{\mathbf{r}\uparrow}
+		\rangle 
+	}_{\text{Fock}}
+	+
+	\underbrace{
+		\langle 
+		\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \downarrow}^\dagger
+		\rangle \langle	
+		\hat c_{\mathbf{r} \pm \bm{\delta} \downarrow} \hat c_{\mathbf{r}\uparrow}
+		\rangle 
+	}_{\text{Cooper}}	
+	\label{eq:ehm-HV(os)-wick}
+\end{align}
+Again, equality holds in the subspace of gaussian states. Let us prove Eq.~\eqref{eq:ehm-HV(os)}.
+
+\begin{tabproof}[Proof of Eq.~\eqref{eq:ehm-HV(os)}]
+
+	Consider Eq.~\eqref{eq:ehm-HV-full-NNs}, restricting to $\sigma=\uparrow$, $\sigma'=\downarrow$ and setting $\mathcal{L}/2 = \mathcal{S}_1$. We obtain
+	\[
+		\hat H_V^{\uparrow\downarrow} = - V 
+		\sum_{\mathbf{r}\in\mathcal{S}_1} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left(\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}+\bm{\delta}\downarrow} + \hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}-\bm{\delta}\downarrow}\right)
+	\]
+	Note that spin $\uparrow$ operators act on the sublattice $\mathcal{S}_1$; spin $\downarrow$ operators act on the sublattice $\mathcal{S}_2$. If instead, from Eq.~\eqref{eq:ehm-HV-full-NNs}, we restrict to $\sigma=\downarrow$, $\sigma'=\uparrow$ and set $\mathcal{L}/2 = \mathcal{S}_2$, we get:
+	\[
+		\hat H_V^{\downarrow\uparrow} = - V 
+		\sum_{\mathbf{r}\in\mathcal{S}_2} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left(\hat n_{\mathbf{r}\downarrow} \hat n_{\mathbf{r}+\bm{\delta}\uparrow} + \hat n_{\mathbf{r}\downarrow} \hat n_{\mathbf{r}-\bm{\delta}\uparrow}\right)
+	\]
+	We observe that if $\mathbf{r}\in\mathcal{S}_2$, all its NNs belong to $\mathcal{S}_1$. Again, spin $\uparrow$ operators act on the sublattice $\mathcal{S}_1$; spin $\downarrow$ operators act on the sublattice $\mathcal{S}_2$.
+	
+	Therefore, summing $\hat H_V^{\uparrow\downarrow} + \hat H_V^{\downarrow\uparrow}$, we obtain
+	\[
+		\hat H_V^{\uparrow\downarrow} + \hat H_V^{\downarrow\uparrow} = - V 
+		\sum_{\mathbf{r}\in\mathcal{L}} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left(\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}+\bm{\delta}\downarrow} + \hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}-\bm{\delta}\downarrow}\right)
+	\]
+	which coincides with Eq.~\eqref{eq:ehm-HV(os)}.
+	
+\end{tabproof}
+
+The separation of $\hat H_V$ in o.s. and s.s. sector is necessary in order to derive a set of selection rules for the Wick's contractions of Eqns.~\eqref{eq:ehm-HV(ss)-wick}, \eqref{eq:ehm-HV(os)-wick}. This is done in next paragraphs.
 
 \paragraph{Hartree terms.}
 
-As it was for $\hat H_U$, Hartree EVs of Eqns.~\eqref{eq:ehm-HV(os)}, \eqref{eq:ehm-HV(ss)} are not subject to selection rules for any symmetry of Tab.~\ref{tab:symmetry-groups}. Thus they are allowed in both sectors.
+As was for the local repulsion $\hat H_U$, the non-local Hartree terms of Eqns.~\eqref{eq:ehm-HV(os)}, \eqref{eq:ehm-HV(ss)} are not subject to selection rules for any symmetry of Tab.~\ref{tab:symmetry-groups}. Thus they are allowed in both sectors.
 
 \paragraph{Fock terms.}
 
@@ -807,7 +850,7 @@ In Tab.~\ref{tab:HV-sel-rules} we summarise these considerations, listing a set 
 
 \section{The EHM in reciprocal space}
 
-The EHM is symmetric under discrete lattice translations. We will investigate phases that do not (completely) break translational invariance. It is thus convenient to move to reciprocal space, by Fourier-transforming the hamiltonian. We will use the following convention:
+The EHM is symmetric under discrete lattice translations. We will investigate phases that do not (completely) break translational invariance. Therefore, It is convenient to move to reciprocal space, by Fourier-transforming the hamiltonian. We will use the following convention:
 \begin{equation}\label{eq:fourier-convention}
 	\hat c_{\mathbf{r}\sigma} \Feq \frac{1}{\sqrt{L_xL_y}} \sum_{\mathbf{k} \in \mathrm{BZ}} e^{-i \mathbf{k} \cdot \mathbf{r}} \hat c_{\mathbf{k}\sigma}
 \end{equation}
@@ -1023,7 +1066,7 @@ Sums over the variables $\mathbf{K}, \mathbf{k}, \mathbf{k}'$ must be intended a
 
 \end{tabproof}
 
-All these expressions are going to be used in the analysis of each phase. In reciprocal space, following the general decomposition presented in Eq.~\eqref{appeq:mft-V-decomposition} for a quartic operator $\hat c_{\mathbf{k}_1}^\dagger \hat c_{\mathbf{k}_2}^\dagger \hat c_{\mathbf{k}_3} \hat c_{\mathbf{k}_4}$, we distinguish contractions as follows:
+In reciprocal space, following the general decomposition presented in Eq.~\eqref{appeq:mft-V-decomposition} for a quartic operator $\hat c_{\mathbf{k}_1}^\dagger \hat c_{\mathbf{k}_2}^\dagger \hat c_{\mathbf{k}_3} \hat c_{\mathbf{k}_4}$, we distinguish contractions as follows:
 \begin{itemize}
 	\item Hartree contractions:
 	\[
@@ -1056,9 +1099,43 @@ All these expressions are going to be used in the analysis of each phase. In rec
 		}
 	\]
 \end{itemize}
-with appropriate sign factors. With the EHM expressed in reciprocal space, there is no general feature left to address. We can move to the detailed discussion of each phase.
+with appropriate sign factors.
 
 \section{Square lattice spatial symmetry channels}\label{sec:square-lattice-symmetries}
+
+In this section we give two mathematical identities that are going to be used extensively. We define the set of functions $\varphi_{\mathbf{r}\mathbf{r}'}^{(\gamma)}$, with $\gamma \in \lbrace s,s^*,p_x,p_y, d \rbrace$, in Tab.~\ref{tab:x-wave-real-factors}; we plot them in Fig.~\ref{fig:x-wave-real-factors}. We will often refer to them as ``harmonics''. By construction, these functions obey an orthonormality condition:
+\begin{equation}\label{eq:vphi-ortho}
+	\frac{1}{L_x L_y} \sum_{\mathbf{r}\mathbf{r}'} \varphi_{\mathbf{r}\mathbf{r}'}^{(\gamma)} \varphi_{\mathbf{r}\mathbf{r}'}^{(\gamma')*} = \delta_{\gamma\gamma'}
+\end{equation}
+which is proven by direct computation.
+
+\setlength{\extrarowheight}{1em}
+\begin{table}[t]
+	\centering
+	\begin{tabular}{r E l l}
+		\textbf{Channel} & \multicolumn{2}{c}{\textbf{Form factor}} & \textbf{Graph} \\
+		\midrule
+		$s$-wave & $\varphi^{(s)}_{\mathbf{r}\mathbf{r}'}$ & $\delta_{\mathbf{r}\mathbf{r}'}$ & Fig.~\ref{subfig:s-wave-correlator} \\
+		$s^*$-wave & $\varphi^{(s^*)}_{\mathbf{r}\mathbf{r}'}$ &
+		$\displaystyle \frac{1}{2} \left[
+		\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
+		\right]$ & Fig.~\ref{subfig:s*-wave-correlator} \\
+		$p_x$-wave & $\varphi^{(p_x)}_{\mathbf{r}\mathbf{r}'}$ & $ 
+		\displaystyle \frac{1}{\sqrt{2}} \left[
+		\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} - \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}}
+		\right]$ & Fig.~\ref{subfig:px-wave-correlator} \\
+		$p_y$-wave & $\varphi^{(p_y)}_{\mathbf{r}\mathbf{r}'}$ & $ \displaystyle \frac{1}{\sqrt{2}} \left[
+		\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} - \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
+		\right]$ & Fig.~\ref{subfig:py-wave-correlator} \\
+		$d_{x^2-y^2}$-wave & $\varphi^{(d)}_{\mathbf{r}\mathbf{r}'}$ & $\displaystyle \frac{1}{2} \left[
+		\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}} - \delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} - \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
+		\right]$ & Fig.~\ref{subfig:d-wave-correlator} \\[0.5em]
+		\midrule
+	\end{tabular}
+	\caption{The harmonics $\varphi^{(\gamma)}_{\mathbf{r}\mathbf{r}'}$. The notation of Fig.~\ref{fig:square-nearest-neighbors} is used. In the last column, we indicate a graphic representation given in the subfigures Fig.~\ref{fig:x-wave-real-factors}.}
+	\label{tab:x-wave-real-factors}
+\end{table}
+\setlength{\extrarowheight}{0em}
 
 \begin{figure}[t]
 	\centering
@@ -1085,90 +1162,75 @@ with appropriate sign factors. With the EHM expressed in reciprocal space, there
 		\input{\GraphicsFolder/d-wave-correlator}
 		\label{subfig:d-wave-correlator}
 	}
-	\caption{Form factors at different topologies, as listed in Tab.~\ref{tab:x-wave-real-factors}. In figures five sites are represented: the hub site $i$ and its four NN. Solid lines represent non-zero values for $\varphi_{\bm{\delta}}$, while dashed lines represent vanishing factors.}
+	\caption{The harmonics listed in Tab.~\ref{tab:x-wave-real-factors}. In figures five sites are represented: the hub site $i$ and its four NNs. Solid lines connect the hub sites to a rim site where the harmonic is non-zero. Dashed lines connect to a rim site where the harmonic is zero.}
 	\label{fig:x-wave-real-factors}
 \end{figure}
 
-This short conclusive section is apparently rather uncorrelated with all we said in the previous parts. We here introduce a set of orthonormal functions that results particularly useful to represent quantities defined on NNs sites on the square lattice. Let us start from a generic function of two variables $f(\mathbf{r},\mathbf{r}')$. Suppose that, for a given centre $\mathbf{r}$, the function is non-zero only on the site itself ($\mathbf{r}'=\mathbf{r}$) and its NNs $\mathbf{r}'=\mathbf{r}\pm\bm{\delta}$, with $\bm{\delta}\in\lbrace\underline{\mathbf{x}},\underline{\mathbf{y}}\rbrace$. In other words,
-\[
+\paragraph{Decomposition in symmetry channels.}
+
+Consider a generic function of two variables $f(\mathbf{r},\mathbf{r}')$. Suppose that, for a given centre $\mathbf{r}$, the function is non-zero only on the site itself ($\mathbf{r}'=\mathbf{r}$) and its NNs $\mathbf{r}'=\mathbf{r}\pm\bm{\delta}$, with $\bm{\delta}\in\lbrace\underline{\mathbf{x}},\underline{\mathbf{y}}\rbrace$. In other words,
+\begin{equation}\label{eq:f-NNs}
 	f(\mathbf{r},\mathbf{r}') \neq 0
 	\quad\iff\quad
 	\abs{\mathbf{r}-\mathbf{r}'} = 0, 1
-\]
-in units of the lattice step. The following identity holds:
-\[
-\begin{aligned}
-	f(\mathbf{r},\mathbf{r}+\underline{\mathbf{x}}) &= f(\mathbf{r},\mathbf{r}') \delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} \\
-	&= f(\mathbf{r},\mathbf{r}') \left(
-		\varphi^{(s^*)}_{\mathbf{r}\mathbf{r}'} + \varphi^{(d)}_{\mathbf{r}\mathbf{r}'} + \sqrt{2} \varphi^{(p_x)}_{\mathbf{r}\mathbf{r}'}
-	\right)
-\end{aligned}
-\]
-where we defined the set of orthonormal functions $\varphi_{\mathbf{r}\mathbf{r}'}^{(\gamma)}$ listed explicitly in Tab.~\ref{tab:x-wave-real-factors} and sketched in Fig.~\ref{fig:x-wave-real-factors}.
-%
-\setlength{\extrarowheight}{1em}
-\begin{table}[t]
-	\centering
-	\begin{tabular}{r E l l}
-		\textbf{Structure} & \multicolumn{2}{c}{\textbf{Form factor}} & \textbf{Graph} \\
-		\midrule
-		$s$-wave & $\varphi^{(s)}_{\mathbf{r}\mathbf{r}'}$ & $\delta_{\mathbf{r}\mathbf{r}'}$ & Fig.~\ref{subfig:s-wave-correlator} \\
-		Extended $s$-wave & $\varphi^{(s^*)}_{\mathbf{r}\mathbf{r}'}$ &
-		$\displaystyle \frac{1}{2} \left[
-		\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
-		\right]$ & Fig.~\ref{subfig:s*-wave-correlator} \\
-		$p_x$-wave & $\varphi^{(p_x)}_{\mathbf{r}\mathbf{r}'}$ & $ 
-		\displaystyle \frac{1}{\sqrt{2}} \left[
-		\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} - \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}}
-		\right]$ & Fig.~\ref{subfig:px-wave-correlator} \\
-		$p_y$-wave & $\varphi^{(p_y)}_{\mathbf{r}\mathbf{r}'}$ & $ \displaystyle \frac{1}{\sqrt{2}} \left[
-		\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} - \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
-		\right]$ & Fig.~\ref{subfig:py-wave-correlator} \\
-		$d_{x^2-y^2}$-wave & $\varphi^{(d)}_{\mathbf{r}\mathbf{r}'}$ & $\displaystyle \frac{1}{2} \left[
-		\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}} - \delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} - \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
-		\right]$ & Fig.~\ref{subfig:d-wave-correlator} \\[0.5em]
-		\midrule
-	\end{tabular}
-	\caption{Form factors for a function defined on a square lattice, with a prefactor included for normalization. We use lattice vector notation here. The last column indicates the graph representation of each contribution given in Fig.~\ref{fig:x-wave-real-factors}. Subscript $x^2-y^2$ is omitted for notational clarity.}
-	\label{tab:x-wave-real-factors}
-\end{table}
-\setlength{\extrarowheight}{0em}
-%
-The orthonormality condition reads:
-\[
-	\frac{1}{L_x L_y} \sum_{\mathbf{r}\mathbf{r}'} \varphi_{\mathbf{r}\mathbf{r}'}^{(\gamma)} \varphi_{\mathbf{r}\mathbf{r}'}^{(\gamma')*} = \delta_{\gamma\gamma'}
-\]
-Similarly, also the following relations hold:
-\[
-\begin{aligned}
-	f(\mathbf{r},\mathbf{r}) &= f(\mathbf{r},\mathbf{r}') \varphi^{(s)}_{\mathbf{r}\mathbf{r}'} \\
-	f(\mathbf{r},\mathbf{r}-\underline{\mathbf{x}})
-	&= f(\mathbf{r},\mathbf{r}') \left(
-	\varphi^{(s^*)}_{\mathbf{r}\mathbf{r}'} + \varphi^{(d)}_{\mathbf{r}\mathbf{r}'} - \sqrt{2} \varphi^{(p_x)}_{\mathbf{r}\mathbf{r}'}
-	\right) \\		f(\mathbf{r},\mathbf{r}+\underline{\mathbf{y}})
-	&= f(\mathbf{r},\mathbf{r}') \left(
-	\varphi^{(s^*)}_{\mathbf{r}\mathbf{r}'} - \varphi^{(d)}_{\mathbf{r}\mathbf{r}'} + \sqrt{2} \varphi^{(p_y)}_{\mathbf{r}\mathbf{r}'}
-	\right) \\
-	f(\mathbf{r},\mathbf{r}-\underline{\mathbf{y}})
-	&= f(\mathbf{r},\mathbf{r}') \left(
-	\varphi^{(s^*)}_{\mathbf{r}\mathbf{r}'} - \varphi^{(d)}_{\mathbf{r}\mathbf{r}'} - \sqrt{2} \varphi^{(p_y)}_{\mathbf{r}\mathbf{r}'}
-	\right)
-\end{aligned}
-\]
-Thus, defining:
-\[
-\begin{aligned}
-	f^{(s)} &\equiv f(\mathbf{r},\mathbf{r}) \\
-	f^{(s^*)} &\equiv f(\mathbf{r},\mathbf{r}+\underline{\mathbf{x}}) + f(\mathbf{r},\mathbf{r}-\underline{\mathbf{x}}) + f(\mathbf{r},\mathbf{r}+\underline{\mathbf{y}}) + f(\mathbf{r},\mathbf{r}-\underline{\mathbf{y}}) \\
-	f^{(p_x)} &\equiv f(\mathbf{r},\mathbf{r}+\underline{\mathbf{x}}) - f(\mathbf{r},\mathbf{r}-\underline{\mathbf{x}}) \\
-	f^{(p_y)} &\equiv f(\mathbf{r},\mathbf{r}+\underline{\mathbf{y}}) - f(\mathbf{r},\mathbf{r}-\underline{\mathbf{y}}) \\
-	f^{(d)} &\equiv f(\mathbf{r},\mathbf{r}+\underline{\mathbf{x}}) + f(\mathbf{r},\mathbf{r}-\underline{\mathbf{x}}) - f(\mathbf{r},\mathbf{r}+\underline{\mathbf{y}}) - f(\mathbf{r},\mathbf{r}-\underline{\mathbf{y}})
-\end{aligned}
-\]
-we get the decomposition:
-\[
+\end{equation}
+in units of the lattice step. Using the harmonics $\varphi_{\mathbf{r}\mathbf{r}'}^{(\gamma)}$, we get the following decomposition:
+\begin{equation}\label{eq:f-decomposition}
 	f(\mathbf{r},\mathbf{r}') = \sum_\gamma f^{(\gamma)} \varphi_{\mathbf{r}\mathbf{r}'}^{(\gamma)}
-\]
+\end{equation}
+where we defined:
+\begin{equation}\label{eq:f-gamma}
+	f^{(\gamma)} = \frac{1}{L_x L_y} \sum_{\mathbf{r},\mathbf{r}'} f(\mathbf{r},\mathbf{r}') \varphi_{\mathbf{r}\mathbf{r}'}^{(\gamma)}
+\end{equation}
+Eq.~\eqref{eq:f-decomposition} will be referred to as ``decomposition in symmetry channels''. The sum over $\gamma$ is extended to the five symmetries of Tab.~\ref{tab:x-wave-real-factors}.
+
+\begin{tabproof}[Decomposition in symmetry channels of Eq.~\eqref{eq:f-decomposition}]
+	
+	Consider a function $f(\mathbf{r},\mathbf{r}')$ defined as in Eq.~\eqref{eq:f-NNs} and the harmonics of Tab.~\ref{tab:x-wave-real-factors}. By direct computation, the following identity holds
+	\[
+	\begin{aligned}
+		f(\mathbf{r},\mathbf{r}+\underline{\mathbf{x}}) &= \sum_{\mathbf{r}'\in\mathcal{L}} f(\mathbf{r},\mathbf{r}') \delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} \\
+		&= \sum_{\mathbf{r}'\in\mathcal{L}} f(\mathbf{r},\mathbf{r}') \left(
+			\varphi^{(s^*)}_{\mathbf{r}\mathbf{r}'} + \varphi^{(d)}_{\mathbf{r}\mathbf{r}'} + \sqrt{2} \varphi^{(p_x)}_{\mathbf{r}\mathbf{r}'}
+		\right)
+	\end{aligned}
+	\]
+	Similarly, also the following relations hold
+	\[
+	\begin{aligned}
+		f(\mathbf{r},\mathbf{r}) &= \sum_{\mathbf{r}'\in\mathcal{L}} f(\mathbf{r},\mathbf{r}') \varphi^{(s)}_{\mathbf{r}\mathbf{r}'} \\
+		f(\mathbf{r},\mathbf{r}-\underline{\mathbf{x}})
+		&= \sum_{\mathbf{r}'\in\mathcal{L}} f(\mathbf{r},\mathbf{r}') \left(
+		\varphi^{(s^*)}_{\mathbf{r}\mathbf{r}'} + \varphi^{(d)}_{\mathbf{r}\mathbf{r}'} - \sqrt{2} \varphi^{(p_x)}_{\mathbf{r}\mathbf{r}'}
+		\right) \\		f(\mathbf{r},\mathbf{r}+\underline{\mathbf{y}})
+		&= \sum_{\mathbf{r}'\in\mathcal{L}} f(\mathbf{r},\mathbf{r}') \left(
+		\varphi^{(s^*)}_{\mathbf{r}\mathbf{r}'} - \varphi^{(d)}_{\mathbf{r}\mathbf{r}'} + \sqrt{2} \varphi^{(p_y)}_{\mathbf{r}\mathbf{r}'}
+		\right) \\
+		f(\mathbf{r},\mathbf{r}-\underline{\mathbf{y}})
+		&= \sum_{\mathbf{r}'\in\mathcal{L}} f(\mathbf{r},\mathbf{r}') \left(
+		\varphi^{(s^*)}_{\mathbf{r}\mathbf{r}'} - \varphi^{(d)}_{\mathbf{r}\mathbf{r}'} - \sqrt{2} \varphi^{(p_y)}_{\mathbf{r}\mathbf{r}'}
+		\right)
+	\end{aligned}
+	\]
+	Hence, by defining
+	\[
+	\begin{aligned}
+		f^{(s)} &\equiv f(\mathbf{r},\mathbf{r}) \\
+		f^{(s^*)} &\equiv f(\mathbf{r},\mathbf{r}+\underline{\mathbf{x}}) + f(\mathbf{r},\mathbf{r}-\underline{\mathbf{x}}) + f(\mathbf{r},\mathbf{r}+\underline{\mathbf{y}}) + f(\mathbf{r},\mathbf{r}-\underline{\mathbf{y}}) \\
+		f^{(p_x)} &\equiv f(\mathbf{r},\mathbf{r}+\underline{\mathbf{x}}) - f(\mathbf{r},\mathbf{r}-\underline{\mathbf{x}}) \\
+		f^{(p_y)} &\equiv f(\mathbf{r},\mathbf{r}+\underline{\mathbf{y}}) - f(\mathbf{r},\mathbf{r}-\underline{\mathbf{y}}) \\
+		f^{(d)} &\equiv f(\mathbf{r},\mathbf{r}+\underline{\mathbf{x}}) + f(\mathbf{r},\mathbf{r}-\underline{\mathbf{x}}) - f(\mathbf{r},\mathbf{r}+\underline{\mathbf{y}}) - f(\mathbf{r},\mathbf{r}-\underline{\mathbf{y}})
+	\end{aligned}
+	\]
+	we get the decomposition:
+	\[
+		f(\mathbf{r},\mathbf{r}') = 	\sum_\gamma f^{(\gamma)} \varphi_{\mathbf{r}\mathbf{r}'}^{(\gamma)}
+	\]
+	
+	The function $f$ depends only on the difference of its two spatial variables. In other words, all the $f^{(\gamma)}$ components we defined above are independent of $\mathbf{r}$. Hence we can redefine them as in Eq.~\eqref{eq:f-gamma}, averaging over $\mathbf{r}$. The decomposition obtained above still holds. With this redefinition of the $f^{(\gamma)}$ components, we recognise Eq.~\eqref{eq:f-decomposition}.
+
+\end{tabproof}
+
 We decomposed the original function in its harmonics. Moving to reciprocal space, we get the $\mathcal{F}$-transformed functions of Tab.~\ref{tab:x-wave-reciprocal-factors}, also satisfying the orthonormality condition:
 \[
 	\frac{1}{L_x L_y} \sum_\mathbf{k} \varphi_\mathbf{k}^{(\gamma)} \varphi_\mathbf{k}^{(\gamma')*} = \delta_{\gamma\gamma'}
@@ -1188,11 +1250,11 @@ The functions of Tab.~\ref{tab:x-wave-reciprocal-factors} are plotted in the BZ 
 		$d_{x^2-y^2}$-wave & $\varphi_\mathbf{k}^{(d)}$ & $\cos k_x - \cos k_y$ & Fig.~\ref{subfig:d-wave-correlator} \\[0.5em]
 		\midrule
 	\end{tabular}
-	\caption{Structure factors derived from the correlation structures of Tab.~\ref{tab:x-wave-real-factors}. The functions hereby defined are orthonormal, and are plotted in Fig.~\ref{fig:x-wave-reciprocal-factors}.}
+	\caption{$\mathcal{F}$-transforms of the harmonics of Tab.~\ref{tab:x-wave-real-factors}. These functions are plotted in Fig.~\ref{fig:x-wave-reciprocal-factors}.}
 	\label{tab:x-wave-reciprocal-factors}
 \end{table}
 \setlength{\extrarowheight}{0em}
-%
+
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.9\linewidth]{../Project/src/labs/structure-factors/plot-structure-factors.pdf}
@@ -1200,48 +1262,50 @@ The functions of Tab.~\ref{tab:x-wave-reciprocal-factors} are plotted in the BZ 
 	\label{fig:x-wave-reciprocal-factors}
 \end{figure}
 
-We will refer to these harmonics as ``symmetry channels'', indicating the various spatial components of the order parameter associated to a given phase transition. As we will see, indeed, we consider order parameters that have specific transformation properties under planar rotations. To distinguish the various spatial harmonics of the order parameter is useful in order to apply symmetry-based selection rules.
+\paragraph{A useful identity.}
 
-Finally, a very useful mathematical identity is given by the following argument. Consider Eq.~\eqref{eq:HV-fourier}, where is present the factor $\cos \left( \delta k_x \right)	+ \cos \left( \delta k_y \right)$ (with $\delta k_x = k_x-k_x'$ and $\delta k_y = k_y-k_y'$). Expanding,
-\[
-	\cos \left( \delta k_x \right)	+ \cos \left( \delta k_y \right) = c_x c_x' + c_y c_y' + s_x s_x' + s_y s_y'
-\]
-In last passage, for the sake of readability, we used the notations
-\[
-	c_\ell \equiv \cos k_\ell
-	\qquad
-	s_\ell \equiv \sin k_\ell
-	\qquad
-	c_\ell' \equiv \cos	k_\ell'
-	\qquad
-	s_\ell' \equiv \sin k_\ell'
-\]
-Group the four terms,
-\begin{equation}\label{eq:sym-asym-couplings-gap}
-	\underbrace{
-		\left(c_x c_x' + c_y c_y' \right) 
-	}_\text{Symmetric}
-	+ \underbrace{
-		\left(s_x s_x' + s_y s_y' \right)
-	}_\text{Anti-symmetric}
-\end{equation}
-All four terms are invariant under simultaneous inversion of both momenta, $(\mathbf{k},\mathbf{k}') \to (-\mathbf{k},-\mathbf{k}')$. Instead, if we invert just one momentum of the pair, the first two are symmetric for both arguments $\mathbf{k}$, $\mathbf{k}'$; the second two are anti-symmetric. Decoupling the symmetric part, we obtain
-\[
-	c_x c_x' + c_y c_y' = \frac{1}{2} (c_x + c_y)(c_x' + c_y') + \frac{1}{2} (c_x - c_y)(c_x' - c_y')
-\]
-which finally gives:
-\[
-\begin{aligned}
-	\cos \left( \delta k_x \right)	+ \cos \left( \delta k_y  \right) &= \frac{1}{2}  (c_x + c_y)(c_x' + c_y') &&\qquad\text{($s^*$-wave)} \\
-	&\hphantom{=}+ s_x s_x' &&\qquad\text{($p_x$-wave)} \\
-	&\hphantom{=}+ s_y s_y' &&\qquad\text{($p_y$-wave)} \\
-	&\hphantom{=}+ \frac{1}{2} (c_x - c_y)(c_x' - c_y') &&\qquad\text{($d_{x^2-y^2}$-wave)}
-\end{aligned}
-\]
-or, in a more compact form	
+We conclude this chapter by proving a useful mathematical identity:
 \begin{align} 
-	\cos \left( \delta k_x \right)	+ \cos \left( \delta k_y  \right) &= \frac 1 2 \sum_\gamma \varphi_\mathbf{k}^{(\gamma)} \varphi_{\mathbf{k}'}^{(\gamma)*}
-	\qq{for $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$} \label{eq:coscos-symmetries-decomposition} \\
-	&= \frac 1 2 \sum_\gamma \varphi_\mathbf{k}^{(\gamma)*} \varphi_{\mathbf{k}'}^{(\gamma)}
+	\cos \left( \delta k_x \right)	+ \cos \left( \delta k_y  \right) &= \frac 1 2 \sum_{\gamma \neq s} \varphi_\mathbf{k}^{(\gamma)} \varphi_{\mathbf{k}'}^{(\gamma)*} \label{eq:coscos-symmetries-decomposition} \\
+	&= \frac 1 2 \sum_{\gamma \neq s} \varphi_\mathbf{k}^{(\gamma)*} \varphi_{\mathbf{k}'}^{(\gamma)}
 \end{align}
-This decomposition will result particularly handy in later calculations.
+Note that in both rows above the sum is intended for $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$, excluding $s$.
+
+\begin{tabproof}[Proof of Eq.~\eqref{eq:coscos-symmetries-decomposition}]
+
+	Let $k_\ell \in \mathbb{R}$, with $\ell \in \lbrace x, y \rbrace$. We define:
+	\[
+		c_\ell \equiv \cos k_\ell
+		\qquad
+		s_\ell \equiv \sin k_\ell
+		\qquad
+		c_\ell' \equiv \cos	k_\ell'
+		\qquad
+		s_\ell' \equiv \sin k_\ell'
+	\]
+	Let $\delta k_\ell \equiv k_\ell - k_\ell'$. Using basic trigonometric identities we get:
+	\begin{equation}\label{eq:sym-asym-couplings-gap}
+		\cos \left( \delta k_x \right)	+ \cos \left( \delta k_y \right) = 
+		\underbrace{
+			\left(c_x c_x' + c_y c_y' \right) 
+		}_\text{Symmetric}
+		+ \underbrace{
+			\left(s_x s_x' + s_y s_y' \right)
+		}_\text{Anti-symmetric}
+	\end{equation}
+	All four terms are invariant under simultaneous inversion of both momenta, $(\mathbf{k},\mathbf{k}') \to (-\mathbf{k},-\mathbf{k}')$. Instead, if we invert just one momentum of the pair, the first two are symmetric for both arguments $\mathbf{k}$, $\mathbf{k}'$; the second two are anti-symmetric. Decoupling the symmetric part, we obtain
+	\[
+		c_x c_x' + c_y c_y' = \frac{1}{2} (c_x + c_y)(c_x' + c_y') + \frac{1}{2} (c_x - c_y)(c_x' - c_y')
+	\]
+	which finally gives:
+	\[
+	\begin{aligned}
+		\cos \left( \delta k_x \right)	+ \cos \left( \delta k_y  \right) &= \frac{1}{2}  (c_x + c_y)(c_x' + c_y') &&\qquad\text{($s^*$-wave)} \\
+		&\hphantom{=}+ s_x s_x' &&\qquad\text{($p_x$-wave)} \\
+		&\hphantom{=}+ s_y s_y' &&\qquad\text{($p_y$-wave)} \\
+		&\hphantom{=}+ \frac{1}{2} (c_x - c_y)(c_x' - c_y') &&\qquad\text{($d_{x^2-y^2}$-wave)}
+	\end{aligned}
+	\]
+	which is written in compact form as in Eq.~\eqref{eq:coscos-symmetries-decomposition}.
+\end{tabproof}
+

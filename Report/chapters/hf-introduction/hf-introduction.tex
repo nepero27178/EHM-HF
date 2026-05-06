@@ -125,7 +125,7 @@ By changing basis from $\hat \gamma$ to $\hat c$ operators, we moved all our ign
 	h_{\alpha\beta}^{++} &= \left(h_{\beta\alpha}^{--}\right)^* \label{eq:hf-offdiag-relation} \\
 	h_{\beta\alpha}^{+-} &= - h_{\alpha\beta}^{-+} \label{eq:hf-ondiag-relation}
 \end{align}
-Because of this properties, we actually need to determine just half of the fields, since the other half will be uniquely determined.
+Because of these properties, we actually need to determine just half of the fields, since the other half will be uniquely determined.
 
 \begin{tabproof}[Symmetry properties of the tensor $h_{\alpha\beta}^{pq}$]
 	
@@ -374,7 +374,7 @@ The proof of this statement is given in App.~\ref{appendix:hf-mft}, where we als
 \paragraph{Local repulsion.} Applying the HF method, the local repulsion $\hat H_U$ is approximated by the quadratic operator:
 \begin{align}
 	\hat H_U &= U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow} \label{eq:mft-HU} \\
-	&\simeq U \sum_i \Big(
+	&\HFsimeq U \sum_i \Big(
 	\hat c_{i\uparrow}^\dagger \hat c_{i\uparrow} \big\langle \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow} \big\rangle + \big\langle \hat c_{i\uparrow}^\dagger \hat c_{i\uparrow} \big\rangle \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow} - \big\langle \hat c_{i\uparrow}^\dagger \hat c_{i\uparrow} \big\rangle  \big\langle \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow} \big\rangle &&(\text{Hartree}) \nonumber\\
 	&\phantom{\simeq \sum_{{i\uparrow}\neq{i\downarrow}} V_{{i\uparrow}{i\downarrow}}}
 	- \hat c_{i\uparrow}^\dagger \hat c_{i\downarrow} \big\langle \hat c_{i\downarrow}^\dagger \hat c_{i\uparrow} \big\rangle - \big\langle \hat c_{i\uparrow}^\dagger \hat c_{i\downarrow} \big\rangle \hat c_{i\downarrow}^\dagger \hat c_{i\uparrow} + \big\langle \hat c_{i\uparrow}^\dagger \hat c_{i\downarrow} \big\rangle  \big\langle \hat c_{i\downarrow}^\dagger \hat c_{i\uparrow} \big\rangle &&(\text{Fock}) \nonumber\\
@@ -386,7 +386,7 @@ The proof of this statement is given in App.~\ref{appendix:hf-mft}, where we als
 \paragraph{Non-local attraction.} Applying the HF method, the local repulsion $\hat H_V$ is approximated by the quadratic operator:
 \begin{align}
 	\hat H_V &= -V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \hat n_{i\sigma} \hat n_{j\sigma'} \label{eq:mft-HV} \\
-	&\simeq -V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \Big(
+	&\HFsimeq -V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \Big(
 	\hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle + \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} - \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle  \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle &&(\text{Hartree}) \nonumber\\
 	&\phantom{\simeq \sum_{{i\sigma}\neq{j\sigma'}} V_{{i\sigma}{j\sigma'}}}
 	- \hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\langle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} \big\rangle - \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\rangle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} + \big\langle \hat c_{i\sigma}^\dagger \hat c_{j\sigma'} \big\rangle  \big\langle \hat c_{j\sigma'}^\dagger \hat c_{i\sigma} \big\rangle &&(\text{Fock}) \nonumber\\
