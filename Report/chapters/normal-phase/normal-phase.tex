@@ -787,15 +787,13 @@ Here $E_\mathrm{HF}^{(\mathrm{N})}$ is the ground-state energy for the HF hamilt
 
 \section{Analysis of the self-consistency equations} \label{sec:normal-sceq-analysis}
 
-\textbf{RESTART FROM HERE...}
-
 In this section we collect some results that follow from a formal analysis of the self-consistency problem for the normal phase. This phase is described by the HFPs $u^{(s^*)}$ and $u^{(d)}$. It is possible to prove that:
 \begin{equation}\label{eq:normal-us*-ud-constraint}
 	0 < u^{(s^*)} < 2t/V
 	\qq{and}
 	u^{(d)} = 0
 \end{equation}
-for any choice of $U,V>0$ and doping $\delta$. The proof follows from the detailed analysis of the self-consistency equations of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}, and is reported in App.~\ref{app:normal-constraints}. Eq.~\eqref{eq:normal-us*-ud-constraint} implies that in the normal phase there is no nematic effect, and the renormalised hopping parameter $\tilde{t}_{ij}$ is isotropic with a smaller amplitude than $t$,
+for any choice of $U,V>0$ and doping $\delta$. The proof follows from the detailed analysis of the self-consistency equations of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}, and is reported in App.~\ref{app:theoretical-constraints}. Eq.~\eqref{eq:normal-us*-ud-constraint} implies that in the normal phase there is no nematic effect, and the renormalised hopping parameter $\tilde{t}_{ij}$ is isotropic with an amplitude smaller than $t$,
 \[
 	0 < \tilde{t}^{(s^*)} < t
 \]
@@ -805,7 +803,7 @@ Here we used Eq.~\eqref{eq:normal-tS-td}. Then, bands renormalisation
 	\quad\to\quad
 	\tilde{\epsilon}_\mathbf{k}
 \]
-is actually a flattening. We denote this effect as ``shrinking''.
+is actually a flattening. We denote this effect as ``bands shrinking''. The flattening of electronic bands is the signature of a Mott transition.
 
 \begin{figure}
 	\centering
@@ -983,7 +981,7 @@ From Sec.~\ref{sec:normal-sceq-analysis} we know that $u^{(s^*)}$ decreases as w
 
 \subsection{Mott localisation effect}\label{subsec:normal-mott-numeric}
 
-The most interesting result we obtained for the normal phase is the possibility of localising electrons by tuning the $V/\delta$ ratio. In Fig.~\ref{subfig:normal-uS-data-B256}, at low $V$ the convergence value of $u^{(s^*)}$ is approximately $V$-independent at sufficiently low temperatures. Let $V_\mathrm{c}[\beta,\delta]$ be the critical value such that
+The most interesting result we obtained for the normal phase is the possibility of localising electrons by tuning the $V$ and $\delta$. In Fig.~\ref{subfig:normal-uS-data-B256}, at low $V$ the convergence value of $u^{(s^*)}$ is approximately $V$-independent at sufficiently low temperatures. Let $V_\mathrm{c}[\beta,\delta]$ be the critical value such that
 \[
 	0 \le V < V_\mathrm{c}[\beta,\delta]
 	\quad\colon\quad
@@ -993,7 +991,7 @@ Then within the entire segment $[0,V_\mathrm{c}]$ the convergence value is (appr
 \[
 	V_\mathrm{c}[\beta,\delta] \equiv \frac{2t}{u^{(s^*)}[\beta,\tilde{\mu}(\delta)] \big|_{V=0}}
 \]
-When $V$ becomes larger than this critical value, the resulting RMP $\tilde{t}^{(s^*)}$ drops to $0$ and due to the constraint of Eq.~\eqref{eq:normal-us*-constraint} the convergence value of $u^{(s^*)}$ is forced to decrease. Note that the constraint of Eq.~\eqref{eq:normal-us*-constraint} does not prevent $u^{(s^*)}$ from saturating to its upper boundary from below. In Fig.~\ref{subfig:normal-tS-data-B128} the converged values of $\tilde{t}^{(s^*)}$, extracted from the same data of Fig.~\ref{subfig:normal-uS-data-B128}, are plotted in parametric space.
+When $V$ becomes larger than this critical value, the resulting RMP $\tilde{t}^{(s^*)}$ drops to $0$ and due to the constraint of Eq.~\eqref{eq:normal-us*-ud-constraint} the convergence value of $u^{(s^*)}$ is forced to decrease. Note that the constraint of Eq.~\eqref{eq:normal-us*-ud-constraint} does not prevent $u^{(s^*)}$ from saturating to its upper boundary from below. In Fig.~\ref{subfig:normal-tS-data-B128} the converged values of $\tilde{t}^{(s^*)}$, extracted from the same data of Fig.~\ref{subfig:normal-uS-data-B128}, are plotted in parametric space.
 
 \begin{figure}
 	\centering
@@ -1029,7 +1027,7 @@ At half-filling, the effective bands amplitude reduction is so strong that small
 	\label{fig:normal-data-C256-compared}
 \end{figure}
 
-Increasing temperature Mott localisation is suppressed. Also, out precedent argument were valid only at low temperature. In Fig.~\ref{subfig:normal-data-uS-C256-compared} we report results for the HFP $u^{(s^*)}$ computed at decreasingly lower temperature and three example doping levels,
+Increasing temperature, Mott localisation is suppressed. In Fig.~\ref{subfig:normal-data-uS-C256-compared} we report results for the HFP $u^{(s^*)}$ computed at decreasingly lower temperature and three example doping levels,
 \[
 	1.0 \le \beta \le 100.0
 	\qquad
@@ -1052,7 +1050,7 @@ having we used in the second passage
 \[
 	\tilde{\epsilon}_\mathbf{k} = \tilde{\epsilon}_\mathbf{k} + u^{(s^*)*} V (\cos k_x + \cos k_y)
 \]
-Recalling the first point of the derivation of Sec.~\ref{sec:normal-free-energy}, to add the HFP correction to free energy is the same as removing the \textit{tilde} sign from single-state energies, thus using the free model ($V=0$) free energy density expression.
+Recalling the first point of the derivation of Sec.~\ref{subsec:normal-f}, to add the HFP correction to free energy is the same as removing the \textit{tilde} sign from single-state energies, thus using the free model ($V=0$) free energy density expression.
 
 \begin{figure}
 	\centering
@@ -1072,7 +1070,7 @@ Mott localisation is energetically expensive. This is visible in both panels of 
 \[
 	f(0;\beta,\tilde{\mu}(\delta)) = \frac 1 2
 \]
-at any temperature. The expression for entropy density of a free Fermi gas \cite{grosso2014solid} is given by
+at any temperature. The expression for the contribution to entropy of a single particle state with occupation $f$ \cite{grosso2014solid} is given by
 \[
 	s(f) = -k_\mathrm{B} \left[ f \log f + (1-f) \log (1-f) \right]
 \]
@@ -1121,7 +1119,7 @@ This point is inside the Mott region, as can be checked in Fig.~\ref{subfig:norm
 \]
 was arbitrarily chosen. In each panel of Fig.~\ref{fig:normal-tracks-compared}, the red track represents the value of $u^{(s^*)}$ we plug in the self-consistency equations, the blue the result of the self-consistent equation, the green one the mixed value of the two based on different $g$s. The gray dashed line is the theoretical convergence target. 
 
-In the first two panels, there is an evident infinite loop occurring whenever the green line crosses the threshold $2t/V$. At those steps, the green point is out of bounds with respect to Eq.~\eqref{eq:normal-us*-constraint}. When this happens, the following red point gives a band with inverted sign, a feature that ``breaks'' the self-consistency equation and generates a blue point with no physical significance.
+In the first two panels, there is an evident infinite loop occurring whenever the green line crosses the threshold $2t/V$. At those steps, the green point is out of bounds with respect to Eq.~\eqref{eq:normal-us*-ud-constraint}. When this happens, the following red point gives a band with inverted sign, a feature that ``breaks'' the self-consistency equation and generates a blue point with no physical significance.
 
 To overcome this problem it is necessary to move ``slowly''. As is shown in the right panel, the choice of a small enough mixing parameter ensures convergence. In the track, each blue dot is above the target and would produce a band with inverted sign. Mixing blue and red dots with a $95\%$ unbalance on the red ones, we ensure that the green track approaches the target from below. Note, however, that lowering $g$ cannot be reiterated too many times. Indeed, for $g \to 0$, any point of our map becomes a fixed point. 
 
