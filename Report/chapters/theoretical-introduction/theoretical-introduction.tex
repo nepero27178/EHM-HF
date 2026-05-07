@@ -1,21 +1,109 @@
 \def\GraphicsFolder{chapters/theoretical-introduction/pictures}
 \chapter{Introduction to the Extended Hubbard Model}\label{chapter:theoretical-introduction}
 
-A major breakthrough in Condensed Matter Physics was the discovery of superconductivity in two-dimensional copper-oxide based compounds (often referred to as ``cuprates''). Until \citeyear{bednorz1986possible}, when \citeauthor{bednorz1986possible} found evidence of a superconducting transition in Ba-La-Cu-O systems \cite{bednorz1986possible}, superconductivity had been observed up to critical temperatures ($T_\mathrm{c}$) around $30~\mathrm{K}$. The new class of copper oxides rapidly took over as highest-$T_\mathrm{c}$ class of superconductors, dramatically increasing critical temperatures to around $130~\mathrm{K}$ at ambient pressure. Today, the highest observed value is $T_\mathrm{c} \approx 151~\mathrm{K}$ at ambient pressure on the cuprate $\mathrm{Hg}\mathrm{Ba}_2 \mathrm{Ca}_2 \mathrm{Cu}_3 \mathrm{O}_{8+\delta}$ \cite{deng2026ambient}. It is worth mentioning that this result was obtained in recent months after almost 30 years from the previous record.
+A major breakthrough in Condensed Matter Physics was the discovery of superconductivity in two-dimensional copper oxide based compounds (often referred to as ``cuprates''). Until \citeyear{bednorz1986possible}, when \citeauthor{bednorz1986possible} found evidence of a superconducting transition in Ba-La-Cu-O compounds at a critical temperature ($T_\mathrm{c}$) around $30~\mathrm{K}$ \cite{bednorz1986possible}, superconductivity had been observed up to few Kelvins. The new class of copper oxides rapidly took over in the field of high-$T_\mathrm{c}$ superconductivity, increasing critical temperatures to around $130~\mathrm{K}$ at ambient pressure. Today, the highest observed value is $T_\mathrm{c} \approx 151~\mathrm{K}$ at ambient pressure on the cuprate $\mathrm{Hg}\mathrm{Ba}_2 \mathrm{Ca}_2 \mathrm{Cu}_3 \mathrm{O}_{8+\delta}$ \cite{deng2026ambient}. It is worth mentioning that this result was obtained in recent months after almost 30 years from the previous record.
+
+\begin{center}
+[Figure: superconducting transition temperatures]
+\end{center}
+
+Cuprates are very rich materials, with a complicated and yet not fully understood phase diagram. Undoped copper oxides show an antiferromagnetic ground state, which is disrupted both by electronic and hole doping. At low temperatures, anisotropic superconductivity is established 
+
+{\color{tabred}[AF ordering at low doping; Mott transition; pseudogap and strange metal; unconventional superconductivity]}
+
+\section{Copper oxides}
+
+The crystal structure of copper oxide superconductors is given by a stacking of $2$D $\mathrm{Cu} \mathrm{O}_2$ sheets separated by inert layers of insulating materials. These intermediate layers act as reservoirs of electrons (or holes) and dope the active $\mathrm{Cu} \mathrm{O}_2$ sheets \cite{grosso2014solid}. Due to the presence of these intermediate inert layers, the $\mathrm{Cu} \mathrm{O}_2$ sheets are weakly coupled to each other, and can be studied independently. In these sheets, copper and oxygens are arranged as a checkerboard lattice: oxygen atoms form a square lattice, and in the center of each cell is placed a copper atom. At null doping, due to the high electronegativity of oxygens, copper atoms are ionised and left with one hole in their $d$ shell, while oxygen atoms reach a closed shell configuration. Therefore, at low energy the kinetics of electrons is given by the hopping among the $d$ orbitals of $\mathrm{Cu}^{2+}$ ions, arranged in a planar square lattice [Lee 2006].
+
+Electrons repel each other through Coulomb interaction. The simplest model capable of describing this kinetics and electron-electron repulsion is the single-band Hubbard model [Hubbard 1963],
+\begin{equation}\label{eq:hubbard-model}
+	\hat H_\mathrm{HM} = 
+	-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+	+ U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow}
+	\qq{where}
+	t, U  > 0,
+\end{equation}
+being $t$ the hopping energy and $U$ the Coulomb repulsion. Sum is intended on the spin index $\sigma \in \lbrace \uparrow, \downarrow \rbrace$ and the sites $i,j$ of a planar square lattice $\mathcal{L}$. The notation $\langle ij \rangle$ indicates nearest neighbours (NNs). Note that the Coulomb repulsion is limited to be a on-site interaction. It is known that the Hubbard model captures the low-energy properties of copper oxides [Zhang 1988, Lee 2006].
+
+\section{Mott physics}
+
+Conventional band theory describes the electronic properties of materials on the assumption that electron-electron interaction is negligible. Within this framework, a material forms a band insulator whenever the conduction band fills up. Due to Pauli principle, electrons fill all states of the band and have no room left for low-energy scattering, hence the filled band is completely ineffective for conduction. On the other hand, if the conduction band is partially filled, the material is a metal and conducts electricity \cite{grosso2014solid}. In general, band theory predicts a metallic behaviour if the number of electrons per unit cell is odd; an insulating behaviour if is even.
+
+In undoped copper oxides, the conduction band is not completely filled. Indeed, each $\mathrm{Cu}^{2+}$ ion accommodates one hole in its most external orbital. Band theory would predict a metallic nature for these compounds, but the observed state is insulating. The reason for this discrepancy lies in the fact that electron-electron interaction is not negligible. Cuprates are Mott insulators, not band insulators: their insulating properties do not derive from a single-particle band being filled up and separated by a gap from another band at higher energy; instead, from an amplification of Coulomb repulsion that ``freezes'' electrons on the lattice sites \cite{keimer2015quantum}. One can picture this situation as a sort of traffic jam, where electrons do not move because the energetic cost of having two electrons on the same site would be too high [Zaneen 2015]. This produces an insulating behaviour: electrons are completely localised and conductivity is low.
+
+\begin{center}
+	[Figure: traffic jam and Mott insulation]
+\end{center}
+
+The Hubbard model describes naturally Mott physics. Consider for instance the two-sites Hubbard model,
+\[
+	\hat H = 
+	-t \left(
+		\hat c_{1\uparrow}^\dagger \hat c_{2\uparrow} + \hat c_{2\downarrow}^\dagger \hat c_{1\downarrow}
+	\right)
+	+ U \left(
+		\hat n_{1\uparrow} \hat n_{1\downarrow} + \hat n_{2\uparrow} \hat n_{2\downarrow} 
+	\right),
+\]
+where the subscript indicates the site index. In the strong coupling limit $U \gg t$, we can treat the kinetic terms perturbatively. Indeed, let $E_i$ be the energy given by having $i$ electrons on one site. At order zero in perturbation theory, the difference in energy between the state with one site doubly occupied and the other empty, and the state with two singly occupied sites is
+\[
+	E_2 + E_0 - 2E_1 = U.
+\]
+The zeroth order ground-state, then, is a combination of states where both sites are singly occupied. Insertion of the kinetic terms as a perturbative correction does not change the scenario (see App.~\ref{app:superexchange-virtual-hopping} for details).
+
+In the Hubbard model, the transition from a metallic state to a Mott insulator is controlled by the strength of the Coulomb repulsion $U$, and impacts visibly the density of states (DoS), which undergoes significant changes [Kotliar 2004]. Let us sketch the general behaviour: to start, let $U=0$ and consider a lattice with one electron per site (half-filling). Electrons are free and do not interact, therefore move freely across the lattice. Due to Pauli exclusion principle, they form a Fermi sea that occupies the lower half a metallic band with a width $W$. As we increase the value of $U$, it becomes increasingly harder for electrons to move. When $U$ becomes sufficiently large (with respect to $W$), the electronic density of states splits in two bands. The lower band, filled, accommodates all completely localised electrons; in the upper band, empty, are all the states where a site gets doubly occupied. This splitting is of order $\sim U$. At intermediate values of $U$, the DoS presents a peculiar three-peaks shape, which is the result of a mixture of the two Mott bands, and a residual of the original free band around the Fermi energy. This is shown in Fig.\mref. 
+
+\begin{center}
+	[Figure: Hubbard bands]
+\end{center}
+
+One of the signatures of a Mott transition, thus, is the flattening of the bare single-particle bands.
+
+\section{Antiferromagnetism}
+
+It is widely known that the ground-state of undoped copper oxides exhibits antiferromagnetic ordering \cite{keimer2015quantum}. The insurgence of this phase can be connected to Mott physics in the Hubbard model. Indeed, in the strong coupling regime $U \gg t$, the Hubbard hamiltonian is effectively approximated by the Heisenberg hamiltonian with antiferromagnetic coupling [Marston 1989],
+\[
+	\hat H_\mathrm{HM} \simeq \frac{4t^2}{U} \sum_{\ev{ij}} \hat{\mathbf{S}}_i \cdot \hat{\mathbf{S}}_j,
+\]
+where $\hat{\mathbf{S}}_i$ is the spin operator on site $i$. 
+
+Antiferromagnetism is established by taking advantage of the ``superexchange mechanism''. \todo
+
+\section{$d$-wave superconductivity}
+
+It is known that injection of charge (electrons or holes) in copper oxide compounds disrupts antiferromagnetic ordering and establishes a variety of peculiar phases \cite{keimer2015quantum}. Among these, the high temperature superconducting phase is significantly different from the conventional superconducting phase described by Bardeen-Cooper-Shrieffer (BCS) theory.
+
+In BCS theory, couples of electrons are glued together by an effective attraction that is mediated by lattice phonons. This mechanism is referred to as ``Cooper pairing''. The resulting state is a condensate of Cooper pairs, with an energy spectrum that is fully gapped and thus no low-energy excitations. The gap $\Delta_\mathbf{k}$, as a function of momentum, is isotropic ($s$-wave) and represents the energy cost of breaking a Cooper pair glued together by phononic interactions.
+
+In copper oxides, superconductivity is established with significantly different features. Most notably, the superconducting gap is not isotropic but changes sign under rotation of $\pi/2$ on the plane. Because of this, we talk about $d$-wave superconductivity. A consequence is the appearance of gapless quasiparticle excitations in the energy spectrum. Ideed, a $d$-wave gap has nodal lines (continuous sets of points, in reciprocal space, where it is null) which, in a square lattice geometry, result in a set of nodes around which dispersion is linearised (Dirac cones) \cite{coleman2015introduction}.
+
+In the phase diagram of copper oxides, the $d$-wave superconducting region ``emerges'' from the antiferromagnetic region, as doping is increased at low temperature. The relation between Mott physics and $d$-wave superconductivity is yet not fully understood. It has been proposed that the same Mott-induced spin fluctuations that lead to the formation of the antiferromagnetic state could act as an effective Cooper pairing \cite{coleman2015introduction} [Monod 1986, Miyake 1986, Scalapino 1986]. This problem is still open and is subject of a great effort.
+
+
+\newpage
+
+\textbf{Scaletta:
+\begin{enumerate}
+	{\item \color{tabblue}Nel modello di Hubbard si può ottenere Mott localisation (caso semplice a due siti e soluzione in appendice)
+	\item Spettro di singolo sito e Hubbard bands (mah..)}
+	\item Spin ancora libero
+	\item Superexchange (caso semplice a due siti e soluzione in appendice)
+	\item Il superexchange produce antiferromagnetismo di Neel
+	\item Stato RVB
+	\item AF ordering è rotto dal doping
+	\item Nei cuprati si ha evidenza dell'emergere di fase SC all'aumentare di electron e hole doping
+	\item d-wave SC: anche se AFI è rotto, la fisica di Mott resta nel fatto che il gap ha un nodo d-wave
+	\item cuprati: qual è la relazione tra mott, af e sc?
+\end{enumerate}}
+
+
+{\color{tabred}
 
 Cuprates Physics is particularly interesting and surprising also considering their very poor conducting properties at normal phase. Copper oxides are basically ceramics, highly prone to establishing insulating antiferromagnetic phases. Antiferromagnetism and superconductivity are apparently antithetical orderings: the first arises from electronic repulsion, while the second from attractive interactions \cite{keimer2015quantum}. It is widely observed, however, how in cuprates the two phases can compete {\color{tabred}\textbf{and even coexist}} \cite{scalapino2012common}.
 
 Moreover, cuprates superconduct through a new, not-yet understood mechanism. Classical Bardeen-Cooper-Shrieffer (BCS) theory of superconductivity describes the arising of a phonon-induced effective electron-electron attractive interaction as a source of so-called ``conventional superconductivity''. It is the interplay of electrons with lattice vibrations that couples them in Cooper pairs. The same theory fails completely in explaining this new ``unconventional superconductivity''. All of these observation have gathered, in years, a lot of interest in these materials.
 
-Such complex materials are surprisingly well described in many features by the simple (but rich) single-band Hubbard model (HM) \cite{scalapino2012common},
-\begin{equation}\label{eq:hubbard-model}
-	\hat H_\mathrm{HM} = 
-	-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-	+ U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow}
-	\qquad
-	t, U  > 0
-\end{equation}
-being $t$ the hopping energy and $U$ the on-site repulsion. Sum is intended on the spin index $\sigma \in \lbrace \uparrow, \downarrow \rbrace$ and the sites $i$ of a two-dimensional square lattice. The notation $\langle ij \rangle$ indicates nearest neighbours (NNs). Recent developments \cite{padma2025beyond} have shown, however, that a more accurate description of these materials could be obtained by adding a non-local electron-electron attraction. This leads us to a widely studied modified version of Eq.~\eqref{eq:hubbard-model},
+Recent developments \cite{padma2025beyond} have shown, however, that a more accurate description of these materials could be obtained by adding a non-local electron-electron attraction. This leads us to a widely studied modified version of Eq.~\eqref{eq:hubbard-model},
 \begin{equation}\label{eq:extended-hubbard-model}
 	\hat H_\mathrm{EHM} =
 	-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
@@ -24,62 +112,4 @@ being $t$ the hopping energy and $U$ the on-site repulsion. Sum is intended on t
 	\qquad
 	t, U, V > 0
 \end{equation}
-commonly referred to as ``Extended Hubbard model'' (EHM). The difference with the conventional HM is the presence of a NNs attractive interaction, independent of site and spin indices. In this thesis, we study the insurgence of antiferromagnetism and superconductivity in the EHM due to the presence of this new interaction. To do so, we use numerical Hartree-Fock (HF) methods.
-
-This introductory chapter is organised as follows: \todo
-
-%\section{Antiferromagnetic ordering in the Hubbard model}\label{sec:antiferromagnetic-ordering-hubbard}
-%
-%Consider the ordinary Hubbard model:
-%\begin{equation}\label{eq:hubbard-model}
-%	\hat H = 
-%	-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-%	+ U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow}
-%	\qquad
-%	t, U  > 0
-%\end{equation}
-%The two competing mechanisms are site-hopping of amplitude $t$ and local repulsion of amplitude $U$. For this model defined on a bipartite lattice at half filling and fixed electron number, it is well known \cite{hirsch1985hubbard} that, below a certain critical temperature $T_c$ and above some (small) critical repulsion $U_c/t$, the ground-state acquires antiferromagnetic ($\mathrm{AF}$) long-range ordering. schematically depicted in Fig.~\ref{subfig:antiferromagnet-phase}. The mechanism for the formation of the $\mathrm{AF}$ phase takes advantage of virtual hopping, as described in App.~\ref{appendix:superexchange-virtual-hopping}; the Mean-Field Theory (MFT) treatment of ferromagnetic-antiferromagnetic orderings in $2\mathrm{D}$ Hubbard lattices is discussed in  App.~\ref{appendix:mean-field-hubbard}.
-%
-%\begin{figure}
-%	\centering
-%	\subfloat[Antiferromagnetic phase.]{
-%		\input{\GraphicsFolder/antiferromagnet-phase}
-%		\label{subfig:antiferromagnet-phase}	
-%	}
-%	\hfil
-%	\subfloat[Polarized sublattices.]{
-%		\input{\GraphicsFolder/antiferromagnet-sublattices}
-%		\label{subfig:antiferromagnet-sublattices}	
-%	}
-%	\caption{Schematic representation of the \AF phase. Fig.~\ref{subfig:antiferromagnet-phase} shows a portion of the square lattice with explicit representation of the spin for each site. Fig.~\ref{subfig:antiferromagnet-sublattices} divides the square lattice $\mathcal{S}$ in two polarized sublattices $\mathcal{S}_a$, $\mathcal{S}_b$. The AF phase results from the interaction of two inversely polarized ``ferromagnetic'' square lattices.}
-%	\label{fig:antiferromagnet-schemes}
-%\end{figure}
-%
-%In this chapter the discussion is limited to the two-dimensional square lattice Hubbard model. The lattice considered has $L_\ell$ sites on side $\ell = x,y$, thus a total of $L_x L_y$ sites. The total number of single electron states is given by $D = 2L_x L_y$. All theoretical discussion neglects border effects, thus considering $D \to +\infty$.
-%
-%\section{The Extended Fermi-Hubbard model}
-%
-%The Extended Fermi-Hubbard model is defined by:
-%\begin{equation}\label{eq:extended-hubbard-model}
-%	\hat H =
-%	-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
-%	+ U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow}
-%	- V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat n_{i\sigma} \hat n_{j\sigma'}
-%\end{equation}
-%Note that, on a square lattice, we can perform the summation over NN just as
-%\[
-%	\sum_{\ev{ij}} \equiv \sum_{i \in \mathcal{S}_a} \left[
-%		\delta_{j=i+\delta_x} + \delta_{j=i-\delta_x} + \delta_{j=i+\delta_y} + \delta_{j=i-\delta_y}
-%	\right]
-%\]
-%where notation of Fig.~\ref{subfig:antiferromagnet-sublattices} has been used. The last term represents an effective attraction between neighboring electrons, of amplitude $V$. Such an interaction is believed \cite{cao2025p-wave} necessary to describe the insurgence of high-$T_c$ superconductivity in cuprate SCs. \todo
-%
-%\subsection{Experimental insight on NN attraction}
-%
-%{\color{tabred}[ Add:
-%\begin{itemize}
-%	\item High $T_c$ SC in cuprates;
-%	\item Experimental evidence of topological SC;
-%	\item Insertion of the non-local attraction;
-%\end{itemize}]}
-
+commonly referred to as ``Extended Hubbard model'' (EHM). The difference with the conventional HM is the presence of a NNs attractive interaction, independent of site and spin indices. In this thesis, we study the insurgence of antiferromagnetism and superconductivity in the EHM due to the presence of this new interaction. To do so, we use numerical Hartree-Fock (HF) methods.}
