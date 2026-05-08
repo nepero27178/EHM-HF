@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  7 MAY 2026 23:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  8 MAY 2026 13:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1880,19 +1880,69 @@ l.41 \restoregeometry
 
 [4]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 72.
+[5]
+
+LaTeX Warning: Reference `chap:hf' on page 6 undefined on input line 117.
 
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 72.
+LaTeX Warning: Reference `chap:ehm-symmetries' on page 6 undefined on input lin
+e 119.
+
+
+LaTeX Warning: Reference `chap:normal' on page 6 undefined on input line 121.
+
+
+Overfull \hbox (4.515pt too wide) in paragraph at lines 121--123
+[]\OT1/cmr/m/n/10 We ap-ply the Hartree-Fock method to the nor-mal phase and de
+-rive the self-consistency
+ []
+
+
+LaTeX Warning: Reference `chap:af' on page 6 undefined on input line 123.
+
+
+
+[6]
+
+LaTeX Warning: Reference `chap:sc' on page 7 undefined on input line 125.
+
+
+LaTeX Warning: Reference `chap:conclusions' on page 7 undefined on input line 1
+31.
+
+
+LaTeX Warning: Reference `app:slater-gaussian' on page 7 undefined on input lin
+e 137.
+
+
+LaTeX Warning: Reference `chap:hf' on page 7 undefined on input line 137.
+
+
+LaTeX Warning: Reference `app:hf-mft' on page 7 undefined on input line 139.
+
+
+LaTeX Warning: Reference `app:hm-af-ground-state' on page 7 undefined on input 
+line 141.
+
+
+LaTeX Warning: Reference `app:theoretical-constraints' on page 7 undefined on i
+nput line 143.
+
+
+LaTeX Warning: Reference `chap:normal' on page 7 undefined on input line 143.
+
+
+LaTeX Warning: Reference `chap:af' on page 7 undefined on input line 143.
+
+
+LaTeX Warning: Reference `app:sc-g-opt' on page 7 undefined on input line 145.
 
 ) (./appendices/superexchange-virtual-hopping/superexchange-virtual-hopping.tex
 
 
-[5]
+[7]
 
-[6
+[8
 
 ]
 
@@ -1907,11 +1957,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (./appendices/superexchange-virtual-hopping/pictures/two-sites-hubbard-model.te
 x)
 
-[7])
+[9])
 
-[8]
+[10]
 
-[9
+[11
 
 ]
 Overfull \hbox (3.53458pt too wide) in paragraph at lines 70--70
@@ -1922,7 +1972,7 @@ Overfull \hbox (3.53458pt too wide) in paragraph at lines 70--70
 
 
 
-[10]
+[12]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 7
 0.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
@@ -1932,7 +1982,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 70.
 
 
-[11]
+[13]
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
@@ -1946,7 +1996,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1B5C7AA86A7614F0D94A46C60B4F5EB2;1973.
+(rerunfilecheck)             Checksum: 3CE46EDE29A7EBD9F872D56FF10D53BE;2549.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -1957,10 +2007,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53006 strings out of 475076
- 1196768 string characters out of 5763687
- 2220786 words of memory out of 5000000
- 75137 multiletter control sequences out of 15000+600000
+ 53039 strings out of 475076
+ 1197255 string characters out of 5763687
+ 2221470 words of memory out of 5000000
+ 75158 multiletter control sequences out of 15000+600000
  579018 words of font info for 109 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  93i,12n,104p,2641b,1673s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1971,25 +2021,26 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm06
-00.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/t
-exmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/pub
-lic/cm-super/sfrm1000.pfb>
-Output written on main.pdf (13 pages, 308586 bytes).
+1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmtt10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></
+usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sfrm1000.pfb>
+Output written on main.pdf (15 pages, 326394 bytes).
 PDF statistics:
- 417 PDF objects out of 1000 (max. 8388607)
- 331 compressed objects within 4 object streams
- 64 named destinations out of 1000 (max. 500000)
- 207 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 475 PDF objects out of 1000 (max. 8388607)
+ 385 compressed objects within 4 object streams
+ 76 named destinations out of 1000 (max. 500000)
+ 223 words of extra memory for PDF output out of 10000 (max. 10000000)
 

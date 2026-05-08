@@ -1,6 +1,6 @@
  \def\GraphicsFolder{chapters/hf-introduction/pictures}
 
-\chapter{Introduction to Hartree-Fock methods}
+\chapter{Introduction to Hartree-Fock methods}\label{chap:hf}
 
 In this chapter we give a general introduction to the Hartree-Fock (HF) variational method and its numerical implementation. In Quantum Mechanics, variational methods allow to approximate the ground state of a many-body hamiltonian by minimising the energy computed for a specific substate of physical states. In particular, in the HF method we approximate the real ground-state with the best possible many-body state that is an eigenstate of a non-interacting fermionic hamiltonian.
 
@@ -33,7 +33,7 @@ If the true ground state belongs to $\mathcal{S}$, the found local minimum coinc
 	\label{fig:gaussian-subspace}
 \end{figure}
 
-In HF methods, we identify $\mathcal{S}$ with the set of so-called ``gaussian states''. These are all the ground-states of quadratic hamiltonians, namely the hamiltonians that are bilinear in the fermionic creations operators (see App.~\ref{appendix:slater-gaussian} for details). The restriction to gaussian states significantly simplifies the computation of expectation values. Indeed, thanks to Wick's theorem, the expectation value of quartic operators exactly decomposes as
+In HF methods, we identify $\mathcal{S}$ with the set of so-called ``gaussian states''. These are all the ground-states of quadratic hamiltonians, namely the hamiltonians that are bilinear in the fermionic creations operators (see App.~\ref{app:slater-gaussian} for details). The restriction to gaussian states significantly simplifies the computation of expectation values. Indeed, thanks to Wick's theorem, the expectation value of quartic operators exactly decomposes as
 \begin{equation}\label{eq:hf-wick-hfc}
 	\langle
 	\hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta
@@ -74,7 +74,7 @@ where $\hat \gamma_\alpha$ are fermionic operators determined by the minimisatio
 \[
 	\acomm{\hat\gamma_\alpha}{\hat\gamma_\beta^\dagger} = \delta_{\alpha\beta}
 \]
-and are connected to the conventional electronic operators $\hat c_\alpha$ through an unitary map. See App.~\ref{appendix:slater-gaussian} for details.
+and are connected to the conventional electronic operators $\hat c_\alpha$ through an unitary map. See App.~\ref{app:slater-gaussian} for details.
 
 Let us stress that the operatorial approximation $\HFsimeq$ is a shorthand notation that must be intended as follows: $\hat H_\mathrm{HF}$ is that non-interacting operator whose ground-state is the best approximation to the ground-state of $\hat H$. This does not mean that in general the two operators are related.
 
@@ -369,7 +369,7 @@ In this section we give an alternative expression for Eqns.~\eqref{eq:hf-solutio
 	+ &\hat c_\alpha^\dagger \hat c_\alpha \big\langle \hat c_\beta^\dagger \hat c_\beta \big\rangle + \big\langle \hat c_\alpha^\dagger \hat c_\alpha \big\rangle \hat c_\beta^\dagger \hat c_\beta - \big\langle \hat c_\alpha^\dagger \hat c_\alpha \big\rangle \big\langle \hat c_\beta^\dagger \hat c_\beta \big\rangle \quad&&(\text{Cooper})
 \end{aligned}
 \]
-The proof of this statement is given in App.~\ref{appendix:hf-mft}, where we also argue the interpretation of HF method as a mean-field theory (MFT). Let us summarise this section through a practical rule to decompose the quartic part of the local repulsion $\hat H_U$ and the non-local attraction $\hat H_V$ in the EHM, by applying Eq.~\eqref{appeq:mft-V-decomposition}.
+The proof of this statement is given in App.~\ref{app:hf-mft}, where we also argue the interpretation of HF method as a mean-field theory (MFT). Let us summarise this section through a practical rule to decompose the quartic part of the local repulsion $\hat H_U$ and the non-local attraction $\hat H_V$ in the EHM, by applying Eq.~\eqref{appeq:mft-V-decomposition}.
 
 \paragraph{Local repulsion.} Applying the HF method, the local repulsion $\hat H_U$ is approximated by the quadratic operator:
 \begin{align}
