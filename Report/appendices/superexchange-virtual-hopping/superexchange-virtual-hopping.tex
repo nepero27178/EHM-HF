@@ -2,7 +2,7 @@
 
 \chapter{Superexchange and virtual hopping in Hubbard lattices}\label{app:superexchange-virtual-hopping}
  
-Superexchange is a key mechanism in the formation of AF ordering in Hubbard lattices. It is an extension of the direct exchange effect, that we describe in Sec.~\ref{appsec:direct-exchange}, that favour antiferromagnetic ordering and takes advantage of the chemical structure of cuprates. The mechanism becomes clear enough if we start with a $2$-sites Hubbard toy model.
+Superexchange is a key mechanism in the formation of AF ordering in Hubbard lattices. It is an extension of the direct exchange effect, that we describe in Sec.~\ref{appsec:direct-exchange}, that favours antiferromagnetic ordering and takes advantage of the chemical structure of cuprates. The mechanism becomes clear enough if we start with a $2$-sites Hubbard toy model.
 
 \section{Direct exchange and virtual hopping in Hubbard lattices}\label{appsec:hubbard-2}
 
@@ -57,7 +57,7 @@ The matrix elements of the hamiltonian can be computed using this basis,
 \end{equation}
 In the above matrix, rows and columns are ordered following the states indices of Eq.~\eqref{appeq:hubbard-2-states}. The states $\ket{\psi_1}$ (both spins up) and $\ket{\psi_6}$ (both spins down) are zero-energy eigenstates. Indeed, they do not interact via Coulomb repulsion (are on different sites) and neither through NNs hopping, due to Pauli exclusion principle.
 
-All states with null total spin projection, namely $\lbrace \ket{\psi_i} \rbrace$ for $2 \le i \le 5$ have null matrix elements with the aforementioned states, but non-zero matrix elements among themselves. Note that this set includes both the states with one doubly occupied site and one empty site ($\ket{\psi_2}$, $\ket{\psi_5}$) and those with two singly occupied sites ($\ket{\psi_3}$, $\ket{\psi_4}$). These states are connected by the central $4 \times 4$ matrix in Eq.~\eqref{appeq:hubbard-2-Hij}. The latter is diagonalised by the means of a change of basis $M$,
+All states with null total spin projection, namely $\lbrace \ket{\psi_i} \rbrace$ for $2 \le i \le 5$, give a null matrix elements when computed with the aforementioned states, but non-zero matrix elements among themselves. Note that this set includes both the states with one doubly occupied site and one empty site ($\ket{\psi_2}$, $\ket{\psi_5}$) and those with two singly occupied sites ($\ket{\psi_3}$, $\ket{\psi_4}$). These states are connected by the central $4 \times 4$ matrix in Eq.~\eqref{appeq:hubbard-2-Hij}. The latter is diagonalised by the means of a change of basis $M$,
 \[
 	M \begin{bmatrix}
 		 U & -t & -t &     \\
@@ -102,11 +102,11 @@ of energy
 \]
 the latter approximation being true if $U \gg t$ (strong coupling limit). The singlet state pairs with a spatially-symmetric (node-less) wavefunction, while triplet states with an antisymmetric wavefunction (which, instead, has a node). The entire triplet (second row of Tab.~\ref{apptab:two-sites-hubbard-model-eigenstates}) has zero energy. Excited states are anti-symmetrised and symmetrised version of the polarised states $\ket{\psi_1}$ and $\ket{\psi_6}$.
 
-\subsection{Direct exchange in Hubbard lattices}\label{appsec:direct-exchange}
+\section{Direct exchange in Hubbard lattices}\label{appsec:direct-exchange}
 
 The fact that we limited to two sites allowed for an exact diagonalisation of the toy hamiltonian of Eq.~\eqref{eq:hubbard-2-sites}. When moving to lattices, the above procedure cannot be extended easily. By using perturbation theory, instead, we can obtain the same result and easily extend to larger lattices.
 
-Consider Eq.~\eqref{eq:hubbard-2-sites} separating two parts,
+Nevertheless, let us obtain the same result of Sec.~\ref{appsec:hubbard-2} by the means of perturbation theory. Consider Eq.~\eqref{eq:hubbard-2-sites} separating two parts,
 \[
 	\hat H = \hat H_0 + \hat H_1
 \]
@@ -175,12 +175,16 @@ again, because of Pauli exclusion principle.
 \begin{figure}
 	\centering
 	\input{\GraphicsFolder/hubbard-2-virtual}
-	\caption{Schematisation of the second order virtual hoppings for singlet and triplet states. \todo}
+	\caption{Schematisation of a second order virtual hopping. Note that this is a virtual process induced by the kinetic perturbation, not an actual physical process.}
 	\label{appfig:hubbard-2-virtual}
 \end{figure}
 
-What makes $\ket{s}$ and $\ket{t_0}$ fundamentally different? The singlet state takes advantage of the second-order virtual process where one spin hops to the neighbouring site and returns back. This process is schematised in Fig.~\ref{appfig:hubbard-2-virtual}, and is referred to as ``virtual hopping''. But each one of the two electrons can do this. The antisymmetry properties of many-body electronic wavefunctions imply, in the end, that these two virtual processes interfere constructively. For the triplet state $\ket{t_0}$, the two process are perfectly plausible but interfere destructively. \todo
+What makes $\ket{s}$ and $\ket{t_0}$ fundamentally different? The singlet state takes advantage of the second-order virtual process where one spin hops to the neighbouring site and returns back. This process is schematised in Fig.~\ref{appfig:hubbard-2-virtual}, and is referred to as ``virtual hopping''. But each one of the two electrons can do this. The antisymmetry properties of many-body electronic wavefunctions imply, in the end, that these two virtual processes interfere constructively. For the triplet state $\ket{t_0}$, the two processes are perfectly plausible but interfere destructively. The coupling of electronic spin on neighbouring atoms is known as ``direct exchange''.
 
-\subsection{Superexchange in cuprates}
+This perturbative scheme scales up to larger lattices. It can be shown analytically that the low-energy sector of the strong-coupled Hubbard hamiltonian of Eq.~\eqref{eq:hubbard-model} is approximated by an effective Heisenberg hamiltonian with antiferromagnetic spin-spin coupling \cite{cleveland1976obtaining}.
 
-The scheme of direct exchange explains the insurgence of antiferromagnetism in the Hubbard model at strong coupling, $U \gg t$. Direct exchange \todo
+\section{Superexchange in cuprates}
+
+The scheme of direct exchange explains the insurgence of antiferromagnetism in the Hubbard model at strong coupling, $U \gg t$. The physics of cuprates is slightly more complicated.
+
+Indeed, in the copper oxides active layers, the $\mathrm{Cu}^{2+}$ ions are surrounded by oxygens in a closed shell configuration. Hence, copper $d_{x^2-y^2}$-wave orbitals (where conduction electrons reside) do not overlap. Instead, they overlap with $p$-wave orbitals of the neighbouring oxygens. This enables a mechanism known as ``superexchange'': even if the copper spins cannot interact directly, they use the intermediate $p$-orbitals as a sort of ``bridge'' and establish an direct exchange mechanism with the intermediate spins. The resulting interaction, as is ``seen'' by the copper electrons, is again an effective antiferromagnetic coupling \cite{pavarini2012correlated}.
