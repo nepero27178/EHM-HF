@@ -3,7 +3,7 @@
 
 In this chapter we apply the HF methods sketched in Sec.~\ref{sec:sketch-hf-method} to the ``normal phase''. We are studying the model in a state were no symmetry of those enumerated in Tab.~\ref{tab:symmetry-groups} is broken. The application of HF methods in this context will lead to a self-consistent renormalisation of the hopping parameter $t$, which will produce a Mott localisation effect.
 
-This chapter is divided in three parts. First, we discuss the symmetries of the normal phase, following the general discussion of Chap.~\ref{chap:ehm-symmetries}. Second, we apply HF methods to derive the self-consistent approximated hamiltonian and impose some theoretical constraints on the solution. Lastly, we present numeric results.
+This chapter is divided in four parts. In Sec.~\ref{sec:normal-phase-theory} we discuss the symmetries of the normal phase. In Secs.~\ref{sec:normal-hf}, \ref{sec:normal-hf-hamiltonian} we derive the HF approximation to the EHM in the normal phase. In Sec.~\ref{sec:normal-sceq-analysis} we analyse the self-consistency equations and derive constraints. In Sec.~\ref{sec:normal-numeric} we present the result of numeric simulations.
 
 \section{The normal phase and its  symmetries}\label{sec:normal-phase-theory}
 
@@ -87,7 +87,7 @@ As we will see in detail and is summarised in Tab.~\ref{tab:normal-RWCs}, Hartre
 
 In the normal phase, spin is a pure physical degeneracy, being the $\uparrow$ and $\downarrow$ sectors separated; moreover, $\hat H$ is $\mathbb{Z}_2$ invariant with respect to spin inversion, $\sigma \leftrightarrow \overline{\sigma}$. This implies that all physical quantities, as is for the normal phase, should not depend on the spin index. We will perform all computations leaving $\sigma$ explicit and using this consideration at the end.
 
-\section{Application of HF methods to the normal phase}\label{sec:normal-hm}
+\section{Application of HF methods to the normal phase}\label{sec:normal-hf}
 
 The quartic part of $\hat H$ is given by the the local repulsion $\hat H_U$ and the non-local attraction $\hat H_V$. Applying HF methods, we get the decomposition of Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}. In the next section we analyse the Hartree channel, which contains all Hartree-like terms. We will see that $\hat H_U$ and $\hat H_V$ are approximated, in this channel, by a multiple of the number operator. In the section that follows, we deal with Fock terms, and show how $\hat H_V$ is approximated, in that channel, by an operator that is formally equivalent to the kinetic operator $\hat H_t$.
 
@@ -500,7 +500,7 @@ Later, using spin degeneracy, we will omit the sum on $\sigma$ and the $1/2$ pre
 %
 In next section we collect all we found so far and discuss the properties of the HF hamiltonian.
 
-\section{The HF hamiltonian and its properties}
+\section{The HF hamiltonian and its properties}\label{sec:normal-hf-hamiltonian}
 
 In the normal phase, the HF approximation to the EHM hamiltonian is given by the following operator:
 \begin{equation}\label{eq:normal-Hhf}
@@ -788,7 +788,7 @@ Here $E_\mathrm{HF}^{(\mathrm{N})}$ is the ground-state energy for the HF hamilt
 	
 \end{tabproof}
 
-\section{Analysis of the self-consistency equations} \label{sec:normal-sceq-analysis}
+\section{Analysis of the solution} \label{sec:normal-sceq-analysis}
 
 In this section we collect some results that follow from a formal analysis of the self-consistency problem for the normal phase. This phase is described by the HFPs $u^{(s^*)}$ and $u^{(d)}$. It is possible to prove that:
 \begin{equation}\label{eq:normal-us*-ud-constraint}

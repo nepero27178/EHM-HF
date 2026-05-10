@@ -3,7 +3,7 @@ SetupFilePath::String = @__FILE__
 
 # Phase
 AllPhases::Set{String} = Set(["Normal","AF","AF-Symmetric","AF-Antisymmetric","SC-Singlet","SC-Triplet"])
-Phase::String = "SC-Singlet" # ← Change here
+Phase::String = "AF" # ← Change here
 if !in(Phase, AllPhases)
 	@error "Invalid phase, please modify at: " * SetupFilePath
 	exit()
@@ -12,7 +12,7 @@ end
 # Syms
 SymmetricStructures::Set{String} = Set(["s", "S", "d"])
 AntisymmetricStructures::Set{String} = Set(["x", "y"])
-Syms::Set{String} = Set(["s", "S", "d"]) # ← Change here
+Syms::Set{String} = Set([]) # ← Change here
 
 Err::Bool = false
 (Phase=="Normal" && length(Syms)>0) ? Err = true : false
@@ -27,12 +27,12 @@ end
 
 # RB
 AllRB::Set{String} = Set(["S", "d"])
-RB::Set{String} = Set(["S","d"]) # ← Change here
+RB::Set{String} = Set(["S"]) # ← Change here
 RBS::Bool = "S" in RB ? true : false
 RBd::Bool = "d" in RB ? true : false
 
 # Setup
-Setup::String = "B[256]-b" # ← Change here
+Setup::String = "A[256]-a" # ← Change here
 AvailableSetups::Set{String} = Set([
 	"Test", # Test setup
 	"A[256]-a", # UV plane

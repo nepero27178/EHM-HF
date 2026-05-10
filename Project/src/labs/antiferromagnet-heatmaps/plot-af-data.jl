@@ -41,8 +41,8 @@ function PlotSided(
 		maximum( vcat(0.0,filter(!isnan,zz)) )
 	)
 	h = heatmap!(ax_H,xx,yy,zz,colormap=cs,colorrange=clims)
-	text!(ax_H,3.9,5.75,text="High magnetization",color=:white,align=(:right,:top))
-	text!(ax_H,0.1,0.25,text="Low magnetization",color=:black,align=(:left,:top),rotation=pi/2)
+	text!(ax_H,3.9,5.75,text="High magnetisation",color=:white,align=(:right,:top))
+	text!(ax_H,0.1,0.25,text="Low magnetisation",color=:black,align=(:left,:top),rotation=pi/2)
 
 	ax_C = Axis(H[1,2])
 	ax_C.xlabel = ax_P.xlabel.val

@@ -68,9 +68,7 @@ function Plot3D(
 
 	# Initialize z label
 	zLabel::String = ""
-	if zVar=="m"
-		zLabel = "Magnetization"
-	elseif Print
+	if Print
 		zLabel = "\$" * VarLabels[zVar] * "\$"
 	elseif !Print
 		zLabel = zVar

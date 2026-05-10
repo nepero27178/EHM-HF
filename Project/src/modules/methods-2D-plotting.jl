@@ -71,9 +71,7 @@ function Plot2D(
 
 	# Initialize y label
 	yLabel::String = ""
-	if yVar=="m"
-		yLabel = "Magnetization"
-	elseif Print
+	if Print
 		yLabel = "\$" * VarLabels[yVar] * "\$"
 	elseif !Print
 		yLabel = yVar
