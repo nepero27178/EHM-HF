@@ -1097,7 +1097,7 @@ All of this holds, as all the rest, at low temperature: by lowering $\beta$, fin
 
 \subsection{Convergence problems and mixing fine-tuning}\label{subsec:normal-g-optimization}
 
-The normal phase is simple enough to describe some of the typical convergence problems arising in HF iterative schemes anticipated in Sec.~\ref{subsec:reject-mix-iterate}. Bands flattening is a source of algorithmic instability: numerics can lead to values of $u^{(s^*)}$, during iterations, slightly out of bounds with respect to Eq.~\eqref{eq:normal-us*-constraint}. Even if the numeric effect is small, the consequence can be vast. To heal this effect and extract the actual convergence values, it is necessary to optimise the mixing parameter $g \in [0,1]$. 
+The normal phase is simple enough to describe some of the typical convergence problems arising in HF iterative schemes anticipated in Sec.~\ref{subsec:reject-mix-iterate}. Bands flattening is a source of algorithmic instability: numerics can lead to values of $u^{(s^*)}$, during iterations, slightly out of bounds with respect to Eq.~\eqref{eq:normal-us*-ud-constraint}. Even if the numeric effect is small, the consequence can be vast. To heal this effect and extract the actual convergence values, it is necessary to optimise the mixing parameter $g \in [0,1]$. 
 
 \begin{figure}[t]
 	\centering

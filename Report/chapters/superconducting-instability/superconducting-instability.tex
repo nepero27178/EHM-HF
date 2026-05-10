@@ -14,7 +14,7 @@ As for antiferromagnetism, superconductivity can establish in a variety of ways.
 	\mathrm{C}_4 &\SSB \mathrm{C}_2
 \end{aligned}
 \]
-Translational invariance is unbroken. Then electronic density needs to be uniform across all sites, similarly to the normal phase discussed in Chap.~\ref{chap:normal-phase}. Non-uniform density distributions are inconsistent with translational invariance in both directions. We have, then
+Translational invariance is unbroken. Then electronic density needs to be uniform across all sites, similarly to the normal phase discussed in Chap.~\ref{chap:normal}. Non-uniform density distributions are inconsistent with translational invariance in both directions. We have, then
 \begin{equation}\label{eq:sc-density-ansatz}
 	\ev{\hat n_{\mathbf{r}\sigma}} = n
 \end{equation}
@@ -223,7 +223,7 @@ In the end, we reduce $\hat H_U$ from Eq.~\eqref{eq:sc-HU-<phi>-phi} to
 	\Delta^{(s)*} \hat \phi_\mathbf{k}^\dagger
 	\right] - E_{\mathrm{C}/U}^{(\mathrm{SC})}
 \end{equation}
-This last decomposition resembles Eq.~\eqref{eq:af-HU-gap-psi}, obtained for the AF phase in the Hartree channel.
+This last decomposition resembles Eq.~\eqref{eq:af-HU-hartree-approx}, obtained for the AF phase in the Hartree channel.
 
 \subsection{Superconductivity in the HM}\label{subsec:sc-hm}
 
@@ -527,7 +527,7 @@ At HF level, the HM cannot host superconductivity. This means that $w^{(s)}$ = 0
 	\frac{1}{2 L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\mathrm{Th}_\mathbf{k}^{(-)}[\beta]}{E_\mathbf{k}}
 	\right]^{-1}
 \end{equation}
-We call it ``critical'' because its value gives a sort of boundary for convergence. Indeed, {\color{tabred}\textbf{as we show in App.~\ref{appendix:sc-g-opt}}}, for the SC phase in conventional HM, we are able to optimise parametrically the mixing parameter $g$ in order to ensure convergence, based on the ratio $U/U_\mathrm{c}[\beta]$. Let us show that superconductivity is not possible in the conventional HM with $U>0$.
+We call it ``critical'' because its value gives a sort of boundary for convergence. Indeed, {\color{tabred}\textbf{as we show in App.~\ref{app:sc-g-opt}}}, for the SC phase in conventional HM, we are able to optimise parametrically the mixing parameter $g$ in order to ensure convergence, based on the ratio $U/U_\mathrm{c}[\beta]$. Let us show that superconductivity is not possible in the conventional HM with $U>0$.
 
 \begin{tabproof}[Impossibility of $s$-wave superconductivity in the conventional HM]
 	By construction $U_\mathrm{c}[\beta] > 0$, being the thermal factor positive by construction:
@@ -592,7 +592,7 @@ In this section we add to the hamiltonian the non-local attraction $\hat H_V$. A
 	\qquad
 	\mu \to \tilde{\mu}
 \]
-The chemical potential was already renormalised once in the HM derivation in Sec.~\ref{subsec:sc-l-hartree-analytic}. Renormalisation of Bogoliubov bands follows that of bare bands and gap function, 
+The chemical potential was already renormalised once in the HM derivation in Sec.~\ref{subsec:sc-hartree-mu}. Renormalisation of Bogoliubov bands follows that of bare bands and gap function, 
 \[
 	\tilde{E}_\mathbf{k} \equiv \sqrt{\tilde{\xi}_\mathbf{k}^2 + |\tilde{\Delta}_\mathbf{k}|^2}
 \]
@@ -745,7 +745,7 @@ with the energy shift being given by:
 	\big|^2
 	\right] \label{eq:sc-fock-V-contraction-energy}
 \end{align}
-where we used Eq.~\eqref{eq:normal-fock-V-contraction-energy}, which is formally identical in the SC phase with the only difference that EVs are now computed on the SC ground-state. To get to this point, we used the fact that:
+where we used Eq.~\eqref{eq:normal-HV-fock-Ec}, which is formally identical in the SC phase with the only difference that EVs are now computed on the SC ground-state. To get to this point, we used the fact that:
 \[
 	\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}' \sigma'} \rangle = \delta_{\mathbf{k}=\mathbf{k}'} \delta_{\sigma=\sigma'} \langle \hat c_{\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{k} \sigma} \rangle
 \]
@@ -1265,7 +1265,7 @@ being $F^{(\mathrm{SC})}$ the total free energy,
 \begin{equation}\label{eq:sc-FMFT-def}
 	F^{(\mathrm{SC})} = E_\mathrm{HF}^{(\mathrm{SC})} - \frac{S^{(\mathrm{SC})}}{k_\mathrm{B} \beta}
 \end{equation}
-and $S^{(\mathrm{SC})} \equiv  L_x L_y \times s^{(\mathrm{SC})}$ the total entropy. Here $E_\mathrm{HF}^{(\mathrm{SC})}$ is the ground-state energy for the HF hamiltonian. In the AF phase, we compute $f^{(\mathrm{SC})}$ using the following formula:
+and $S^{(\mathrm{SC})} \equiv  L_x L_y \times s^{(\mathrm{SC})}$ the total entropy. Here $E_\mathrm{HF}^{(\mathrm{SC})}$ is the ground-state energy for the HF hamiltonian. In the SC phase, we compute $f^{(\mathrm{SC})}$ using the following formula:
 \begin{multline}
 	f^{(\mathrm{SC})} = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \left[
 	\tilde{\xi}_\mathbf{k} - \tilde{E}_\mathbf{k}
@@ -1369,11 +1369,13 @@ which gives the analytic expression for the free energy. Note that, as the gap c
 
 \end{tabproof}
 
-\section{[CHECK ABOVE AND BELOW]}
+\section{Analysis of the solution} \label{sec:sc-sceq-analysis}
 
-\subsection{Energy constraints on the HFPs}
+In this section we derive one constraint on the solution for the SC phase, which ``regulates'' the competition among various symmetries of the superconducting gap. We specify that, differently from AF and normal phases, for the singlet SC phase we did not implement any theoretical constraint on the HFPs $u^{(\gamma)}$, $v^{(\gamma)}$. As we will discuss, all HFPs are significantly non-zero in this phase, at least in some portion of parametric space.
 
-We derived the expression of Eq.~\eqref{eq:sc-fMFT}, which contains in its second row the HFPs $u^{(\gamma)}$ and $w^{(\gamma)}$. In this section, similarly to what was done in Sec.~\mref for the AF phase, we give a proof of the following equation:
+\paragraph{Energetic constraints.}
+
+We derived the expression of Eq.~\eqref{eq:sc-fMFT}, which contains in its second row the HFPs $u^{(\gamma)}$ and $w^{(\gamma)}$. In this section, similarly to what was done in Sec.~\ref{sec:af-sceq-analysis} for the AF phase, we give a proof of the following equation:
 \begin{equation}\label{eq:sc-ehm-gap-energy}
 	-U \big|
 		w^{(s)}
@@ -1451,7 +1453,7 @@ This proof ends the theoretical discussion of the SC phase. Unfortunately, we ar
 
 \section{Discussion of numeric results for the singlet channel}\label{sec:sc-numeric}
 
-The last part of this chapter is devoted to presenting and discussing the numeric results we extracted from the iHF procedure. {\color{tabred}\textbf{We limited simulations to the singlet channel, because} [I wanted to see the end of this project!]}. We specify that, differently from AF and normal phases, for the singlet SC phase we did not implement any theoretical constraint on the five HFPs,
+The last part of this chapter is devoted to presenting and discussing the numeric results we extracted from the iHF procedure. {\color{tabred}\textbf{We limited simulations to the singlet channel, because} [I wanted to see the end of this project!]}. The SC is described by five HFPs
 \[
 	\mathbf{v} = \begin{bmatrix}
 		u^{(s^*)} \\ u^{(d)} \\ w^{(s)} \\ w^{(s^*)} \\ w^{(d)}
@@ -1459,9 +1461,7 @@ The last part of this chapter is devoted to presenting and discussing the numeri
 	\qquad
 	\mathbf{v} = \mathbb{R}^5
 \]
-As we will discuss, all five HFPs are significantly non-zero in this phase, at least in some portion of parameters space. Therefore, we could at most search theoretical constraints describing the boundaries of these portions of space. We did not, and just ran unconstrained simulation by brute-force.
-
-The results we obtained indicate that this phase is described by three RMPs:
+and three RMPs:
 \[
 \begin{aligned}
 	\tilde{t}_{ij}^{(s^*)} &\equiv \left(
