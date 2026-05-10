@@ -232,6 +232,9 @@ We proceed here as we did for the AF phase in Sec.~\ref{subsec:af-hm}. We start 
 \paragraph{Matrix representation.}
 
 Collecting the results of the above paragraphs, we obtain the quadratic approximation to the Hubbard hamiltonian in the SC phase,
+
+\textbf{--CONVERT TO PROOF--}
+
 \begin{multline}
 	\hat H_t + \hat H_U \HFsimeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_{\mathbf{k}\sigma}
 	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \\
@@ -738,7 +741,7 @@ The set of these harmonics give the HFPs in the Fock channel. The SC phase does 
 	\tilde{\epsilon}_\mathbf{k} \equiv \epsilon_\mathbf{k} + u^{(s^*)} V (\cos k_x + \cos k_y) + u^{(d)} V (\cos k_x - \cos k_y)
 \]
 Each component satisfies the self-consistency equation:
-\begin{equation}\label{sc-hm-ugamma-self-consistency}
+\begin{equation}\label{eq:sc-hm-ugamma-self-consistency}
 	u^{(\gamma)} = \frac{1}{2L_x L_y} 	\sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \left[
 	1 - \cos 2 \tilde{\theta}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
 	\right]
@@ -759,12 +762,12 @@ we report these equations, writing explicitly the harmonics from Tab.~\ref{tab:x
 		\right] $ & Fig.~\ref{subfig:d-wave-correlator} \\
 		\midrule
 	\end{tabular}
-	\caption{Symmetry resolved self-consistency equations for the harmonics of $u_\mathbf{k}$. The shown equations are reformulations of Eq.~\eqref{sc-hm-ugamma-self-consistency}.}
+	\caption{Symmetry resolved self-consistency equations for the harmonics of $u_\mathbf{k}$. The shown equations are reformulations of Eq.~\eqref{eq:sc-hm-ugamma-self-consistency}.}
 	\label{tab:sc-ehm-ugamma-self-consistencies}
 \end{table}
 \setlength{\extrarowheight}{0em}
 
-Let us prove the above equation. We proceed by proving first $u_{\mathbf{k}\uparrow} = 	u_{-\mathbf{k}\downarrow}$, and that both transform accordingly to Eq.~\eqref{sc-hm-ugamma-self-consistency}
+Let us prove the above equation. We proceed by proving first $u_{\mathbf{k}\uparrow} = 	u_{-\mathbf{k}\downarrow}$, and that both transform accordingly to Eq.~\eqref{eq:sc-hm-ugamma-self-consistency}
 
 \begin{tabproof}[Self-consistency equations for $u^{(\gamma)}$]
 	
@@ -787,7 +790,7 @@ Let us prove the above equation. We proceed by proving first $u_{\mathbf{k}\upar
 			1 - \cos 2 \tilde{\theta}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
 		\right] \label{eq:sc-ehm-uUp-EV}
 	\end{align}
-	having we used Eq.~\eqref{eq:sc-~Th} and sequent. Inserting this result in Eq.~\eqref{eq:sc-hm-ugamma-harmonics}, we get Eq.~\eqref{sc-hm-ugamma-self-consistency} in this spin sector. For $\sigma=\downarrow$,
+	having we used Eq.~\eqref{eq:sc-~Th} and sequent. Inserting this result in Eq.~\eqref{eq:sc-hm-ugamma-harmonics}, we get Eq.~\eqref{eq:sc-hm-ugamma-self-consistency} in this spin sector. For $\sigma=\downarrow$,
 	\begin{align}
 		u_{-\mathbf{k}\downarrow} &= \langle \hat c_{-\mathbf{k}\downarrow}^\dagger \hat c_{-\mathbf{k}\downarrow} \rangle \nonumber \\	
 		&= 1 - \langle \hat c_{-\mathbf{k}\downarrow} \hat c_{-\mathbf{k}\downarrow}^\dagger \rangle \nonumber \\
@@ -811,7 +814,7 @@ Let us prove the above equation. We proceed by proving first $u_{\mathbf{k}\upar
 	\[
 		u_{\mathbf{k}\uparrow} = 	u_{-\mathbf{k}\downarrow}
 	\]
-	which is coherent with our requirement of a uniform-density, spin uniform and inversion symmetric phase. This proves Eq.~\eqref{sc-hm-ugamma-self-consistency} for both spin sectors.
+	which is coherent with our requirement of a uniform-density, spin uniform and inversion symmetric phase. This proves Eq.~\eqref{eq:sc-hm-ugamma-self-consistency} for both spin sectors.
 \end{tabproof}
 %
 Note also that summing Eqns.~\eqref{eq:sc-ehm-uUp-EV}, \eqref{eq:sc-ehm-uDown-EV} we get the expression for density of Eq.~\eqref{eq:sc-ehm-n-BZ-Th}. This is expected, since
@@ -1033,15 +1036,15 @@ In this section we take together everything we said so far. Adding $\hat H_V$ to
 
 By composing Hartree, Fock and Cooper channels we derive the final form of the HF gran-canonical hamiltonian,
 \[
-	\hat H - \mu \hat N \HFsimeq \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{\xi}_\mathbf{k} \left[
+	\hat H - \mu \hat N \HFsimeq \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{\xi}_\mathbf{k} \left(
 		\hat c_{\mathbf{k}\uparrow}^\dagger
 		\hat c_{\mathbf{k}\uparrow} +
 		\hat c_{-\mathbf{k}\downarrow}
 		\hat c_{-\mathbf{k}\downarrow}^\dagger
-	\right] - \sum_{\mathbf{k}\in\mathrm{BZ}} \left[
+	\right) - \sum_{\mathbf{k}\in\mathrm{BZ}} \left(
 		\tilde{\Delta}_\mathbf{k}
 		\hat \phi_\mathbf{k} + \tilde{\Delta}_\mathbf{k}^* \hat \phi_\mathbf{k}^\dagger
-	\right] + E_\mathrm{a}^{(\mathrm{SC})} + E_\mathrm{c}^{(\mathrm{SC})}	
+	\right) + E_\mathrm{a}^{(\mathrm{SC})} + E_\mathrm{c}^{(\mathrm{SC})}	
 \]
 having we included the ``anticommutation energy'' also defined for the conventional HM in Eq.~\eqref{eq:sc-anticommutation-energy},
 \[
@@ -1050,10 +1053,10 @@ having we included the ``anticommutation energy'' also defined for the conventio
 coming from fermionic anticommutation relations that are employed in order to get the kinetic term. We also defined the total contraction energy
 \[
 	E_\mathrm{c}^{(\mathrm{SC})} \equiv -
-	\left[
+	\left(
 	E_{\mathrm{H}/U}^{(\mathrm{SC})} +		E_{\mathrm{C}/U}^{(\mathrm{SC})} +
 	E_{\mathrm{H}/V}^{(\mathrm{SC})} + E_{\mathrm{F}/V}^{(\mathrm{SC})} + E_{\mathrm{C}/V/\mathrm{o.s.}}^{(\mathrm{SC})}
-	\right]
+	\right)
 \]
 which include all double counting terms we encountered. Note the minus sign in front of it.
 
@@ -1142,11 +1145,11 @@ These results are coherent with Eqns.~\eqref{eq:sc-x-expectation-non-local} as w
 
 The approximated ground-state in the SC phase is given by a gas of free $\hat \gamma^{(\pm)}$ fermions populating the two bands $\pm \tilde{E}_\mathbf{k}$ following a Fermi-Dirac distribution. Hence, the total entropy density of the ground state is given by that of a Fermi gas \cite{grosso2014solid}:
 \[
-	s = s^{(-)} + s^{(+)}
+	s^{(\mathrm{SC})} = s_-^{(\mathrm{SC})} + s_+^{(\mathrm{SC})}
 \]
 where the superscript indicates the band,
 \begin{multline}
-	s^{(\pm)} \equiv -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[
+	s_\pm^{(\mathrm{SC})} \equiv -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[
 	\left(
 	1- f( \pm\tilde{E}_\mathbf{k}; \beta,0)
 	\right) \ln \left(
@@ -1155,13 +1158,13 @@ where the superscript indicates the band,
 	+ f(
 	\pm\tilde{E}_\mathbf{k}; \beta,0)
 	\ln f( \pm\tilde{E}_\mathbf{k}; \beta,0)
-	\Big] \label{eq:sc-density-entropy}
+	\Big] \label{eq:sc-s}
 \end{multline}
 Note the fact that the Fermi-Dirac distributions are computed at null chemical potential. Because of this, we get:
 \[
-	s^{(-)} = s^{(+)}
+	s^{(\mathrm{SC})}_- = s_+^{(\mathrm{SC})}
 	\quad\implies\quad
-	s \equiv s^{(-)} + s^{(+)} = 2 s^{(+)}
+	s^{(\mathrm{SC})} \equiv s_-^{(\mathrm{SC})} + s_+^{(\mathrm{SC})} = 2 s_+^{(\mathrm{SC})}
 \]
 Let us prove this.
 
@@ -1169,7 +1172,7 @@ Let us prove this.
 	
 	Consider the entropy of the lower band,
 	\begin{multline*}
-		s^{(-)} \equiv -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[
+		s_-^{(\mathrm{SC})} \equiv -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[
 			\left(
 			1- f( -\tilde{E}_\mathbf{k}; \beta,0)
 			\right) \ln \left(
@@ -1188,9 +1191,9 @@ Let us prove this.
 	\[
 		f(\epsilon;\beta,0) = 1-f(-\epsilon;\beta,\mu)
 	\]
-	Inserting the latter for $\epsilon=\tilde{E}_\mathbf{k}$ in the expression for $s^{(-)}$, we get
+	Inserting the latter for $\epsilon=\tilde{E}_\mathbf{k}$ in the expression for $s_-^{(\mathrm{SC})}$, we get
 	\[
-		s^{(-)} \equiv -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[
+		s_-^{(\mathrm{SC})} \equiv -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[
 			f(
 			\tilde{E}_\mathbf{k}; \beta,0)
 			\ln f( \tilde{E}_\mathbf{k}; \beta,0) \\
@@ -1201,12 +1204,12 @@ Let us prove this.
 			\right)
 		\Big]
 	\]
-	hence $s^{(-)}=s^{(+)}$.	
+	hence $s_-^{(\mathrm{SC})}=s_+^{(\mathrm{SC})}$.	
 \end{tabproof}
 %
 The two Bogoliubov bands give equal contribution to entropy. This is a consequence of the fact that for the SC phase the gap is always opened at the chemical potential, filling the lower band and symmetrically emptying the upper band.
 
-The expression for the entropy density can be simplified by using Eq.~\mref, which implies
+The expression for the entropy density can be simplified by using Eq.~\eqref{eq:ln-x-id}, which implies
 \begin{multline*}
 	\left(
 		1-f( \tilde{E}_\mathbf{k}; \beta,0)
@@ -1220,14 +1223,14 @@ The expression for the entropy density can be simplified by using Eq.~\mref, whi
 		\tilde{E}_\mathbf{k}\beta + \ln  f( \tilde{E}_\mathbf{k}; \beta,0)
 	\right)
 \end{multline*}
-It follows that $s=2s^{(+)}$ can be written as:
-\[
-	s \equiv -\frac{2 k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
+It follows that $s^{(\mathrm{SC})}=2s_+^{(\mathrm{SC})}$ can be written as:
+\begin{equation}\label{eq:sc-s-variant}
+	s^{(\mathrm{SC})} \equiv -\frac{2 k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
 		1- f( \tilde{E}_\mathbf{k}; \beta,0)
 	\right) 
 	+ \frac{2 k_B \beta}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{E}_\mathbf{k} f( \tilde{E}_\mathbf{k}; \beta,0)
-\]
-Note that, as the gap closes and $\tilde{E}_\mathbf{k} \to \tilde{\xi}_\mathbf{k}$, the above expression reduces to the entropy density for the normal phase reported in Eq.~\mref.
+\end{equation}
+Note that, as the gap closes and $\tilde{E}_\mathbf{k} \to \tilde{\xi}_\mathbf{k}$, the above expression reduces to the entropy density for the normal phase reported in Eq.~\eqref{eq:normal-s-variant}.
 
 \subsection{The free energy density of the SC ground-state}\label{subsec:sc-f}
 
@@ -1264,7 +1267,7 @@ Free energy density of the SC phase is derived following the procedure used for 
 	\item Entropic energy
 	\[
 	\begin{aligned}
-		e_s^{(\mathrm{SC})} &= - \frac{s}{k_\mathrm{B}\beta} \\
+		e_s^{(\mathrm{SC})} &= - \frac{s^{(\mathrm{SC})}}{k_\mathrm{B}\beta} \\
 		&= \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \ln \left(
 			1- f( \tilde{E}_\mathbf{k}; \beta,0) 
 		\right) - \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{E}_\mathbf{k} f(\tilde{E}_\mathbf{k}; \beta,0) 
@@ -1718,7 +1721,7 @@ With this consideration, we end the presentation of HFPs and RMPs and move to th
 	\label{fig:sc-data-fs-B128}
 \end{figure}
 
-For the SC phase, free energy density is given by Eq.~\eqref{eq:sc-fMFT}, while entropy density is given by Eq.~\eqref{eq:sc-density-entropy}. In Fig.~\ref{fig:sc-data-fs-B128} we plot, sided, the heatmaps for $f$ and $s$ at $U/t=4$ in the $(\delta,V)$ plane. Superimposed, we show the boundaries between the four regions identified in Fig.~\ref{fig:sc-mix}. Consider first the free energy, on the left: our data suggest that free energy is maximised in the $d$-wave phase, followed by the mixed phase. At high doping, the $s \oplus s^*$-wave phase is low-energetic. Overall, $f$ varies smoothly across phase boundaries, and we do not identify the black lines with some isoenergetic line separating phases.
+For the SC phase, free energy density is given by Eq.~\eqref{eq:sc-fMFT}, while entropy density is given by Eq.~\eqref{eq:sc-s}. In Fig.~\ref{fig:sc-data-fs-B128} we plot, sided, the heatmaps for $f$ and $s$ at $U/t=4$ in the $(\delta,V)$ plane. Superimposed, we show the boundaries between the four regions identified in Fig.~\ref{fig:sc-mix}. Consider first the free energy, on the left: our data suggest that free energy is maximised in the $d$-wave phase, followed by the mixed phase. At high doping, the $s \oplus s^*$-wave phase is low-energetic. Overall, $f$ varies smoothly across phase boundaries, and we do not identify the black lines with some isoenergetic line separating phases.
 
 This is not the case for entropy density. Indeed, the entropic region on the right panel of Fig.~\ref{fig:sc-data-fs-B128} coincides with the normal phase. The three superconducting regions are low-entropic. This is explained by the following argument:
 \begin{itemize}

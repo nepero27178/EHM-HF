@@ -392,11 +392,11 @@ We provide a proof.
 		u_{\mathbf{q}\sigma} = u_{-\mathbf{q}\sigma}
 	\]
 	This follows from the fact that in the normal phase the EV of the operator $\hat n_{\mathbf{k}\sigma}$ must be inversion-symmetric. It follows that antisymmetric harmonics are zero,
-	\[
+	\begin{equation}\label{eq:normal-up=0}
 		u_\sigma^{(p_\ell)} = 0
 		\qq{for}
 		\ell\in\lbrace x,y \rbrace
-	\]
+	\end{equation}
 	Using this observation in Eq.~\eqref{eq:normal-V-fock-int5}, we obtain Eq.~\eqref{eq:normal-HV-fock-approx}.
 	
 \end{tabproof}
@@ -505,11 +505,20 @@ In next section we collect all we found so far and discuss the properties of the
 In the normal phase, the HF approximation to the EHM hamiltonian is given by the following operator:
 \begin{equation}\label{eq:normal-Hhf}
 	\hat H - \mu \hat N \HFsimeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \tilde{\epsilon}_{\mathbf{k}\sigma}
-	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} - \tilde{\mu} \hat N
-	- \left(
-		E_{\mathrm{H}/U}^{(\mathrm{N})} + E_{\mathrm{H}/V}^{(\mathrm{N})} + 		E_{\mathrm{F}/V}^{(\mathrm{N})}
+	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} - \tilde{\mu} \hat N + E_\mathrm{c}^{(\mathrm{N})}
+\end{equation}
+where we defined 
+
+where in first line we included the all contraction energies from Eqns.~\eqref{eq:normal-HU-hartree-Ec}, \eqref{eq:normal-HV-hartree-Ec} and \eqref{eq:normal-HV-fock-Ec} in $E_\mathrm{c}^{(\mathrm{N})}$,
+\begin{equation}\label{eq:normal-Ec}
+	E_\mathrm{c}^{(\mathrm{N})} \equiv
+	-\left(
+	E_{\mathrm{H}/U}^{(\mathrm{N})} + E_{\mathrm{H}/V}^{(\mathrm{N})} +  E_{\mathrm{F}/V}^{(\mathrm{N})}
 	\right)
 \end{equation}
+
+The dependence on the HFPs is inside the renormalised bands of Eq.~\eqref{eq:normal-bands-renormalisation} and the contraction energy
+
 Apart from energy shifts, this hamiltonian describes a perfectly degenerate Fermi gas whose bare bands are $\tilde{\epsilon}_{\mathbf{k}\sigma}$ as defined in Eq.~\eqref{eq:normal-bands-renormalisation}, and chemical potential $\tilde{\mu}$ as defined in Eq.~\eqref{eq:normal-mu-shift}. The latter is completely determined by the model parameters; the former must be determined self-consistently. The ground state of the approximated hamiltonian obeys Fermi-Dirac statistics,
 \begin{equation}\label{eq:normal-<cc>-FD}
 	\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'} \rangle = \delta_{\mathbf{k}=\mathbf{k}'} \delta_{\sigma=\sigma'} f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
@@ -638,7 +647,7 @@ Inverting these relations we obtain:
 \end{align}
 It follows that if $u^{(d)}>0$, the hopping in direction $x$ is larger than in direction $y$ is damped. If $u^{(d)}<0$, roles are inverted.
 
-\subsection{The entropy density of the SC ground-state}\label{subsec:normal-s}
+\subsection{The entropy density of the normal ground-state}\label{subsec:normal-s}
 
 In this section we compute the density of entropy of the ground state in the normal phase. Entropy density is given by
 \[
@@ -691,7 +700,7 @@ The $2$ prefactor was included to account for spin degeneracy. The above equatio
 	
 \end{tabproof}
 
-\subsection{The free energy density of the SC ground-state}\label{subsec:normal-f}
+\subsection{The free energy density of the normal ground-state}\label{subsec:normal-f}
 
 In this section we compute the free energy density of the ground state, for the normal phase. The density of free energy is given by
 \begin{equation}\label{eq:normal-fMFT-def}
@@ -739,13 +748,7 @@ Here $E_\mathrm{HF}^{(\mathrm{N})}$ is the ground-state energy for the HF hamilt
 			\right]
 		\end{aligned}
 		\]
-		where in first line we included the all contraction energies from Eqns.~\eqref{eq:normal-HU-hartree-Ec}, \eqref{eq:normal-HV-hartree-Ec} and \eqref{eq:normal-HV-fock-Ec} in $E_\mathrm{c}^{(\mathrm{N})}$,
-		\[
-			E_\mathrm{c}^{(\mathrm{N})} \equiv
-			-\left[
-			E_{\mathrm{H}/U}^{(\mathrm{N})} + E_{\mathrm{H}/V}^{(\mathrm{N})} +  E_{\mathrm{F}/V}^{(\mathrm{N})}
-			\right]
-		\]
+		where we used Eq.~\eqref{eq:normal-Ec}.
 		\item The entropic contribution to free energy
 		\[
 		\begin{aligned}
