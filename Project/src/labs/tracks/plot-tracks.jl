@@ -30,7 +30,7 @@ function ShowTrack(
 	ax.ylabel = "Value"
 	hlines!(ax,1/3,color=:gray,label=L"$2t/V$", linestyle=(:dash,:dense))
 
-	slI = scatterlines!(ax,xx,yyI,color=tabred,label="Initializer")
+	slI = scatterlines!(ax,xx,yyI,color=tabred,label="Initialiser")
 	slC = scatterlines!(ax,xx,yyC,color=tabblue,label="Current step")
 	slM = scatterlines!(ax,xx,yyM,color=tabgreen,label="Mixed value")
 

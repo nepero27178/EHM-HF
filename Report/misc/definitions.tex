@@ -146,12 +146,7 @@
 }
 
 
-% --- Ambiente esempio ---
-
-% Vecchia formattazione:
-% \theoremstyle{definition}
-% \newtheorem{eg}{Esempio}
-% \numberwithin{eg}{chapter}
+% Proof environment
 
 \newcounter{proof}
 \counterwithin{proof}{chapter}
@@ -160,7 +155,7 @@
 \refstepcounter{proof}
 \vspace{1em}
 \noindent\normalfont   
-\textbf{Proof~\theproof} (#1).
+\textbf{Proof~\theproof} | #1.
 \nopagebreak
 \begin{mdframed}[
 	linewidth=0.5pt,
@@ -178,3 +173,4 @@
 	]
 }
 {\end{mdframed}}
+\AtEndEnvironment{tabproof}{\hfill$\square$}%
