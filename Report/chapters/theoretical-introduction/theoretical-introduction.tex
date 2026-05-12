@@ -1,23 +1,29 @@
 \def\GraphicsFolder{chapters/theoretical-introduction/pictures}
 \chapter{Introduction}\label{chap:theoretical-introduction}
 
-A major breakthrough in Condensed Matter Physics was the discovery of superconductivity in copper oxide compounds (often referred to as ``cuprates''). Until \citeyear{bednorz1986possible}, when \citeauthor{bednorz1986possible} found evidence of a superconducting transition in Ba-La-Cu-O compounds around $30~\mathrm{K}$ \cite{bednorz1986possible}, superconductivity had been observed up to critical temperatures ($T_\mathrm{c}$) of few Kelvins. The new class of copper oxides rapidly took over in the field of high-$T_\mathrm{c}$ superconductivity, increasing critical temperatures to around $130~\mathrm{K}$ at ambient pressure, as we show in Fig.~\mref. Today, the highest observed value is $T_\mathrm{c} \approx 151~\mathrm{K}$ at ambient pressure on the cuprate $\mathrm{Hg}\mathrm{Ba}_2 \mathrm{Ca}_2 \mathrm{Cu}_3 \mathrm{O}_{8+\delta}$ \cite{deng2026ambient}. It is worth mentioning that this result was obtained in recent months after almost 30 years from the previous record.
+A major breakthrough in Condensed Matter Physics was the discovery of superconductivity in copper oxide compounds (often referred to as ``cuprates''). Until \citeyear{bednorz1986possible}, when \citeauthor{bednorz1986possible} found evidence of a superconducting transition in Ba-La-Cu-O compounds around $30~\mathrm{K}$ \cite{bednorz1986possible}, superconductivity had been observed up to critical temperatures ($T_\mathrm{c}$) of few Kelvins. The new class of copper oxides rapidly took over in the field of high-$T_\mathrm{c}$ superconductivity, increasing critical temperatures to around $130~\mathrm{K}$ at ambient pressure. Today, the highest observed value is $T_\mathrm{c} \approx 151~\mathrm{K}$ at ambient pressure on the cuprate $\mathrm{Hg}\mathrm{Ba}_2 \mathrm{Ca}_2 \mathrm{Cu}_3 \mathrm{O}_{8+\delta}$ \cite{deng2026ambient}. It is worth mentioning that this result was obtained in recent months after almost 30 years from the previous record.
 
-\begin{center}
-	[Figure: superconducting transition temperatures]
-\end{center}
+Cuprates are very rich materials, with a peculiar phase diagram that we sketch in Fig.~\ref{fig:cuprates-phase-diagram}. Undoped copper oxides are Mott insulators and show an antiferromagnetic ground state, which is disrupted both by electronic and hole doping. As charge carriers are inserted, various phases emerge: strange metal and pseudogap regimes, and most notably superconductivity \cite{keimer2015quantum}. The latter, when discovered, was particularly unexpected: indeed, copper oxides based compounds are at ordinary conditions very poor conductors. The understanding of such a complex phase diagram and the interplay of all physical phenomena active inside these materials is, to date, subject of great scientific effort and still an open problem.
 
-Cuprates are very rich materials, with a peculiar phase diagram that we report in Fig.~\mref. Undoped copper oxides are Mott insulators and show an antiferromagnetic ground state, which is disrupted both by electronic and hole doping. As charge carriers are inserted, various phases emerge: strange metal and pseudogap regimes, and most notably superconductivity \cite{keimer2015quantum}. The latter, when discovered, was particularly unexpected: indeed, copper oxides based compounds are at ordinary conditions very poor conductors. The understanding of such a complex phase diagram and the interplay of all physical phenomena active inside these materials is, to date, subject of great scientific effort and still an open problem.
-
-\begin{center}
-	[Figure: cuprates phase diagram]
-\end{center}
+\begin{figure}
+	\centering
+	\includegraphics[height=0.32\linewidth]{\GraphicsFolder/phase-diagram/phase-diagram.pdf}
+	\caption{Sketch of the phase diagram of cuprates. These curves result from graphic elaboration and do not refer to a specific physical dataset.}
+	\label{fig:cuprates-phase-diagram}
+\end{figure}
 
 In this thesis we investigate both theoretically and numerically the interplay of Mott insulation, antiferromagnetism and superconductivity in the context of a simplified model of two-dimensional cuprates. This introduction is organised as follows: in Sec.~\ref{sec:hubbard-cuprates} we describe the general features of cuprates and how these are described through the Hubbard model. In Sec.~\ref{subsec:ehm} we discuss how the Hubbard model fails to address some observed phenomena, and present an extended version with an added non-local attraction. Finally, in Sec.~\ref{subsec:outline} we give an outline of this thesis.
 
 \section{Cuprates and the square Hubbard model}\label{sec:hubbard-cuprates}
 
-The crystal structure of copper oxide superconductors is given by a stacking of $2$D $\mathrm{Cu} \mathrm{O}_2$ sheets separated by inert layers of insulating materials. These intermediate layers act as reservoirs of electrons (or holes) and dope the active $\mathrm{Cu} \mathrm{O}_2$ sheets \cite{grosso2014solid}. Due to the presence of these intermediate inert layers, the $\mathrm{Cu} \mathrm{O}_2$ sheets are weakly coupled to each other, and can be studied independently. In these sheets, copper and oxygens are arranged as a checkerboard lattice: oxygen atoms form a square lattice, and in the center of each cell is placed a copper atom. At null doping, due to the high electronegativity of oxygens, copper atoms are ionised and left with one hole in their $d$ shell, while oxygen atoms reach a closed shell configuration. Therefore, at low energy the kinetics of electrons is given by the hopping among the $d$ orbitals of $\mathrm{Cu}^{2+}$ ions, arranged in a planar square lattice \cite{lee2006doping}.
+The crystal structure of copper oxide superconductors is given by a stacking of $2$D $\mathrm{Cu} \mathrm{O}_2$ sheets separated by inert layers of insulating materials. We give a sketch of the material in Fig.~\ref{fig:copper-oxides}. The intermediate layers act as reservoirs of electrons (or holes) and dope the active $\mathrm{Cu} \mathrm{O}_2$ sheets \cite{grosso2014solid}. Due to the presence of these intermediate inert layers, the $\mathrm{Cu} \mathrm{O}_2$ sheets are weakly coupled to each other, and can be studied independently. In these sheets, copper and oxygens are arranged as a checkerboard lattice: oxygen atoms form a square lattice, and in the center of each cell is placed a copper atom. At null doping, due to the high electronegativity of oxygens, copper atoms are ionised and left with one hole in their $d$ shell, while oxygen atoms reach a closed shell configuration. Therefore, at low energy the kinetics of electrons is given by the hopping among the $d$ orbitals of $\mathrm{Cu}^{2+}$ ions, arranged in a planar square lattice \cite{lee2006doping}.
+
+\begin{figure}
+	\centering
+	\input{\GraphicsFolder/copper-oxides}
+	\caption{Schematics of a typical layered copper oxide compound. The inter layers are represented as solid planes, while the electrically active layers as a square grid hosting copper on its nodes and oxygen on its edges.}
+	\label{fig:copper-oxides}
+\end{figure}
 
 Electrons repel each other through Coulomb interaction. The simplest model capable of describing this situation is the single-band Hubbard model \cite{hubbard1963electron},
 \begin{equation}\label{eq:hubbard-model}
@@ -37,9 +43,12 @@ Conventional band theory describes the electronic properties of materials on the
 
 In undoped copper oxides, the conduction band is not completely filled. Indeed, copper is ionised in the crystal and each $\mathrm{Cu}^{2+}$ ion accommodates one hole in its most external orbital. Band theory would predict a metallic nature for these compounds, but the observed state is insulating. The reason for the failure of band theory lies in the fact that electron-electron interaction is not negligible. Cuprates are Mott insulators, not band insulators: their insulating properties do not derive from a single-particle band being filled up and separated by a gap from another band at higher energy; instead, from an amplification of Coulomb repulsion that ``freezes'' electrons on the lattice sites \cite{keimer2015quantum}. One can picture this situation as a sort of traffic jam, where electrons do not move because the energetic cost of having two electrons on the same site would be too high \cite{zaanen2007watching}, as we show in Fig.~\mref. This produces an insulating behaviour: electrons are completely localised and conductivity is low.
 
-\begin{center}
-	[Figure: traffic jam and Mott insulation]
-\end{center}
+%\begin{figure}
+%	\centering
+%	\input{\GraphicsFolder/mott-insulation/mott-insulation}
+%	\caption{}
+%	\label{fig:traffic}	
+%\end{figure}
 
 The Hubbard model describes naturally Mott physics \cite{scalapino2012common}. Consider for instance the two-sites Hubbard model,
 \begin{equation}\label{eq:hubbard-2-sites}

@@ -1,18 +1,20 @@
 \def\GraphicsFolder{chapters/normal-phase/pictures}
-\chapter{The normal phase}\label{chap:normal}
+\chapter{Mott localisation in the normal phase}\label{chap:normal}
 
-In this chapter we study the normal phase. We will derive a self-consistent renormalisation of the hopping parameter $t$, which will produce a Mott localisation effect.
+In this chapter, we study the normal phase, namely the phase characterised by the absence of any spontaneous symmetry breaking mechanism.
 
-This chapter is divided as follows. In Sec.~\ref{sec:normal-phase-theory} we discuss the symmetries of the normal phase. In Secs.~\ref{sec:normal-hf}, \ref{sec:normal-hf-hamiltonian} we derive the HF approximation to the EHM in the normal phase. In Sec.~\ref{sec:normal-sceq-analysis} we analyse the self-consistency equations and derive constraints. In Sec.~\ref{sec:normal-numeric} we present the result of numeric simulations.
+We show that the non-local pairing induces a renormalisation of the hopping amplitude, leading a Mott localisation effect. The chapter is organised as follows. In Sec.~\ref{sec:normal-phase-theory} we discuss the symmetries of the normal phase. In Secs.~\ref{sec:normal-hf}, \ref{sec:normal-hf-hamiltonian} we derive the HF approximation to the EHM in the normal phase. In Sec.~\ref{sec:normal-sceq-analysis} we analyse the self-consistency equations and derive constraints on the self-consistent parameters identified by the Hartree-Fock method. In Sec.~\ref{sec:normal-numeric} we present the result of numeric simulations.
 
 \section{The normal phase and its  symmetries}\label{sec:normal-phase-theory}
 
-In the normal phase no symmetry is broken, as was summarised in Tab.~\ref{tab:symmetry-groups}. Thus, the HF approximation to the hamiltonian must exhibit the full $\mathrm{U}(2) \otimes \mathrm{C}_4 \otimes \mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$ symmetry discussed in Sec.~\ref{sec:ehm-syms}. Translational invariance and spin rotational symmetry imply that the site occupation is independent of site and spin indices,
-\begin{equation}\label{eq:normal-<n_i>}
-	\ev{\hat n_{i\sigma}} = n \, ,
-\end{equation}
-with $n \in [0,1]$.
+In the normal phase no symmetry is broken, as summarised in Tab.~\ref{tab:symmetry-groups}. Therefore, the HF approximation to the hamiltonian must exhibit the full $\mathrm{U}(2) \otimes \mathrm{C}_4 \otimes \mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$ symmetry discussed in Sec.~\ref{sec:ehm-syms}.
 
+We anticipate here that we will actually allow for $\mathrm{C}_4 \SSB \mathrm{C}_2$, namely, breaking of planar rotational symmetry. As will result from our discussion, the normal phase does not break $\mathrm{C}_4$ even if we allow it to. Nevertheless, we carry out this general derivation because breaking of planar rotational symmetry will be observed in Chap.~\ref{chap:sc} in the context of superconductivity, and the computations carried out for the normal phase will be re-used.
+ 
+Translational invariance implies the following result:
+\begin{equation}\label{eq:normal-<cc>}
+	\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'} \rangle = \delta_{\mathbf{k}=\mathbf{k}'} \delta_{\sigma=\sigma'} \langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \rangle \, .
+\end{equation}
 We define the single-state occupation operator in reciprocal space:
 \[
 	\hat n_{\mathbf{k}\sigma} \equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
@@ -25,10 +27,7 @@ and its EV
 	\qquad
 	u_{\mathbf{k}\sigma} = u_{\mathbf{k}\sigma}^* \, .
 \end{equation}
-The relation on the right follows from the fact that $\hat n_{\mathbf{k}\sigma}$ is hermitian by construction. Note that $\hat n_{\mathbf{k}\sigma}$ is not the Fourier-transform of $\hat n_{i\sigma}$. Translational invariance implies the following result:
-\begin{equation}\label{eq:normal-<cc>}
-	\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'} \rangle = \delta_{\mathbf{k}=\mathbf{k}'} \delta_{\sigma=\sigma'} \langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \rangle \, .
-\end{equation}
+The relation on the right follows from the fact that $\hat n_{\mathbf{k}\sigma}$ is hermitian by construction. Note that $\hat n_{\mathbf{k}\sigma}$ is not the Fourier-transform of $\hat n_{i\sigma}$.
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:normal-<cc>}]
 	
@@ -56,7 +55,17 @@ The relation on the right follows from the fact that $\hat n_{\mathbf{k}\sigma}$
 	Recall now Eq.~\eqref{eq:ehm-HV-wick-int1}. Upon substituting $\bm{\delta} \to \Delta \mathbf{r}$, we obtain that $g(\Delta \mathbf{r},\sigma,\overline{\sigma})=0$ for a phase that is $\mathrm{SU}(2)$-symmetric. Then, the EV of Eq.~\eqref{eq:normal-<cc>} is non-zero only if $\sigma=\sigma'$. This proves Eq.~\eqref{eq:normal-<cc>}.
 \end{tabproof}
 
-We anticipate here that we will actually allow for $\mathrm{C}_4 \SSB \mathrm{C}_2$, namely, breaking of planar rotational symmetry. As will result from our discussion, the normal phase does not break $\mathrm{C}_4$ even if we allow it to. Nevertheless, we carry out this general derivation because breaking of planar rotational symmetry will be observed in Chap.~\ref{chap:sc} in the context of superconductivity, and the computations carried out for the normal phase will be re-used.
+Translational invariance and spin rotational symmetry imply that the site occupation is independent of site and spin indices,
+\begin{equation}\label{eq:normal-<n_i>}
+	\ev{\hat n_{i\sigma}} = n \, ,
+\end{equation}
+with $n \in [0,1]$.
+
+\begin{tabproof}[Proof of Eq.~\eqref{eq:normal-<n_i>}]
+	\todo
+\end{tabproof}
+
+\section{Application of Hartree-Fock methods to the normal phase}\label{sec:normal-hf}
 
 Applying the HF methods to the interactions $\hat H_U$ and $\hat H_V$, from Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}, we know that in the normal phase the allowed contractions are:
 \[
@@ -87,13 +96,11 @@ As we will see in detail and is summarised in Tab.~\ref{tab:normal-RWCs}, Hartre
 	\label{tab:normal-RWCs}
 \end{table}
 
-\section{Application of Hartree-Fock methods to the normal phase}\label{sec:normal-hf}
-
 The quartic part of $\hat H$ is given by the the local repulsion $\hat H_U$ and the non-local attraction $\hat H_V$. Applying HF methods, we get the decomposition of Eqs.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}.
 
-\subsection{Hartree effects: chemical potential renormalisation}\label{subsec:normal-hartree-mu}
+\subsection{Effects of the Hartree terms: chemical potential renormalisation}\label{subsec:normal-hartree-mu}
 
-In this section we show that the Hartree channels of $\hat H_U$ and $\hat H_V$,
+In this section we show that the Hartree channels of $\hat H_U$ and $\hat H_V$ reduce to multiples of the number operator. Specifically, the Hartree channels are given by
 \[
 \begin{aligned}
 	\hat H_U &\HFsimeq U \sum_i \left(
@@ -101,23 +108,23 @@ In this section we show that the Hartree channels of $\hat H_U$ and $\hat H_V$,
 	\right) \, , \\
 	\hat H_V &\HFsimeq -V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \left(
 		\hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle + \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} - \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle  \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle
-	\right) + (\text{Fock channel}) \, ,
+	\right) + (\text{Fock channel}) \, .
 \end{aligned}
 \]
-reduce to multiples of the number operator. Summing the two interactions, we reduce the total operator to
+Summing the two terms, we obtain
 \begin{equation}\label{eq:normal-HU+HV-hartree-approx}
 	\hat H_U + \hat H_V \HFsimeq -n(2zV-U) \hat N - \left(E_{\mathrm{H},U}^{(\mathrm{N})} + E_{\mathrm{H},V}^{(\mathrm{N})}\right) + (\text{Fock channel}) \, ,
 \end{equation}
-where we defined the ``Hartree contraction energy'', namely a shift to energy coming from the scalar terms of Eqs.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}:
+where we introduces the ``Hartree contraction energy'', namely a shift to energy coming from the scalar terms of Eqs.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}:
 \begin{align}
 	E_{\mathrm{H},U}^{(\mathrm{N})} &= - U \sum_{i \in\mathcal{L}} \big\langle \hat c_{i\uparrow}^\dagger \hat c_{i\uparrow} \big\rangle  \big\langle \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow} \big\rangle \, , \label{eq:normal-HU-hartree-Ec-implicit} \\
 	E_{\mathrm{H},V}^{(\mathrm{N})} &= V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle  \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle \, . \label{eq:normal-HV-hartree-Ec-implicit}
 \end{align}
-As is reported in Tab.~\ref{tab:normal-RWCs}, the chemical potential is shifted:
+From Eq.~\eqref{eq:normal-HU+HV-hartree-approx}, we see that the chemical potential is shifted as
 \begin{equation}\label{eq:normal-mu-shift}
-	\tilde{\mu} \equiv \mu + n(2zV-U) \, .
+	\tilde{\mu} \equiv \mu + n(2zV-U) \, ,
 \end{equation}
-This result will remain valid for all phases discussed in this text.
+as is reported in Tab.~\ref{tab:normal-RWCs}. This result is valid for all the other phases discussed in this thesis.
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:normal-HU+HV-hartree-approx}: HF approximation of $\hat H_U + \hat H_V$ in Hartree channel]
 	
@@ -229,9 +236,9 @@ Using Eq.~\eqref{eq:normal-<n_i>} in Eqs.~\eqref{eq:normal-HU-hartree-Ec-implici
 \end{align}
 where in last line we used Eq.~\eqref{eq:square-NN-ghost-sum}, and $z=4$ is the lattice coordination number.
 
-\subsection{Fock effects: bare bands renormalisation}\label{subsec:normal-fock-bands}
+\subsection{Effects of the Fock terms: bare bands renormalisation}\label{subsec:normal-fock-bands}
  
-From Wick's decomposition of $\hat H_V$ of Eq.~\eqref{eq:mft-HV}, the unique allowed Fock term comes from the same-spin sector, as is stated in Tab.~\ref{tab:HV-sel-rules}. Explicitly,
+From the Wick's decomposition of $\hat H_V$ (see Eq.~\eqref{eq:mft-HV}), the only Fock term allowed in the normal phae comes from the same-spin sector. See Tab.~\ref{tab:HV-sel-rules} for a summary. Explicitly,
 \begin{equation}\label{eq:normal-HV-fock}
 	\hat H_V \HFsimeq (\text{Hartree channel}) + 
 	V \sum_{\ev{ij}} \sum_\sigma \left(
@@ -243,7 +250,7 @@ From Wick's decomposition of $\hat H_V$ of Eq.~\eqref{eq:mft-HV}, the unique all
 		\rangle \langle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} \rangle
 	\right) \, .
 \end{equation}
-Note the \textit{plus} sign in front of the displayed term: it comes from the \textit{minus} sign in Fock term of Eq.~\eqref{eq:hf-wick-hfc}.
+We notice that the \textit{plus} sign in front of the displayed term comes from the \textit{minus} sign in Fock term of Eq.~\eqref{eq:hf-wick-hfc}, applied to the interaction $-V$.
 
 Using the Fourier transform of $\hat H_V$ given in Eq.~\eqref{eq:HV-ss-fourier}, we obtain
 \begin{multline}
@@ -278,15 +285,7 @@ Here, the $2$ prefactor comes from the fact that the first two operators in squa
 	\rangle \, .
 \end{align}
 
-Recall the definition of $u_{\mathbf{k}\sigma}$ given in Eq.~\eqref{eq:normal-uqsigma-def}. Using the functions of Tab.~\ref{tab:x-wave-reciprocal-factors}, we define its harmonics:
-\begin{equation}\label{eq:normal-ugamma-harmonics}
-	u^{(\gamma)}_\sigma \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}
-	\langle
-	\hat c_{\mathbf{k}\sigma}^\dagger
-	\hat c_{\mathbf{k}\sigma}
-	\rangle \, .
-\end{equation}
-The non-local attraction $\hat H_V$ is approximated, in Fock channel, by:
+By recalling the definition of $u_{\mathbf{k}\sigma} = \langle \hat n_{\mathbf{k}\sigma} \rangle$, the non local attraction is approximated, in Fock channel, by:
 \begin{equation}\label{eq:normal-HV-fock-approx}
 	\hat H_V \HFsimeq (\text{Hartree channel}) + 
 	V
@@ -297,9 +296,16 @@ The non-local attraction $\hat H_V$ is approximated, in Fock channel, by:
 		\varphi_\mathbf{k}^{(d)*}
 	\right)
 	\hat c_{\mathbf{k}\sigma}^\dagger
-	\hat c_{\mathbf{k}\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \, .
+	\hat c_{\mathbf{k}\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \, ,
 \end{equation}
-We provide a proof.
+where $u_\sigma^{(\gamma)}$ are the harmonics of the occupation $u_{\mathbf{k}\sigma}$, defined as
+\begin{equation}\label{eq:normal-ugamma-harmonics}
+	u^{(\gamma)}_\sigma \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}
+	\langle
+	\hat c_{\mathbf{k}\sigma}^\dagger
+	\hat c_{\mathbf{k}\sigma}
+	\rangle \, .
+\end{equation}
 
 \begin{figure}
 	\def\Kx{0.5}
@@ -395,7 +401,7 @@ We provide a proof.
 	
 \end{tabproof}
 
-Composing Eq.~\eqref{eq:normal-HV-fock-approx} with Eqs.~\eqref{eq:normal-HU-hartree-approx}, \eqref{eq:normal-HV-hartree-approx} we obtain the quadratic HF approximation to the EHM, for the normal phase. The chemical potential $\tilde{\mu}$ is fixed by density and determined during computations. To find the ground-state, we must determine self-consistently the two HFPs $u_\sigma^{(s^*)}$, $u_\sigma^{(d)}$ through the self-consistency Eq.~\eqref{eq:normal-ugamma-harmonics}. The symmetry-resolved equations are reported in Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}.
+Bringing together Eq.~\eqref{eq:normal-HV-fock-approx} with Eqs.~\eqref{eq:normal-HU-hartree-approx}, \eqref{eq:normal-HV-hartree-approx} we obtain that the quadratic HF approximation to the EHM, for the normal phase, depends on the renormalised chemical potential $\tilde{\mu}$, and the occupation harmonics $u^{(s^*)}$ and $u^{(d)}$. The chemical potential $\tilde{\mu}$ is fixed by density and determined during computations. To find the ground-state, we must determine self-consistently the two HFPs $u_\sigma^{(s^*)}$, $u_\sigma^{(d)}$ through the self-consistency Eq.~\eqref{eq:normal-ugamma-harmonics}. The symmetry-resolved equations are reported in Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}.
 
 \begin{table}
 	\centering
@@ -411,7 +417,7 @@ Composing Eq.~\eqref{eq:normal-HV-fock-approx} with Eqs.~\eqref{eq:normal-HU-har
 \end{table}
 \setlength{\extrarowheight}{0em}
 
-The operator of Eq.~\eqref{eq:normal-HV-fock-approx} has the same algebraic structure of the kinetic operator $\hat H_t$ in reciprocal space, given in Eq.~\eqref{eq:Ht-Fourier}. Then we can collapse the two into one effective kinetic operator. Let the renormalised bands be
+The operator of Eq.~\eqref{eq:normal-HV-fock-approx} has the same algebraic structure of the kinetic operator $\hat H_t$ in reciprocal space, given in Eq.~\eqref{eq:Ht-Fourier}. We can collapse the two into one effective kinetic operator with renormalised bands. Therefore,
 \begin{equation}\label{eq:normal-bands-renormalisation}
 	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv \epsilon_{\mathbf{k}\sigma} + u^{(s^*)}_\sigma V (\cos k_x + \cos k_y) + u^{(d)}_\sigma V (\cos k_x - \cos k_y) \, .
 \end{equation}
@@ -428,23 +434,23 @@ The renormalised bands of Eq.~\eqref{eq:normal-bands-renormalisation} are a sum 
 \begin{equation}\label{eq:normal-bands-vphi}
 	\epsilon_{\mathbf{k}\sigma} = -2t (\cos k_x + \cos k_y) = -4t \varphi_\mathbf{k}^{(s^*)} \, .
 \end{equation}
-We define:
+We define the symmetry-resolved hoppings,
 \begin{equation}\label{eq:normal-tS-td}
 	\tilde{t}^{(s^*)}_\sigma \equiv t - \frac{u_\sigma^{(s^*)} V}{2}
 	\qq{and}
-	\tilde{t}^{(d)}_\sigma \equiv - \frac{u_\sigma^{(d)} V}{2} \, .
+	\tilde{t}^{(d)}_\sigma \equiv - \frac{u_\sigma^{(d)} V}{2} \, ,
 \end{equation}
-Hence, Eq.~\eqref{eq:normal-bands-renormalisation} can be written as follows:
+so that the bands renormalisation of Eq.~\eqref{eq:normal-bands-renormalisation} can be written as
 \begin{equation}\label{eq:normal-bands-renormalisation-vphi}
 	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv -4\tilde{t}^{(s^*)}_\sigma \varphi_\mathbf{k}^{(s^*)} -4\tilde{t}^{(d)}_\sigma \varphi_\mathbf{k}^{(d)} \, .
 \end{equation}
-Note the formal similarity with Eq.~\eqref{eq:normal-bands-vphi}. Bands renormalisation is actually a renormalisation of the hopping parameter $t$,
+We notice the formal similarity with Eq.~\eqref{eq:normal-bands-vphi}, showing how bands renormalisation reduces to a renormalisation of the hopping parameter $t$,
 \[
 	\text{$t$ ($s^*$-wave)}
 	\quad\to\quad
 	\text{$\tilde{t}^{(s^*)}_\sigma$ ($s^*$-wave) and $\tilde{t}^{(d)}_\sigma$ ($d$-wave)} \, .
 \]
-Therefore, $t$ is an RMP. In Sec.~\ref{subsec:normal-d-wave-hopping} we will show how all of this is translated in real space.
+As we will discuss in Sec.~\ref{subsec:normal-d-wave-hopping}, the presence of $\tilde{t}^{(d)} \neq 0$ implies a nematic state that breaks $\mathrm{C}_4$.
 
 We conclude this section by proving that the Fock contraction energy is given by:
 \begin{equation}\label{eq:normal-HV-fock-Ec}
@@ -491,12 +497,10 @@ Later, using spin degeneracy, we will omit the sum on $\sigma$ and the $1/2$ pre
 	\]
 	which, using the fact that $u_\sigma^{(p_\ell)}=0$, proves Eq.~\eqref{eq:normal-HV-fock-Ec}.
 \end{tabproof}
-%
-In next section we collect all we found so far and discuss the properties of the HF hamiltonian.
 
 \section{The HF hamiltonian and its properties}\label{sec:normal-hf-hamiltonian}
 
-In the normal phase, the HF approximation to the EHM hamiltonian is given by
+Collecting all the various terms, the HF approximation to the EHM hamiltonian in the normal phase is given by
 \begin{equation}\label{eq:normal-Hhf}
 	\hat H - \mu \hat N \HFsimeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \tilde{\epsilon}_{\mathbf{k}\sigma}
 	\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} - \tilde{\mu} \hat N + E_\mathrm{c}^{(\mathrm{N})} \, ,
@@ -510,7 +514,7 @@ where in first line we included the all contraction energies from Eqs.~\eqref{eq
 \end{equation}
 All dependence on the HFPs is inside the renormalised bands of Eq.~\eqref{eq:normal-bands-renormalisation} and the contributions to contraction energy.
 
-Apart from energy shifts, this hamiltonian describes a perfectly degenerate Fermi gas whose bare bands are $\tilde{\epsilon}_{\mathbf{k}\sigma}$ as defined in Eq.~\eqref{eq:normal-bands-renormalisation}, and whose chemical potential is $\tilde{\mu}$ as defined in Eq.~\eqref{eq:normal-mu-shift}. The latter is completely determined by the model parameters; the former must be determined self-consistently. The ground state of the approximated hamiltonian obeys Fermi-Dirac statistics,
+Apart from energy shifts, this hamiltonian describes a perfectly degenerate Fermi gas whose bare bands are $\tilde{\epsilon}_{\mathbf{k}\sigma}$ as defined in Eq.~\eqref{eq:normal-bands-renormalisation}, and whose chemical potential is $\tilde{\mu}$ as defined in Eq.~\eqref{eq:normal-mu-shift}. The latter is fixed self-consistently by setting the density; the former must be determined self-consistently using self-consistency equations. The thermal state of the approximated hamiltonian obeys Fermi-Dirac statistics,
 \begin{equation}\label{eq:normal-<cc>-FD}
 	\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'} \rangle = \delta_{\mathbf{k}=\mathbf{k}'} \delta_{\sigma=\sigma'} f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \, ,
 \end{equation}
@@ -518,13 +522,12 @@ being $f$ the Fermi-Dirac distribution,
 \[
 	f(\epsilon;\beta,\mu) \equiv \frac{1}{e^{\beta(\epsilon-\mu)}+1} \, .
 \]
-Eq.~\eqref{eq:normal-<cc>-FD} is the explicit version of Eq.~\eqref{eq:normal-<cc>}.
 
-In next subsection we discuss in detail the renormalisation of the hopping parameter in real space, with a focus on the meaning of the $d$-wave component. In the subsections that follow, we derive the free energy and entropy densities for the ground-state.
+In next subsections, we discuss in detail the renormalisation of the hopping parameter in real space, with a focus on the meaning of the $d$-wave component, and derive the free energy and entropy densities for the ground-state.
 
 \subsection{Nematicity: $d$-wave bands and anisotropic hopping}\label{subsec:normal-d-wave-hopping}
 
-In Eq.~\eqref{eq:normal-H~t} we defined $\hat H_{\tilde{t}}$ in reciprocal space. Using Eq.~\eqref{eq:normal-HV-fock}, we get
+In Eq.~\eqref{eq:normal-H~t} we defined $\hat H_{\tilde{t}}$ in reciprocal space. In real space, $\hat H_{\tilde{t}}$ takes the form
 \[
 \begin{aligned}
 	\hat H_{\tilde{t}} &= \hat H_t + V \sum_{\ev{ij}} \sum_\sigma \left[
@@ -566,7 +569,7 @@ Let us define:
 	\tilde{t}_\sigma^{(x)} &\equiv \frac{\tilde{t}_\sigma^{(s^*)} + \tilde{t}_\sigma^{(d)}}{2} \, , \label{eq:normal-tx} \\
 	\tilde{t}_\sigma^{(y)} &\equiv \frac{\tilde{t}_\sigma^{(s^*)} - \tilde{t}_\sigma^{(d)}}{2} \, . \label{eq:normal-ty}
 \end{align}
-With this definition, we can rewrite $\hat H_{\tilde{t}}$ as:
+This shows that, as anticipated, a finite $\tilde{t}^{(d)} \neq 0$ implies a nematic order characterised by the breaking of planar rotational symmetry, highlighted by the fact that kinetic operators in directions $x$ and $y$ differ. We can rewrite $\hat H_{\tilde{t}}$ as:
 \[
 	\hat H_{\tilde{t}} = - \sum_{\mathbf{r}\in\mathcal{L}} \sum_\sigma \left[
 		\tilde{t}_\sigma^{(x)} \left(
@@ -576,7 +579,7 @@ With this definition, we can rewrite $\hat H_{\tilde{t}}$ as:
 		\right) + \hc
 	\right] \, .
 \]
-This is what we intend for ``nematic effects'': the breaking of planar rotational symmetry, with the consequence that the kinetic operators in $x$ and $y$ directions differ. Breaking of planar rotational symmetry and uniform density are compatible.
+We notice, however, that even in the presence of a non-zero $d$-wave hopping the density remains uniform.
 
 \begin{tabproof}[A $d$-wave hopping is compatible with uniform density]
 
@@ -639,7 +642,7 @@ It follows that if $u^{(d)}>0$, the effective hopping parameter is larger in dir
 
 \subsection{The entropy density of the normal ground-state}\label{subsec:normal-s}
 
-In this section we compute the density of entropy of the ground state in the normal phase. Entropy density is given by
+In this section, we compute the density of entropy of the ground state in the normal phase. Entropy density is given by
 \[
 	s^{(\mathrm{N})} = \frac{S^{(\mathrm{N})}}{L_x L_y} \, ,
 \]
@@ -778,9 +781,9 @@ Here $E_\mathrm{HF}^{(\mathrm{N})}$ is the ground-state energy for the HF hamilt
 	
 \end{tabproof}
 
-\section{Analysis of the solution} \label{sec:normal-sceq-analysis}
+\section{Constraints on the self-consistent solution} \label{sec:normal-sceq-analysis}
 
-In this section we collect some results that follow from a formal analysis of the self-consistency problem for the normal phase. This phase is described by the HFPs $u^{(s^*)}$ and $u^{(d)}$. It is possible to prove that:
+In this section, we collect some constraints on the HFPs $u^{(s^*)}$, $u^{(d)}$, that follow from a formal analysis of the self-consistency problem for the normal phase. It is possible to prove that:
 \begin{equation}\label{eq:normal-us*-ud-constraint}
 	0 < u^{(s^*)} < 2t/V
 	\qq{and}
@@ -798,40 +801,15 @@ Here we used Eq.~\eqref{eq:normal-tS-td}. Then, bands renormalisation
 \]
 is actually a flattening. We denote this effect as ``bands shrinking''. The flattening of electronic bands is a signature of a Mott transition, as we discussed in Chap.~\ref{chap:theoretical-introduction}.
 
-\begin{figure}
-	\centering
-	\input{\GraphicsFolder/MBZ}
-	\caption{Representation of the MBZ. The dashed lines represent the boundaries of the BZ.}
-	\label{fig:normal-MBZ}
-\end{figure}
-
-Let us define the Magnetic Brillouin Zone (MBZ):
-\begin{equation}\label{eq:MBZ-def}
-	\mathrm{MBZ} \equiv \left\lbrace
-	\mathbf{k}\in\mathrm{BZ}
-	\mid 
-	\varphi_\mathbf{k}^{(s^*)} \ge 0
-	\right\rbrace \, .
-\end{equation}
-The MBZ coincides with the set of points $(k_x,k_y)$ that satisfy the relation
-\[
-	\abs{k_x} + \abs{k_y} \le \pi \, .
-\]
-We draw the MBZ in Fig.~\ref{fig:normal-MBZ}. The renormalised bands satisfy
-\[
-	\tilde{\epsilon}_\mathbf{k} = - 4 \tilde{t}^{(s^*)} \varphi_\mathbf{k}^{(s^*)} \, .
-\]
-Hence, $\tilde{\epsilon}_\mathbf{k}<0$ inside the MBZ and $\tilde{\epsilon}_\mathbf{k}>0$ outside. Along the boundary $\partial \mathrm{MBZ}$ we have $\tilde{\epsilon}_\mathbf{k}=0$.
-
-We conclude this section by proving some analytic properties of the unique HFP of the normal phase, $u^{(s^*)}$. Its self-consistency equation, from Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}, reads
+We conclude this section by proving some analytic properties of $u^{(s^*)}$. Its self-consistency equation, from Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}, reads
 \begin{equation}\label{eq:normal-us*(beta,mu)}
-	u^{(s^*)}(\beta,\tilde{\mu}) = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \, .
+	u^{(s^*)}(\beta,\tilde{\mu}) = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \, ,
 \end{equation}
-We wrote $u^{(s^*)}$ as a function of chemical potential and temperature. Note that the renormalised bands, inside the Fermi-Dirac factor on the right-hand side, depend on $u^{(s^*)}$. We now prove that in the low-temperature limit the above equation implies that $u^{(s^*)}$ is a monotonically descendent function of doping,
+where we explicitly highlighted the dependence of $u^{(s^*)}$ on the chemical potential and the temperature. We also notice that the renormalised bands, inside the Fermi-Dirac factor on the right-hand side, depend on $u^{(s^*)}$. We now prove that in the low-temperature limit the above equation implies that $u^{(s^*)}$ is a monotonically descendent function of doping,
 \begin{equation}\label{eq:normal-pdv-uS}
 	\pdv{}{\delta} u^{(s^*)}(\beta,\tilde{\mu}) \le 0 \, ,
 \end{equation}
-with the equality being verified when bands are completely flattened.
+with the equality being verified when bands are completely flattened. The fact that $u^{(s^*)}$ cannot increase as we increase $\delta$ implies that the bands shrinking effect must be suppressed as we move away from half-filling.
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:normal-pdv-uS}: $u^{(s^*)}$ decreases with doping at low temperature]
 	
@@ -909,15 +887,40 @@ We conclude this section with the analytic computation of $u^{(s^*)}$ at half fi
 	\lim_{\beta \to \infty} u^{(s^*)}[\beta,0] &= \left( \frac{2}{\pi} \right)^2 \approx 0.405  \, , \label{eq:normal-uS-half-filling} \\
 	\lim_{\beta \to \infty} u^{(s^*)}\left[
 	\beta,2\tilde{t}^{(s^*)}
-	\right] &= 0 \, . \label{eq:normal-uS-unitary-filling}
+	\right] &= 0 \, , \label{eq:normal-uS-unitary-filling}
 \end{align}
-At unitary filling we set the chemical potential equal to the maximum energy reached by a band of amplitude $4\tilde{t}^{(s^*)}$.
+where, at unitary filling, we set the chemical potential equal to the maximum energy reached by a band of amplitude $4\tilde{t}^{(s^*)}$. All the properties hereby discussed are independent of the sign of $\delta$. Namely, all we derived is symmetric as we add or remove electrons.
+
+\begin{figure}
+	\centering
+	\input{\GraphicsFolder/MBZ}
+	\caption{Representation of the MBZ. The dashed lines represent the boundaries of the BZ.}
+	\label{fig:normal-MBZ}
+\end{figure}
+
+In order to prove Eq.~\eqref{eq:normal-uS-half-filling}, it is necessary to introduce the Magnetic Brillouin Zone (MBZ):
+\begin{equation}\label{eq:MBZ-def}
+	\mathrm{MBZ} \equiv \left\lbrace
+	\mathbf{k}\in\mathrm{BZ}
+	\mid 
+	\varphi_\mathbf{k}^{(s^*)} \ge 0
+	\right\rbrace \, .
+\end{equation}
+In Chap.~\ref{chap:af} the reason for such a name will be clarified. The MBZ coincides with the set of points $(k_x,k_y)$ that satisfy the relation
+\[
+	\abs{k_x} + \abs{k_y} \le \pi \, .
+\]
+We draw the MBZ in Fig.~\ref{fig:normal-MBZ}. The renormalised bands satisfy
+\[
+	\tilde{\epsilon}_\mathbf{k} = - 4 \tilde{t}^{(s^*)} \varphi_\mathbf{k}^{(s^*)} \, .
+\]
+Hence, $\tilde{\epsilon}_\mathbf{k}<0$ inside the MBZ and $\tilde{\epsilon}_\mathbf{k}>0$ outside. Along the boundary $\partial \mathrm{MBZ}$ we have $\tilde{\epsilon}_\mathbf{k}=0$.
 
 \begin{tabproof}[Proof of Eqs.~\eqref{eq:normal-uS-half-filling}, \eqref{eq:normal-uS-unitary-filling}]
 
 	The two proofs are the following:
 	\begin{enumerate}
-		\item At half-filling, Eq.~\eqref{eq:normal-us*(beta,mu)} reduces to
+		\item At half-filling, the Fermi surface coincides with the boundary of the MBZ. Hence, being the Fermi-Dirac distribution a step-function at low temperatures, Eq.~\eqref{eq:normal-us*(beta,mu)} reduces to
 		\[
 			\lim_{\beta \to \infty} u^{(s^*)}(\beta,0) \simeq \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \, .
 		\]
@@ -943,7 +946,7 @@ At unitary filling we set the chemical potential equal to the maximum energy rea
 
 \section{Discussion of numeric results}\label{sec:normal-numeric}
 
-In this section we present and discuss the numeric results, the physical relevance of the found phenomena and the boundaries of the algorithm. For the normal phase, the HFPs vector defined in Sec.~\ref{subsec:reject-mix-iterate} has just one component:
+In this section we present and discuss the numeric results, the physical relevance of the found phenomena. In the end we present a concrete scenario where careful tuning of the algorithm is necessary to ensure convergence. As is discussed above, in the normal phase the HFPs vector (defined in Sec.~\ref{subsec:reject-mix-iterate}) has just one component:
 \[
 	\mathbf{v} = \begin{bmatrix}
 		u^{(s^*)}
@@ -967,9 +970,17 @@ Finally, the phase free energy is given by Eq.~\eqref{eq:normal-fMFT}. The norma
 	\qquad
 	\Delta \mathbf{v} = \begin{bmatrix}
 		u^{(s^*)} \colon 5 \times 10^{-4}
-	\end{bmatrix} \, .
+	\end{bmatrix} \, ,
+	\qquad
+	\beta = 100.0 \, .
 \]
-Here $\Delta \mathbf{v}$ is the tolerance vector, defined as in Sec.~\ref{subsec:reject-mix-iterate}.
+Here $\Delta \mathbf{v}$ is the tolerance vector, defined as in Sec.~\ref{subsec:reject-mix-iterate}. We have set $\beta=100.0$ as an (arbitrary) approximation of zero temperature. We measure temperature in adimensional units,
+\[
+	\frac{\beta}{\beta_0}
+	\quad\to\quad
+	\beta
+\]
+being $\beta_0 = 1/ (1\mathrm{K} \times k_\mathrm{B})$.
 
 \begin{figure}
 	\centering
@@ -977,23 +988,29 @@ Here $\Delta \mathbf{v}$ is the tolerance vector, defined as in Sec.~\ref{subsec
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf}
 		\label{subfig:normal-uS-data-B128}
 	}
-	\subfloat[$V$-dependency of $u^{(s^*)}$ varying $\delta$.]{
+	\subfloat[$V$-dependency of $u^{(s^*)}$ varying $\delta$. \todo]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf}
 		\label{subfig:normal-uS-data-B256}
 	}
-	\caption{Simulated data for $u^{(s^*)}$. On the left: heatmap plot in the $(\delta,V)$ plane. On the right: line plot at doubled lattice size, varying $\delta$.}
+	\caption{Numerical results for $u^{(s^*)}$. On the left: heatmap plot in the $(\delta,V)$ plane. On the right: line plot at doubled lattice size, varying $\delta$.}
 	\label{fig:normal-uS-data}
 \end{figure}
 
-The trend of Eq.~\eqref{eq:normal-pdv-uS} is confirmed: looking at Fig.~\ref{fig:normal-uS-data}, we see that  $u^{(s^*)}$ decreases as we increase $\delta$ keeping $V$ fixed. We observe that in the top-left corner of Fig.~\ref{subfig:normal-uS-data-B128} (low-$U$ and high-$V$ limit) there is a sort of ``depression''. In that region, increasing  $\delta$ while keeping $V$ fixed the value of $u^{(s^*)}$ is approximately constant.
+The trend of Eq.~\eqref{eq:normal-pdv-uS} is confirmed in  Fig.~\ref{fig:normal-uS-data}, where we show $u^{(s^*)}$ as a function of $V$ and varying $\delta$, with $\beta=100$. We see that  $u^{(s^*)}$ decreases as we increase $\delta$ while keeping $V$ fixed. In the colour plot of  Fig.~\ref{subfig:normal-uS-data-B128} we observe that in the top-left corner (low-$\delta$ and high-$V$ limit) there is a brighter region in which, increasing $\delta$ while keeping $V$ fixed, the converged value of $u^{(s^*)}$ is approximately constant. This effect is more visible in Fig.~\ref{subfig:normal-uS-data-B256}, where we doubled $L$ and ran simulations with a smaller $\delta$ resolution. At small values of $V$, the convergence value of $u^{(s^*)}$ is approximately independent of $V$. Note that, as was expected from the discussion of Sec.~\ref{sec:normal-sceq-analysis}, the half-filling convergence value of $u^{(s^*)}$ in the $V$-independent region is approximately given by Eq.~\eqref{eq:normal-uS-half-filling}, {\color{tabred}\textbf{which we report in Fig.~\ref{subfig:normal-uS-data-B256} as an horizontal dashed line}}. We did not find significant discrepancies in the converged data for $L=128$ and $L=256$.
 
-This effect is more visible in Fig.~\ref{subfig:normal-uS-data-B256}, where we doubled $L$ and ran simulations with a smaller $\delta$ resolution: the convergence value of $u^{(s^*)}$ is approximately independent of $V$ up to some point, where this behaviour is broken. Note that, as was expected from the discussion of Sec.~\ref{sec:normal-sceq-analysis}, the half-filling convergence value of $u^{(s^*)}$ in the $V$-independent region is approximately given by Eq.~\eqref{eq:normal-uS-half-filling}.
+For larger values of $V$, $u^{(s^*)}$ starts to decrease monotonically, consistently with the constraints of Eq.~\eqref{eq:normal-us*-ud-constraint}. {\color{tabred}\textbf{We sketch the upper boundary $u^{(s^*)} < 2t/V$ in Fig.~\ref{subfig:normal-uS-data-B256} as a green dashed line}}. We observe that when the red lines (numerical results) reach the green line (theoretical upper boundary), we have
+\[
+	u^{(s^*)} \lesssim \frac{2t}{V}
+	\quad\implies\quad
+	\tilde{t}^{(s^*)} \approx 0
+\]
+Interestingly, this would correspond to a complete flattening of the renormalised bands.
 
-From Sec.~\ref{sec:normal-sceq-analysis} we know that $u^{(s^*)}$ decreases as we increase doping, as long as $\tilde{t}^{(s^*)}>0$. When $V$ gets large enough,  $u^{(s^*)}$ starts decreasing because of its constraints. The net effect is the nullification of $\tilde{t}^{(s^*)}$, which is, a total localisation effect.
+\subsection{Mott localisation}\label{subsec:normal-mott-numeric}
 
-\subsection{Mott localisation effect}\label{subsec:normal-mott-numeric}
+In Sec.~\ref{subsec:mott-cuprates} we introduced Mott insulation, and argued that the flattening of bands is a signature of a Mott transition. Interestingly, our results suggest that Mott localisation is induced by the non-local attraction $-V$, instead of the usual Mott localisation induced by the local repulsion $+U$. 
 
-The most interesting result we obtained for the normal phase is the possibility of localising electrons by tuning $V$ and $\delta$. In Fig.~\ref{subfig:normal-uS-data-B256}, at low $V$ the convergence value of $u^{(s^*)}$ is approximately $V$-independent at sufficiently low temperatures. Let $V_\mathrm{c}[\beta,\delta]$ be the critical value such that
+In Fig.~\ref{subfig:normal-uS-data-B256}, at low $V$ the convergence value of $u^{(s^*)}$ is approximately horizontal. Let $V_\mathrm{c}[\beta,\delta]$ be the critical value such that
 \[
 	0 \le V < V_\mathrm{c}[\beta,\delta]
 	\quad\colon\quad
@@ -1007,7 +1024,7 @@ When $V$ becomes larger than this critical value, $\tilde{t}^{(s^*)}$ drops to $
 
 \begin{figure}
 	\centering
-	\subfloat[Simulated values of $\tilde{t}^{(s^*)}$]{
+	\subfloat[Numerical results for $\tilde{t}^{(s^*)}$]{
 		\includegraphics[width=0.45\linewidth]{../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf}
 		\label{subfig:normal-tS-data-B128}
 	}
@@ -1015,17 +1032,17 @@ When $V$ becomes larger than this critical value, $\tilde{t}^{(s^*)}$ drops to $
 		\includegraphics[width=0.5\linewidth]{../Project/src/labs/mott-localization/normal-mott-boundary-tS.pdf}
 		\label{subfig:normal-tS-data-B128-mott}
 	}
-	\caption{Plots of $t^{(s^*)}$ and the Mott-boundary $V_\mathrm{c}$, computed as in Eq.~\eqref{eq:normal-Vc}. For graphic reasons the points at $V_\mathrm{c} > 8$ have been omitted.}
+	\caption{Plots of $t^{(s^*)}$ and the Mott-boundary $V_\mathrm{c}$, computed as in Eq.~\eqref{eq:normal-Vc}.}
 	\label{fig:normal-tS-data}
 \end{figure}
 
-At half-filling, the shrinking of bands is so effective that values of $V/t \approx 5$ are sufficient to nullify kinetics. In Fig.~\ref{subfig:normal-tS-data-B128-mott} we report, superimposed, the convergence values of the RMP $\tilde{t}^{(s^*)}$ and $V_\mathrm{c}[\beta=100,\delta]$ given by Eq.~\eqref{eq:normal-Vc}. Our prediction of the critical value for $V$ approximates reasonably the localisation region.
+The localisation effect is particularly effective at half-filling, where the kinetic energy vanishes for $V/t \approx 5$. This value needs to be compared with the critical value of the local repulsion $U_\mathrm{c}$ for Mott localisation. In DMFT, $U_\mathrm{c} \simeq 3W$, with $W$ half the bare bandwidth [Review DMFT]. In Fig.~\ref{subfig:normal-tS-data-B128-mott} we report, superimposed, the convergence values of the RMP $\tilde{t}^{(s^*)}$ and $V_\mathrm{c}[\beta=100,\delta]$ given by Eq.~\eqref{eq:normal-Vc}. Our prediction of the critical value for $V$ approximates reasonably the localisation region.
 
 To extract the value of $V_\mathrm{c}[\beta,\delta]$ is, in general, a non-trivial analytic problem due to the insurgence of elliptic integrals and the smearing effects of temperature. At low temperature, however, we can use Eq.~\eqref{eq:normal-uS-half-filling} and obtain the asymptotic critical boundary at half-filling
 \begin{equation}
-	V_\mathrm{c}[\beta \to \infty,0] = \frac{2t}{(2/\pi)^2} \approx 4.93 t \, . \label{eq:normal-Vc-half-filling}
+	V_\mathrm{c}[\beta \to \infty,0] = \frac{2t}{(2/\pi)^2} \approx 4.93 t \, , \label{eq:normal-Vc-half-filling}
 \end{equation}
-We report this asymptotic limit in  Fig.~\ref{subfig:normal-tS-data-B128-mott} as a tick of the vertical axis.
+which we report in  Fig.~\ref{subfig:normal-tS-data-B128-mott} as a tick of the vertical axis.
 
 \begin{figure}
 	\centering
@@ -1047,7 +1064,7 @@ Increasing temperature, Mott localisation is suppressed. In Fig.~\ref{subfig:nor
 	\qquad
 	\delta = 0.0, 0.2, 0.4 \, .
 \]
-At high temperature the $V$-independent region that was visible in Fig.~\ref{subfig:normal-uS-data-B256} completely disappears, making $u^{(s^*)}$ a monotonically descendent function. In Fig.~\ref{subfig:normal-data-uS-C256-compared} the same dataset is plotted with focus on the RMP $\tilde{t}^{(s^*)}$. Temperature increase disrupts localisation effects, at least at small values of $V$. However, the bands shrinking effect is still relevant at $\beta=1.0$, with the hopping parameter approximately halving at $V \approx 5 \divisionsymbol 6$.
+Increasing temperature, the constant $u^{(s^*)}$ region progressively disappears in favour of a monotonically decreasing behaviour. In Fig.~\ref{subfig:normal-data-uS-C256-compared} the same dataset is plotted with focus on the RMP $\tilde{t}^{(s^*)}$. Temperature increase disrupts localisation effects, at least at small values of $V$. However, the bands shrinking effect is still relevant up to $\beta=1.0$, with the hopping parameter approximately halving at $V \approx 5 \divisionsymbol 6$.
 
 \subsection{Solution free energy and entropy densities}\label{subsec:normal-f-s}
 
