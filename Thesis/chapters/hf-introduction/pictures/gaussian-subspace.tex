@@ -1,0 +1,41 @@
+\def\r{3em}
+\def\angle{10}
+\begin{tikzpicture} 
+	
+	\node[
+		name=H,
+		circle,
+		draw=lightgray,
+		text=black,
+		fill=lightgray!25,
+		minimum size=17em
+	] 
+		(H) at (0,0) {};
+		
+	\node[anchor=south east] at (H.north west)
+		{$\mathcal{H}$};
+
+	\node[
+		name=S,
+		circle,
+		draw=lightgray,
+		text=black,
+		fill=lightgray!50,
+		minimum size=5em
+	] 
+		(S) at (1,1.5) {};
+		
+	\node[anchor=south east] at (S.north west)
+		{$\mathcal{S}$};
+		
+	\fill 
+		(0.4,0.6) circle (1.5pt)
+			node[anchor=north east]
+				{Ground state};
+
+	\fill 
+		(0.6,0.9) circle (1.5pt)
+			node[anchor=south west]
+				{$\ket{\Psi}$};
+
+\end{tikzpicture}

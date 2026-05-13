@@ -1,0 +1,121 @@
+\def\reDeltaPar{0.5}
+\def\imDeltaPar{0.866}
+\def\EpsPar{0.3}
+\def\r{1.5}
+\pgfmathsetmacro{\DeltaPar}{sqrt(\reDeltaPar2 + \imDeltaPar^2)}
+\pgfmathsetmacro{\ZetaPar}{atan(\imDeltaPar/\reDeltaPar)}
+
+\begin{tikzpicture}
+	\begin{axis}[
+			axis lines=center,
+			axis on top,
+			axis equal,
+			%
+			xlabel={$x$},
+			ylabel={$y$},
+			zlabel={$z$},
+			xlabel style={below right},
+			ylabel style={right},
+			zlabel style={above},
+			%
+			xtick={-\reDeltaPar},
+			xticklabel={$-\Re\{\tilde{\Delta}_\mathbf{k}\}$},
+			xticklabel style={above, xshift=1.3em,yshift=0.2em},
+			extra x ticks={\reDeltaPar},
+			extra x tick labels={$\Re\{\tilde{\Delta}_\mathbf{k}\}$},
+			extra x tick style={xticklabel style={below left,xshift=-0.25em}},		
+			%
+			ytick={-\imDeltaPar},
+			yticklabel={$-\Im\{\tilde{\Delta}_\mathbf{k}\}$},
+			yticklabel style={below,yshift=-0.25em},
+			extra y ticks={\imDeltaPar},
+			extra y tick labels={$\Im\{\tilde{\Delta}_\mathbf{k}\}$},
+			extra y tick style={yticklabel style={above,yshift=0.25em}},	
+			%
+			ztick={-\EpsPar},
+			extra z ticks={\EpsPar},
+			zticklabels={$-\tilde{\epsilon}_\mathbf{k}$,$\tilde{\epsilon}_\mathbf{k}$},
+			zticklabel style={left},
+			extra z ticks={\EpsPar},
+			extra z tick labels={$\tilde{\epsilon}_\mathbf{k}$},
+			extra z tick style={zticklabel style={right,xshift=0.2em}},
+			%
+			xmin=-1, xmax=1,
+			ymin=-1, ymax=1,
+			zmin=-0.4, zmax=0.4,
+			view/h=60,
+			view/v=15,
+			scale=2.25,
+		]
+		
+		% Dashed lines
+%		\draw[color=lightgray,dashed]
+%			(axis cs:-\reDeltaPar,0,0) -- (axis cs:-\reDeltaPar,0,\EpsPar);
+%		\draw[color=lightgray,dashed]
+%			(axis cs:0,0,\EpsPar) -- (axis cs:-\reDeltaPar,0,\EpsPar);
+%		\draw[color=lightgray,dashed]
+%			(axis cs:\reDeltaPar,0,0) -- (axis cs:\reDeltaPar,0,-\EpsPar);
+%		\draw[color=lightgray,dashed]
+%			(axis cs:0,0,-\EpsPar) -- (axis cs:\reDeltaPar,0,-\EpsPar);
+
+		\draw[color=lightgray,dashed]
+			(axis cs:-\reDeltaPar,-\imDeltaPar,0) -- (axis cs:-\reDeltaPar,-\imDeltaPar,\EpsPar);
+		\draw[color=lightgray,dashed]
+			(axis cs:0,0,\EpsPar) -- (axis cs:-\reDeltaPar,-\imDeltaPar,\EpsPar);
+		\draw[color=lightgray,dashed]
+			(axis cs:-\reDeltaPar,-\imDeltaPar,0) -- (axis cs:\reDeltaPar,\imDeltaPar,0);
+		\draw[color=lightgray,dashed]
+			(axis cs:\reDeltaPar,\imDeltaPar,0) -- (axis cs:\reDeltaPar,\imDeltaPar,-\EpsPar);
+		\draw[color=lightgray,dashed]
+			(axis cs:0,0,-\EpsPar) -- (axis cs:\reDeltaPar,\imDeltaPar,-\EpsPar);
+		\draw[color=lightgray,dashed]
+			(axis cs:-\reDeltaPar,-\imDeltaPar,0) -- (axis cs:-\reDeltaPar,0,0);
+		\draw[color=lightgray,dashed]
+			(axis cs:-\reDeltaPar,-\imDeltaPar,0) -- (axis cs:0,-\imDeltaPar,0);
+		\draw[color=lightgray,dashed]
+			(axis cs:\reDeltaPar,\imDeltaPar,0) -- (axis cs:\reDeltaPar,0,0);
+		\draw[color=lightgray,dashed]
+			(axis cs:\reDeltaPar,\imDeltaPar,0) -- (axis cs:0,\imDeltaPar,0);
+			
+		% Field line
+		\draw[color=lightgray]
+			(axis cs:{1.2*\reDeltaPar},{1.2*\imDeltaPar},{-1.2*\EpsPar}) -- (axis cs:{-1.2*\reDeltaPar},{-1.2*\imDeltaPar},{1.2*\EpsPar});
+		
+		% Eigenstates
+		\filldraw[color=tabblue] 
+			(axis cs:-\reDeltaPar,-\imDeltaPar,\EpsPar) circle (1.2pt)
+				node[anchor=south west] (E)
+					{$\tilde{E}_\mathbf{k}$};
+		\filldraw[color=tabblue] 
+			(axis cs:\reDeltaPar,\imDeltaPar,-\EpsPar) circle (1.2pt)
+				node[anchor=north east] (mE)
+					{$-\tilde{E}_\mathbf{k}$};
+		
+		% Pseudo field
+		\draw[color=tabgreen,-stealth]
+			(axis cs:0,0,0) node (O) {} -- (axis cs:-\reDeltaPar,-\imDeltaPar,\EpsPar) 
+				node[anchor=north east]
+					{$\tilde{\mathbf{b}}_\mathbf{k}$};
+				
+		\begin{scope}[canvas is xy plane at z=0]
+			\draw[color=tabgreen] 
+				(\EpsPar/2,0) arc [start angle=0, end angle=\ZetaPar,radius=\EpsPar/2]
+					node[anchor=west,midway,yshift=-0.3em]
+						{$2\tilde{\zeta}_\mathbf{k}$};
+		\end{scope}		
+			
+		\begin{scope}[canvas is plane={O(0,0,0)x(\reDeltaPar,\imDeltaPar,0)y(0,0,1)}]		
+			\draw[color=tabgreen] 
+				(0,\EpsPar/2) arc [start angle=90,end angle=90+atan(\DeltaPar/\EpsPar),radius=\EpsPar/2]
+					node[anchor=north west, midway, xshift=-0.45em, yshift=0.25em]
+						{$2\tilde{\theta}_\mathbf{k}$};
+						
+			\draw[color=tabred,dashed,-stealth] 
+				(0,\r*\EpsPar) arc [start angle=90,end angle=90+atan(\DeltaPar/\EpsPar)-2,radius=\r*\EpsPar]
+					node[anchor=south east,midway]
+						{\small Diagonalization};
+			\draw[color=tabred,dashed,-stealth] 
+				(0,-\r*\EpsPar) arc [start angle=-90,end angle=-90+atan(\DeltaPar/\EpsPar)-2,radius=\r*\EpsPar];
+		\end{scope}
+	\end{axis}
+\end{tikzpicture}

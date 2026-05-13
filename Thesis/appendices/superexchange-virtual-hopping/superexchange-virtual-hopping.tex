@@ -1,0 +1,190 @@
+\def\GraphicsFolder{appendices/superexchange-virtual-hopping/pictures}
+
+\chapter{Superexchange and virtual hopping in Hubbard lattices}\label{app:superexchange-virtual-hopping}
+ 
+Superexchange is a key mechanism in the formation of AF ordering in Hubbard lattices. It is an extension of the direct exchange effect, that we describe in Sec.~\ref{appsec:direct-exchange}, that favours antiferromagnetic ordering and takes advantage of the chemical structure of cuprates. The mechanism becomes clear enough if we start with a $2$-sites Hubbard toy model.
+
+\section{Singlet pairing in Hubbard lattices}\label{appsec:hubbard-2}
+
+Consider the $2$ sites Hubbard model of Eq.~\eqref{eq:hubbard-2-sites},
+\[
+	\hat H = 
+	-t \left(
+		 \hat c_{1\uparrow}^\dagger \hat c_{2\uparrow} + \hat c_{1\downarrow}^\dagger \hat c_{2\downarrow} + \hc 
+	\right)
+	+ U \left(
+		 \hat n_{1\uparrow} \hat n_{1\downarrow} + \hat n_{2\uparrow} \hat n_{2\downarrow} 
+	\right),
+\]
+with $i=1,2$ the site index. For an half-filled system (i.e. with two electrons) the Hilbert space is six-dimensional. We use the notation $\ket{n_{1\uparrow} n_{1\downarrow} n_{2\uparrow} n_{2\downarrow}}$ to indicate the six states of the computational basis:
+\begin{equation}\label{appeq:hubbard-2-states}
+	\begin{aligned}
+		\ket{\psi_1} &\equiv \ket{1010} \, , \\
+		\ket{\psi_2} &\equiv \ket{1100} \, , \\
+	\end{aligned}
+	\qquad
+	\begin{aligned}
+		\ket{\psi_3} &\equiv \ket{1001} \, , \\
+		\ket{\psi_4} &\equiv \ket{0110} \, , \\
+	\end{aligned}
+	\qquad
+	\begin{aligned}
+		\ket{\psi_5} &\equiv \ket{0011} \, , \\
+		\ket{\psi_6} &\equiv \ket{0101} \, . \\
+	\end{aligned}
+\end{equation}
+We give a pictorial representation of these states in Fig.~\ref{appfig:two-sites-hubbard-model}. We ordered the states in such a way that the two states with total spin different from zero, $\ket{\psi_1}$ and $\ket{\psi_6}$, are at the extrema of the set.
+
+\begin{figure}
+	\centering
+	\input{\GraphicsFolder/hubbard-2-states}
+	\caption{Computational basis of Eq.~\eqref{appeq:hubbard-2-states} for the $2$-sites Hubbard model.}
+	\label{appfig:two-sites-hubbard-model}
+\end{figure}
+
+The matrix elements of the hamiltonian can be computed using this basis,
+\begin{equation}\label{appeq:hubbard-2-Hij}
+	H_{ij} = \mel{\psi_i}{\hat H}{\psi_j}
+	\quad\implies\quad
+	H = \begin{bmatrix}
+		0 &  0 &  0 &  0 &  0 &  0 \\
+		0 &  U & -t & -t &  0 &  0 \\
+		0 & -t &  0 &  0 & -t &  0 \\
+		0 & -t &  0 &  0 & -t &  0 \\
+		0 &  0 & -t & -t &  U &  0 \\
+		0 &  0 &  0 &  0 &  0 &  0 \\  
+	\end{bmatrix} \, .
+\end{equation}
+In the above matrix, rows and columns are ordered following the states indices of Eq.~\eqref{appeq:hubbard-2-states}. The states $\ket{\psi_1}$ (both spins up) and $\ket{\psi_6}$ (both spins down) are zero-energy eigenstates. Indeed, they do not interact via Coulomb repulsion (are on different sites) and neither through NNs hopping, due to Pauli exclusion principle.
+
+All states with null total spin projection, namely $\lbrace \ket{\psi_i} \rbrace$ for $2 \le i \le 5$, give a null matrix elements when computed with the aforementioned states, but non-zero matrix elements among themselves. Note that this set includes both the states with one doubly occupied site and one empty site ($\ket{\psi_2}$, $\ket{\psi_5}$) and those with two singly occupied sites ($\ket{\psi_3}$, $\ket{\psi_4}$). These states are connected by the central $4 \times 4$ matrix in Eq.~\eqref{appeq:hubbard-2-Hij}. The latter is diagonalised by the means of a change of basis $M$,
+\[
+	M \begin{bmatrix}
+		 U & -t & -t &     \\
+		-t &    &    & -t  \\
+		-t &    &    & -t  \\
+		   & -t & -t &  U  \\
+	\end{bmatrix} M^\dagger = \begin{bmatrix}
+	E^- &   & 	& 	 \\
+	    & 0 & 	&	 \\
+		&   & U & 	 \\
+		&	&	& E^+
+	\end{bmatrix} \, .
+\]
+where blank slots indicate zeros. In
+Tab.~\ref{apptab:two-sites-hubbard-model-eigenstates} we report the eigenvectors and relative eigenvalues obtained from diagonalisation. 
+
+\begin{table}
+	\centering
+	\begin{tabular}{c c c}
+		\textbf{Structure} & \textbf{Eigenstate} & \textbf{Energy} \\
+		\midrule
+		Spin-$1/2$ singlet & $\displaystyle \frac{\ket{\psi_3} - \ket{\psi_4}}{\sqrt{2}}$ & $\displaystyle E^- = \frac{U}{2} - \sqrt{\frac{U^2}{4} + 4t^2}$ \\
+		&&\\ % Extra space
+		Spin-$1/2$ triplet & $\ket{\psi_1}, \displaystyle \frac{\ket{\psi_3} + \ket{\psi_4}}{\sqrt{2}}, \ket{\psi_6}$ & 0 \\
+		&&\\ % Extra space
+		&$\displaystyle \frac{\ket{\psi_2}-\ket{\psi_5}}{\sqrt{2}}$ & $U$\\
+		&&\\ % Extra space
+		&$\displaystyle \frac{\ket{\psi_2}+\ket{\psi_5}}{\sqrt{2}}$ & $\displaystyle E^+ = \frac{U}{2} + \sqrt{\frac{U^2}{4} + 4t^2}$ \\
+		\midrule
+	\end{tabular}
+	\caption{List of exact eigenstates and relative energies for the $2$-sites half-filled Hubbard model.}
+	\label{apptab:two-sites-hubbard-model-eigenstates}
+\end{table}
+
+The ground-state is the singlet state,
+\[
+	\frac{\ket{\psi_3} - \ket{\psi_4}}{\sqrt{2}} = \frac{\ket{1010} - \ket{0101}}{\sqrt{2}} = \frac{\ket{\uparrow\downarrow} - \ket{\downarrow\uparrow}}{\sqrt{2}} \, ,
+\]
+whose energy is
+\[
+	E^- = \frac{U}{2} - \sqrt{\frac{U^2}{4} + 4t^2} \simeq - \frac{4t^2}{U} \, .
+\]
+The latter approximation is true if $U \gg t$ (strong coupling limit). The singlet state pairs with a spatially-symmetric (node-less) wavefunction, while triplet states with an antisymmetric wavefunction (which, instead, has a node). The entire triplet (second row of Tab.~\ref{apptab:two-sites-hubbard-model-eigenstates}) has zero energy. Excited states are anti-symmetrised and symmetrised version of the polarised states $\ket{\psi_1}$ and $\ket{\psi_6}$.
+
+\section{Direct exchange and virtual hopping}\label{appsec:direct-exchange}
+
+The fact that we limited to two sites allowed for an exact diagonalisation of the toy hamiltonian of Eq.~\eqref{eq:hubbard-2-sites}. When moving to lattices, the above procedure cannot be extended easily. By using perturbation theory, instead, we can obtain the same result and easily extend to larger lattices.
+
+Nevertheless, let us obtain the same result of Sec.~\ref{appsec:hubbard-2} by the means of perturbation theory. Consider Eq.~\eqref{eq:hubbard-2-sites} separating two parts,
+\[
+	\hat H = \hat H_0 + \hat H_1 \, ,
+\]
+where
+\[	
+\begin{aligned}
+	\hat H_0 &\equiv U \left(
+	\hat n_{1\uparrow} \hat n_{1\downarrow} + \hat n_{2\uparrow} \hat n_{2\downarrow} 
+	\right) \, , \\
+	\hat H_1 &\equiv -t \left(
+	\hat c_{1\uparrow}^\dagger \hat c_{2\uparrow} + \hat c_{1\downarrow}^\dagger \hat c_{2\downarrow} + \hc 
+	\right) \, .
+\end{aligned}
+\]
+At zeroth order in perturbation theory, thus considering just the Coulomb repulsion $\hat H_0$, the Hilbert space separates in two manifolds
+\[
+\begin{aligned}
+	\mathrm{Span}(\ket{\psi_1},\ket{\psi_3},\ket{\psi_4},\ket{\psi_6}) \qq{with} & E = 0 \, , \\
+	\mathrm{Span}(\ket{\psi_2},\ket{\psi_5}) \qq{with} & E = U \, .
+\end{aligned}
+\]
+We limit to the ground manifold, thus ``excluding from the Hilbert space'' the states with double occupation $\ket{\psi_2}, \ket{\psi_5}$.
+
+First order corrections to energy are null:
+\[
+	\forall i,j
+	\quad\colon\quad
+	\mel{\psi_i}{\hat H_1}{\psi_j} = 0 \, ,
+\]
+because the hopping operator $\hat H_1$ produces a doubly occupied site when applied to $\ket{\psi_3}, \ket{\psi_4}$ and zero when applied to $\ket{\psi_1}, \ket{\psi_6}$ due to Pauli exclusion principle.
+
+We need to move to second order corrections. Let us change basis, and define the singlet state
+\[
+	\ket{s} \equiv \frac{\ket{\psi_3} - \ket{\psi_4}}{\sqrt{2}} \, ,
+\]
+and the triplet states
+\[
+	\ket{t_+} \equiv \ket{\psi_1} \, ,
+	\qquad
+	\ket{t_0} \equiv \frac{\ket{\psi_3} +  \ket{\psi_4}}{\sqrt{2}} \, ,
+	\qquad
+	\ket{t_-} \equiv \ket{\psi_6} \, .
+\]
+Let also $E_\psi^{(0)}$ be the zeroth-order energy associated to state $\ket{\psi}$. Second order correction to the singlet state energy is given by
+\[
+\begin{aligned}
+	E_s^{(2)} &= \sum_{\psi \neq s} \frac{\mel{s}{\hat H_1}{\psi}\mel{\psi}{\hat H_1}{s}}{E_s^{(0)} - E_\psi^{(0)}} \\
+	&= \frac{2t^2}{E_s^{(0)} - E_{\psi_2}^{(0)}} + \frac{2t^2}{E_s^{(0)} - E_{\psi_5}^{(0)}} = - \frac{4t^2}{U} \, .
+\end{aligned}
+\]
+The above result can be obtained easily by direct computation. Note that the $+$ sign in the middle is obtained as a combination of the internal $-$ sign in the definition of the singlet state, and another $-$ sign arising from Fermi anticommutation rules. 
+
+Instead, for the central triplet state
+\[
+\begin{aligned}
+	E_{t_0}^{(2)} &= \sum_{\psi \neq t_0} \frac{\mel{t_0}{\hat H_1}{\psi}\mel{\psi}{\hat H_1}{t_0}}{E_{t_0}^{(0)} - E_\psi^{(0)}} \\
+	&= \frac{2t^2}{E_{t_0}^{(0)} - E_{\psi_2}^{(0)}} - \frac{2t^2}{E_{t_0}^{(0)} - E_{\psi_5}^{(0)}} = 0 \, .
+\end{aligned}
+\]
+This time, the central $-$ sign is present precisely because of the internal sign of the state $\ket{t_0}$. Finally,
+\[
+	E_{t_\pm}^{(2)} = \sum_{\psi \neq t_0} \frac{\mel{t_\pm}{\hat H_1}{\psi}\mel{\psi}{\hat H_1}{t_\pm}}{E_{t_\pm}^{(0)} - E_\psi^{(0)}} = 0 \, ,
+\]
+again, because of Pauli exclusion principle.
+
+\begin{figure}
+	\centering
+	\input{\GraphicsFolder/hubbard-2-virtual}
+	\caption{Schematisation of a second order virtual hopping. Note that this is a virtual process induced by the kinetic perturbation, not an actual physical process.}
+	\label{appfig:hubbard-2-virtual}
+\end{figure}
+
+What makes $\ket{s}$ and $\ket{t_0}$ fundamentally different? The singlet state takes advantage of the second-order virtual process where one spin hops to the neighbouring site and returns back. This process is schematised in Fig.~\ref{appfig:hubbard-2-virtual}, and is referred to as ``virtual hopping''. But each one of the two electrons can do this. The antisymmetry properties of many-body electronic wavefunctions imply, in the end, that these two virtual processes interfere constructively. For the triplet state $\ket{t_0}$, the two processes are perfectly plausible but interfere destructively. The coupling of electronic spin on neighbouring atoms is known as ``direct exchange''.
+
+This perturbative scheme scales up to larger lattices. It can be shown analytically that the low-energy sector of the strong-coupled Hubbard hamiltonian of Eq.~\eqref{eq:hubbard-model} is approximated by an effective Heisenberg hamiltonian with antiferromagnetic spin-spin coupling \cite{cleveland1976obtaining}.
+
+\section{Superexchange in cuprates}
+
+The scheme of direct exchange explains the insurgence of antiferromagnetism in the Hubbard model at strong coupling, $U \gg t$. The physics of cuprates is slightly more complicated.
+
+Indeed, in the copper oxides active layers, the $\mathrm{Cu}^{2+}$ ions are surrounded by oxygens in a closed shell configuration. Hence, copper $d_{x^2-y^2}$-wave orbitals (where conduction electrons reside) do not overlap. Instead, they overlap with $p$-wave orbitals of the neighbouring oxygens. This enables a mechanism known as ``superexchange'': even if the copper spins cannot interact directly, they use the intermediate $p$-orbitals as a sort of ``bridge'' and establish an direct exchange mechanism with the intermediate spins. The resulting interaction, as is ``seen'' by the copper electrons, is again an effective antiferromagnetic coupling \cite{pavarini2012correlated}.

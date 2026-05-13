@@ -1,0 +1,41 @@
+\documentclass[a4paper]{memoir}
+
+\input{misc/packages}
+\input{misc/definitions}
+\addbibresource{misc/bibliography.bib}
+
+\begin{document}
+	
+% Front matter
+\pagenumbering{gobble}
+\input{misc/cover}
+\input{misc/dedication}
+\input{misc/abstract}
+\input{misc/toc}
+\input{misc/abbreviations}
+\input{misc/introduction}
+
+% Main matter
+\pagenumbering{arabic}
+\input{chapters/theoretical-introduction/theoretical-introduction}
+\input{chapters/hf-introduction/hf-introduction}
+\input{chapters/ehm-symmetries/ehm-symmetries}
+\input{chapters/normal-phase/normal-phase}
+\input{chapters/antiferromagnetic-instability/antiferromagnetic-instability}
+\input{chapters/superconducting-instability/superconducting-instability}
+\input{chapters/conclusions/conclusions}
+
+% Back matter
+\appendix
+\input{appendices/superexchange-virtual-hopping/superexchange-virtual-hopping}
+\input{appendices/slater-gaussian/slater-gaussian}
+\input{appendices/hf-mft/hf-mft}
+\input{appendices/hm-af-ground-state/hm-af-ground-state}
+\input{appendices/theoretical-constraints/theoretical-constraints}
+\input{appendices/g-optimization-hubbard/g-optimization-hubbard}
+
+\input{misc/acknowledgements}
+
+\printbibliography\nocite{*}
+
+\end{document}
