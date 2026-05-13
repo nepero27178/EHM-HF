@@ -3,7 +3,7 @@
 
 In this chapter, we study the normal phase, namely the phase characterised by the absence of any spontaneous symmetry breaking mechanism.
 
-We show that the non-local pairing induces a renormalisation of the hopping amplitude, leading a Mott localisation effect. The chapter is organised as follows. In Sec.~\ref{sec:normal-phase-theory} we discuss the symmetries of the normal phase. In Secs.~\ref{sec:normal-hf}, \ref{sec:normal-hf-hamiltonian} we derive the HF approximation to the EHM in the normal phase. In Sec.~\ref{sec:normal-sceq-analysis} we analyse the self-consistency equations and derive constraints on the self-consistent parameters identified by the Hartree-Fock method. In Sec.~\ref{sec:normal-numeric} we present the result of numeric simulations.
+We show that the non-local pairing induces a renormalisation of the hopping amplitude, leading to a Mott localisation effect. The chapter is organised as follows. In Sec.~\ref{sec:normal-phase-theory} we discuss the symmetries of the normal phase. In Secs.~\ref{sec:normal-hf}, \ref{sec:normal-hf-hamiltonian} we derive the HF approximation to the EHM in the normal phase. In Sec.~\ref{sec:normal-sceq-analysis} we analyse the self-consistency equations and derive constraints on the self-consistent parameters identified by the Hartree-Fock method. In Sec.~\ref{sec:normal-numeric} we present the result of numeric simulations.
 
 \section{The normal phase and its  symmetries}\label{sec:normal-phase-theory}
 
@@ -61,10 +61,6 @@ Translational invariance and spin rotational symmetry imply that the site occupa
 \end{equation}
 with $n \in [0,1]$.
 
-\begin{tabproof}[Proof of Eq.~\eqref{eq:normal-<n_i>}]
-	\todo
-\end{tabproof}
-
 \section{Application of Hartree-Fock methods to the normal phase}\label{sec:normal-hf}
 
 Applying the HF methods to the interactions $\hat H_U$ and $\hat H_V$, from Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}, we know that in the normal phase the allowed contractions are:
@@ -96,11 +92,9 @@ As we will see in detail and is summarised in Tab.~\ref{tab:normal-RWCs}, Hartre
 	\label{tab:normal-RWCs}
 \end{table}
 
-The quartic part of $\hat H$ is given by the the local repulsion $\hat H_U$ and the non-local attraction $\hat H_V$. Applying HF methods, we get the decomposition of Eqs.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}.
-
 \subsection{Effects of the Hartree terms: chemical potential renormalisation}\label{subsec:normal-hartree-mu}
 
-In this section we show that the Hartree channels of $\hat H_U$ and $\hat H_V$ reduce to multiples of the number operator. Specifically, the Hartree channels are given by
+In this section we show that the Hartree channels of $\hat H_U$ and $\hat H_V$ reduce to multiples of the number operator. Applying HF methods, we get the decomposition of Eqs.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}. Specifically, the Hartree channels are given by
 \[
 \begin{aligned}
 	\hat H_U &\HFsimeq U \sum_i \left(
@@ -238,7 +232,7 @@ where in last line we used Eq.~\eqref{eq:square-NN-ghost-sum}, and $z=4$ is the 
 
 \subsection{Effects of the Fock terms: bare bands renormalisation}\label{subsec:normal-fock-bands}
  
-From the Wick's decomposition of $\hat H_V$ (see Eq.~\eqref{eq:mft-HV}), the only Fock term allowed in the normal phae comes from the same-spin sector. See Tab.~\ref{tab:HV-sel-rules} for a summary. Explicitly,
+From the Wick's decomposition of $\hat H_V$ (see Eq.~\eqref{eq:mft-HV}), the only Fock term allowed in the normal phase comes from the same-spin sector. See Tab.~\ref{tab:HV-sel-rules} for a summary. Explicitly,
 \begin{equation}\label{eq:normal-HV-fock}
 	\hat H_V \HFsimeq (\text{Hartree channel}) + 
 	V \sum_{\ev{ij}} \sum_\sigma \left(
@@ -514,7 +508,7 @@ where in first line we included the all contraction energies from Eqs.~\eqref{eq
 \end{equation}
 All dependence on the HFPs is inside the renormalised bands of Eq.~\eqref{eq:normal-bands-renormalisation} and the contributions to contraction energy.
 
-Apart from energy shifts, this hamiltonian describes a perfectly degenerate Fermi gas whose bare bands are $\tilde{\epsilon}_{\mathbf{k}\sigma}$ as defined in Eq.~\eqref{eq:normal-bands-renormalisation}, and whose chemical potential is $\tilde{\mu}$ as defined in Eq.~\eqref{eq:normal-mu-shift}. The latter is fixed self-consistently by setting the density; the former must be determined self-consistently using self-consistency equations. The thermal state of the approximated hamiltonian obeys Fermi-Dirac statistics,
+Apart from energy shifts, this hamiltonian describes a perfectly degenerate Fermi gas whose bare bands are $\tilde{\epsilon}_{\mathbf{k}\sigma}$ as defined in Eq.~\eqref{eq:normal-bands-renormalisation}, and whose chemical potential is $\tilde{\mu}$ as defined in Eq.~\eqref{eq:normal-mu-shift}. The latter is fixed self-consistently by setting the density; the former must be determined using self-consistency equations. The thermal state of the approximated hamiltonian obeys Fermi-Dirac statistics,
 \begin{equation}\label{eq:normal-<cc>-FD}
 	\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'} \rangle = \delta_{\mathbf{k}=\mathbf{k}'} \delta_{\sigma=\sigma'} f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \, ,
 \end{equation}
@@ -535,22 +529,24 @@ In Eq.~\eqref{eq:normal-H~t} we defined $\hat H_{\tilde{t}}$ in reciprocal space
 	\hat c_{i\sigma}^\dagger \hat c_{j\sigma}
 	\rangle \hat c_{j\sigma}^\dagger  \hat c_{i\sigma} + \hc
 	\right] \\
-	&= - \sum_{i,j} \sum_\sigma 
+	&= - \sum_{\ev{ij}} \sum_\sigma 
 	\left[
 	\tilde{t}_{ij\sigma} \hat c_{i\sigma}^\dagger \hat c_{j\sigma} + \hc
 	\right] \, .
 \end{aligned}
 \]
-Note that in second line we are not summing over NNs, but on two site indices $i,j \in \mathcal{L}$. We defined the effective hopping amplitude
+where we introduce the renormalised hopping $\tilde{t}_{ij\sigma}$,
 \[
-	\tilde{t}_{ij\sigma} \equiv \frac{1}{2} \left(
-		t - V \langle
-		\hat c_{j\sigma}^\dagger \hat c_{i\sigma} \rangle
-	\right)
-	\text{for $i,j$ NNs.}
+	\tilde{t}_{ij\sigma} \equiv
+	\begin{cases}
+		\displaystyle
+		\frac{1}{2} \left(
+			t - V \langle \hat c_{j\sigma}^\dagger \hat c_{i\sigma} \rangle \right)
+		\qquad
+		&\text{if $i,j$ are NNs,} \\
+		0 &\text{otherwise.}
+	\end{cases}
 \]
-The $1/2$ prefactor was included to avoid double counting.
-
 Due to translational invariance, the renormalised hopping $\tilde{t}_{ij\sigma}$ depends only on the difference $i-j$. Therefore we can use the decomposition of Eq.~\eqref{eq:f-decomposition},
 \[
 	\tilde{t}_{ij\sigma} = \sum_\gamma \tilde{t}^{(\gamma)}_\sigma \varphi_{ij}^{(\gamma)} \, .
@@ -564,7 +560,7 @@ The harmonics, given by Eq.~\eqref{eq:f-gamma}, are identified with $\tilde{t}_\
 		\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}} - \delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} - \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
 	\right] \, .
 \end{multline*}
-Let us define:
+Let us define the direction-resolved renormalised hopping,
 \begin{align}
 	\tilde{t}_\sigma^{(x)} &\equiv \frac{\tilde{t}_\sigma^{(s^*)} + \tilde{t}_\sigma^{(d)}}{2} \, , \label{eq:normal-tx} \\
 	\tilde{t}_\sigma^{(y)} &\equiv \frac{\tilde{t}_\sigma^{(s^*)} - \tilde{t}_\sigma^{(d)}}{2} \, . \label{eq:normal-ty}
@@ -576,10 +572,17 @@ This shows that, as anticipated, a finite $\tilde{t}^{(d)} \neq 0$ implies a nem
 			\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}+\underline{\mathbf{x}}\sigma} + \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}-\underline{\mathbf{x}}\sigma}
 		\right) + \tilde{t}_\sigma^{(y)} \left(
 			\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}+\underline{\mathbf{y}}\sigma} + \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}-\underline{\mathbf{y}}\sigma}
-		\right) + \hc
+		\right)
 	\right] \, .
 \]
-We notice, however, that even in the presence of a non-zero $d$-wave hopping the density remains uniform.
+A schematics of anisotropic hopping is given in Fig.~\ref{fig:anisotropic-hopping}: for each bond linking two sites, the hopping parameter can differ, as the link direction is vertical or horizontal. We notice, however, that even in the presence of a non-zero $d$-wave hopping the density remains uniform.
+
+\begin{figure}
+	\centering
+	\input{\GraphicsFolder/anisotropic-hopping}
+	\caption{Graphic rendition of anisotropic hopping, with a $s^*$-wave component (symmetric by $\pi/2$ rotations) and a $d$-wave component (antisymmetric).}
+	\label{fig:anisotropic-hopping}
+\end{figure}
 
 \begin{tabproof}[A $d$-wave hopping is compatible with uniform density]
 
@@ -597,18 +600,10 @@ We notice, however, that even in the presence of a non-zero $d$-wave hopping the
 	\end{aligned}
 	\]
 	The right-hand side of last line is independent of $\mathbf{r}$, therefore also $\ev{\hat n_{\mathbf{r}\sigma}}$ is.
+	
+	Note that we never used the actual symmetry of the renormalised bands $\tilde{\epsilon}_\mathbf{k}$, but only the fact that the thermal state obeys the Fermi-Dirac distribution. A perfectly degenerate Fermi gas is always translational invariant and thus cannot exhibit non-uniform charge density.
+	
 \end{tabproof}
-%
-Note that we never used the actual symmetry of the renormalised bands $\tilde{\epsilon}_\mathbf{k}$, but only the fact that the ground-state obeys the Fermi-Dirac distribution. A perfectly degenerate Fermi gas is always translational invariant and thus cannot exhibit non-uniform symmetry.
-
-\begin{figure}
-	\centering
-	\input{\GraphicsFolder/anisotropic-hopping}
-	\caption{Graphic rendition of anisotropic hopping, with a $s^*$-wave component (symmetric by $\pi/$ rotations) and a $d$-wave component (antisymmetric).}
-	\label{fig:anisotropic-hopping}
-\end{figure}
-
-A schematics of anisotropic hopping is given in Fig.~\ref{fig:anisotropic-hopping}: for each bond linking two sites, the hopping parameter can differ, as the link direction is vertical or horizontal.
 
 From now on, we will omit the spin index $\sigma$ from both the renormalised bands and the renormalised hopping,
 \[
@@ -789,7 +784,7 @@ In this section, we collect some constraints on the HFPs $u^{(s^*)}$, $u^{(d)}$,
 	\qq{and}
 	u^{(d)} = 0 \, ,
 \end{equation}
-for any choice of $U,V>0$ and doping $\delta$. The proof follows from the detailed analysis of the self-consistency equations of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}, and is reported in App.~\ref{app:theoretical-constraints}. Eq.~\eqref{eq:normal-us*-ud-constraint} implies that in the normal phase there is no nematic effect, and the renormalised hopping parameter $\tilde{t}_{ij}$ is isotropic with an amplitude smaller than $t$,
+for any choice of $U,V>0$ and doping $\delta$. The proof is reported in App.~\ref{app:theoretical-constraints}. Eq.~\eqref{eq:normal-us*-ud-constraint} implies that in the normal phase there is no nematic effect, and the renormalised hopping parameter $\tilde{t}_{ij}$ is isotropic with an amplitude smaller than $t$,
 \[
 	0 < \tilde{t}^{(s^*)} < t \, .
 \]
@@ -799,7 +794,29 @@ Here we used Eq.~\eqref{eq:normal-tS-td}. Then, bands renormalisation
 	\quad\to\quad
 	\tilde{\epsilon}_\mathbf{k} \, ,
 \]
-is actually a flattening. We denote this effect as ``bands shrinking''. The flattening of electronic bands is a signature of a Mott transition, as we discussed in Chap.~\ref{chap:theoretical-introduction}.
+is actually a flattening. We denote this effect as ``bands shrinking'', and show a schematics in Fig.~\ref{fig:bands-shrinking}. The flattening of electronic bands is a signature of a Mott transition, as we discussed in Chap.~\ref{chap:theoretical-introduction}.
+
+\begin{figure}
+	\centering
+	\input{\GraphicsFolder/bands-shrinking}
+	\caption{Graphic representation of the shrinking of renormalised band $\tilde{\epsilon}_\mathbf{k} = -4t \varphi_\mathbf{k}^{(s^*)}$, as the hopping parameter is decreased by renormalisation.}
+	\label{fig:bands-shrinking}
+\end{figure}
+
+From Eq.~\eqref{eq:normal-tS-td} we notice that, if the converged value of $u^{(s^*)}$ approaches its boundaries, we have
+\[
+\begin{aligned}
+	u^{(s^*)} &\to 0
+	&\quad\implies\qquad \tilde{t}^{(s^*)} &\to t \, , \\
+	u^{(s^*)} &\to \frac{2t}{V}
+	&\quad\implies\qquad \tilde{t}^{(s^*)} &\to 0 \, .
+\end{aligned}
+\]
+In the second line, we see that the upper boundary can be interpreted as a critical value for Mott transition. Hence we define
+\begin{equation}\label{eq:normal-uS-upper}
+	u^{(s^*)}_\mathrm{c}(V) \equiv \frac{2t}{V} \, .
+\end{equation}
+If $u^{(s^*)} \to u^{(s^*)}_\mathrm{c}(V)$ (from below), bands are completely flattened.
 
 We conclude this section by proving some analytic properties of $u^{(s^*)}$. Its self-consistency equation, from Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}, reads
 \begin{equation}\label{eq:normal-us*(beta,mu)}
@@ -946,7 +963,7 @@ Hence, $\tilde{\epsilon}_\mathbf{k}<0$ inside the MBZ and $\tilde{\epsilon}_\mat
 
 \section{Discussion of numeric results}\label{sec:normal-numeric}
 
-In this section we present and discuss the numeric results, the physical relevance of the found phenomena. In the end we present a concrete scenario where careful tuning of the algorithm is necessary to ensure convergence. As is discussed above, in the normal phase the HFPs vector (defined in Sec.~\ref{subsec:reject-mix-iterate}) has just one component:
+In this section we present and discuss the numeric results we obtained for the normal phase. In the end we present a concrete scenario where careful tuning of the algorithm is necessary to ensure convergence. As is discussed above, in the normal phase the HFPs vector (defined in Sec.~\ref{subsec:reject-mix-iterate}) has just one component:
 \[
 	\mathbf{v} = \begin{bmatrix}
 		u^{(s^*)}
@@ -988,17 +1005,17 @@ being $\beta_0 = 1/ (1\mathrm{K} \times k_\mathrm{B})$.
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=HFPs/xVar=δ_yVar=V/uS_t=1.0_U=0.0_L=128_β=100.0.pdf}
 		\label{subfig:normal-uS-data-B128}
 	}
-	\subfloat[$V$-dependency of $u^{(s^*)}$ varying $\delta$. \todo]{
-		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=Normal/Setup=B[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=δ/uS_t=1.0_U=0.0_L=256_β=100.0.pdf}
+	\subfloat[$V$-dependency of $u^{(s^*)}$ varying $\delta$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/src/labs/normal-upper-boundary/normal-upper-boundary-uS.pdf}
 		\label{subfig:normal-uS-data-B256}
 	}
-	\caption{Numerical results for $u^{(s^*)}$. On the left: heatmap plot in the $(\delta,V)$ plane. On the right: line plot at doubled lattice size, varying $\delta$.}
+	\caption{Numerical results for $u^{(s^*)}$. On the left: colour plot in the $(\delta,V)$ plane. On the right: line plot at doubled lattice size, varying $\delta$. The theoretical value for $u^{(s^*)}$ computed in Eqs.~\eqref{eq:normal-uS-half-filling} at half-filling is plotted as a green dashed line.}
 	\label{fig:normal-uS-data}
 \end{figure}
 
-The trend of Eq.~\eqref{eq:normal-pdv-uS} is confirmed in  Fig.~\ref{fig:normal-uS-data}, where we show $u^{(s^*)}$ as a function of $V$ and varying $\delta$, with $\beta=100$. We see that  $u^{(s^*)}$ decreases as we increase $\delta$ while keeping $V$ fixed. In the colour plot of  Fig.~\ref{subfig:normal-uS-data-B128} we observe that in the top-left corner (low-$\delta$ and high-$V$ limit) there is a brighter region in which, increasing $\delta$ while keeping $V$ fixed, the converged value of $u^{(s^*)}$ is approximately constant. This effect is more visible in Fig.~\ref{subfig:normal-uS-data-B256}, where we doubled $L$ and ran simulations with a smaller $\delta$ resolution. At small values of $V$, the convergence value of $u^{(s^*)}$ is approximately independent of $V$. Note that, as was expected from the discussion of Sec.~\ref{sec:normal-sceq-analysis}, the half-filling convergence value of $u^{(s^*)}$ in the $V$-independent region is approximately given by Eq.~\eqref{eq:normal-uS-half-filling}, {\color{tabred}\textbf{which we report in Fig.~\ref{subfig:normal-uS-data-B256} as an horizontal dashed line}}. We did not find significant discrepancies in the converged data for $L=128$ and $L=256$.
+The trend of Eq.~\eqref{eq:normal-pdv-uS} is confirmed in  Fig.~\ref{fig:normal-uS-data}, where we show $u^{(s^*)}$ as a function of $V$ and varying $\delta$, with $\beta=100$. We see that  $u^{(s^*)}$ decreases as we increase $\delta$ while keeping $V$ fixed. In the colour plot of  Fig.~\ref{subfig:normal-uS-data-B128} we observe that in the top-left corner (low-$\delta$ and high-$V$ limit) there is a brighter region in which, increasing $\delta$ while keeping $V$ fixed, the converged value of $u^{(s^*)}$ is approximately constant. This effect is more visible in Fig.~\ref{subfig:normal-uS-data-B256}, where we doubled $L$ and ran simulations with a smaller $\delta$ resolution. At small values of $V$, the convergence value of $u^{(s^*)}$ is approximately independent of $V$. Note that, as was expected from the discussion of Sec.~\ref{sec:normal-sceq-analysis}, the half-filling convergence value of $u^{(s^*)}$ in the $V$-independent region is approximately given by Eq.~\eqref{eq:normal-uS-half-filling}, which we report in Fig.~\ref{subfig:normal-uS-data-B256} as an horizontal dashed green line. We did not find significant discrepancies in the converged data for $L=128$ and $L=256$.
 
-For larger values of $V$, $u^{(s^*)}$ starts to decrease monotonically, consistently with the constraints of Eq.~\eqref{eq:normal-us*-ud-constraint}. {\color{tabred}\textbf{We sketch the upper boundary $u^{(s^*)} < 2t/V$ in Fig.~\ref{subfig:normal-uS-data-B256} as a green dashed line}}. We observe that when the red lines (numerical results) reach the green line (theoretical upper boundary), we have
+For larger values of $V$, $u^{(s^*)}$ starts to decrease monotonically, consistently with the constraints of Eq.~\eqref{eq:normal-us*-ud-constraint}. We sketch the upper boundary $u^{(s^*)}_\mathrm{c}(V)=2t/V$, defined in Eq.~\eqref{eq:normal-uS-upper}, in Fig.~\ref{subfig:normal-uS-data-B256} as a black dashed line. We observe that when the red lines (numerical results) reach the black line (theoretical upper boundary), we have
 \[
 	u^{(s^*)} \lesssim \frac{2t}{V}
 	\quad\implies\quad
@@ -1010,17 +1027,15 @@ Interestingly, this would correspond to a complete flattening of the renormalise
 
 In Sec.~\ref{subsec:mott-cuprates} we introduced Mott insulation, and argued that the flattening of bands is a signature of a Mott transition. Interestingly, our results suggest that Mott localisation is induced by the non-local attraction $-V$, instead of the usual Mott localisation induced by the local repulsion $+U$. 
 
-In Fig.~\ref{subfig:normal-uS-data-B256}, at low $V$ the convergence value of $u^{(s^*)}$ is approximately horizontal. Let $V_\mathrm{c}[\beta,\delta]$ be the critical value such that
+In Fig.~\ref{subfig:normal-uS-data-B256},we see that the converged value of $u^{(s^*)}$ is approximately horizontal up to the boundary $u^{(s^*)}_\mathrm{c}=2t/V$, represented as a dashed black line. Therefore, in the region where it is constant, we have
 \[
-	0 \le V < V_\mathrm{c}[\beta,\delta]
-	\quad\colon\quad
-	\text{$u^{(s^*)}$ is $V$ independent.}
+	u^{(s^*)}[\beta,\tilde{\mu}(\delta)] \big|_V = u^{(s^*)}[\beta,\tilde{\mu}(\delta)] \big|_{V=0} \, .
 \]
-Then, within the entire segment $[0,V_\mathrm{c}]$ the convergence value is (approximately) the same obtained for $V=0$. We can define in first instance the critical $V$ as the value such that the hopping correction is maximised,
+We define the critical Mott boundary as:
 \begin{equation}\label{eq:normal-Vc}
 	V_\mathrm{c}[\beta,\delta] \equiv \frac{2t}{u^{(s^*)}[\beta,\tilde{\mu}(\delta)] \big|_{V=0}} \, .
 \end{equation}
-When $V$ becomes larger than this critical value, $\tilde{t}^{(s^*)}$ drops to $0$ and, due to the constraint of Eq.~\eqref{eq:normal-us*-ud-constraint}, $u^{(s^*)}$ is forced to decrease. In Fig.~\ref{subfig:normal-tS-data-B128} the converged values of $\tilde{t}^{(s^*)}$, extracted from the same data of Fig.~\ref{subfig:normal-uS-data-B128}, are plotted in parametric space.
+When $V$ becomes larger than this critical value, due to the constraint of Eq.~\eqref{eq:normal-us*-ud-constraint}, $u^{(s^*)}$ is forced to decrease while $\tilde{t}^{(s^*)}$ drops to $0$. In Fig.~\ref{subfig:normal-tS-data-B128} the converged values of $\tilde{t}^{(s^*)}$, extracted from the same data of Fig.~\ref{subfig:normal-uS-data-B128}, are plotted in parametric space.
 
 \begin{figure}
 	\centering
@@ -1036,7 +1051,7 @@ When $V$ becomes larger than this critical value, $\tilde{t}^{(s^*)}$ drops to $
 	\label{fig:normal-tS-data}
 \end{figure}
 
-The localisation effect is particularly effective at half-filling, where the kinetic energy vanishes for $V/t \approx 5$. This value needs to be compared with the critical value of the local repulsion $U_\mathrm{c}$ for Mott localisation. In DMFT, $U_\mathrm{c} \simeq 3W$, with $W$ half the bare bandwidth [Review DMFT]. In Fig.~\ref{subfig:normal-tS-data-B128-mott} we report, superimposed, the convergence values of the RMP $\tilde{t}^{(s^*)}$ and $V_\mathrm{c}[\beta=100,\delta]$ given by Eq.~\eqref{eq:normal-Vc}. Our prediction of the critical value for $V$ approximates reasonably the localisation region.
+The localisation effect is particularly effective at half-filling, where the kinetic energy vanishes for $V/t \approx 5$. This value needs to be compared with the critical value of the local repulsion $U_\mathrm{c}$ for Mott localisation. In DMFT, $U_\mathrm{c} \simeq 3W$, with $W$ half the bare bandwidth \cite{georges1996dynamical}. In Fig.~\ref{subfig:normal-tS-data-B128-mott} we report, superimposed, the convergence values of the RMP $\tilde{t}^{(s^*)}$ and $V_\mathrm{c}[\beta=100,\delta]$ given by Eq.~\eqref{eq:normal-Vc}. Our prediction of the critical value for $V$ approximates reasonably the localisation region.
 
 To extract the value of $V_\mathrm{c}[\beta,\delta]$ is, in general, a non-trivial analytic problem due to the insurgence of elliptic integrals and the smearing effects of temperature. At low temperature, however, we can use Eq.~\eqref{eq:normal-uS-half-filling} and obtain the asymptotic critical boundary at half-filling
 \begin{equation}

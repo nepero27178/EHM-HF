@@ -19,18 +19,18 @@ Consider the $2$ sites Hubbard model of Eq.~\eqref{eq:hubbard-2-sites},
 with $i=1,2$ the site index. For an half-filled system (i.e. with two electrons) the Hilbert space is six-dimensional. We use the notation $\ket{n_{1\uparrow} n_{1\downarrow} n_{2\uparrow} n_{2\downarrow}}$ to indicate the six states of the computational basis:
 \begin{equation}\label{appeq:hubbard-2-states}
 	\begin{aligned}
-		\ket{\psi_1} &\equiv \ket{1010} \\
-		\ket{\psi_2} &\equiv \ket{1100} \\
+		\ket{\psi_1} &\equiv \ket{1010} \, , \\
+		\ket{\psi_2} &\equiv \ket{1100} \, , \\
 	\end{aligned}
 	\qquad
 	\begin{aligned}
-		\ket{\psi_3} &\equiv \ket{1001} \\
-		\ket{\psi_4} &\equiv \ket{0110} \\
+		\ket{\psi_3} &\equiv \ket{1001} \, , \\
+		\ket{\psi_4} &\equiv \ket{0110} \, , \\
 	\end{aligned}
 	\qquad
 	\begin{aligned}
-		\ket{\psi_5} &\equiv \ket{0011} \\
-		\ket{\psi_6} &\equiv \ket{0101} \\
+		\ket{\psi_5} &\equiv \ket{0011} \, , \\
+		\ket{\psi_6} &\equiv \ket{0101} \, . \\
 	\end{aligned}
 \end{equation}
 We give a pictorial representation of these states in Fig.~\ref{appfig:two-sites-hubbard-model}. We ordered the states in such a way that the two states with total spin different from zero, $\ket{\psi_1}$ and $\ket{\psi_6}$, are at the extrema of the set.
@@ -53,7 +53,7 @@ The matrix elements of the hamiltonian can be computed using this basis,
 		0 & -t &  0 &  0 & -t &  0 \\
 		0 &  0 & -t & -t &  U &  0 \\
 		0 &  0 &  0 &  0 &  0 &  0 \\  
-	\end{bmatrix}
+	\end{bmatrix} \, .
 \end{equation}
 In the above matrix, rows and columns are ordered following the states indices of Eq.~\eqref{appeq:hubbard-2-states}. The states $\ket{\psi_1}$ (both spins up) and $\ket{\psi_6}$ (both spins down) are zero-energy eigenstates. Indeed, they do not interact via Coulomb repulsion (are on different sites) and neither through NNs hopping, due to Pauli exclusion principle.
 
@@ -69,7 +69,7 @@ All states with null total spin projection, namely $\lbrace \ket{\psi_i} \rbrace
 	    & 0 & 	&	 \\
 		&   & U & 	 \\
 		&	&	& E^+
-	\end{bmatrix}
+	\end{bmatrix} \, .
 \]
 where blank slots indicate zeros. In
 Tab.~\ref{apptab:two-sites-hubbard-model-eigenstates} we report the eigenvectors and relative eigenvalues obtained from diagonalisation. 
@@ -94,13 +94,13 @@ Tab.~\ref{apptab:two-sites-hubbard-model-eigenstates} we report the eigenvectors
 
 The ground-state is the singlet state,
 \[
-	\frac{\ket{\psi_3} - \ket{\psi_4}}{\sqrt{2}} = \frac{\ket{1010} - \ket{0101}}{\sqrt{2}} = \frac{\ket{\uparrow\downarrow} - \ket{\downarrow\uparrow}}{\sqrt{2}}
+	\frac{\ket{\psi_3} - \ket{\psi_4}}{\sqrt{2}} = \frac{\ket{1010} - \ket{0101}}{\sqrt{2}} = \frac{\ket{\uparrow\downarrow} - \ket{\downarrow\uparrow}}{\sqrt{2}} \, ,
 \]
-of energy
+whose energy is
 \[
-	E^- = \frac{U}{2} - \sqrt{\frac{U^2}{4} + 4t^2} \simeq - \frac{4t^2}{U}
+	E^- = \frac{U}{2} - \sqrt{\frac{U^2}{4} + 4t^2} \simeq - \frac{4t^2}{U} \, .
 \]
-the latter approximation being true if $U \gg t$ (strong coupling limit). The singlet state pairs with a spatially-symmetric (node-less) wavefunction, while triplet states with an antisymmetric wavefunction (which, instead, has a node). The entire triplet (second row of Tab.~\ref{apptab:two-sites-hubbard-model-eigenstates}) has zero energy. Excited states are anti-symmetrised and symmetrised version of the polarised states $\ket{\psi_1}$ and $\ket{\psi_6}$.
+The latter approximation is true if $U \gg t$ (strong coupling limit). The singlet state pairs with a spatially-symmetric (node-less) wavefunction, while triplet states with an antisymmetric wavefunction (which, instead, has a node). The entire triplet (second row of Tab.~\ref{apptab:two-sites-hubbard-model-eigenstates}) has zero energy. Excited states are anti-symmetrised and symmetrised version of the polarised states $\ket{\psi_1}$ and $\ket{\psi_6}$.
 
 \section{Direct exchange in Hubbard lattices}\label{appsec:direct-exchange}
 
@@ -108,24 +108,24 @@ The fact that we limited to two sites allowed for an exact diagonalisation of th
 
 Nevertheless, let us obtain the same result of Sec.~\ref{appsec:hubbard-2} by the means of perturbation theory. Consider Eq.~\eqref{eq:hubbard-2-sites} separating two parts,
 \[
-	\hat H = \hat H_0 + \hat H_1
+	\hat H = \hat H_0 + \hat H_1 \, ,
 \]
 where
 \[	
 \begin{aligned}
 	\hat H_0 &\equiv U \left(
 	\hat n_{1\uparrow} \hat n_{1\downarrow} + \hat n_{2\uparrow} \hat n_{2\downarrow} 
-	\right) \\
+	\right) \, , \\
 	\hat H_1 &\equiv -t \left(
 	\hat c_{1\uparrow}^\dagger \hat c_{2\uparrow} + \hat c_{1\downarrow}^\dagger \hat c_{2\downarrow} + \hc 
-	\right)
+	\right) \, .
 \end{aligned}
 \]
 At zeroth order in perturbation theory, thus considering just the Coulomb repulsion $\hat H_0$, the Hilbert space separates in two manifolds
 \[
 \begin{aligned}
-	\mathrm{Span}(\ket{\psi_1},\ket{\psi_3},\ket{\psi_4},\ket{\psi_6}) \qquad & E = 0 \\
-	\mathrm{Span}(\ket{\psi_2},\ket{\psi_5}) \qquad & E = U
+	\mathrm{Span}(\ket{\psi_1},\ket{\psi_3},\ket{\psi_4},\ket{\psi_6}) \qq{with} & E = 0 \, , \\
+	\mathrm{Span}(\ket{\psi_2},\ket{\psi_5}) \qq{with} & E = U \, .
 \end{aligned}
 \]
 We limit to the ground manifold, thus ``excluding from the Hilbert space'' the states with double occupation $\ket{\psi_2}, \ket{\psi_5}$.
@@ -134,27 +134,27 @@ First order corrections to energy are null:
 \[
 	\forall i,j
 	\quad\colon\quad
-	\mel{\psi_i}{\hat H_1}{\psi_j} = 0
+	\mel{\psi_i}{\hat H_1}{\psi_j} = 0 \, ,
 \]
 because the hopping operator $\hat H_1$ produces a doubly occupied site when applied to $\ket{\psi_3}, \ket{\psi_4}$ and zero when applied to $\ket{\psi_1}, \ket{\psi_6}$ due to Pauli exclusion principle.
 
 We need to move to second order corrections. Let us change basis, and define the singlet state
 \[
-	\ket{s} \equiv \frac{\ket{\psi_3} - \ket{\psi_4}}{\sqrt{2}} 
+	\ket{s} \equiv \frac{\ket{\psi_3} - \ket{\psi_4}}{\sqrt{2}} \, ,
 \]
 and the triplet states
 \[
-	\ket{t_+} \equiv \ket{\psi_1}
+	\ket{t_+} \equiv \ket{\psi_1} \, ,
 	\qquad
-	\ket{t_0} \equiv \frac{\ket{\psi_3} + \ket{\psi_4}}{\sqrt{2}} 
+	\ket{t_0} \equiv \frac{\ket{\psi_3} +  \ket{\psi_4}}{\sqrt{2}} \, ,
 	\qquad
-	\ket{t_-} \equiv \ket{\psi_6}
+	\ket{t_-} \equiv \ket{\psi_6} \, .
 \]
 Let also $E_\psi^{(0)}$ be the zeroth-order energy associated to state $\ket{\psi}$. Second order correction to the singlet state energy is given by
 \[
 \begin{aligned}
 	E_s^{(2)} &= \sum_{\psi \neq s} \frac{\mel{s}{\hat H_1}{\psi}\mel{\psi}{\hat H_1}{s}}{E_s^{(0)} - E_\psi^{(0)}} \\
-	&= \frac{2t^2}{E_s^{(0)} - E_{\psi_2}^{(0)}} + \frac{2t^2}{E_s^{(0)} - E_{\psi_5}^{(0)}} = - \frac{4t^2}{U}
+	&= \frac{2t^2}{E_s^{(0)} - E_{\psi_2}^{(0)}} + \frac{2t^2}{E_s^{(0)} - E_{\psi_5}^{(0)}} = - \frac{4t^2}{U} \, .
 \end{aligned}
 \]
 The above result can be obtained easily by direct computation. Note that the $+$ sign in the middle is obtained as a combination of the internal $-$ sign in the definition of the singlet state, and another $-$ sign arising from Fermi anticommutation rules. 
@@ -163,12 +163,12 @@ Instead, for the central triplet state
 \[
 \begin{aligned}
 	E_{t_0}^{(2)} &= \sum_{\psi \neq t_0} \frac{\mel{t_0}{\hat H_1}{\psi}\mel{\psi}{\hat H_1}{t_0}}{E_{t_0}^{(0)} - E_\psi^{(0)}} \\
-	&= \frac{2t^2}{E_{t_0}^{(0)} - E_{\psi_2}^{(0)}} - \frac{2t^2}{E_{t_0}^{(0)} - E_{\psi_5}^{(0)}} = 0
+	&= \frac{2t^2}{E_{t_0}^{(0)} - E_{\psi_2}^{(0)}} - \frac{2t^2}{E_{t_0}^{(0)} - E_{\psi_5}^{(0)}} = 0 \, .
 \end{aligned}
 \]
 This time, the central $-$ sign is present precisely because of the internal sign of the state $\ket{t_0}$. Finally,
 \[
-	E_{t_\pm}^{(2)} = \sum_{\psi \neq t_0} \frac{\mel{t_\pm}{\hat H_1}{\psi}\mel{\psi}{\hat H_1}{t_\pm}}{E_{t_\pm}^{(0)} - E_\psi^{(0)}} = 0
+	E_{t_\pm}^{(2)} = \sum_{\psi \neq t_0} \frac{\mel{t_\pm}{\hat H_1}{\psi}\mel{\psi}{\hat H_1}{t_\pm}}{E_{t_\pm}^{(0)} - E_\psi^{(0)}} = 0 \, ,
 \]
 again, because of Pauli exclusion principle.
 

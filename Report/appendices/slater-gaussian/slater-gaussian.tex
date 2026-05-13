@@ -6,7 +6,7 @@ In this appendix we discuss the properties of the many-body states we use to app
 
 A many-body wavefunction describing a collective electronic state needs to be antisymmetric under interchange of coordinates and spins ($\mathbf{r}_i,\sigma_i)$, $(\mathbf{r}_j,\sigma_j)$ of any couple of electrons. The simplest way to build a many-body wavefunction satisfying this rule is ``to anti-symmetrise'' a set of orthonormal $N$ one-body spin-orbitals, being $N$ the total number of electrons and $D$ the total number of spin-orbitals. Let $\lbrace \psi_i \rbrace$ be said set,
 \[
-	\frac{1}{2\mathcal{V}} \sum_{\sigma \in \lbrace \uparrow,\downarrow \rbrace} \int \mathrm{d}\mathbf{r}\ \psi_i(\mathbf{r},\sigma) \psi_j(\mathbf{r},\sigma) = \delta_{ij}
+	\frac{1}{2\mathcal{V}} \sum_{\sigma \in \lbrace \uparrow,\downarrow \rbrace} \int \mathrm{d}\mathbf{r}\ \psi_i(\mathbf{r},\sigma) \psi_j(\mathbf{r},\sigma) = \delta_{ij} \, ,
 \]
 being $\mathcal{V}$ the total volume. 
 
@@ -16,15 +16,15 @@ Let $\mathrm{S}_N$ be the $N!$ elements symmetric group of permutations of $N$ o
 	\quad\colon\quad
 	(x_1, x_2, \cdots, x_N)
 	\to
-	\left(x_{\mathrm{P}(1)},x_{\mathrm{P}(2)},\cdots,x_{\mathrm{P}(N)}\right)
-\]
+	\left(x_{\mathrm{P}(1)},x_{\mathrm{P}(2)},\cdots,x_{\mathrm{P}(N)}\right) \, .
+\] 
 Let $F_\mathrm{P}$ be the operator that implements the permutation $\mathrm{P}$ on the $N$ variables of a function $f$,
 \[
-	F_\mathrm{P} \left[ f (x_1, x_2, \cdots, x_N) \right] = f \left(x_{\mathrm{P}(1)},x_{\mathrm{P}(2)},\cdots,x_{\mathrm{P}(N)}\right)
+	F_\mathrm{P} \left[ f (x_1, x_2, \cdots, x_N) \right] = f \left(x_{\mathrm{P}(1)},x_{\mathrm{P}(2)},\cdots,x_{\mathrm{P}(N)}\right) \, .
 \]
 We define the anti-symmetrisation operator:
 \[
-	\mathcal{A}[f] \equiv \frac{1}{\sqrt{N!}} \sum_{\mathrm{P}\in \mathrm{S}_N} (-1)^{\sigma(\mathrm{P})} F_\mathrm{P}[f]
+	\mathcal{A}[f] \equiv \frac{1}{\sqrt{N!}} \sum_{\mathrm{P}\in \mathrm{S}_N} (-1)^{\sigma(\mathrm{P})} F_\mathrm{P}[f] \, ,
 \]
 being $\sigma(\mathrm{P})$ the ``parity factor'' of the permutation $\mathrm{P} \in \mathcal{S}_N$. The factor $\sigma(\mathrm{P})$ counts the number of exchanges needed to obtain $\mathrm{P}$: this way, an even number of exchanges gives a total sign $+1$, an odd number gives $-1$. By construction, the function $\mathcal{A}[f]$ is antisymmetric under exchange of a pair of coordinates.
 
@@ -32,7 +32,7 @@ Consider now the many-body wavefunction
 \[
 	\Psi(\mathbf{r}_1,\sigma_1;\mathbf{r}_2,\sigma_2;\cdots;\mathbf{r}_N,\sigma_N) = \mathcal{A} \left[
 	\prod_{i=1}^{N} \psi_i(\mathbf{r}_i,\sigma_i)
-	\right]
+	\right] \, .
 \]
 This class of wavefunctions, obtained as antisymmetric combinations of product states, are representable as so-called Slater determinants,
 \[
@@ -41,7 +41,7 @@ This class of wavefunctions, obtained as antisymmetric combinations of product s
 		\psi_2 (\mathbf{r}_1,\sigma_1) & \psi_2 (\mathbf{r}_2,\sigma_2) & \cdots & \psi_2 (\mathbf{r}_N,\sigma_N) \\
 		\vdots & \vdots & & \vdots \\
 		\psi_N (\mathbf{r}_1,\sigma_1) & \psi_N (\mathbf{r}_2,\sigma_2) & \cdots & \psi_N (\mathbf{r}_N,\sigma_N) \\
-	\end{bmatrix}
+	\end{bmatrix} \, .
 \]
 This representation includes automatically Pauli exclusion principle: determinants of matrices with two equal rows or two equal columns are null. Thus, all spin-orbitals must differ, as well as no single spin-orbital $\psi_i$ can be doubly occupied (which is, all spin-coordinate couples must be different).
 
@@ -49,11 +49,11 @@ Any normalised combinations of Slater determinants gives an antisymmetric wavefu
 
 The EHM is formulated in second-quantisation. It is then useful to represent Slater-like states in this language. Let us map all the spin-orbitals from the discussion above to pairs of annihilation-creation fermionic operators,
 \[
-	\psi_i \quad\to\quad \hat c_i, \hat c_i^\dagger
+	\psi_i \quad\to\quad \hat c_i, \hat c_i^\dagger \, .
 \]
 Any Slater state can be expressed in second-quantisation as:
 \begin{equation}\label{appeq:slater-Psi}
-	\ket{\Psi} = \prod_{i=1}^N \hat c_i^\dagger \ket{\Omega}
+	\ket{\Psi} = \prod_{i=1}^N \hat c_i^\dagger \ket{\Omega} \, ,
 \end{equation}
 being $\ket{\Omega}$ the vacuum. Antisymmetry is guaranteed by Fermi anticommutation rules.
 
@@ -64,20 +64,15 @@ The concept of vacuum state needs to be interpreted in relation to an appropriat
 Consider some unspecified model whose ground state at null temperature is given in Eq.~\eqref{appeq:slater-Psi} for a given set of electronic operators $\hat c_i$, $\hat c_i^\dagger$. Let $\hat c_i$ with $N <i < D$ identify all spin-orbitals not already included in the definition of $\ket{\Psi}$ of Eq.~\eqref{appeq:slater-Psi} (thus, non populated). Then it holds:
 \[
 	\begin{aligned}
-		0\le i &\le N \\
-		i &> N
-	\end{aligned}
-	\qquad
-	\begin{aligned}
-		\hat c_i^\dagger \ket{\Psi} &= 0 \\
-		\hat c_i \ket{\Psi} &= 0
+		0\le i &\le N \qquad &\hat c_i^\dagger \ket{\Psi} = 0 \, , \\
+		i &> N \qquad &\hat c_i \ket{\Psi} = 0 \, .
 	\end{aligned}
 \]
 Let:
 \[
 	\hat a_i \equiv \begin{cases}
-		\hat c_i^\dagger &\text{for $0\le i \le N$} \\
-		\hat c_i &\text{for $i > N$} \\
+		\hat c_i^\dagger &\text{for $0\le i \le N$,}\\
+		\hat c_i &\text{for $i > N$.} \\
 	\end{cases}
 \]
 These new operators satisfy a Fermi algebra $\lbrace \hat a_i , \hat a_j^\dagger \rbrace = \delta_{ij}$ and annihilate the ``vacuum'' state $\ket{\Psi}$. In other words, any Slater state like Eq.~\eqref{appeq:slater-Psi} can be seen as a vacuum state for a suitably chosen set of fermionic operators.
@@ -85,18 +80,18 @@ These new operators satisfy a Fermi algebra $\lbrace \hat a_i , \hat a_j^\dagger
 This property is handy for evaluation of expectation values (EV). Let $\hat O^{(\ell)}$ be a linear combination of $\hat c_i$ or $\hat c_i^\dagger$,
 \begin{equation}\label{appeq:slater-Ol}
 	\hat O^{(\ell)} \equiv \sum_{i=1}^D \left(u_i^{(\ell)} \hat c_i + v_i^{(\ell)} \hat c_i^\dagger\right)
-	\qquad
-	u_i^{(\ell)}, v_i^{(\ell)} \in \mathbb{C}
+	\qq{where}
+	u_i^{(\ell)}, v_i^{(\ell)} \in \mathbb{C} \, .
 \end{equation}
 Consider the product operator:
 \[
 	\hat{\mathcal{O}} \equiv \hat O^{(1)} \hat O^{(2)} \cdots \hat O^{(2k)}
-	\qquad
-	k \in \mathbb{N}
+	\qq{where}
+	k \in \mathbb{N} \, .
 \]
 Inserting the above decomposition, we get a large sum of many terms, each containing some sequence of annihilations and creations. Using linearity we can concentrate on one specific term of these, derive results and then recompose them for the original operator. Consider one of these terms,
 \[
-	\hat{\mathcal{O}} = \cdots + (\text{coefficient}) \times \hat C_1 \hat C_2 \cdots \hat C_{2k} + \cdots
+	\hat{\mathcal{O}} = \cdots + (\text{coefficient}) \times \hat C_1 \hat C_2 \cdots \hat C_{2k} + \cdots \, ,
 \]
 with $\hat C_i$ some fermionic operator, either $\hat c_j$ or $\hat c_j^\dagger$ for some $j$. Now, Wick's theorem states that
 \[
@@ -104,20 +99,20 @@ with $\hat C_i$ some fermionic operator, either $\hat c_j$ or $\hat c_j^\dagger$
 	\hat C_1 \hat C_2 \cdots \hat C_{2k} &= \mathrm{N} \left\lbrace \hat C_1 \hat C_2 \cdots \hat C_{2k} \right\rbrace \\
 	&+ \sum_{(\alpha\beta)} (-1)^{\zeta_{\alpha\beta}} D_{\alpha\beta} \mathrm{N} \left\lbrace \prod_{i \neq \alpha,\beta} \hat C_i \right\rbrace \\
 	&+ \sum_{(\alpha\beta)(\gamma\delta)} (-1)^{\zeta_{\alpha\beta}} D_{\alpha\beta} (-1)^{\zeta_{\gamma\delta}} D_{\gamma\delta} \mathrm{N} \left\lbrace \prod_{i \neq \alpha,\beta,\gamma,\delta} \hat C_i \right\rbrace \\
-	&+ \cdots
+	&+ \cdots \, ,
 \end{aligned}
 \]
 where $\mathrm{N}\lbrace \cdots \rbrace$ indicates normal ordering, $D_{\alpha\beta}$ is the contraction of the pair $\hat C_\alpha \hat C_\beta$ and $\zeta_{\alpha\beta}$ is a symmetry factor included to take care of the number of fermionic algebra. In this context contractions are just expectation values over $\ket{\Psi}$. Sums are performed over pairs of indices, implicitly taken to be different from each other. To take averages of this last operator over $\ket{\Psi}$ is a not-so-hard task, given the simple expression of the state in terms of electronic annihilations and creations. However it can be made simpler: if we change basis and express all operators in terms of $\hat a$, $\hat a^\dagger$,
 \[
-	\hat C_i \quad\to\quad \hat A_i
+	\hat C_i \quad\to\quad \hat A_i \, ,
 \]
 the above decomposition holds identically, with slight change of notation. Now, taking a zero temperature average on $\ket{\Psi}$ (the vacuum with respect to the new operators) all normal-ordered terms disappear,
 \[
-	\mel{\Psi}{\mathrm{N}\lbrace \hat A_i \hat A_j \cdots \rbrace}{\Psi} = 0
+	\mel{\Psi}{\mathrm{N}\lbrace \hat A_i \hat A_j \cdots \rbrace}{\Psi} = 0 \, ,
 \]
 thus in the decomposition above only fully contracted terms survive. Going back to $\hat c$ operators, we can re-express fully contracted terms in the original basis. Thus:
 \[
-	\left\langle \hat C_1 \hat C_2 \cdots \hat C_{2k} \right\rangle = \sum (\text{total sign factor}) \times (\text{product of complete contractions})
+	\left\langle \hat C_1 \hat C_2 \cdots \hat C_{2k} \right\rangle = \sum (\text{total sign factor}) \times (\text{product of complete contractions}) \, ,
 \]
 where sum is intended, implicitly, over all possible ways of choosing $k$ couples of indices from a starting set of $2k$ elements.
 
@@ -138,7 +133,7 @@ From the point above we can conclude that:
 	\hat c_\alpha^\dagger \hat c_\beta
 	\rangle \langle	
 	\hat c_\gamma^\dagger \hat c_\delta 
-	\rangle
+	\rangle \, ,
 \]
 being the average intended on a Slater state. In this context, only contractions with an equal number of creation and annihilation operators contribute.
 
@@ -150,7 +145,7 @@ Consider the Nambu spinor
 \[
 	\hat \Phi \equiv \begin{bmatrix}
 		\hat{\mathbf{c}} \\ \hat{\mathbf{c}}^\dagger
-	\end{bmatrix}
+	\end{bmatrix} \, ,
 \]
 being $\hat{\mathbf{c}}$ the vector of all annihilation operators, ordered, and $\hat{\mathbf{c}}^\dagger$ of all creation operators. Let us assume the vectors have $D$ entries. Consider an unitary map $M$, such that
 \[
@@ -158,13 +153,13 @@ being $\hat{\mathbf{c}}$ the vector of all annihilation operators, ordered, and 
 	\qq{being}
 	\hat \Gamma \equiv \begin{bmatrix}
 		\hat{\bm{\gamma}} \\ \hat{\bm{\gamma}}^\dagger
-	\end{bmatrix}
+	\end{bmatrix} \, .
 \]
 The new Nambu vectors $\hat{\bm{\gamma}}$ and $\hat{\bm{\gamma}}^\dagger$ contain our new, generalised fermionic operators in second quantisation. Let:
 \[
 	M \equiv \begin{bmatrix}
 		U & V \\ U^\dagger & V^\dagger
-	\end{bmatrix}
+	\end{bmatrix} \, .
 \]
 If $M$ is unitary, it follows:
 \[
@@ -178,7 +173,7 @@ If $M$ is unitary, it follows:
 	&= \begin{bmatrix}
 		UU^\dagger + VV^\dagger & U^2 + V^2 \\
 		\left(U^\dagger\right)^2 + \left(V^\dagger\right)^2 & U^\dagger U + V^\dagger V
-	\end{bmatrix}
+	\end{bmatrix} \, ,
 \end{aligned}
 \]
 thus, among other conditions, $UU^\dagger + VV^\dagger = \mathbb{I}_{D \times D}$.
@@ -186,8 +181,8 @@ thus, among other conditions, $UU^\dagger + VV^\dagger = \mathbb{I}_{D \times D}
 The new operators in $\hat \Gamma$ satisfy Fermi anticommutation rules. In fact, writing the mapping explicitly for any of the new operators and some index $i \in [1,D]$,
 \[
 	\hat \gamma_i \equiv \sum_{j=1}^D U_{ij} \hat c_j + \sum_{j=1}^D V_{ij} \hat c_j^\dagger
-	\qquad
-	\hat \gamma_i^\dagger \equiv \sum_{j=1}^D U_{ji}^* \hat c_j^\dagger + \sum_{j=1}^D V_{ji}^* \hat c_j
+	\qq{and}
+	\hat \gamma_i^\dagger \equiv \sum_{j=1}^D U_{ji}^* \hat c_j^\dagger + \sum_{j=1}^D V_{ji}^* \hat c_j \, ,
 \]
 and substituting in the anti-commutator 
 \[
@@ -195,7 +190,7 @@ and substituting in the anti-commutator
 	\lbrace \hat \gamma_i, \hat \gamma_j^\dagger \rbrace &= \sum_{i'=1}^D U_{ii'} \sum_{j'=1}^D U_{j'j}^* \lbrace \hat c_{i'}, \hat c_{j'}^\dagger \rbrace + \sum_{i'=1}^D V_{ii'} \sum_{j'=1}^D V_{j'j}^* \lbrace \hat c_{i'}^\dagger, \hat c_{j'} \rbrace \\
 	&= \sum_{i'=1}^D U_{ii'} \sum_{j'=1}^D U_{j'j}^* \delta_{i'j'} + \sum_{i'=1}^D V_{ii'} \sum_{j'=1}^D V_{j'j}^* \delta_{i'j'}\\
 	&= \left[ UU^\dagger+VV^\dagger \right]_{ij} \\
-	&= \delta_{ij}
+	&= \delta_{ij} \, ,
 \end{aligned}
 \]
 being $M$ unitary.
@@ -204,17 +199,17 @@ Assume now $\ket{\Psi}$ to be the vacuum state for the new operators,
 \[
 	\forall i
 	\quad\colon\quad
-	\hat \gamma_i \ket{\Psi} = 0
+	\hat \gamma_i \ket{\Psi} = 0 \, .
 \]
 Suppose we want to evaluate, with identical meaning of the notation as in previous section, something like
 \[
-	\left\langle \hat C_1 \hat C_2 \cdots \hat C_{2k} \right\rangle
+	\left\langle \hat C_1 \hat C_2 \cdots \hat C_{2k} \right\rangle \, .
 \]
 We can apply the result obtained above. Indeed, inverse maps linking old and new operators read:
 \[
 	\hat c_i \equiv \sum_{j=1}^D U_{ij} \hat \gamma_j + \sum_{j=1}^D U_{ji}^* \hat \gamma_j^\dagger
-	\qquad
-	\hat c_i^\dagger \equiv \sum_{j=1}^D V_{ji}^* \hat \gamma_j^\dagger + \sum_{j=1}^D V_{ij} \hat \gamma_j
+	\qq{and}
+	\hat c_i^\dagger \equiv \sum_{j=1}^D V_{ji}^* \hat \gamma_j^\dagger + \sum_{j=1}^D V_{ij} \hat \gamma_j \, .
 \]
 In Sec.~\ref{appsec:slater-wick} we argued that, when averaging a product of operators like the one of Eq.~\eqref{appeq:slater-Ol}, only $2$-points EVs contribute. This time the idea is the same, substituting $\mathcal{O}^{(\ell)} \to \hat C_\ell$ and $\hat c_i, \hat c_i^\dagger \to \hat \gamma_i, \hat \gamma_i^\dagger$. Thus, also here we can decompose the product operator, apply Wick's theorem, discard all non-fully-contracted terms and recompose the results. All we used was just the unitary mapping between $\hat \Phi$ and $\hat \Gamma$, the fact that $\gamma_i, \hat \gamma_i^\dagger$ obey Fermi anticommutation rules and ``see'' $\ket{\Psi}$ as a vacuum state.
 
@@ -244,8 +239,8 @@ As in Sec.~\ref{appsec:slater-wick}, we conclude that:
 		\rangle \langle	
 		\hat c_\gamma \hat c_\delta 
 		\rangle 
-	}_{\text{Cooper}}
+	}_{\text{Cooper}} \, .
 \end{equation}
-The subscripts indicate the name we will give to these terms throughout the text. Note that, differently from ``pure Slater states'' EVs with two annihilations or two creations do not vanish, in general.
+The subscripts indicate the name we give to these terms throughout the text. Note that, differently from ``pure Slater states'' EVs with two annihilations or two creations do not vanish, in general.
 
 All of this holds when averaging is performed on a state, $\ket{\Psi}$, which is vacuum for a set of operators linked to fermionic Nambu spinor $\hat \Phi$ by some unitary operation. This set of states is the domain of our variational constrained search. This kind of unitary mapping is often referred to as Bogoliubov-Valatin transformation, and the method hereby presented as Hartree-Fock-Bogoliubov. For simplicity, in this thesis we stick to the name ``HF method'' referring to this discussion. This argument has been carried out at zero temperature, but can be extended to finite temperature.

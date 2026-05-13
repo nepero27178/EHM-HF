@@ -23,6 +23,7 @@ ax = Axis(H[1,1])
 ax.xlabel = L"$x$"
 ax.ylabel = L"$K(x)$"
 ax.title = "Complete elliptic integral of the first kind"
+ax.titlefont = :regular
 
 xx = [x for x in 0.0:0.001:1.0]
 KK = Elliptic.K.(xx)
@@ -38,6 +39,7 @@ ax = Axis(H[1,1])
 ax.xlabel = L"$\epsilon/t$"
 ax.ylabel = L"$\rho(\epsilon)$"
 ax.title = "Square lattice DoS"
+ax.titlefont = :regular
 
 xx = [x for x in -4.0:0.001:4.0]
 DD = Elliptic.K.( sqrt.(1 .- (xx/4).^2) ) ./ (2*pi^2)

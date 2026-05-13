@@ -11,13 +11,13 @@ The normal phase is described by two HFPs:
 	\text{Normal HFPs}
 	\quad\colon\quad
 	u^{(s^*)},
-	u^{(d)}
+	u^{(d)} \, ,
 \]
 which obey the self-consistency equations of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}. In this section we show that Eq.~\eqref{eq:normal-us*-ud-constraint} holds,
 \begin{equation}\label{appeq:normal-us*-ud-constraint}
 	0 < u^{(s^*)} < 2t/V
 	\qq{and}
-	u^{(d)} = 0
+	u^{(d)} = 0 \, .
 \end{equation}
 The discussion is divided in three parts: in Sec.~\ref{appsubsec:normal-s*+d-bands}, we discuss the spatial geometry of bands with a mixed symmetry $s^* \oplus d$. In Sec.~\ref{appsubsec:normal-bands-shrinking} we derive Eq.~\eqref{appeq:normal-us*-ud-constraint} by considering the simpler case of unbroken $\mathrm{C}_4$ symmetry (hence setting $u^{(d)} = 0$ ``by hand''). In Sec.~\ref{appsubsec:normal-bands-shrinking-C2} we break rotational symmetry, $\mathrm{C}_4 \SSB \mathrm{C}_2$, and terminate the proof.
 
@@ -32,7 +32,7 @@ The discussion is divided in three parts: in Sec.~\ref{appsubsec:normal-s*+d-ban
 
 Before starting, it is useful to spend a few words on the spatial structure of a mixed $s^* \otimes d$-wave band. Let $\tilde{\epsilon}_\mathbf{k}$ be a generic mixed band,
 \[
-	\tilde{\epsilon}_\mathbf{k} = \epsilon^{(s^*)} (\cos k_x + \cos k_y) + \epsilon^{(d)} (\cos k_x - \cos k_y)
+	\tilde{\epsilon}_\mathbf{k} = \epsilon^{(s^*)} (\cos k_x + \cos k_y) + \epsilon^{(d)} (\cos k_x - \cos k_y) \, .
 \]
 It is the balance between the two components $\epsilon^{(s^*)}$ and $\epsilon^{(d)}$ that gives the main features of the renormalised band. Consider the $s^*$-wave and $d$-wave structure factors already presented in Fig.~\ref{fig:x-wave-reciprocal-factors}, and define the Magnetic Brillouin Zone (MBZ) and Nematic Brillouin Zone (NBZ) as follows:
 \begin{align}
@@ -40,12 +40,12 @@ It is the balance between the two components $\epsilon^{(s^*)}$ and $\epsilon^{(
 	\mathbf{k}\in\mathrm{BZ}
 	\mid 
 	\varphi_\mathbf{k}^{(s^*)} \ge 0
-	\right\rbrace \label{appeq:MBZ-def} \\
+	\right\rbrace \, , \label{appeq:MBZ-def} \\
 	\mathrm{NBZ} &\equiv \left\lbrace
 	\mathbf{k}\in\mathrm{BZ}
 	\mid 
 	\varphi_\mathbf{k}^{(d)} \ge 0
-	\right\rbrace \label{appeq:NBZ-def}
+	\right\rbrace  \, , \label{appeq:NBZ-def}
 \end{align}
 represented in the top-left panel of Fig.~\ref{fig:normal-nematic-bands}. In the rest of the panels of Fig.~\ref{fig:normal-nematic-bands} are reported examples of mixed symmetry bands, for positive components. The respective opposite sign plots are obtained by the following rules:
 \[
@@ -79,17 +79,17 @@ represented in the top-left panel of Fig.~\ref{fig:normal-nematic-bands}. In the
 
 Let us focus on the MBZ and the NBZ. Starting from the intersections of the two zones, both can be factored in two sectors of interest,
 \[
-\mathrm{MBZ} = \mathcal{A} \cup \mathcal{B}
-\qquad
-\mathrm{NBZ} = \mathcal{A} \cup \mathcal{C}
+	\mathrm{MBZ} = \mathcal{A} \cup \mathcal{B}
+	\qq{and}
+	\mathrm{NBZ} = \mathcal{A} \cup \mathcal{C} \, ,
 \]
 being, accordingly to Fig.~\ref{appfig:BZ-sectors},
 \[
-\mathcal{A} \equiv \mathcal{A}_1 \cup \mathcal{A}_2
-\qquad
-\mathcal{B} \equiv \mathcal{B}_1 \cup \mathcal{B}_2
-\qquad
-\mathcal{C} \equiv \mathcal{C}_1 \cup \mathcal{C}_2
+	\mathcal{A} \equiv \mathcal{A}_1 \cup \mathcal{A}_2 \, ,
+	\qquad
+	\mathcal{B} \equiv \mathcal{B}_1 \cup \mathcal{B}_2 \, ,
+	\qquad
+	\mathcal{C} \equiv \mathcal{C}_1 \cup \mathcal{C}_2 \, .
 \]
 These domains satisfy:
 \begin{align}
@@ -98,25 +98,25 @@ These domains satisfy:
 	\mid 
 	\varphi_\mathbf{k}^{(s^*)} \ge 0 \land 	\varphi_\mathbf{k}^{(d)} \ge 0
 	\right\rbrace \label{appeq:BZ-A-def} \\
-	&= \mathrm{MBZ} \cap \mathrm{NBZ} \nonumber\\[0.5em]
+	&= \mathrm{MBZ} \cap \mathrm{NBZ} \, , \nonumber\\[0.5em]
 	\mathcal{B} &\equiv \left\lbrace
 	\mathbf{k}\in\mathrm{BZ}
 	\mid 
 	\varphi_\mathbf{k}^{(s^*)} \ge 0 \land 	\varphi_\mathbf{k}^{(d)} \le 0
 	\right\rbrace \label{appeq:BZ-B-def} \\
-	&= \mathrm{MBZ} \setminus \mathrm{NBZ} \nonumber\\[0.5em]
+	&= \mathrm{MBZ} \setminus \mathrm{NBZ} \, , \nonumber\\[0.5em]
 	\mathcal{C} &\equiv \left\lbrace
 	\mathbf{k}\in\mathrm{BZ}
 	\mid 
 	\varphi_\mathbf{k}^{(s^*)} \le 0 \land 	\varphi_\mathbf{k}^{(d)} \ge 0
 	\right\rbrace \label{appeq:BZ-C-def} \\
-	&= \mathrm{NBZ} \setminus \mathrm{MBZ} \nonumber
+	&= \mathrm{NBZ} \setminus \mathrm{MBZ} \, , \nonumber
 \end{align}
 and will be used later on. Whatever the shape of the mixed band, the following equation always holds
 \[
-\abs{k_x} = \frac{\pi}{2} \qq{and} \abs{k_y} = \frac{\pi}{2}
-\quad\implies\quad
-\tilde{\epsilon}_{(k_x,k_y)} = 0
+	\abs{k_x} = \frac{\pi}{2} \qq{and} \abs{k_y} = \frac{\pi}{2}
+	\quad\implies\quad
+	\tilde{\epsilon}_{(k_x,k_y)} = 0 \, ,
 \]
 since only cosines are involved. This identifies four node points, represented as black dots in Fig.~\ref{appfig:BZ-sectors}.
 
@@ -124,19 +124,32 @@ since only cosines are involved. This identifies four node points, represented a
 
 Consider the simpler situation where $\mathrm{C}_4$ symmetry is imposed. This implies that the renormalised bands are given by
 \[
-	\tilde{\epsilon}_\mathbf{k} \equiv (u^{(s^*)} V - 2t) (\cos k_x + \cos k_y)
+	\tilde{\epsilon}_\mathbf{k} \equiv (u^{(s^*)} V - 2t) (\cos k_x + \cos k_y) \, ,
 \]
 with a single self-consistency equation, given by the first row of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}:
 \[
-	u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+	u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \, .
 \]
-The following chain of deductions leads us to a constraint on the possible values of $u^{(s^*)}$:
+We have the following constraint on $u^{(s^*)}$
+\begin{equation}\label{appeq:normal-us*-constraint}
+	\mathrm{C}_4
+	\quad\implies\quad
+	0 < u^{(s^*)} < 2t/V \, .
+\end{equation}
+The effective hopping is smaller than the original hopping. We can denominate this net effect ``bands shrinking''.
+
+\begin{tabproof}[Proof of Eq.~\eqref{appeq:normal-us*-constraint}: bands shrinking effect in $\mathrm{C}_4$]
+The proof follows from this chain of deductions:	
 \begin{enumerate}
-	\item For $t>0$, there is no self-consistent solution admitting $u^{(s^*)}\le0$. Let us prove this: suppose instead $u^{(s^*)}\le0$. For any function $g_\mathbf{k}$ defined on the BZ:
+	\item \textit{For $t>0$, there is no self-consistent solution admitting $u^{(s^*)}\le0$}. 
+	
+	\paragraph{Proof.}
+	
+	Suppose instead $u^{(s^*)}\le0$. For any function $g_\mathbf{k}$ defined on the BZ:
 	\[
-	\sum_{\mathbf{k}\in\mathrm{BZ}} g_\mathbf{k} = \sum_{\mathbf{k}\in\mathrm{MBZ}} \left[
-	g_\mathbf{k} + g_{\mathbf{k}+\bm{\pi}}
-	\right]
+		\sum_{\mathbf{k}\in\mathrm{BZ}} g_\mathbf{k} = \sum_{\mathbf{k}\in\mathrm{MBZ}} \left[
+		g_\mathbf{k} + g_{\mathbf{k}+\bm{\pi}}
+		\right] \, ,
 	\]
 	where we defined the vector $\bm{\pi}\equiv(\pi,\pi)$. The self-consistency equation thus reads
 	\begin{align}
@@ -145,62 +158,56 @@ The following chain of deductions leads us to a constraint on the possible value
 		\right] \nonumber \\
 		&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \left[
 		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-		\right] \label{appeq:normal-us*-constraint-int1}
+		\right] \, , \label{appeq:normal-us*-constraint-int1}
 	\end{align}
 	having we used the antisymmetry of $s^*$-wave functions by $\bm{\pi}$ shifts. Now, if $u^{(s^*)}\le0$ the renormalised band $\tilde{\epsilon}_\mathbf{k}$ is negative inside the MBZ and positive outside, implying
 	\[
-	\forall \mathbf{k} \in \mathrm{MBZ}
-	\quad\colon\quad
-	f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \ge f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+		\forall \mathbf{k} \in \mathrm{MBZ}
+		\quad\colon\quad
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \ge f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \, ,
 	\]
 	the equality only being satisfied on the MBZ contour. Then, since inside the MBZ it holds by definition $\cos k_x + \cos k_y \ge 0$, the above equations imply
 	\[
-	u^{(s^*)} \le 0 
-	\quad\implies\quad
-	u^{(s^*)} \ge 0
+		u^{(s^*)} \le 0 
+		\quad\implies\quad
+		u^{(s^*)} \ge 0 \, .
 	\]
 	To exclude the possibility of $u^{(s^*)}=0$, it suffices to notice that from the argument above such a situation only arises when the MBZ contour degenerates to the entirety of the MBZ itself -- which is, when the band is flat. But that cannot be the case for $u^{(s^*)} = 0$, as long as $t>0$. Thus we have proven that
 	\[
-	u^{(s^*)} > 0
+		u^{(s^*)} > 0 \, .
 	\]
-	\item For $t>0$, there is no self-consistent solution admitting $u^{(s^*)} \ge 2t/V$. We proceed exactly as did for the previous point, up to the passage:
+	\item \textit{For $t>0$, there is no self-consistent solution admitting $u^{(s^*)} \ge 2t/V$}.
+	
+	\paragraph{Proof.}
+	
+	We proceed exactly as did for the previous point, up to Eq.~\eqref{appeq:normal-us*-constraint-int1}:
 	\[
-	u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \left[
-	f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-	\right]
+		u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \left[
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+		\right] \, .
 	\]
 	Now, if $u^{(s^*)} \ge 2t/V$ this means the prefactor in front of the renormalised bands is positive. Then $\tilde{\epsilon}_\mathbf{k}$ is positive inside the MBZ and negative outside, implying
 	\[
-	\forall \mathbf{k} \in \mathrm{MBZ}
-	\quad\colon\quad
-	f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \le f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+		\forall \mathbf{k} \in \mathrm{MBZ}
+		\quad\colon\quad
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \le f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \, ,
 	\]
 	thus we have
 	\[
-	u^{(s^*)} \ge 2t/V
-	\quad\implies\quad
-	u^{(s^*)} \le 0
+		u^{(s^*)} \ge 2t/V
+		\quad\implies\quad
+		u^{(s^*)} \le 0 \, ,
 	\]
 	which is absurd. Thus
 	\[
-	u^{(s^*)} < 2t/V
+		u^{(s^*)} < 2t/V \, .
 	\]
 \end{enumerate}
-Collecting the two points above, we have the constraint on $u^{(s^*)}$
-\begin{equation}\label{appeq:normal-us*-constraint}
-	\mathrm{C}_4
-	\quad\implies\quad
-	0 < u^{(s^*)} < 2t/V
-\end{equation}
-The effective hopping is smaller than the original hopping. We can denominate this net effect ``bands shrinking''.
+Collecting the two points above, we obtain the constraint of Eq.~\eqref{appeq:normal-us*-constraint}.
+\end{tabproof}
 
 \subsection{Bands shrinking in $\mathrm{C}_2/\mathbb{Z}_2$}\label{appsubsec:normal-bands-shrinking-C2}
 
-Let us extend the arguments above to a weaker symmetry, allowing for
-\[
-\mathrm{C}_4 \SSB \mathrm{C}_2/\mathbb{Z}_2
-\]
-%
 \begin{figure}[t]
 	\centering
 	\subfloat[Same-sign mixed bands.]{
@@ -215,17 +222,47 @@ Let us extend the arguments above to a weaker symmetry, allowing for
 	\caption{Theoretical example of bands with $u^{(s^*)} > 2t/V$, $u^{(d)}>0$ (top-left) and $u^{(s^*)} < 0$, $u^{(d)}>0$ (top right). Two example points are reported, connected by a $\pi/2$ rotation as given in Eqns.~\eqref{appeq:normal-A=RB}, \eqref{appeq:normal-B=RA}.}
 	\label{appfig:normal-nematic-bands-detail}
 \end{figure}
-We work with the full, anisotropic band of Eq.~\eqref{eq:normal-bands-renormalisation}. From the following chain of deductions we conclude that $\mathrm{C}_4$ is not broken:
+
+Let us extend the arguments above to a weaker symmetry, allowing for
+\[
+	\mathrm{C}_4 \SSB \mathrm{C}_2/\mathbb{Z}_2 \, .
+\]
+We work with the full, anisotropic band of Eq.~\eqref{eq:normal-bands-renormalisation}. In the normal phase, nematic effects are always absent, 
+\[
+	0 < u^{(s^*)} < 2t/V
+	\qq{and}
+	u^{(d)} = 0 \, ,
+\]
+which coincides with Eq.~\eqref{appeq:normal-us*-ud-constraint}. Therefore, even if we allow for the breaking of planar rotational symmetry, this does not take place.
+
+\begin{tabproof}[Proof of Eq.~\eqref{appeq:normal-us*-ud-constraint}: non-nematic bands shrinking effect in $\mathrm{C}_2$]
+	
+The proof is organised as a series of sub-proofs. We start by proving the left side of Eq.~\eqref{appeq:normal-us*-ud-constraint}, namely that
+\[
+	0 < u^{(s^*)} < 2t/V \, .
+\]
+We use everywhere $t>0$.
+	
 \begin{enumerate}
-	\item Let for instance
+	\item \textit{The following implication holds:}
+	\begin{equation}\label{appeq:normal-us*-absurd-1}
+		u^{(s^*)} \ge 2t/V \, , \qquad
+		u^{(d)} > 0
+		\quad\implies\quad
+		u^{(s^*)} \le 0 \, .
+	\end{equation}
+	
+	\paragraph{Proof.}
+	
+	Let us start by the implication
 	\[
-	u^{(s^*)} \ge 2t/V > 0
-	\qquad
-	u^{(d)} > 0
-	\quad\implies\quad
-	\epsilon^{(s^*)} \ge 0
-	\qquad
-	\epsilon^{(d)} > 0
+		u^{(s^*)} \ge 2t/V > 0 \, ,
+		\qquad
+		u^{(d)} > 0
+		\quad\implies\quad
+		\epsilon^{(s^*)} \ge 0 \, ,
+		\qquad
+		\epsilon^{(d)} > 0 \, .
 	\]
 	In Fig.~\ref{appsubfig:normal-nematic-bands-detail-pp} an example band is shown for $\epsilon^{(s^*)}=1$, $\epsilon^{(d)}=1/2$. Note that if $u^{(s^*)}=2t/V$, the renormalised band is purely $d$-wave since $\epsilon^{(s^*)}=0$. 
 	
@@ -236,153 +273,198 @@ We work with the full, anisotropic band of Eq.~\eqref{eq:normal-bands-renormalis
 		\right] \\
 		+ \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathcal{B}} (\cos k_x + \cos k_y) \left[
 		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
-		\right]
+		\right] \, .
 	\end{multline*}
 	
 	Consider the sum over $\mathcal{B}$. Looking at the bottom-left panel of Fig.~\ref{fig:normal-nematic-bands}, such a region contains nodal curves across which bands change sign.	
 	Let $\mathcal{R}$ be the clockwise $\pi/2$ rotation: then, any point in $\mathcal{B}$ can be seen as the rotation of a point in $\mathcal{A}$
 	\begin{equation}\label{appeq:normal-B=RA}
 		\forall \mathbf{k}' \in \mathcal{B} 
-		\quad\exists\quad \mathbf{k} \in \mathcal{A} \mid \mathbf{k}' = \mathcal{R} \mathbf{k}
+		\quad\exists\quad \mathbf{k} \in \mathcal{A} \mid \mathbf{k}' = \mathcal{R} \mathbf{k} \, .
 	\end{equation}
 	A graphical rendition of this idea is given in Fig.~\ref{appsubfig:normal-nematic-bands-detail-pp}. Then we can rewrite $u^{(s^*)}$ as a single sum over $\mathcal{A}$,
 	\begin{multline}
 		u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathcal{A}} (\cos k_x + \cos k_y) \\
 		\times \left[
 		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) + f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu})
-		\right]
+		\right] \, .
 		\label{appeq:normal-us*-AR}
 	\end{multline}
 	
-	From Eq.~\eqref{appeq:BZ-A-def}, $\forall \mathbf{k} \in \mathcal{A}$ the form factors $\cos k_x \pm \cos k_y$ are positive by construction. By hypothesis $\epsilon^{(s^*)} \ge 0$ and $\epsilon^{(d)} > 0$. Hence:
+	From Eq.~\eqref{appeq:BZ-A-def}, $\forall \mathbf{k} \in \mathcal{A}$ the functions $\cos k_x \pm \cos k_y$ are positive by construction. By hypothesis $\epsilon^{(s^*)} \ge 0$ and $\epsilon^{(d)} > 0$. Hence:
 	\[
 	\forall \mathbf{k} \in \mathcal{A}
 	\quad\colon\quad
 	\begin{aligned}
-		\tilde{\epsilon}_\mathbf{k} &= \overbrace{\epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right)}^{\ge 0} + \overbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }^{\ge 0} \\
-		\tilde{\epsilon}_{\mathcal{R}\mathbf{k}} &= \underbrace{\epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right)}_{\ge 0} - \underbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }_{\ge 0}
+		\tilde{\epsilon}_\mathbf{k} &= \overbrace{\epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right)}^{\ge 0} + \overbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }^{\ge 0} \, , \\
+		\tilde{\epsilon}_{\mathcal{R}\mathbf{k}} &= \underbrace{\epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right)}_{\ge 0} - \underbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }_{\ge 0} \, .
 	\end{aligned}
 	\]
 	Summing the two equations above we have:
 	\[
-	\forall \mathbf{k} \in \mathcal{A}
-	\quad\colon\quad
-	\tilde{\epsilon}_\mathbf{k} + \tilde{\epsilon}_{\mathcal{R}\mathbf{k}} \ge 0
+		\forall \mathbf{k} \in \mathcal{A}
+		\quad\colon\quad
+		\tilde{\epsilon}_\mathbf{k} + \tilde{\epsilon}_{\mathcal{R}\mathbf{k}} \ge 0 \, ,
 	\]
 	thus $\tilde{\epsilon}_\mathbf{k} \ge -\tilde{\epsilon}_{\mathcal{R}\mathbf{k}}$.	The Fermi-Dirac distribution is monotonically descendent. Then:
 	\[
 	\forall \mathbf{k} \in \mathcal{A}
 	\quad\colon\quad
 	\begin{aligned}
-		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) &\le f(-\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) \\
-		f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) &\ge f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) 
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) &\le f(-\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) \, , \\
+		f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) &\ge f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) \, . 
 	\end{aligned}
 	\]
-	This condition, inserted in Eq.~\eqref{appeq:normal-us*-AR}, leads to an absurd:
-	\[
-	u^{(s^*)} \ge 2t/V \qquad
-	u^{(d)} > 0
-	\quad\implies\quad
-	u^{(s^*)} \le 0
-	\]
+	This condition, inserted in Eq.~\eqref{appeq:normal-us*-AR}, leads to the absurd of Eq.~\eqref{appeq:normal-us*-absurd-1}.
 	%
-	\item An identical argument, exchanging the roles of $\mathcal{A}$ and $\mathcal{B}$, can be carried out to show that
-	\[
-	u^{(s^*)} \ge 2t/V > 0
-	\qquad
-	u^{(d)} < 0
-	\quad\implies\quad
-	u^{(s^*)} \le 0
-	\]
+	\item \textit{The following implication holds:}
+	\begin{equation}\label{appeq:normal-us*-absurd-2}
+		u^{(s^*)} \ge 2t/V > 0 \, ,
+		\qquad
+		u^{(d)} < 0
+		\quad\implies\quad
+		u^{(s^*)} \le 0 \, .
+	\end{equation}
+	The proof is identical to the above point, exchanging the roles of $\mathcal{A}$ and $\mathcal{B}$.
 	%
-	\item The two points above imply that it is possible to have $u^{(s^*)} \ge 2t/V$ if and only if $u^{(d)}=0$. But from Sec.~\ref{appsubsec:normal-bands-shrinking}, we conclude that the upper boundary $u^{(s^*)} < 2t/V$ always holds.
+	\item \textit{The following implication holds:}
+	\begin{equation}\label{appeq:normal-us*-no-nematic-1}
+		u^{(s^*)} \ge 2t/V > 0
+		\quad\implies\quad
+		u^{(d)} = 0 \, .
+	\end{equation}
+	The proof follows from combining Eqs.~\eqref{appeq:normal-us*-absurd-1}, \eqref{appeq:normal-us*-absurd-2}.
 	%
-	\item Let for instance
-	\[
-	u^{(s^*)} \le 0
-	\qquad
-	u^{(d)} > 0
-	\quad\implies\quad
-	\epsilon^{(s^*)} < 0
-	\qquad
-	\epsilon^{(d)} > 0
-	\]
-	In Fig.~\ref{appsubfig:normal-nematic-bands-detail-mp} an example band is shown for $\epsilon^{(s^*)}=-1$, $\epsilon^{(d)}=1/2$.
+	\item \textit{It is impossible to have $u^{(s^*)} \ge 2t/V$}.
 	
-	Proceed as for the first point. Similarly to Eq.~\eqref{appeq:normal-B=RA}, Any point in $\mathcal{A}$ can be obtained by rotating some point in $\mathcal{B}$,
+	\paragraph{Proof.}
+
+	From Eq.~\eqref{appeq:normal-us*-no-nematic-1}, we know that if $u^{(s^*)} \ge 2t/V$ then $u^{(d)} = 0$. But then $\mathrm{C}_4$ is unbroken, and we get back to the discussion of Sec.~\ref{appsubsec:normal-bands-shrinking}. Then we cannot have $u^{(s^*)} \ge 2t/V$.
+	%
+	\item \textit{The following implication holds}:
+	\begin{equation}\label{appeq:normal-us*-absurd-5}
+		u^{(s^*)} \le 0 \, ,\qquad
+		u^{(d)} > 0
+		\quad\implies\quad
+		u^{(s^*)} > 0 \, .
+	\end{equation}
+	
+	\paragraph{Proof.}
+	
+	Let for instance
+	\[
+		u^{(s^*)} \le 0 \, ,
+		\qquad
+		u^{(d)} > 0
+		\quad\implies\quad
+		\epsilon^{(s^*)} < 0 \, ,
+		\qquad
+		\epsilon^{(d)} > 0 \, .
+	\]
+	In Fig.~\ref{appsubfig:normal-nematic-bands-detail-mp} an example band is shown for $\epsilon^{(s^*)}=-1$, $\epsilon^{(d)}=1/2$. Proceed as for the first point of this chain. Similarly to Eq.~\eqref{appeq:normal-B=RA}, Any point in $\mathcal{A}$ can be obtained by rotating some point in $\mathcal{B}$,
 	\begin{equation}\label{appeq:normal-A=RB}
 		\forall \mathbf{k}' \in \mathcal{A} 
-		\quad\exists\quad \mathbf{k} \in \mathcal{B} \mid \mathbf{k}' = \mathcal{R} \mathbf{k}
+		\quad\exists\quad \mathbf{k} \in \mathcal{B} \mid \mathbf{k}' = \mathcal{R} \mathbf{k} \, .
 	\end{equation}
 	An equation similar to Eq.~\eqref{appeq:normal-us*-AR} holds, the sum being performed over $\mathcal{B}$
 	\begin{multline}
 		u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathcal{B}} (\cos k_x + \cos k_y) \\
 		\times \left[
 		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) + f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu})
-		\right]
+		\right] \, .
 		\label{appeq:normal-us*-BR}
 	\end{multline}
-	
 	From Eq.~\eqref{appeq:BZ-B-def}, $\forall \mathbf{k} \in \mathcal{B}$ the form factor $\cos k_x + \cos k_y$ is positive by construction; the form factor $\cos k_x - \cos k_y$ is negative by construction. By hypothesis $\epsilon^{(s^*)} < 0$ and $\epsilon^{(d)} > 0$. Hence:
 	\[
 	\forall \mathbf{k} \in \mathcal{B}
 	\quad\colon\quad
 	\begin{aligned}
-		\tilde{\epsilon}_\mathbf{k} &= \overbrace{\epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right)}^{\le 0} + \overbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }^{\le 0} \\
-		\tilde{\epsilon}_{\mathcal{R}\mathbf{k}} &= \underbrace{\epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right)}_{\le 0} - \underbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }_{\le 0}
+		\tilde{\epsilon}_\mathbf{k} &= \overbrace{\epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right)}^{\le 0} + \overbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }^{\le 0} \, , \\
+		\tilde{\epsilon}_{\mathcal{R}\mathbf{k}} &= \underbrace{\epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right)}_{\le 0} - \underbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }_{\le 0} \, .
 	\end{aligned}
 	\]
 	Summing the two equations above we have:
 	\[
-	\forall \mathbf{k} \in \mathcal{B}
-	\quad\colon\quad
-	\tilde{\epsilon}_\mathbf{k} + \tilde{\epsilon}_{\mathcal{R}\mathbf{k}} \le 0
+		\forall \mathbf{k} \in \mathcal{B}
+		\quad\colon\quad
+		\tilde{\epsilon}_\mathbf{k} + \tilde{\epsilon}_{\mathcal{R}\mathbf{k}} \le 0 \, ,
 	\]
 	thus $\tilde{\epsilon}_\mathbf{k} \le -\tilde{\epsilon}_{\mathcal{R}\mathbf{k}}$.	The Fermi-Dirac distribution is monotonically descendent. Then:
 	\[
 	\forall \mathbf{k} \in \mathcal{B}
 	\quad\colon\quad
 	\begin{aligned}
-		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) &\ge f(-\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) \\
-		f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) &\le f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) 
+		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) &\ge f(-\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu})\, , \\
+		f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) &\le f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu}) \, .
 	\end{aligned}
 	\]
 	This condition, inserted in Eq.~\eqref{appeq:normal-us*-AR}, leads to an absurd:
 	\[
-	u^{(s^*)} \le 0 \qquad
-	u^{(d)} > 0
-	\quad\implies\quad
-	u^{(s^*)} > 0
+		u^{(s^*)} \le 0 \, ,\qquad
+		u^{(d)} > 0
+		\quad\implies\quad
+		u^{(s^*)} > 0 \, .
 	\]
+	which coincides with Eq.~\eqref{appeq:normal-us*-absurd-5}.
 	%
-	\item can be carried out to show that
-	\[
-	u^{(s^*)} \le 0
-	\qquad
-	u^{(d)} < 0
-	\quad\implies\quad
-	u^{(s^*)} > 0
-	\]
+	\item \textit{The following implication holds}:
+	\begin{equation}\label{appeq:normal-us*-absurd-6}
+		u^{(s^*)} \le 0 \, ,
+		\qquad
+		u^{(d)} < 0
+		\quad\implies\quad
+		u^{(s^*)} > 0 \, .
+	\end{equation}
+	The proof is identical to the above point, exchanging the roles of $\mathcal{A}$ and $\mathcal{B}$.
 	%
-	\item The two points above imply that it is possible to have $u^{(s^*)} \le 0$ if and only if $u^{(d)}=0$. But from Sec.~\ref{appsubsec:normal-bands-shrinking}, we conclude that the lower boundary $u^{(s^*)} > 0$ always holds.
+	\item \textit{The following implication holds:}
+	\begin{equation}\label{appeq:normal-us*-no-nematic-2}
+		u^{(s^*)} \le 0
+		\quad\implies\quad
+		u^{(d)} = 0 \, .
+	\end{equation}
+	The proof follows from combining Eqs.~\eqref{appeq:normal-us*-absurd-5}, \eqref{appeq:normal-us*-absurd-6}.
+	%
+	\item \textit{It is impossible to have $u^{(s^*)} \le 0$}.
+	
+	\paragraph{Proof.}
+	
+	From Eq.~\eqref{appeq:normal-us*-no-nematic-2}, we know that if $u^{(s^*)} \le 0$ then $u^{(d)} = 0$. But then $\mathrm{C}_4$ is unbroken, and we get back to the discussion of Sec.~\ref{appsubsec:normal-bands-shrinking}. Then we cannot have $u^{(s^*)} \le 0$.
 	\newcounter{enumTemp}
 	\setcounter{enumTemp}{\theenumi}
 \end{enumerate}
 From the chain of derivations above, we can conclude self-consistently that also in the nematic structure the constraint of Eq.~\eqref{appeq:normal-us*-constraint},
 \[
-0 < u^{(s^*)} < 2t/V
+	0 < u^{(s^*)} < 2t/V \, ,
 \]
-holds. In the $s^*$-wave channel, partial breaking of rotational symmetry is not enough to modify the main effect identified under $\mathrm{C}_4$ symmetry, ``bands shrinking''. What is missing is the behaviour of the $d$-wave channel when said effect takes place. Continuing the enumeration above,
+holds. In the $s^*$-wave channel, partial breaking of rotational symmetry is not enough to modify the main effect identified under $\mathrm{C}_4$ symmetry, ``bands shrinking''. What is missing is the behaviour of the $d$-wave channel when said effect takes place. 
+
+We move on and prove the right side of Eq.~\eqref{appeq:normal-us*-ud-constraint}, namely that
+\[
+	u^{(d)} = 0 \, .
+\]
+Continuing the enumeration from the above points,
 
 \begin{enumerate}
 	\setcounter{enumi}{\theenumTemp}
-	\item Let $0 < u^{(s^*)} < 2t/V$ and $u^{(d)} > 0$. Then $\epsilon^{(d)}>0$. From Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}, the self-consistency equation for $u^{(d)}$ reads
+	\item \textit{The following implication holds:}
+	\begin{equation}\label{appeq:normal-us*-absurd-9}
+		0 < u^{(s^*)} < 2t/V
+		\qq{and}
+		u^{(d)} > 0
+		\quad\implies\quad
+		u^{(d)} < 0 \, .
+	\end{equation}
+	
+	\paragraph{Proof.}
+	
+	Let $0 < u^{(s^*)} < 2t/V$ and $u^{(d)} > 0$. Then $\epsilon^{(d)}>0$. From Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}, the self-consistency equation for $u^{(d)}$ reads
 	\[
 	\begin{aligned}
 		u^{(d)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \\
 		&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{NBZ}} (\cos k_x - \cos k_y) \left[
 		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(\tilde{\epsilon}_{\mathcal{R}\mathbf{k}};\beta,\tilde{\mu})
-		\right]
+		\right] \, ,
 	\end{aligned}
 	\]
 	where we recognised, as is shown in Fig.~\ref{appsubfig:NBZ-sectors}, that $\mathrm{BZ} \setminus \mathrm{NBZ} = \mathcal{R} \mathrm{NBZ}$. It holds:
@@ -390,38 +472,34 @@ holds. In the $s^*$-wave channel, partial breaking of rotational symmetry is not
 	\forall \mathbf{k} \in \mathrm{NBZ}
 	\quad\colon\quad
 	\begin{aligned}
-		\tilde{\epsilon}_\mathbf{k} &= \epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right) + \overbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }^{\ge 0} \\
-		\tilde{\epsilon}_{\mathcal{R}\mathbf{k}} &= \epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right) - \underbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }_{\ge 0}
+		\tilde{\epsilon}_\mathbf{k} &= \epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right) + \overbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }^{\ge 0} \, ,\\
+		\tilde{\epsilon}_{\mathcal{R}\mathbf{k}} &= \epsilon^{(s^*)} \left( \cos k_x + \cos k_y \right) - \underbrace{\epsilon^{(d)}  \left( \cos k_x - \cos k_y \right) }_{\ge 0} \, ,
 	\end{aligned}
 	\]
-	thus $\tilde{\epsilon}_{\mathcal{R}\mathbf{k}} < \tilde{\epsilon}_\mathbf{k}$, and inserting this fact in the self-consistency equation above we get
-	\[
-	0 < u^{(s^*)} < 2t/V
-	\qq{and}
-	u^{(d)} > 0
-	\quad\implies\quad
-	u^{(d)} < 0
-	\]
-	which is absurd.
+	thus $\tilde{\epsilon}_{\mathcal{R}\mathbf{k}} < \tilde{\epsilon}_\mathbf{k}$, and inserting this fact in the self-consistency equation above we get the absurd of Eq.~\eqref{appeq:normal-us*-absurd-9}.
 	%
-	\item An identical argument, with inverted inequalities, can be carried out to show that
-	\[
-	0 < u^{(s^*)} < 2t/V
-	\qq{and}
-	u^{(d)} < 0
-	\quad\implies\quad
-	u^{(d)} > 0
-	\]
+	\item \textit{The following implication holds:}
+	\begin{equation}\label{appeq:normal-us*-absurd-10}
+		0 < u^{(s^*)} < 2t/V
+		\qq{and}
+		u^{(d)} < 0
+		\quad\implies\quad
+		u^{(d)} > 0 \, .
+	\end{equation}
+	The proof is identical to the point above.
 	%
-	\item The two points above imply that it is possible to satisfy the constraint $0 < u^{(s^*)} < 2t/V$ if and only if $u^{(d)}=0$.
+	\item \textit{The following implication holds:}
+	\begin{equation}\label{appeq:normal-us*-no-nematic-3}
+		0 < u^{(s^*)} < 2t/V
+		\quad\implies\quad
+		u^{(d)} = 0 \, .
+	\end{equation}
+	The proof follows from combining Eqs.~\eqref{appeq:normal-us*-absurd-9}, \eqref{appeq:normal-us*-absurd-10}.
+	%
+	\item \textit{It is impossible to have $u^{(d)} \neq 0$}. The proof follows from combining Eqs.~\eqref{appeq:normal-us*-no-nematic-1}, \eqref{appeq:normal-us*-no-nematic-2} and \eqref{appeq:normal-us*-no-nematic-3}.
 \end{enumerate}
-All the deductions above indicate that $u^{(d)}=0$ everywhere. In the normal phase, nematic effects are always absent, 
-\[
-	0 < u^{(s^*)} < 2t/V
-	\qq{and}
-	u^{(d)} = 0
-\]
-which is Eq.~\eqref{eq:normal-us*-ud-constraint}.
+Hence we conclude that Eq.~\eqref{appeq:normal-us*-ud-constraint} holds.
+\end{tabproof}
 
 \section{AF phase}
 \label{appappsec:af-constraints}
@@ -430,13 +508,13 @@ The AF phase divides in two subphases, namely aAF and sAF phases, as reported in
 \[
 	\text{sAF HFPs}
 	\quad\colon\quad
-	m, u^{(s^*)}, u^{(d)}, v^{(s^*)}, v^{(d)}
+	m, u^{(s^*)}, u^{(d)}, v^{(s^*)}, v^{(d)} \, ,
 \]
 while for the sAF phase
 \[
 	\text{aAF HFPs}
 	\quad\colon\quad
-	m, u^{(s^*)}, u^{(d)}, -iv^{(p_x)}, -iv^{(p_y)}
+	m, u^{(s^*)}, u^{(d)}, -iv^{(p_x)}, -iv^{(p_y)} \, .
 \]
 Self-consistency equations are reported in Eq.~\eqref{eq:af-ehm-m-self-consistency} and Tabs.~\ref{tab:af-ehm-ugamma-self-consistencies}, \ref{tab:af-ehm-vgamma-self-consistencies}. 
 
@@ -446,64 +524,79 @@ In this section we show that
 	\begin{equation}\label{appeq:af-us*-ud-constraint}
 		0 < u^{(s^*)} < 2t/V
 		\qq{and}
-		u^{(d)} = 0
+		u^{(d)} = 0 \, .
 	\end{equation}
 	Hence also in the AF phase we have a Mott localisation effect;
 	\item Eq.~\eqref{eq:af-vgamma-constraint} holds,
 	\begin{equation}\label{appeq:af-vgamma-constraint}
 		\forall \gamma
 		\quad\colon\quad
-		v^{(\gamma)}=0
+		v^{(\gamma)}=0 \, .
 	\end{equation}
 	Hence the AF gap is not ``complexified''.
 \end{itemize} 
-The discussion is divided in four parts: in Sec.~\ref{appsubsec:af-bands-shrinking}, we derive Eq.~\eqref{appeq:normal-us*-ud-constraint} within $\mathrm{C}_4$ symmetry (as in Sec.~\ref{appsubsec:normal-bands-shrinking}, setting $u^{(d)} = 0$). In Sec.~\ref{appsubsec:af-HFPs=0-sAF} we prove Eq.~\eqref{appeq:af-vgamma-constraint} for the sAF phase within $\mathrm{C}_2$ symmetry. In Sec.~\ref{appsubsec:af-HFPs=0-aAF} we do the same for the sAF phase. We conclude, in Sec.~\ref{appsubsec:af-bands-shrinking-C2}, by proving Eq.~\eqref{appeq:af-us*-ud-constraint} within $\mathrm{C}_2$ symmetry.
+The discussion is divided in four parts: in Sec.~\ref{appsubsec:af-bands-shrinking}, we derive Eq.~\eqref{appeq:af-us*-ud-constraint} within $\mathrm{C}_4$ symmetry (as in Sec.~\ref{appsubsec:normal-bands-shrinking}, setting $u^{(d)} = 0$). In Sec.~\ref{appsubsec:af-HFPs=0-sAF} we prove Eq.~\eqref{appeq:af-vgamma-constraint} for the sAF phase within $\mathrm{C}_2$ symmetry. In Sec.~\ref{appsubsec:af-HFPs=0-aAF} we do the same for the aAF phase. We conclude, in Sec.~\ref{appsubsec:af-bands-shrinking-C2}, by proving Eq.~\eqref{appeq:af-us*-ud-constraint} within $\mathrm{C}_2$ symmetry.
 
 \subsection{Bands shrinking in $\mathrm{C}_4$}\label{appsubsec:af-bands-shrinking}
 
 For the normal phase, we saw that when $\mathrm{C}_4$ symmetry is preserved (Sec.~\ref{appsubsec:normal-bands-shrinking}) we can conclude immediately that bands renormalisation is actually a shrinking. An identical result holds here: if $\mathrm{C}_4$ symmetry is imposed onto the renormalized bands,
 \[
-\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv (u^{(s^*)} V - 2t) (\cos k_x + \cos k_y)
+	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv (u^{(s^*)} V - 2t) (\cos k_x + \cos k_y) \, .
 \]
-of $u^{(\gamma)}$, just the $s^*$-wave channel contributes with a single self-consistency equation
+Among the harmonics $u^{(\gamma)}$, just the $s^*$-wave channel contributes to renormalisation of bands, with a single self-consistency equation
 \[
-u^{(s^*)} = - \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \frac{\tilde{\epsilon}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]
+	u^{(s^*)} = - \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \frac{\tilde{\epsilon}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}] \, .
 \]
+We now prove that:
+\begin{equation}\label{appeq:af-us*-constraint}
+	0 < u^{(s^*)} < 2t/V \, .
+\end{equation}
+This constraint is identical to Eq.~\eqref{appeq:normal-us*-constraint}, obtained for the normal phase. Also in AF phase the bare bands are effectively shrunk by $\hat H_V$.
 
-In this situation, we are able to derive constraints for $u^{(s^*)}$ by analysing the self-consistency equation. As we did for the normal phase:
+\begin{tabproof}[Proof of Eq.~\eqref{appeq:af-us*-constraint}]
+
+As we did for the normal phase:
 \begin{enumerate}
-	\item If $t>0$ and $u^{(s^*)} \le 0$
+	
+	\item \textit{For $t>0$, there is no self-consistent solution admitting $u^{(s^*)}\le0$}. 
+	
+	\paragraph{Proof.}
+	
+	If $t>0$ and $u^{(s^*)} \le 0$
 	\[
-	\forall \mathbf{k} \in \mathrm{MBZ}
-	\quad\colon\quad
-	\tilde{\epsilon}_\mathbf{k} \le 0
+		\forall \mathbf{k} \in \mathrm{MBZ}
+		\quad\colon\quad
+		\tilde{\epsilon}_\mathbf{k} \le 0 \, ,
 	\]
-	the equality only holding on the MBZ contour. Looking at the self-consistency equation, all other objects inside the sum are positive-defined. Which gives
+	the equality only holding on the MBZ contour. Looking at the self-consistency equation, all other objects inside the sum are positive-defined. This gives
 	\[
-	u^{(s^*)} \le 0
-	\quad\implies\quad
-	u^{(s^*)} \ge 0
+		u^{(s^*)} \le 0
+		\quad\implies\quad
+		u^{(s^*)} \ge 0 \, .
 	\]
 	But $u^{(s^*)} \neq 0$ as long as $t>0$, as can be seen by the self-consistency equation. We conclude necessarily
 	\[
-	u^{(s^*)} > 0
+		u^{(s^*)} > 0 \, ,
 	\]
-	\item If $t>0$ and $u^{(s^*)} \ge 2t/V$
+	which is absurd.
+	%
+	\item \textit{For $t>0$, there is no self-consistent solution admitting $u^{(s^*)}\ge 2t/V$}. 
+	
+	\paragraph{Proof.}
+	
+	If $t>0$ and $u^{(s^*)} \ge 2t/V$
 	\[
-	\forall \mathbf{k} \in \mathrm{MBZ}
-	\quad\colon\quad
-	\tilde{\epsilon}_\mathbf{k} \ge 0
+		\forall \mathbf{k} \in \mathrm{MBZ}
+		\quad\colon\quad
+		\tilde{\epsilon}_\mathbf{k} \, , \ge 0
 	\]
 	the equality only holding on the MBZ contour. Inverting inequalities from point above, we conclude necessarily
 	\[
-	u^{(s^*)} < 2t/V
+		u^{(s^*)} < 2t/V \, .
 	\]
+	which is absurd.
 \end{enumerate}
-The final result,
-\begin{equation}\label{appeq:af-us*-constraint}
-	0 < u^{(s^*)} < 2t/V
-\end{equation}
-is identical to the constraint obtained for the normal phase. Also in AF phase the bare bands are effectively shrunk by $\hat H_V$.
+\end{tabproof}
 
 \subsection{Selection rules on the magnetic HFPs in sAF phase}\label{appsubsec:af-HFPs=0-sAF}
 
@@ -511,28 +604,28 @@ We applied HF methods to the EHM and obtained two flavours of antiferromagnetism
 
 Let us start from the sAF phase, assuming
 \[
-	\mathrm{C}_4 \SSB \mathrm{C}_2
+	\mathrm{C}_4 \SSB \mathrm{C}_2 \, .
 \]
 The self-consistency problem is described by the five HFPs on the first row of Tab.~\ref{tab:af-saf-aaf-hfps} and their self-consistency equations of Tabs.~\ref{tab:af-ehm-ugamma-self-consistencies} and \ref{tab:af-ehm-vgamma-self-consistencies}.
 
 Let us define the functional
 \begin{equation}\label{appeq:saf-F-definition}
-	F[f(\mathbf{k})] \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \frac{\tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]}{\tilde{E}_\mathbf{k}} f(\mathbf{k})
+	F[f(\mathbf{k})] \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \frac{\tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]}{\tilde{E}_\mathbf{k}} f(\mathbf{k}) \, .
 \end{equation}
 The functional $F$ is linear:
 \begin{equation}\label{appeq:saf-F-linearity}
-	F[a f(\mathbf{k}) + b g(\mathbf{k})] = a F[f(\mathbf{k})] + b F[g(\mathbf{k})]
+	F[a f(\mathbf{k}) + b g(\mathbf{k})] = a F[f(\mathbf{k})] + b F[g(\mathbf{k})] \, ,
 \end{equation}
 being $a,b \in \mathbb{C}$ and $f,g$ two integrable functions in reciprocal space. Another handy property is the sign-preserving relation for sign-defined functions. Let for instance
 \begin{equation}\label{appeq:saf-F-positivity}
 	\forall \mathbf{k} \quad\colon\quad f(\mathbf{k}) \ge 0 
-	\quad\implies\quad F[f(\mathbf{k})] \ge 0
+	\quad\implies\quad F[f(\mathbf{k})] \ge 0 \, .
 \end{equation}
 The relation above is implied by the fact that both $\tilde{\mathrm{Th}}_\mathbf{k}^{(-)}$ and $\tilde{E}_\mathbf{k}$ are positive-defined,
 \[
-\tilde{\mathrm{Th}}_\mathbf{k}^{(-)} = \frac{1}{e^{\beta(\tilde{E}_\mathbf{k}-\mu)}+1} - \frac{1}{e^{\beta(-\tilde{E}_\mathbf{k}-\mu)}+1} \ge 0
-\qquad
-\tilde{E}_\mathbf{k} = \sqrt{\tilde{\epsilon}_\mathbf{k}^2 + \abs{\Delta_{\mathbf{k}\sigma}}^2} \ge 0
+	\tilde{\mathrm{Th}}_\mathbf{k}^{(-)} = \frac{1}{e^{\beta(\tilde{E}_\mathbf{k}-\mu)}+1} - \frac{1}{e^{\beta(-\tilde{E}_\mathbf{k}-\mu)}+1} \ge 0
+	\qq{and}
+	\tilde{E}_\mathbf{k} = \sqrt{\tilde{\epsilon}_\mathbf{k}^2 + \abs{\Delta_{\mathbf{k}\sigma}}^2} \ge 0 \, ,
 \]
 so, being the functional $F$ essentially a weighted integral over MBZ, any positive-defined function has a positive image. An identical statement with inverted inequalities holds for negative-defined function.
 
@@ -543,29 +636,29 @@ Consider now the self-consistency equation for $u^{(s^*)}$: explicitly,
 	\frac{\tilde{\epsilon}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}] \\
 	&= \frac{\left[2t - Vu^{(s^*)}\right]}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}}
 	\frac{ \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]}{\tilde{E}_\mathbf{k}} (c_x + c_y)^2 - \frac{Vu^{(d)}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}}
-	\frac{ \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]}{\tilde{E}_\mathbf{k}} (c_x^2 - c_y^2)
+	\frac{ \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]}{\tilde{E}_\mathbf{k}} (c_x^2 - c_y^2) \, ,
 \end{aligned}
 \]
 having we used the notation $c_\ell \equiv \cos k_\ell$ and substituted the full bare bands
 \[
-\tilde{\epsilon}_\mathbf{k} \equiv -\left[2t - u^{(s^*)}_\sigma V\right] (c_x + c_y) + u^{(d)}_\sigma V (c_x - c_y)
+	\tilde{\epsilon}_\mathbf{k} \equiv -\left[2t - u^{(s^*)}_\sigma V\right] (c_x + c_y) + u^{(d)}_\sigma V (c_x - c_y) \, .
 \]
 In terms of the functional $F$, we can rewrite:
 \[
 \begin{aligned}
 	u^{(s^*)} &= \left[2t - Vu^{(s^*)}\right] \times F\left[(c_x + c_y)^2\right] - Vu^{(d)} \times F\left[c_x^2 - c_y^2\right] \\
-	&= \left[2t - Vu^{(s^*)}\right] \times \left\lbrace F\left[c_x^2\right] + 2F\left[c_x c_y\right] + F\left[c_y^2\right] \right\rbrace -  Vu^{(d)} \times \left\lbrace F\left[c_x^2\right] - F\left[c_y^2\right] \right\rbrace
+	&= \left[2t - Vu^{(s^*)}\right] \times \left\lbrace F\left[c_x^2\right] + 2F\left[c_x c_y\right] + F\left[c_y^2\right] \right\rbrace -  Vu^{(d)} \times \left\lbrace F\left[c_x^2\right] - F\left[c_y^2\right] \right\rbrace \, ,
 \end{aligned}
 \]
 having we used the linearity property of Eq.~\eqref{appeq:saf-F-linearity} in last passage.
 
 Let now:
 \begin{equation}\label{appeq:saf-ABC-def}
-	A \equiv F\left[c_x^2\right]
+	A \equiv F\left[c_x^2\right] \, ,
 	\qquad
-	B \equiv 2F\left[c_x c_y\right]
+	B \equiv 2F\left[c_x c_y\right] \, ,
 	\qquad
-	C \equiv F\left[c_y^2\right]
+	C \equiv F\left[c_y^2\right] \, ,
 \end{equation}
 which allows us to rewrite the self-consistency equation as:
 \[
@@ -575,209 +668,260 @@ u^{(s^*)} =
 Repeating an identical procedure on the three self-consistency equations for $u^{(d)}$, $v^{(s^*)}$ and $v^{(d)}$, we get the full system:
 \begin{align}
 	u^{(s^*)} &=
-	\left[2t - Vu^{(s^*)}\right] (A+B+C) -  Vu^{(d)} (A-C) \label{appeq:saf-uS-sc-ABC} \\
+	\left[2t - Vu^{(s^*)}\right] (A+B+C) -  Vu^{(d)} (A-C) \, , \label{appeq:saf-uS-sc-ABC} \\
 	u^{(d)} &=
-	\left[2t - Vu^{(s^*)}\right] (A-C) -  Vu^{(d)} (A-B+C) \label{appeq:saf-ud-sc-ABC} \\
+	\left[2t - Vu^{(s^*)}\right] (A-C) -  Vu^{(d)} (A-B+C) \, , \label{appeq:saf-ud-sc-ABC} \\
 	v^{(s^*)} &=
-	- Vv^{(s^*)} (A+B+C) -  Vv^{(d)} (A-C) \label{appeq:saf-vS-sc-ABC} \\
+	- Vv^{(s^*)} (A+B+C) -  Vv^{(d)} (A-C) \, , \label{appeq:saf-vS-sc-ABC} \\
 	v^{(d)} &=
-	- Vv^{(s^*)} (A-C) -  Vv^{(d)} (A-B+C) \label{appeq:saf-vd-sc-ABC}
+	- Vv^{(s^*)} (A-C) -  Vv^{(d)} (A-B+C) \, . \label{appeq:saf-vd-sc-ABC}
 \end{align}
-These equations define a four-components nonlinear map, whose parameters $A,B,C$ depend on the HFPs themselves, being the functional $F$ dependent on the HFPs. Because of this last point, the four equations are coupled to each other and the map does not decouple in two independent sub-maps. Note that the full map would include another equation for the magnetisation.
+These equations define a four-components nonlinear map, whose parameters $A,B,C$ depend on the HFPs themselves, being the functional $F$ dependent on the HFPs. Because of this last point, the four equations are coupled to each other and the map does not decouple in two independent sub-maps. Note that the full map would include another equation for the magnetisation. It holds:
+\begin{equation}\label{appeq:af-vs*-vd-constraint}
+	v^{(s^*)} = 0
+	\qq{and}
+	v^{(d)} = 0 \, .
+\end{equation}
 
-Aim of this section is to prove that no self-consistent solution exists with non-zero $u^{(d)}$, $v^{(s^*)}$ and $v^{(d)}$. Being the derivation convoluted and abstract enough, let us proceed by enumerating the relevant facts.
+\begin{tabproof}[Proof of Eq.~\eqref{appeq:af-vs*-vd-constraint}: all symmetric complexifiers vanish]
+	
+Let us start by applying a linear transform on the map: define the new ``sum'' and ``difference'' variables
+\[
+	S_u \equiv u^{(s^*)} + u^{(d)} \, ,
+	\qquad
+	D_u \equiv u^{(s^*)} - u^{(d)} \, ,
+	\qquad
+	S_v \equiv v^{(s^*)} + v^{(d)} \, ,
+	\qquad
+	D_v \equiv v^{(s^*)} - v^{(d)} \, ,
+\]
+whose matrix representation is
+\[
+\begin{bmatrix}
+	S_u \\ D_u \\ S_v \\ D_v
+\end{bmatrix} \equiv \begin{bmatrix}
+	1 & 1 && \\
+	1 & -1 && \\
+	&& 1 & 1 \\
+	&& 1 & -1
+\end{bmatrix} \begin{bmatrix}
+	u^{(s^*)} \\ u^{(d)} \\ v^{(s^*)} \\ v^{(d)}
+\end{bmatrix} \, .
+\]
+The map transform is obtained by summing and subtracting two couples of equations: Eq.~\eqref{appeq:saf-uS-sc-ABC} and \eqref{appeq:saf-ud-sc-ABC} (the first two) as well as Eq.~\eqref{appeq:saf-vS-sc-ABC} and \eqref{appeq:saf-vd-sc-ABC} (the second two). By doing this we get the simplified system:
+\begin{align}
+	(1+2AV) S_u + BV D_u &= 2t(2A+B) \, , \label{appeq:saf-Su-sc-ABC} \\
+	(1+2CV) D_u + BV S_u &= 2t(B+2C) \, , \label{appeq:saf-Du-sc-ABC} \\
+	(1+2AV) S_v + BV D_v &= 0 \, , \label{appeq:saf-Sv-sc-ABC} \\
+	(1+2CV) D_v + BV S_v &= 0 \, . \label{appeq:saf-Dv-sc-ABC}
+\end{align}
+	
 \begin{enumerate}
-	\item Let us start by applying a linear transform on the map: define the new ``sum'' and ``difference'' variables
+	\item \textit{Either $S_v = 0 \land D_v = 0$, or $S_v \neq 0 \land D_v \neq 0$.}
+	
+	\paragraph{Proof.}
+	
+	Let $S_v = 0$. From Eq.~\eqref{appeq:saf-Dv-sc-ABC}, using $C = F\left[c_y^2 \right] \ge 0$ implied by Eq.~\eqref{appeq:saf-F-positivity}:
 	\[
-	S_u \equiv u^{(s^*)} + u^{(d)}
-	\qquad
-	D_u \equiv u^{(s^*)} - u^{(d)}
-	\qquad
-	S_v \equiv v^{(s^*)} + v^{(d)}
-	\qquad
-	D_v \equiv v^{(s^*)} - v^{(d)}
-	\]
-	whose matrix representation is
-	\[
-	\begin{bmatrix}
-		S_u \\ D_u \\ S_v \\ D_v
-	\end{bmatrix} \equiv \begin{bmatrix}
-		1 & 1 && \\
-		1 & -1 && \\
-		&& 1 & 1 \\
-		&& 1 & -1
-	\end{bmatrix} \begin{bmatrix}
-		u^{(s^*)} \\ u^{(d)} \\ v^{(s^*)} \\ v^{(d)}
-	\end{bmatrix}
-	\]
-	The map transform is obtained by summing and subtracting two couples of equations: Eq.~\eqref{appeq:saf-uS-sc-ABC} and \eqref{appeq:saf-ud-sc-ABC} (the first two) as well as Eq.~\eqref{appeq:saf-vS-sc-ABC} and \eqref{appeq:saf-vd-sc-ABC} (the second two). By doing this we get the simplified system:
-	\begin{align}
-		(1+2AV) S_u + BV D_u &= 2t(2A+B) \label{appeq:saf-Su-sc-ABC} \\
-		(1+2CV) D_u + BV S_u &= 2t(B+2C) \label{appeq:saf-Du-sc-ABC} \\
-		(1+2AV) S_v + BV D_v &= 0 \label{appeq:saf-Sv-sc-ABC} \\
-		(1+2CV) D_v + BV S_v &= 0 \label{appeq:saf-Dv-sc-ABC}
-	\end{align}
-	%
-	\item Let $S_v = 0$. Then $D_v = 0$. From Eq.~\eqref{appeq:saf-Dv-sc-ABC}, using $C = F\left[c_y^2 \right] \ge 0$ implied by Eq.~\eqref{appeq:saf-F-positivity}:
-	\[
-	\underbrace{(1+2CV)}_{>0} D_v = 0
-	\quad\implies\quad
-	D_v = 0
+		\underbrace{(1+2CV)}_{>0} D_v = 0
+		\quad\implies\quad
+		D_v = 0 \, .
 	\]
 	Identically, let $D_v = 0$. Then applying the same consideration on Eq.~\eqref{appeq:saf-Sv-sc-ABC} with $C \leftrightarrow A$, we conclude $S_v = 0$. Either both are non-zero or both are zero.
 	%
-	\item Let $S_v \neq 0$ and $D_v \neq 0$. Then $B \neq 0$. To prove this, consider for example Eq.~\eqref{appeq:saf-Sv-sc-ABC}: we are working at $V>0$, thus
+	\item \textit{Let $S_v \neq 0 \land D_v \neq 0$. Then $B \neq 0$.} 
+	
+	\paragraph{Proof.}
+	
+	To prove this, consider for example Eq.~\eqref{appeq:saf-Sv-sc-ABC}: we are working at $V>0$, thus
 	\[
-	B = - \frac{1 + 2AV}{V} \frac{S_v}{D_v}
+		B = - \frac{1 + 2AV}{V} \frac{S_v}{D_v} \, ,
 	\]
 	which is non-zero because $A = F\left[c_x^2 \right] \ge 0$, the latter following from Eq.~\eqref{appeq:saf-F-positivity}. We could have used identically Eq.~\eqref{appeq:saf-Dv-sc-ABC}.
 	%
-	\item Let $S_v \neq 0$ and $D_v \neq 0$. Hence the following relation holds:
+	\item \textit{Let $S_v \neq 0 \land D_v \neq 0$. Hence the following relation holds:}
 	\begin{equation}\label{appeq:saf-BV2-relation}
-		(BV)^2 = (1+2CV)(1+2AV)
+		(BV)^2 = (1+2CV)(1+2AV) \, .
 	\end{equation}
-	To prove the latter, it is sufficient to multiply Eq.~\eqref{appeq:saf-Sv-sc-ABC} by $BV \neq 0$ (see point above),
+	
+	\paragraph{Proof.}
+	
+	We multiply Eq.~\eqref{appeq:saf-Sv-sc-ABC} by $BV \neq 0$ (see point above),
 	\[
-	BV (1+2AV) S_v + (BV)^2 D_v = 0
+		BV (1+2AV) S_v + (BV)^2 D_v = 0 \, ,
 	\]
 	and substitute from Eq.~\eqref{appeq:saf-Dv-sc-ABC} $BV S_v = - (1+2CV) D_v$,
 	\[
-	\left[- (1+2CV) (1+2AV) + (BV)^2\right] D_v = 0
+		\left[- (1+2CV) (1+2AV) + (BV)^2\right] D_v = 0 \, .
 	\]
 	Since $D_v \neq 0$ by hypothesis, Eq.~\eqref{appeq:saf-BV2-relation} is implied.
 	%
-	\item Let $S_v \neq 0$ and $D_v \neq 0$. Hence the following relation holds:
+	\item \textit{Let $S_v \neq 0 \land D_v \neq 0$. Hence the following relation holds:}
 	\begin{equation}\label{appeq:saf-B2-4AC-relation}
-		B+2C = V(B^2 - 4AC)
+		B+2C = V(B^2 - 4AC) \, .
 	\end{equation}
-	To prove this: multiply Eq.~\eqref{appeq:saf-Su-sc-ABC} by $BV$ on both sides,
+	
+	\paragraph{Proof.}
+	
+	We multiply Eq.~\eqref{appeq:saf-Su-sc-ABC} by $BV$ on both sides,
 	\[
-	BV (1+2AV) S_u + (BV)^2 D_u = 2t BV(2A+B)
+		BV (1+2AV) S_u + (BV)^2 D_u = 2t BV(2A+B) \, ,
 	\]
 	and substitute from Eq.~\eqref{appeq:saf-Du-sc-ABC} $BV S_v = - (1+2CV) D_v + 2t(B+2C)$,
 	\[
 	\begin{aligned}
 		- (1+2CV)(1+2AV) D_v + 2t(B+2C)(1+2AV) + (BV)^2 D_u &= 2t BV(2A+B) \\
 		2t(B+2C)(1+2AV) &= 2t BV(2A+B) \\
-		B + 2ABV + 2C + 4ACV &= 2ABV + B^2 V
+		B + 2ABV + 2C + 4ACV &= 2ABV + B^2 V \, ,
 	\end{aligned}
 	\]
 	Passing from first to second line we used Eq.~\eqref{appeq:saf-BV2-relation}, and in the passage below $t>0$. Last line implies Eq.~\eqref{appeq:saf-B2-4AC-relation}.
 	%
-	\item Let $S_v \neq 0$ and $D_v \neq 0$. Then $B^2 \neq 4AC$. Indeed, let $B^2 = 4AC$. Then from Eq.~\eqref{appeq:saf-BV2-relation},
+	\item \textit{Let $S_v \neq 0 \land D_v \neq 0$. Then $B^2 \neq 4AC$. }
+	
+	\paragraph{Proof.}
+	
+	Let $B^2 = 4AC$. Then from Eq.~\eqref{appeq:saf-BV2-relation},
 	\[
-	(BV)^2 = 1 + 2V (A+C) + 4ACV^2
-	\quad\implies\quad
-	1 + 2V (A+C) = 0
+		(BV)^2 = 1 + 2V (A+C) + 4ACV^2
+		\quad\implies\quad
+		1 + 2V (A+C) = 0 \, ,
 	\]
-	which is obviously absurd, being $A\ge0$, $C\ge0$ from Eq.~\eqref{appeq:saf-F-positivity}. A consequence of this implication on Eq.~\eqref{appeq:saf-B2-4AC-relation} is that, at a given $V$, the map parameters should satisfy
+	which is absurd, being $A\ge0$, $C\ge0$ from Eq.~\eqref{appeq:saf-F-positivity}. 
+	%
+	\item Using the above point in Eq.~\eqref{appeq:saf-B2-4AC-relation} we get that $V>0$ satisfies:
 	\begin{equation}\label{appeq:saf-B2-4AC-relation-int1}
-		V = \frac{B+2C}{B^2 - 4AC}
+		V = \frac{B+2C}{B^2 - 4AC} \, .
 	\end{equation}
 	%
-	\item Let $S_v \neq 0$ and $D_v \neq 0$. Then $A=C$. To prove this, substitute Eq.~\eqref{appeq:saf-B2-4AC-relation-int1} in Eq.~\eqref{appeq:saf-BV2-relation},
+	\item \textit{Let $S_v \neq 0 \land D_v \neq 0$. Then $A=C$.}
+	
+	\paragraph{Proof.}
+	
+	We substitute Eq.~\eqref{appeq:saf-B2-4AC-relation-int1} in Eq.~\eqref{appeq:saf-BV2-relation},
 	\[
 	\begin{aligned}
 		(B^2 - 4AC) \left(\frac{B+2C}{B^2 - 4AC}\right)^2 - 2\frac{B+2C}{B^2 - 4AC} (A+C) - 1 &= 0 \\
 		(B+2C)^2 - 2(B+2C)(A+C) - (B^2 - 4AC) &= 0 \\
-		B^2 + 4C^2 + 4BC - 2AB - 2BC - 4AC - 4C^2 - B^2 + 4AC &= 0
+		B^2 + 4C^2 + 4BC - 2AB - 2BC - 4AC - 4C^2 - B^2 + 4AC &= 0 \, ,
 	\end{aligned}
 	\]
 	Simplifying all recurring terms, we get
 	\[
-	2B(C-A) = 0
+		2B(C-A) = 0 \, .
 	\]
 	From previous points we know $B\neq 0$. Then $A=C$.
 	%
-	\item It's impossible to have $S_v \neq 0$ and $D_v \neq 0$. To prove this, assume the contrary and use the point above to reduce  Eq.~\eqref{appeq:saf-B2-4AC-relation-int1} to
+	\item \textit{It's impossible to have $S_v \neq 0 \land D_v \neq 0$.}
+	
+	\paragraph{Proof.}
+	
+	To prove this, assume the contrary and use the point above to reduce  Eq.~\eqref{appeq:saf-B2-4AC-relation-int1} to
 	\[
-	A=C
-	\quad\implies\quad
-	V = \frac{B+2C}{B^2 - 4C^2} = \frac{1}{B-2C}
+		A=C
+		\quad\implies\quad
+		V = \frac{B+2C}{B^2 - 4C^2} = \frac{1}{B-2C} \, .
 	\]
 	Inserting the latter in Eq.~\eqref{appeq:saf-Dv-sc-ABC},
 	\[
 	\begin{aligned}
 		\left( 1+\frac{2C}{B-2C} \right) D_v + \frac{B}{B-2C} S_v &= 0 \\
-		\frac{B}{B-2C} D_v + \frac{B}{B-2C} S_v &= 0
+		\frac{B}{B-2C} D_v + \frac{B}{B-2C} S_v &= 0 \, ,
 	\end{aligned} 
 	\]
 	which implies
 	\[
-	D_v + S_v = 0
-	\quad\implies\quad
-	v^{(s^*)} = 0
+		D_v + S_v = 0
+		\quad\implies\quad
+		v^{(s^*)} = 0 \, .
 	\]
 	Recalling from Tab.~\ref{tab:af-ehm-vgamma-self-consistencies} the explicit self-consistency equation for $v^{(d)}$ and setting $v^{(s^*)} = 0$,
 	\[
-	v^{(d)} = - V v^{(d)} F\left[ (c_x-c_y)^2 \right]
+		v^{(d)} = - V v^{(d)} F\left[ (c_x-c_y)^2 \right] \, ,
 	\]
 	and using the positivity rule of Eq.~\eqref{appeq:saf-F-positivity} we get
 	\[
-	V > 0 \qq{and} F\left[ (c_x-c_y)^2 \right] \ge 0
-	\quad\implies\quad
-	v^{(d)} = 0
+		V > 0 \qq{and} F\left[ (c_x-c_y)^2 \right] \ge 0
+		\quad\implies\quad
+		v^{(d)} = 0 \, ,
 	\]
 	because no finite positive number can equal any finite negative number, and \textit{viceversa}. Thus
 	\[
-	S_v \neq 0 \qq{and} D_v \neq 0
-	\quad\implies\quad
-	v^{(s^*)} = v^{(d)} = 0
-	\quad\implies\quad
-	S_v = D_v = 0
+		S_v \neq 0 \qq{and} D_v \neq 0
+		\quad\implies\quad
+		v^{(s^*)} = v^{(d)} = 0
+		\quad\implies\quad
+		S_v = D_v = 0 \, .
 	\]
-	Absurd. We explored any possibility for $S_v$, $D_v$: no stable solution with finite values of the HFPs $v^{(s^*)}$, $v^{(d)}$ exists, thus both must be zero and can be eliminated from the algorithm.
+	Absurd.
+	%
+	\item Combining the above point with our first point, we get that $S_v = 0 \land D_v = 0$.
 \end{enumerate}
+Eq.~\eqref{appeq:af-vs*-vd-constraint} is a consequence of the last point.
+\end{tabproof}
+
+We explored any possibility for $S_v$, $D_v$: no stable solution with finite values of the HFPs $v^{(s^*)}$, $v^{(d)}$ exists, thus both must be zero and can be eliminated from the algorithm.
+
 To gain full knowledge on the map fixed point's shape, we should analyse similarly the behaviour of the self-consistency equations for $u^{(s^*)}$, $u^{(d)}$. This is done later in Sec.~\ref{appsubsec:af-bands-shrinking-C2}. For now, it suffices to note that -- limitedly to the sAF phase -- gap complexification is not present. This effect is not a consequence of HF derivation, which remains self-coherent and general; it is instead of the peculiar form of the non-linear map defined by the set of self-consistency equations.
 
-\subsection{Selection rules on the magnetic HFPs in sAF phase}\label{appsubsec:af-HFPs=0-aAF}
+\subsection{Selection rules on the magnetic HFPs in aAF phase}\label{appsubsec:af-HFPs=0-aAF}
 
-Let us discuss the sAF phase. It is described by the five HFPs on the second row of Tab.~\ref{tab:af-saf-aaf-hfps}, as well as the self-consistency equations of Tabs.~\ref{tab:af-ehm-ugamma-self-consistencies} and \ref{tab:af-ehm-vgamma-self-consistencies}. We continue using the functional $F$ as defined in Eq.~\eqref{appeq:saf-F-definition}. We also define $A,B,C$ as in Eq.~\eqref{appeq:saf-ABC-def}. Let $s_\ell \equiv \sin k_\ell$, and
+Let us discuss the aAF phase. It is described by the five HFPs on the second row of Tab.~\ref{tab:af-saf-aaf-hfps}, as well as the self-consistency equations of Tabs.~\ref{tab:af-ehm-ugamma-self-consistencies} and \ref{tab:af-ehm-vgamma-self-consistencies}. We continue using the functional $F$ as defined in Eq.~\eqref{appeq:saf-F-definition}. We also define $A,B,C$ as in Eq.~\eqref{appeq:saf-ABC-def}. Let $s_\ell \equiv \sin k_\ell$, and
 \begin{equation}\label{appeq:saf-PQR-def}
-	P \equiv F\left[s_x^2\right]
+	P \equiv F\left[s_x^2\right] \, ,
 	\qquad
-	Q \equiv 2F\left[s_x s_y\right]
+	Q \equiv 2F\left[s_x s_y\right] \, ,
 	\qquad
-	R \equiv F\left[s_y^2\right]
+	R \equiv F\left[s_y^2\right] \, .
 \end{equation}
 Using these definitions, four of five self-consistency equations are given by
 \begin{align}
 	u^{(s^*)} &=
-	\left[2t - Vu^{(s^*)}\right] (A+B+C) -  Vu^{(d)} (A-C) \label{appeq:aaf-uS-sc-ABC} \\
+	\left[2t - Vu^{(s^*)}\right] (A+B+C) -  Vu^{(d)} (A-C) \, , \label{appeq:aaf-uS-sc-ABC} \\
 	u^{(d)} &=
-	\left[2t - Vu^{(s^*)}\right] (A-C) -  Vu^{(d)} (A-B+C) \label{appeq:aaf-ud-sc-ABC} \\
+	\left[2t - Vu^{(s^*)}\right] (A-C) -  Vu^{(d)} (A-B+C) \, , \label{appeq:aaf-ud-sc-ABC} \\
 	v^{(p_x)} &=
-	- Vv^{(p_x)} P - Vv^{(p_y)} Q\label{appeq:aaf-vx-sc-PQR} \\
+	- Vv^{(p_x)} P - Vv^{(p_y)} Q \, ,\label{appeq:aaf-vx-sc-PQR} \\
 	v^{(p_y)} &=
-	- Vv^{(p_x)} Q - Vv^{(p_y)} R \label{appeq:aaf-vy-sc-PQR}
+	- Vv^{(p_x)} Q - Vv^{(p_y)} R \, . \label{appeq:aaf-vy-sc-PQR}
 \end{align}
-Let us prove that both $v^{(p_\ell)}=0$.
-\begin{enumerate}
-	\item For the aAF phase, $Q=0$. We write $Q$ explicitly
+We have:
+\begin{equation}\label{appeq:af-vx-vy-constraint}
+	v^{(p_x)} = 0
+	\qq{and}
+	v^{(p_y)} = 0 \, .
+\end{equation}
+
+\begin{tabproof}[Proof of Eq.~\eqref{appeq:af-vx-vy-constraint}: all antisymmetric complexifiers vanish]
+
+	Let us write the equation for $Q$, given in Eq.~\eqref{appeq:saf-PQR-def}, explicitly:
 	\[
 	\begin{aligned}
 		Q &= F\left[s_x s_y\right] \\
 		&= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \frac{\tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]}{\tilde{E}_\mathbf{k}} \sin k_x \sin k_y \\
 		&= \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{\tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]}{\tilde{E}_\mathbf{k}} \sin k_x \sin k_y \\
-		&= \frac{1}{2L_x L_y} \sum_{k_x=-\pi}^{+\pi} \sin k_x \sum_{k_y=-\pi}^{+\pi} \frac{\tilde{\mathrm{Th}}_{(k_x,k_y)}^{(-)}[\beta,\tilde{\mu}]}{\tilde{E}_{(k_x,k_y)}} \sin k_y
+		&= \frac{1}{2L_x L_y} \sum_{k_x=-\pi}^{+\pi} \sin k_x \sum_{k_y=-\pi}^{+\pi} \frac{\tilde{\mathrm{Th}}_{(k_x,k_y)}^{(-)}[\beta,\tilde{\mu}]}{\tilde{E}_{(k_x,k_y)}} \sin k_y \, .
 	\end{aligned}
 	\]
-	From second to third line, we used MBZ periodicity. The $k_y$ sum at last line is null: even if using antiperiodic harmonics for $\Im\lbrace \tilde{\Delta}_\mathbf{k} \rbrace$, we did not break inversion symmetry neither in $x$ nor $y$ direction. Bogoliubov bands $\tilde{E}_\mathbf{k}$ and thermal factors must show said symmetry. The product of a symmetric function ($\tilde{\mathrm{Th}}/\tilde{E}$) with $\sin k_y$ integrates to zero. This ends the point.
-	%
-	\item $v^{(p_x)}=0$. To see this, just plug $Q=0$ in Eq.~\eqref{appeq:aaf-vx-sc-PQR},
+	Passing from second to third line, we used MBZ periodicity. The $k_y$ sum at last line is null: even if using antiperiodic harmonics for $\Im\lbrace \tilde{\Delta}_\mathbf{k} \rbrace$, we did not break inversion symmetry neither in $x$ nor $y$ direction. Bogoliubov bands $\tilde{E}_\mathbf{k}$ and thermal factors must show said symmetry. The product of a symmetric function ($\tilde{\mathrm{Th}}/\tilde{E}$) with $\sin k_y$ integrates to zero. Then
 	\[
-	v^{(p_x)} = - V v^{(p_x)} F\left[ s_x^2 \right]
+		Q=0 \, .
 	\]
-	Using the positivity rule of Eq.~\eqref{appeq:saf-F-positivity} we get
+	Using this result in Eq.~\eqref{appeq:aaf-vx-sc-PQR}, we get
 	\[
-	V > 0 \qq{and} F\left[ s_x^2 \right] \ge 0
-	\quad\implies\quad
-	v^{(p_x)} = 0
+		v^{(p_x)} = - V v^{(p_x)} F\left[ s_x^2 \right] \, .
 	\]
-	%
-	\item $v^{(p_y)}=0$. Same proof as point above.
-\end{enumerate}
-This ends this short section and shows that also for the aAF phase all gap complexifiers actually vanish. These constraints are coherent with the constraint of Eq.~\eqref{eq:af-vgamma-circle}.
+	Using the positivity rule of Eq.~\eqref{appeq:saf-F-positivity} we obtain
+	\[
+		V > 0 \qq{and} F\left[ s_x^2 \right] \ge 0
+		\quad\implies\quad
+		v^{(p_x)} = 0 \, .
+	\]
+	Identically, from Eq.~\eqref{appeq:aaf-vy-sc-PQR} we get $v^{(p_y)}=0$. This proves Eq.~\eqref{appeq:af-vx-vy-constraint}.
+
+\end{tabproof}
+
+This ends this short section and shows that also for the aAF phase all gap complexifiers actually vanish. Eqs.~\eqref{appeq:af-vs*-vd-constraint} and \eqref{appeq:af-vx-vy-constraint}, combined, give Eq.~\eqref{appeq:af-vgamma-constraint}. The latter is coherent with the constraint of Eq.~\eqref{eq:af-vgamma-circle}.
 
 \subsection{Bands shrinking in $\mathrm{C}_2/\mathbb{Z}_2$}\label{appsubsec:af-bands-shrinking-C2}
 
@@ -785,17 +929,36 @@ A consequence of the two sections above is that the gap function is purely real,
 \[
 	\tilde{\Delta}_\mathbf{k} = mU
 	\quad\implies\quad
-	\tilde{E}_\mathbf{k} = \sqrt{\tilde{\epsilon}_\mathbf{k}^2 + (mU)^2}
+	\tilde{E}_\mathbf{k} = \sqrt{\tilde{\epsilon}_\mathbf{k}^2 + (mU)^2} \, .
 \]
-Bogoliubov bands maintain renormalisation through the $u^{(\gamma)}$ HFPs channel. Aim of this section is to prove that, as was for the normal phase, no nematicity occurs in the AF phase, giving $u^{(d)}=0$. 
+Bogoliubov bands maintain renormalisation through the $u^{(\gamma)}$ HFPs channel. For the AF phase, Eq.~\eqref{appeq:af-us*-ud-constraint} holds,
+\[
+	0 < u^{(s^*)} < 2t/V
+	\qq{and}
+	u^{(d)} = 0 \, .
+\]
+Starting from a rather complicated scenario, we were able to reduce all the AF HFPs down to the pair
+\[
+	m, u^{(s^*)} \, .
+\]
+Perhaps not-so-excitingly, the real net effect of the non-local extension of the HM is, once again, the shrinking effect on bands.
 
-While the proof given in Sec.~\ref{appsubsec:normal-bands-shrinking-C2} was long and quite elaborated, this one is actually very short. Let us start from recalling the normal phase context:
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\linewidth]{../Project/src/labs/functions/pseudo-dirac.pdf}
+	\caption{Sketch of the Fermi-Dirac distribution $f(x)$ and the pseudo-distribution $f'(x)$ described in text for the normal phase. These example data have been plotted arbitrarily at $mU=\Delta=0.2$ for $\mu=0.0,0.3,0.6$.}
+	\label{appfig:pseudo-dirac}
+\end{figure}
+
+\begin{tabproof}[Proof of Eq.~\eqref{appeq:af-us*-ud-constraint}: non-nematic bands shrinking effect in $\mathrm{C}_2$]
+
+While the proof given in Sec.~\ref{appsubsec:normal-bands-shrinking-C2} was long and quite elaborated, this one is shorter. Let us start from recalling the normal phase context:
 \[
 \text{Normal phase:}
 \qquad
 \begin{aligned}
-	u^{(s^*)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \\
-	u^{(d)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
+	u^{(s^*)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \, , \\
+	u^{(d)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \, ,
 \end{aligned}
 \]
 while, using $\bm{\pi}$ periodicity, in the present context we can re-write all equations doubling the integration domain,
@@ -803,40 +966,33 @@ while, using $\bm{\pi}$ periodicity, in the present context we can re-write all 
 \text{AF phase:}
 \qquad
 \begin{aligned}
-	u^{(s^*)} &= -\frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) \frac{\tilde{\epsilon}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}] \\
-	u^{(d)} &= -\frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) \frac{\tilde{\epsilon}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}] 
+	u^{(s^*)} &= -\frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) \frac{\tilde{\epsilon}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}] \, ,\\
+	u^{(d)} &= -\frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) \frac{\tilde{\epsilon}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}] \, .
 \end{aligned}
 \]
 Let us define the pseudo distribution
 \[
-f'(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \equiv - \frac{\tilde{\epsilon}_\mathbf{k}}{2\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]
+	f'(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \equiv - \frac{\tilde{\epsilon}_\mathbf{k}}{2\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}] \, ,
 \]
-which, substituted in the self-consistency equations, makes them very similar to the normal ones, up to a $f \to f'$ exchange.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\linewidth]{../Project/src/labs/functions/pseudo-dirac.pdf}
-	\caption{Sketch of the Fermi-Dirac distribution $f(x)$ and the pseudo-distribution $f'(x)$ described in text for the normal phase. These example data have been plotted arbitrarily at $mU=\Delta=0.2$ for $\mu=0.0,0.3,0.6$.}
-	\label{appfig:pseudo-dirac}
-\end{figure}
+which, substituted in the self-consistency equations, makes them very similar to the normal ones, up to a $f \to f'$ exchange. We plot $f(x)$ and $f'(x)$ in Fig.~\ref{appfig:pseudo-dirac} for various choices of the chemical potential.
 
 The fact that $u^{(d)}=0$ follows from the simple consideration that in Sec.~\ref{appsubsec:normal-bands-shrinking-C2} (when showing the same for the normal phase) we never used the specific form of $f$; instead, we only made use of it being monotonically descendent as a function of $\epsilon_\mathbf{k}$. If $f'$ also is a monotonically descendent function of $\epsilon_\mathbf{k}$, we can re-use the entire derivation of Sec.~\ref{appsubsec:normal-bands-shrinking-C2}. Let us show that using a somewhat lighter notation,
 \[
-\epsilon_\mathbf{k} \to x
-\qquad
-mU \to \Delta
+	\epsilon_\mathbf{k} \to x
+	\qq{and}
+	mU \to \Delta \, ,
 \]
 and omitting parametric arguments. The function $f'$ is given by the product
 \[
-f'(x) = g(x) h(x)
+	f'(x) = g(x) h(x) \, ,
 \]
 with
 \[
 \begin{aligned}
-	g(x) &= -\frac{x}{\sqrt{x^2 + \Delta^2}} \\
+	g(x) &= -\frac{x}{\sqrt{x^2 + \Delta^2}} \, ,\\
 	h(x) &= \left(
-	\frac{1}{e^{\beta(\sqrt{x^2+\Delta^2}-\mu)}+1} - \frac{1}{e^{\beta(-\sqrt{x^2+\Delta^2}-\mu)}+1}
-	\right)
+	\frac{1}{e^{\beta(\sqrt{x^2+\Delta^2}-\mu)}+1} - \frac{1}{e^{\beta(-\sqrt{x^2+\Delta^2}-\mu)}+1} 
+	\right) \, .
 \end{aligned}
 \]
 The following points are true:
@@ -847,20 +1003,19 @@ The following points are true:
 	\[
 	\begin{aligned}
 		\dv{g}{x} &= - \frac{\sqrt{x^2 + \Delta^2} - x^2/\sqrt{x^2 + \Delta^2}}{x^2 + \Delta^2} \\
-		&= -\frac{\Delta^2}{(x^2 + \Delta^2)^{3/2}}
+		&= -\frac{\Delta^2}{(x^2 + \Delta^2)^{3/2}} < 0 \, .
 	\end{aligned}
 	\]
-	which is always negative.
 	%
 	\item The product $g(x)h(x)$ is monotonically descendent at positive finite doping. To prove this, we can compute the derivative of $f'$,
 	\[
-	\dv{f'}{x} = \dv{g}{x} h(x) + g(x) \dv{h}{x}
+		\dv{f'}{x} = \dv{g}{x} h(x) + g(x) \dv{h}{x} \, .
 	\]
 	We have $h(x)>0$, and as we said $\mathrm{d}g/\mathrm{d}x<0$, which makes the first term negative. The second is negative too: let
 	\[
-	E(x) \equiv \sqrt{x^2 + \Delta^2}
-	\quad\implies\quad
-	\dv{E}{x} = \frac{x}{E(x)} = -g(x)
+		E(x) \equiv \sqrt{x^2 + \Delta^2}
+		\quad\implies\quad
+		\dv{E}{x} = \frac{x}{E(x)} = -g(x) \, .
 	\]
 	Then:
 	\[
@@ -872,23 +1027,21 @@ The following points are true:
 			\left[
 			\frac{e^{\beta(-E(x)-\mu)}}{\left[e^{\beta(-E(x)-\mu)}+1\right]^2} + \frac{e^{\beta(E(x)-\mu)}}{\left[e^{\beta(E(x)-\mu)}+1\right]^2}
 			\right]	
-		}_{k(x)}
+		}_{k(x)} \, .
 	\end{aligned}
 	\]
-	The term in square brackets is obviously positive, $k(x)>0$. Taking all together, we have
+	The term in square brackets is positive, $k(x)>0$. Taking all together, we have
 	\[
-	g(x) \dv{h}{x} = -\beta g^2(x) k(x) < 0
-	\quad\implies\quad
-	\dv{f'}{x} < 0
+		g(x) \dv{h}{x} = -\beta g^2(x) k(x) < 0
+		\quad\implies\quad
+		\dv{f'}{x} < 0 \, .
 	\]
-	making $f'$ descendent monotonicity proven.
+	Hence $f'$ decreases monotonously.
 \end{enumerate}
 These points end the proof: as anticipated, $f'$ is a monotonically descendent function of $\epsilon_\mathbf{k}$, a feature that allows us to re-use the entire derivation of Sec.~\ref{appsubsec:normal-bands-shrinking-C2}, and conclude that also for the AF phase
 \[
-	u^{(d)} = 0
+	u^{(d)} = 0 \, ,
 \]
-while $u^{(s^*)}$ remains constrained in the limits of Eq.~\eqref{appeq:af-us*-constraint}. Starting from a rather complicated scenario, we were able to reduce all the AF HFPs down to the pair
-\[
-	m, u^{(s^*)}
-\]
-Perhaps not-so-excitingly, the real net effect of the non-local extension of the HM is, once again, the shrinking effect on bands.
+while $u^{(s^*)}$ remains constrained in the limits of Eq.~\eqref{appeq:af-us*-constraint}.
+
+\end{tabproof}

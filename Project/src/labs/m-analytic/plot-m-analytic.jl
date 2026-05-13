@@ -21,12 +21,14 @@ ax = axs[1]
 ax.xlabel = L"$U$"
 ax.ylabel = L"$m$"
 ax.title = "Half-filling hyperbolic approximation"
+ax.titlefont = :regular
 
 ax = axs[2]
 ax.xlabel = L"$U$"
 ax.ylabelvisible=false
 ax.yticklabelsvisible=false
 ax.title = "Half-filling exponential approximation"
+ax.titlefont = :regular
 
 ρρ = [0.12,0.14,0.16,0.18,0.2,0.22]
 xx = [x for x in 0:0.01:16]
