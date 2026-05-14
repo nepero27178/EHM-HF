@@ -32,8 +32,8 @@ const Quieter::Vector{RGB{Float64}} = vcat(
 )
 const CoolQuiet::Vector{RGB{Float64}} = [Colors.convert(RGB, c) for c in range(TabBlueLab, stop=TabGreenLab, length=TotalLabSteps)]
 const BlackLight::Vector{RGB{Float64}} = vcat(
-	[Colors.convert(RGB, c) for c in range(BlackLab, stop=GrayLab, length=Int(TotalLabSteps*6/10))],
-	[Colors.convert(RGB, c) for c in range(WhiteLab, stop=WhiterLab, length=Int(TotalLabSteps*4/10))]
+	[Colors.convert(RGB, c) for c in range(BlackLab, stop=GrayLab, length=Int(TotalLabSteps*3/10))],
+	[Colors.convert(RGB, c) for c in range(WhiteLab, stop=WhiterLab, length=Int(TotalLabSteps*7/10))]
 )
 
 # Add colorschemes

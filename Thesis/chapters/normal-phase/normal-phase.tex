@@ -79,7 +79,7 @@ As we will see in detail and is summarised in Tab.~\ref{tab:normal-RWCs}, Hartre
 \begin{table}[t]
 	\centering
 	\begin{tabular}{c c c l}
-		\textbf{Operator} & \textbf{Sector} & \textbf{RWCs} & \textbf{Net effect} \\
+		\textbf{Operator} & \textbf{Sector} & \textbf{Channel} & \textbf{Net effect} \\
 		\midrule
 		$\hat H_U$ && Hartree & $\mu$ shift by $-nU$ \\
 		\midrule
@@ -88,7 +88,7 @@ As we will see in detail and is summarised in Tab.~\ref{tab:normal-RWCs}, Hartre
 		&& Fock & Bands renormalisation and resymmetrization \\
 		\midrule
 	\end{tabular}
-	\caption{Relevant Wick's contractions and net effect in the normal phase.}
+	\caption{Wick's contractions for each interaction and channel in the HF framework, and their net effect in the normal phase.}
 	\label{tab:normal-RWCs}
 \end{table}
 
@@ -206,29 +206,47 @@ as is reported in Tab.~\ref{tab:normal-RWCs}. This result is valid for all the o
 		(\text{Fock channel}) \, .
 	\end{equation}
 	Summing Eqs.~\eqref{eq:normal-HU-hartree-approx} and \eqref{eq:normal-HV-hartree-approx}, we obtain Eq.~\eqref{eq:normal-HU+HV-hartree-approx}.
-	
 \end{tabproof}
 
-Using Eq.~\eqref{eq:normal-<n_i>} in Eqs.~\eqref{eq:normal-HU-hartree-Ec-implicit}, \eqref{eq:normal-HV-hartree-Ec-implicit} we obtain
+The contraction energies of Eqs.~\eqref{eq:normal-HU-hartree-Ec-implicit}, \eqref{eq:normal-HV-hartree-Ec-implicit} read
 \begin{align}
 	E_{\mathrm{H},U}^{(\mathrm{N})} &= -n^2 U \label{eq:normal-HU-hartree-Ec} \\
-	E_{\mathrm{H},V}^{(\mathrm{N})} &= V \sum_{\ev{ij}} \sum_\sigma \left(
-	\langle 
-	\hat n_{i\sigma}
-	\rangle \langle 
-	\hat n_{j\sigma}
-	\rangle
-	+
-	\langle 
-	\hat n_{i\sigma}
-	\rangle \langle 
-	\hat n_{j\overline{\sigma}}
-	\rangle
-	\right) \nonumber \\
-	&= 2V \sum_{\ev{ij}} \sum_\sigma n^2 \nonumber \\
+	E_{\mathrm{H},V}^{(\mathrm{N})}
 	&= L_x L_y \times 2zn^2 V \, . \label{eq:normal-HV-hartree-Ec}
 \end{align}
-where in last line we used Eq.~\eqref{eq:square-NN-ghost-sum}, and $z=4$ is the lattice coordination number.
+where $z=4$ is the lattice coordination number.
+
+\begin{tabproof}[Proof of Eqs.~\eqref{eq:normal-HU-hartree-Ec}, \eqref{eq:normal-HV-hartree-Ec}: Hartree contraction energies]
+	
+	Using Eq.~\eqref{eq:normal-<n_i>} in Eq.~\eqref{eq:normal-HU-hartree-Ec-implicit}, we obtain
+	\[
+	\begin{aligned}
+		E_{\mathrm{H},U}^{(\mathrm{N})} &= -U \sum_{\mathbf{r} \in \mathcal{L}} n \\
+		&= -n^2 U \, ,
+	\end{aligned}
+	\]
+	which proves Eq.~\eqref{eq:normal-HU-hartree-Ec}. Doing the same in Eq.~\eqref{eq:normal-HV-hartree-Ec-implicit}, we get
+	\[
+	\begin{aligned}	
+		E_{\mathrm{H},V}^{(\mathrm{N})} &= V \sum_{\ev{ij}} \sum_\sigma \left(
+		\langle 
+		\hat n_{i\sigma}
+		\rangle \langle 
+		\hat n_{j\sigma}
+		\rangle
+		+
+		\langle 
+		\hat n_{i\sigma}
+		\rangle \langle 
+		\hat n_{j\overline{\sigma}}
+		\rangle
+		\right) \\
+		&= 2V \sum_{\ev{ij}} \sum_\sigma n^2 \\
+		&= L_x L_y \times 2zn^2 V \, , 
+	\end{aligned}
+	\]
+	where in last line we used Eq.~\eqref{eq:square-NN-ghost-sum}. We obtained Eq.~\eqref{eq:normal-HV-hartree-Ec}.
+\end{tabproof}
 
 \subsection{Effects of the Fock terms: bare bands renormalisation}\label{subsec:normal-fock-bands}
  
@@ -260,11 +278,11 @@ Using the Fourier transform of $\hat H_V$ given in Eq.~\eqref{eq:HV-ss-fourier},
 	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger 
 	\hat c_{\mathbf{K}-\mathbf{k}' \sigma}
 	\rangle
-	\hat c_{\mathbf{K}-\mathbf{k} \sigma}^\dagger  \hat c_{\mathbf{K}+\mathbf{k}'\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \, . \label{eq:normal-V-fock-int1}
+	\hat c_{\mathbf{K}-\mathbf{k} \sigma}^\dagger  \hat c_{\mathbf{K}+\mathbf{k}'\sigma} - E_{\mathrm{F},V}^{(\mathrm{N})} \, . \label{eq:normal-V-fock-int1}
 \end{multline}
 Here, the $2$ prefactor comes from the fact that the first two operators in square brackets in Eq.~\eqref{eq:normal-HV-fock} are equal in reciprocal space. The contraction energy shift is given by
 \begin{align}\label{eq:normal-V-fock-double-counting}
-	E_{\mathrm{F}/V}^{(\mathrm{N})} \equiv \frac{V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left(
+	E_{\mathrm{F},V}^{(\mathrm{N})} \equiv \frac{V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left(
 		\cos \left(
 			\delta k_x
 		\right)	+ \cos \left(
@@ -290,7 +308,7 @@ By recalling the definition of $u_{\mathbf{k}\sigma} = \langle \hat n_{\mathbf{k
 		\varphi_\mathbf{k}^{(d)*}
 	\right)
 	\hat c_{\mathbf{k}\sigma}^\dagger
-	\hat c_{\mathbf{k}\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \, ,
+	\hat c_{\mathbf{k}\sigma} - E_{\mathrm{F},V}^{(\mathrm{N})} \, ,
 \end{equation}
 where $u_\sigma^{(\gamma)}$ are the harmonics of the occupation $u_{\mathbf{k}\sigma}$, defined as
 \begin{equation}\label{eq:normal-ugamma-harmonics}
@@ -334,7 +352,7 @@ where $u_\sigma^{(\gamma)}$ are the harmonics of the occupation $u_{\mathbf{k}\s
 		\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger 
 		\hat c_{\mathbf{K}+\mathbf{k} \sigma}
 		\rangle
-		\hat c_{\mathbf{K}-\mathbf{k} \sigma}^\dagger  \hat c_{\mathbf{K}-\mathbf{k}\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \, . \label{eq:normal-V-fock-int2}
+		\hat c_{\mathbf{K}-\mathbf{k} \sigma}^\dagger  \hat c_{\mathbf{K}-\mathbf{k}\sigma} - E_{\mathrm{F},V}^{(\mathrm{N})} \, . \label{eq:normal-V-fock-int2}
 	\end{multline}
 	Let now $\mathbf{q}\equiv\mathbf{K}+\mathbf{k}$, $\mathbf{q}'\equiv\mathbf{K}-\mathbf{k}$. A representation of this variables change is given in Fig.~\ref{fig:Kk-qq'}. Being (for $\ell=x,y$)
 	\[
@@ -358,7 +376,7 @@ where $u_\sigma^{(\gamma)}$ are the harmonics of the occupation $u_{\mathbf{k}\s
 			\hat c_{\mathbf{q}\sigma}^\dagger 
 			\hat c_{\mathbf{q}\sigma}
 		\rangle}_{u_{\mathbf{q}\sigma}}
-		\hat c_{\mathbf{q}'\sigma}^\dagger  \hat c_{\mathbf{q}'\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \, , \label{eq:normal-V-fock-int3}
+		\hat c_{\mathbf{q}'\sigma}^\dagger  \hat c_{\mathbf{q}'\sigma} - E_{\mathrm{F},V}^{(\mathrm{N})} \, , \label{eq:normal-V-fock-int3}
 	\end{multline}
 	where we recognised $u_{\mathbf{q}\sigma}$, as was defined in Eq.~\eqref{eq:normal-uqsigma-def}. Using Eq.~\eqref{eq:coscos-symmetries-decomposition}, we obtain
 	\begin{multline}
@@ -370,14 +388,14 @@ where $u_\sigma^{(\gamma)}$ are the harmonics of the occupation $u_{\mathbf{k}\s
 		\sum_{\mathbf{q}'\in\mathrm{BZ}}
 		\varphi_{\mathbf{q}'}^{(\gamma)*}
 		\hat c_{\mathbf{q}'\sigma}^\dagger
-		\hat c_{\mathbf{q}'\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \, , \label{eq:normal-V-fock-int4}
+		\hat c_{\mathbf{q}'\sigma} - E_{\mathrm{F},V}^{(\mathrm{N})} \, , \label{eq:normal-V-fock-int4}
 	\end{multline}
 	where we used the functions defined in Tab.~\ref{tab:x-wave-reciprocal-factors}. We recognise the harmonics $u_\sigma^{(\gamma)}$ from Eq.~\eqref{eq:normal-ugamma-harmonics},
 	\begin{equation}\label{eq:normal-V-fock-int5}
 		\hat H_V \HFsimeq (\text{Hartree channel}) + V \sum_{\mathbf{q}'\in\mathrm{BZ}} \sum_{\gamma,\sigma} u_\sigma^{(\gamma)}
 		\varphi_{\mathbf{q}'}^{(\gamma)*}
 		\hat c_{\mathbf{q}'\sigma}^\dagger
-		\hat c_{\mathbf{q}'\sigma} - E_{\mathrm{F}/V}^{(\mathrm{N})} \, ,
+		\hat c_{\mathbf{q}'\sigma} - E_{\mathrm{F},V}^{(\mathrm{N})} \, ,
 	\end{equation}
 	which is almost Eq.~\eqref{eq:normal-HV-fock-approx}. 
 	
@@ -392,7 +410,6 @@ where $u_\sigma^{(\gamma)}$ are the harmonics of the occupation $u_{\mathbf{k}\s
 		\ell\in\lbrace x,y \rbrace \, .
 	\end{equation}
 	Using this observation in Eq.~\eqref{eq:normal-V-fock-int5}, we obtain Eq.~\eqref{eq:normal-HV-fock-approx}.
-	
 \end{tabproof}
 
 Bringing together Eq.~\eqref{eq:normal-HV-fock-approx} with Eqs.~\eqref{eq:normal-HU-hartree-approx}, \eqref{eq:normal-HV-hartree-approx} we obtain that the quadratic HF approximation to the EHM, for the normal phase, depends on the renormalised chemical potential $\tilde{\mu}$, and the occupation harmonics $u^{(s^*)}$ and $u^{(d)}$. The chemical potential $\tilde{\mu}$ is fixed by density and determined during computations. To find the ground-state, we must determine self-consistently the two HFPs $u_\sigma^{(s^*)}$, $u_\sigma^{(d)}$ through the self-consistency Eq.~\eqref{eq:normal-ugamma-harmonics}. The symmetry-resolved equations are reported in Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}.
@@ -420,7 +437,7 @@ In Fock channel, we have:
 	\hat H_t + \hat H_V \HFsimeq (\text{Hartree channel}) + \underbrace{
 		\sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \tilde{\epsilon}_{\mathbf{k}\sigma}
 		\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
-	}_{\hat H_{\tilde{t}}} - E_{\mathrm{F}/V}^{(\mathrm{N})} \, ,
+	}_{\hat H_{\tilde{t}}} - E_{\mathrm{F},V}^{(\mathrm{N})} \, ,
 \end{equation}
 where we defined the effective kinetic operator, $\hat H_{\tilde{t}}$. 
 
@@ -448,7 +465,7 @@ As we will discuss in Sec.~\ref{subsec:normal-d-wave-hopping}, the presence of $
 
 We conclude this section by proving that the Fock contraction energy is given by:
 \begin{equation}\label{eq:normal-HV-fock-Ec}
-	E_{\mathrm{F}/V}^{(\mathrm{N})} = L_x L_y \times \frac{V}{2} \sum_\sigma \left(
+	E_{\mathrm{F},V}^{(\mathrm{N})} = L_x L_y \times \frac{V}{2} \sum_\sigma \left(
 		\big|
 			u_\sigma^{(s^*)}
 		\big|^2 + \big|
@@ -462,7 +479,7 @@ Later, using spin degeneracy, we will omit the sum on $\sigma$ and the $1/2$ pre
 
 	Recall Eq.~\eqref{eq:normal-V-fock-double-counting}. Using Eq.~\eqref{eq:normal-<cc>}, it reduces to:
 	\[
-		E_{\mathrm{F}/V}^{(\mathrm{N})} = \frac{V}{L_x L_y} \sum_{ \mathbf{q}, \mathbf{q}'} \sum_\sigma \left[
+		E_{\mathrm{F},V}^{(\mathrm{N})} = \frac{V}{L_x L_y} \sum_{ \mathbf{q}, \mathbf{q}'} \sum_\sigma \left[
 		\cos \left(
 		\delta q_x
 		\right)	+ \cos \left(
@@ -478,7 +495,7 @@ Later, using spin degeneracy, we will omit the sum on $\sigma$ and the $1/2$ pre
 	Inserting Eq.~\eqref{eq:normal-uqsigma-def}, we get:
 	\[
 	\begin{aligned}
-		E_{\mathrm{F}/V}^{(\mathrm{N})} &= L_x L_y \times \frac{V}{2} \sum_{\gamma,\sigma} \left(
+		E_{\mathrm{F},V}^{(\mathrm{N})} &= L_x L_y \times \frac{V}{2} \sum_{\gamma,\sigma} \left(
 		\frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}} \varphi_\mathbf{q}^{(\gamma)} u_{\mathbf{q}\sigma}
 		\right) \left(
 		\frac{1}{L_x L_y} \sum_{\mathbf{q}'\in\mathrm{BZ}} \varphi_{\mathbf{q}'}^{(\gamma)*} u_{\mathbf{q}'\sigma}^*
@@ -503,7 +520,7 @@ where in first line we included the all contraction energies from Eqs.~\eqref{eq
 \begin{equation}\label{eq:normal-Ec}
 	E_\mathrm{c}^{(\mathrm{N})} \equiv
 	-\left(
-	E_{\mathrm{H},U}^{(\mathrm{N})} + E_{\mathrm{H},V}^{(\mathrm{N})} +  E_{\mathrm{F}/V}^{(\mathrm{N})}
+	E_{\mathrm{H},U}^{(\mathrm{N})} + E_{\mathrm{H},V}^{(\mathrm{N})} +  E_{\mathrm{F},V}^{(\mathrm{N})}
 	\right) \, .
 \end{equation}
 All dependence on the HFPs is inside the renormalised bands of Eq.~\eqref{eq:normal-bands-renormalisation} and the contributions to contraction energy.
@@ -602,7 +619,6 @@ A schematics of anisotropic hopping is given in Fig.~\ref{fig:anisotropic-hoppin
 	The right-hand side of last line is independent of $\mathbf{r}$, therefore also $\ev{\hat n_{\mathbf{r}\sigma}}$ is.
 	
 	Note that we never used the actual symmetry of the renormalised bands $\tilde{\epsilon}_\mathbf{k}$, but only the fact that the thermal state obeys the Fermi-Dirac distribution. A perfectly degenerate Fermi gas is always translational invariant and thus cannot exhibit non-uniform charge density.
-	
 \end{tabproof}
 
 From now on, we will omit the spin index $\sigma$ from both the renormalised bands and the renormalised hopping,
@@ -685,7 +701,6 @@ The $2$ prefactor was included to account for spin degeneracy. The above equatio
 		\Big] \, .
 	\end{multline*}
 	Second and fourth terms cancel out. The remaining parts give Eq.~\eqref{eq:normal-s-variant}.
-	
 \end{tabproof}
 
 \subsection{The free energy density of the normal ground-state}\label{subsec:normal-f}
@@ -773,7 +788,6 @@ Here $E_\mathrm{HF}^{(\mathrm{N})}$ is the ground-state energy for the HF hamilt
 		\mu + n(2zV-U) = \tilde{\mu} \, .
 	\]
 	Hence Eq.~\eqref{eq:normal-fMFT} is proven.
-	
 \end{tabproof}
 
 \section{Constraints on the self-consistent solution} \label{sec:normal-sceq-analysis}
@@ -848,53 +862,6 @@ with the equality being verified when bands are completely flattened. The fact t
 	\end{aligned}
 	\]
 	which ends the proof.
-	
-%	We work at low temperature, $\beta \to 0$. The Fermi-Dirac distribution is approximately a step function. Assume the renormalised band is not flat, hence $u^{(s^*)} < 2t/V$. Then Eq.~\eqref{eq:normal-us*(beta,mu)} becomes
-%	\[
-%		\lim_{\beta \to \infty} u^{(s^*)}(\beta,\tilde{\mu}) = \frac{1}{L_x L_y} \sum_{\epsilon_\mathbf{k} \le \tilde{\mu}} (\cos k_x + \cos k_y) \, .
-%	\]
-%	Let $\mathrm{FS}(\delta)$ be the Fermi surface for a given doping level $\delta$. We denote with $\mathrm{Int}(\mathrm{FS})$ be its internal part, the Fermi sea:
-%	\[
-%		\begin{aligned}
-%			\mathrm{FS} = \left\lbrace \mathbf{k} \in \mathrm{BZ} \mid \tilde{\epsilon}_\mathbf{k} = \tilde{\mu} \right\rbrace \, , \\
-%			\mathrm{Int}(\mathrm{FS}) = \left\lbrace \mathbf{k} \in \mathrm{BZ} \mid \tilde{\epsilon}_\mathbf{k} \le \tilde{\mu} \right\rbrace \, .
-%		\end{aligned}
-%	\]
-%	At half filling, the Fermi surface coincides with the boundary of the MBZ. 
-%	\[
-%		\delta = 0
-%		\quad\implies\quad
-%		\mathrm{FS} = \partial \mathrm{MBZ} \, .
-%	\]
-%	This is implied by the fact that renormalised bands are antisymmetric by $\bm{\pi}$ shifts,
-%	\[
-%		\tilde{\epsilon}_{\mathbf{k}\sigma} = -\tilde{\epsilon}_{\mathbf{k}+\bm{\pi}\sigma} \, .
-%	\]
-%	The portion of an $s^*$-wave band outside the MBZ is mirrored with respect to the portion inside the MBZ. This implies that half the states lie in the MBZ, half out.
-%	
-%	At $\delta>0$ the FS expands in the region $\mathrm{BZ}\setminus\mathrm{MBZ}$ where the form factor $\cos k_x + \cos k_y$ becomes negative. Then Eq.~\eqref{eq:normal-us*(beta,mu)} becomes
-%	\[
-%		\lim_{\beta \to \infty} u^{(s^*)}(\beta,\tilde{\mu}) \simeq \frac{1}{L_x L_y} \sum_{\epsilon_\mathbf{k} \le 0} \abs{\cos k_x + \cos k_y} - \frac{1}{L_x L_y} \sum_{0<\epsilon_\mathbf{k} \le \tilde{\mu}} \abs{\cos k_x + \cos k_y} \, ,
-%	\]
-%	which, being the sum of a positive and a negative term, is maximised whenever $\tilde{\mu}=0$, so at half filling. 
-%	
-%	As long as the band is not completely flattened by renormalisation, increasing the doping, the FS expands. Hence
-%	\[
-%		\delta_1 > \delta_2
-%		\quad\implies\quad
-%		\mathrm{Int}(\mathrm{FS}_1) \subset \mathrm{Int}(\mathrm{FS}_2) \, ,
-%	\]
-%	where $\mathrm{FS}_i$ is the FS associated to the doping level $\delta_i$. Using this property we conclude
-%	\[
-%		\tilde{t} > 0
-%		\qq{and}
-%		\delta_1 > \delta_2
-%		\quad\implies\quad
-%		\lim_{\beta \to \infty} u^{(s^*)}(\beta,\tilde{\mu}) \Big|_{\delta_1} < 
-%		\lim_{\beta \to \infty} u^{(s^*)}(\beta,\tilde{\mu}) \Big|_{\delta_2} \, .
-%	\]
-%	This proves that $u^{(s^*)}$ decreases with doping at low temperature.
-
 \end{tabproof}
 
 This is the first expected behaviour of the self-consistent functional $u^{(s^*)}$: if there exists a region of parametric space where the shrinking effect is not strong enough to flatten the band, a rise in the doping level must lower $u^{(s^*)}$. Such a region must exist: at least all the segment $(V=0,\delta)$ is included, since on said region of parametric space the HF hamiltonian reduces to the that of the free Fermi gas.
@@ -1040,11 +1007,11 @@ When $V$ becomes larger than this critical value, due to the constraint of Eq.~\
 \begin{figure}
 	\centering
 	\subfloat[Numerical results for $\tilde{t}^{(s^*)}$]{
-		\includegraphics[width=0.45\linewidth]{../Project/plots/refined/Mode=rs/Phase=Normal/Setup=B[128]/Syms=/RB=S/Obj=RMPs/xVar=δ_yVar=V/tS_t=1.0_U=0.0_L=128_β=100.0_SurfacePlot.pdf}
+		\includegraphics[height=0.36\linewidth]{../Project/src/labs/normal-mott-plateau/tS(N)-ink.pdf}
 		\label{subfig:normal-tS-data-B128}
 	}
 	\subfloat[Critical Mott boundary.]{
-		\includegraphics[width=0.5\linewidth]{../Project/src/labs/mott-localization/normal-mott-boundary-tS.pdf}
+		\includegraphics[height=0.36\linewidth]{../Project/src/labs/mott-localization/normal-mott-boundary-tS.pdf}
 		\label{subfig:normal-tS-data-B128-mott}
 	}
 	\caption{Plots of $t^{(s^*)}$ and the Mott-boundary $V_\mathrm{c}$, computed as in Eq.~\eqref{eq:normal-Vc}.}
@@ -1161,7 +1128,7 @@ This point is inside the Mott region, as can be checked in Fig.~\ref{subfig:norm
 \[
 	\text{Step $1$}
 	\quad\colon\quad
-	u^{(s^*)} = 0.1
+	u^{(s^*)} = 0.1 \, ,
 \]
 was arbitrarily chosen. In each panel of Fig.~\ref{fig:normal-tracks-compared}, the red track represents the value of $u^{(s^*)}$ we plug in the self-consistency equations, the blue the result of the self-consistent equation, the green one the mixed value of the two based on different $g$s. The gray dashed line is the theoretical convergence target. 
 

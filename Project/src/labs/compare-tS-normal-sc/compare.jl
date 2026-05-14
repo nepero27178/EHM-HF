@@ -48,7 +48,7 @@ ax = Axis3(
 clims=(0,1)
 xx,yy,tS_N = ReshapeData(DF_N;xVar="δ",yVar="V",zVar="tS")
 _,_,tS_SC = ReshapeData(DF_SC;xVar="δ",yVar="V",zVar="tS")
-ax.title = L"$\tilde{t}^{(s^*)}$ for SC and Normal phases ($t=1.0$, $U=%$(U)$, $L=128$, $\delta=0.0$, $\beta=100.0$)"
+ax.title = L"$\tilde{t}^{(s^*)}$ for SC and Normal phases ($t=1.0$, $U=%$(U)$, $L=128$, $\beta=100.0$)"
 
 surface!(ax,xx,yy,tS_N,colormap=colorschemes[:tabcoolrev],shading=true,colorrange=clims)
 # wireframe!(ax,xx,yy,tS_N,color=tabblue,linewidth=0.1)

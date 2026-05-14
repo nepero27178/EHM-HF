@@ -18,7 +18,7 @@ ax = Axis3(
 	H[1,1],
 	xlabel=L"$k_x/\pi$",
 	ylabel=L"$k_y/\pi$",
-	zlabel=L"$\tilde{\epsilon}_{\mathbf{k}}$",
+	zlabel=L"$\tilde{\epsilon}_{\mathbf{k}}/t$",
 	xticks=[-1,0,1],
 	yticks=[-1,0,1],
 	zticks=[-4,-2,0,2,4],

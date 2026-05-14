@@ -1,15 +1,15 @@
 \def\GraphicsFolder{chapters/antiferromagnetic-instability/pictures}
 \chapter{Antiferromagnetic instability}\label{chap:af}
 
-In this chapter we study the AF phase in the EHM. Among all possible configurations, we limit to the so-called ``commensurate antiferromagnetism''. Moreover, we will restrict to the half-filling condition, based on stability considerations. 
+In this chapter we study antiferromagnetism in the extended Hubbard model. Among all possible configurations, we limit to the so-called ``commensurate antiferromagnetism'', which will be defined in the first section. Moreover, we will restrict to the half-filling condition, based on stability considerations. 
 
 This phase is well known and studied on the square Hubbard lattice. Insertion of the non-local attraction $\hat H_V$ adds two main self-consistent effects. First, an enhancement of the antiferromagnetic gap, an effect we call ``gap complexification''. While this effect is allowed at HF level, we derive some theoretical constraint and show that is actually suppressed. Second, the shrinking of bare bands that lead to Mott localisation in the normal phase and, in the end, to a amplification of magnetisation.
 
-This chapter is divided in four parts. In Sec.~\ref{sec:af-phase-theory} we present the commensurate AF phase and discuss its symmetries. In Secs.~\ref{sec:af-hm}, \ref{sec:af-ehm}, \ref{sec:af-hf-hamiltonian} we discuss the HF approximation in the AF phase, starting from the conventional HM and then expanding to the EHM. In Sec.~\ref{sec:af-sceq-analysis} we analyse the self-consistency equations and derive a number of constraints. In Sec.~\ref{sec:af-numeric} we present the result of numeric simulations.
+This chapter is organised as follows. In Sec.~\ref{sec:af-phase-theory} we present the commensurate antiferromagnetic (AF) phase and discuss its symmetries. In Secs.~\ref{sec:af-hm}, \ref{sec:af-ehm}, \ref{sec:af-hf-hamiltonian} we discuss the HF approximation in the AF phase, starting from the conventional Hubbard model and then adding the non-local attraction $\hat H_V$. In Sec.~\ref{sec:af-sceq-analysis} we analyse the self-consistency equations and derive a set of constraints on the HFPs that describe the self-consistent solution. In Sec.~\ref{sec:af-numeric} we present the result of numeric simulations.
 
 \section{The AF phase and its symmetries}\label{sec:af-phase-theory}
 
-Long-range antiferromagnetic ordering is not uniquely defined. In Fig.~\ref{fig:antiferromagnets} we show three (of many) antiferromagnets, with the blue arrows indicating an abundance of spin-up electrons on-site and the red arrows an abundance of spin-down electrons. For all three configurations, we have a staggered pattern of spin density with a given periodicity.
+Long-range antiferromagnetic ordering is not uniquely defined. In Fig.~\ref{fig:antiferromagnets} we show three (of many) possible AF orderings, with the blue arrows indicating an abundance of spin-up electrons on-site and the red arrows an abundance of spin-down electrons. For all three configurations, we have a staggered pattern of spin density with a given periodicity.
 
 \begin{figure}
 	\centering
@@ -18,26 +18,26 @@ Long-range antiferromagnetic ordering is not uniquely defined. In Fig.~\ref{fig:
 	\label{fig:antiferromagnets}
 \end{figure}
 
-The left panel of Fig.~\ref{fig:antiferromagnets} shows an alternating structure with two-sites periodicity in both directions. We denote this configuration ``commensurate''. The central panel presents another configuration AF with doubled periodicity, where sites with a given polarisation are intermediated by spin-balanced sites (gray spots). The right panel shows a possible ``striped'' antiferromagnet, where AF is effectively established along one particular direction; the example we report is $2$ sites periodic in $y$ direction, but any other periodicity could work. Striped antiferromagnetism is studied in HM physics \cite{wietek2021stripes} as a possible long-range ordering energetically competing with anisotropic superconductivity. Nematic antiferromagnets, establishing long-range magnetic ordering along one particular direction, are interesting due to competition and interplay against superconducting ordering at finite doping \cite{qin2020absence}. Geometrically non-trivial magnetic ordering are at the core of SDW formation in copper oxides at finite doping \cite{zaanen1989charged,kato1990soliton}.
+The left panel of Fig.~\ref{fig:antiferromagnets} shows an alternating structure with two-sites periodicity in both directions. We denote this configuration as ``commensurate''. The central panel presents another staggered configuration with doubled periodicity, where sites with a given polarisation are intermediated by sites where spin populations are balanced (gray dots). The right panel shows a possible ``striped'' antiferromagnet, where AF ordering is established along one particular direction. In our example, in along direction $y$ we have AF ordering with periodicity of $2$ sites, while along $x$ we have ferromagnetic ordering. Striped antiferromagnetism is studied in HM physics \cite{wietek2021stripes} as a possible long-range ordering energetically competing with anisotropic superconductivity. Nematic antiferromagnets, establishing long-range magnetic ordering along one particular direction, are interesting due to competition and interplay against superconducting ordering at finite doping \cite{qin2020absence}. Geometrically non-trivial magnetic ordering are at the core of SDW formation in copper oxides at finite doping \cite{zaanen1989charged,kato1990soliton}.
 
 In this thesis, we focus on the commensurate configuration on the left panel of Fig.~\ref{fig:antiferromagnets}. As we anticipated in Sec.~\ref{sec:ehm-sym-break} and summarised in Tab.~\ref{tab:symmetry-groups}, the AF phase is described by the breaking of global spin rotation and translational symmetries:
 \[
 \begin{aligned}
-	\mathrm{SU}(2) &\SSB \mathrm{U}^z(1) \\
-	\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)} &\SSB \mathrm{T}_2^{(x)} \otimes \mathrm{T}_2^{(y)}
+	\mathrm{SU}(2) &\SSB \mathrm{U}^z(1) \, , \\
+	\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)} &\SSB \mathrm{T}_2^{(x)} \otimes \mathrm{T}_2^{(y)} \, .
 \end{aligned}
 \]
 As we did for the normal phase, we also allow for
 \[
-\mathrm{C}_4 \SSB \mathrm{C}_2
+	\mathrm{C}_4 \SSB \mathrm{C}_2 \, .
 \]
 We will show that the commensurate AF phase actually leaves $\mathrm{C}_4$ unbroken.
 
 Commensurate antiferromagnetism is specified by the Ansatz:
 \begin{equation}\label{eq:af-ansatz}
 	\langle \hat n_{\mathbf{r}\sigma} \rangle = n - (-1)^{x+y+\delta_{\sigma=\uparrow}} m
-	\qquad
-	n, m \in [0,1]
+	\qq{and}
+	n, m \in [0,1] \, .
 \end{equation}
 where $\mathrm{r}=(x,y) \in \mathcal{L}$. Eq.~\eqref{eq:af-ansatz} represents the staggered distribution of spin populations shown in the left panel of Fig.~\ref{fig:antiferromagnets}. At site $\mathbf{r}$ the two spin populations average to $n$ and differ by $2m$. A detailed justification for this Ansatz in the HM is given in next subsection. Note that $\langle \hat n_{\mathbf{r}\sigma} \rangle \le 1$ due to Pauli exclusion principle: this argument is already sufficient to claim that doping disrupts commensurate antiferromagnetism.
 
@@ -45,7 +45,7 @@ where $\mathrm{r}=(x,y) \in \mathcal{L}$. Eq.~\eqref{eq:af-ansatz} represents th
 
 The Ansatz of Eq.~\eqref{eq:af-ansatz} breaks translational invariance in each spin sector, but preserves $\mathrm{U}^z(1)$ and $\mathrm{U}^\mathrm{c}(1)$ symmetries. Eq.~\eqref{eq:af-ansatz} is formulated equivalently as
 \begin{equation}\label{eq:af-ansatz-2m}
-	\langle \hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow} \rangle = (-1)^{x+y} 2m
+	\langle \hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow} \rangle = (-1)^{x+y} 2m \, .
 \end{equation}
 Antiferromagnetism establishes when $m \neq 0$.
 
@@ -54,73 +54,71 @@ Antiferromagnetism establishes when $m \neq 0$.
 	\[
 	\hat \Psi_\mathbf{r} = \begin{bmatrix}
 		\hat c_{\mathbf{r}\uparrow} \\ \hat c_{\mathbf{r}\downarrow}
-	\end{bmatrix}
+	\end{bmatrix} \, ,
 	\]
 	and the local spin operators of Eq.~\eqref{eq:local-S},
 	\[
-	\hat S_\mathbf{r}^+ = \frac{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}}{2}
-	\qquad
-	\hat S_\mathbf{r}^- = \frac{\hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\uparrow}}{2}
-	\qquad
-	\hat S_\mathbf{r}^z = \frac{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\uparrow} + \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow}}{2}
+		\hat S_\mathbf{r}^+ = \frac{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}}{2} \, ,
+		\qquad
+		\hat S_\mathbf{r}^- = \frac{\hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\uparrow}}{2} \, ,
+		\qquad
+		\hat S_\mathbf{r}^z = \frac{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\uparrow} + \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow}}{2} \, .
 	\]
 	Consider Eq.~\eqref{eq:[c+,n]} and its conjugate,
 	\[
-	\comm{\hat c_{\mathbf{r}\sigma}^\dagger}{\hat n_{\mathbf{r}\sigma}} = -\hat c_{\mathbf{r}\sigma}^\dagger
-	\qquad
-	\comm{\hat c_{\mathbf{r}\sigma}}{\hat n_{\mathbf{r}\sigma}} = \hat c_{\mathbf{r}\sigma}
+		\comm{\hat c_{\mathbf{r}\sigma}^\dagger}{\hat n_{\mathbf{r}\sigma}} = -\hat c_{\mathbf{r}\sigma}^\dagger
+		\qq{and}
+		\comm{\hat c_{\mathbf{r}\sigma}}{\hat n_{\mathbf{r}\sigma}} = \hat c_{\mathbf{r}\sigma} \, .
 	\]
 	The operators $\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}$ and $\hat S_\mathbf{r}^\pm$ do not commutate. Indeed,
 	\[
 	\begin{aligned}
 		\comm{\hat S_\mathbf{r}^+}{\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}} &= \frac{1}{2} \comm{\hat c_{\mathbf{r}\uparrow}^\dagger}{\hat n_{\mathbf{r}\uparrow}} \hat c_{\mathbf{r}\downarrow} - \frac{1}{2} \hat c_{\mathbf{r}\uparrow}^\dagger \comm{\hat c_{\mathbf{r}\downarrow}}{\hat n_{\mathbf{r}\downarrow}} \\
-		&= - \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow} \\[0.5em]
+		&= - \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow} \, , \\[0.5em]
 		\comm{\hat S_\mathbf{r}^-}{\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}} &= \frac{1}{2} \hat c_{\mathbf{r}\downarrow}^\dagger \comm{\hat c_{\mathbf{r}\uparrow}}{\hat n_{\mathbf{r}\uparrow}} - \frac{1}{2} \comm{\hat c_{\mathbf{r}\downarrow}^\dagger}{\hat n_{\mathbf{r}\downarrow}} \hat c_{\mathbf{r}\uparrow} \\
-		&= \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\uparrow}
+		&= \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\uparrow} \, .
 	\end{aligned}
 	\]
-	Instead, $\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}$ and $\hat S_\mathbf{r}^z$ commutate, because all on-site number operators commutate among themselves. Then, in order to have $m \neq 0$ in Eq.~\eqref{eq:af-ansatz-2m}, $\mathrm{SU}(2)$ must be broken while $\mathrm{U}^z(1)$ needs not. Therefore the commensurate AF phase breaks global spin rotational invariance, reducing it to the smaller symmetry of rotations around the magnetisation axis.
-	
+	Instead, $\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}$ and $\hat S_\mathbf{r}^z$ commutate, because all on-site number operators commutate among themselves. Then, in order to have $m \neq 0$ in Eq.~\eqref{eq:af-ansatz-2m}, $\mathrm{SU}(2)$ must be broken while $\mathrm{U}^z(1)$ does not. Therefore the commensurate AF phase breaks global spin rotational invariance, reducing it to the smaller symmetry of rotations around the magnetisation axis.
 \end{tabproof}
 
 \begin{tabproof}[The Ansatz of Eq.~\eqref{eq:af-ansatz} is $\mathrm{U}^\mathrm{c}(1)$-symmetric]
 	
 	From Eq.~\eqref{eq:gauge-symmetry-c+c-} we know that on-site density operators are gauge-invariant separately in both spin sectors,
 	\[
-	\hat n_{\mathbf{r}\sigma}
-	\quad\to\quad
-	e^{i(\eta - \eta)} \hat n_{\mathbf{r}\sigma} = \hat n_{\mathbf{r}\sigma}
+		\hat n_{\mathbf{r}\sigma}
+		\quad\to\quad
+		e^{i(\eta - \eta)} \hat n_{\mathbf{r}\sigma} = \hat n_{\mathbf{r}\sigma} \, .
 	\]
 	Then no selection rule applies to $\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}$: its EV can be non-zero without breaking $\mathrm{U}^z(1)$.
-	
 \end{tabproof}
 
 Eq.~\eqref{eq:af-ansatz} contains two physical observables: the average density $n$ and the staggered magnetisation $m$. These two quantities obey the equations:
 \begin{align}
-	n &= \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \label{eq:af-hm-n-self-consistency-implicit}\\
-	m &= \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \label{eq:af-hm-m-self-consistency-implicit}
+	n &= \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \, , \label{eq:af-hm-n-self-consistency-implicit}\\
+	m &= \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \, . \label{eq:af-hm-m-self-consistency-implicit}
 \end{align}
-Both are self-consistency equations, in the sense that the ground state that we use to compute expectation values depends on $n$ and $m$. However, $n$ is fixed, hence Eq.~\eqref{eq:af-hm-n-self-consistency-implicit} is used to determine the chemical potential. Instead magnetisation must be determined, thus Eq.~\eqref{eq:af-hm-m-self-consistency-implicit} is the self-consistency equation for the HFP $m$.
+Both are self-consistency equations, because we compute expectation values on a thermal state that depends on $n$ and $m$. However, $n$ is fixed, hence Eq.~\eqref{eq:af-hm-n-self-consistency-implicit} is used to determine the chemical potential. Instead magnetisation must be determined, thus Eq.~\eqref{eq:af-hm-m-self-consistency-implicit} is the self-consistency equation for the HFP $m$.
 
-\begin{tabproof}[Proof of Eqns.~\eqref{eq:af-hm-n-self-consistency-implicit} and \eqref{eq:af-hm-m-self-consistency-implicit}]
+\begin{tabproof}[Proof of Eqs.~\eqref{eq:af-hm-n-self-consistency-implicit} and \eqref{eq:af-hm-m-self-consistency-implicit}]
 	
 	The on-site averaged density is given by:
 	\begin{equation}\label{eq:af-n-def}
 		\forall \mathbf{r} \in \mathcal{L}
 		\quad\colon\quad 
-		n \equiv \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\downarrow}}}{2}
+		n \equiv \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \, ,
 	\end{equation}
 	while on-site magnetisation is, inverting Eq.~\eqref{eq:af-ansatz-2m},
 	\begin{equation}\label{eq:af-m-def}
 		\forall \mathbf{r} = (x,y) \in \mathcal{L}
 		\quad\colon\quad 
-		m \equiv (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\downarrow}}}{2}
+		m \equiv (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \, .
 	\end{equation}		
 	By construction, both $n$ and $m$ are translationally invariant quantities. Hence
 	\[
 	\begin{aligned}
-		n &= \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \\
-		m &= \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\downarrow}}}{2}
+		n &= \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} + \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \, , \\
+		m &= \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \frac{\ev{\hat n_{\mathbf{r}\uparrow}} - \ev{\hat n_{\mathbf{r}\downarrow}}}{2} \, ,
 	\end{aligned}
 	\]
 	which ends the proof.
@@ -128,20 +126,26 @@ Both are self-consistency equations, in the sense that the ground state that we 
 
 \subsection{The AF Ansatz in reciprocal space}\label{subsec:af-ansatz-reciprocal}
 
-The derivations that follow will be carried out in reciprocal space. It is then useful to give the reciprocal structure of the AF Ansatz of Eq.~\eqref{eq:af-ansatz}. Let $\bm{\pi} \equiv (\pi,\pi)$ be the ``AF vector''. We define
+The derivations that follow will be carried out in reciprocal space. It is then useful to transform Eq.~\eqref{eq:af-ansatz} in reciprocal space. Let $\bm{\pi} \equiv (\pi,\pi)$ be the ``AF vector''. We define
 \begin{align}
-	\hat n_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:af-ehm-n-def} \\
-	\hat \psi_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \label{eq:af-ehm-psi-def}
+	\hat n_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \, , \label{eq:af-ehm-n-def} \\
+	\hat \psi_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \, , \label{eq:af-ehm-psi-def}
 \end{align}
-and their EVs
+and their expectation values (EVs),
 \begin{align}
 	u_{\mathbf{k}\sigma} &\equiv \langle
 	\hat n_{\mathbf{k}\sigma}
-	\rangle \label{eq:af-uqsigma-def} \\
+	\rangle \, , \label{eq:af-uqsigma-def} \\
 	v_{\mathbf{k}\sigma} &\equiv i \langle
 	\hat \psi_{\mathbf{k}\sigma}
-	\rangle \label{eq:af-vqsigma-def}
+	\rangle \, . \label{eq:af-vqsigma-def}
 \end{align}
+Using the functions of Tab.~\ref{tab:x-wave-reciprocal-factors}, we define the harmonics
+\begin{align}
+	u^{(\gamma)}_\sigma &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} u_{\mathbf{k}\sigma} \, , \label{eq:af-ugamma-harmonics} \\
+	v^{(\gamma)}_\sigma &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} v_{\mathbf{k}\sigma} \, . \label{eq:af-vgamma-harmonics}
+\end{align}
+As will be discussed thoroughly, these harmonics are HFPs in the AF phase and must be determined self-consistently. Eqs.~\eqref{eq:af-ugamma-harmonics} and \eqref{eq:af-vgamma-harmonics} are their self-consistency equations.
 
 In the AF phase, the order parameter describing the phase transition to a magnetised configuration is $m$. A finite magnetisation implies, at least for a subset of momenta $\lbrace \mathbf{k} \rbrace$,
 \begin{equation}\label{eq:af-psi>0}
@@ -149,7 +153,7 @@ In the AF phase, the order parameter describing the phase transition to a magnet
 	\quad\implies\quad
 	\exists \mathbf{k} \in \mathrm{BZ}
 	\quad\colon\quad
-	\big| \langle \hat \psi_{\mathbf{k}\sigma} \rangle  \big| > 0
+	\big| \langle \hat \psi_{\mathbf{k}\sigma} \rangle  \big| > 0 \, .
 \end{equation}
 The above statement expresses a feature of the AF ground-state: states separated by an amount $\bm{\pi}$ are connected. Removing one electron at $(\mathbf{k},\sigma)$ and creating another at $(\mathbf{k}+\bm{\pi},\sigma)$ produces a state with a finite overlap with the ground-state.
 
@@ -161,41 +165,45 @@ The above statement expresses a feature of the AF ground-state: states separated
 		&= \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \left(
 		n + (-1)^{x+y+\delta_{\sigma=\downarrow}} m
 		\right) \nonumber \\
-		&= \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \langle \hat n_{\mathbf{r}\sigma} \rangle \label{eq:af-m-EV-int}
+		&= \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \langle \hat n_{\mathbf{r}\sigma} \rangle \, , \label{eq:af-m-EV-int}
 	\end{align}
-	where we used $1 = \left((-1)^{x+y}\right)^2$. Fourie-transforming the operator and its sign factor inside the sum in last line, we get
+	where we used $1 = \left((-1)^{x+y}\right)^2$. $\mathcal{F}$-transforming the operator and its sign factor inside the sum in last line, we get
 	\begin{align}
 		\sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \hat n_{\mathbf{r}\sigma} &= \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \nonumber \\
 		&\stackrel{\mathcal{F}}{=} \sum_{\mathbf{r}\in\mathcal{L}} e^{i \bm{\pi} \cdot \mathbf{r}}
 		\frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k} \in \mathrm{BZ}} e^{i \mathbf{k} \cdot \mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k}' \in \mathrm{BZ}} e^{-i \mathbf{k}' \cdot \mathbf{r}} \hat c_{\mathbf{k}'\sigma} \nonumber \\
 		&=\sum_{\mathbf{k} \in \mathrm{BZ}} \sum_{\mathbf{k}' \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} e^{-i [\mathbf{k}' - (\mathbf{k} + \bm{\pi}) ] \cdot \mathbf{r}} \nonumber \\
 		&= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma} \label{eq:af-<psi>-not0-int} \\
-		&= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat \psi_{\mathbf{k}\sigma} \label{eq:af-<psi>-not0}
+		&= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat \psi_{\mathbf{k}\sigma} \, . \label{eq:af-<psi>-not0}
 	\end{align}
 	We insert the last line in Eq.~\eqref{eq:af-m-EV-int},
 	\begin{equation}\label{eq:af-m-EV}
-		(-1)^{\delta_{\sigma=\downarrow}} m = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \langle \hat \psi_{\mathbf{k}\sigma} \rangle
+		(-1)^{\delta_{\sigma=\downarrow}} m = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \langle \hat \psi_{\mathbf{k}\sigma} \rangle \, .
 	\end{equation}
-	Since $m \neq 0$, at least for some momentum $\mathbf{k}$ it must hold $\langle \hat \psi_{\mathbf{k}\sigma} \rangle \neq 0$.	
-	
+	Since $m \neq 0$, at least for some momentum $\mathbf{k}$ it must hold $\langle \hat \psi_{\mathbf{k}\sigma} \rangle \neq 0$.
 \end{tabproof}
 
-Note that from Eq.~\eqref{eq:af-m-EV} we have
-\begin{align}
-	m &= \frac{1}{L_xL_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \langle \hat \psi_{\mathbf{k}\uparrow} \rangle \label{eq:af-m-EV-up}\\
-	&= -\frac{1}{L_xL_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \langle \hat \psi_{\mathbf{k}\downarrow} \rangle \label{eq:af-m-EV-down}
-\end{align}
-Composing the two lines, we obtain
-\begin{equation}
-	m = \frac{1}{2L_xL_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \langle \hat \psi_{\mathbf{k}\uparrow} - \psi_{\mathbf{k}\downarrow} \rangle \label{eq:af-hm-m-self-consistency-reciprocal}
+The self-consistency equation for $m$ reads, in reciprocal space, 
+\begin{equation}\label{eq:af-hm-m-self-consistency-reciprocal}
+	m = \frac{1}{2L_xL_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \langle \hat \psi_{\mathbf{k}\uparrow} - \hat \psi_{\mathbf{k}\downarrow} \rangle \, . 
 \end{equation}
-which is the reciprocal version of Eq.~\eqref{eq:af-hm-m-self-consistency-implicit}. We will use this version of the self-consistency equation in later calculations.
+This is the transformed version of Eq.~\eqref{eq:af-hm-m-self-consistency-implicit}.
 
-We conclude this subsection by proving a symmetry property that will be useful. Recall the functions $\varphi_\mathbf{k}^{(\gamma)}$ defined in Tab.~\ref{tab:x-wave-reciprocal-factors}. 
+\begin{tabproof}[Proof of Eq.~\eqref{eq:af-hm-m-self-consistency-reciprocal}: $\mathcal{F}$-transform of Eq.~\eqref{eq:af-hm-m-self-consistency-implicit}]	
+	
+	From Eq.~\eqref{eq:af-m-EV}, we have
+	\begin{align}
+		m &= \frac{1}{L_xL_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \langle \hat \psi_{\mathbf{k}\uparrow} \rangle \label{eq:af-m-EV-up}\\
+		&= -\frac{1}{L_xL_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \langle \hat \psi_{\mathbf{k}\downarrow} \rangle \, . \label{eq:af-m-EV-down}
+	\end{align}
+	Summing the two lines, we obtain Eq.~\eqref{eq:af-hm-m-self-consistency-reciprocal}.
+\end{tabproof}
+
 The operator $\hat \psi_{\mathbf{k}\sigma}$ satisfies the relation
 \begin{equation}\label{eq:af-ehm-vphi-psi-property}
-	\varphi_{\mathbf{k}+\bm{\pi}}^{(\gamma)} \psi_{\mathbf{k}+\bm{\pi}\sigma}^\dagger = - \varphi_\mathbf{k}^{(\gamma)} \psi_{\mathbf{k}\sigma}
+	\varphi_{\mathbf{k}+\bm{\pi}}^{(\gamma)} \hat \psi_{\mathbf{k}+\bm{\pi}\sigma}^\dagger = - \varphi_\mathbf{k}^{(\gamma)} \hat \psi_{\mathbf{k}\sigma} \, ,
 \end{equation}
+where we used the harmonics $\varphi_\mathbf{k}^{(\gamma)}$ defined in Tab.~\ref{tab:x-wave-reciprocal-factors}. 
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:af-ehm-vphi-psi-property}]
 	The following identity holds
@@ -204,11 +212,11 @@ The operator $\hat \psi_{\mathbf{k}\sigma}$ satisfies the relation
 		\hat c_{\mathbf{k}+2\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma}
 		\right)^\dagger \nonumber \\
 		&= \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \nonumber \\
-		&= \hat \psi_{\mathbf{k}\sigma} \label{eq:af-(psi+pi)=psi}
+		&= \hat \psi_{\mathbf{k}\sigma} \, . \label{eq:af-(psi+pi)=psi}
 	\end{align}
 	Moreover, being combinations of sines and cosines, the functions $\varphi_{\mathbf{k}+\bm{\pi}}^{(\gamma)}$ are antisymmetric under $\bm{\pi}$ shifts,
 	\begin{equation}\label{eq:af-(phi+pi)=-phi}
-		\varphi_{\mathbf{k}+\bm{\pi}}^{(\gamma)} = -\varphi_\mathbf{k}^{(\gamma)}
+		\varphi_{\mathbf{k}+\bm{\pi}}^{(\gamma)} = -\varphi_\mathbf{k}^{(\gamma)} \, .
 	\end{equation}
 	Combining Eq.~\eqref{eq:af-(psi+pi)=psi} and \eqref{eq:af-(phi+pi)=-phi}, we obtain Eq.~\eqref{eq:af-ehm-vphi-psi-property}.
 \end{tabproof}
@@ -216,11 +224,11 @@ Recall now Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}. The contract
 \[
 \begin{aligned}
 	&\hat H_U 
-	&&\text{Hartree contractions} \\
+	&&\text{Hartree contractions,} \\
 	&\hat H_V \text{ (o.s. sector)}
-	&&\text{Hartree contractions} \\
+	&&\text{Hartree contractions,} \\
 	&\hat H_V \text{ (s.s. sector)}
-	&&\text{Hartree and Fock contractions} \\
+	&&\text{Hartree and Fock contractions.} \\
 \end{aligned}	
 \]
 Their role is anticipated Tab.~\ref{tab:af-RWCs}. In next section we analyse antiferromagnetism in the conventional HM, thus limiting to the Hartree channel of $\hat H_U$. Then we extend to the full EHM, highlighting similarities and differences.
@@ -228,7 +236,7 @@ Their role is anticipated Tab.~\ref{tab:af-RWCs}. In next section we analyse ant
 \begin{table}[t]
 	\centering
 	\begin{tabular}{c c c l}
-		\textbf{Operator} & \textbf{Sector} & \textbf{RWCs} & \textbf{Net effect} \\
+		\textbf{Operator} & \textbf{Sector} & \textbf{Channel} & \textbf{Net effect} \\
 		\midrule
 		$\hat H_U$ && Hartree & $\mu$ shift by $-nU$ \\
 		\midrule
@@ -246,41 +254,41 @@ Their role is anticipated Tab.~\ref{tab:af-RWCs}. In next section we analyse ant
 
 We dedicate this section to describe antiferromagnetism in the conventional HM, $\hat H_t + \hat H_U$. The two-body repulsive interaction is
 \[
-\hat H_U = U \sum_{\mathbf{r}\in\mathcal{L}} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow}
+	\hat H_U = U \sum_{\mathbf{r}\in\mathcal{L}} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow} \, .
 \]
 We know from Tab.~\ref{tab:HU-sel-rules} that the only contribution to the HF hamiltonian comes from Hartree channel, while Fock and Cooper channel are identically zero in the AF phase. In next subsection we derive the analytic form of the approximated hamiltonian.
 
-\subsection{Local Hartree effects: chemical potential renormalisation and magnetisation }\label{subsec:af-l-hartree}
+\subsection{Effects of the Hartree terms: chemical potential renormalisation and magnetisation }\label{subsec:af-l-hartree}
 
 In Eq.~\eqref{eq:mft-HU} we decomposed $\hat H_U$ through Wick's theorem. The Hartree channel reads
 \begin{equation}\label{eq:af-HU-hartree-approx-implicit}
 	\hat H_U \HFsimeq U \sum_{\mathbf{r}\in\mathcal{L}} \left[
 	\hat n_{\mathbf{r}\uparrow} \ev{\hat n_{\mathbf{r}\downarrow}} + \ev{\hat n_{\mathbf{r}\uparrow}} \hat n_{\mathbf{r}\downarrow} - \ev{\hat n_{\mathbf{r}\uparrow}} \ev{\hat n_{\mathbf{r}\downarrow}}
-	\right]
+	\right] \, .
 \end{equation}
 We define the MBZ as in Eq.~\eqref{eq:MBZ-def}, as the set of points in reciprocal space that satisfy the inequality $\abs{k_x} + \abs{k_y} \le \pi$. We sketched it in Fig.~\ref{fig:normal-MBZ}. Applying the Ansatz of Eq.~\eqref{eq:af-ansatz}, we obtain the HF approximation
 \begin{equation}\label{eq:af-HU-hartree-approx}
 	\hat H_U \HFsimeq -\sum_{\mathbf{k}\in\mathrm{MBZ}} \sum_\sigma \left(
 	\Delta_{\mathbf{k}\sigma} \hat \psi_{\mathbf{k}\sigma} + \Delta_{\mathbf{k}\sigma}^* \hat \psi_{\mathbf{k}\sigma}^\dagger
-	\right) + nU \hat N - E_{\mathrm{H}/U}^{(\mathrm{AF})}
+	\right) + nU \hat N - E_{\mathrm{H},U}^{(\mathrm{AF})} \, ,
 \end{equation}
 where we defined the gap function
 \begin{equation}\label{eq:af-hm-Delta-def}
-	\Delta_{\mathbf{k}\sigma} = (-1)^{\delta_{\sigma=\downarrow}} mU
+	\Delta_{\mathbf{k}\sigma} = (-1)^{\delta_{\sigma=\downarrow}} mU \, ,
 \end{equation}
 We also defined the energy shift
 \begin{equation}\label{eq:af-HU-hartree-Ec-implicit}
-	E_{\mathrm{H}/U}^{(\mathrm{AF})} \equiv U \sum_{\mathbf{r}\in\mathcal{L}} \ev{\hat n_{\mathbf{r}\uparrow}} \ev{\hat n_{\mathbf{r}\downarrow}}
+	E_{\mathrm{H},U}^{(\mathrm{AF})} \equiv U \sum_{\mathbf{r}\in\mathcal{L}} \ev{\hat n_{\mathbf{r}\uparrow}} \ev{\hat n_{\mathbf{r}\downarrow}} \, .
 \end{equation}
 
 We observe, in Eq.~\eqref{eq:af-HU-hartree-approx}, the presence of a number operator. Hence, chemical potential is shifted in the Hartree channel by
 \begin{equation}\label{eq:af-mu-hU}
-	\mu \to \mu - nU
-\end{equation}.
+	\mu \to \mu - nU \, .
+\end{equation}
 
-\begin{tabproof}[Proof of Eq.~\eqref{eq:af-HU-hartree-approx}]
+\begin{tabproof}[Proof of Eq.~\eqref{eq:af-HU-hartree-approx}: HF approximation of $\hat H_U$ in Hartree channel]
 	
-	Consider Eq.~\eqref{eq:af-HU-hartree-approx-implicit}. Using Eqns.~\eqref{eq:af-hm-n-self-consistency-implicit}, \eqref{eq:af-hm-m-self-consistency-implicit} we can re-write
+	Consider Eq.~\eqref{eq:af-HU-hartree-approx-implicit}. Using Eqs.~\eqref{eq:af-hm-n-self-consistency-implicit}, \eqref{eq:af-hm-m-self-consistency-implicit} we can re-write
 	\[
 	\begin{aligned}
 		\hat n_{\mathbf{r}\uparrow} \ev{\hat n_{\mathbf{r}\downarrow}} + \ev{\hat n_{\mathbf{r}\uparrow}} \hat n_{\mathbf{r}\downarrow}
@@ -293,67 +301,67 @@ We observe, in Eq.~\eqref{eq:af-HU-hartree-approx}, the presence of a number ope
 		\hat n_{\mathbf{r}\uparrow} + \hat n_{\mathbf{r}\downarrow}
 		\right) - m \left(
 		\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
-		\right)
+		\right) \, .
 	\end{aligned}
 	\]
-	Inserting this decomposition and the expression for $E_{\mathrm{H}/U}^{(\mathrm{AF})}$ given in Eq.~\eqref{eq:af-HU-hartree-Ec-implicit} into Eq.~\eqref{eq:af-HU-hartree-approx-implicit}, we obtain
+	Inserting this decomposition and the expression for $E_{\mathrm{H},U}^{(\mathrm{AF})}$ given in Eq.~\eqref{eq:af-HU-hartree-Ec-implicit} into Eq.~\eqref{eq:af-HU-hartree-approx-implicit}, we obtain
 	\begin{equation} \label{eq:af-HU-hartree-Ec-implicit-int1}
 		\hat H_U \HFsimeq nU \sum_{\mathbf{r}\in\mathcal{L}} \left(
 		\hat n_{\mathbf{r}\uparrow} + \hat n_{\mathbf{r}\downarrow}
 		\right) - mU \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \left(
 		\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
-		\right) - E_{\mathrm{H}/U}^{(\mathrm{AF})}
+		\right) - E_{\mathrm{H},U}^{(\mathrm{AF})} \, .
 	\end{equation}
 	The first term gives a number operator,
 	\[
-	nU \sum_{\mathbf{r}\in\mathcal{L}} \left(
-	\hat n_{\mathbf{r}\uparrow} + \hat n_{\mathbf{r}\downarrow}
-	\right) = nU \times \hat N
+		nU \sum_{\mathbf{r}\in\mathcal{L}} \left(
+		\hat n_{\mathbf{r}\uparrow} + \hat n_{\mathbf{r}\downarrow}
+		\right) = nU \times \hat N \, .
 	\]
 	
 	Using Eq.~\eqref{eq:af-<psi>-not0-int}, the second term of Eq.~\eqref{eq:af-HU-hartree-Ec-implicit} becomes
 	\[
-	mU \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \left(
-	\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
-	\right) = mU \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma (-1)^{\delta_{\sigma=\downarrow}} \hat \psi_{\mathbf{k}\sigma}
+		mU \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \left(
+		\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
+		\right) = mU \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma (-1)^{\delta_{\sigma=\downarrow}} \hat \psi_{\mathbf{k}\sigma} \ .
 	\]
 	Recall the definition of the MBZ given in Eq.~\eqref{eq:MBZ-def}. The full BZ can be seen as the sum of two MBZ shifted by $\bm{\pi}$. Then, from Eq.~\eqref{eq:af-(psi+pi)=psi}, we get
 	\[
-	mU \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \left(
-	\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
-	\right) = mU \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma (-1)^{\delta_{\sigma=\downarrow}} \left(
-	\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger
-	\right)
+		mU \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \left(
+		\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
+		\right) = mU \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma (-1)^{\delta_{\sigma=\downarrow}} \left(
+		\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger
+		\right) \, .
 	\]
 	Composing everything, Eq.~\eqref{eq:af-HU-hartree-Ec-implicit-int1} becomes
 	\[
-	\hat H_U \HFsimeq - mU \sum_{\mathbf{k}\in\mathrm{MBZ}} \sum_\sigma (-1)^{\delta_{\sigma=\downarrow}} \left(
-	\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger
-	\right) + nU \hat N - E_{\mathrm{H}/U}^{(\mathrm{AF})}
+		\hat H_U \HFsimeq - mU \sum_{\mathbf{k}\in\mathrm{MBZ}} \sum_\sigma (-1)^{\delta_{\sigma=\downarrow}} \left(
+		\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger
+		\right) + nU \hat N - E_{\mathrm{H},U}^{(\mathrm{AF})} \, .
 	\]
 	By defining the gap function $\Delta_{\mathbf{k}\sigma}$ as in Eq.~\eqref{eq:af-hm-Delta-def}, we obtain the HF approximation of Eq.~\eqref{eq:af-HU-hartree-approx}.
 	
 \end{tabproof}
 
 The contraction energy, defined in Eq.~\eqref{eq:af-HU-hartree-Ec-implicit}, is given by
-\begin{equation}\label{eq:af-hm-hartree-U-Ec}
-	E_{\mathrm{H}/U}^{(\mathrm{AF})} = L_x L_y \times U \left(
+\begin{equation}\label{eq:af-HU-hartree-Ec}
+	E_{\mathrm{H},U}^{(\mathrm{AF})} = L_x L_y \times U \left(
 	n^2 - m^2
-	\right)
+	\right) \, .
 \end{equation}
 Compared with that for the normal phase given in Eq.~\eqref{eq:normal-HU-hartree-Ec}, we observe the presence of an additional term dependent on $m^2$.
 
-\begin{tabproof}[Local Hartree contraction energy.]
+\begin{tabproof}[Proof of Eq.~\eqref{eq:af-HU-hartree-Ec}: local Hartree contraction energy]
 	
 	Inserting Eq.~\eqref{eq:af-ansatz} in Eq.~\eqref{eq:af-HU-hartree-Ec-implicit}, we obtain
 	\[
 	\begin{aligned}
-		E_{\mathrm{H}/U}^{(\mathrm{AF})} &\equiv U \sum_{\mathbf{r}\in\mathcal{L}} \ev{\hat n_{\mathbf{r}\uparrow}} \ev{\hat n_{\mathbf{r}\downarrow}} \\
+		E_{\mathrm{H},U}^{(\mathrm{AF})} &\equiv U \sum_{\mathbf{r}\in\mathcal{L}} \ev{\hat n_{\mathbf{r}\uparrow}} \ev{\hat n_{\mathbf{r}\downarrow}} \\
 		&= U \sum_{\mathbf{r}\in\mathcal{L}} \left(
 		n + (-1)^{x+y} m
 		\right) \left(
 		n - (-1)^{x+y} m
-		\right) \\
+		\right) \, .
 	\end{aligned}
 	\]
 	Expanding the product above we get:
@@ -366,40 +374,39 @@ Compared with that for the normal phase given in Eq.~\eqref{eq:normal-HU-hartree
 		\right) &= n^2 + \left(
 		(-1)^{x+y} - (-1)^{x+y}
 		\right)nm - \left((-1)^{x+y}\right)^2 m^2 \\
-		&= n^2 - m^2
+		&= n^2 - m^2 \, .
 	\end{aligned}
 	\]
-	The sum over $\mathcal{L}$ gives $L_x L_y$ identical terms. Hence we obtain Eq.~\eqref{eq:af-hm-hartree-U-Ec}.
-	
+	The sum over $\mathcal{L}$ gives $L_x L_y$ identical terms. Hence we obtain Eq.~\eqref{eq:af-HU-hartree-Ec}.
 \end{tabproof}
 
 \subsection{Antiferromagnetism in the HM}\label{subsec:af-hm}
 
-One of the aims of this projects is to identify, theoretically, what changes for each phase due to the presence of the non-local attraction $\hat H_V$ with respect to the conventional HM. In this section we give a description of antiferromagnetism in the conventional HM, and later we move to the EHM.
+One of the aims of this projects is to identify, theoretically, what changes for each phase due to the presence of the non-local attraction $\hat H_V$ with respect to the conventional HM. In this section, we give a description of antiferromagnetism in the conventional HM, and later we move to the EHM.
 
 \paragraph{Matrix representation.}
 
 The HM hamiltonian contains the kinetic operator and the local repulsion,
 \[
-\hat H_t + \hat H_U
+	\hat H_t + \hat H_U \, .
 \]
 For the AF phase, the HF hamiltonian can be written as
 \begin{equation}\label{eq:af-HM-hk}
-	\hat H_t + \hat H_U \simeq \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger h_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma} + nU \hat N -  E_{\mathrm{H}/U}^{(\mathrm{AF})}
+	\hat H_t + \hat H_U \HFsimeq \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger h_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma} + nU \hat N -  E_{\mathrm{H},U}^{(\mathrm{AF})} \, ,
 \end{equation}
 where we defined the $2 \times 2$ matrix:
 \begin{equation}\label{eq:af-hk}
 	h_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
 		\epsilon_{\mathbf{k}\sigma} & -\Delta_{\mathbf{k}\sigma}^* \\
 		-\Delta_{\mathbf{k}\sigma} & - \epsilon_{\mathbf{k}\sigma}
-	\end{bmatrix}
+	\end{bmatrix} \, ,
 \end{equation}
 and the spinors
 \begin{equation}\label{eq:af-Psi-def}
 	\hat \Psi_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
 		\hat c_{\mathbf{k}\sigma} \\
 		\hat c_{\mathbf{k}+\bm{\pi}\sigma} 
-	\end{bmatrix}
+	\end{bmatrix} \, .
 \end{equation}
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:af-HM-hk}]
@@ -408,34 +415,33 @@ and the spinors
 	\[
 	\begin{aligned}
 		\hat H_t &= \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_\mathbf{k} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \\ 
-		&= \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \epsilon_\mathbf{k} \left(\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} - \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma}\right) 
+		&= \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \epsilon_\mathbf{k} \left(\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} - \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma}\right) \, ,
 	\end{aligned}
 	\]
 	where we used antiperiodicity by $\bm{\pi}$ of the bare bands $\epsilon_\mathbf{k}$ defined in Eq.~\eqref{eq:bare-bands},
 	\[
-	\epsilon_\mathbf{k} = -\epsilon_{\mathbf{k}+\bm{\pi}}
+		\epsilon_\mathbf{k} = -\epsilon_{\mathbf{k}+\bm{\pi}} \, .
 	\]
 	The kinetic operator can be written in terms of the spinors $\hat \Psi_{\mathbf{k}\sigma}$ defined in Eq.~\eqref{eq:af-Psi-def},
 	\[
-	\hat H_t = \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger \begin{bmatrix}
-		\epsilon_{\mathbf{k}\sigma} & \\ & -\epsilon_{\mathbf{k}\sigma}
-	\end{bmatrix} \hat \Psi_{\mathbf{k}\sigma}
+		\hat H_t = \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger \begin{bmatrix}
+			\epsilon_{\mathbf{k}\sigma} & \\ & -\epsilon_{\mathbf{k}\sigma}
+		\end{bmatrix} \hat \Psi_{\mathbf{k}\sigma} \, .
 	\]
 	The local repulsion $\hat H_U$ of Eq.~\eqref{eq:af-HU-hartree-approx} can also be written in terms of these spinors:
 	\[
-	\hat H_U = \sum_{\mathbf{k} \in  \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger \begin{bmatrix}
-		& -\Delta_{\mathbf{k}\sigma}^* \\  -\Delta_{\mathbf{k}\sigma} & 
-	\end{bmatrix} \hat \Psi_{\mathbf{k}\sigma}  + nU \hat N - E_{\mathrm{H}/U}^{(\mathrm{AF})}
+		\hat H_U = \sum_{\mathbf{k} \in  \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger \begin{bmatrix}
+			& -\Delta_{\mathbf{k}\sigma}^* \\  -\Delta_{\mathbf{k}\sigma} & 
+		\end{bmatrix} \hat \Psi_{\mathbf{k}\sigma}  + nU \hat N - E_{\mathrm{H},U}^{(\mathrm{AF})} \, .
 	\]
 	Summing $\hat H_t + \hat H_U$ and defining $h_{\mathbf{k}\sigma}$ as in Eq.~\eqref{eq:af-hk}, we obtain the matricial representation of Eq.~\eqref{eq:af-HM-hk}.
-	
 \end{tabproof}
 
-The operator given in Eq.~\eqref{eq:af-HM-hk} is a parametric hamiltonian. We need to identify its ground state for each choice of the parameters $\Delta_{\mathbf{k}\sigma}$. This is done by mapping the problem to the one of a set of spin subject to local magnetic fields: let us show this. 
+%The operator given in Eq.~\eqref{eq:af-HM-hk} is a parametric hamiltonian. We need to identify its ground state for each choice of the parameters $\Delta_{\mathbf{k}\sigma}$. This is done by mapping the problem to the one of a set of spins subject to local magnetic fields: let us show this. 
 
 \paragraph{Pseudospin representation.} The matrix $h_{\mathbf{k}\sigma}$ can be written in term of the Pauli matrices $\tau^\alpha$ 
 \[
-	h_{\mathbf{k}\sigma} = \epsilon_{\mathbf{k}\sigma} \tau^z - \Delta_{\mathbf{k}\sigma} \tau^x
+	h_{\mathbf{k}\sigma} = \epsilon_{\mathbf{k}\sigma} \tau^z - \Delta_{\mathbf{k}\sigma} \tau^x \, .
 \]
 Let us define the pseudospin operator $\hat{\mathbf{s}}_{\mathbf{k}\sigma}$
 \begin{equation}\label{eq:af-pseudospin-def}
@@ -445,25 +451,25 @@ Let us define the pseudospin operator $\hat{\mathbf{s}}_{\mathbf{k}\sigma}$
 		\hat s_{\mathbf{k}\sigma}^x \\
 		\hat s_{\mathbf{k}\sigma}^y \\
 		\hat s_{\mathbf{k}\sigma}^z
-	\end{bmatrix}
+	\end{bmatrix} \, ,
 \end{equation}
 and the pseudofield $\mathbf{b}_{\mathbf{k}\sigma}$:
 \[
 	\mathbf{b}_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
 		-\Delta_{\mathbf{k}\sigma} \\ 0 \\ \epsilon_{\mathbf{k}\sigma} 
-	\end{bmatrix}
+	\end{bmatrix} \, .
 \]
 These operators satisfy a $\mathfrak{su}(2)$ algebra up to a constant $C$,
 \begin{equation}\label{eq:af-almost-su2}
-	\comm{\hat s_{\mathbf{k}\sigma}^\alpha}{\hat s_{\mathbf{k}\sigma}^\beta} = C \times i\sum_\gamma \epsilon_{\alpha\beta\gamma} \hat s_{\mathbf{k}\sigma}^\gamma
+	\comm{\hat s_{\mathbf{k}\sigma}^\alpha}{\hat s_{\mathbf{k}\sigma}^\beta} = C \times i\sum_\gamma \epsilon_{\alpha\beta\gamma} \hat s_{\mathbf{k}\sigma}^\gamma \, .
 \end{equation}
-The proof is conceptually identical to the one presented in Sec.~\ref{subsec:spin-charge-syms}. The actual value of $C$ is irrelevant, as we will see in next paragraphs. {\color{tabred}\textbf{The two set of spin operators are unrelated.}} Let us express the pseudospin operator in terms of the operators of Eqns.~\eqref{eq:af-ehm-n-def}, \eqref{eq:af-ehm-psi-def}:
+The proof is conceptually identical to the one presented in Sec.~\ref{subsec:spin-charge-syms}. The actual value of $C$ is irrelevant, as we will see in next paragraphs. The two sets of spin operators are unrelated. Let us express the pseudospin operators in terms of the operators of Eqs.~\eqref{eq:af-ehm-n-def}, \eqref{eq:af-ehm-psi-def}:
 \begin{align}
-	\hat s_{\mathbf{k}\sigma}^x &= \hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger \label{eq:af-hm-x-psi} \\
+	\hat s_{\mathbf{k}\sigma}^x &= \hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger \, , \label{eq:af-hm-x-psi} \\
 	\hat s_{\mathbf{k}\sigma}^y &= i \left(
 	\hat \psi_{\mathbf{k}\sigma} - \hat \psi_{\mathbf{k}\sigma}^\dagger 
-	\right) \label{eq:af-hm-y-psi} \\
-	\hat s_{\mathbf{k}\sigma}^z &= \hat n_{\mathbf{k}\sigma} - \hat n_{\mathbf{k}+\bm{\pi}\sigma} \label{eq:af-hm-z-psi} 
+	\right) \, ,\label{eq:af-hm-y-psi} \\
+	\hat s_{\mathbf{k}\sigma}^z &= \hat n_{\mathbf{k}\sigma} - \hat n_{\mathbf{k}+\bm{\pi}\sigma} \, . \label{eq:af-hm-z-psi} 
 \end{align}
 We report these relations also in Tab.~\ref{tab:af-pseudo-spin-map}.
 %
@@ -493,12 +499,12 @@ We report these relations also in Tab.~\ref{tab:af-pseudo-spin-map}.
 Let also:
 \begin{align}
 	\hat \Id_{\mathbf{k}\sigma} &\equiv \hat \Psi_{\mathbf{k}\sigma}^\dagger \Id_{2\times2} \hat \Psi_{\mathbf{k}\sigma} \nonumber \\
-	&= \hat n_{\mathbf{k}\sigma} + \hat n_{\mathbf{k}+\bm{\pi}\sigma} \label{eq:af-hm-id-def}
+	&= \hat n_{\mathbf{k}\sigma} + \hat n_{\mathbf{k}+\bm{\pi}\sigma} \, . \label{eq:af-hm-id-def}
 \end{align}
 
 In pseudospin representation, the hamiltonian of Eq.~\eqref{eq:af-HM-hk} can be expressed as
 \begin{equation}\label{eq:af-hm-spin-h}
-	\hat H_t + \hat H_U \simeq \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \mathbf{b}_{\mathbf{k}\sigma} \cdot \hat{\mathbf{s}}_{\mathbf{k}\sigma} + nU \hat N - E_{\mathrm{H}/U}^{(\mathrm{AF})}
+	\hat H_t + \hat H_U \HFsimeq \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \mathbf{b}_{\mathbf{k}\sigma} \cdot \hat{\mathbf{s}}_{\mathbf{k}\sigma} + nU \hat N - E_{\mathrm{H},U}^{(\mathrm{AF})} \, .
 \end{equation}
 This hamiltonian describes a set of (pseudo)spins subject to local (pseudo)magnetic fields. 
 %
@@ -511,11 +517,11 @@ This hamiltonian describes a set of (pseudo)spins subject to local (pseudo)magne
 %
 The field $\mathbf{b}_{\mathbf{k}\sigma}$ is orthogonal to the $y$ plane, and is tilted in the $z$ plane by an angle $2\theta_{\mathbf{k}\sigma}$ , where
 \[
-	\cos 2\theta_{\mathbf{k}\sigma} = \frac{\epsilon_{\mathbf{k}\sigma}}{E_{\mathbf{k}\sigma}}
+	\cos 2\theta_{\mathbf{k}\sigma} = \frac{\epsilon_{\mathbf{k}\sigma}}{E_{\mathbf{k}\sigma}} \, ,
 	\qquad
-	\sin 2\theta_{\mathbf{k}\sigma} = \frac{\Delta_{\mathbf{k}\sigma}}{E_{\mathbf{k}\sigma}}
+	\sin 2\theta_{\mathbf{k}\sigma} = \frac{\Delta_{\mathbf{k}\sigma}}{E_{\mathbf{k}\sigma}} \, ,
 	\qquad
-	E_{\mathbf{k}\sigma} \equiv 	\sqrt{\epsilon_{\mathbf{k}\sigma}^2 + \abs{\Delta_{\mathbf{k}\sigma}}^2}
+	E_{\mathbf{k}\sigma} \equiv 	\sqrt{\epsilon_{\mathbf{k}\sigma}^2 + \abs{\Delta_{\mathbf{k}\sigma}}^2} \, .
 \]
 A sketch of these angles and the pseudofield is given in Fig.~\ref{fig:pseudo-magnetic-field-hm}.
 
@@ -530,7 +536,7 @@ To diagonalise the Hubbard hamiltonian $\hat H_t + \hat H_U$ of Eq.~\eqref{eq:af
 	d_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
 		E_{\mathbf{k}\sigma} & \\
 		& - E_{\mathbf{k}\sigma}
-	\end{bmatrix}
+	\end{bmatrix} \, .
 \end{equation}
 The matrix $W_{\mathbf{k}\sigma}$ is unitary, and gives a counter-clockwise rotation by an angle $2 \theta_{\mathbf{k}\sigma}$ around the $y$ axis:
 \begin{align}
@@ -539,47 +545,47 @@ The matrix $W_{\mathbf{k}\sigma}$ is unitary, and gives a counter-clockwise rota
 	&= \begin{bmatrix}
 		\cos \theta_{\mathbf{k}\sigma} & - \sin \theta_{\mathbf{k}\sigma} \\
 		\sin \theta_{\mathbf{k}\sigma} & \cos \theta_{\mathbf{k}\sigma}
-	\end{bmatrix} \label{eq:af-hm-diagonalizer}
+	\end{bmatrix} \, . \label{eq:af-hm-diagonalizer}
 \end{align}
 Its eigenvalues are $\pm E_{\mathbf{k}\sigma}$, with
 \begin{equation}\label{eq:af-bands}
 	E_{\mathbf{k}\sigma} = \sqrt{
 		\epsilon_{\mathbf{k}\sigma}^2 + \abs{\Delta_{\mathbf{k}\sigma}}^2
-	}
+	} \, .
 \end{equation}
-In Fig.~\ref{fig:pseudo-magnetic-field-hm} we sketch the pseudo-magnetic field in the $xz$ plane, and the diagonalisation procedure. $W_{\mathbf{k}\sigma}$ is a rotation by an angle $2\theta_{\mathbf{k}\sigma}$ around the $y$ axis, and in the end aligns the original $z$ axis with the pseudofield axis. Note that $E_{\mathbf{k}\sigma}$ is actually spin independent: only the gap depends on $\sigma$ through a sign factor.
+In Fig.~\ref{fig:pseudo-magnetic-field-hm} we sketch the pseudo-magnetic field in the $xz$ plane, and the diagonalisation procedure. $W_{\mathbf{k}\sigma}$ is a rotation by an angle $2\theta_{\mathbf{k}\sigma}$ around the $y$ axis, and in the end aligns the original $z$ axis with the pseudofield axis. We notice that $E_{\mathbf{k}\sigma}$ is actually spin independent: only the gap depends on $\sigma$ through a sign factor, which is irrelevant in Eq.~\eqref{eq:af-bands}.
 
 Applying the rotation matrix to the spinors we obtain new spinors of $\gamma^{(\pm)}$ fermions,
 \begin{equation}\label{eq:af-Gamma=WPsi}
 	\hat\Gamma_{\mathbf{k}\sigma} = W_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma} = \begin{bmatrix}
 		\hat \gamma_{\mathbf{k}\sigma}^{(+)} \\ \hat \gamma_{\mathbf{k}\sigma}^{(-)}
-	\end{bmatrix}
+	\end{bmatrix} \, .
 \end{equation}
-In the end we have the non-interacting hamiltonian:
+Bringing all together, we obtain the non-interacting hamiltonian:
 \[
 \begin{aligned}
-	\hat H_t + \hat H_U &\simeq \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger h_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma} + (\cdots) \\
+	\hat H_t + \hat H_U &\HFsimeq \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger h_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma} + (\cdots) \\
 	&= \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Psi_{\mathbf{k}\sigma}^\dagger W_{\mathbf{k}\sigma}^\dagger W_{\mathbf{k}\sigma} h_{\mathbf{k}\sigma} W_{\mathbf{k}\sigma}^\dagger W_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma} + (\cdots) \\
 	&= \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \hat \Gamma_{\mathbf{k}\sigma}^\dagger d_{\mathbf{k}\sigma} \hat \Gamma_{\mathbf{k}\sigma} + (\cdots) \\
 	&= \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma E_{\mathbf{k}\sigma} \left(
 	\hat \gamma_{\mathbf{k}\sigma}^{(+)\dagger} \hat \gamma_{\mathbf{k}\sigma}^{(+)} - \hat \gamma_{\mathbf{k}\sigma}^{(-)\dagger} \hat \gamma_{\mathbf{k}\sigma}^{(-)}
-	\right) + (\cdots) 
+	\right) + (\cdots) \, .
 \end{aligned}
 \]
-where we intend $(\cdots) = nU \hat N -  E_{\mathrm{H}/U}^{(\mathrm{AF})}$. The final non-interacting hamiltonian describes a free Fermi gas of $\gamma^{(\pm)}$ fermions, respectively on the bands $\pm E_{\mathbf{k}\sigma}$. Note that these two bands are separated by a gap $\Delta_{\mathbf{k}\sigma}$.
+where we intend $(\cdots) = nU \hat N -  E_{\mathrm{H},U}^{(\mathrm{AF})}$. The final non-interacting hamiltonian describes a free Fermi gas of $\gamma^{(\pm)}$ fermions, respectively on the bands $\pm E_{\mathbf{k}\sigma}$.
 
 \subsection{Features of the AF solution}\label{subsec:af-features}
 
-This subsection is devoted to discussing briefly some features of the AF solution we found. It is organised as a series of unrelated paragraphs, each aimed at deriving precise properties or formulas we use in the algorithmic computation. Additional informations about antiferromagnetism in the conventional HM are given in App.~\ref{app:hm-af-ground-state}. With these observations we conclude the part about the local repulsion and extend to full EHM.
+This subsection is devoted to discussing briefly some features of the AF solution we found. It is organised as a series of unrelated paragraphs, each aimed at deriving precise properties or formulas we use in the algorithmic computation. Additional informations about antiferromagnetism in the conventional HM are given in App.~\ref{app:hm-af-ground-state}. With these observations we conclude the part about the local repulsion and expand to full EHM.
 
 \paragraph{Pseudospin EVs.}
 
 The expectation value of the original pseudospin operators in the various directions can be expressed in terms of the tilted pseudospins $\hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^\alpha \hat \Gamma_{\mathbf{k}\sigma}$,
 \[
 \begin{aligned}
-	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^x \hat \Psi_{\mathbf{k}\sigma} \rangle &= -\sin 2\theta_{\mathbf{k}\sigma} \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \\
-	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^y \hat \Psi_{\mathbf{k}\sigma} \rangle &= 0 \\
-	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Psi_{\mathbf{k}\sigma} \rangle &= \cos 2\theta_{\mathbf{k}\sigma} \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle
+	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^x \hat \Psi_{\mathbf{k}\sigma} \rangle &= -\sin 2\theta_{\mathbf{k}\sigma} \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \, , \\
+	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^y \hat \Psi_{\mathbf{k}\sigma} \rangle &= 0 \, , \\
+	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Psi_{\mathbf{k}\sigma} \rangle &= \cos 2\theta_{\mathbf{k}\sigma} \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \, ,
 \end{aligned}
 \]
 where we used the angular relations of Fig.~\ref{fig:pseudo-magnetic-field-hm}. Moving to the tilted frame, the $z$ component of the pseudo-spin is just a thermal superposition of ``up'' and ``down'' states
@@ -589,7 +595,7 @@ where we used the angular relations of Fig.~\ref{fig:pseudo-magnetic-field-hm}. 
 	E_{\mathbf{k}\sigma};\beta,\tilde{\mu}
 	\right) - f\left(
 	-E_{\mathbf{k}\sigma};\beta,\tilde{\mu}
-	\right)
+	\right) \, .
 \end{equation}
 Let us define the thermal factors:
 \begin{equation}\label{eq:af-Th}
@@ -598,31 +604,31 @@ Let us define the thermal factors:
 	-E_{\mathbf{k}\sigma};\beta,\mu
 	\right) \pm f\left(
 	E_{\mathbf{k}\sigma};\beta,\mu
-	\right)
+	\right) \, ,
 \end{equation}
 which will often appear in computations. Being $E_{\mathbf{k}\sigma}$ spin independent, so are the thermal factors. We have:
 \begin{align}
-	\ev{\hat s_{\mathbf{k}\sigma}^x} &= \frac{\Delta_{\mathbf{k}\sigma}}{E_{\mathbf{k}\sigma}} \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{eq:af-hm-sx}\\
-	\ev{\hat s_{\mathbf{k}\sigma}^y} &= 0 \\
-	\ev{\hat s_{\mathbf{k}\sigma}^z} &=  -\frac{\epsilon_{\mathbf{k}\sigma}}{E_{\mathbf{k}\sigma}}  \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{eq:af-hm-sz}
+	\ev{\hat s_{\mathbf{k}\sigma}^x} &= \frac{\Delta_{\mathbf{k}\sigma}}{E_{\mathbf{k}\sigma}} \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \, , \label{eq:af-hm-sx}\\
+	\ev{\hat s_{\mathbf{k}\sigma}^y} &= 0 \, , \\
+	\ev{\hat s_{\mathbf{k}\sigma}^z} &=  -\frac{\epsilon_{\mathbf{k}\sigma}}{E_{\mathbf{k}\sigma}}  \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \, . \label{eq:af-hm-sz}
 \end{align}
-Gauge invariance guarantees that we can rotate the pseudo-field on the $xy$ plane, thus obtaining $\ev{\hat s_{\mathbf{k}\sigma}^y} \neq 0$. From these EVs, we get the expression of the self-consistency equation for $m$, and the self-consistent formula to compute the density.
+%Gauge invariance guarantees that we can rotate the pseudo-field on the $xy$ plane, thus obtaining $\ev{\hat s_{\mathbf{k}\sigma}^y} \neq 0$. From these EVs, we get the expression of the self-consistency equation for $m$, and the self-consistent formula to compute the density.
 
 \paragraph{Magnetisation self-consistency equation.}
 
 We gave the self-consistency equation for the magnetisation $m$ in Eq.~\eqref{eq:af-hm-m-self-consistency-reciprocal}. By further elaboration, it can be written equivalently as
 \begin{equation}\label{eq:af-hm-m-self-consistency}
-	m = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta_{\mathbf{k}\uparrow}}{E_{\mathbf{k}\uparrow}} \mathrm{Th}_{\mathbf{k}\uparrow}^{(-)}[\beta,\mu]
+	m = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta_{\mathbf{k}\uparrow}}{E_{\mathbf{k}\uparrow}} \mathrm{Th}_{\mathbf{k}\uparrow}^{(-)}[\beta,\mu] \, .
 \end{equation}
 This equation is the ``operational'' version of the self-consistency equation for the HFP $m$.
 
-\begin{tabproof}[Self-consistency equation for $m$]
+\begin{tabproof}[Proof of Eq.~\eqref{eq:af-hm-m-self-consistency}: self-consistency equation for $m$]
 
 	Consider Eq.~\eqref{eq:af-hm-m-self-consistency-reciprocal}. Restricting the sum to the MBZ and using Eq.~\eqref{eq:af-(psi+pi)=psi}, we get
 	\[
 		m = \frac{1}{2L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \left\langle
 		\left(\hat \psi_{\mathbf{k}\uparrow} + \hat \psi_{\mathbf{k}\uparrow}^\dagger\right) - \left(\hat \psi_{\mathbf{k}\downarrow} + \hat \psi_{\mathbf{k}\downarrow}^\dagger\right)
-		\right\rangle
+		\right\rangle \, .
 	\]
 	From Tab.~\ref{tab:af-pseudo-spin-map}, we recognise a pseudospin EV in direction $x$. From Eq.~\eqref{eq:af-hm-sx}
 	\[
@@ -639,7 +645,7 @@ This equation is the ``operational'' version of the self-consistency equation fo
 		&= \frac{1}{2L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \left(
 			\frac{\Re\lbrace\Delta_{\mathbf{k}\uparrow}\rbrace}{E_{\mathbf{k}\uparrow}} \mathrm{Th}_{\mathbf{k}\uparrow}^{(-)}[\beta,\mu] - \frac{\Re\lbrace\Delta_{\mathbf{k}\downarrow}\rbrace}{E_{\mathbf{k}\downarrow}} \mathrm{Th}_{\mathbf{k}\downarrow}^{(-)}[\beta,\mu]
 		\right) \\
-		&= \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta_{\mathbf{k}\uparrow}}{E_{\mathbf{k}\uparrow}} \mathrm{Th}_{\mathbf{k}\uparrow}^{(-)}[\beta,\mu]
+		&= \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta_{\mathbf{k}\uparrow}}{E_{\mathbf{k}\uparrow}} \mathrm{Th}_{\mathbf{k}\uparrow}^{(-)}[\beta,\mu] \, ,
 	\end{aligned}
 	\]
 	which proves Eq.~\eqref{eq:af-hm-m-self-consistency}. In last line we used $\Delta_{\mathbf{k}\uparrow} = -\Delta_{\mathbf{k}\downarrow}$, which follows from Eq.~\eqref{eq:af-hm-Delta-def}, and the fact that $E_{\mathbf{k}\sigma}$ and $\mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu]$ are spin actually spin-independent.
@@ -651,20 +657,23 @@ This equation is the ``operational'' version of the self-consistency equation fo
 The averaged density obeys the equations
 \begin{align}
 	n &= \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \mathrm{Th}_{\mathbf{k}\uparrow}^{(+)}[\beta,\mu] \label{eq:af-hm-n-MBZ-Th} \\
-	&= \frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \mathrm{Th}_{\mathbf{k}\uparrow}^{(+)}[\beta,\mu] \label{eq:af-hm-n-BZ-Th}
+	&= \frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \mathrm{Th}_{\mathbf{k}\uparrow}^{(+)}[\beta,\mu] \, . \label{eq:af-hm-n-BZ-Th}
 \end{align}
 The two are equivalent, but the second one is handier to implement in numeric computations.
 
-\begin{tabproof}[Proof of Eq.~\eqref{eq:af-hm-n-MBZ-Th}]
+\begin{tabproof}[Proof of Eq.~\eqref{eq:af-hm-n-MBZ-Th}: self-consistency equation for $n$]
 	
 	The $\mathcal{F}$-transform of the on-site density operator satisfies
 	\begin{align}
 		\sum_{\mathbf{r}\in\mathcal{L}} \hat n_{\mathbf{r}\sigma} &= \sum_{\mathbf{r}\in\mathcal{L}} \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \nonumber \\
 		&\Feq \sum_{\mathbf{r}\in\mathcal{L}}
-		\frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k} \in \mathrm{BZ}} e^{i \mathbf{k} \cdot \mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k}' \in \mathrm{BZ}} e^{-i \mathbf{k}' \cdot \mathbf{r}} \hat c_{\mathbf{k}'\sigma} \nonumber \\
-		&=\sum_{\mathbf{k} \in \mathrm{BZ}} \sum_{\mathbf{k}' \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} e^{-i (\mathbf{k}' - \mathbf{k}) \cdot \mathbf{r}} \nonumber \\
+		\frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k} \in \mathrm{BZ}} e^{i \mathbf{k} \cdot \mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k}' \in \mathrm{BZ}} e^{-i \mathbf{k}' \cdot \mathbf{r}} \hat c_{\mathbf{k}'\sigma} \, , \label{eq:af-<n>-not0-int1}
+	\end{align}
+	where we used Eq.~\eqref{eq:fourier-convention}. By further elaboration, we obtain
+	\begin{align}
+		\sum_{\mathbf{r}\in\mathcal{L}} \hat n_{\mathbf{r}\sigma} &=\sum_{\mathbf{k} \in \mathrm{BZ}} \sum_{\mathbf{k}' \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} e^{-i (\mathbf{k}' - \mathbf{k}) \cdot \mathbf{r}} \nonumber \\
 		&= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \nonumber \\
-		&= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat n_{\mathbf{k}\sigma} \label{eq:af-<n>-not0}
+		&= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat n_{\mathbf{k}\sigma} \, , \label{eq:af-<n>-not0}
 	\end{align}
 	where we used Eq.~\eqref{eq:ehm-delta}. Hence, applying Eq.~\eqref{eq:af-ansatz},
 	\begin{align}
@@ -672,29 +681,36 @@ The two are equivalent, but the second one is handier to implement in numeric co
 		\frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} n + \overbrace{\frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} m}^{=0}
 		\Bigg) \nonumber \\
 		&= \frac{1}{2L_x L_y} \sum_\sigma \sum_{\mathbf{r}\in\mathcal{L}} \langle \hat n_{\mathbf{r}\sigma} \rangle \nonumber \\
-		&= \frac{1}{2L_x L_y} \sum_\sigma \sum_{\mathbf{k} \in \mathrm{BZ}} \langle \hat n_{\mathbf{k}\sigma} \rangle \label{eq:af-n-EV}
+		&= \frac{1}{2L_x L_y} \sum_\sigma \sum_{\mathbf{k} \in \mathrm{BZ}} \langle \hat n_{\mathbf{k}\sigma} \rangle \, . \label{eq:af-n-EV}
 	\end{align}
 	Restricting the sum of Eq.~\eqref{eq:af-n-EV} to the MBZ, we get
-	\[
-	\begin{aligned}
+	\begin{align}
 		n &= \frac{1}{2L_x L_y} \sum_\sigma \sum_{\mathbf{k} \in \mathrm{MBZ}} \langle 
 		\hat n_{\mathbf{k}\sigma} + \hat n_{\mathbf{k}+\bm{\pi}\sigma}
-		\rangle \\
+		\rangle \nonumber \\
 		&= \frac{1}{2L_x L_y} \sum_\sigma \sum_{\mathbf{k} \in \mathrm{MBZ}} \left\langle 
-		\Psi_{\mathbf{k}\sigma}^\dagger \hat \Psi_{\mathbf{k}\sigma} 
-		\right\rangle \\
-		&= \frac{1}{2L_x L_y} \sum_\sigma \sum_{\mathbf{k} \in \mathrm{MBZ}} \left\langle 
-		\Gamma_{\mathbf{k}\sigma}^\dagger \hat \Gamma_{\mathbf{k}\sigma} 
+		\hat \Psi_{\mathbf{k}\sigma}^\dagger \hat \Psi_{\mathbf{k}\sigma} 
+		\right\rangle \, . \label{eq:af-hm-n-MBZ-Th-int1}
+	\end{align}
+	The mapping $\hat \Psi \to \hat \Gamma$ is unitary, so 
+	\[
+		\hat \Psi_{\mathbf{k}\sigma}^\dagger \hat \Psi_{\mathbf{k}\sigma} = \hat \Gamma_{\mathbf{k}\sigma}^\dagger \hat \Gamma_{\mathbf{k}\sigma} \, .
+	\]
+	Therefore, Eq.~\eqref{eq:af-hm-n-MBZ-Th-int1} reduces to
+	\[
+	\begin{aligned}
+		n &= \frac{1}{2L_x L_y} \sum_\sigma \sum_{\mathbf{k} \in \mathrm{MBZ}} \left\langle 
+		\hat \Gamma_{\mathbf{k}\sigma}^\dagger \hat \Gamma_{\mathbf{k}\sigma} 
 		\right\rangle \\
 		&= \frac{1}{2L_x L_y} \sum_\sigma \sum_{\mathbf{k} \in \mathrm{MBZ}} \left(
 		\left\langle \hat \gamma_{\mathbf{k}\sigma}^{(+)\dagger} \hat \gamma_{\mathbf{k}\sigma}^{(+)} \right\rangle + 
 		\left\langle \hat \gamma_{\mathbf{k}\sigma}^{(-)\dagger} \hat \gamma_{\mathbf{k}\sigma}^{(-)} \right\rangle
 		\right) \\
-		&= \frac{1}{2L_x L_y} \sum_\sigma \sum_{\mathbf{k} \in \mathrm{MBZ}} \mathrm{Th}_{\mathbf{k}\sigma}^{(+)}[\beta,\mu]
+		&= \frac{1}{2L_x L_y} \sum_\sigma \sum_{\mathbf{k} \in \mathrm{MBZ}} \mathrm{Th}_{\mathbf{k}\sigma}^{(+)}[\beta,\mu] \, .
 	\end{aligned}
 	\]
-	In the third line used unitarity of the $\hat \Psi \to \hat \Gamma$ transformation, and then Eq.~\eqref{eq:af-Th} in the following two lines. In the last line, the thermal factor is spin-independent, hence we can set $\sigma=\uparrow$ and remove the sum over spin. This proves Eq.~\eqref{eq:af-hm-n-MBZ-Th}.
-	
+	In last line we used
+	Eq.~\eqref{eq:af-Th}. The thermal factor is spin-independent, hence we can set $\sigma=\uparrow$ and remove the sum over spin. This proves Eq.~\eqref{eq:af-hm-n-MBZ-Th}.
 \end{tabproof}
 
 In Fig.~\ref{fig:af-Ek-density} we sketch density as a function of the chemical potential, computed using Eq.~\eqref{eq:af-hm-n-MBZ-Th}. At low temperature, the gap plateau at zero energy is most visible. The lattice is half-filled for any chemical potential inside the plateau range.
@@ -708,7 +724,7 @@ In Fig.~\ref{fig:af-Ek-density} we sketch density as a function of the chemical 
 		\label{fig:af-Ek-density}
 	}
 	\subfloat[Example doped bands.]{
-		\includegraphics[height=0.28\linewidth]{../Project/src/labs/antiferromagnet-bands-3d/antiferromagnet-bands-3d.pdf}
+		\includegraphics[height=0.3\linewidth]{../Project/src/labs/antiferromagnet-bands-3d/antiferromagnet-bands-3d-ink.pdf}
 		\label{fig:af-Ek-bands}
 	}
 	\caption{Left panel: electronic density in the AF phase as a function of the chemical potential, computed through Eq.~\eqref{eq:af-hm-n-BZ-Th}, at various temperatures. Right panel: example doped bands, with $\mu/\Delta = 1.5$ set arbitrarily and temperature set to $\beta=10$ to enhance smearing effects around the FS. Single-state filling is proportional to the colour intensity.}
@@ -723,7 +739,7 @@ Consider now the gran canonical hamiltonian $\hat H - \mu\hat N$ and use Eq.~\eq
 	\quad\implies\quad
 	W_{\mathbf{k}\sigma} \left[ 
 	h_{\mathbf{k}\sigma}-\mu \Id_{2\times2}
-	\right] W_{\mathbf{k}\sigma}^\dagger = d_{\mathbf{k}\sigma}-\mu \Id_{2\times2}
+	\right] W_{\mathbf{k}\sigma}^\dagger = d_{\mathbf{k}\sigma}-\mu \Id_{2\times2} \, ,
 \end{equation}
 thus for non-null chemical potential (i.e. finite doping) the eigenvalues are just shifted, $\pm E_\mathbf{k}-\mu$. These two bands have the same number of single-particle states. In Fig.~\ref{fig:af-Ek-bands} we sketch the bands $\pm E_{\mathbf{k}\sigma}$. Intense colour indicates an almost filled single-particle state, lighter gray colour an almost empty single-particle state. The gap is at zero energy, but at any finite doping $\tilde{\mu}$ crosses the upper band. 
 
@@ -731,67 +747,67 @@ In terms of band theory classifications, the resulting phase is metallic -- exce
 
 \paragraph{Instability of the doped antiferromagnet.}
 
-As we said at the beginning of this chapter, there exist several ways to realise an Hubbard antiferromagnet. For the conventional HM, it is known \cite{singh1990collective,singh1991doped} that the commensurate AF phase is unstable at any finite doping. This is discussed briefly in Sec.~\ref{appsubsec:af-instability}. The key takeaway is that insulating antiferromagnets are stable with respect to spin fluctuations, while metallic antiferromagnets are not. The commensurate AF phase is insulating only at half-filling, because the chemical potential lies within the gap.
+As we said at the beginning of this chapter, there exist several ways to realise an Hubbard antiferromagnet. For the conventional HM, it is known \cite{singh1990collective,singh1991doped} that the commensurate AF phase is unstable at any finite doping. This is discussed briefly in App.~\ref{app:hm-af-ground-state}. The key takeaway is that insulating antiferromagnets are stable with respect to spin fluctuations, while metallic antiferromagnets are not. The commensurate AF phase is insulating only at half-filling, because the chemical potential lies within the gap.
 
 The mere existence of a self-consistent solution does not guarantee stability: indeed, when in Sec.~\ref{subsec:hf-variational-solution} we derived the variational solution, we only required it to be a stationary point of the HF energy. In other words, there is no need for the solution to be a minimum. The commensurate AF phase is, in fact, a saddle point of HF energy \cite{singh1990collective} and any finite doping disrupts commensurate ordering towards uncommensurate phases.
-
-These observations end the description of commensurate antiferromagnetism in the conventional HM. Some more details and observations are provided in App.~\ref{app:hm-af-ground-state}.
 
 \section{Expansion to the EHM}\label{sec:af-ehm}
 
 We now expand to the EHM, including the non-local interaction $\hat H_V$. Our strategy is to generalise the discussion of the section above. A formally identical solution with renormalised quantities,
 \[
-	\epsilon_{\mathbf{k}\sigma} \to \tilde{\epsilon}_{\mathbf{k}\sigma}
+	\epsilon_{\mathbf{k}\sigma} \to \tilde{\epsilon}_{\mathbf{k}\sigma} \, ,
 	\qquad
-	E_{\mathbf{k}\sigma} \to \tilde{E}_{\mathbf{k}\sigma}
+	E_{\mathbf{k}\sigma} \to \tilde{E}_{\mathbf{k}\sigma} \, ,
 	\qquad
-	\Delta_{\mathbf{k}\sigma} \to \tilde{\Delta}_{\mathbf{k}\sigma}
+	\Delta_{\mathbf{k}\sigma} \to \tilde{\Delta}_{\mathbf{k}\sigma} \, ,
 	\qquad
-	\mu \to \tilde{\mu}
+	\mu \to \tilde{\mu} \, ,
 \]
 is coherent by construction with the symmetry structure of the AF phase. Explicitly, the renormalised bands are $\pm \tilde{E}_{\mathbf{k}\sigma}$, with
 \[
-\tilde{E}_{\mathbf{k}\sigma} \equiv \sqrt{\tilde{\epsilon}_{\mathbf{k}\sigma}^2 + |\tilde{\Delta}_{\mathbf{k}\sigma}|^2}
+	\tilde{E}_{\mathbf{k}\sigma} \equiv \sqrt{\tilde{\epsilon}_{\mathbf{k}\sigma}^2 + |\tilde{\Delta}_{\mathbf{k}\sigma}|^2} \, .
 \]
 Moreover, we allow $\Delta_{\mathbf{k}\sigma}$ to be a general complex function of $\mathbf{k}$ and $\sigma$,
 \[
-\Delta_{\mathbf{k}\sigma} = \Re \lbrace \Delta_{\mathbf{k}\sigma} \rbrace + i \Im \lbrace \Delta_{\mathbf{k}\sigma} \rbrace
+	\Delta_{\mathbf{k}\sigma} = \Re \lbrace \Delta_{\mathbf{k}\sigma} \rbrace + i \Im \lbrace \Delta_{\mathbf{k}\sigma} \rbrace \, .
 \]
 
 We define the renormalised angle $\tilde{\theta}_{\mathbf{k}\sigma}$ through the relations:
 \begin{equation}\label{eq:af-ehm-(~theta)}
-	\sin 2\tilde{\theta}_{\mathbf{k}\sigma} = \frac{|\tilde{\Delta}_{\mathbf{k}\sigma}|}{\tilde{E}_{\mathbf{k}\sigma}}
+	\sin 2\tilde{\theta}_{\mathbf{k}\sigma} = \frac{|\tilde{\Delta}_{\mathbf{k}\sigma}|}{\tilde{E}_{\mathbf{k}\sigma}} \, ,
 	\qquad
-	\cos 2\tilde{\theta}_{\mathbf{k}\sigma} = \frac{\tilde{\epsilon}_{\mathbf{k}\sigma}}{\tilde{E}_{\mathbf{k}\sigma}}
+	\cos 2\tilde{\theta}_{\mathbf{k}\sigma} = \frac{\tilde{\epsilon}_{\mathbf{k}\sigma}}{\tilde{E}_{\mathbf{k}\sigma}} \, ,
 \end{equation}
 and similarly the angle $\tilde{\zeta}_{\mathbf{k}\sigma}$,
 \begin{equation}\label{eq:af-ehm-(~zeta)}
-	\sin 2\tilde{\zeta}_{\mathbf{k}\sigma} = \frac{\Re\{\tilde{\Delta}_{\mathbf{k}\sigma}\}}{|\tilde{\Delta}_{\mathbf{k}\sigma}|}
+	\sin 2\tilde{\zeta}_{\mathbf{k}\sigma} = \frac{\Re\{\tilde{\Delta}_{\mathbf{k}\sigma}\}}{|\tilde{\Delta}_{\mathbf{k}\sigma}|} \, ,
 	\qquad
-	\cos 2\tilde{\zeta}_{\mathbf{k}\sigma} = \frac{\Im\{\tilde{\Delta}_{\mathbf{k}\sigma}\}}{|\tilde{\Delta}_{\mathbf{k}\sigma}|}
+	\cos 2\tilde{\zeta}_{\mathbf{k}\sigma} = \frac{\Im\{\tilde{\Delta}_{\mathbf{k}\sigma}\}}{|\tilde{\Delta}_{\mathbf{k}\sigma}|} \, .
 \end{equation}
 A sketch of these angles is given in Fig.~\ref{fig:pseudo-magnetic-field-ehm}. For a complex gap function, the new diagonalisation matrix is given by:
-\begin{align}
-	\tilde{W}_{\mathbf{k}\sigma} &\equiv e^{-i \tilde{\theta}_{\mathbf{k}\sigma} \tau^y} e^{-i \tilde{\zeta}_{\mathbf{k}\sigma} \tau^z} \nonumber\\
-	&= \left(\cos \tilde{\theta}_{\mathbf{k}\sigma} -i \sin \tilde{\theta}_{\mathbf{k}\sigma} \tau^y \right) \left(\cos \tilde{\zeta}_{\mathbf{k}\sigma} -i \sin \tilde{\zeta}_{\mathbf{k}\sigma} \tau^z \right) \nonumber\\
+\[
+\begin{aligned}
+	\tilde{W}_{\mathbf{k}\sigma} &\equiv e^{-i \tilde{\theta}_{\mathbf{k}\sigma} \tau^y} e^{-i \tilde{\zeta}_{\mathbf{k}\sigma} \tau^z} \\
+	&= \left(\cos \tilde{\theta}_{\mathbf{k}\sigma} -i \sin \tilde{\theta}_{\mathbf{k}\sigma} \tau^y \right) \left(\cos \tilde{\zeta}_{\mathbf{k}\sigma} -i \sin \tilde{\zeta}_{\mathbf{k}\sigma} \tau^z \right)\\
 	&= \begin{bmatrix}
 		\cos \tilde{\theta}_{\mathbf{k}\sigma} & - \sin \tilde{\theta}_{\mathbf{k}\sigma} \\
 		\sin \tilde{\theta}_{\mathbf{k}\sigma} & \cos \tilde{\theta}_{\mathbf{k}\sigma}
 	\end{bmatrix} \begin{bmatrix}
 		e^{-i\tilde{\zeta}_{\mathbf{k}\sigma}} & \\ 
 		& e^{i\tilde{\zeta}_{\mathbf{k}\sigma}}
-	\end{bmatrix} \nonumber \\
+	\end{bmatrix} \\
 	&= \begin{bmatrix}
 		\cos \tilde{\theta}_{\mathbf{k}\sigma} e^{-i\tilde{\zeta}_{\mathbf{k}\sigma}} & - \sin \tilde{\theta}_{\mathbf{k}\sigma} e^{i\tilde{\zeta}_{\mathbf{k}\sigma}} \\
 		\sin \tilde{\theta}_{\mathbf{k}\sigma} e^{-i\tilde{\zeta}_{\mathbf{k}\sigma}} & \cos \tilde{\theta}_{\mathbf{k}\sigma} e^{i\tilde{\zeta}_{\mathbf{k}\sigma}}
-	\end{bmatrix} \nonumber
-\end{align}
+	\end{bmatrix} \, ,
+\end{aligned}
+\]
 The following relations hold (\textit{tilde} sign indicates the renormalised quantity):
 \[
 \begin{aligned}
-	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^x \hat \Psi_{\mathbf{k}\sigma} \rangle &= -\sin 2\tilde{\theta}_{\mathbf{k}\sigma} \cos 2\tilde{\zeta}_{\mathbf{k}\sigma} \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \\
-	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^y \hat \Psi_{\mathbf{k}\sigma} \rangle &= -\sin 2\tilde{\theta}_{\mathbf{k}\sigma} \sin 2\tilde{\zeta}_{\mathbf{k}\sigma} \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \\
-	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Psi_{\mathbf{k}\sigma} \rangle &= \cos 2\tilde{\theta}_{\mathbf{k}\sigma} \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle
+	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^x \hat \Psi_{\mathbf{k}\sigma} \rangle &= -\sin 2\tilde{\theta}_{\mathbf{k}\sigma} \cos 2\tilde{\zeta}_{\mathbf{k}\sigma} \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \, , \\
+	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^y \hat \Psi_{\mathbf{k}\sigma} \rangle &= -\sin 2\tilde{\theta}_{\mathbf{k}\sigma} \sin 2\tilde{\zeta}_{\mathbf{k}\sigma} \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \, , \\
+	\langle \hat \Psi_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Psi_{\mathbf{k}\sigma} \rangle &= \cos 2\tilde{\theta}_{\mathbf{k}\sigma} \langle \hat \Gamma_{\mathbf{k}\sigma}^\dagger \tau^z \hat \Gamma_{\mathbf{k}\sigma} \rangle \, .
 \end{aligned}
 \]
 
@@ -802,21 +818,66 @@ Let us extend Eq.~\eqref{eq:af-<z>} and define the renormalised thermal factors,
 	\tilde{E}_{\mathbf{k}\sigma};\beta,\tilde{\mu}
 	\right) - f\left(
 	-\tilde{E}_{\mathbf{k}\sigma};\beta,\tilde{\mu}
-	\right) \label{eq:af-<~z>}\\
+	\right) \, , \label{eq:af-<~z>}\\
 	\tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(\pm)}[\beta,\tilde{\mu}] &\equiv 
 	f\left(
 	-\tilde{E}_{\mathbf{k}\sigma};\beta,\tilde{\mu}
 	\right) \pm f\left(
-	\tilde{E}_{\mathbf{k}\sigma};\beta,\tilde{\mu}
-	\right) \label{eq:af-~Th}
+	\tilde{E}_{\mathbf{k}\sigma};\beta,\tilde{\mu} 
+	\right) \, , \label{eq:af-~Th}
 \end{align}
-which gives $\ev{\hat s_{\mathbf{k}\sigma}^z} = -\tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu]$. Pseudospin expectation values are:
+At half-filling, we have:
 \begin{align}
-	\ev{\hat s_{\mathbf{k}\sigma}^x} &= \frac{\Re \lbrace \tilde{\Delta}_{\mathbf{k}\sigma} \rbrace}{\tilde{E}_{\mathbf{k}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{eq:af-ehm-sx} \\
-	\ev{\hat s_{\mathbf{k}\sigma}^y} &= \frac{\Im \lbrace \tilde{\Delta}_{\mathbf{k}\sigma} \rbrace}{\tilde{E}_{\mathbf{k}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{eq:af-ehm-sy}\\
-	\ev{\hat s_{\mathbf{k}\sigma}^z} &=  -\frac{\tilde{\epsilon}_{\mathbf{k}\sigma}}{\tilde{E}_{\mathbf{k}\sigma}}  \tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \label{eq:af-ehm-sz}
+	\tilde{\mathrm{Th}}_\mathbf{k}^{(+)} &= 1  \, , \label{eq:af-Th+=1} \\
+	\tilde{\mathrm{Th}}_\mathbf{k}^{(-)} &= \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) \, . \label{eq:af-Th-=tanh}
 \end{align}
-These equations are an extension of Eqns.~\eqref{eq:af-ehm-sx}, \eqref{eq:af-ehm-sy}, \eqref{eq:af-ehm-sz} for the EHM. From now on, in the following sections, we deal with the problem of determining how the various quantities are renormalised.
+
+\begin{tabproof}[Proof of Eqs.~\eqref{eq:af-Th+=1}, \eqref{eq:af-Th-=tanh}]
+	
+	At half-filling, $\mu=0$. For a null chemical potential, the Fermi-Dirac distribution is given by
+	\[
+		f(\epsilon;\beta,0) = \frac{1}{e^{\beta\epsilon}+1} \, .
+	\]
+	Therefore:
+	
+	\begin{enumerate}
+		\item The following identity holds:
+		\[
+		\begin{aligned}
+			f(-\epsilon;\beta,0) &= \frac{1}{e^{-\beta\epsilon}+1} \\
+			&= \frac{e^{\beta\epsilon}}{1+e^{\beta\epsilon}} \\
+			&= 1 - \frac{1}{e^{\beta\epsilon}+1} \\
+			&= 1-f(\epsilon;\beta,0) \, .
+		\end{aligned}
+		\]
+		Hence,
+		\[
+			f(-\tilde{E}_\mathbf{k};\beta,0) + f(\tilde{E}_\mathbf{k};\beta,0) = 1
+		\]
+		which proves Eq.~\eqref{eq:af-Th+=1}.
+		\item We have:
+		\[
+		\begin{aligned}
+			f(-\epsilon;\beta,0) - f(\epsilon;\beta,0) &= \frac{1}{e^{-\beta\epsilon}+1} - \frac{1}{e^{\beta\epsilon}+1} \\
+			&= \frac{e^{\beta\epsilon}}{e^{\beta\epsilon}+1} - \frac{1}{e^{\beta\epsilon}+1} \\
+			&= \frac{e^{\beta\epsilon/2}-e^{-\beta\epsilon/2}}{e^{\beta\epsilon/2}+e^{-\beta\epsilon/2}} \, .
+		\end{aligned}
+		\]
+		Therefore,
+		\[
+			f(-\tilde{E}_\mathbf{k};\beta,0) - f(\tilde{E}_\mathbf{k};\beta,0) = \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
+		\]
+		which proves Eq.~\eqref{eq:af-Th-=tanh}.
+	\end{enumerate}	
+\end{tabproof}
+
+Pseudospin expectation values are:
+\begin{align}
+	\ev{\hat s_{\mathbf{k}\sigma}^x} &= \frac{\Re \lbrace \tilde{\Delta}_{\mathbf{k}\sigma} \rbrace}{\tilde{E}_{\mathbf{k}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(-)}[\beta,\tilde{\mu}] \, , \label{eq:af-ehm-sx} \\
+	\ev{\hat s_{\mathbf{k}\sigma}^y} &= \frac{\Im \lbrace \tilde{\Delta}_{\mathbf{k}\sigma} \rbrace}{\tilde{E}_{\mathbf{k}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(-)}[\beta,\tilde{\mu}] \, , \label{eq:af-ehm-sy} \\
+	\ev{\hat s_{\mathbf{k}\sigma}^z} &=  -\frac{\tilde{\epsilon}_{\mathbf{k}\sigma}}{\tilde{E}_{\mathbf{k}\sigma}}  \tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(-)}[\beta,\tilde{\mu}] \, . \label{eq:af-ehm-sz}
+\end{align}
+These equations are an extension of Eqs.~\eqref{eq:af-ehm-sx}, \eqref{eq:af-ehm-sy}, \eqref{eq:af-ehm-sz} for the EHM.
 
 \begin{figure}
 	\centering
@@ -827,11 +888,11 @@ These equations are an extension of Eqns.~\eqref{eq:af-ehm-sx}, \eqref{eq:af-ehm
 
 By renormalising all quantities, the self-consistency equation for magnetisation must stay formally the same of Eq.~\eqref{eq:af-hm-m-self-consistency}
 \begin{equation}\label{eq:af-ehm-m-self-consistency}
-	m = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\tilde{\Delta}_{\mathbf{k}\uparrow}}{\tilde{E}_{\mathbf{k}\uparrow}} \tilde{\mathrm{Th}}_{\mathbf{k}\uparrow}^{(-)}[\beta,\mu] 
+	m = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\tilde{\Delta}_{\mathbf{k}\uparrow}}{\tilde{E}_{\mathbf{k}\uparrow}} \tilde{\mathrm{Th}}_{\mathbf{k}\uparrow}^{(-)}[\beta,\tilde{\mu}] \, .
 \end{equation}
 We will be able to prove this statement rigorously in Sec.~\ref{sec:af-hf-hamiltonian}. For the density $n$ an identical argument holds, and Eq.~\eqref{eq:af-hm-n-MBZ-Th} is extended to
 \begin{equation}\label{eq:af-ehm-n-MBZ-Th}
-	n = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \tilde{\mathrm{Th}}_{\mathbf{k}\uparrow}^{(+)}[\beta,\mu]
+	n = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \tilde{\mathrm{Th}}_{\mathbf{k}\uparrow}^{(+)}[\beta,\tilde{\mu}] \, .
 \end{equation}
 With this strategy, we get back to the application of HF methods to the full EHM, including the non-local attraction.
 
@@ -839,21 +900,21 @@ With this strategy, we get back to the application of HF methods to the full EHM
 
 The approximation to $\hat H_V$ in the non-local Hartree channel is given by
 \begin{equation}\label{eq:af-HV-hartree-approx}
-	\hat H_V \HFsimeq -2znV \times \hat N - E_{\mathrm{H}/V}^{(\mathrm{AF})} + (\text{Fock channel})
+	\hat H_V \HFsimeq -2znV \times \hat N - E_{\mathrm{H},V}^{(\mathrm{AF})} + (\text{Fock channel}) \, ,
 \end{equation}
-with $E_{\mathrm{H}/V}^{(\mathrm{AF})}$ the contraction energy,
+with $E_{\mathrm{H},V}^{(\mathrm{AF})}$ the contraction energy,
 \begin{equation}\label{eq:af-HV-hartree-Ec-implicit}
-	E_{\mathrm{H}/V}^{(\mathrm{AF})} \equiv V \sum_{\ev{\mathbf{r}\mathbf{r}'}} \sum_{\sigma,\sigma'} \big\langle \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \big\rangle  \big\langle \hat c_{\mathbf{r}'\sigma'}^\dagger \hat c_{\mathbf{r}'\sigma'} \big\rangle
+	E_{\mathrm{H},V}^{(\mathrm{AF})} \equiv V \sum_{\ev{\mathbf{r}\mathbf{r}'}} \sum_{\sigma,\sigma'} \big\langle \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \big\rangle  \big\langle \hat c_{\mathbf{r}'\sigma'}^\dagger \hat c_{\mathbf{r}'\sigma'} \big\rangle \, .
 \end{equation}
 From Eq.~\eqref{eq:af-HV-hartree-approx}, we see that the Hartree channel of the non-local attraction contributes to the chemical potential shift. Combining Eq.~\eqref{eq:af-HU-hartree-approx} with Eq.~\eqref{eq:af-HV-hartree-approx}, we obtain the full shift to chemical potential
 \begin{equation}\label{eq:af-nl-mu}
-	\tilde{\mu} \equiv \mu + n(2zV-U)
+	\tilde{\mu} \equiv \mu + n(2zV-U) \, ,
 \end{equation}
 which is identical to what we found for the normal phase, in Eq.~\eqref{eq:normal-mu-shift}.
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:af-HV-hartree-approx}]
 	
-	In Eq.~\eqref{eq:normal-hartree-HV} we separated the Hartree channel approximation to $\hat H_V$ in s.s. and o.s. channels. The same equation is valid in this context. Using the definition of $E_{\mathrm{H}/V}^{(\mathrm{AF})}$ given in Eq.~\eqref{eq:af-HV-hartree-Ec-implicit}, we obtain
+	In Eq.~\eqref{eq:normal-hartree-HV} we separated the Hartree channel approximation to $\hat H_V$ in s.s. and o.s. channels. The same equation is valid in this context. Using the definition of $E_{\mathrm{H},V}^{(\mathrm{AF})}$ given in Eq.~\eqref{eq:af-HV-hartree-Ec-implicit}, we obtain
 	\begin{multline}
 		\hat H_V \HFsimeq
 		-V \sum_{\ev{\mathbf{r}\mathbf{r}'}} \sum_\sigma \left(
@@ -870,7 +931,7 @@ which is identical to what we found for the normal phase, in Eq.~\eqref{eq:norma
 			\hat n_{\mathbf{r}'\overline{\sigma}}
 			\rangle
 		\right)
-		- E_{\mathrm{H}/V}^{(\mathrm{AF})} \label{eq:af-V-wick-decomposition-operatorial} + (\text{Fock channel})
+		- E_{\mathrm{H},V}^{(\mathrm{AF})} \label{eq:af-V-wick-decomposition-operatorial} + (\text{Fock channel}) \, .
 	\end{multline}
 	Inserting the Ansatz of Eq.~\eqref{eq:af-ansatz}, we obtain
 	\begin{multline*}
@@ -890,13 +951,13 @@ which is identical to what we found for the normal phase, in Eq.~\eqref{eq:norma
 			(-1)^{x+y+\delta_{\sigma=\uparrow}} \hat n_{\mathbf{r}'\overline{\sigma}} + (-1)^{x'+y'+\delta_{\overline{\sigma}=\uparrow}} \hat n_{\mathbf{r}\sigma}
 			\right)
 		}_{\mathrm{o.s.}} \\
-		- E_{\mathrm{H}/V}^{(\mathrm{AF})} + (\text{Fock channel})
+		- E_{\mathrm{H},V}^{(\mathrm{AF})} + (\text{Fock channel}) \, .
 	\end{multline*}
 	For a square lattice, if $\mathbf{r} = (x,y)$ and $\mathbf{r}' = (x',y')$ are NNs, both the following identities are true
 	\[
 	\begin{aligned}
-		(-1)^{x'+y'} &= (-1)^{x+y+1} \\
-		(-1)^{\delta_{\overline{\sigma}=\uparrow}} &= (-1)^{\delta_{\sigma=\uparrow}+1}
+		(-1)^{x'+y'} &= (-1)^{x+y+1} \, , \\
+		(-1)^{\delta_{\overline{\sigma}=\uparrow}} &= (-1)^{\delta_{\sigma=\uparrow}+1} \, .
 	\end{aligned}
 	\]
 	We obtain
@@ -919,10 +980,10 @@ which is identical to what we found for the normal phase, in Eq.~\eqref{eq:norma
 				\hat n_{\mathbf{r}\sigma} + \hat n_{\mathbf{r}'\overline{\sigma}}
 			\right)
 		}_{\text{o.s. (magnetisation)}} \\
-		- E_{\mathrm{H}/V}^{(\mathrm{AF})} + (\text{Fock channel})
+		- E_{\mathrm{H},V}^{(\mathrm{AF})} + (\text{Fock channel}) \, .
 		\label{eq:af-ehm-hartree-int-1}
 	\end{multline}
-	In the above expressions we separated in ``density'' contributions and ``magnetisation'' ones. Let us deal with them separately.
+	In the above expressions we separated in ``density'' and ``magnetisation'' terms. Let us deal with them separately.
 	
 	\paragraph{Density terms.}
 	
@@ -932,7 +993,7 @@ which is identical to what we found for the normal phase, in Eq.~\eqref{eq:norma
 			\hat n_{\mathbf{r}\sigma} + \hat n_{\mathbf{r}'\sigma}
 		\right) -nV \sum_{\ev{\mathbf{r}\mathbf{r}'}} \sum_\sigma \left(
 			\hat n_{\mathbf{r}\sigma} + \hat n_{\mathbf{r}'\overline{\sigma}}
-		\right) \HFsimeq -2znV \times \hat N
+		\right) = -2znV \times \hat N \, .
 	\end{equation}
 	
 	\paragraph{Magnetisation terms.}
@@ -944,29 +1005,28 @@ which is identical to what we found for the normal phase, in Eq.~\eqref{eq:norma
 		\right) - \left(
 			\hat n_{\mathbf{r}\sigma} + \hat n_{\mathbf{r}'\overline{\sigma}}
 		\right)
-		\right] = 0
+		\right] = 0 \, .
 	\]
-	Therefore the only contribution to the HF approximation of $\hat H_V$, in the Hartree channel, comes from Eq.~\eqref{eq:af-HV-hartree-approx-density}. Then Eq.~\eqref{eq:af-HV-hartree-approx} is proven. 
-
+	Therefore the only contribution to the HF approximation of $\hat H_V$, in the Hartree channel, comes from Eq.~\eqref{eq:af-HV-hartree-approx-density}. Inserting the latter in Eq.~\eqref{eq:af-ehm-hartree-int-1}, Eq.~\eqref{eq:af-HV-hartree-approx} is proven.
 \end{tabproof}
 
 The contraction energy of Eq.~\eqref{eq:af-HV-hartree-Ec-implicit} reduces to
 \begin{equation}\label{eq:af-HV-hartree-Ec}
-	E_{\mathrm{H}/V}^{(\mathrm{AF})} = - L_x L_y \times 2n^2 V
+	E_{\mathrm{H},V}^{(\mathrm{AF})} = - L_x L_y \times 2n^2  \, ,
 \end{equation}
 which coincides with that for the normal phase, given in Eq.~\eqref{eq:normal-HV-hartree-Ec}. This is coherent with the fact that the shift to chemical potential is identical.
 
-\begin{tabproof}[Non-local Hartree contraction energy]
+\begin{tabproof}[Proof of Eq.~\eqref{eq:af-HV-hartree-Ec}: non-local Hartree contraction energy]
 
-	Separate Eq.~\eqref{eq:af-HV-hartree-Ec} in s.s. and o.s. sectors,
+	Separate Eq.~\eqref{eq:af-HV-hartree-Ec-implicit} in s.s. and o.s. sectors,
 	\begin{equation}\label{eq:af-HV(os+ss)-hartree-Ec}
-		E_{\mathrm{H}/V}^{(\mathrm{AF})} = V \sum_{\ev{\mathbf{r}\mathbf{r}'}} \sum_{\sigma} \Big(
+		E_{\mathrm{H},V}^{(\mathrm{AF})} = V \sum_{\ev{\mathbf{r}\mathbf{r}'}} \sum_{\sigma} \Big(
 			\overbrace{
 				\big\langle \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \big\rangle  \big\langle \hat c_{\mathbf{r}'\sigma}^\dagger \hat c_{\mathbf{r}'\sigma} \big\rangle
 			}^\mathrm{s.s.} + \overbrace{
 				\big\langle \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \big\rangle  \big\langle \hat c_{\mathbf{r}'\overline{\sigma}}^\dagger \hat c_{\mathbf{r}'\overline{\sigma}} \big\rangle
 			}^\mathrm{o.s.}
-		\Big)
+		\Big) \, .
 	\end{equation}
 	
 	\paragraph{s.s. sector contraction energy.}
@@ -994,7 +1054,7 @@ which coincides with that for the normal phase, given in Eq.~\eqref{eq:normal-HV
 			n - (-1)^{x'+y'} m
 			)
 			\right]
-		}_{\sigma=\downarrow}
+		}_{\sigma=\downarrow} \, .
 	\end{multline*}
 	The mixed terms (those of order $\mathcal{O}(n)\times\mathcal{O}(m)$) cancel out, and since sign factors necessarily alternate on neighbouring sites, the remainder is just
 	\begin{equation}\label{eq:af-HV(ss)-hartree-Ec}
@@ -1004,7 +1064,7 @@ which coincides with that for the normal phase, given in Eq.~\eqref{eq:normal-HV
 		\hat n_{\mathbf{r}'\sigma}
 		\rangle = V \sum_{\ev{\mathbf{r}\mathbf{r}'}} 2(
 		n^2-m^2
-		)
+		) \, .
 	\end{equation}
 	
 	\paragraph{o.s. sector contraction energy.}
@@ -1032,7 +1092,7 @@ which coincides with that for the normal phase, given in Eq.~\eqref{eq:normal-HV
 			n + (-1)^{x'+y'} m
 			)
 			\right]
-		}_{\sigma=\downarrow}
+		}_{\sigma=\downarrow} \, ,
 	\end{multline*}
 	which gives
 	\begin{equation}\label{eq:af-HV(os)-hartree-Ec}
@@ -1042,19 +1102,16 @@ which coincides with that for the normal phase, given in Eq.~\eqref{eq:normal-HV
 		\hat n_{\mathbf{r}'\overline{\sigma}}
 		\rangle = V \sum_{\ev{\mathbf{r}\mathbf{r}'}} 2(
 		n^2+m^2
-		)
+		) \, .
 	\end{equation}
-	Then, summing Eqns.~\eqref{eq:af-HV(ss)-hartree-Ec} and \eqref{eq:af-HV(os)-hartree-Ec}, we get
+	Then, summing Eqs.~\eqref{eq:af-HV(ss)-hartree-Ec} and \eqref{eq:af-HV(os)-hartree-Ec}, we get
 	\[
-		E_{\mathrm{H}/V}^{(\mathrm{AF})} = - 2V \sum_{\ev{ij}} \sum_\sigma n^2 = - 4n^2 V \times \frac{z}{2} L_x L_y
+		E_{\mathrm{H},V}^{(\mathrm{AF})} = - 2V \sum_{\ev{ij}} \sum_\sigma n^2 = - 4n^2 V \times \frac{z}{2} L_x L_y \, .
 	\]
 	which coincides with Eq.~\eqref{eq:af-HV-hartree-Ec}.
-
 \end{tabproof}
 
-We explored the Hartree channel. Let us now move to the effects originated by Fock contractions.
-
-\subsection{Fock effects: gap and bare bands renormalisation}\label{subsec:af-fock}
+\subsection{Effects of the Fock terms: gap and bare bands renormalisation}\label{subsec:af-fock}
 
 In this subsection we discuss the Fock contributions to the HF approximated hamiltonian, in the AF phase. We can use the very beginning of Sec.~\ref{subsec:normal-hartree-mu} derivation, up to Eq.~\eqref{eq:normal-V-fock-int1},
 \begin{multline}
@@ -1070,11 +1127,11 @@ In this subsection we discuss the Fock contributions to the HF approximated hami
 	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger 
 	\hat c_{\mathbf{K}-\mathbf{k}' \sigma}
 	\rangle
-	\hat c_{\mathbf{K}-\mathbf{k} \sigma}^\dagger  \hat c_{\mathbf{K}+\mathbf{k}'\sigma} - E_{\mathrm{F}/V}^{(\mathrm{AF})} \label{eq:af-V-fock-int1}
+	\hat c_{\mathbf{K}-\mathbf{k} \sigma}^\dagger  \hat c_{\mathbf{K}+\mathbf{k}'\sigma} - E_{\mathrm{F},V}^{(\mathrm{AF})} \, , \label{eq:af-V-fock-int1}
 \end{multline}
-where $E_{\mathrm{F}/V}^{(\mathrm{AF})}$ is defined similarly to Eq.~\eqref{eq:normal-V-fock-double-counting},
+where $E_{\mathrm{F},V}^{(\mathrm{AF})}$ is defined similarly to Eq.~\eqref{eq:normal-V-fock-double-counting},
 \begin{equation}\label{eq:af-V-fock-double-counting}
-	E_{\mathrm{F}/V}^{(\mathrm{AF})} \equiv \frac{V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left(
+	E_{\mathrm{F},V}^{(\mathrm{AF})} \equiv \frac{V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left(
 	\cos \left(
 	\delta k_x
 	\right)	+ \cos \left(
@@ -1086,9 +1143,8 @@ where $E_{\mathrm{F}/V}^{(\mathrm{AF})}$ is defined similarly to Eq.~\eqref{eq:n
 	\hat c_{\mathbf{K}-\mathbf{k}' \sigma}
 	\rangle \langle
 	\hat c_{\mathbf{K}-\mathbf{k} \sigma}^\dagger  \hat c_{\mathbf{K}+\mathbf{k}'\sigma} 
-	\rangle
+	\rangle \, ,
 \end{equation}
-with the expectation value being computed on the AF ground-state.
 
 The commensurate AF phase is described by two EVs being in non-zero in reciprocal space,
 \[
@@ -1097,18 +1153,18 @@ The commensurate AF phase is described by two EVs being in non-zero in reciproca
 	\hat n_{\mathbf{k}\sigma}
 	\rangle
 	\big| \ge 0
-	\qquad
+	\qq{and}
 	\big| 
 	\langle
 	\hat \psi_{\mathbf{k}\sigma}
 	\rangle
-	\big| \ge 0
+	\big| \ge 0 \, ,
 \]
 as we specified in Sec.~\ref{subsec:af-ansatz-reciprocal}. This implies only two contributions in Eq.~\eqref{eq:af-V-fock-int1} are non-zero:
 \[
 	\mathbf{k} = -\mathbf{k}'
-	\qq{or}
-	\mathbf{k}+\bm{\pi} = -\mathbf{k}'
+	\qq{and}
+	\mathbf{k}+\bm{\pi} = -\mathbf{k}' \, .
 \]
 Then Eq.~\eqref{eq:af-V-fock-int1} becomes
 \begin{multline}
@@ -1134,14 +1190,14 @@ Then Eq.~\eqref{eq:af-V-fock-int1} becomes
 		\hat 	c_{\mathbf{K}+\mathbf{k}+\bm{\pi} \sigma}
 		\rangle
 		\hat c_{\mathbf{K}-\mathbf{k} \sigma}^\dagger  \hat c_{\mathbf{K}-\mathbf{k}-\bm{\pi}\sigma}
-	}_\text{Off-diagonal terms} \Big) - E_{\mathrm{F}/V}^{(\mathrm{AF})}
+	}_\text{Off-diagonal terms} \Big) - E_{\mathrm{F},V}^{(\mathrm{AF})} \, .
 	\label{eq:af-V-fock-int2}
 \end{multline}
 We separated the hamiltonian in \textit{diagonal} and \textit{off-diagonal} terms.
 
 \paragraph{Diagonal terms.}
 
-The diagonal sector of Eq.~\eqref{eq:af-V-fock-int2} is reduced to
+The diagonal terms of Eq.~\eqref{eq:af-V-fock-int2} are reduced to
 \begin{multline}
 	\frac{2V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}} \sum_\sigma \left[
 	\cos \left(
@@ -1157,13 +1213,9 @@ The diagonal sector of Eq.~\eqref{eq:af-V-fock-int2} is reduced to
 	= V \sum_{\mathbf{k},\sigma} \left(
 	u^{(s^*)}_\sigma (\cos q_x + \cos q_y) + u^{(d)}_\sigma (\cos q_x - \cos q_y)
 	\right) \hat c_{\mathbf{k} \sigma}^\dagger
-	\hat c_{\mathbf{k}\sigma} \label{eq:af-V-fock-int3-diag}
+	\hat c_{\mathbf{k}\sigma} \, , \label{eq:af-V-fock-int3-diag}
 \end{multline}
-We defined the harmonics of $u_{\mathbf{k}\sigma}$, given in Eq.~\eqref{eq:af-uqsigma-def},
-\begin{equation}\label{eq:af-ugamma-harmonics}
-	u^{(\gamma)}_\sigma \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} u_{\mathbf{k}\sigma}
-\end{equation}
-Similarly to what we derived for the normal phase in Sec.~\ref{subsec:normal-fock-bands}, for the AF phase the $s^*$ and $d$-wave harmonics of $u_{\mathbf{k}\sigma}$ are HFPs which obey self-consistently Eq.~\eqref{eq:af-ugamma-harmonics}.
+where we used Eq.~\eqref{eq:af-ugamma-harmonics}, where the harmonics of $u_{\mathbf{k}\sigma}$ were defined.
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:af-V-fock-int3-diag}]
 	
@@ -1200,33 +1252,32 @@ Similarly to what we derived for the normal phase in Sec.~\ref{subsec:normal-foc
 		&= \sum_{\gamma,\sigma} u_\sigma^{(\gamma)} \times V
 		\sum_{\mathbf{q}'}
 		\varphi_{\mathbf{q}'}^{(\gamma)*}
-		\hat n_{\mathbf{q}'\sigma}
+		\hat n_{\mathbf{q}'\sigma} \, .
 		\label{eq:af-V-fock-int3-implicit}
 	\end{align}
 	We used the decomposition of Eq.~\eqref{eq:coscos-symmetries-decomposition}. In the last line, we recognised the harmonics given in Eq.~\eqref{eq:af-ugamma-harmonics}.
 	
 	We can re-use the argument that, for the normal phase, lead us to Eq.~\eqref{eq:normal-up=0}. We are not breaking inversion symmetry (and as a consequence, neither $\mathrm{C}_2$): this implies that, whatever the shape of the renormalised bands, it must be
 	\[
-	\tilde{\epsilon}_{\mathbf{q}\sigma} = \tilde{\epsilon}_{-\mathbf{q}\sigma}
-	\quad\implies\quad
-	u^{(p_\ell)}_\sigma = 0
-	\qq{with}
-	\ell\in\lbrace x,y \rbrace
+		\tilde{\epsilon}_{\mathbf{q}\sigma} = \tilde{\epsilon}_{-\mathbf{q}\sigma}
+		\quad\implies\quad
+		u^{(p_\ell)}_\sigma = 0
+		\qq{with}
+		\ell\in\lbrace x,y \rbrace \, .
 	\]
 	Renormalised bare bands need to be symmetric functions of the moment. Hence for $\gamma\in\lbrace p_x, p_y \rbrace$ the above sum vanishes. Using this selection rule, Eq.~\eqref{eq:af-V-fock-int3-implicit} reduces to Eq.~\eqref{eq:af-V-fock-int3-diag}.
-	
 \end{tabproof}
 	
-Bands are renormalised
+Apart from the explicit form of the self-consistency equations, this discussion is formally the same of the normal phase, carried out in Sec.~\ref{subsec:normal-fock-bands}. Therefore, the discussion of Sec.~\ref{subsec:normal-d-wave-hopping} can be applied in this context with identical meaning. In the AF phase, bands are renormalised as
 \begin{equation}\label{eq:af-bands-renormalisation}
-	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv \epsilon_{\mathbf{k}\sigma} + u^{(s^*)}_\sigma V (\cos k_x + \cos k_y) + u^{(d)}_\sigma V (\cos k_x - \cos k_y)
+	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv \epsilon_{\mathbf{k}\sigma} + u^{(s^*)}_\sigma V (\cos k_x + \cos k_y) + u^{(d)}_\sigma V (\cos k_x - \cos k_y) \, ,
 \end{equation}
-as was for the normal phase in Eq.~\eqref{eq:normal-bands-renormalisation}. These HFPs obey the self-consistency equations
+as was for the normal phase in Eq.~\eqref{eq:normal-bands-renormalisation}.The self-consistency equation for the harmonics of $u_{\mathbf{k}\sigma}$, given in Eq.~\eqref{eq:af-ugamma-harmonics}, can be written as
 \begin{equation}\label{eq:af-ugamma-self-consistency}
 	u^{(\gamma)}_\sigma = -\frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \varphi_\mathbf{k}^{(\gamma)}
-	\frac{\tilde{\epsilon}_{\mathbf{k}\sigma}}{\tilde{E}_{\mathbf{k}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(-)}[\beta,\tilde{\mu}]
+	\frac{\tilde{\epsilon}_{\mathbf{k}\sigma}}{\tilde{E}_{\mathbf{k}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(-)}[\beta,\tilde{\mu}] \, .
 \end{equation}
-Self-consistency equations are reported explicitly in Tab.~\ref{tab:af-ehm-ugamma-self-consistencies}. Note that in Eq.~\eqref{eq:af-ugamma-self-consistency} all quantities are spin-independent: we omit spin index on these HFPs.
+The symmetry-resolved self-consistency equations are reported explicitly in Tab.~\ref{tab:af-ehm-ugamma-self-consistencies}. We notice that in Eq.~\eqref{eq:af-ugamma-self-consistency} all quantities are spin-independent: we omit spin index on these HFPs.
 
 \begin{table}
 	\centering
@@ -1243,9 +1294,13 @@ Self-consistency equations are reported explicitly in Tab.~\ref{tab:af-ehm-ugamm
 	\label{tab:af-ehm-ugamma-self-consistencies}
 \end{table}
 
-\begin{tabproof}[Self-consistency equations for $u^{(\gamma)}_\sigma$]
-
-	We expand Eq.~\eqref{eq:af-ugamma-harmonics},
+\begin{tabproof}[Proof of Eq.~\eqref{eq:af-ugamma-self-consistency}: self-consistency equations for $u^{(\gamma)}_\sigma$]
+	
+	Recall the definition of $u_{\mathbf{k}\sigma}$,
+	\[
+		u_{\mathbf{k}\sigma} = \langle \hat n_{\mathbf{k}\sigma} \rangle \, ,
+	\]
+	given in Eq.~\eqref{eq:af-uqsigma-def}. We expand the harmonics decomposition of Eq.~\eqref{eq:af-ugamma-harmonics},
 	\[
 	\begin{aligned}
 		u^{(\gamma)}_\sigma &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}
@@ -1268,7 +1323,7 @@ Self-consistency equations are reported explicitly in Tab.~\ref{tab:af-ehm-ugamm
 		\hat n_{\mathbf{k}\sigma}
 		-
 		\hat n_{\mathbf{k}+\bm{\pi}\sigma}
-		\rangle
+		\rangle \, .
 	\end{aligned}
 	\]
 	In last line we used Eq.~\eqref{eq:af-(phi+pi)=-phi}. From Tab.~\ref{tab:af-pseudo-spin-map}, we recognise the $z$ component of the pseudospin operator
@@ -1278,11 +1333,18 @@ Self-consistency equations are reported explicitly in Tab.~\ref{tab:af-ehm-ugamm
 		\hat s_{\mathbf{k}\sigma}^z
 		\rangle \nonumber\\
 		&= -\frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \varphi_\mathbf{k}^{(\gamma)}
-		\frac{\tilde{\epsilon}_{\mathbf{k}\sigma}}{\tilde{E}_{\mathbf{k}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(-)}[\beta,\tilde{\mu}] \label{eq:af-ugamma-chain}
+		\frac{\tilde{\epsilon}_{\mathbf{k}\sigma}}{\tilde{E}_{\mathbf{k}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(-)}[\beta,\tilde{\mu}] \, , \label{eq:af-ugamma-chain}
 	\end{align}
 	where, in the last line, Eq.~\eqref{eq:af-ehm-sz} has been used. This proves Eq.~\eqref{eq:af-ugamma-self-consistency}.
-	
 \end{tabproof}
+
+Similarly to the normal phase, also for the AF phase we can define the symmetry-resolved components of the renormalised hopping amplitude,
+\begin{equation}\label{eq:af-tS-td}
+	\tilde{t}^{(s^*)}_\sigma \equiv t - \frac{u_\sigma^{(s^*)} V}{2}
+	\qq{and}
+	\tilde{t}^{(d)}_\sigma \equiv - \frac{u_\sigma^{(d)} V}{2} \, .
+\end{equation}
+We re-used the definitions of Eq.~\eqref{eq:normal-tS-td}.
 
 \paragraph{Off-diagonal terms.}
 
@@ -1304,14 +1366,10 @@ The off-diagonal sector of Eq.~\eqref{eq:af-V-fock-int2} is reduced to
 	\left(
 	iv^{(\gamma)}_\sigma \varphi_\mathbf{k}^{(\gamma)*}
 	\hat \psi_{\mathbf{k}\sigma} + \hc
-	\right)
+	\right) \, ,
 	\label{eq:af-V-fock-int4-offdiag}
 \end{multline}
-where we defined the harmonics of $v_{\mathbf{k}\sigma}$, given in Eq.~\eqref{eq:af-vqsigma-def},
-\begin{equation}\label{eq:af-vgamma-harmonics}
-	v^{(\gamma)}_\sigma \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} v_{\mathbf{k}\sigma}
-\end{equation}
-These harmonics complete the set of HFPs for the AF phase.
+where we used the harmonics of $v_{\mathbf{k}\sigma}$, defined in Eq.~\eqref{eq:af-vgamma-harmonics}.
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:af-V-fock-int4-offdiag}]
 
@@ -1337,7 +1395,7 @@ These harmonics complete the set of HFPs for the AF phase.
 		\right) \times V
 		\sum_{\mathbf{q}'\in\mathrm{BZ}}
 		\varphi_{\mathbf{q}'}^{(\gamma)*}
-		\hat \psi_{\mathbf{q}'\sigma}^\dagger \label{eq:af-V-fock-int3-implicit}
+		\hat \psi_{\mathbf{q}'\sigma}^\dagger \, . \label{eq:af-V-fock-int3-implicit}
 	\end{multline}
 	We shift the first sum by an AF vector $\bm{\pi}$ defining $\mathbf{k}+\bm{\pi}\equiv\mathbf{q}$, and use Eq.~\eqref{eq:af-ehm-vphi-psi-property} as well as reciprocal space periodicity by a BZ,
 	\[
@@ -1352,7 +1410,7 @@ These harmonics complete the set of HFPs for the AF phase.
 		&= - \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}
 		\langle
 		\hat \psi_{\mathbf{k}\sigma}
-		\rangle
+		\rangle \, .
 	\end{aligned}
 	\]
 	Recall the definition $v_{\mathbf{k}\sigma} = i\langle \hat \psi_{\mathbf{k}\sigma} \rangle$ of Eq.~\eqref{eq:af-vqsigma-def}. Inserting the above equation in Eq.~\eqref{eq:af-V-fock-int3-implicit}, we obtain
@@ -1380,7 +1438,7 @@ These harmonics complete the set of HFPs for the AF phase.
 		&= -i\sum_{\gamma,\sigma} v_\sigma^{(\gamma)} \times V
 		\sum_{\mathbf{q}'}
 		\varphi_{\mathbf{q}'}^{(\gamma)*}
-		\hat n_{\mathbf{q}'\sigma}
+		\hat n_{\mathbf{q}'\sigma} \, ,
 		\label{eq:af-V-fock-int3-implicit2}
 	\end{align}
 	where we used Eq.~\eqref{eq:af-vgamma-harmonics}. We restrict the sum to the MBZ,
@@ -1402,7 +1460,7 @@ These harmonics complete the set of HFPs for the AF phase.
 		v^{(\gamma)}_\sigma \varphi_\mathbf{q}^{(\gamma)*}
 		\hat \psi_{\mathbf{q}\sigma}^\dagger + v^{(\gamma)}_\sigma \varphi_{\mathbf{q}+\bm{\pi}}^{(\gamma)*}
 		\hat \psi_{\mathbf{q}+\bm{\pi}\sigma}^\dagger
-		\right)
+		\right) \, ,
 	\end{multline*}
 	and use Eq.~\eqref{eq:af-ehm-vphi-psi-property}, exchanging terms positions
 	\begin{multline}
@@ -1423,25 +1481,25 @@ These harmonics complete the set of HFPs for the AF phase.
 		v^{(\gamma)}_\sigma \varphi_\mathbf{q}^{(\gamma)*}
 		\hat \psi_{\mathbf{q}\sigma} - v^{(\gamma)}_\sigma \varphi_\mathbf{q}^{(\gamma)*}
 		\hat \psi_{\mathbf{q}\sigma}^\dagger
-		\right)
+		\right) \, .
 		\label{eq:af-V-fock-int5-offdiag}
 	\end{multline}
 	
-	Recalling Tab.~\ref{tab:x-wave-reciprocal-factors}, for the four symmetries we are considering, form factors are real-valued for symmetries $s^*$ and $d$, and purely imaginary for $p_x$ and $p_y$. We anticipate Eq.~\eqref{eq:af-v-Re-iRe}
+	Recalling Tab.~\ref{tab:x-wave-reciprocal-factors}, for the four symmetries we are considering, the functions $\varphi_\mathbf{k}^{(\gamma)}$ are real-valued for $\gamma = s^*, d$, and purely imaginary for $\gamma = p_x, p_y$. We anticipate the result of Eq.~\eqref{eq:af-v-Re-iRe},
 	\[
-		v^{(s^*)}_\sigma, v^{(d)}_\sigma \in \mathbb{R}
+		v^{(s^*)}_\sigma, v^{(d)}_\sigma \in \mathbb{R} \, ,
 		\qquad
-		v^{(p_x)}_\sigma, v^{(p_y)}_\sigma \in i\mathbb{R}
+		v^{(p_x)}_\sigma, v^{(p_y)}_\sigma \in i\mathbb{R} \, ,
 	\]
 	that will be obtained later. Then
 	\begin{equation}\label{eq:af-ehm-ivvphi-imag}
-		iv^{(\gamma)}_\sigma \varphi_\mathbf{q}^{(\gamma)*} \in i\mathbb{R}
+		iv^{(\gamma)}_\sigma \varphi_\mathbf{q}^{(\gamma)*} \in i\mathbb{R} \, ,
 	\end{equation}
 	and to conjugate a purely imaginary number it suffices to put a minus sign in front of it,
 	\[
 		-iv^{(\gamma)}_\sigma \varphi_\mathbf{q}^{(\gamma)*} = \left(
 		iv^{(\gamma)}_\sigma \varphi_\mathbf{q}^{(\gamma)*}
-		\right)^*
+		\right)^* \, .
 	\]
 	Therefore, substituting this identity in Eq.~\eqref{eq:af-V-fock-int5-offdiag}, we obtain Eq.~\eqref{eq:af-V-fock-int4-offdiag}.
 \end{tabproof}
@@ -1464,19 +1522,19 @@ These harmonics complete the set of HFPs for the AF phase.
 The HFPs $v_\sigma^{(\gamma)}$ obey the self-consistency equations
 \begin{equation}\label{eq:af-vgamma-self-consistency}
 	\frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{MBZ}} \varphi_\mathbf{q}^{(\gamma)}
-	\frac{\Im\lbrace\tilde{\Delta}_{\mathbf{q}\sigma}\rbrace}{\tilde{E}_{\mathbf{q}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{q}\sigma}^{(-)}[\beta,\tilde{\mu}]
+	\frac{\Im\lbrace\tilde{\Delta}_{\mathbf{q}\sigma}\rbrace}{\tilde{E}_{\mathbf{q}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{q}\sigma}^{(-)}[\beta,\tilde{\mu}] \, .
 \end{equation}
-and are reported explicitly in Tab.~\ref{tab:af-ehm-vgamma-self-consistencies}. By direct inspection of the equations thereby reported, we see that
+These equation are reported, symmetry-resolved, in Tab.~\ref{tab:af-ehm-vgamma-self-consistencies}. By direct inspection of the equations thereby reported, we see that
 \begin{equation}\label{eq:af-v-Re-iRe}
-	v^{(s^*)}_\sigma, v^{(d)}_\sigma \in \mathbb{R}
+	v^{(s^*)}_\sigma, v^{(d)}_\sigma \in \mathbb{R} \, ,
 	\qquad
-	v^{(p_x)}_\sigma, v^{(p_y)}_\sigma \in i\mathbb{R}
+	v^{(p_x)}_\sigma, v^{(p_y)}_\sigma \in i\mathbb{R} \, .
 \end{equation}
 We have used this result before, in Eq.~\eqref{eq:af-ehm-ivvphi-imag}. 
 
 In Tab.~\ref{tab:af-ehm-vgamma-self-consistencies} the four derived self-consistency equations are reported, ignoring spin index. Indeed, all quantities in Eq.~\eqref{eq:af-vgamma-self-consistency} are independent of $\sigma$.
 
-\begin{tabproof}[Self-consistency equations for $v^{(\gamma)}_\sigma$]
+\begin{tabproof}[Proof of Eq.~\eqref{eq:af-vgamma-self-consistency}: self-consistency equations for $v^{(\gamma)}_\sigma$]
 	
 	We expand Eq.~\eqref{eq:af-vgamma-harmonics},
 	\[
@@ -1500,7 +1558,7 @@ In Tab.~\ref{tab:af-ehm-vgamma-self-consistencies} the four derived self-consist
 		\langle
 		\hat \psi_{\mathbf{q}\sigma} -
 		\hat \psi_{\mathbf{q}\sigma}^\dagger
-		\rangle
+		\rangle \, .
 	\end{aligned}
 	\]
 	In last line we used Eq.~\eqref{eq:af-(phi+pi)=-phi}. From Tab.~\ref{tab:af-pseudo-spin-map}, we recognise the $y$ component of the pseudospin operator
@@ -1510,24 +1568,24 @@ In Tab.~\ref{tab:af-ehm-vgamma-self-consistencies} the four derived self-consist
 		\hat \Psi_{\mathbf{q}\sigma}^\dagger \tau^y \hat \Psi_{\mathbf{q}\sigma}
 		\rangle \nonumber \\
 		&= \frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{MBZ}} \varphi_\mathbf{q}^{(\gamma)}
-		\frac{\Im\lbrace\tilde{\Delta}_{\mathbf{q}\sigma}\rbrace}{\tilde{E}_{\mathbf{q}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{q}\sigma}^{(-)}[\beta,\tilde{\mu}] \label{eq:af-vgamma-chain}
+		\frac{\Im\lbrace\tilde{\Delta}_{\mathbf{q}\sigma}\rbrace}{\tilde{E}_{\mathbf{q}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{q}\sigma}^{(-)}[\beta,\tilde{\mu}] \, , \label{eq:af-vgamma-chain}
 	\end{align}
 	where we used Eq.~\eqref{eq:af-ehm-sy}. Last line coincides with Eq.~\eqref{eq:af-vgamma-self-consistency}.
 \end{tabproof}
 
 The contraction energy of Eq.~\eqref{eq:af-V-fock-double-counting} reduces to
 \begin{equation}\label{eq:af-HV-fock-Ec}
-	E_{\mathrm{F}/V}^{(\mathrm{AF})} = L_x L_y \times \frac{V}{2} \sum_{\gamma,\sigma} \left(
+	E_{\mathrm{F},V}^{(\mathrm{AF})} = L_x L_y \times \frac{V}{2} \sum_{\gamma,\sigma} \left(
 	\big|u^{(\gamma)}_\sigma\big|^2 + \big|v^{(\gamma)}_\sigma\big|^2
-	\right)
+	\right) \, ,
 \end{equation}
 Note that, due to spin independency, we can omit the spin index, remove the sum over $\sigma$ and the $1/2$ prefactor. The new HFPs amplitudes contribute positively to contraction energy. The consequences of this fact will be discussed in Sec.~\ref{sec:af-sceq-analysis}.
 
-\begin{tabproof}[Fock contraction energy]
+\begin{tabproof}[Proof of Eq.~\eqref{eq:af-HV-fock-Ec}: Fock contraction energy]
 
 	Consider Eq.~\eqref{eq:af-V-fock-double-counting}. Using the changing variables of Fig.~\ref{fig:Kk-qq'}, we get
 	\[
-	E_{\mathrm{F}/V}^{(\mathrm{AF})} = \frac{V}{L_x L_y} \sum_{\mathbf{q}, \mathbf{q}'} \sum_\sigma \left[
+	E_{\mathrm{F},V}^{(\mathrm{AF})} = \frac{V}{L_x L_y} \sum_{\mathbf{q}, \mathbf{q}'} \sum_\sigma \left[
 	\cos \left(
 	\delta q_x
 	\right)	+ \cos \left(
@@ -1550,13 +1608,20 @@ Note that, due to spin independency, we can omit the spin index, remove the sum 
 		\hat \psi_{\mathbf{q}'\sigma}
 		\rangle
 	}_\text{Off-diagonal terms}
-	\Big)
+	\Big) \, .
 	\]
-	Apply the decomposition of Eq.~\eqref{eq:coscos-symmetries-decomposition} and use Eqns.~\eqref{eq:af-uqsigma-def}, \eqref{eq:af-vqsigma-def},
+	Applying the decomposition of Eq.~\eqref{eq:coscos-symmetries-decomposition} and using Eqs.~\eqref{eq:af-uqsigma-def}, \eqref{eq:af-vqsigma-def}, we obtain:
 	\begin{equation}\label{eq:af-V-fock-double-counting-int2}
-		E_{\mathrm{F}/V}^{(\mathrm{AF})} = \frac{V}{2 L_x L_y} \sum_{\gamma,\sigma} \sum_{\mathbf{q}, \mathbf{q}'} \varphi_{\mathbf{q}}^{(\gamma)} \varphi_{\mathbf{q}'}^{(\gamma)*} \left(
-		u_{\mathbf{q}\sigma} u_{\mathbf{q}'\sigma} + v_{\mathbf{q}\sigma} v_{\mathbf{q}'\sigma}
-		\right)
+		E_{\mathrm{F},V}^{(\mathrm{AF})} =  
+		\underbrace{
+		\frac{V}{2 L_x L_y} \sum_{\gamma,\sigma} \sum_{\mathbf{q}, \mathbf{q}'} \varphi_{\mathbf{q}}^{(\gamma)} \varphi_{\mathbf{q}'}^{(\gamma)*}
+			u_{\mathbf{q}\sigma} u_{\mathbf{q}'\sigma} 
+		}_\text{Diagonal terms}
+		+
+		\underbrace{
+			\frac{V}{2 L_x L_y} \sum_{\gamma,\sigma} \sum_{\mathbf{q}, \mathbf{q}'} \varphi_{\mathbf{q}}^{(\gamma)} \varphi_{\mathbf{q}'}^{(\gamma)*}
+			v_{\mathbf{q}\sigma} v_{\mathbf{q}'\sigma}
+		}_\text{Off-diagonal terms} \, .
 	\end{equation}
 	
 	\paragraph{Diagonal terms.}
@@ -1567,7 +1632,7 @@ Note that, due to spin independency, we can omit the spin index, remove the sum 
 		\hat n_{\mathbf{q}\sigma}
 		\rangle
 		\quad\implies\quad
-		u_{\mathbf{q}\sigma} = u_{\mathbf{q}\sigma}^*
+		u_{\mathbf{q}\sigma} = u_{\mathbf{q}\sigma}^* \, ,
 	\]
 	and then
 	\begin{align}
@@ -1578,7 +1643,7 @@ Note that, due to spin independency, we can omit the spin index, remove the sum 
 		\right) \left(
 		\frac{1}{L_x L_y} \sum_{\mathbf{q}'\in\mathrm{BZ}} \varphi_{\mathbf{q}'}^{(\gamma)*} u_{\mathbf{q}'\sigma}^*
 		\right) \nonumber \\
-		&= \big|u^{(\gamma)}_\sigma\big|^2 \label{eq:af-HV(diag)-fock-Ec}
+		&= \big|u^{(\gamma)}_\sigma\big|^2 \, . \label{eq:af-HV(diag)-fock-Ec}
 	\end{align}
 	
 	\paragraph{Off-diagonal terms.}
@@ -1589,7 +1654,7 @@ Note that, due to spin independency, we can omit the spin index, remove the sum 
 		\hat \psi_{\mathbf{q}\sigma}
 		\rangle
 		\quad\implies\quad
-		v_{\mathbf{q}+\bm{\pi}\sigma} = - v_{\mathbf{q}\sigma}^*
+		v_{\mathbf{q}+\bm{\pi}\sigma} = - v_{\mathbf{q}\sigma}^* \, ,
 	\]
 	Since the form factors satisfy $\varphi_{\mathbf{q}+\bm{\pi}}^{(\gamma)} = -\varphi_{\mathbf{q}}^{(\gamma)}$, we get:
 	\[
@@ -1603,7 +1668,7 @@ Note that, due to spin independency, we can omit the spin index, remove the sum 
 		\right) \\
 		&= v^{(\gamma)}_\sigma \left(
 		\frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_{\mathbf{k}+\bm{\pi}}^{(\gamma)*} v_{\mathbf{k}+\bm{\pi}\sigma}
-		\right)
+		\right) \, ,
 	\end{aligned}
 	\]
 	where in the second passage we employed the change of variables $\mathbf{q}'=\mathbf{k}+\bm{\pi}$ and used BZ periodicity to map the original sum onto a new sum for $\mathbf{k}\in\mathrm{BZ}$. 	
@@ -1612,16 +1677,16 @@ Note that, due to spin independency, we can omit the spin index, remove the sum 
 		v_{\mathbf{q}\sigma} v_{\mathbf{q}'\sigma} &= v^{(\gamma)}_\sigma \left(
 		\frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_{\mathbf{k}}^{(\gamma)*} v_{\mathbf{k}\sigma}^*
 		\right) \nonumber \\
-		&= \big| v^{(\gamma)}_\sigma \big|^2 \label{eq:af-HV(offdiag)-fock-Ec}
+		&= \big| v^{(\gamma)}_\sigma \big|^2 \label{eq:af-HV(offdiag)-fock-Ec} \, .
 	\end{align}
-	Inserting Eqns.~\eqref{eq:af-HV(diag)-fock-Ec}, \eqref{eq:af-HV(offdiag)-fock-Ec} in Eq.~\eqref{eq:af-V-fock-double-counting-int2}, we obtain the expression of Eq.~\eqref{eq:af-HV-fock-Ec}.
+	Inserting Eqs.~\eqref{eq:af-HV(diag)-fock-Ec}, \eqref{eq:af-HV(offdiag)-fock-Ec} in Eq.~\eqref{eq:af-V-fock-double-counting-int2}, we obtain the expression of Eq.~\eqref{eq:af-HV-fock-Ec}.
 \end{tabproof}
 %
 We examined all contribution to the HF hamiltonian. In next section we collect all results and describe the features of the HF ground-state.
 
 \section{The HF hamiltonian and its properties}\label{sec:af-hf-hamiltonian}
 
-We recollect all results into a single hamiltonian approximation. Summing Eqns.~\eqref{eq:af-HU-hartree-approx}, \eqref{eq:af-V-fock-int3-diag} and \eqref{eq:af-V-fock-int4-offdiag} we obtain
+We recollect all results into a single hamiltonian approximation. Summing Eqs.~\eqref{eq:af-HU-hartree-approx}, \eqref{eq:af-V-fock-int3-diag} and \eqref{eq:af-V-fock-int4-offdiag} we obtain
 \begin{multline}
 	\hat H - \mu \hat N \HFsimeq \sum_\sigma \sum_{\mathbf{k}\in\mathrm{MBZ}} \tilde{\epsilon}_{\mathbf{k}\sigma} \left(
 	\hat n_{\mathbf{k}\sigma} - \hat n_{\mathbf{k}+\bm{\pi}\sigma}
@@ -1630,31 +1695,31 @@ We recollect all results into a single hamiltonian approximation. Summing Eqns.~
 	\tilde{\Delta}_{\mathbf{k}\sigma}
 	\hat \psi_{\mathbf{k}\sigma} + \tilde{\Delta}_{\mathbf{k}\sigma}^* \hat \psi_{\mathbf{k}\sigma}^\dagger
 	\right)
-	- \tilde{\mu} \hat N + E_\mathrm{c}^{(\mathrm{AF})} \label{eq:af-full-h}
+	- \tilde{\mu} \hat N + E_\mathrm{c}^{(\mathrm{AF})} \, . \label{eq:af-full-h}
 \end{multline}
-Renormalised bands have already been defined in Eq.~\eqref{eq:af-bands-renormalisation},
+Renormalised bands have been defined in Eq.~\eqref{eq:af-bands-renormalisation},
 \[
-	\tilde{\epsilon}_{\mathbf{k}\sigma} = \epsilon_{\mathbf{k}\sigma} + V \sum_{\gamma\in\lbrace s^*,d \rbrace} u^{(\gamma)}_\sigma \varphi_{\mathbf{k}}^{(\gamma)*}
+	\tilde{\epsilon}_{\mathbf{k}\sigma} = \epsilon_{\mathbf{k}\sigma} + V \sum_{\gamma\in\lbrace s^*,d \rbrace} u^{(\gamma)}_\sigma \varphi_{\mathbf{k}}^{(\gamma)*} \, .
 \]
 We defined the renormalised gap function as
 \begin{equation}\label{eq:af-full-gap}
-	\tilde{\Delta}_{\mathbf{k}\sigma} \equiv \Delta_{\mathbf{k}\sigma} - iV \sum_\gamma v^{(\gamma)}_\sigma \varphi_\mathbf{k}^{(\gamma)*}
+	\tilde{\Delta}_{\mathbf{k}\sigma} \equiv \Delta_{\mathbf{k}\sigma} - iV \sum_\gamma v^{(\gamma)}_\sigma \varphi_\mathbf{k}^{(\gamma)*} \, .
 \end{equation}
-We also defined the total contraction energy
+We also defined the total contraction energy as the (negative) sum of all contraction energies
 \begin{equation}\label{eq:af-Ec}
 	E_\mathrm{c}^{(\mathrm{AF})} \equiv -
 	\left( 
-		E_{\mathrm{H}/U}^{(\mathrm{AF})} + 
-		E_{\mathrm{H}/V}^{(\mathrm{AF})} + E_{\mathrm{F}/V}^{(\mathrm{AF})}
-	\right)
+		E_{\mathrm{H},U}^{(\mathrm{AF})} + 
+		E_{\mathrm{H},V}^{(\mathrm{AF})} + E_{\mathrm{F},V}^{(\mathrm{AF})}
+	\right) \, .
 \end{equation}
-which include all double counting terms we encountered. Note the minus sign in front of it.
+The three contributions were given in Eqs.~\eqref{eq:af-HU-hartree-Ec}, \eqref{eq:af-HV-hartree-Ec} and \eqref{eq:af-HV-fock-Ec}.
 
 \subsection{Gap complexification and AF flavours}\label{subsec:af-gap-complexification}
 
 Recalling Eq.~\eqref{eq:af-ehm-ivvphi-imag}, we observe that the correction to the gap function in Eq.~\eqref{eq:af-full-gap} is purely imaginary. Instead, the HM gap is purely real, $\Delta_{\mathbf{k}\sigma} = (-1)^{\delta_{\sigma=\downarrow}} mU \in \mathbb{R}$. We denote this effect as ``gap complexification''. A direct consequence of the fact that the correction is purely imaginary is that Eq.~\eqref{eq:af-ehm-m-self-consistency}, which expresses the self-consistency condition for $m$, which we postulated, is proven.
 
-\begin{tabproof}[Self-consistency equation for $m$]
+\begin{tabproof}[Proof of Eq.~\eqref{eq:af-ehm-m-self-consistency}: self-consistency equation for $m$]
 	
 	We know from Eq.~\eqref{eq:af-ehm-sx} that the real part of the gap is connected to the $x$ projection of the pseudospin expectation value. Instead, from Eq.~\eqref{eq:af-ehm-sy} we know that the imaginary part is related to the $y$ projection. It follows
 	\[
@@ -1665,32 +1730,31 @@ Recalling Eq.~\eqref{eq:af-ehm-ivvphi-imag}, we observe that the correction to t
 	\left\langle \hat s_{\mathbf{k}\uparrow}^x \right\rangle = -\left\langle \hat s_{\mathbf{k}\downarrow}^x \right\rangle
 	\]
 	Then Eq.~\eqref{eq:af-ehm-m-self-consistency} holds identically, because the proof that lead us to Eq.~\eqref{eq:af-hm-m-self-consistency} for the HM was based on this property.
-	
 \end{tabproof}
 
 In this analysis, antiferromagnetism is realised without breaking inversion symmetry. This translates in the requirement that:
 \[
-\tilde{E}_{\mathbf{k}\sigma} \stackrel{!}{=} \tilde{E}_{-\mathbf{k}\sigma}
+	\tilde{E}_{\mathbf{k}\sigma} \Ieq \tilde{E}_{-\mathbf{k}\sigma} \, .
 \]
 We know that:
 \[
-\tilde{E}_{\mathbf{k}\sigma} = \sqrt{
-	\tilde{\epsilon}_{\mathbf{k}\sigma}^2 + \Re^2\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace+ \Im^2\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace
-}
+	\tilde{E}_{\mathbf{k}\sigma} = \sqrt{
+		\tilde{\epsilon}_{\mathbf{k}\sigma}^2 + \Re^2\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace+ \Im^2\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace
+	} \, .
 \]
 Renormalised bare bands as well as the real part of the gap satisfy said inversion symmetry requirement,
 \[
-\tilde{\epsilon}_{\mathbf{k}\sigma} = \tilde{\epsilon}_{-\mathbf{k}\sigma}
-\qquad
-\Re\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace = \Re\lbrace \tilde{\Delta}_{-\mathbf{k}\sigma}\rbrace
+	\tilde{\epsilon}_{\mathbf{k}\sigma} = \tilde{\epsilon}_{-\mathbf{k}\sigma}
+	\qquad
+	\Re\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace = \Re\lbrace \tilde{\Delta}_{-\mathbf{k}\sigma}\rbrace \, ,
 \]
 hence inversion symmetry is respected only if
 \[
-\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace = \pm\Im\lbrace \tilde{\Delta}_{-\mathbf{k}\sigma}\rbrace
+	\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace = \pm\Im\lbrace \tilde{\Delta}_{-\mathbf{k}\sigma}\rbrace \, .
 \]
-which is: either the imaginary part of the gap is inversion symmetric, or is antisymmetric. Based on this consideration, we are able two discard two of the four self-consistency equations for the $v$-related HFPs listed in Tab.~\ref{tab:af-ehm-vgamma-self-consistencies}: $s^*$ and $d$-wave symmetries HFPs are nonzero if $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is momentum-even; $p_x$ and $p_y$-wave symmetries HFPs are nonzero if $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is momentum-odd. The two options cannot coexist, and separate simulations can be implemented in the two symmetry sectors.
+Either the imaginary part of the gap is inversion symmetric, or is antisymmetric. Based on this consideration, we are able two discard two of the four self-consistency equations for the harmonics $v_\sigma^{(\gamma)}$, listed in Tab.~\ref{tab:af-ehm-vgamma-self-consistencies}. If $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is an even function of momentum, $v_\sigma^{(p_x)} = v_\sigma^{(p_y)} = 0$. If $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is an odd function of momentum, $v_\sigma^{(s^*)} = v_\sigma^{(d)} = 0$. The two options cannot coexist, and separate simulations can be implemented in the two symmetry sectors.
 
-We name the two possible symmetries ``sAF'' (symmetric antiferromagnet) and ``aAF'' (antisymmetric antiferromagnet). The set of HFPs then restricts to these AF structures, and is reported for both cases in Tab.~\ref{tab:af-saf-aaf-hfps}. The presence itself of two ``AF flavours'' is not-so-physical, given that up to now we have no clear physical interpretation for $\Im\lbrace\tilde{\Delta}_\mathbf{k}\rbrace$. As we will discuss in Sec.~\ref{sec:af-sceq-analysis}, it is possible to prove that almost all these new HFPs actually vanish -- a fact that is not directly inferrable right now, but can be seen only delving into the discussion of the non-linear map that defines the algorithm. For now, let us proceed integrally with all the HFPs we found and derive the results.
+We name the two possible symmetries ``sAF'' (symmetric antiferromagnet) and ``aAF'' (antisymmetric antiferromagnet). The set of HFPs then restricts to these AF structures, and is reported for both cases in Tab.~\ref{tab:af-saf-aaf-hfps}. We have no clear physical interpretation for $\Im\lbrace\tilde{\Delta}_\mathbf{k}\rbrace$, and this makes the presence of two ``AF flavours'' unphysical. As we will discuss in Sec.~\ref{sec:af-sceq-analysis}, it is possible to prove that almost all these new HFPs actually vanish -- a fact that is not directly inferrable right now, but can be seen only delving into the discussion of the non-linear map that defines the algorithm. For now, let us proceed integrally with all the HFPs we found and derive the results.
 
 \begin{table}
 	\centering
@@ -1711,42 +1775,44 @@ We name the two possible symmetries ``sAF'' (symmetric antiferromagnet) and ``aA
 
 \subsection{The zero-temperature ground-state at half-filling}\label{subsec:af-gs}
 
+{\color{tabred}[Useless subsection. Keep?]}
+
 In Sec.~\ref{appsubsec:af-T=0-gs}, we derive analytically the AF ground state on conventional HM at zero temperature. Eq.~\eqref{appeq:af-hm-gs-3} reports the final form of said ground-state, which is similar to conventional BCS state. At half-filling and zero temperature we can extend that state to the new complexified gap. The HF approximation of the true ground-state is, in the AF sector,
 \begin{equation}\label{eq:af-hm-gs}
 	\ket{\Psi} = \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \left[
 	\sin\tilde{\theta}_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma}^\dagger + e^{2i\tilde{\zeta}_{\mathbf{k}\sigma}} \cos \tilde{\theta}_{\mathbf{k}\sigma} \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger
-	\right] \ket{\Omega_{\mathbf{k}\sigma}}
+	\right] \ket{\Omega_{\mathbf{k}\sigma}} \, .
 \end{equation}
 The proof is identical to the one provided in Sec.~\ref{appsubsec:af-T=0-gs} for the HM, apart from renormalisations. Let $\ket{\mathbf{k}\sigma} \equiv \hat c_{\mathbf{k}\sigma}^\dagger \ket{\Omega_{\mathbf{k}\sigma}}$. Then we can write
 \[
-\ket{\Psi} = \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \left[
-\sin\tilde{\theta}_{\mathbf{k}\sigma} + e^{2i\tilde{\zeta}_{\mathbf{k}\sigma}} \cos \tilde{\theta}_{\mathbf{k}\sigma} \hat \psi_{\mathbf{k}\sigma}
-\right] \ket{\mathbf{k}\sigma}
+	\ket{\Psi} = \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \left[
+	\sin\tilde{\theta}_{\mathbf{k}\sigma} + e^{2i\tilde{\zeta}_{\mathbf{k}\sigma}} \cos \tilde{\theta}_{\mathbf{k}\sigma} \hat \psi_{\mathbf{k}\sigma}
+	\right] \ket{\mathbf{k}\sigma} \, ,
 \]
 having we used $\ket{\Omega_{\mathbf{k}\sigma}} = \lbrace \hat c_{\mathbf{k}\sigma}, \hat c_{\mathbf{k}\sigma}^\dagger \rbrace \ket{\Omega_{\mathbf{k}\sigma}}$.
 
-The angles appearing in above equations are the same of Eqns.~\eqref{eq:af-ehm-(~theta)}, \eqref{eq:af-ehm-(~zeta)}. The relative phase $2 \tilde{\zeta}_{\mathbf{k}\sigma}$ is the gap function angle in complex plane, since
+The angles appearing in above equations are the same of Eqs.~\eqref{eq:af-ehm-(~theta)}, \eqref{eq:af-ehm-(~zeta)}. The relative phase $2 \tilde{\zeta}_{\mathbf{k}\sigma}$ is the gap function angle in complex plane, since
 \[
 \begin{aligned}
 	\mel{\Psi}{\hat s_{\mathbf{k}\sigma}^x}{\Psi} &= \mel{\Psi}{\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger}{\Psi} \\
 	&= \sin \tilde{\theta}_{\mathbf{k}\sigma} \cos \tilde{\theta}_{\mathbf{k}\sigma} \left(
 	e^{-2i \tilde{\zeta}_{\mathbf{k}\sigma}} + e^{2i \tilde{\zeta}_{\mathbf{k}\sigma}}
-	\right) \\
+	\right) \, , \\
 	&= \sin 2\tilde{\theta}_{\mathbf{k}\sigma} \cos 2\tilde{\zeta}_{\mathbf{k}\sigma} \\[1em]
 	\mel{\Psi}{\hat s_{\mathbf{k}\sigma}^y}{\Psi} &= i \mel{\Psi}{\hat \psi_{\mathbf{k}\sigma} - \hat \psi_{\mathbf{k}\sigma}^\dagger}{\Psi} \\
 	&= i \sin \tilde{\theta}_{\mathbf{k}\sigma} \cos \tilde{\theta}_{\mathbf{k}\sigma} \left(
 	e^{-2i \tilde{\zeta}_{\mathbf{k}\sigma}} - e^{2i \tilde{\zeta}_{\mathbf{k}\sigma}}
 	\right) \\
-	&= \sin 2\tilde{\theta}_{\mathbf{k}\sigma} \sin 2\tilde{\zeta}_{\mathbf{k}\sigma}
+	&= \sin 2\tilde{\theta}_{\mathbf{k}\sigma} \sin 2\tilde{\zeta}_{\mathbf{k}\sigma} \, .
 \end{aligned}
 \]
-These equations are coherent with Eqns.~\eqref{eq:af-ehm-sx}, \eqref{eq:af-ehm-sy}, thus the involved angles (apart from irrelevant $2\pi$ shifts) coincide.
+These equations are coherent with Eqs.~\eqref{eq:af-ehm-sx}, \eqref{eq:af-ehm-sy}, thus the involved angles (apart from irrelevant $2\pi$ shifts) coincide.
 
 \subsection{The entropy density of the AF ground-state}\label{subsec:af-s}
 
 The approximated ground-state in the AF phase is given by a gas of free $\hat \gamma^{(\pm)}$ fermions populating the two bands $\pm \tilde{E}_\mathbf{k}$ following a Fermi-Dirac distribution. Hence, the total entropy density of the ground state is given by that of a Fermi gas \cite{grosso2014solid}:
 \[
-	s^{(\mathrm{AF})} = s_-^{(\mathrm{AF})} + s_+^{(\mathrm{AF})}
+	s^{(\mathrm{AF})} = s_-^{(\mathrm{AF})} + s_+^{(\mathrm{AF})} \, ,
 \]
 where the superscript indicates the band,
 \begin{multline}
@@ -1758,14 +1824,14 @@ where the superscript indicates the band,
 	\right) \\
 	+ f(
 	\pm\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
-	\ln f( \pm\tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \label{eq:af-s}
+	\ln f( \pm\tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \, . \label{eq:af-s}
 \end{multline}
 Using Eq.~\eqref{eq:ln-x-id}, we can give an alternate formula for the entropy density
 \begin{multline}
 	s^{(\mathrm{AF})} = -\frac{k_\mathrm{B}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \ln \left(
 	1- f( \tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \right) - \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\tilde{E}_\mathbf{k}-\tilde{\mu}) f( \tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \\
 	-\frac{k_\mathrm{B}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \ln \left(
-	1- f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \right) + \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\tilde{E}_\mathbf{k}+\tilde{\mu}) f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \label{eq:af-s-variant}
+	1- f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \right) + \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\tilde{E}_\mathbf{k}+\tilde{\mu}) f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \, . \label{eq:af-s-variant}
 \end{multline}
 The proof is identical to the one provided for the normal phase in Sec.~\ref{subsec:normal-s}. Note that, as the gap closes the above expression reduces to the entropy density for the normal phase reported in Eq.~\eqref{eq:normal-s-variant}. Indeed, we are summing over the MBZ, and the bare bands $\tilde{\epsilon}_\mathbf{k}$ change sign when crossing its boundary. Thus, substituting $\tilde{E}_\mathbf{k} \to \tilde{\epsilon}_\mathbf{k}$, the first term coincides with half the sum of Eq.~\eqref{eq:normal-s-variant}, the second term with the other half.
 
@@ -1773,11 +1839,11 @@ The proof is identical to the one provided for the normal phase in Sec.~\ref{sub
 
 We compute the density of free energy, following the same procedure we used for the normal phase in Sec.~\ref{subsec:normal-f}. The free energy density is given by
 \begin{equation}\label{eq:af-fMFT-def}
-	f^{(\mathrm{AF})} \equiv \frac{F^{(\mathrm{AF})}}{L_x L_y}
+	f^{(\mathrm{AF})} \equiv \frac{F^{(\mathrm{AF})}}{L_x L_y} \, ,
 \end{equation}
 being $F^{(\mathrm{AF})}$ the total free energy,
 \begin{equation}\label{eq:af-FMFT-def}
-	F^{(\mathrm{AF})} = E_\mathrm{HF}^{(\mathrm{AF})} - \frac{S^{(\mathrm{AF})}}{k_\mathrm{B} \beta}
+	F^{(\mathrm{AF})} = E_\mathrm{HF}^{(\mathrm{AF})} - \frac{S^{(\mathrm{AF})}}{k_\mathrm{B} \beta} \, ,
 \end{equation}
 and $S^{(\mathrm{AF})} \equiv  L_x L_y \times s^{(\mathrm{AF})}$ the total entropy. Here $E_\mathrm{HF}^{(\mathrm{AF})}$ is the ground-state energy for the HF hamiltonian. In the AF phase, we compute $f^{(\mathrm{AF})}$ using the following formula:
 \begin{multline}
@@ -1789,24 +1855,24 @@ and $S^{(\mathrm{AF})} \equiv  L_x L_y \times s^{(\mathrm{AF})}$ the total entro
 	\right)
 	\right] \\
 	+ U m^2 - V \sum_{\gamma} \left(	\big|u^{(\gamma)}\big|^2 + \big|v^{(\gamma)}\big|^2
-	\right) + \tilde{\mu} n 
+	\right) + \tilde{\mu} n \, .
 	\label{eq:af-fMFT}
 \end{multline}
 In this expression, we see that $u^{(\gamma)}$s, $v^{(\gamma)}$s contribution is negative, while magnetisation contributes positively. At a first glance, this suggests that a system with no magnetisation and non-zero $u^{(\gamma)}$s, $v^{(\gamma)}$s would be energetically favoured. In that situation we would have a purely imaginary gap for a non-magnetised phase, which would be not so intuitive to explain physically. In next section we explain how the above expression for the free energy density can be used to give a constraint that proves that said situation is impossible. HFPs are interrelated and the physical solution does not admit arbitrary values.
 
-\begin{tabproof}[Free energy density for the AF phase]
+\begin{tabproof}[Proof of Eq.~\eqref{eq:af-fMFT}: free energy density for the AF phase]
 	
-	Using Eqns.~\eqref{eq:af-fMFT-def}, \eqref{eq:af-FMFT-def}, we have
+	Using Eqs.~\eqref{eq:af-fMFT-def}, \eqref{eq:af-FMFT-def}, we have
 	\[
-		f^{(\mathrm{AF})} = \frac{E_\mathrm{HF}^{(\mathrm{AF})}}{L_x L_y} - \frac{s^{(\mathrm{AF})}}{k_\mathrm{B} \beta}
+		f^{(\mathrm{AF})} = \frac{E_\mathrm{HF}^{(\mathrm{AF})}}{L_x L_y} - \frac{s^{(\mathrm{AF})}}{k_\mathrm{B} \beta} \, ,
 	\]
 	with $s^{(\mathrm{AF})}$ the entropy density computed in Eq.~\eqref{eq:af-s-variant}. Then, $f^{(\mathrm{AF})}$ is obtained by summing the following terms:
 	\begin{enumerate}
-		\item Quasiparticles energy, taking care of spin degeneracy:
+		\item Quasiparticles energy, taking care of spin degeneracy,
 		\[
-		e_\mathrm{g}^{(\mathrm{AF})} = \frac{2}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} (\tilde{E}_\mathbf{k} - \tilde{\mu}) f( \tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) - \frac{2}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} (\tilde{E}_\mathbf{k} + \tilde{\mu}) f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
+			e_\mathrm{g}^{(\mathrm{AF})} = \frac{2}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} (\tilde{E}_\mathbf{k} - \tilde{\mu}) f( \tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) - \frac{2}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} (\tilde{E}_\mathbf{k} + \tilde{\mu}) f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \, .
 		\]
-		\item Contraction energy:
+		\item Contraction energy,
 		\[
 		\begin{aligned}
 			e_\mathrm{c}^{(\mathrm{AF})} &= \frac{E_\mathrm{c}^{(\mathrm{AF})}}{L_x L_y} \\
@@ -1814,26 +1880,26 @@ In this expression, we see that $u^{(\gamma)}$s, $v^{(\gamma)}$s contribution is
 			2zn^2 - \sum_{\gamma} \left(
 			\big|u^{(\gamma)}\big|^2 + \big|v^{(\gamma)}\big|^2
 			\right)
-			\right]
+			\right] \, .
 		\end{aligned}
 		\]
-		The total contraction energy $E_\mathrm{c}^{(\mathrm{AF})}$ was given in Eq.~\eqref{eq:af-Ec}. The above result was obtained by inserting Eqbs.~\eqref{eq:af-hm-hartree-U-Ec}, \eqref{eq:af-HV-hartree-Ec} and \eqref{eq:af-HV-fock-Ec}.
-		\item Entropic energy
+		The total contraction energy $E_\mathrm{c}^{(\mathrm{AF})}$ was given in Eq.~\eqref{eq:af-Ec}. The above result was obtained by inserting Eqbs.~\eqref{eq:af-HU-hartree-Ec}, \eqref{eq:af-HV-hartree-Ec} and \eqref{eq:af-HV-fock-Ec}.
+		\item Entropic energy,
 		\begin{multline*}
 			e_s^{(\mathrm{AF})} = \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \ln \left(
 			1- f( \tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \right) - \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\tilde{E}_\mathbf{k}-\tilde{\mu}) f( \tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \\
 			+ \frac{2}{\beta L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \ln \left(
-			1- f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \right) + \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\tilde{E}_\mathbf{k}+\tilde{\mu}) f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
+			1- f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \right) + \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\tilde{E}_\mathbf{k}+\tilde{\mu}) f( -\tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \, ,
 		\end{multline*}
 		obtained by multiplying Eq.~\eqref{eq:af-s-variant} by $-2/\beta k_\mathrm{B}$.
 		\item Chemical potential correction
 		\[
-		e_n^{(\mathrm{AF})} = \mu n
+			e_n^{(\mathrm{AF})} = \mu n \, .
 		\]
 	\end{enumerate}
-	Composing everything
+	Composing everything,
 	\[
-	f^{(\mathrm{AF})} \equiv e_\mathrm{g}^{(\mathrm{AF})} + e_\mathrm{c}^{(\mathrm{AF})} + e_s^{(\mathrm{AF})} + e_n^{(\mathrm{AF})}
+		f^{(\mathrm{AF})} \equiv e_\mathrm{g}^{(\mathrm{AF})} + e_\mathrm{c}^{(\mathrm{AF})} + e_s^{(\mathrm{AF})} + e_n^{(\mathrm{AF})} \, ,
 	\]
 	we obtain Eq.~\eqref{eq:af-fMFT}.
 	
@@ -1849,20 +1915,20 @@ Analysing the expression for the free energy density of Eq.~\eqref{eq:af-fMFT}, 
 \begin{equation}\label{eq:af-ehm-gap-energy}
 	Um^2 - V \sum_{\gamma} \big| v^{(\gamma)} \big|^2 = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\big|
 		\tilde{\Delta}_\mathbf{k}
-		\big|^2}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}^{(-)}[\beta,\tilde{\mu}]
+		\big|^2}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}^{(-)}[\beta,\tilde{\mu}] \, ,
 \end{equation}
 Being the right-hand side positive, for $V>0$ we have an upper boundary to the harmonics $v^{(\gamma)}$,
 \begin{equation}\label{eq:af-vgamma-circle}
 	\sum_{\gamma} \big| v^{(\gamma)} \big|^2 \le M
 	\qq{being}
-	M^{(\mathrm{AF})} \equiv m^2 \frac U V
+	M^{(\mathrm{AF})} \equiv m^2 \frac U V \, .
 \end{equation}
 The above constraint imposes that:
 \begin{itemize}
 	\item In the strong coupling limit $U \ll V$, gap complexification is suppressed;
 	\item If magnetisation is null, so is the imaginary part of the gap
 	\[
-	\lim_{m\to0} v^{(\gamma)} = 0
+		\lim_{m\to0} v^{(\gamma)} = 0 \, ,
 	\]
 	which is coherent with the entire derivation and takes us back to the normal phase.
 \end{itemize}
@@ -1876,40 +1942,40 @@ Eq.~\eqref{eq:af-ehm-gap-energy} is also solved by a null magnetisation and thus
 			\tilde{\Delta}_\mathbf{k}
 			\big|^2}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}^{(-)}[\beta,\tilde{\mu}] \\
 		= \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Re^2 \lbrace\tilde{\Delta}_\mathbf{k}\rbrace}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}^{(-)}[\beta,\tilde{\mu}] 
-		+ \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Im^2 \lbrace\tilde{\Delta}_\mathbf{k}\rbrace}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}^{(-)}[\beta,\tilde{\mu}]
+		+ \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Im^2 \lbrace\tilde{\Delta}_\mathbf{k}\rbrace}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}^{(-)}[\beta,\tilde{\mu}] \, .
 	\end{multline*}
 	We substitute $\Re \lbrace\tilde{\Delta}_\mathbf{k}\rbrace = Um$, which implies
 	\[
 	\begin{aligned}
 		\frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Re^2 \lbrace\tilde{\Delta}_\mathbf{k}\rbrace}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}^{(-)}[\beta,\tilde{\mu}] &= Um \times
 		\frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Re \lbrace\tilde{\Delta}_\mathbf{k}\rbrace}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}^{(-)}[\beta,\tilde{\mu}] \\
-		&= Um^2
+		&= Um^2 \, ,
 	\end{aligned}
 	\]
 	having we recognised the expression for the magnetisation from Eq.~\eqref{eq:af-ehm-m-self-consistency}. Similarly,
 	\[
 	\begin{aligned}
 		\Im \lbrace\tilde{\Delta}_\mathbf{k}\rbrace &= - V \sum_\gamma v^{(\gamma)} \varphi_\mathbf{k}^{(\gamma)*} \\
-		&= - V \sum_\gamma v^{(\gamma)*} \varphi_\mathbf{k}^{(\gamma)}
+		&= - V \sum_\gamma v^{(\gamma)*} \varphi_\mathbf{k}^{(\gamma)} \, ,
 	\end{aligned}
 	\]
-	where we used Eq.~\eqref{eq:af-ehm-ivvphi-imag} to exchange the conjugation operation in the last passage. This implies:
+	where we used Eq.~\eqref{eq:af-ehm-ivvphi-imag} to exchange the conjugation operation in the last passage. This implies that
 	\[
 	\begin{aligned}
 		\frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Im^2 \lbrace\tilde{\Delta}_\mathbf{k}\rbrace}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}^{(-)}[\beta,\tilde{\mu}] &= - V \sum_\gamma v^{(\gamma)*} \sum_{\mathbf{k} \in \mathrm{MBZ}} \varphi_\mathbf{k}^{(\gamma)} \frac{\Im \lbrace\tilde{\Delta}_\mathbf{k}\rbrace}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}^{(-)}[\beta,\tilde{\mu}] \\
 		&= - V \sum_\gamma v^{(\gamma)*} \times v^{(\gamma)} \\
-		&= - V \sum_\gamma \big| v^{(\gamma)*} \big|^2
+		&= - V \sum_\gamma \big| v^{(\gamma)*} \big|^2 \, ,
 	\end{aligned}
 	\]
 	where in second passage we recognised $v^{(\gamma)}$ given in Eq.~\eqref{eq:af-vgamma-chain}. Then Eq.~\eqref{eq:af-ehm-gap-energy} is verified. 
 	
 \end{tabproof}
 
-Eq.~\eqref{eq:af-vgamma-circle} provides a neat graphic interpretation for the constraint on HFPs in both sAF and aAF phases. At any ratio $U/V$, the product $m \sqrt{U/V}$ is the radius of a circle. Inside this sphere must lie the vector whose components are the HFPs $v^{(\gamma)}$. Note that the solution:
+Eq.~\eqref{eq:af-vgamma-circle} provides a neat graphic interpretation for the constraint on HFPs in both sAF and aAF phases. At any ratio $U/V$, the product $m \sqrt{U/V}$ is the radius of a circle. Inside this sphere must lie the vector whose components are the HFPs $v^{(\gamma)}$. Note that the solution
 \[
 	\forall \gamma
 	\quad\colon\quad
-	v^{(\gamma)} = 0
+	v^{(\gamma)} = 0 \, ,
 \]
 solves the constraint of Eq.~\eqref{eq:af-vgamma-circle}. These considerations do not imply gap complexification is an actual, observed effect.
 
@@ -1917,13 +1983,13 @@ solves the constraint of Eq.~\eqref{eq:af-vgamma-circle}. These considerations d
 
 At the end of Sec.~\ref{subsec:af-features}, we discussed the fact that the ground-state we find for the AF phase is stable only at half-filling, hence $\tilde{\mu}=0$. We can derive an approximation to free energy in this condition.
 \begin{equation}\label{eq:af-fMFT-approx}
-	f^{(\mathrm{AF})} \simeq -\frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \tilde{E}_\mathbf{k} + U m^2 - V \sum_{\gamma} \left[
+	f^{(\mathrm{AF})} \simeq -\frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \tilde{E}_\mathbf{k} + U m^2 - V \sum_{\gamma} \left(
 	\big|u^{(\gamma)}\big|^2 + \big|v^{(\gamma)}\big|^2
-	\right]
+	\right) \, .
 \end{equation}
-This approximation is valid when $\tilde{E}_\mathbf{k} \neq 0$ everywhere. This is always realised in AF phase: from the constraint of Eq.~\eqref{eq:af-vgamma-circle} we know magnetisation is necessary for all gap HFPs; for a magnetised system, whatever the symmetries,
+This approximation is valid when $\tilde{E}_\mathbf{k} \neq 0$ everywhere. This is always realised in AF phase: from the constraint of Eq.~\eqref{eq:af-vgamma-circle} we know that a finite magnetisation is always necessary for the gap in order to develop an imaginary part. If $m \neq 0$, whatever the symmetries of the gap function, it must hold
 \[
-	\tilde{E}_\mathbf{k} = \sqrt{\tilde{\epsilon}_\mathbf{k}^2 + (Um)^2 + \big| \Im\lbrace \Delta_\mathbf{k} \rbrace \big|^2} \ge Um
+	\tilde{E}_\mathbf{k} = \sqrt{\tilde{\epsilon}_\mathbf{k}^2 + (Um)^2 + \big| \Im\lbrace \Delta_\mathbf{k} \rbrace \big|^2} \ge Um \, .
 \]
 At half filling and low temperature, the system is well approximated by a completely filled electronic band $-\tilde{E}_\mathbf{k}$.
 
@@ -1935,21 +2001,20 @@ From a computational point of view, Eq.~\eqref{eq:af-fMFT-approx} can be useful 
 	\[
 	\begin{aligned}
 		\ln(1 - \frac{1}{e^x + 1}) + \ln(1 - \frac{1}{e^{-x} + 1}) &= \ln\left[ \frac{e^x}{(e^x+1)^2} \right] \\
-		&= x - 2 \ln(1+e^x)
+		&= x - 2 \ln(1+e^x) \, .
 	\end{aligned}
 	\]
 	At $x \to \infty$, we have
 	\[
 		x - 2 \ln(1+e^x) \simeq -x
 		\qquad
-		(x \to \infty)
+		(x \to \infty) \, .
 	\]
 	Let now $x=\beta \tilde{E}_\mathbf{k}$. At low temperature for a band with no nodes, we can approximate $\forall\mathbf{k}\,\colon\,\beta \tilde{E}_\mathbf{k}\to +\infty$ on the entire BZ. Hence
 	\[
-		\ln(1 - \frac{1}{e^{\beta \tilde{E}_\mathbf{k}} + 1}) + \ln(1 - \frac{1}{e^{-\beta \tilde{E}_\mathbf{k}} + 1}) \simeq -\beta \tilde{E}_\mathbf{k}
+		\ln(1 - \frac{1}{e^{\beta \tilde{E}_\mathbf{k}} + 1}) + \ln(1 - \frac{1}{e^{-\beta \tilde{E}_\mathbf{k}} + 1}) \simeq -\beta \tilde{E}_\mathbf{k} \, .
 	\]
 	Substituting in Eq.~\eqref{eq:af-fMFT}, we obtain Eq.~\eqref{eq:af-fMFT-approx}.
-
 \end{tabproof}
 
 \paragraph{Self-consistency constraints.}
@@ -1958,113 +2023,155 @@ In Tab.~\ref{tab:af-saf-aaf-hfps} we collected the two sets HFPs for the two fla
 \begin{equation}\label{eq:af-us*-ud-constraint}
 	0 < u^{(s^*)} < 2t/V
 	\qq{and}
-	u^{(d)} = 0
+	u^{(d)} = 0 \, ,
 \end{equation}
 and
 \begin{equation}\label{eq:af-vgamma-constraint}
 	\forall\gamma
 	\quad\colon\quad
-	v^{(\gamma)} = 0
+	v^{(\gamma)} = 0 \, .
 \end{equation}
 The proof of both these statements is given in App.~\ref{app:theoretical-constraints}. As a consequence, there is no need to distinguish two AF phases,
 \[
-\mathrm{sAF} = \mathrm{aAF}
+	\mathrm{sAF} = \mathrm{aAF} \, ,
 \]
 and gap complexification is a ``ghost'' effect, even if theoretically allowed. 
 
+In the conventional HM, magnetisation is induced by the presence of the local repulsion $\hat H_U$. Due to the absence of gap complexification effects induced by $\hat H_V$, we see that the AF gap coincides with the one given by Eq.~\eqref{eq:af-hm-Delta-def},
+\[
+	\tilde{\Delta}_\mathbf{k} = mU
+\]
+Therefore, the Bogoliubov bands are given by
+\begin{equation}\label{eq:af-Ek>Um}
+	\tilde{E}_\mathbf{k} = \sqrt{\tilde{\epsilon}_\mathbf{k}^2 + (Um)^2} \ge Um \, .
+\end{equation}
+At any finite magnetisation $m$, the bands are gapped.
+
+\paragraph{Existence of Mott-induced magnetisation.}
+
+We understood that the AF phase is described by two HFPs: $u^{(s^*)}$ and $m$. Moreover, we know that the HFP $u^{(s^*)}$ takes part in the renormalisation of the hopping amplitude,
+\[
+	\tilde{t}^{(s^*)} = t - \frac{u^{(s^*)}V}{2} \, ,
+\]
+where we used Eq.~\eqref{eq:af-tS-td}. From the constraint of Eq.~\eqref{eq:af-us*-ud-constraint}, we see that the hopping parameter is reduced in amplitude,
+\[
+	t
+	\quad\to\quad
+	0 < \tilde{t}^{(s^*)} < t \, .
+\]
+Bands are effectively shrunk by the non-local attraction, as happened for the normal phase. 
+
+From the analysis of antiferromagnetism in the Hubbard model, we know that the local repulsion $\hat H_U$ induces magnetisation. We claim that magnetisation can be induced, similarly, by bands shrinking. We denote this effect as ``Mott-induced magnetisation''.
+
+\begin{tabproof}[Possibility of Mott-induced magnetisation]
+	
+	Consider the Bogoliubov bands $\tilde{E}_\mathbf{k}$ given in Eq.~\eqref{eq:af-bands},
+	\[
+	\tilde{E}_\mathbf{k} = \sqrt{
+		\tilde{\epsilon}_\mathbf{k}^2 + \abs{mU}^2
+	} \, .
+	\]
+	If $mU \gg \tilde{t}^{(s^*)}$, these are approximated by
+	\[
+	\begin{aligned}
+		\tilde{E}_\mathbf{k} &= \abs{mU} \sqrt{
+			1 + \left( \frac{\tilde{\epsilon}_\mathbf{k}}{mU} \right)^2
+		} \\
+		&\simeq mU \left[
+		1 + \frac{1}{2} \abs{\frac{\tilde{\epsilon}_\mathbf{k}}{mU}}^2 + \mathcal{O} \left(r^4\right)
+		\right]  \, ,
+	\end{aligned}
+	\]
+	where we defined the ratio
+	\begin{equation}\label{eq:af-mott-m-r}
+		r \equiv \frac{\tilde{t}^{(s^*)}}{mU}
+	\end{equation}
+	By inserting this result in the self consistency equation for $m$, Eq.~\eqref{eq:af-ehm-m-self-consistency}, we obtain
+	\begin{align}
+		m &= \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{mU}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,0] \nonumber \\
+		&\simeq \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \left[
+		1 - \frac{1}{2} \abs{\frac{\tilde{\epsilon}_\mathbf{k}}{mU}}^2 + \mathcal{O} \left(r^4\right)
+		\right] \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) \label{eq:af-mott-m-int1} \, .
+	\end{align}
+	In last line we used Eq.~\eqref{eq:af-Th-=tanh}, valid at half-filling. Let $m \neq 0$. From Eq.~\eqref{eq:af-Ek>Um} we know that $\tilde{E}_\mathbf{k} \neq 0$. The hyperbolic tangent is, at low temperature, approximated by,
+	\[
+		\lim_{\beta \to \infty} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) = 1 \, .
+	\]
+	Therefore, Eq.~\eqref{eq:af-mott-m-int1} becomes
+	\begin{align}
+		m \simeq \frac{1}{2} -
+		\underbrace{
+			\frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \abs{\frac{\tilde{\epsilon}_\mathbf{k}}{mU}}^2 
+		}_{\mathcal{O} \left(r^2\right)}
+		+ \mathcal{O} \left(r^4\right) \, .
+	\end{align}
+	The second order correction can be made small in two ways:
+	\begin{enumerate}
+		\item By increasing $U$. From Eq.~\eqref{eq:af-mott-m-r}, we see that $r$ decreases as $U$ grows. This is the ``conventional'' way of magnetising the Hubbard lattice.
+		\item By shrinking bands. From Eq.~\eqref{eq:af-mott-m-r}, we see that as the renormalised bandwidth goes to zero, so does $r$. This is the ``unconventional'' way of magnetising the Hubbard lattice.
+	\end{enumerate}
+	Hence, as we wanted to prove, a strong Mott flattening can induce commensurate antiferromagnetism.
+\end{tabproof}
+%
+While the above proof states that Mott-induced magnetisation is possible, this does not mean that it is actually realised. Indeed, we do not know \textit{a priori} if Mott effects are strong enough in the AF phase. The possibility of having magnetisation induced by Mott physics, i.e. by the non-local attraction $\hat H_V$, suggests that there could exist sets of points $(t,U,V)$ at $\delta=0$ which show an identical $m$. We denote these as ``isomagnetic domains''.
+
 \section{Discussion of numeric results}\label{sec:af-numeric}
 
-In this section we present numeric results. For the AF phase, the HFPs vector, as we thoroughly showed, has two components
+In this section we present numeric results. For the AF phase, the HFPs vector, as we thoroughly showed, has two components:
 \[
-\mathbf{v} = \begin{bmatrix}
-	m \\ u^{(s^*)}
-\end{bmatrix}
-\qquad
-\mathbf{v} = \mathbb{R}^2
+	\mathbf{v} = \begin{bmatrix}
+		m \\ u^{(s^*)}
+	\end{bmatrix}
+	\qq{with}
+	\mathbf{v} = \mathbb{R}^2 \, .
 \]
-The resulting model RMPs are, as before:
+The RMPs are, as for the normal phase:
 \[
 \begin{aligned}
 	\tilde{t}_{ij} &\equiv \left(
 	t - \frac{u^{(s^*)}V}{2}
-	\right) \varphi_{ij}^{(s^*)} \\
-	\tilde{\mu} &\equiv \mu + n (2zV-U)
+	\right) \varphi_{ij}^{(s^*)} \, , \\
+	\tilde{\mu} &\equiv \mu + n (2zV-U) \, .
 \end{aligned}
 \]
-In the end, the computational scenario is not so different from the normal phase. The only real difference is our choice of parametric boundaries for simulations:
+We simulate in the ranges:
 \[
-	0 \le U \le 8
+	0 \le U \le 8 \, ,
 	\qquad
-	0 \le V \le 8
+	0 \le V \le 8 \, ,
 	\qquad
-	\delta = 0.0
+	\delta = 0.0 \, .
 \]
-We set $\delta=0.0$. As we anticipated in Sec.~\ref{subsec:af-features} (and discuss in Sec.~\ref{appsubsec:af-instability}), any finite doping disrupts commensurate antiferromagnetism, a property that makes any simulation at $\delta >0$ of low physical significance. Following this consideration, we omit data at finite $\delta \neq 0$.
+As we anticipated in Sec.~\ref{subsec:af-features} (and discuss in App.~\ref{app:hm-af-ground-state}), any finite doping disrupts commensurate antiferromagnetism, a property that makes any simulation at $\delta >0$ of low physical significance. Following this consideration, we avoided simulating $\delta \neq 0$.
+Tolerances on density and HFPs have been set to
+\[
+	\Delta n = 10^{-2} \, ,
+	\qquad
+	\Delta \mathbf{v} = \begin{bmatrix}
+		m \colon 5 \times 10^{-4} \\
+		u^{(s^*)} \colon 5 \times 10^{-4}
+	\end{bmatrix} \, .
+\]
+In next sections we present numeric results. In order to highlight the relation among all variables in the formation of isomagnetic domains, we show for $u^{(s^*)}$, $\tilde{t}^{(s^*)}$ and $m$ a colour plot and a contour plot alongside, for a selection of six arbitrarily chosen contouring levels.
 
-\subsection{Magnetisation boost}\label{subsec:af-m-boost}
+\subsection{Mott effects and bare bands shrinking}
+
+In this subsection we present results for the HFP $u^{(s^*)}$ and the RMP $\tilde{t}^{(s^*)}$.
+
+\paragraph{Numerical results for $u^{(s^*)}$.}
+
+The converged values of the HFP $u^{(s^*)}$ for the AF phase are shown in Fig.~\ref{fig:af-uS-data-C128}, in the $(U,V)$ plane at $t=1.0$. We see in the left panel that $u^{(s^*)}$ is maximised in the bottom-left corner (low-$U$, low-$V$ limit). As we see from the colour plot, $u^{(s^*)}$ exhibits a sort of triangle-shaped plateau in this region, where it reaches the value
+\[
+	u^{(s^*)} \lesssim 0.405 \, .
+\]
+The above converge value coincides with that computed at half-filling for the normal phase, in Eq.~\eqref{eq:normal-uS-half-filling}
+. This is expected at $U=0$, where magnetisation is necessarily null and we must reduce to the normal phase. The approximate plateau in the bottom-left corner of Fig.~\ref{fig:af-uS-data-C128} extends to $U/t \lesssim 2$, and indicates the region of parameters space where we expect magnetisation to be low enough to retrieve, approximately, the normal phase.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{../Project/src/labs/antiferromagnet-heatmaps/af-m-data-C128.pdf}
-	\caption{Plot of the self-consistent convergence values for $m$ (left panel) and isomagnetic curves computed on the same data (right panel), along which magnetisation is constant. For the sake of graphic clarity, only the points at $0 \le U \le 4$ and $0 \le V \le 6$ are plotted.}
-	\label{fig:af-m-data-C128}
-\end{figure}
-
-The convergence values for $m$ computed in $(U,V)$ plane are shown in the panels of Fig.~\ref{fig:af-m-data-C128}, along with a level curves plot to identify isomagnetic curves (right panel). Note that, to increase graphic clarity in heatmaps bottom left sector, from the plots are omitted the points at $U \ge 4$ and $V \ge 6$. Tolerances on density and HFPs have been set to
-\[
-\Delta n = 10^{-2}
-\qquad
-\Delta \mathbf{v} = \begin{bmatrix}
-	m \colon 5 \times 10^{-4} \\
-	u^{(s^*)} \colon 5 \times 10^{-4}
-\end{bmatrix}
-\]
-From heatmaps we see that $\hat H_V$ actually boosts magnetisation. Since the only observable net effect of the non-local interaction is to lower $t$ by shrinking bands, at any fixed point $(t,U,V)$ the model can be effectively mapped to
-\[
-\text{EHM: }(t,U,V) 
-\quad\to\quad
-\text{HM: }(\tilde{t},U,0)
-\]
-being $\tilde{t}$ dependent on $V$. For the pure HM, magnetisation is controlled by the ratio $U/t$. To lower $t$ is physically the same as to increase $U$, and from this comes the magnetisation precession visible in Fig.~\ref{fig:af-m-data-C128}. Isomagnetic lines on the right panel show, for $U$ significantly greater than $0$, linear trends whose angular coefficient depend on $m$ itself. The low-$U$ limit of isomagnetic lines presents some oscillations that are imputable to numeric discretisation of parametric space. {\color{tabred}[Why isomagnetic curves are lines? Something about $U/(V-V_\mathrm{c})$ ratio being constant?]}
-
-\begin{figure}
-	\centering
-	\subfloat[$U$-dependency of $m$ varying $V$.]{
-		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf}
-		\label{subfig:af-m-data-A256-pVar=V}
-	}
-	\subfloat[$V$-dependency of $m$ varying $U$.]{
-		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf}
-		\label{subfig:af-m-data-A256-pVar=U}
-	}
-	\caption{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}
-	\label{fig:af-m-data-A256}
-\end{figure}
-
-Data shown in Fig.~\ref{fig:af-m-data-A256} confirm clearly this $V$-controlled magnetisation  ``boost''. The effect is more enhanced at low values of $U$. As is visible from Fig.~\ref{subfig:af-m-data-A256-pVar=U}, magnetisation does not always saturate the same way. For example, considering the curve at $U=1.2$, magnetisation varies following a somewhat tilted sigmoid shape, making boost most effective around $V \approx 2 \divisionsymbol 4$. Because of $m$ saturation, this behaviour is lost at higher $U$s.
-
-\subsection{Bands shrinking}
-
-From the constraint of Eq.~\eqref{eq:af-us*-ud-constraint}, we see that bands get flattened by the non-local attraction
-\[
-	t
-	\quad\to\quad
-	0<\tilde{t} < t
-\]
-as was for the normal phase. Discussing the normal phase, in Sec.~\ref{subsec:normal-mott-numeric} we presented numeric results showing a Mott-localised region appears in $(\delta,V)$ plane, whose $\delta \to 0$ limit was approximately $V=4.93t$, as shown in Fig.~\ref{subfig:normal-tS-data-B128-mott}.
-
-\begin{figure}
-	\centering
-	\subfloat[Heatmap of $u^{(s^*)}$ in $UV$ plane.]{
-		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=HFPs/xVar=U_yVar=V/uS_t=1.0_L=128_δ=0.0_β=100.0.pdf}
-		\label{subfig:af-uS-data-C128}
-	}
-	\subfloat[Heatmap of $t^{(s^*)}$ in $UV$ plane.]{
-		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=RMPs/xVar=U_yVar=V/tS_t=1.0_L=128_δ=0.0_β=100.0.pdf}
-		\label{subfig:af-tS-data-C128}
-	}
-	\caption{Data for the HFP $u^{(s^*)}$ and $\tilde{t}^{(s^*)}$ varying both $U$ and $V$.}
-	\label{fig:af-uS-tS-data}
+	\includegraphics[width=\linewidth]{../Project/src/labs/antiferromagnet-iso-heatmaps/af-uS-data-C128.pdf}
+	\caption{Numerical results for the HFP $u^{(s^*)}$. In the left panel we indicate the converged value of $u^{(s^*)}$ in the bottom-left corner. In the right panel we plot isovalued lines.}
+	\label{fig:af-uS-data-C128}
 \end{figure}
 
 \begin{figure}
@@ -2080,17 +2187,32 @@ as was for the normal phase. Discussing the normal phase, in Sec.~\ref{subsec:no
 	\label{fig:af-uS-data-A256}
 \end{figure}
 
-The convergence values for the HFP $u^{(s^*)}$ are shown in Fig.~\ref{subfig:af-uS-data-C128}, and more in detail in the two panels of Fig.~\ref{fig:af-uS-data-A256}. In general, $u^{(s^*)}$ decreases monotonically both in $U$ and in $V$. As we already discussed in normal phase, the $U=0$ data of Fig.~\ref{subfig:af-uS-data-A256-pVar=U} present a plateau up to a Mott-critical value. This effect is absent at positive $U$s. Both interactions disrupt the HFP; however, the two limits
+We indicated the tick $V=4.93t$ on the vertical axis, where $U=0$. We know from Eq.~\eqref{eq:normal-Vc-half-filling} that, at half-filling, it is the critical value for the Mott transition. Indeed, we see that the plateau of $u^{(s^*)}$ has the point
 \[
-U \gg 1
-\qq{and}
-V \gg 1
+	(U/t,V/t) = (0,4.93)
 \]
-are much different. By computing the value of $\tilde{t}^{(s^*)}$,
+as one of its ``corners''.
+
+In the right panel of Fig.~\ref{fig:af-uS-data-C128}, we show a contour plot of the same data. We see that isovalued domains are, specifically, straight lines. Moreover, we see that as we move to the top-right corner (high-$U$, high-$V$) the isovalued lines become approximately parallel.
+
+The fact that $u^{(s^*)}$ is a decreasing function of both $U$ and $V$ is also visible in the two panels of Fig.~\ref{fig:af-uS-data-A256}. Looking at the left panel (Fig.~\ref{subfig:af-uS-data-A256-pVar=V}), we see that -- as we vary $V$ -- the converged value of $u^{(s^*)}$ decreases. In the $U \to 0$ limit, the brighter curves (smaller $V$) exhibit a sort of short plateau, which disappears for the less bright curves (larger $V$). Inversely, if we consider Fig.~\ref{subfig:af-uS-data-A256-pVar=U}, we see that in the $V \to 0$ limit the brighter curves (small $U$) show the aforementioned plateau. The brightest curve ($U=0$) coincides with the one at $\delta=0$ in Fig.~\ref{subfig:normal-uS-data-B256}, for the normal phase. This follows from the fact that at $U=0$ magnetisation is null, and then we must re-obtain the normal phase.
+
+\paragraph{Numerical results for $\tilde{t}^{(s^*)}$.}
+
+The fact that $u^{(s^*)}$ decreases as a function of both $U$ and $V$ does not mean that bands are shrunk similarly. Indeed, the renormalised hopping amplitude
 \[
-\tilde{t}^{(s^*)} = 2t - u^{(s^*)}V
+	\tilde{t}^{(s^*)} = t - \frac{u^{(s^*)}V}{2} \, ,
 \]
-we obtain the data of Fig.~\ref{subfig:af-tS-data-C128}. The limit $U \gg 1$ taken at fixed $V$, also shown in Fig.~\ref{subfig:af-tS-data-A256-pVar=V}, provides ``$U$-induced antiferromagnetism'', with bands shrinking effect being almost irrelevant as $V$ lowers; on the contrary, the opposite limit $V \gg 1$ taken at fixed $U$, also shown in Fig.~\ref{subfig:af-tS-data-A256-pVar=U}, flattens band and provides ``Mott-induced antiferromagnetism''.
+depends directly on $V$. From the above equation we understand that, if we move in parameter space along one isovalued line of those plotted in the right panel of Fig.~\ref{subfig:normal-uS-data-B256}, as we decrease $V$ (hence moving towards the top-left corner), the renormalised hopping amplitude must decrease.
+
+In Fig.~\ref{fig:af-tS-data-C128}, we show the converged data for $\tilde{t}^{(s^*)}$. We see that the top-left (low-$U$, high-$V$) and bottom-right (high-$U$, low-$V$) corners differ significantly (while, for $u^{(s^*)}$, they were similar enough). In the first case, $\tilde{t}^{(s^*)}$ is minimised; in the second, is maximised. This is most visible in Fig.~\ref{fig:af-tS-data-A256}, where data for $\tilde{t}^{(s^*)}$ are shown as we vary one variable keeping the other one fixed. In the left panel (Fig.~\ref{subfig:af-tS-data-A256-pVar=V}), we see that as we increase $U$, the renormalised hopping amplitude gets larger. On the contrary, in the right panel (Fig.~\ref{subfig:af-tS-data-A256-pVar=U}) we see that increasing $V$ while $U$ is fixed makes $\tilde{t}^{(s^*)}$ decrease monotonically.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{../Project/src/labs/antiferromagnet-iso-heatmaps/af-tS-data-C128.pdf}
+	\caption{Numerical results for the HFP $u^{(s^*)}$. In the left panel we indicate the converged value of $u^{(s^*)}$ in the bottom-left corner. In the right panel we plot isovalued lines.}
+	\label{fig:af-tS-data-C128}
+\end{figure}
 
 \begin{figure}
 	\subfloat[$U$-dependency of $t^{(s^*)}$ varying $V$.]{
@@ -2105,7 +2227,40 @@ we obtain the data of Fig.~\ref{subfig:af-tS-data-C128}. The limit $U \gg 1$ tak
 	\label{fig:af-tS-data-A256}
 \end{figure}
 
-In $(U,V)$ space there is not Mott-localised region of the kind we had in $(\delta,V)$ space for the normal phase (see Fig.~\ref{subfig:normal-tS-data-B128-mott}). At half filling, complete localisation only occurs at $U=0$, as can be seen in the bottom left sector of Fig.~\ref{subfig:af-tS-data-A256-pVar=V}. Any finite value of $U$ disrupts bands flattening, thus -- being the local repulsion an essential ingredient in Hubbard antiferromagnetism -- we can claim, based on numeric evidence, that bands flattening is incompatible with a commensurate AF phase on the half-filled EHM.
+For the AF phase, we conclude that the non-local attraction $\hat H_V$ induces the flattening of bare bands, while the local repulsion $\hat H_U$ does the opposite. When we discussed Mott localisation in the context of the normal phase (see Sec.~\ref{subsec:normal-mott-numeric}), we argued that bands flattening was induced by $V$, while $U$ was irrelevant. Here we see that in the AF phase, the local repulsion opposes Mott localisation. This is somewhat the opposite of what we would expect, based on the phenomenology of Mott localisation, which is in general enhanced by the repulsion of two electrons on the same site (see Sec.~\ref{subsec:mott-cuprates}).
+
+Recall now the discussion at the end of Sec.~\ref{sec:af-sceq-analysis}: we claimed that the flattening of bare bands could induce magnetisation. Indeed, if by increasing $U$ we are ``by force'' enhancing the AF gap (even at low magnetisation), by increasing $V$ we are reducing the bare bandwidth. This suggests that we can obtain the same macroscopic magnetisation even if the underlying physics is much different. Indeed, as we observe from Fig.~\ref{fig:af-tS-data-A256}, it is only by increasing the non-local attraction that the actual hopping amplitude of electrons in reduced. From the above considerations, we observe that either increasing $U$ or $V$ we should expect approximately the same magnetic ordering.
+
+\subsection{Mott-induced magnetisation enhancement}\label{subsec:af-m-boost}
+
+\todo
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{../Project/src/labs/antiferromagnet-iso-heatmaps/af-m-data-C128.pdf}
+	\caption{Numerical results for the HFP $u^{(s^*)}$. In the left panel we indicate the converged value of $u^{(s^*)}$ in the bottom-left corner. In the right panel we plot isovalued lines.}
+	\label{fig:af-m-data-C128}
+\end{figure}
+
+In Fig.~\ref{fig:af-m-data-C128} we show the numerical results for $m$. Looking at the left panel, we see that in the bottom-left corner (low-$U$, low-$V$) magnetisation is low. A bright triangle-shaped region is present in this area, where magnetisation is low. The colour 
+
+Instead, in the top-right corner (high-$U$, high-$V$) $m$ saturates.
+
+In the right panel we show isomagnetic domains for six arbitrarily chosen values of $m$. These domains are, as we anticipated, straight lines.
+
+\begin{figure}
+	\centering
+	\subfloat[$U$-dependency of $m$ varying $V$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=V/m_t=1.0_L=256_δ=0.0_β=100.0.pdf}
+		\label{subfig:af-m-data-A256-pVar=V}
+	}
+	\subfloat[$V$-dependency of $m$ varying $U$.]{
+		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=HFPs/xVar=V_pVar=U/m_t=1.0_L=256_δ=0.0_β=100.0.pdf}
+		\label{subfig:af-m-data-A256-pVar=U}
+	}
+	\caption{Plot of the self-consistent convergence values for the HFPs $m$ and $u^{(s^*)}$ in the AF phase.}
+	\label{fig:af-m-data-A256}
+\end{figure}
 
 \subsection{Solution free energy and entropy densities}\label{subsec:af-f-s}
 
@@ -2154,7 +2309,7 @@ To predict for a given initializer $\mathbf{v}_0$ the path it will follow throug
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor.pdf}
+	\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor-ink.pdf}
 	\caption{Quiver plot of algorithmic evolution in HFPs space at fixed model parametrization. The black dot $\mathbf{v}$ represents the nonlinear map fixed point, while the colored paths the sequences of HFPs coordinates simulated via iterative HF procedure, starting from different HFPs initializers (colored dots).}
 	\label{fig:af-attractor}
 \end{figure}
