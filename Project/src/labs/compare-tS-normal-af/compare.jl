@@ -41,29 +41,43 @@ ax = Axis3(
 	H[1,1],
 	xlabel = L"$U$",
 	ylabel = L"$V$",
-	zlabel = L"$[ f^{(\mathrm{N})}-f^{(\mathrm{AF})} ]/t$",
+	zlabel = L"$\tilde{t}^{(s^*)}$",
 	aspect=(1,1,1),
-	azimuth=0.8*pi,
+	azimuth=0.4*pi,
 	elevation=pi/10,
 	xlabelalign = (:center, :center),
 	ylabelalign = (:center, :center),
 	zlabelalign = (:center, :center),
 	xlabelrotation = 0, # Horizontal xlabel
 	ylabelrotation = 0, # Horizontal ylabel
+	zlabelrotation = 0, # Horizontal zlabel
 )
 
-cs = colorschemes[:tabquietrev]
-xx, yy, zz_AF = ReshapeData(DF_AF;xVar="U",yVar="V",zVar="f")
-_, _, zz_N = ReshapeData(DF_N;xVar="U",yVar="V",zVar="f")
-ax.title = L"$[ f^{(\mathrm{N})}-f^{(\mathrm{AF})} ]/t$ ($t=1.0$, $L=128$, $\delta=0.0$, $\beta=100.0$)"
+clims=(0,1)
+xx,yy,tS_N = ReshapeData(DF_N;xVar="U",yVar="V",zVar="tS")
+_,_,tS_AF = ReshapeData(DF_AF;xVar="U",yVar="V",zVar="tS")
+ax.title = L"$\tilde{t}^{(s^*)}$ for AF and Normal phases ($t=1.0$, $L=128$, $\delta=0.0$, $\beta=100.0$)"
 
-zz = zz_N .- zz_AF
-clims=(
-	minimum(0.0),
-	maximum(zz)
+surface!(ax,xx,yy,tS_N,colormap=colorschemes[:tabwarm],shading=true,colorrange=clims)
+# wireframe!(ax,xx,yy,tS_N,color=tabblue,linewidth=0.1)
+
+surface!(ax,xx,yy,tS_AF,colormap=colorschemes[:tabcoolrev],shading=true,colorrange=clims)
+# wireframe!(ax,xx,yy,tS_AF,color=tabgreen,linewidth=0.1)
+
+Colorbar(
+	H[1,2],
+	colormap=colorschemes[:tabwarm],
+	colorrange=clims,
+	label="Normal phase",
+	labelcolor=tabred
 )
-h = surface!(ax,xx,yy,zz,colormap=cs,shading=false)
-Colorbar(H[1,0], h)
+Colorbar(
+	H[1,3],
+	colormap=colorschemes[:tabcoolrev],
+	colorrange=clims,
+	label="AF phase",
+	labelcolor=tabblue,
+)
 
-FilePathOut = LAB_ROOT * "/f(N)-f(AF).pdf"
+FilePathOut = LAB_ROOT * "/tS(N)+tS(AF).pdf"
 save(FilePathOut, H)

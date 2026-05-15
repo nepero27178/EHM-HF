@@ -1,9 +1,9 @@
 \def\GraphicsFolder{chapters/superconducting-instability/pictures}
 \chapter{Superconducting instability}\label{chap:sc}
 
-In this chapter the HF methods introduced in Sec.~\ref{sec:sketch-hf-method} are applied to the SC phase. We study translationally-invariant superconductivity. Analytic calculations will lead us to various effects: bare bands renormalisation, anisotropic Cooper pairing and nematicity. Our description of the SC phase is closely related to the BCS solution for pure $s$-wave superconductivity.
+In this chapter we study the translationally invariant superconducting (SC) phase. We discuss the formation of Cooper pairs in given spin-pairing channels, and derive the self-consistent solution in both the singlet and triplet channels. The solution will exhibit a number of effects: bare bands shrinking, insurgence of mixed-symmetry superconductivity and nematic effects.
 
-As for previous phases, this chapter is divided conceptually in three parts. First, analysis of the SC phase symmetries based on the discussion of Chap.~\ref{chap:ehm-symmetries}. Second, implementation of HF methods and search for theoretic constraints on the resulting HFPs vector. Third, numeric results.
+This chapter is organised as follows. In Sec.~\ref{sec:sc-phase-theory} we present the translationally invariant superconducting phase and its symmetries. In Secs.~\ref{sec:sc-hm}, \ref{sec:sc-ehm}, \ref{sec:sc-hf-hamiltonian} we derive the approximated HF hamiltonian for the SC phase, starting from the conventional Hubbard model and then adding the non-local attraction $\hat H_V$. In Sec.~\ref{sec:sc-sceq-analysis} we derive a constraints on the HFPs by analysing their self-consistency equations. In Sec.~\ref{sec:sc-numeric} we present the result of numeric simulations.
 
 \section{The SC phase and its symmetries}\label{sec:sc-phase-theory}
 
@@ -11,14 +11,14 @@ As for antiferromagnetism, superconductivity can establish in a variety of ways.
 \[
 \begin{aligned}
 	\mathrm{U}^z(1) &\SSB 0 \\
-	\mathrm{C}_4 &\SSB \mathrm{C}_2
+	\mathrm{C}_4 &\SSB \mathrm{C}_2 \, .
 \end{aligned}
 \]
-Translational invariance is unbroken. Then electronic density needs to be uniform across all sites, similarly to the normal phase discussed in Chap.~\ref{chap:normal}. Non-uniform density distributions are inconsistent with translational invariance in both directions. We have, then
-\begin{equation}\label{eq:sc-density-ansatz}
-	\ev{\hat n_{\mathbf{r}\sigma}} = n
-\end{equation}
-which is identical to Eq.~\eqref{eq:normal-<n_i>} for the normal phase.
+Translational invariance is unbroken. Then electronic density needs to be uniform across all sites, similarly to the normal phase discussed in Chap.~\ref{chap:normal}. Non-uniform density distributions are inconsistent with translational invariance in both directions. In particular, Eqs.~\eqref{eq:normal-<cc>} and \eqref{eq:normal-<n_i>} hold identically,
+\begin{align}
+	\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'} \rangle &= \delta_{\mathbf{k}=\mathbf{k}'} \delta_{\sigma=\sigma'} \langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \rangle \label{eq:sc-<cc>} \, , \\
+	\ev{\hat n_{i\sigma}} &= n \label{eq:sc-<n_i>} \, .
+\end{align}
 
 Recall Tabs.~\ref{tab:HU-sel-rules} and \ref{tab:HV-sel-rules}, collecting the selection rules for the local repulsion $\hat H_U$ and the non-local attraction $\hat H_V$. From Eqns.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV} for the SC phase we need to account for the following contractions:
 \[

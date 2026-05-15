@@ -3,7 +3,7 @@
 
 In this chapter we study antiferromagnetism in the extended Hubbard model. Among all possible configurations, we limit to the so-called ``commensurate antiferromagnetism'', which will be defined in the first section. Moreover, we will restrict to the half-filling condition, based on stability considerations. 
 
-This phase is well known and studied on the square Hubbard lattice. Insertion of the non-local attraction $\hat H_V$ adds two main self-consistent effects. First, an enhancement of the antiferromagnetic gap, an effect we call ``gap complexification''. While this effect is allowed at HF level, we derive some theoretical constraint and show that is actually suppressed. Second, the shrinking of bare bands that lead to Mott localisation in the normal phase and, in the end, to a amplification of magnetisation.
+This phase is well known and studied on the square Hubbard lattice. Insertion of the non-local attraction $\hat H_V$ adds two main self-consistent effects. First, an enhancement of the antiferromagnetic gap, an effect we call ``gap complexification''. While this effect is allowed at HF level, we derive some theoretical constraint and show that is actually suppressed. Second, the shrinking of bare bands that lead to Mott localisation in the normal phase and, in the end, to an amplification of magnetisation.
 
 This chapter is organised as follows. In Sec.~\ref{sec:af-phase-theory} we present the commensurate antiferromagnetic (AF) phase and discuss its symmetries. In Secs.~\ref{sec:af-hm}, \ref{sec:af-ehm}, \ref{sec:af-hf-hamiltonian} we discuss the HF approximation in the AF phase, starting from the conventional Hubbard model and then adding the non-local attraction $\hat H_V$. In Sec.~\ref{sec:af-sceq-analysis} we analyse the self-consistency equations and derive a set of constraints on the HFPs that describe the self-consistent solution. In Sec.~\ref{sec:af-numeric} we present the result of numeric simulations.
 
@@ -126,7 +126,7 @@ Both are self-consistency equations, because we compute expectation values on a 
 
 \subsection{The AF Ansatz in reciprocal space}\label{subsec:af-ansatz-reciprocal}
 
-The derivations that follow will be carried out in reciprocal space. It is then useful to transform Eq.~\eqref{eq:af-ansatz} in reciprocal space. Let $\bm{\pi} \equiv (\pi,\pi)$ be the ``AF vector''. We define
+The derivations that follow will be carried out in reciprocal space. It is then useful to transform Eq.~\eqref{eq:af-ansatz}. Let $\bm{\pi} \equiv (\pi,\pi)$ be the ``AF vector''. We define
 \begin{align}
 	\hat n_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \, , \label{eq:af-ehm-n-def} \\
 	\hat \psi_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \, , \label{eq:af-ehm-psi-def}
@@ -168,12 +168,17 @@ The above statement expresses a feature of the AF ground-state: states separated
 		&= \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \langle \hat n_{\mathbf{r}\sigma} \rangle \, , \label{eq:af-m-EV-int}
 	\end{align}
 	where we used $1 = \left((-1)^{x+y}\right)^2$. $\mathcal{F}$-transforming the operator and its sign factor inside the sum in last line, we get
-	\begin{align}
-		\sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \hat n_{\mathbf{r}\sigma} &= \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \nonumber \\
+	\[
+	\begin{aligned}
+		\sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \hat n_{\mathbf{r}\sigma} &= \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \\
 		&\stackrel{\mathcal{F}}{=} \sum_{\mathbf{r}\in\mathcal{L}} e^{i \bm{\pi} \cdot \mathbf{r}}
-		\frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k} \in \mathrm{BZ}} e^{i \mathbf{k} \cdot \mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k}' \in \mathrm{BZ}} e^{-i \mathbf{k}' \cdot \mathbf{r}} \hat c_{\mathbf{k}'\sigma} \nonumber \\
-		&=\sum_{\mathbf{k} \in \mathrm{BZ}} \sum_{\mathbf{k}' \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} e^{-i [\mathbf{k}' - (\mathbf{k} + \bm{\pi}) ] \cdot \mathbf{r}} \nonumber \\
-		&= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma} \label{eq:af-<psi>-not0-int} \\
+		\frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k} \in \mathrm{BZ}} e^{i \mathbf{k} \cdot \mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k}' \in \mathrm{BZ}} e^{-i \mathbf{k}' \cdot \mathbf{r}} \hat c_{\mathbf{k}'\sigma} \\
+		&=\sum_{\mathbf{k} \in \mathrm{BZ}} \sum_{\mathbf{k}' \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} e^{-i [\mathbf{k}' - (\mathbf{k} + \bm{\pi}) ] \cdot \mathbf{r}} \, . \\
+	\end{aligned}	
+	\]
+	Using Eq.~\eqref{eq:ehm-delta}, last line is reduced to
+	\begin{align}
+		\sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \hat n_{\mathbf{r}\sigma} &= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}+\bm{\pi}\sigma} \label{eq:af-<psi>-not0-int} \\
 		&= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat \psi_{\mathbf{k}\sigma} \, . \label{eq:af-<psi>-not0}
 	\end{align}
 	We insert the last line in Eq.~\eqref{eq:af-m-EV-int},
@@ -609,7 +614,7 @@ Let us define the thermal factors:
 which will often appear in computations. Being $E_{\mathbf{k}\sigma}$ spin independent, so are the thermal factors. We have:
 \begin{align}
 	\ev{\hat s_{\mathbf{k}\sigma}^x} &= \frac{\Delta_{\mathbf{k}\sigma}}{E_{\mathbf{k}\sigma}} \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \, , \label{eq:af-hm-sx}\\
-	\ev{\hat s_{\mathbf{k}\sigma}^y} &= 0 \, , \\
+	\ev{\hat s_{\mathbf{k}\sigma}^y} &= 0  \, , \label{eq:af-hm-sy} \\
 	\ev{\hat s_{\mathbf{k}\sigma}^z} &=  -\frac{\epsilon_{\mathbf{k}\sigma}}{E_{\mathbf{k}\sigma}}  \mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu] \, . \label{eq:af-hm-sz}
 \end{align}
 %Gauge invariance guarantees that we can rotate the pseudo-field on the $xy$ plane, thus obtaining $\ev{\hat s_{\mathbf{k}\sigma}^y} \neq 0$. From these EVs, we get the expression of the self-consistency equation for $m$, and the self-consistent formula to compute the density.
@@ -649,7 +654,6 @@ This equation is the ``operational'' version of the self-consistency equation fo
 	\end{aligned}
 	\]
 	which proves Eq.~\eqref{eq:af-hm-m-self-consistency}. In last line we used $\Delta_{\mathbf{k}\uparrow} = -\Delta_{\mathbf{k}\downarrow}$, which follows from Eq.~\eqref{eq:af-hm-Delta-def}, and the fact that $E_{\mathbf{k}\sigma}$ and $\mathrm{Th}_{\mathbf{k}\sigma}^{(-)}[\beta,\mu]$ are spin actually spin-independent.
-
 \end{tabproof}
 
 \paragraph{Density.}
@@ -767,9 +771,9 @@ is coherent by construction with the symmetry structure of the AF phase. Explici
 \[
 	\tilde{E}_{\mathbf{k}\sigma} \equiv \sqrt{\tilde{\epsilon}_{\mathbf{k}\sigma}^2 + |\tilde{\Delta}_{\mathbf{k}\sigma}|^2} \, .
 \]
-Moreover, we allow $\Delta_{\mathbf{k}\sigma}$ to be a general complex function of $\mathbf{k}$ and $\sigma$,
+Moreover, we allow $\tilde{\Delta}_{\mathbf{k}\sigma}$ to be a complex function of $\mathbf{k}$ and $\sigma$,
 \[
-	\Delta_{\mathbf{k}\sigma} = \Re \lbrace \Delta_{\mathbf{k}\sigma} \rbrace + i \Im \lbrace \Delta_{\mathbf{k}\sigma} \rbrace \, .
+	\tilde{\Delta}_{\mathbf{k}\sigma} = \Re \lbrace \tilde{\Delta}_{\mathbf{k}\sigma} \rbrace + i \Im \lbrace \tilde{\Delta}_{\mathbf{k}\sigma} \rbrace \, .
 \]
 
 We define the renormalised angle $\tilde{\theta}_{\mathbf{k}\sigma}$ through the relations:
@@ -871,13 +875,13 @@ At half-filling, we have:
 	\end{enumerate}	
 \end{tabproof}
 
-Pseudospin expectation values are:
+Pseudospin EVs in the three directions are:
 \begin{align}
 	\ev{\hat s_{\mathbf{k}\sigma}^x} &= \frac{\Re \lbrace \tilde{\Delta}_{\mathbf{k}\sigma} \rbrace}{\tilde{E}_{\mathbf{k}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(-)}[\beta,\tilde{\mu}] \, , \label{eq:af-ehm-sx} \\
 	\ev{\hat s_{\mathbf{k}\sigma}^y} &= \frac{\Im \lbrace \tilde{\Delta}_{\mathbf{k}\sigma} \rbrace}{\tilde{E}_{\mathbf{k}\sigma}} \tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(-)}[\beta,\tilde{\mu}] \, , \label{eq:af-ehm-sy} \\
 	\ev{\hat s_{\mathbf{k}\sigma}^z} &=  -\frac{\tilde{\epsilon}_{\mathbf{k}\sigma}}{\tilde{E}_{\mathbf{k}\sigma}}  \tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(-)}[\beta,\tilde{\mu}] \, . \label{eq:af-ehm-sz}
 \end{align}
-These equations are an extension of Eqs.~\eqref{eq:af-ehm-sx}, \eqref{eq:af-ehm-sy}, \eqref{eq:af-ehm-sz} for the EHM.
+These equations are an extension of Eqs.~\eqref{eq:af-hm-sx}, \eqref{eq:af-hm-sy}, \eqref{eq:af-hm-sz} for the EHM.
 
 \begin{figure}
 	\centering
@@ -886,7 +890,7 @@ These equations are an extension of Eqs.~\eqref{eq:af-ehm-sx}, \eqref{eq:af-ehm-
 	\label{fig:pseudo-magnetic-field-ehm}
 \end{figure}
 
-By renormalising all quantities, the self-consistency equation for magnetisation must stay formally the same of Eq.~\eqref{eq:af-hm-m-self-consistency}
+By renormalising all quantities, the self-consistency equation for magnetisation must stay formally the same of Eq.~\eqref{eq:af-hm-m-self-consistency},
 \begin{equation}\label{eq:af-ehm-m-self-consistency}
 	m = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\tilde{\Delta}_{\mathbf{k}\uparrow}}{\tilde{E}_{\mathbf{k}\uparrow}} \tilde{\mathrm{Th}}_{\mathbf{k}\uparrow}^{(-)}[\beta,\tilde{\mu}] \, .
 \end{equation}
@@ -2084,8 +2088,10 @@ From the analysis of antiferromagnetism in the Hubbard model, we know that the l
 	\]
 	where we defined the ratio
 	\begin{equation}\label{eq:af-mott-m-r}
-		r \equiv \frac{\tilde{t}^{(s^*)}}{mU}
+		r \equiv \frac{\tilde{t}^{(s^*)}}{mU} \, ,
 	\end{equation}
+	being $\tilde{\epsilon}_\mathbf{k} = \mathcal{O}\left(\tilde{t}^{(s^*)}\right)$.
+	
 	By inserting this result in the self consistency equation for $m$, Eq.~\eqref{eq:af-ehm-m-self-consistency}, we obtain
 	\begin{align}
 		m &= \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{mU}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,0] \nonumber \\
@@ -2107,13 +2113,13 @@ From the analysis of antiferromagnetism in the Hubbard model, we know that the l
 	\end{align}
 	The second order correction can be made small in two ways:
 	\begin{enumerate}
-		\item By increasing $U$. From Eq.~\eqref{eq:af-mott-m-r}, we see that $r$ decreases as $U$ grows. This is the ``conventional'' way of magnetising the Hubbard lattice.
-		\item By shrinking bands. From Eq.~\eqref{eq:af-mott-m-r}, we see that as the renormalised bandwidth goes to zero, so does $r$. This is the ``unconventional'' way of magnetising the Hubbard lattice.
+		\item By increasing $U$. From Eq.~\eqref{eq:af-mott-m-r}, we see that $r$ decreases as $U$ grows. This is the ``conventional'' way of magnetising the Hubbard lattice, by taking advantage of local repulsion which induces direct exchange (see App.~\ref{app:superexchange-virtual-hopping}).
+		\item By shrinking bands. From Eq.~\eqref{eq:af-mott-m-r}, we see that as the renormalised bandwidth goes to zero, so does $r$. This is the ``unconventional'' way of magnetising the Hubbard lattice, where localisation is not necessarily due to a strong on-site repulsion, rather a low electronic mobility on the lattice.
 	\end{enumerate}
 	Hence, as we wanted to prove, a strong Mott flattening can induce commensurate antiferromagnetism.
 \end{tabproof}
 %
-While the above proof states that Mott-induced magnetisation is possible, this does not mean that it is actually realised. Indeed, we do not know \textit{a priori} if Mott effects are strong enough in the AF phase. The possibility of having magnetisation induced by Mott physics, i.e. by the non-local attraction $\hat H_V$, suggests that there could exist sets of points $(t,U,V)$ at $\delta=0$ which show an identical $m$. We denote these as ``isomagnetic domains''.
+While Mott-induced magnetisation is possible, this does not mean that it is actually realised. Indeed, we do not know \textit{a priori} if Mott effects are strong enough in the AF phase. The possibility of having magnetisation induced by Mott physics, i.e. by the non-local attraction $\hat H_V$, suggests that there could exist sets of points $(t,U,V)$ at $\delta=0$ which show an identical $m$. We denote these as ``isomagnetic domains''.
 
 \section{Discussion of numeric results}\label{sec:af-numeric}
 
@@ -2152,7 +2158,7 @@ Tolerances on density and HFPs have been set to
 		u^{(s^*)} \colon 5 \times 10^{-4}
 	\end{bmatrix} \, .
 \]
-In next sections we present numeric results. In order to highlight the relation among all variables in the formation of isomagnetic domains, we show for $u^{(s^*)}$, $\tilde{t}^{(s^*)}$ and $m$ a colour plot and a contour plot alongside, for a selection of six arbitrarily chosen contouring levels.
+In next sections we present numeric results. In order to highlight the relation among all variables in the formation of isomagnetic domains, we show heatmaps and contour plots alongside, for a selection of six arbitrarily chosen contouring levels.
 
 \subsection{Mott effects and bare bands shrinking}
 
@@ -2164,7 +2170,7 @@ The converged values of the HFP $u^{(s^*)}$ for the AF phase are shown in Fig.~\
 \[
 	u^{(s^*)} \lesssim 0.405 \, .
 \]
-The above converge value coincides with that computed at half-filling for the normal phase, in Eq.~\eqref{eq:normal-uS-half-filling}
+The above converged value coincides with that computed at half-filling for the normal phase, in Eq.~\eqref{eq:normal-uS-half-filling}
 . This is expected at $U=0$, where magnetisation is necessarily null and we must reduce to the normal phase. The approximate plateau in the bottom-left corner of Fig.~\ref{fig:af-uS-data-C128} extends to $U/t \lesssim 2$, and indicates the region of parameters space where we expect magnetisation to be low enough to retrieve, approximately, the normal phase.
 
 \begin{figure}
@@ -2193,7 +2199,7 @@ We indicated the tick $V=4.93t$ on the vertical axis, where $U=0$. We know from 
 \]
 as one of its ``corners''.
 
-In the right panel of Fig.~\ref{fig:af-uS-data-C128}, we show a contour plot of the same data. We see that isovalued domains are, specifically, straight lines. Moreover, we see that as we move to the top-right corner (high-$U$, high-$V$) the isovalued lines become approximately parallel.
+In the right panel of Fig.~\ref{fig:af-uS-data-C128}, we show a contour plot of the same data. We see that isovalued domains are, specifically, straight lines. Moreover, we see that as we move to the top-right corner (high-$U$, high-$V$) the isovalued lines become approximately parallel and $u^{(s^*)}$ decreases steadily.
 
 The fact that $u^{(s^*)}$ is a decreasing function of both $U$ and $V$ is also visible in the two panels of Fig.~\ref{fig:af-uS-data-A256}. Looking at the left panel (Fig.~\ref{subfig:af-uS-data-A256-pVar=V}), we see that -- as we vary $V$ -- the converged value of $u^{(s^*)}$ decreases. In the $U \to 0$ limit, the brighter curves (smaller $V$) exhibit a sort of short plateau, which disappears for the less bright curves (larger $V$). Inversely, if we consider Fig.~\ref{subfig:af-uS-data-A256-pVar=U}, we see that in the $V \to 0$ limit the brighter curves (small $U$) show the aforementioned plateau. The brightest curve ($U=0$) coincides with the one at $\delta=0$ in Fig.~\ref{subfig:normal-uS-data-B256}, for the normal phase. This follows from the fact that at $U=0$ magnetisation is null, and then we must re-obtain the normal phase.
 
@@ -2203,9 +2209,11 @@ The fact that $u^{(s^*)}$ decreases as a function of both $U$ and $V$ does not m
 \[
 	\tilde{t}^{(s^*)} = t - \frac{u^{(s^*)}V}{2} \, ,
 \]
-depends directly on $V$. From the above equation we understand that, if we move in parameter space along one isovalued line of those plotted in the right panel of Fig.~\ref{subfig:normal-uS-data-B256}, as we decrease $V$ (hence moving towards the top-left corner), the renormalised hopping amplitude must decrease.
+depends directly on $V$. From the above equation we understand that, if we move in parameter space along one isovalued line of those plotted in the right panel of Fig.~\ref{subfig:normal-uS-data-B256}, as we decrease $V$ (hence moving towards the top-left corner), the renormalised hopping amplitude must decrease. Hence isovalued domains of $u^{(s^*)}$ and $\tilde{t}^{(s^*)}$ cannot coincide.
 
-In Fig.~\ref{fig:af-tS-data-C128}, we show the converged data for $\tilde{t}^{(s^*)}$. We see that the top-left (low-$U$, high-$V$) and bottom-right (high-$U$, low-$V$) corners differ significantly (while, for $u^{(s^*)}$, they were similar enough). In the first case, $\tilde{t}^{(s^*)}$ is minimised; in the second, is maximised. This is most visible in Fig.~\ref{fig:af-tS-data-A256}, where data for $\tilde{t}^{(s^*)}$ are shown as we vary one variable keeping the other one fixed. In the left panel (Fig.~\ref{subfig:af-tS-data-A256-pVar=V}), we see that as we increase $U$, the renormalised hopping amplitude gets larger. On the contrary, in the right panel (Fig.~\ref{subfig:af-tS-data-A256-pVar=U}) we see that increasing $V$ while $U$ is fixed makes $\tilde{t}^{(s^*)}$ decrease monotonically.
+In the left panel of Fig.~\ref{fig:af-tS-data-C128}, we show the converged data for $\tilde{t}^{(s^*)}$. We see that the top-left (low-$U$, high-$V$) and bottom-right (high-$U$, low-$V$) corners differ significantly (while, for $u^{(s^*)}$, they were similar enough). In the first case, $\tilde{t}^{(s^*)}$ is minimised; in the second, is maximised. The two corners correspond, respectively, to an ``hard shrinking'' and a ``soft shrinking'' of bare bands. The region of hard-shrinking, namely the brighter region of the panels of Fig.~\ref{fig:af-tS-data-C128}, extends from the critical value $(U/t,V/t) = (0,4.93)$ to small values of the local repulsion, approximately $U \lesssim 1$. This is most visible in the contour plot on the right panel: while isovalued lines in the soft shrinking region are approximately parallel to the horizontal axis, moving towards the hard shrinking region they bend progressively.
+
+Apart from the vertical axis, $U=0$, the converged value of $\tilde{t}^{(s^*)}$ is never zero (within tolerance). This is not visible in colour plots, but is in Fig.~\ref{fig:af-tS-data-A256}, where data for $\tilde{t}^{(s^*)}$ are shown as we vary one variable keeping the other one fixed. In the right panel (Fig.~\ref{subfig:af-tS-data-A256-pVar=U}) we see that increasing $V$ while $U$ is fixed makes $\tilde{t}^{(s^*)}$ decrease monotonically, but at any $U \neq 0$ we do not reach in our simulation range a condition of total flattening. In the left panel (Fig.~\ref{subfig:af-tS-data-A256-pVar=V}), we see that as we increase $U$, the renormalised hopping amplitude gets larger.
 
 \begin{figure}
 	\centering
@@ -2227,13 +2235,22 @@ In Fig.~\ref{fig:af-tS-data-C128}, we show the converged data for $\tilde{t}^{(s
 	\label{fig:af-tS-data-A256}
 \end{figure}
 
+In Fig.~\ref{fig:af-tS-compared} we show a comparative plot of the converged values for $\tilde{t}^{(s^*)}$ for the normal phase (red surface) and the AF phase (blue surface). Being the normal phase independent of $U$, the data for the normal phase are a concatenation at various values of the non-local repulsion of the $\delta=0.0$ data shown in Fig.~\ref{fig:normal-tS-data}. We see that the red surface reduces to zero only at $U=0$, whereas the blue surface is consistently null at $V \gtrsim 4.93t$. As we mentioned before, in the AF phase we do not observe a complete flattening of bare bands. On the contrary, the presence of $U$ reduces significantly the bands shrinking effect.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.75\linewidth]{../Project/src/labs/compare-tS-normal-af/tS(N)+tS(AF)-ink.pdf}
+	\caption{Comparative plot of the converged values for $\tilde{t}^{(s^*)}$ for the normal phase and the AF phase.}
+	\label{fig:af-tS-compared}
+\end{figure}
+
 For the AF phase, we conclude that the non-local attraction $\hat H_V$ induces the flattening of bare bands, while the local repulsion $\hat H_U$ does the opposite. When we discussed Mott localisation in the context of the normal phase (see Sec.~\ref{subsec:normal-mott-numeric}), we argued that bands flattening was induced by $V$, while $U$ was irrelevant. Here we see that in the AF phase, the local repulsion opposes Mott localisation. This is somewhat the opposite of what we would expect, based on the phenomenology of Mott localisation, which is in general enhanced by the repulsion of two electrons on the same site (see Sec.~\ref{subsec:mott-cuprates}).
 
-Recall now the discussion at the end of Sec.~\ref{sec:af-sceq-analysis}: we claimed that the flattening of bare bands could induce magnetisation. Indeed, if by increasing $U$ we are ``by force'' enhancing the AF gap (even at low magnetisation), by increasing $V$ we are reducing the bare bandwidth. This suggests that we can obtain the same macroscopic magnetisation even if the underlying physics is much different. Indeed, as we observe from Fig.~\ref{fig:af-tS-data-A256}, it is only by increasing the non-local attraction that the actual hopping amplitude of electrons in reduced. From the above considerations, we observe that either increasing $U$ or $V$ we should expect approximately the same magnetic ordering.
+The above observation need to be addressed in the context of antiferromagnetic ordering, where magnetisation $m$ is a macroscopic observable. Recall the discussion at the end of Sec.~\ref{sec:af-sceq-analysis}: we claimed that the flattening of bare bands could induce magnetisation. Indeed, if by increasing $U$ we are ``by force'' enhancing the AF gap (even at low magnetisation), by increasing $V$ we are reducing the bare bandwidth. This suggests that we can obtain the same macroscopic magnetisation even if the underlying physics is much different. Indeed, as we observe from Fig.~\ref{fig:af-tS-data-A256}, it is only by increasing the non-local attraction that the actual hopping amplitude of electrons in reduced. From the above considerations, we observe that either increasing $U$ or $V$ we should expect approximately the same magnetic ordering.
 
-\subsection{Mott-induced magnetisation enhancement}\label{subsec:af-m-boost}
+\subsection{Mott-induced enhancement of magnetisation}\label{subsec:af-m-boost}
 
-\todo
+In Fig.~\ref{fig:af-m-data-C128} we show the numerical results for $m$. Looking at the left panel, we see that in the bottom-left corner (low-$U$, low-$V$) a bright triangle-shaped region is present in this area, where magnetisation is low. While we cannot assess precisely if this low-magnetisation region has the same shape of the plateau observed in the left panel of Fig.~\ref{fig:af-uS-data-C128}, we see that they share the same top-left corner at $(U/t,V/t) = (0,4.93)$. This is most evident in the contour plot on the right panel of Fig.~\ref{fig:af-m-data-C128}. Indeed, consider a path starting from the low-$m$ region and moving vertically, namely increasing $V$ while keeping $U$ fixed. If $U$ is small enough, the transition of $m$ to approximately zero to its saturation value happens as soon as we reach the hard-shrinking region highlighted in the left panel of Fig.~\ref{fig:af-tS-data-C128}.
 
 \begin{figure}
 	\centering
@@ -2242,11 +2259,11 @@ Recall now the discussion at the end of Sec.~\ref{sec:af-sceq-analysis}: we clai
 	\label{fig:af-m-data-C128}
 \end{figure}
 
-In Fig.~\ref{fig:af-m-data-C128} we show the numerical results for $m$. Looking at the left panel, we see that in the bottom-left corner (low-$U$, low-$V$) magnetisation is low. A bright triangle-shaped region is present in this area, where magnetisation is low. The colour 
-
-Instead, in the top-right corner (high-$U$, high-$V$) $m$ saturates.
-
-In the right panel we show isomagnetic domains for six arbitrarily chosen values of $m$. These domains are, as we anticipated, straight lines.
+Looking at the contour plot on the right panel of Fig.~\ref{fig:af-m-data-C128}, we see that isomagnetic domains are actually straight lines, and become approximately parallel as we move towards the top-right corner of the plot. This is similar to what we found for the HFP $u^{(s^*)}$, and this suggests that isovalued domains for $u^{(s^*)}$ and $m$ coincides. The fact that isovalued domains are linearly shaped suggests that possibly some kind of critical ratio among the interactions exists such that the net sum of local repulsion and Mott physics lead to the same macroscopic magnetic ordering. This relation should be, roughly, something like
+\[
+	\frac{V}{V_0} = \frac{U_0 - U}{U_0} \, ,
+\]
+where $V_0$ is the intersection of the isomagnetic line with the vertical axis ($U=0$) and $U_0$ with the horizontal axis ($V=0$).
 
 \begin{figure}
 	\centering
@@ -2262,7 +2279,11 @@ In the right panel we show isomagnetic domains for six arbitrarily chosen values
 	\label{fig:af-m-data-A256}
 \end{figure}
 
-\subsection{Solution free energy and entropy densities}\label{subsec:af-f-s}
+In Fig.~\ref{fig:af-m-data-A256} we show the converged data for $m$ as we vary, alternatively, $U$ (left panel) and $V$ (right panel). As we already commented, magnetisation is induced by both interactions, but the general shape of the curves is slightly different. In Fig.~\ref{subfig:af-m-data-A256-pVar=V} we see that $m$ saturates rapidly, but as we lower $U$ all curves go to zero. In Fig.~\ref{subfig:af-m-data-A256-pVar=U}, instead, lowering $V$ the curves reach a finite intersection with the vertical axis. The non-local repulsion is necessary in order to establish antiferromagnetic ordering, while the non-local repulsion acts -- at fixed $U$ -- as a sort of magnetisation boost.
+
+\subsection{Solution free energy density}\label{subsec:af-f-s}
+
+In Fig.~\ref{fig:af-f-data} the free energy density is plotted. In the right panel, Fig.~\ref{subfig:af-f-data-A256}, we see that free energy is minimised in the bottom-right corner (low-$V$ and high-$U$). In the top-left corner of Fig.~\ref{subfig:af-f-data-C128} free energy grows, eventually reaching zero in the hard-shrinking region.
 
 \begin{figure}
 	\centering
@@ -2278,67 +2299,63 @@ In the right panel we show isomagnetic domains for six arbitrarily chosen values
 	\label{fig:af-f-data}
 \end{figure}
 
-In Fig.~\ref{fig:af-f-data} the solution free energy is plotted. In the right panel, Fig.~\ref{subfig:af-f-data-A256}, we see that antiferromagnetism becomes more stable at low $V$, high $U$. The opposite limit of weak local repulsion, strong non-local attraction (top-left corner of Fig.~\ref{subfig:af-f-data-C128}) instead increases $f$, reaching zero energy at $U=0$, $V>4.93t$. The latter isz the critical value discussed in Sec.~\ref{subsec:normal-mott-numeric} and computed in Eq.~\eqref{eq:normal-Vc-half-filling}.
+It is then evident how, even if the macroscopic magnetic properties are the same along one isomagnetic line of those plotted in Fig.~\ref{fig:af-m-data-C128}, right panel, and thus the realised state exhibits an identical value of $m$, much different is the energetic content of the state itself. Increasing $U$ while keeping $V$ fixed, we amplify the gap. Hence, Bogoliubov bands $\pm \tilde{E}_\mathbf{k}$ are shifted away, namely the lower band is pushed towards more negative energies and the upper band towards more positive energies. At half-filling and low temperature, the lower band is roughly completely occupied while the upper band is roughly completely empty. Hence, quasiparticles lower their energy by the amplification of the gap. On the other hand, increasing $V$ while keeping $U$ fixed does the opposite. As bands get flattened, their distance lowers and quasiparticles increase their energies (namely, the lower band gets closer to zero). Hence, even if we observe isomagnetic domains, this does not mean that the content in energy of the HF ground state is identical.
 
-It is then evident how, even if the macroscopic magnetic properties are the same along one isomagnetic line of those plotted in Fig.~\ref{fig:af-m-data-C128}, right panel, and thus the realised state exhibits an identical value of $m$, much different is the energetic content of the state itself. While in the $U \gg 1$, fixed $V$ limit free energy gain comes from gap amplification -- which moves down the Bogoliubov bands $\tilde{E}_\mathbf{k}$ --, in the $V \gg 1$, fixed $U$ limit energies of the lower Bogoliubov band (full at low temperature) are shifted upwards via the Mott localisation effect.
-
-The AF phase is always energetically favoured at half-filling, with respect to the normal phase. Let us define the energy difference,
+The AF phase is always energetically favoured at half-filling, with respect to the normal phase. In Fig.~\ref{fig:af-f-compared} we plot the energy difference
 \[
-\Delta f \equiv f^{(\mathrm{N})} - f^{(\mathrm{AF})}
+	f^{(\mathrm{N})} - f^{(\mathrm{AF})} \, .
 \]
-shown for a slightly more coarse-grained dataset in Fig.~\ref{fig:af-df-data-A128}, we see immediately how $\Delta f \ge 0$ in all $(U,V)$ plane. The normal phase data of Sec.~\ref{sec:normal-numeric} having been simulated at $U=0$ due to their intrinsic $U$ independence. The AF phase is simulated in the same range $0 \le V \le 8$, but for $0 \le U \le 10$. The comparable normal phase dataset was just a repetition of the $U=0$ data at all $U$s.
-%
+The data for the normal phase, similarly to Fig.~\ref{fig:af-tS-compared}, are a concatenation of those of Fig.~\ref{fig:normal-f-data} at $\delta=0.0$. We see that, on the entire $(U/t,V/t)$ region of our simulations, the free energy difference is positive. Hence the AF phase is consistently more stable with respect to the normal phase, except for the segment at $U=0$, where the two coincide. Looking at Fig.~\ref{fig:af-f-compared}, we see that the energy difference is enhanced as we increase $V$ at fixed $U$.
+
 \begin{figure}
 	\centering
-	\includegraphics[width=0.6\linewidth]{../Project/src/labs/compare-f-normal-af/f(N)-f(AF).pdf}
+	\includegraphics[width=0.75\linewidth]{../Project/src/labs/compare-f-normal-af/f(N)-f(AF)-ink.pdf}
 	\caption{Difference of free energies for the normal phase minus the AF phase.}
-	\label{fig:af-df-data-A128}
+	\label{fig:af-f-compared}
 \end{figure}
-%
-As we expect, in the $V \gg 1$ and low $U$ limit the energy difference is null: in this limit the two phases tend to coincide, since at $U=0.0$ no magnetisation is physically possible. Moreover, the $U \gg 1$ limit makes the AF phase energetically favoured. Overall, at half filling the interesting free fermions Mott-localisation effect is, at least when comparing these phases, existent but surpassed by the high energetic gain of establishing an AF structure at infinitesimal $U$. The situation could change at finite doping, a regime we do not investigate limitedly to AF Physics.
 
-At low temperature and half filling, it is not worth plotting entropy density. Half-filled commensurate antiferromagnets are insulators, with two gapped Bogoliubov bands. At low temperature, electronic distribution fills completely the lower band and empties the upper one. Because of this, insulating gapped systems inherently are low entropic.
+At low temperature and half filling, it is not worth plotting entropy density. Half-filled commensurate antiferromagnets are insulators, with two gapped Bogoliubov bands. At low temperature, electronic distribution fills completely the lower band and empties the upper one. Because of this, insulating gapped systems inherently are low entropic and our results are compatible with zero in the entire region of parametric space we explored.
 
 \subsection{Fixed-point interpretation of HF solution}
 
-As a final remark discussing the mathematical structure of the algorithm, we anticipated in Sec.~\ref{subsec:reject-mix-iterate} how the reject-mix-iterate scheme upon which our HF algorithm is built can be seen as an effective search for the singular fixed point of a nonlinear map. A physical solution is represented as a HFP vector $\mathbf{v}$ such that the algorithm is a local identity,
+In this section we present a final remark regarding the mathematical structure of the algorithm. We anticipated in Sec.~\ref{subsec:reject-mix-iterate} that our convergence scheme can be seen as an effective search for the singular fixed point of a nonlinear map. A physical solution is represented as a HFP vector $\mathbf{v}$ such that the algorithm is a local identity,
 \[
-\mathrm{A}(\mathbf{v}) = \mathbf{v}
+	\mathrm{A}(\mathbf{v}) = \mathbf{v} \, .
 \]
-To predict for a given initializer $\mathbf{v}_0$ the path it will follow through HFPs space is, in general, highly non-trivial due to the intrinsic nonlinearity of the algorithmic map defined by self-consistency equations for the various HFPs. An example of such nonlinearity is given in the derivation of Secs.~\ref{appsubsec:af-HFPs=0-sAF}, \ref{appsubsec:af-HFPs=0-aAF}.
+To predict for a given initialiser $\mathbf{v}_0$ the path it will follow through HFPs space is, in general, highly non-trivial due to the intrinsic nonlinearity of the algorithmic map defined by self-consistency equations for the various HFPs. An example of such nonlinearity is given in the derivation of Secs.~\ref{appsubsec:af-HFPs=0-sAF}, \ref{appsubsec:af-HFPs=0-aAF}.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor-ink.pdf}
-	\caption{Quiver plot of algorithmic evolution in HFPs space at fixed model parametrization. The black dot $\mathbf{v}$ represents the nonlinear map fixed point, while the colored paths the sequences of HFPs coordinates simulated via iterative HF procedure, starting from different HFPs initializers (colored dots).}
+	\caption{Quiver plot of algorithmic evolution in HFPs space at fixed model parametrisation. The black dot $\mathbf{v}$ represents the nonlinear map fixed point, while the colored paths the sequences of HFPs coordinates simulated via iterative HF procedure, starting from different HFPs initialisers (colored dots).}
 	\label{fig:af-attractor}
 \end{figure}
 
 In Fig.~\ref{fig:af-attractor} we sketch this concept in a practical situation. In figure are plotted various algorithmic paths through AF HFPs space, with operational setup at
 \[
-U = 3
-\qquad
-V = 6
-\qquad
-L = 128
-\qquad
-\beta = 100
-\qquad
-\delta = 0
+	U = 3 \, ,
+	\qquad
+	V = 6 \, ,
+	\qquad
+	L = 128 \, ,
+	\qquad
+	\beta = 100 \, ,
+	\qquad
+	\delta = 0 \, .
 \]
 At this point, the self-consistent HF ``fixed-point'' solution is given by
 \[
-m \approx 0.449
-\qquad
-u^{(s^*)} \approx 0.212
+	m \approx 0.449 \, ,
+	\qquad
+	u^{(s^*)} \approx 0.212 \, ,
 \]
-indicated in panels as the black dot. The three panels show different map evolutions varying the mixing parameter within three choices, $g \in \lbrace 0.25, 0.1, 0.05 \rbrace$. We chose various initializers in the set:
+indicated in panels as the black dot. The three panels show different map evolutions varying the mixing parameter within three choices, $g \in \lbrace 0.25, 0.1, 0.05 \rbrace$. We chose various initialisers in the set:
 \[
-\mathbf{v}_0 = \begin{bmatrix} m_0 \\ u^{(s^*)}_0 \end{bmatrix} 
-\quad\colon\quad
-m_0 \in \lbrace 0.2,~0.3,~...,~0.6 \rbrace
-\qq{and}
-u^{(s^*)}_0 \in \lbrace 0.0,~0.1,~...,~0.4 \rbrace
+	\mathbf{v}_0 = \begin{bmatrix} m_0 \\ u^{(s^*)}_0 \end{bmatrix} 
+	\quad\colon\quad
+	m_0 \in \lbrace 0.2,~0.3,~...,~0.6 \rbrace
+	\qq{and}
+	u^{(s^*)}_0 \in \lbrace 0.0,~0.1,~...,~0.4 \rbrace \, .
 \]
 In figures, different colours indicate different evolutions, while the tip size indicates the magnitude of the algorithmic step in passing from one iteration to the following.
 
