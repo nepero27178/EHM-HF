@@ -31,7 +31,7 @@ ax = Axis3(
 	ylabel = L"$V$",
 	zlabel = L"$[ f^{(\mathrm{AF})}-f^{(\mathrm{SC})} ]/t$",
 	aspect=(1,1,1),
-	azimuth=-0.2*pi,
+	azimuth=-0.1*pi,
 	elevation=pi/9,
 	xlabelalign = (:center, :center),
 	ylabelalign = (:center, :center),
@@ -62,6 +62,8 @@ zc = zeros(length(xc))
 
 scatterlines!(ax,xc,yc,zc,color=:black,markersize=2,linewidth=0.1)
 text!(ax,3.5,4,0.2,text="Phase boundary")
+text!(ax,1,7.2,0.7,text="SC")
+text!(ax,15,4,-2,text="AF")
 
 Colorbar(H[1,2],s)
 FilePathOut = "f(AF)-f(SC).pdf"

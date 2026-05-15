@@ -10,8 +10,12 @@ set_theme!(fonts = (
 	bold = MT_DIR * "/NewCM10-Bold.otf"
 ))
 
+LAB_ROOT = @__DIR__
 include("/home/nepero27178/Thesis/EHM-HF/Project/src/setup/graphic-setup.jl")
-include("/home/nepero27178/Thesis/EHM-HF/Project/src/modules/methods-3D-plotting.jl")
+include("/home/nepero27178/Thesis/EHM-HF/Project/src/modules/structs.jl")
+include("/home/nepero27178/Thesis/EHM-HF/Project/src/modules/methods-physics.jl")
+include("/home/nepero27178/Thesis/EHM-HF/Project/src/modules/methods-IO.jl")
+CairoMakie.activate!()
 
 FilePathIn = "/home/nepero27178/Thesis/EHM-HF/Project/data/refined/Mode=rs/Setup=B[128]/Phase=SC-Singlet/RB=Sd_Syms=Ssd.csv"
 Setup,Phase,Syms,RB,Opt,Layer = UnpackFilePath(FilePathIn)
@@ -71,5 +75,5 @@ Colorbar(
 	labelcolor=tabgreen,
 )
 
-FilePathOut = "tS(N)+tS(SC).png"
-save(FilePathOut, H, px_per_unit=6)
+FilePathOut = "tS(N)+tS(SC).pdf"
+save(FilePathOut, H)

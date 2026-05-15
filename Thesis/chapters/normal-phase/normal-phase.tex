@@ -15,19 +15,6 @@ Translational invariance implies the following result:
 \begin{equation}\label{eq:normal-<cc>}
 	\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'} \rangle = \delta_{\mathbf{k}=\mathbf{k}'} \delta_{\sigma=\sigma'} \langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \rangle \, .
 \end{equation}
-We define the single-state occupation operator in reciprocal space:
-\[
-	\hat n_{\mathbf{k}\sigma} \equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
-\]
-and its EV
-\begin{equation}\label{eq:normal-uqsigma-def}
-	u_{\mathbf{k}\sigma} \equiv \langle
-		\hat n_{\mathbf{k}\sigma}
-	\rangle \, ,
-	\qquad
-	u_{\mathbf{k}\sigma} = u_{\mathbf{k}\sigma}^* \, .
-\end{equation}
-The relation on the right follows from the fact that $\hat n_{\mathbf{k}\sigma}$ is hermitian by construction. Note that $\hat n_{\mathbf{k}\sigma}$ is not the Fourier-transform of $\hat n_{i\sigma}$.
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:normal-<cc>}]
 	
@@ -60,6 +47,28 @@ Translational invariance and spin rotational symmetry imply that the site occupa
 	\ev{\hat n_{i\sigma}} = n \, ,
 \end{equation}
 with $n \in [0,1]$.
+
+We define the single-state occupation operator in reciprocal space:
+\[
+\hat n_{\mathbf{k}\sigma} \equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
+\]
+and its EV
+\begin{equation}\label{eq:normal-uqsigma-def}
+	u_{\mathbf{k}\sigma} \equiv \langle
+	\hat n_{\mathbf{k}\sigma}
+	\rangle \, ,
+	\qquad
+	u_{\mathbf{k}\sigma} = u_{\mathbf{k}\sigma}^* \, .
+\end{equation}
+The relation on the right follows from the fact that $\hat n_{\mathbf{k}\sigma}$ is hermitian by construction. Note that $\hat n_{\mathbf{k}\sigma}$ is not the Fourier-transform of $\hat n_{i\sigma}$. Finally, using the functions $\varphi_\mathbf{k}^{(\gamma)}$ of Tab.~\ref{tab:x-wave-reciprocal-factors}, we define the harmonics
+\begin{equation}\label{eq:normal-ugamma-harmonics}
+	u^{(\gamma)}_\sigma \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}
+	\langle
+	\hat c_{\mathbf{k}\sigma}^\dagger
+	\hat c_{\mathbf{k}\sigma}
+	\rangle \, .
+\end{equation}
+These harmonics are the HFPs of the normal phase, and Eq.~\eqref{eq:normal-ugamma-harmonics} is their self-consistency equation.
 
 \section{Application of Hartree-Fock methods to the normal phase}\label{sec:normal-hf}
 
@@ -310,14 +319,7 @@ By recalling the definition of $u_{\mathbf{k}\sigma} = \langle \hat n_{\mathbf{k
 	\hat c_{\mathbf{k}\sigma}^\dagger
 	\hat c_{\mathbf{k}\sigma} - E_{\mathrm{F},V}^{(\mathrm{N})} \, ,
 \end{equation}
-where $u_\sigma^{(\gamma)}$ are the harmonics of the occupation $u_{\mathbf{k}\sigma}$, defined as
-\begin{equation}\label{eq:normal-ugamma-harmonics}
-	u^{(\gamma)}_\sigma \equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)}
-	\langle
-	\hat c_{\mathbf{k}\sigma}^\dagger
-	\hat c_{\mathbf{k}\sigma}
-	\rangle \, .
-\end{equation}
+where $u_\sigma^{(\gamma)}$ are the harmonics of the occupation $u_{\mathbf{k}\sigma}$, defined in Eq.~\eqref{eq:normal-ugamma-harmonics}.
 
 \begin{figure}
 	\def\Kx{0.5}

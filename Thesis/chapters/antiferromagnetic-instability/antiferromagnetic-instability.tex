@@ -1245,16 +1245,16 @@ where we used Eq.~\eqref{eq:af-ugamma-harmonics}, where the harmonics of $u_{\ma
 		\hat c_{\mathbf{q}'\sigma}^\dagger \hat c_{\mathbf{q}'\sigma}
 		\nonumber \\
 		&= \sum_{\gamma,\sigma} \left(
-		\frac{1}{L_x L_y} \sum_\mathbf{q} \varphi_\mathbf{q}^{(\gamma)}
+		\frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}} \varphi_\mathbf{q}^{(\gamma)}
 		\langle
 		\hat n_{\mathbf{q}\sigma}
 		\rangle
 		\right) \times V
-		\sum_{\mathbf{q}'}
+		\sum_{\mathbf{q}'\in\mathrm{BZ}}
 		\varphi_{\mathbf{q}'}^{(\gamma)*}
 		\hat n_{\mathbf{q}'\sigma} \nonumber \\ 
 		&= \sum_{\gamma,\sigma} u_\sigma^{(\gamma)} \times V
-		\sum_{\mathbf{q}'}
+		\sum_{\mathbf{q}'\in\mathrm{BZ}}
 		\varphi_{\mathbf{q}'}^{(\gamma)*}
 		\hat n_{\mathbf{q}'\sigma} \, .
 		\label{eq:af-V-fock-int3-implicit}
