@@ -1,0 +1,36 @@
+\resizebox{0.9\columnwidth}{!}{\begin{tikzpicture}
+	\draw[color=lightgray]
+		(-0.3,-0.3) grid (4.3,2.3);
+		
+	\foreach \x in {0,1,2,3,4} {
+		\foreach \y in {0,1,2} {
+			\draw[color=lightgray]
+				(\x,\y) circle (5pt);
+				
+			\only<1>{
+				\fill[color=tabblue]
+					({\x+0.05,\y+0.05}) circle (1.5pt);
+			}	
+			
+			\only<2>{
+				
+			\node[anchor=south west,color=tabred] at (3,1)
+				{$+U$};			
+			
+			\if\x2
+				\if\y1
+					\fill[color=tabblue]
+					({\x+0.95,\y-0.05}) circle (1.5pt);
+				\else
+					\fill[color=tabblue]
+					({\x+0.05,\y+0.05}) circle (1.5pt);
+				\fi
+			\else
+				\fill[color=tabblue]
+					({\x+0.05,\y+0.05}) circle (1.5pt);
+			\fi
+			}
+		}
+	}
+	
+\end{tikzpicture}}

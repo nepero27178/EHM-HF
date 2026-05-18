@@ -1,0 +1,205 @@
+\def\SectionFolder{sections/introduction}
+\section{Cuprates and Hubbard physics}
+
+\begin{frame}
+	\frametitle{Superconductivity in cuprates}
+	\begin{columns}
+		\column{0.3\linewidth}
+		\begin{figure}
+			\centering
+			\subfloat{
+				\includegraphics[width=\columnwidth]{\SectionFolder/bednorz-muller.png}
+			}\\[1em]
+			\subfloat{
+				\includegraphics[width=\columnwidth]{\SectionFolder/article.png}
+			}
+		\end{figure}
+		\column{0.6\linewidth}
+		\textbf{What makes cuprates interesting?}
+		\begin{itemize}
+			\item Strong ``unconventional'' insulators;
+			\item Rich phase diagram;
+			\item Origin of Cooper pairing: still unclear;
+			\item Highest critical temperatures for SC transition in this class of materials.
+		\end{itemize}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Cuprates and the Hubbard model}
+	\begin{columns}
+		\column{0.42\linewidth}
+		These materials are stackings of:
+		\begin{itemize}
+			\item $2$D copper oxide active layers;
+			\item intermediate layers of inert material.
+		\end{itemize}
+		\column{0.48\linewidth}
+		\begin{figure}
+			\centering
+			\input{\SectionFolder/copper-oxides}
+		\end{figure}
+	\end{columns}
+	Most of the cuprates physics is well described by the single-band Hubbard model on the square lattice:
+	\begin{equation}
+	\hat H_\mathrm{HM} = 
+	\underbrace{
+		-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+	}_\text{Kinetic operator}
+	\underbrace{
+		+
+		\vphantom{\sum_{\langle ij \rangle}}
+		U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow}
+	}_\text{On-site repulsion}
+	\qquad
+	(t, U  > 0)
+	\end{equation}
+\end{frame}
+
+\begin{frame}
+	\frametitle{The phase diagram of cuprates}
+	\begin{columns}
+		\column{0.5\linewidth}
+		Cuprates exhibit various phases, among which:
+		\begin{itemize}
+			\item \textbf{Antiferromagnetic long-range order} at null and low doping;
+			\item \textbf{$d$-wave superconductivity} as we inject or remove charge.
+		\end{itemize}
+		At \textbf{half-filling}, band theory would predict a metallic state. Instead we observe strong insulation.
+		\DownImplication
+		Cuprates are \textbf{not} band insulators.
+		\column{0.4\linewidth}
+		\begin{figure}
+			\includegraphics[width=\columnwidth]{\SectionFolder/phase-diagram.pdf}
+			\caption*{\footnotesize Schematic phase diagram of cuprates. Author: Holger Motzkau, \hyperlink{https://commons.wikimedia.org/w/index.php?curid=27862441}{Wikimedia commons}, CC BY-SA 3.0.}
+		\end{figure}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mott localisation: a many-body insulator}
+	\begin{columns}
+		\column{0.5\linewidth}
+		Band theory assumption: $e$-$e$ interactions are \textbf{negligible}.\medskip
+		
+		Strongly coupled Hubbard model: on-site repulsion
+		\[
+			U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow}
+		\]
+		much bigger than kinetics. \textbf{Big energetic cost} of having two electrons on the same site.
+		\DownImplication
+		\textbf{Insulation mechanism:} electrons are \textbf{localised} as in a sort of ``traffic jam''.
+		
+		\column{0.4\linewidth}
+		\begin{figure}
+			\centering
+			\subfloat{
+				\input{\SectionFolder/local-repulsion}
+			}\\[0.5em]
+			\subfloat{
+				\includegraphics[width=\columnwidth]{\SectionFolder/traffico-fipili.jpeg}
+			}
+		\end{figure}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Bands flattening: a signature of Mott localisation}
+	\begin{columns}
+		\column{0.4\linewidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\columnwidth]{\SectionFolder/dos.png}
+			\caption*{\footnotesize Kotliar, Gabriel, e Dieter Vollhardt, 2004. \textbf{Physics Today 57 (March): 53–59}.}
+		\end{figure}
+		\column{0.5\linewidth}
+		\begin{enumerate}
+			\item[(a)] Free model, conventional DoS;
+			\item[(b)] Weak coupling, large coherent peak;
+			\item[(c)] Intermediate coupling, \textbf{narrow coherent peak};
+			\item[(d)] Strong coupling, lower and upper Hubbard bands.
+		\end{enumerate}
+		\DownImplication
+		Localisation = flattening of bare bands.
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mott physics, antiferromagnetism and $d$-wave superconductivity}
+	How does Mott localisation relate to antiferromagnetism and superconductivity?
+	\begin{columns}[t]
+		\column{0.45\linewidth}
+		\begin{center}
+			\textbf{Antiferromagnetism}
+		\end{center}
+		Perturbation theory at strong coupling gives:
+		\[
+			\hat H_\mathrm{HM} \simeq J \sum_{\langle ij \rangle} \hat{\mathbf{S}}_i \cdot \hat{\mathbf{S}}_j + \Delta E
+		\]
+		with antiferromagnetic exchange $J=4t^2/U$.\medskip
+		
+		Mottness: \textbf{the ground manifold is localised}.
+		
+		\column{0.45\linewidth}
+		\begin{center}
+			\textbf{Superconductivity}
+		\end{center}
+		Phenomenology: we observe $d$-wave superconductivity, i.e. the superconducting gap is anisotropic under $\pi/2$ rotations $\mathcal{R}$,
+		\begin{multline*}
+			\left\langle \hat c_{\uparrow\mathbf{r}}^\dagger \hat c_{\downarrow\mathbf{r}+\Delta\mathbf{r}}^\dagger \right\rangle \\
+			= -\left\langle \hat c_{\uparrow\mathcal{R}\mathbf{r}}^\dagger \hat c_{\downarrow\mathcal{R}(\mathbf{r}+\Delta\mathbf{r})}^\dagger \right\rangle
+		\end{multline*}
+		
+		Mottness: \textbf{non-local Cooper pairing}.
+		
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Recent developments: the extended Hubbard model}
+	\begin{columns}
+		\column{0.4\linewidth}
+		\column{0.5\linewidth}
+		Recent developments: extension of the model with a \textbf{non-local attraction},
+		\[
+			\hat H_\mathrm{EHM} = \hat H_\mathrm{HM} \underbrace{
+				-V \sum_{\langle ij \rangle} \hat n_i \hat n_j
+			}_{\hat H_V}
+		\]
+		We know from BCS theory that $\hat H_V$ can act \textbf{as a source of $d$-wave superconductivity}.
+	\end{columns}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{This thesis: investigating Mott physics in the EHM}
+	\textbf{The model (EHM):}
+	\begin{equation*}
+		\hat H_\mathrm{EHM} = 
+		\underbrace{
+			-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+		}_\text{Kinetic operator}
+		\underbrace{
+			+
+			\vphantom{\sum_{\langle ij \rangle}}
+			U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow}
+		}_\text{Local repulsion} 
+		\underbrace{
+			-V \sum_{\langle ij \rangle} \hat n_i \hat n_j
+		}_\text{Non-local attraction}
+		\qquad
+		(t, U, V  > 0)
+	\end{equation*}
+
+	\vspace{1em}
+
+	\textbf{The motivation:} Recent findings of compatibility with this model for experimental results.
+	
+	\vspace{1em}
+	
+	\textbf{The idea:} we know that the EHM can host $d$-wave superconductivity. Can we obtain Mott physics?
+	
+	\vspace{1em}
+	
+	\textbf{The method:} theoretical and numerical Hartree-Fock technique.
+\end{frame}
