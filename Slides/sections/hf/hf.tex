@@ -1,3 +1,87 @@
 \def\SectionFolder{sections/hf}
-
 \section{The Hartree-Fock method}
+
+\begin{frame}
+	\frametitle{The constrained minimisation framework}
+	\begin{columns}
+		\column{0.55\linewidth}
+		We want to approximate the true ground state $\ket{\Psi_0}$ of the EHM, with energy $E_0$.\medskip
+		
+		Variational principle:
+		\[
+			\forall \ket{\Phi} \in \mathcal{S} \subset \mathcal{H} \quad\colon\quad
+			E[\ket{\Phi}] \ge E_0 \, .
+		\]
+		\DownImplication
+		Constrained minimisation procedure:
+		\[
+			\ket{\Psi} \quad\colon\quad
+			\fdv{\ket{\Phi}} E[\ket{\Phi}] \bigg|_{\ket{\Phi} = \ket{\Psi}} = 0 \, .
+		\]
+		The state $\ket{\Psi}$ is the best approximation to $\ket{\Psi_0}$ inside of $\mathcal{S}$.
+		\column{0.35\linewidth}
+		\begin{figure}
+			\centering
+			\resizebox{\columnwidth}{!}{
+			\input{../Thesis/chapters/hf-introduction/pictures/gaussian-subspace}
+			}
+			\caption*{Sketch of the Hilbert space $\mathcal{H}$ and a subset $\mathcal{S}$.}
+		\end{figure}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{The Hartree-Fock method in a nutshell}
+	Consider all possible fermionic non-interacting hamiltonians:
+	\[
+		\hat K \equiv
+		\sum_{\alpha} E_\alpha \hat\gamma_\alpha^\dagger \hat\gamma_\alpha 
+		\qq{with}
+		\acomm{\hat \gamma_\alpha}{\hat \gamma_\beta^\dagger} = \delta_{\alpha\beta} \, ,
+	\]
+	with $\hat \gamma \leftrightarrow \hat c$ through a unitary map.\medskip
+	
+	\textbf{Hartree-Fock method}: we identify $\mathcal{S}$ with the set of all the ground states of these hamiltonians,
+	\[
+		\mathcal{S} = \left\lbrace
+			\ket{\Psi} \,\mid\, \text{$\ket{\Psi}$ is the ground-state of some $\hat K$}
+		\right\rbrace \, .
+	\]
+	\DownImplication
+	\textbf{Wick's theorem}:
+	\[
+		\langle
+		\hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta
+		\rangle = \underbrace{
+			\langle 
+			\hat c_\alpha^\dagger \hat c_\delta
+			\rangle \langle	
+			\hat c_\beta^\dagger \hat c_\gamma 
+			\rangle
+		}_{\text{Hartree}}
+		- 
+		\underbrace{
+			\langle 
+			\hat c_\alpha^\dagger \hat c_\gamma
+			\rangle \langle	
+			\hat c_\beta^\dagger \hat c_\delta 
+			\rangle 
+		}_{\text{Fock}}
+		+ 
+		\underbrace{
+			\langle 
+			\hat c_\alpha^\dagger \hat c_\beta^\dagger
+			\rangle \langle	
+			\hat c_\gamma \hat c_\delta 
+			\rangle 
+		}_{\text{Cooper}}.
+	\]
+\end{frame}
+
+\begin{frame}
+	\frametitle{The self-consistency mapping}
+\end{frame}
+
+\begin{frame}
+	\frametitle{The iterative algorithm}
+\end{frame}

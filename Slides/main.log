@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  18 MAY 2026 20:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.12.28)  19 MAY 2026 12:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -940,7 +940,7 @@ File: pgfcalendar.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@cal@easter@julianday=\count376
 ))) (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
-))
+)
 (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 
@@ -973,108 +973,102 @@ Package caption Info: New subtype `subfigure' on input line 238.
 \c@subfigure=\count379
 Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count380
-)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/physics/physics.sty
+Package: physics 
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2025-01-18 L3 programming layer (loader) 
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count381
+\l__pdf_internal_box=\box83
+))
+Package: xparse 2024-08-16 L3 Experimental document command parser
+))
 (./misc/customisations.tex
-(/usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/beamerthememetr
-opolis.sty
-Package: beamerthememetropolis 2017/01/23 v1.2 Metropolis Beamer theme
- (/usr/share/texlive/texmf-dist/tex/latex/pgfopts/pgfopts.sty
+(/usr/share/texlive/texmf-dist/tex/latex/moloch/beamerthememoloch.sty
+Package: beamerthememoloch 2025-01-17 v0.6.0 Moloch color theme
+
+(/usr/share/texlive/texmf-dist/tex/latex/pgfopts/pgfopts.sty
 Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
 \pgfopts@list@add@a@toks=\toks57
 \pgfopts@list@add@b@toks=\toks58
 )
-(/usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/beamerinnerthem
-emetropolis.sty
-Package: beamerinnerthememetropolis 2017/01/23 Metropolis inner theme
- (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/moloch/beamerinnerthememoloch.sty
+Package: beamerinnerthememoloch 2025-01-17 v0.6.0 Moloch color theme
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count381
-\calc@Bcount=\count382
+\calc@Acount=\count382
+\calc@Bcount=\count383
 \calc@Adimen=\dimen343
 \calc@Bdimen=\dimen344
 \calc@Askip=\skip66
 \calc@Bskip=\skip67
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count383
+\calc@Ccount=\count384
 \calc@Cskip=\skip68
 )
-\metropolis@titleseparator@linewidth=\skip69
-\metropolis@progressonsectionpage=\skip70
-\metropolis@progressonsectionpage@linewidth=\skip71
-\metropolis@blocksep=\skip72
-\metropolis@blockadjust=\skip73
-\metropolis@parskip=\skip74
+\moloch@titleseparator@linewidth=\skip69
+\moloch@progressonsectionpage=\skip70
+\moloch@progressonsectionpage@linewidth=\skip71
 )
-(/usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/beamerouterthem
-emetropolis.sty
-Package: beamerouterthememetropolis 2017/01/23 Metropolis outer theme
-\metropolis@frametitle@padding=\skip75
-\metropolis@progressinheadfoot=\skip76
-\metropolis@progressinheadfoot@linewidth=\skip77
+(/usr/share/texlive/texmf-dist/tex/latex/moloch/beamerouterthememoloch.sty
+Package: beamerouterthememoloch 2025-01-17 v0.6.0 Moloch color theme
+\moloch@frametitle@padding=\skip72
+\moloch@progressinheadfoot=\skip73
+\moloch@progressinheadfoot@linewidth=\skip74
 )
-(/usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/beamercolorthem
-emetropolis.sty
-Package: beamercolorthememetropolis 2017/01/23 Metropolis color theme
+(/usr/share/texlive/texmf-dist/tex/latex/moloch/beamercolorthememoloch.sty
+Package: beamercolorthememoloch 2025-01-17 v0.6.0 Moloch color theme
 )
-(/usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/beamerfonttheme
-metropolis.sty
-Package: beamerfontthememetropolis 2017/01/23 Metropolis font theme
- (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifxetex.sty
-Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
-)
-(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifluatex.sty
-Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-)
-
-Package beamerthememetropolis Warning: You need to compile with XeLaTeX or LuaL
-aTeX to use the Fira fonts on input line 95.
-
-)) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerfontthemeserif.sty)
-Package hyperref Info: Option `colorlinks' set `true' on input line 22.
+(/usr/share/texlive/texmf-dist/tex/latex/moloch/beamerfontthememoloch.sty
+Package: beamerfontthememoloch 2025-01-17 v0.6.0 Moloch color theme
+))
+(/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerfontthemeserif.sty)
+Package hyperref Info: Option `colorlinks' set `true' on input line 23.
 )
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hfill' on input line 14.
+(hyperref)                removing `\hfill' on input line 15.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 14.
+(hyperref)                removing `\\' on input line 15.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hfill' on input line 14.
+(hyperref)                removing `\hfill' on input line 15.
 
 
-(/usr/share/texlive/texmf-dist/tex/latex/beamertheme-metropolis/pgfplotsthemeto
-l.sty
-Package: pgfplotsthemetol 2017/01/23 PGFplots colors based on Paul Tol's SRON t
-echnical note
-) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count384
-\l__pdf_internal_box=\box83
-) (./main.aux)
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\vfill' on input line 15.
+
+(./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1132,7 +1126,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 16.
+Package hyperref Info: Link coloring ON on input line 17.
 
 (./main.out) (./main.out)
 \@outlinefile=\write5
@@ -1163,26 +1157,31 @@ Dictionary: translator-numbers-dictionary, Language: English
 ry-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-Package pgfplots notification 'compat/show suggested version=true': you might b
-enefit from \pgfplotsset{compat=1.18} (current compat level: 1.9).
+
+Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
+ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
+your preamble.
+ on input line 17.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 (./main.nav)
-<misc/marchio_unipi_black.png, id=21, 564.4287pt x 300.6432pt>
+<misc/marchio_unipi_black.png, id=25, 564.4287pt x 300.6432pt>
 File: misc/marchio_unipi_black.png Graphic file (type png)
 <use misc/marchio_unipi_black.png>
-Package pdftex.def Info: misc/marchio_unipi_black.png  used on input line 18.
+Package pdftex.def Info: misc/marchio_unipi_black.png  used on input line 19.
 (pdftex.def)             Requested size: 80.12187pt x 42.67912pt.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
 
-Overfull \vbox (61.179pt too high) detected at line 18
- []
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
 
 
-Overfull \vbox (12.59242pt too high) detected at line 18
- []
-
-
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 
 [1
 
@@ -1196,21 +1195,11 @@ interlaced PNG might cause out of memory (use non-interlaced PNG to fix this)
 [2
 
 ] (./sections/introduction/introduction.tex
-LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 
 [3
 
 ]
-<sections/introduction/bednorz-muller.png, id=47, 568.1225pt x 599.23875pt>
+<sections/introduction/bednorz-muller.png, id=51, 568.1225pt x 599.23875pt>
 File: sections/introduction/bednorz-muller.png Graphic file (type png)
 <use sections/introduction/bednorz-muller.png>
 Package pdftex.def Info: sections/introduction/bednorz-muller.png  used on inpu
@@ -1221,7 +1210,7 @@ Overfull \hbox (6.16663pt too wide) in paragraph at lines 26--26
  [] 
  []
 
-<sections/introduction/article.png, id=48, 762.85pt x 211.79124pt>
+<sections/introduction/article.png, id=52, 762.85pt x 211.79124pt>
 File: sections/introduction/article.png Graphic file (type png)
 <use sections/introduction/article.png>
 Package pdftex.def Info: sections/introduction/article.png  used on input line 
@@ -1237,25 +1226,27 @@ Overfull \hbox (6.16663pt too wide) in paragraph at lines 26--26
 [4
 
  <./sections/introduction/bednorz-muller.png> <./sections/introduction/article.
-png>] (./sections/introduction/copper-oxides.tex
-<sections/introduction/copper-oxides/copper-oxides.pdf, id=57, 262.93634pt x 20
-0.47498pt>
-File: sections/introduction/copper-oxides/copper-oxides.pdf Graphic file (type 
-pdf)
-<use sections/introduction/copper-oxides/copper-oxides.pdf>
-Package pdftex.def Info: sections/introduction/copper-oxides/copper-oxides.pdf 
- used on input line 15.
+png>] (../Thesis/chapters/theoretical-introduction/pictures/copper-oxides.tex
+<../Thesis/chapters/theoretical-introduction/pictures/copper-oxides/copper-oxid
+es.pdf, id=61, 262.93634pt x 200.47498pt>
+File: ../Thesis/chapters/theoretical-introduction/pictures/copper-oxides/copper
+-oxides.pdf Graphic file (type pdf)
+<use ../Thesis/chapters/theoretical-introduction/pictures/copper-oxides/copper-
+oxides.pdf>
+Package pdftex.def Info: ../Thesis/chapters/theoretical-introduction/pictures/c
+opper-oxides/copper-oxides.pdf  used on input line 2.
 (pdftex.def)             Requested size: 262.93568pt x 200.47447pt.
 )
 
 [5
 
- <./sections/introduction/copper-oxides/copper-oxides.pdf>]
-<sections/introduction/phase-diagram.pdf, id=70, 527.9725pt x 392.46625pt>
+ <../Thesis/chapters/theoretical-introduction/pictures/copper-oxides/copper-oxi
+des.pdf>]
+<sections/introduction/phase-diagram.pdf, id=74, 527.9725pt x 392.46625pt>
 File: sections/introduction/phase-diagram.pdf Graphic file (type pdf)
 <use sections/introduction/phase-diagram.pdf>
 Package pdftex.def Info: sections/introduction/phase-diagram.pdf  used on input
- line 77.
+ line 80.
 (pdftex.def)             Requested size: 122.91406pt x 91.36722pt.
 
 
@@ -1263,14 +1254,14 @@ Package pdftex.def Info: sections/introduction/phase-diagram.pdf  used on input
 
  <./sections/introduction/phase-diagram.pdf>]
 (./sections/introduction/local-repulsion.tex)
-<sections/introduction/traffico-fipili.jpeg, id=122, 622.325pt x 439.6425pt>
+<sections/introduction/traffico-fipili.jpeg, id=126, 622.325pt x 439.6425pt>
 File: sections/introduction/traffico-fipili.jpeg Graphic file (type jpg)
 <use sections/introduction/traffico-fipili.jpeg>
 Package pdftex.def Info: sections/introduction/traffico-fipili.jpeg  used on in
-put line 104.
+put line 107.
 (pdftex.def)             Requested size: 122.91406pt x 86.82675pt.
 
-Overfull \hbox (6.16663pt too wide) in paragraph at lines 104--104
+Overfull \hbox (6.16663pt too wide) in paragraph at lines 107--107
  [][] 
  []
 
@@ -1283,10 +1274,10 @@ Overfull \hbox (6.16663pt too wide) in paragraph at lines 104--104
 File: sections/introduction/traffico-fipili.jpeg Graphic file (type jpg)
 <use sections/introduction/traffico-fipili.jpeg>
 Package pdftex.def Info: sections/introduction/traffico-fipili.jpeg  used on in
-put line 104.
+put line 107.
 (pdftex.def)             Requested size: 122.91406pt x 86.82675pt.
 
-Overfull \hbox (6.16663pt too wide) in paragraph at lines 104--104
+Overfull \hbox (6.16663pt too wide) in paragraph at lines 107--107
  [][] 
  []
 
@@ -1295,10 +1286,10 @@ Overfull \hbox (6.16663pt too wide) in paragraph at lines 104--104
 [8
 
 ]
-<sections/introduction/dos.png, id=134, 496.85625pt x 635.37375pt>
+<sections/introduction/dos.png, id=138, 496.85625pt x 635.37375pt>
 File: sections/introduction/dos.png Graphic file (type png)
 <use sections/introduction/dos.png>
-Package pdftex.def Info: sections/introduction/dos.png  used on input line 125.
+Package pdftex.def Info: sections/introduction/dos.png  used on input line 128.
 
 (pdftex.def)             Requested size: 122.91406pt x 157.17549pt.
 
@@ -1310,16 +1301,52 @@ Package pdftex.def Info: sections/introduction/dos.png  used on input line 125.
 [10
 
 ]
+<sections/introduction/rixs-dmrg.png, id=153, 761.84625pt x 914.41624pt>
+File: sections/introduction/rixs-dmrg.png Graphic file (type png)
+<use sections/introduction/rixs-dmrg.png>
+Package pdftex.def Info: sections/introduction/rixs-dmrg.png  used on input lin
+e 183.
+(pdftex.def)             Requested size: 122.91406pt x 147.52348pt.
+
 
 [11
 
-]
+ <./sections/introduction/rixs-dmrg.png>]
 
 [12
 
 ]) (./sections/hf/hf.tex
 
 [13
+
+] (../Thesis/chapters/hf-introduction/pictures/gaussian-subspace.tex)
+
+[14
+
+]
+
+[15
+
+]
+
+[16
+
+]
+
+[17
+
+])
+
+LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
+(Font)              using `OT1/cmss/bx/n' instead on input line 30.
+
+
+
+[18
+
+] (./sections/backup.tex
+
+[19
 
 ])
 \tf@nav=\write6
@@ -1336,17 +1363,21 @@ Package pdftex.def Info: sections/introduction/dos.png  used on input line 125.
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F0CD21CEA6E99EE25CFDAD80C3DC08B1;356.
+(rerunfilecheck)             Checksum: E4D84E55E1212029F0437CB58D7E0EE7;467.
  ) 
 Here is how much of TeX's memory you used:
- 37502 strings out of 475076
- 894777 string characters out of 5763687
- 1351075 words of memory out of 5000000
- 59759 multiletter control sequences out of 15000+600000
- 569071 words of font info for 74 fonts, out of 8000000 for 9000
+ 38151 strings out of 475076
+ 902076 string characters out of 5763687
+ 1355076 words of memory out of 5000000
+ 60383 multiletter control sequences out of 15000+600000
+ 568771 words of font info for 73 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 128i,13n,134p,1923b,1198s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,13n,134p,739b,1196s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{https://commons.wikimedia.org/w/index.php?curid=278
 62441} has been referenced but does not exist, replaced by a fixed one
@@ -1364,10 +1395,10 @@ cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss
 9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on main.pdf (13 pages, 621518 bytes).
+Output written on main.pdf (19 pages, 916730 bytes).
 PDF statistics:
- 234 PDF objects out of 1000 (max. 8388607)
- 162 compressed objects within 2 object streams
- 30 named destinations out of 1000 (max. 500000)
- 94 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 277 PDF objects out of 1000 (max. 8388607)
+ 197 compressed objects within 2 object streams
+ 43 named destinations out of 1000 (max. 500000)
+ 107 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -37,11 +37,14 @@
 		\column{0.48\linewidth}
 		\begin{figure}
 			\centering
-			\input{\SectionFolder/copper-oxides}
+			\def\GraphicsFolder{../Thesis/chapters/theoretical-introduction/pictures}
+			\resizebox{\columnwidth}{!}{
+				\input{\GraphicsFolder/copper-oxides}
+			}
 		\end{figure}
 	\end{columns}
 	Most of the cuprates physics is well described by the single-band Hubbard model on the square lattice:
-	\begin{equation}
+	\[
 	\hat H_\mathrm{HM} = 
 	\underbrace{
 		-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
@@ -52,8 +55,8 @@
 		U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow}
 	}_\text{On-site repulsion}
 	\qquad
-	(t, U  > 0)
-	\end{equation}
+	\text{with $t, U  > 0$.}
+	\]
 \end{frame}
 
 \begin{frame}
@@ -71,7 +74,7 @@
 		\column{0.4\linewidth}
 		\begin{figure}
 			\includegraphics[width=\columnwidth]{\SectionFolder/phase-diagram.pdf}
-			\caption*{\footnotesize Schematic phase diagram of cuprates. Author: Holger Motzkau, \hyperlink{https://commons.wikimedia.org/w/index.php?curid=27862441}{Wikimedia commons}, CC BY-SA 3.0.}
+			\caption*{Schematic phase diagram of cuprates. Author: Holger Motzkau, \hyperlink{https://commons.wikimedia.org/w/index.php?curid=27862441}{Wikimedia commons}, CC BY-SA 3.0.}
 		\end{figure}
 	\end{columns}
 \end{frame}
@@ -84,7 +87,7 @@
 		
 		Strongly coupled Hubbard model: on-site repulsion
 		\[
-			U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow}
+			U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow} \, ,
 		\]
 		much bigger than kinetics. \textbf{Big energetic cost} of having two electrons on the same site.
 		\DownImplication
@@ -110,7 +113,7 @@
 		\begin{figure}
 			\centering
 			\includegraphics[width=\columnwidth]{\SectionFolder/dos.png}
-			\caption*{\footnotesize Kotliar, Gabriel, e Dieter Vollhardt, 2004. \textbf{Physics Today 57 (March): 53–59}.}
+			\caption*{Gabriel Kotliar and Dieter Vollhardt, 2004. \textbf{Physics Today 57 (March): 53–59}.}
 		\end{figure}
 		\column{0.5\linewidth}
 		\begin{enumerate}
@@ -134,11 +137,11 @@
 		\end{center}
 		Perturbation theory at strong coupling gives:
 		\[
-			\hat H_\mathrm{HM} \simeq J \sum_{\langle ij \rangle} \hat{\mathbf{S}}_i \cdot \hat{\mathbf{S}}_j + \Delta E
+			\hat H_\mathrm{HM} \simeq J \sum_{\langle ij \rangle} \hat{\mathbf{S}}_i \cdot \hat{\mathbf{S}}_j + \Delta E \, ,
 		\]
 		with antiferromagnetic exchange $J=4t^2/U$.\medskip
 		
-		Mottness: \textbf{the ground manifold is localised}.
+		``Mottness'': \textbf{the ground manifold is localised}.
 		
 		\column{0.45\linewidth}
 		\begin{center}
@@ -147,10 +150,10 @@
 		Phenomenology: we observe $d$-wave superconductivity, i.e. the superconducting gap is anisotropic under $\pi/2$ rotations $\mathcal{R}$,
 		\begin{multline*}
 			\left\langle \hat c_{\uparrow\mathbf{r}}^\dagger \hat c_{\downarrow\mathbf{r}+\Delta\mathbf{r}}^\dagger \right\rangle \\
-			= -\left\langle \hat c_{\uparrow\mathcal{R}\mathbf{r}}^\dagger \hat c_{\downarrow\mathcal{R}(\mathbf{r}+\Delta\mathbf{r})}^\dagger \right\rangle
+			= -\left\langle \hat c_{\uparrow\mathcal{R}\mathbf{r}}^\dagger \hat c_{\downarrow\mathcal{R}(\mathbf{r}+\Delta\mathbf{r})}^\dagger \right\rangle \, .
 		\end{multline*}
 		
-		Mottness: \textbf{non-local Cooper pairing}.
+		``Mottness'': \textbf{non-local Cooper pairing}.
 		
 	\end{columns}
 \end{frame}
@@ -159,12 +162,20 @@
 	\frametitle{Recent developments: the extended Hubbard model}
 	\begin{columns}
 		\column{0.4\linewidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\columnwidth]{\SectionFolder/rixs-dmrg.png}
+			\caption*{Hari Padma et al., 2025. \textbf{Physical Review X 15 (2): 021049}.
+			}
+		\end{figure}
 		\column{0.5\linewidth}
-		Recent developments: extension of the model with a \textbf{non-local attraction},
+		Incompatibilities with the spectrum of magnetic excitation in cuprates.
+		\DownImplication
+		Proposal: extension of the model with a \textbf{non-local attraction},
 		\[
 			\hat H_\mathrm{EHM} = \hat H_\mathrm{HM} \underbrace{
 				-V \sum_{\langle ij \rangle} \hat n_i \hat n_j
-			}_{\hat H_V}
+			}_{\hat H_V} \, .
 		\]
 		We know from BCS theory that $\hat H_V$ can act \textbf{as a source of $d$-wave superconductivity}.
 	\end{columns}
@@ -188,7 +199,7 @@
 			-V \sum_{\langle ij \rangle} \hat n_i \hat n_j
 		}_\text{Non-local attraction}
 		\qquad
-		(t, U, V  > 0)
+		\text{with $t, U, V  > 0$.}
 	\end{equation*}
 
 	\vspace{1em}
@@ -197,7 +208,7 @@
 	
 	\vspace{1em}
 	
-	\textbf{The idea:} we know that the EHM can host $d$-wave superconductivity. Can we obtain Mott physics?
+	\textbf{The idea:} we know that the EHM can host $d$-wave superconductivity, which is related to Mott physics. Can we obtain manifest signatures of Mott localisation in the ground-state?
 	
 	\vspace{1em}
 	

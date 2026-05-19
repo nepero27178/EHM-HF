@@ -11,16 +11,25 @@
 	Alessandro Gori
 	\hfill
 	Prof. Giacomo Mazza
-} \titlegraphic{\hfill\includegraphics[height=1.5cm]{misc/marchio_unipi_black.png}}
+	\vfill
+} \titlegraphic{\bigskip\hfill\includegraphics[height=1.5cm]{misc/marchio_unipi_black.png}\vspace{5em}}
 
 \begin{document}
 	
 	\maketitle
-	\begin{frame}{Outline}
+	\begin{frame}[plain, noframenumbering]
+		\frametitle{Outline}
 		\setbeamertemplate{section in toc}[sections numbered]
 		\tableofcontents[hideallsubsections]
 	\end{frame}
 	\input{sections/introduction/introduction}
 	\input{sections/hf/hf}
+	
+    \begin{frame}[standout, noframenumbering]
+		\emph{\color{tabblue} That's all, thank you!}
+	\end{frame}
+	
+	% Backup slides
+	\input{sections/backup}
 
 \end{document}
