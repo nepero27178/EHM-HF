@@ -61,9 +61,10 @@
 					{$\tilde{\mathbf{b}}_\mathbf{k}$};
 				
 		\draw[color=tabgreen] 
-			(0,\EpsPar/2) arc [start angle=90,end angle=90+atan(\DeltaPar/\EpsPar),radius=\EpsPar/2]
-				node[anchor=south west,midway]
-					{$2\tilde{\theta}_\mathbf{k}$};
+			(0,\EpsPar/2) arc [start angle=90,end angle=90+atan(\DeltaPar/\EpsPar),radius=\EpsPar/2];
+		\node[anchor=center,color=tabgreen]
+			at (-\DeltaPar/9,\EpsPar/3.3)
+				{$2\tilde{\theta}_\mathbf{k}$};
 					
 		\draw[color=tabred,dashed,-stealth] 
 			(0,\r*\EpsPar) node[anchor=west]
