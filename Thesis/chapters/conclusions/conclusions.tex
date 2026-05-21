@@ -1,3 +1,41 @@
 \chapter{Conclusions}\label{chap:conclusions}
 
-We have concluded that \textit{cioccolato fondente} is my favourite ice cream flavour.
+In this thesis, we studied the extended Hubbard model introduced in Eq.~\eqref{eq:extended-hubbard-model} by the means of the Hartree-Fock method, both analytically and numerically. We analysed three phases: normal, commensurate antiferromagnetic and nematic superconducting (in singlet channel). The aim of this project was to investigate the insurgence of Mott localisation related to the adding of a non-local attraction to the conventional Hubbard model.
+
+\paragraph{Normal phase.}
+
+For the normal phase (see Chap.~\ref{chap:normal}), we demonstrated that, at HF level, the non-local attraction acts a source of Mott localisation. In the entire parametric space the non-local attraction produces an effective shrinking of bands. Indeed, increasing the value of $V$ as we vary $\delta$, we identified a ``Mott region'' (see Fig.~\ref{fig:normal-tS-data}), where the bare bands are completely flattened,
+\[
+	t \to \tilde{t}^{(s^*)} \approx 0 \, .
+\]
+We also allowed, theoretically, for the breaking of planar rotational symmetry and concluded that in the normal phase we observe no nematic effects. We gave a formal proof of these effects in App.~\ref{app:theoretical-constraints}.
+
+\paragraph{Commensurate antiferromagnetic phase.}
+
+In the commensurate AF phase (see Chap.~\ref{chap:af}), we limited to the half-filling condition ($\delta=0$), because at finite filling the phase is unstable. We have shown that the non-local attraction behaves similarly to the normal phase, inducing a shrinking of bare bands which, in turn, enhances the antiferromagnetic ordering already induced by the local repulsion. Specifically, we observed that the hopping amplitude $t$ is reduced, similarly to the AF phase, but equals zero only when $U=0$ -- which is, where the AF and normal phases coincide. This was shown in Fig.~\ref{fig:af-tS-compared}.
+
+While the local repulsion $\hat H_U$ induces, by itself, a staggered magnetisation (see Sec.~\ref{sec:af-hm}), we have shown that the shrinking of bands, originated by $\hat H_V$, enhances magnetisation . We identified the presence of isomagnetic lines (see Fig.~\ref{fig:af-m-data-C128}), namely straight lines in the $(U,V)$ plane where macroscopic magnetisation is constant. The existence of these lines implies that, in the EHM, commensurate antiferromagnetism is a result of two cooperative effects, namely Mott localisation and virtual hopping (see App.~\ref{app:superexchange-virtual-hopping}). Finally, we have shown that, at half-filling, the commensurate AF phase is energetically favoured with respect to the normal phase (see Fig.~\ref{fig:af-f-compared}).
+
+\paragraph{Nematic superconducting phase.}
+
+We studied translationally invariant superconductivity in both the singlet and triplet channels, and limited our simulation to the first one (see Chap.~\ref{chap:sc}). We have numeric evidence of the presence of Mott-localisation also in this phase, induced by the non-local attraction and manifest in the shrinking of electronic bands.
+
+We studied the competition among two symmetries of the superconducting gap, namely $d$-wave (which is observed in copper-oxides based compounds) and $s \oplus s^*$-wave. In particular, we have identified four regions in the $(\delta,V)$ plane as we vary $U$: the normal region, the $d$-wave region, the $s \oplus s^*$-wave region and the mixed region (see Fig.~\ref{fig:sc-mix}). The latter is particularly interesting: we were able to claim, based on numerical evidence, that the mixing of symmetries in the singlet channel is connected to the insurgence of nematic effects (see Fig.~\ref{fig:sc-td}), namely the breaking of symmetry of $\tilde{t}$ in directions $x$ and $y$. In this phase, thus, the non-local attraction plays two roles: Mott localisation, and insurgence of nematicity. 
+
+Finally, we compared the free energies of the normal, AF and SC phases (Fig.~\ref{fig:sc-Δf}). We already understood that the AF phase is favoured, at half-filling, with respect to the normal phase. We have shown that the normal phase is also always unfavoured with respect to the SC phase, at finite filling. Instead, the ratio $U/V$ regulates the competition between SC and AF phases, as is visible in Fig.~\ref{fig:sc-Δf}, right panel. We identified a phase boundary between the two, and understood that in the $U \gg V$ limit the AF phase is energetically favoured, at $\delta=0$.
+
+\paragraph{Further development and outlook.}
+
+In this thesis we developed a general framework for the analysis of the EHM, or a similar model, using HF methods. This framework relies upon three main steps: identifying the symmetry of the phase, approximate the EHM hamiltonian accordingly, identify the variational parameters and the self-consistency equation for each. In principle, then, several other phases could be explored, for instance:
+\begin{itemize}
+	\item \textit{Uncommensurate antiferromagnetism}, namely insurgence of a staggered magnetisation with a periodicity larger than $2$ sites;
+	\item \textit{Nematic antiferromagnetism}, namely the insurgence of a staggered magnetisation in just one direction, while in the other direction we observe ferromagnetic ordering;
+	\item \textit{Triplet (translationally invariant) superconductivity}. We already carried out the analytic computations for this one in App.~\ref{app:sc-hf-hamiltonian}, and our data suggest that, in our solution, it is identically null;
+	\item \textit{Non-uniform superconductivity}, namely a kind of superconducting ordering where translational invariance is broken. It can be seen as a sort of ``mixing'' of the AF and SC phases here presented;
+	\item And many others!
+\end{itemize}
+Moreover, one could further extend the model, adding next-nearest neighbours hopping, anisotropic hopping; we could explore the region $V>0$, mimicking a sort of extension of the Coulomb repulsion to NN sites.
+
+Another possibility is to adopt more advanced numerical techniques. For instance, we could use DMRG (density matrix renormalisation group) to simulate the EHM on a quasi-one dimensional system, such as a chain. This type of analysis was already carried out by \citeauthor{padma2025beyond} \cite{padma2025beyond}, and could be extended by searching evidence of Mott localisation. As another example, we could implement a combination of DMFT (dynamical mean field theory, \cite{georges1996dynamical}) and Hartree-Fock methods to treat separately, respectively, the local repulsion and the non-local attraction. In this framework, we could search for the signatures of Mott physics induced by the local repulsion, while in this thesis all effects related to Mott localisation were induced by the non-local attraction.
+
+Overall, recalling the purposes of this project we presented in Chap.~\ref{chap:theoretical-introduction}, we conclude that the insertion of a non-local attraction is, at HF level, evidently related both to Mott localisation and the insurgence of nematic effects. More advanced techniques could help to further investigate this relation.

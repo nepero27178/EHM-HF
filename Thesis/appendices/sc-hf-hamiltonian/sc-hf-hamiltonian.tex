@@ -1,6 +1,6 @@
 \chapter{The HF hamiltonian in the SC phase}\label{app:sc-hf-hamiltonian}
 
-In this appendix, we derive the analytic expression of the HF hamiltonian for the SC phase. To start we discuss the SC phase on the conventional HM, and then generalise to the EHM.
+In this appendix, we derive the analytic expression of the HF hamiltonian for the SC phase, demonstrating all the results mentioned in Sec.~\ref{sec:sc-hf-hfps}. We start by discussing the SC phase on the conventional HM, and then generalise to the EHM.
 
 Let, as in Eqs.~\eqref{eq:sc-ehm-n-def}, \eqref{eq:sc-ehm-phi-def}
 \begin{align}
@@ -28,11 +28,9 @@ Before starting, note that translational invariance is unbroken. Therefore, Eqs.
 	\ev{\hat n_{i\sigma}} &= n \label{eq:sc-<n_i>} \, .
 \end{align}
 
-\section{The SC phase in the conventional HM}\label{sec:sc-hm}
+\section{Superconductivity in the conventional HM: derivation of the HF hamiltonian}\label{sec:sc-hm}
 
 The conventional HM is given by $\hat H_t + \hat H_U$, thus its unique two-body interaction is the local repulsion. In this section, we study superconductivity in the conventional HM, and prove that it is impossible at HF level.
-
-\subsection{Derivation of the HF hamiltonian }\label{subsec:sc-hm-derivation}
 
 Following Tab.~\ref{tab:HU-sel-rules} and Eqs.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}, we know the local repulsion decomposes in Hartree and Cooper channels,
 \[
@@ -47,7 +45,9 @@ Following Tab.~\ref{tab:HU-sel-rules} and Eqs.~\eqref{eq:mft-HU}, \eqref{eq:mft-
 \]
 while the Fock channel is identically zero. We deal with each channel separately.
 
-\paragraph{Local Hartree terms.}
+%\paragraph{Local Hartree terms.}
+
+\subsection{Effects of local Hartree terms: chemical potential renormalisation}
 
 For the Hartree channel, being the density uniform across sites, we can re-use the entirety of Sec.~\ref{subsec:normal-hartree-mu} for the normal phase. Substituting Eq.~\eqref{eq:sc-<n_i>}, we get the approximation of Eq.~\eqref{eq:normal-HU-hartree-approx},
 \begin{equation}\label{eq:sc-HU-hartree-approx}
@@ -62,7 +62,9 @@ is present also in the SC phase. Note that $\tilde{\mu}$ will be renormalised ag
 	E_{\mathrm{H},U}^{(\mathrm{SC})} = L_x L_y \times n^2 U \, .
 \end{equation}
 
-\paragraph{Local Cooper terms.}
+%\paragraph{Local Cooper terms.}
+
+\subsection{Effects of local Cooper terms: isotropic pairing}
 
 We move to reciprocal space, through the transformation of Eq.~\eqref{eq:HU-fourier}. Consider the Cooper channel of Eq.~\eqref{eq:mft-HU}. In reciprocal space we get:
 \begin{multline}
@@ -84,6 +86,7 @@ We are not breaking translational invariance, therefore,
 \begin{equation}\label{eq:sc-<cc>=delta}
 	\big\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'}^\dagger \big\rangle = \big\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma'}^\dagger \big\rangle \delta_{\mathbf{k}=-\mathbf{k}'} \, .
 \end{equation}
+The above equation ``completes'' Eq.~\eqref{eq:sc-<cc>}, and completely specifies the behaviour of fermionic EVs in the translationally invariant SC phase.
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:sc-<cc>=delta}]
 	Consider the EV
@@ -453,30 +456,6 @@ which is the ``operational'' version of Eq.~\eqref{appeq:sc-wgamma-harmonics}, f
 	The last line coincides with Eq.~\eqref{eq:sc-hm-ws-self-consistency-2}.
 \end{tabproof}
 
-\paragraph{Impossibility of $s$-wave superconductivity.}
-
-At HF level, the HM cannot host superconductivity, i.e.
-\begin{equation}\label{appeq:sc-hm-ws=0}
-	w^{(s)} = 0 \, ,
-\end{equation}
-therefore no superconducting gap can develop at HF level. This does not hold for $U<0$: an attractive model can host $s$-wave superconductivity.
-
-\begin{tabproof}[Proof of Eq.~\eqref{appeq:sc-hm-ws=0}: impossibility of $s$-wave superconductivity in the conventional HM]
-	
-	Let 
-	\begin{equation}\label{eq:sc-hm-Uc}
-		U_\mathrm{c}[\beta] \equiv \left[
-		\frac{1}{2 L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{1}{E_\mathbf{k}} \tanh(\frac{\beta E_\mathbf{k}}{2})
-		\right]^{-1} \, .
-	\end{equation}
-	By construction $U_\mathrm{c}[\beta] > 0$. Using Eq.~\eqref{eq:sc-hm-Uc}
-	Eq.~\eqref{eq:sc-hm-ws-self-consistency-2} can be rewritten as:
-	\[
-	w^{(s)} = -\frac{U}{U_\mathrm{c}[\beta]} w^{(s)} \, .
-	\]
-	The unique possible self-consistent solution for the equation above is $w^{(s)}=0$. This implication terminates the argument and proves Eq.~\eqref{appeq:sc-hm-ws=0}: superconductivity cannot establish self-consistently at HF level in the repulsive HM. 
-\end{tabproof}
-
 \paragraph{Density.}
 
 Density $n$ can be computed as
@@ -510,9 +489,33 @@ Density $n$ can be computed as
 	
 \end{tabproof}
 
+\subsection{Impossibility of $s$-wave superconductivity in the HM}\label{appsubsec:sc-w^s=0}
+
+At HF level, the HM cannot host superconductivity, i.e.
+\begin{equation}\label{appeq:sc-hm-ws=0}
+	w^{(s)} = 0 \, ,
+\end{equation}
+therefore no superconducting gap can develop at HF level. This does not hold for $U<0$: an attractive model can host $s$-wave superconductivity.
+
+\begin{tabproof}[Proof of Eq.~\eqref{appeq:sc-hm-ws=0}: impossibility of $s$-wave superconductivity in the conventional HM]
+	
+	Let 
+	\begin{equation}\label{eq:sc-hm-Uc}
+		U_\mathrm{c}[\beta] \equiv \left[
+		\frac{1}{2 L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{1}{E_\mathbf{k}} \tanh(\frac{\beta E_\mathbf{k}}{2})
+		\right]^{-1} \, .
+	\end{equation}
+	By construction $U_\mathrm{c}[\beta] > 0$. Using Eq.~\eqref{eq:sc-hm-Uc}
+	Eq.~\eqref{eq:sc-hm-ws-self-consistency-2} can be rewritten as:
+	\[
+	w^{(s)} = -\frac{U}{U_\mathrm{c}[\beta]} w^{(s)} \, .
+	\]
+	The unique possible self-consistent solution for the equation above is $w^{(s)}=0$. This implication terminates the argument and proves Eq.~\eqref{appeq:sc-hm-ws=0}: superconductivity cannot establish self-consistently at HF level in the repulsive HM. 
+\end{tabproof}
+
 \section{Generalisation to the EHM}\label{sec:sc-ehm}
 
-In this section we add to the hamiltonian the non-local attraction $\hat H_V$. As we did for the AF phase, we look for a solution with an identical mathematical structure as the one here described for the conventional HM. We define the renormalised quantities
+In this section we add to the hamiltonian the non-local attraction $\hat H_V$. As we did for the AF phase in Sec.~\ref{sec:af-ehm}, we look for a solution with an identical mathematical structure as the one here described for the conventional HM. We define the renormalised quantities
 \[
 \xi_\mathbf{k} \to \tilde{\xi}_\mathbf{k} \, ,
 \qquad
@@ -652,7 +655,7 @@ The proofs are identical to those presented in Sec.~\ref{subsec:normal-fock-band
 \begin{equation}\label{appeq:sc-bands-renormalisation}
 	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv \epsilon_\mathbf{k} + u^{(s^*)}_\sigma V (\cos k_x + \cos k_y) + u^{(d)}_\sigma V (\cos k_x - \cos k_y) \, .
 \end{equation}
-From now on we omit spin index, using spin rotational invariance. Each harmonic $u^{(\gamma)}$. satisfies the self-consistency equation:
+From now on we omit spin index, using spin rotational invariance. Each harmonic $u^{(\gamma)}$ satisfies the self-consistency Eq.~\eqref{appeq:sc-ugamma-harmonics}, which is written identically as:
 \begin{equation}\label{eq:sc-hm-ugamma-self-consistency}
 	u^{(\gamma)} = \frac{1}{2L_x L_y} 	\sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \left[
 	1 - \cos 2 \tilde{\theta}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
@@ -674,7 +677,7 @@ we report these equations, writing explicitly the harmonics from Tab.~\ref{tab:x
 		\right] $ & Fig.~\ref{subfig:d-wave-correlator} \\
 		\midrule
 	\end{tabular}
-	\caption{Symmetry resolved self-consistency equations for the harmonics of $u_\mathbf{k}$. The shown equations are reformulations of Eq.~\eqref{eq:sc-hm-ugamma-self-consistency}.}
+	\caption{Symmetry resolved self-consistency equations for the harmonics of $u_\mathbf{k}$. The shown equations are reformulations of Eq.~\eqref{appeq:sc-ugamma-harmonics}, which is equal to Eq.~\eqref{eq:sc-hm-ugamma-self-consistency}.}
 	\label{tab:sc-ehm-ugamma-self-consistencies}
 \end{table}
 \setlength{\extrarowheight}{0em}
@@ -700,7 +703,9 @@ we report these equations, writing explicitly the harmonics from Tab.~\ref{tab:x
 		1 - \cos 2 \tilde{\theta}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
 		\right] \, , \label{eq:sc-ehm-uUp-EV}
 	\end{align}
-	having we used Eq.~\eqref{eq:sc-~Th} and sequent. Inserting this result in Eq.~\eqref{appeq:sc-ugamma-harmonics}, we get Eq.~\eqref{eq:sc-hm-ugamma-self-consistency} in this spin sector. For $\sigma=\downarrow$,
+	having we used Eq.~\eqref{eq:sc-~Th} and sequent. Inserting this result in Eq.~\eqref{appeq:sc-ugamma-harmonics}, we get Eq.~\eqref{eq:sc-hm-ugamma-self-consistency} in this spin sector. 
+	
+	Proceeding similarly for $\sigma=\downarrow$,
 	\begin{align}
 		u_{-\mathbf{k}\downarrow} &= \langle \hat c_{-\mathbf{k}\downarrow}^\dagger \hat c_{-\mathbf{k}\downarrow} \rangle \nonumber \\	
 		&= 1 - \langle \hat c_{-\mathbf{k}\downarrow} \hat c_{-\mathbf{k}\downarrow}^\dagger \rangle \nonumber \\
@@ -882,7 +887,7 @@ with $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$.
 	which proves Eq.~\eqref{eq:sc-HV-cooper-Ec}.
 \end{tabproof}
 
-Each harmonic, including $s$-wave, satisfies the self-consistency equation:
+Each harmonic, including $s$-wave, satisfies the self-consistency Eq.~\eqref{appeq:sc-wgamma-harmonics}, which is written equivalently as
 \begin{equation}\label{eq:sc-ehm-wgamma-self-consistency}
 	w^{(\gamma)} = \frac{1}{2L_x L_y} 	\sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \sin 2 \tilde{\theta}_\mathbf{k} e^{i 2\tilde{\zeta}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) \, .
 \end{equation}
@@ -901,7 +906,7 @@ we report these equations, writing explicitly the harmonics from Tab.~\ref{tab:x
 		$d_{x^2-y^2}$-wave & $w^{(d)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:d-wave-correlator} \\
 		\midrule
 	\end{tabular}
-	\caption{Symmetry resolved self-consistency equations for the harmonics of $w_\mathbf{k}$. The shown equations are reformulations of Eq.~\eqref{eq:sc-ehm-wgamma-self-consistency}}
+	\caption{Symmetry resolved self-consistency equations for the harmonics of $w_\mathbf{k}$. The shown equations are reformulations of Eq.~\eqref{appeq:sc-wgamma-harmonics}, which is equal to Eq.~\eqref{eq:sc-ehm-wgamma-self-consistency}.}
 	\label{tab:sc-ehm-wgamma-self-consistencies}
 \end{table}
 \setlength{\extrarowheight}{0em}
@@ -944,7 +949,7 @@ With this proof we conclude this cumbersome algebraic derivation. In next sectio
 In this section we take together everything we said so far. Adding $\hat H_V$ to the conventional HM, we have seen, produces renormalisation of the bare bands, the gap function and the chemical potential. 
 
 We compose Eqs.~\eqref{eq:sc-HU-approx}, \eqref{eq:sc-HV-hartree-approx}, \eqref{eq:sc-HV-fock-approx} and \eqref{eq:sc-HV-cooper-approx}. The final form of the HF gran-canonical hamiltonian reads
-\[
+\begin{equation}\label{appeq:sc-H-approx}
 	\hat H - \mu \hat N \HFsimeq \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{\xi}_\mathbf{k} \left(
 	\hat c_{\mathbf{k}\uparrow}^\dagger
 	\hat c_{\mathbf{k}\uparrow} -
@@ -954,8 +959,12 @@ We compose Eqs.~\eqref{eq:sc-HU-approx}, \eqref{eq:sc-HV-hartree-approx}, \eqref
 	\tilde{\Delta}_\mathbf{k}
 	\hat \phi_\mathbf{k} + \tilde{\Delta}_\mathbf{k}^* \hat \phi_\mathbf{k}^\dagger
 	\right) + E_\mathrm{a}^{(\mathrm{SC})} + E_\mathrm{c}^{(\mathrm{SC})} \, ,	
+\end{equation}
+which coincides with Eq.~\eqref{eq:sc-H-approx}.
+We included the anticommutation energy defined in Eq.~\eqref{appeq:sc-anticommutation-energy} and extended to renormalised quantities,
+\[
+	E_\mathrm{a}^{(\mathrm{SC})} \equiv \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{\xi}_\mathbf{k} \, .
 \]
-having we included the anticommutation energy defined in Eq.~\eqref{appeq:sc-anticommutation-energy},
 and the total contraction energy,
 \begin{equation}\label{appeq:sc-Ec}
 	E_\mathrm{c}^{(\mathrm{SC})} \equiv -
@@ -964,7 +973,7 @@ and the total contraction energy,
 	E_{\mathrm{H},V}^{(\mathrm{SC})} + E_{\mathrm{F},V}^{(\mathrm{SC})} + E_{\mathrm{C},V}^{(\mathrm{SC})}
 	\right)
 \end{equation}
-which include all the shifts to energy we encountered. These are given, respectively, in Eqs.~\eqref{eq:sc-HU-hartree-Ec}, \eqref{eq:sc-HU-cooper-Ec}, \eqref{eq:sc-HV-hartree-Ec}, \eqref{eq:sc-HV-fock-Ec} and \eqref{eq:sc-HV-cooper-Ec}.
+which include all the shifts to energy we encountered. These are given, respectively, in Eqs.~\eqref{eq:sc-HU-hartree-Ec}, \eqref{eq:sc-HU-cooper-Ec}, \eqref{eq:sc-HV-hartree-Ec}, \eqref{eq:sc-HV-fock-Ec} and \eqref{eq:sc-HV-cooper-Ec}. Eq.~\eqref{appeq:sc-Ec} coincides with Eq.~\eqref{eq:sc-Ec}.
 
 \subsection{Gap symmetries and anisotropic pairing}\label{sec:sc-gap-syms}
 
@@ -989,18 +998,19 @@ We will investigate competition among these components.
 We anticipated in Tab.~\ref{tab:sc-pairings-symmetry-structures} that Cooper pairing in the singlet channel requires for the gap wavefunction to be inversion-symmetric. Triplet pairing, instead, requires inversion anti-symmetry.
 This gives a symmetry selection rule for the symmetries of the gap function: if we work in singlet channel, the gap must be symmetric, thus only three harmonics are allowed:
 \[
-\text{Singlet channel}
-\quad\colon\quad
-\tilde{\Delta}_\mathbf{k} = \tilde{\Delta}^{(s)} + \tilde{\Delta}^{(s^*)} (\cos k_x + \cos k_y) + \tilde{\Delta}^{(d)} (\cos k_x - \cos k_y) \, .
+	\text{Singlet channel}
+	\quad\colon\quad
+	\tilde{\Delta}_\mathbf{k} = \tilde{\Delta}^{(s)} + \tilde{\Delta}^{(s^*)} (\cos k_x + \cos k_y) + \tilde{\Delta}^{(d)} (\cos k_x - \cos k_y) \, .
 \]
 An inverse statement holds for the triplet pairing, for which
 \[
-\text{Triplet channel}
-\quad\colon\quad
-\tilde{\Delta}_\mathbf{k} = i\sqrt{2} \left(
-\tilde{\Delta}^{(p_x)} \sin k_x +  \tilde{\Delta}^{(p_y)} \sin k_y
-\right) \, .
+	\text{Triplet channel}
+	\quad\colon\quad
+	\tilde{\Delta}_\mathbf{k} = i\sqrt{2} \left(
+	\tilde{\Delta}^{(p_x)} \sin k_x +  \tilde{\Delta}^{(p_y)} \sin k_y
+	\right) \, .
 \]
+These concept are summaries in Tab.~\ref{tab:sc-ssc-tsc-hfps}, where we list the HFPs in singlet and triplet channels.
 
 %\subsection{The zero-temperature ground-state at half-filling}\label{subsec:sc-gs}
 %
@@ -1255,7 +1265,7 @@ which gives the analytic expression for the free energy. Note that, as the gap c
 	
 \end{tabproof}
 
-\subsection{The energetic constraint on the gap harmonics}
+\subsection{The energetic constraint on the gap harmonics}\label{appsubsec:sc-w^s-constraint}
 
 We derived the expression of Eq.~\eqref{eq:sc-fMFT}, which contains in its second row the HFPs $u^{(\gamma)}$ and $w^{(\gamma)}$. We have:
 \begin{equation}\label{eq:sc-ehm-gap-energy}
@@ -1281,7 +1291,7 @@ where we defined the radius:
 \[
 	M^{(\mathrm{SC})} \equiv \big| w^{(s)} \big|^2 \frac U V \, .
 \]
-For the conventional HM, we know from Sec.~\ref{subsec:sc-hm-diagonalisation} that $w^{(s)}=0$. For the EHM, it can assume non-zero values, as long as Eq.~\eqref{appeq:sc-wgamma-circle} is satisfied. In other words, $w^{(s)}$ cannot be non-zero without at least one of the other two singlet harmonics -- namely, $s^*$-wave and $d$-wave -- being non-zero.
+For the conventional HM, we know from Sec.~\ref{subsec:sc-hm-diagonalisation} that $w^{(s)}=0$. For the EHM, it can assume non-zero values, as long as Eq.~\eqref{appeq:sc-wgamma-circle} is satisfied.
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:sc-ehm-gap-energy}]
 	

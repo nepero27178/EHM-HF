@@ -3,8 +3,10 @@
 
 In this chapter, we study the translationally invariant superconducting (SC) phase. We observe various effects: bare bands shrinking, insurgence of mixed-symmetry superconductivity and nematicity.
 
-This chapter is organised as follows. In Sec.~\ref{sec:sc-phase-theory} we present the translationally invariant superconducting phase and its symmetries. In Sec.~\ref{sec:sc-hfps} we report the HF approximation to the EHM hamiltonian in the normal phase, the self-consistency equations and two constraints for the various HFPs.
+This chapter is organised as follows. In Sec.~\ref{sec:sc-phase-theory} we present the translationally invariant superconducting phase and its symmetries. In Sec.~\ref{sec:sc-hf-hfps} we report the HF approximation to the EHM hamiltonian in the normal phase, the self-consistency equations and two constraints for the various HFPs.
 In Sec.~\ref{sec:sc-numeric} we present the result of numeric simulations.
+
+The analytical computations for the SC phase are almost identical to the ones carried out for the AF phase. For the sake of conciseness, in this section we limit to reporting the essential result, while the entire derivation is moved to App.~\ref{app:sc-hf-hamiltonian}.
 
 \section{The SC phase and its symmetries}\label{sec:sc-phase-theory}
 
@@ -17,9 +19,9 @@ as we discussed in Sec.~\ref{sec:ehm-sym-break}. In the SC phase, products of tw
 	\big\langle
 	\hat c_{i\sigma}^\dagger \hat c_{j\sigma'}^\dagger \rangle \neq 0 \, ,
 \]
-because charge is not conserved. The above inequality has a precise meaning: adding two electrons to the ground state gives a state with a finite overlap. In BCS theory, this is interpreted with the appearance of pairs of electrons bound together by an attractive interaction, i.e. Cooper pairs \cite{grosso2014solid,coleman2015introduction}.
+because charge is not conserved. We discussed this fact in Sec.~\ref{sec:ehm-sym-break}, when we proved that EVs of products of two creation operators are zero when charge is conserved. The above inequality has a precise meaning: adding two electrons to the ground state produces a state with a finite overlap with the ground state itself. In BCS theory, this is interpreted with the appearance of pairs of electrons bound together by an attractive interaction, i.e. Cooper pairs \cite{grosso2014solid,coleman2015introduction}.
 
-Cooper pairs are composite quantum objects, with spatial and spin structure. Being couples of electrons, they obey antisymmetry rules under internal exchange, and their total spin follows the composition rules of basic Quantum Mechanics,
+Cooper pairs are composite quantum objects, with spatial and spin structure. Being couples of electrons, they obey antisymmetry rules under internal exchange, and their total spin follows the composition rules of spin algebras
 \[
 	\frac 1 2 \otimes \frac 1 2 = 0 \oplus 1 \, ,
 \]
@@ -49,7 +51,7 @@ As we did previously, we also allow for breaking of rotational symmetry,
 \]
 We will observe the breaking of planar rotational symmetry in the SC phase.
 
-\section{The HF hamiltonian of the SC phase}
+\section{The HF hamiltonian and the variational parameters in the SC phase}\label{sec:sc-hf-hfps}
 
 In this section, we summarise the computations carried out in App.~\ref{app:sc-hf-hamiltonian} and report the final form of the HF hamiltonian. We define the operators
 \begin{align}
@@ -65,7 +67,7 @@ and their expectation values (EVs),
 	\hat \phi_\mathbf{k}^\dagger
 	\rangle \, . \label{eq:sc-wq-def}
 \end{align}
-The breaking of charge conservation, namely $\mathrm{U}^z(1)$ symmetry, allows $w_\mathbf{k}$ to become non-zero. Instead, for a phase which preserves $\mathrm{U}^z(1)$, $w_\mathbf{k}$ is identically zero. We discussed this fact in Sec.~\ref{sec:ehm-sym-break}, when we proved that EVs of products of two creation operators are zero when charge is conserved.
+The breaking of charge conservation, namely $\mathrm{U}^z(1)$ symmetry, allows $w_\mathbf{k}$ to become non-zero. Instead, for a phase which preserves $\mathrm{U}^z(1)$, $w_\mathbf{k}$ is identically zero.
 
 Using the functions of Tab.~\ref{tab:x-wave-reciprocal-factors}, we define the harmonics
 \begin{align}
@@ -1333,7 +1335,7 @@ Collecting the symmetry selection rules reported in Tabs.~\ref{tab:HU-sel-rules}
 	&&\text{Hartree and Fock contractions.} \\
 \end{aligned}
 \]
-Based on the discussion of Sec.~\ref{subsec:ehm-sym-break-HV}, we divided the contributions of $\hat H_V$ in s.s. and o.s. channels. In Tab.~\ref{tab:sc-RWCs} we report the role of each contraction channel, discussed in App.~\ref{app:sc-hf-hamiltonian}.
+Based on the discussion of Sec.~\ref{subsec:ehm-sym-break-HV}, we divided the contributions of $\hat H_V$ in s.s. and o.s. channels. In Tab.~\ref{tab:sc-RWCs} we report the role of each contraction channel.
 
 \begin{table}[t]
 	\centering
@@ -1353,13 +1355,13 @@ Based on the discussion of Sec.~\ref{subsec:ehm-sym-break-HV}, we divided the co
 	\label{tab:sc-RWCs}
 \end{table}
 
-\paragraph{The analytic expression of the HF hamiltonian.}
+\paragraph{The HF hamiltonian in the SC phase.}
 
 In order to proceed, it is necessary to define the renormalised chemical potential,
 \begin{equation}\label{eq:sc-mu-shift}
-	\tilde{\mu} = \mu + n(2zV-U)
+	\tilde{\mu} = \mu + n(2zV-U) \, ,
 \end{equation}
-the renormalised bare bands,
+the renormalised shifted bands,
 \begin{equation}\label{eq:sc-ehm-full-bands}
 	\tilde{\xi}_\mathbf{k} = \epsilon_\mathbf{k} + V \sum_{\gamma\in\lbrace s^*,d \rbrace} u^{(\gamma)} \varphi_{\mathbf{k}}^{(\gamma)*} - \tilde{\mu} \, ,
 \end{equation}
@@ -1367,9 +1369,9 @@ and the full SC gap
 \begin{equation}\label{eq:sc-ehm-full-gap}
 	\tilde{\Delta}_\mathbf{k} = -Uw^{(s)} + V \sum_{\gamma\neq s} w^{(\gamma)} \varphi_\mathbf{k}^{(\gamma)*} \, .
 \end{equation}
-If the gap function is zero, $\tilde{\Delta}_\mathbf{k}=0$, the SC phase reduces to the normal phase. These quantities are ``renormalised'' when compared to their respective values for the SC phase in the conventional HM, which is discussed in App.~\ref{app:sc-hf-hamiltonian}.
+If the gap function is zero, $\tilde{\Delta}_\mathbf{k}=0$, the SC phase reduces to the normal phase. These quantities are ``renormalised'' when compared to their respective values for the SC phase in the conventional HM.
 
-Proceeding similarly to what we did for the AF phase, we obtain the HF approximation in the SC phase
+Proceeding analogously to what we did for the AF phase, we obtain the HF approximation in the SC phase
 \begin{equation}\label{eq:sc-H-approx}
 	\hat H - \mu \hat N \HFsimeq \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{\xi}_\mathbf{k} \left(
 	\hat c_{\mathbf{k}\uparrow}^\dagger
@@ -1379,7 +1381,7 @@ Proceeding similarly to what we did for the AF phase, we obtain the HF approxima
 	\right) - \sum_{\mathbf{k}\in\mathrm{BZ}} \left(
 	\tilde{\Delta}_\mathbf{k}
 	\hat \phi_\mathbf{k} + \tilde{\Delta}_\mathbf{k}^* \hat \phi_\mathbf{k}^\dagger
-	\right) + E_\mathrm{a}^{(\mathrm{SC})} + E_\mathrm{c}^{(\mathrm{SC})}
+	\right) + E_\mathrm{a}^{(\mathrm{SC})} + E_\mathrm{c}^{(\mathrm{SC})} \, ,
 \end{equation}
 where we defined the anticommutation energy,
 \begin{equation}\label{eq:sc-anticommutation-energy}
@@ -1397,10 +1399,10 @@ and the total contraction energy,
 	\big|^2 + \sum_\gamma \big|
 	w^{(\gamma)}
 	\big|^2
-	\right)\right]
+	\right)\right] \, .
 \end{equation}
 
-By further elaboration, we obtain the Bogoliubov representation of the HF hamiltonian,
+By further elaboration, we obtain the Bogoliubov representation of the HF hamiltonian, which describes a free Fermi gas of fermions,
 \begin{equation}\label{eq:sc-H-bogoliubov}
 	\hat H - \tilde{\mu} \hat N \HFsimeq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \tilde{E}_\mathbf{k} \left(
 	\hat \gamma_\mathbf{k}^{(+)\dagger} \hat \gamma_\mathbf{k}^{(+)} - \hat \gamma_\mathbf{k}^{(-)\dagger} \hat \gamma_\mathbf{k}^{(-)}
@@ -1408,17 +1410,42 @@ By further elaboration, we obtain the Bogoliubov representation of the HF hamilt
 \end{equation}
 where the $\lbrace \hat \gamma_{\mathbf{k}\sigma}^{(\pm)} \rbrace$ operators are linked to electronic operators $\lbrace \hat c_{\mathbf{k}\sigma}, \hat c_{\mathbf{k}\sigma}^\dagger \rbrace$ by a unitary mapping. We defined the Bogoliubov bands,
 \begin{equation}\label{eq:sc-bands}
-	\tilde{E}_\mathbf{k} \equiv \sqrt{\tilde{\xi}_\mathbf{k}^2 + \abs{\tilde{\Delta}_\mathbf{k}}^2} \, .
+	\tilde{E}_\mathbf{k} \equiv \sqrt{\tilde{\xi}_\mathbf{k}^2 + \big| \tilde{\Delta}_\mathbf{k}\big|^2} \, .
 \end{equation}
-The analytic derivation of all these results is reported in App.~\ref{app:sc-hf-hamiltonian}.
+The analytic derivation of all these results is reported in App.~\ref{app:sc-hf-hamiltonian}, where we also report the analytic expressions for the entropy density $s^{(\mathrm{SC})}$, and the free energy density $f^{(\mathrm{SC})}$, respectively in Eqs.~\eqref{eq:sc-s-variant} and \eqref{eq:sc-fMFT}.
 
-\section{The variational parameters of the SC phase}\label{sec:sc-hfps}
+\paragraph{The HFPs of the SC phase.}
 
-In the SC phase, 
+In the SC phase, we have two possible channels of Cooper pairing: singlet and triplet. We recall Tab.~\ref{tab:sc-pairings-symmetry-structures}. The singlet pairing channel is described by a symmetric gap function $\tilde{\Delta}_\mathbf{k}$, while for the triplet channel the gap function is antisymmetric. This implies that, for a superconductor that exhibits translational invariance as well as $\mathrm{C}_2$ symmetry, we have two sets of HFPs, reported in Tab.~\ref{tab:sc-ssc-tsc-hfps}.
 
-\paragraph{The constraints on the HFPs.}
+\begin{table}
+	\centering
+	\begin{tabular}{c c}
+		\textbf{Phase} & \textbf{HFPs} \\
+		\midrule
+		Singlet SC & $\left\lbrace 
+		u^{(s^*)}, u^{(d)}, w^{(s)}, w^{(s^*)}, w^{(d)}
+		\right\rbrace$ \\[0.7em]
+		Triplet SC & $\left\lbrace
+		u^{(s^*)}, u^{(d)}, w^{(p_x)}, w^{(p_y)}
+		\right\rbrace$ \\
+		\midrule
+	\end{tabular}
+	\caption{Set of HFP for the two possible realisations of the SC phase, respectively with a symmetric and an antisymmetric SC gap.}
+	\label{tab:sc-ssc-tsc-hfps}
+\end{table}
 
-It is possible to prove that:
+As was for the normal and AF phase, and is reported in Eq.~\eqref{eq:sc-ehm-full-bands}, the occupation harmonics $u^{(\gamma)}$ are involved in the renormalisation of the bare bands. We report their self-consistency equations in explicit form, reformulating Eq.~\eqref{eq:sc-ugamma-harmonics}, in Tab.~\ref{tab:sc-ehm-ugamma-self-consistencies}. Instead, the HFPs $w^{(\gamma)}$ are components of the gap function. Indeed,
+\[
+	\tilde{\Delta}^{(s)} = -U w^{(s)} \, ,
+	\qquad
+	\tilde{\Delta}^{(\gamma)} = -U w^{(\gamma)}
+	\qquad
+	\text{for $\gamma \neq s$.}
+\]
+We report the explicit self-consistency equations of the harmonics $w^{(\gamma)}$, reformulating Eq.~\eqref{eq:sc-wgamma-harmonics}, in Tab.~\ref{tab:sc-ehm-wgamma-self-consistencies}.
+
+In this thesis, we focus on the singlet channel, therefore the first rule of HFPs in Tab.~\ref{tab:sc-ssc-tsc-hfps}. It is possible to prove that:
 \begin{itemize}
 	\item Superconductivity is impossible on the conventional HM at HF level. This translates in the constraint:
 	\begin{equation}\label{eq:sc-hm-ws=0}
@@ -1426,18 +1453,37 @@ It is possible to prove that:
 		\quad\implies\quad
 		w^{(s)} = 0 \, .
 	\end{equation}
-	Indeed, if in Eq.~\eqref{eq:sc-ehm-full-gap} we plug in $V=0$ and Eq.~\eqref{eq:sc-hm-ws=0}, we see that the SC gap is identically zero, and we return to the normal phase.
+	Indeed, if in Eq.~\eqref{eq:sc-ehm-full-gap} we plug in $V=0$ and Eq.~\eqref{eq:sc-hm-ws=0}, we see that the SC gap is identically zero, and we return to the normal phase. Eq.~\eqref{eq:sc-hm-ws=0} is proven in Sec.~\ref{appsubsec:sc-w^s=0}
 	%
 	\item At $V \neq 0$, we can have $w^{(s)} \neq 0$. The harmonics of $w_\mathbf{k}$ obey the relation
 	\begin{equation}\label{eq:sc-wgamma-circle}
 		\sum_{\gamma \neq s} \big| w^{(\gamma)} \big|^2 \ge M^{(\mathrm{SC})} \, ,
 	\end{equation}
-	where we defined the radius:
+	where we defined:
 	\[
 		M^{(\mathrm{SC})} \equiv \big| w^{(s)} \big|^2 \frac U V \, .
 	\]
-	In other words, $w^{(s)}$ cannot be non-zero without at least one of the other two singlet harmonics -- namely, $s^*$-wave and $d$-wave -- being non-zero.
+	In other words, $w^{(s)}$ cannot be non-zero without at least one of the other two singlet harmonics -- namely, $s^*$-wave and $d$-wave -- being non-zero. Eq.~\eqref{eq:sc-wgamma-circle} is proven in Sec.~\ref{appsubsec:sc-w^s-constraint}.
 \end{itemize}
+
+\paragraph{Hopping renormalisation and nematicity.}
+
+We conclude this summary by recalling the discussion of Sec.~\ref{subsec:normal-d-wave-hopping}, where we discussed the renormalisation of the hopping parameter in the context of the normal phase. Being the SC phase translationally invariant, the discussion of the entire section holds identically, upon substituting in Eq.~\eqref{eq:normal-<nr>}
+\[
+	f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \to u_\mathbf{k} \, .
+\]
+In particular, being
+\begin{equation}\label{eq:sc-tS-td}
+	\tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)} V}{2}
+	\qq{and}
+	\tilde{t}^{(d)} \equiv - \frac{u^{(d)} V}{2} \, ,
+\end{equation}
+Eqs.~\eqref{eq:normal-tx}, \eqref{eq:normal-ty} hold,
+\begin{align}
+	\tilde{t}^{(x)} &\equiv \frac{\tilde{t}^{(s^*)} + \tilde{t}^{(d)}}{2} \, , \label{eq:sc-tx} \\
+	\tilde{t}^{(y)} &\equiv \frac{\tilde{t}^{(s^*)} - \tilde{t}^{(d)}}{2} \, . \label{eq:sc-ty}
+\end{align}
+If $u^{(d)} \neq 0$, planar rotational symmetry $\mathrm{C}_4$ is broken and renormalised hopping is different in directions $x$ and $y$.
 
 \section{Discussion of numeric results for the singlet channel}\label{sec:sc-numeric}
 
