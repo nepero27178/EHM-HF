@@ -3,7 +3,7 @@
 
 In this chapter, we study antiferromagnetism in the extended Hubbard model, limiting ourselves to commensurate antiferromagnetism at half-filling. This phase is well known and studied on the square Hubbard lattice. Here we show that the insertion of the non-local attraction $\hat H_V$ leads to an enhancement of the antiferromagnetic (AF) instability, as a result of two cooperative effects. First, the direct amplification of the AF gap, and, second, the shrinking of electronic bandwidth that lead to the aforementioned Mott localisation.
 
-{\color{tabred} This chapter is organised as follows. In Sec.~\ref{sec:af-phase-theory}, we present the commensurate antiferromagnetic (AF) phase and discuss its symmetries. In Secs.~\ref{sec:af-hm}, \ref{sec:af-ehm}, \ref{sec:af-hf-hamiltonian}, we discuss the HF approximation in the AF phase, starting from the conventional Hubbard model and highlighting the modifications in the presence of the non-local attraction $\hat H_V$. In Sec.~\ref{sec:af-sceq-analysis}, we analyse the self-consistency equations and derive a set of constraints on the HFPs that describe the self-consistent solution. In Sec.~\ref{sec:af-numeric}, we present the result of numeric simulations.}
+This chapter is organised as follows. In Sec.~\ref{sec:af-phase-theory}, we present the commensurate antiferromagnetic (AF) phase and discuss its symmetries. In Sec.~\ref{sec:af-hm}, we discuss the HF approximation in the AF phase for the conventional HM. In Sec.~\ref{sec:af-hf-hfps}, we generalise to the EHM, showing how the HF hamiltonian obtained for the HM can be renormalised. In Sec.~\ref{sec:af-mott}, we prove that Mott localisation can enhance long-range antiferromagnetic ordering. Finally, in Sec.~\ref{sec:af-numeric}, we present the results of numeric simulations.
 
 \section{The AF phase and its symmetries}\label{sec:af-phase-theory}
 
@@ -724,7 +724,7 @@ As we said at the beginning of this chapter, there exist several ways to realise
 
 In fact, the mere existence of a self-consistent solution does not guarantee stability: indeed, when in Sec.~\ref{subsec:hf-variational-solution} we derived the variational solution, we only required it to be a stationary point of the HF energy. There is no need for the solution to be a minimum. In particular, the commensurate AF phase is a saddle point of HF energy and it can be shown that any finite doping disrupts commensurate ordering towards uncommensurate phases \cite{singh1990collective}.
 
-\section{Generalisation to the EHM: the HF hamiltonian and the variational parameters}\label{sec:ad-hf-hfps}
+\section{Generalisation to the EHM: the HF hamiltonian and the variational parameters}\label{sec:af-hf-hfps}
 
 In this section, we generalise the discussion carried out for the conventional HM, including the non-local attraction $\hat H_V$. We obtain an HF hamiltonian that is formally identical to the one of Eq.~\eqref{eq:af-hm-spin-h}, apart from additional energy shift and a renormalisation of  the various quantities,
 \[
