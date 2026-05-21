@@ -1,6 +1,6 @@
 \chapter{The HF hamiltonian in the SC phase}\label{app:sc-hf-hamiltonian}
 
-In this appendix, we derive the analytic expression of the HF hamiltonian for the SC phase, demonstrating all the results mentioned in Sec.~\ref{sec:sc-hf-hfps}. We start by discussing the SC phase on the conventional HM, and then generalise to the EHM.
+In this appendix, we derive the analytic expression of the HF hamiltonian for the SC phase, demonstrating all the results mentioned in Sec.~\ref{sec:sc-hf-hfps}. In particular, we aim to obtain Eqs.~\eqref{eq:sc-H-approx} and \eqref{eq:sc-Ec}. We start by discussing the SC phase on the conventional HM, and then generalise to the EHM.
 
 Let, as in Eqs.~\eqref{eq:sc-ehm-n-def}, \eqref{eq:sc-ehm-phi-def}
 \begin{align}
@@ -47,7 +47,7 @@ while the Fock channel is identically zero. We deal with each channel separately
 
 %\paragraph{Local Hartree terms.}
 
-\subsection{Effects of local Hartree terms: chemical potential renormalisation}
+\subsection{Effects of the local Hartree terms: chemical potential renormalisation}
 
 For the Hartree channel, being the density uniform across sites, we can re-use the entirety of Sec.~\ref{subsec:normal-hartree-mu} for the normal phase. Substituting Eq.~\eqref{eq:sc-<n_i>}, we get the approximation of Eq.~\eqref{eq:normal-HU-hartree-approx},
 \begin{equation}\label{eq:sc-HU-hartree-approx}
@@ -64,7 +64,7 @@ is present also in the SC phase. Note that $\tilde{\mu}$ will be renormalised ag
 
 %\paragraph{Local Cooper terms.}
 
-\subsection{Effects of local Cooper terms: isotropic pairing}
+\subsection{Effects of the local Cooper terms: isotropic pairing}
 
 We move to reciprocal space, through the transformation of Eq.~\eqref{eq:HU-fourier}. Consider the Cooper channel of Eq.~\eqref{eq:mft-HU}. In reciprocal space we get:
 \begin{multline}
@@ -596,7 +596,7 @@ Recall Tab.~\ref{tab:HV-sel-rules}, collecting the selection rules for the non-l
 \]
 Note that Cooper contractions in the non-local s.s. sector are neglected, because of the selection rule discussed at the end of Sec.~\ref{subsec:ehm-sym-break-HV}. We specify the role of each contraction channel in Tab.~\ref{tab:sc-RWCs}, where also those from $\hat H_U$ are included.
 
-\subsection{Effects of non-local Hartree terms: chemical potential renormalisation}\label{subsec:sc-hartree-mu}
+\subsection{Effects of the non-local Hartree terms: chemical potential renormalisation}\label{subsec:sc-hartree-mu}
 
 We start by analysing the non-local Hartree channel,
 \begin{multline*}
@@ -617,7 +617,7 @@ The contraction energy for the non-local sector was derived in Eq.~\eqref{eq:nor
 	E_{\mathrm{H},V}^{(\mathrm{SC})} = - L_x L_y \times 2zn^2 V \, .
 \end{equation}
 
-\subsection{Effects of Fock terms: bare bands renormalisation}\label{subsec:sc-fock}
+\subsection{Effects of the Fock terms: bare bands renormalisation}\label{subsec:sc-fock}
 
 From Eq.~\eqref{eq:mft-HV}, we have
 \begin{multline*}
@@ -758,7 +758,7 @@ we report these equations, writing explicitly the harmonics from Tab.~\ref{tab:x
 %\]
 %Correctly, the null-gap limit (for which the angle reduces to zero) gives back a perfectly degenerate Fermi gas. These considerations end the algebraic derivations for the Fock channel. We pass to the Cooper part.
 
-\subsection{Effects of non-local Cooper terms: generalised pairing}\label{subsec:sc-cooper}
+\subsection{Effects of the non-local Cooper terms: generalised pairing}\label{subsec:sc-cooper}
 
 In this section we discuss the effects of Cooper contractions in the HF decomposition of $\hat H_V$, shown in Eq.~\eqref{eq:mft-HV},
 \begin{multline*}
@@ -1060,7 +1060,7 @@ These concept are summaries in Tab.~\ref{tab:sc-ssc-tsc-hfps}, where we list the
 
 \subsection{The entropy density of the SC ground-state}\label{subsec:sc-s}
 
-The approximated ground-state in the SC phase is given by a gas of free fermions populating the two bands $\pm \tilde{E}_\mathbf{k}$, with occupations specified by the Fermi-Dirac distribution. Hence, the total entropy density of the ground state is given by that of a Fermi gas \cite{grosso2014solid}:
+In this section, we calculate the entropy density of the SC ground state, following the scheme presented for the normal phase in Sec.~\ref{subsec:normal-s}. The approximated ground-state in the SC phase is given by a gas of free fermions populating the two bands $\pm \tilde{E}_\mathbf{k}$, with occupations specified by the Fermi-Dirac distribution. Hence, the total entropy density of the ground state is given by that of a Fermi gas \cite{grosso2014solid}:
 \[
 s^{(\mathrm{SC})} = s_-^{(\mathrm{SC})} + s_+^{(\mathrm{SC})} \, ,
 \]
