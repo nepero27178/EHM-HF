@@ -1,0 +1,60 @@
+\def\DataFolder{/home/nepero27178/Thesis/EHM-HF/Thesis/chapters/theoretical-introduction/pictures/hubbard-bands}
+
+\begin{tikzpicture}
+	\begin{axis}[
+		axis on top,
+		axis lines=center,
+		xlabel=DoS,
+		ylabel=$E-E_\mathrm{F}$,
+		xlabel style={right},
+		ylabel style={above},
+		xtick=\empty,
+		ytick=\empty,
+		xmin=-0.15, xmax=8,
+		ymin=-4.15, ymax=4.15,
+		height=0.5\linewidth,
+		width=0.8\linewidth
+	]
+	
+	\addplot[gray] table[x=y1, y=x, col sep=comma]
+		{\DataFolder/data.csv};
+		
+	\node[color=gray,anchor=south west]
+		at (0.15,1.1)
+			{$U=0$};
+
+	\addplot[tabred] table[x=y2, y=x, col sep=comma] 
+		{\DataFolder/data.csv};
+		
+	\node[color=tabred,anchor=south west]
+		at (2.2,1.8)
+			{$U \ll t$};
+	
+	\addplot[tabgreen] table[x=y3, y=x, col sep=comma] 
+		{\DataFolder/data.csv};
+	
+	\node[color=tabgreen,anchor=south west]
+		at (4.2,2.1)
+			{$U \sim t$};
+	
+	\addplot[tabblue] table[x=y4, y=x, col sep=comma] 
+		{\DataFolder/data.csv};
+		
+	\node[color=tabblue,anchor=south west]
+		at (6.2,2.8)
+			{$U \gg t$};
+		
+	\draw[stealth-stealth]
+		(7,-1.8) -- (7,1.8)
+			node[midway, anchor=south west,yshift=1em]
+				{$\sim U$};
+				
+	\node[color=tabblue]
+		at (6,-1.8)
+			{LHB};
+	\node[color=tabblue]
+		at (6,1.8)
+			{UHB};
+	
+	\end{axis}	
+\end{tikzpicture}

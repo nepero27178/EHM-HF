@@ -34,7 +34,7 @@
 	\frametitle{The Hartree-Fock method in a nutshell}
 	Consider all possible fermionic non-interacting hamiltonians:
 	\[
-		\hat K \equiv
+		\hat H_\mathrm{HF} \equiv
 		\sum_{\alpha} E_\alpha \hat\gamma_\alpha^\dagger \hat\gamma_\alpha 
 		\qq{with}
 		\acomm{\hat \gamma_\alpha}{\hat \gamma_\beta^\dagger} = \delta_{\alpha\beta} \, ,
@@ -44,7 +44,7 @@
 	\textbf{Hartree-Fock method}: we identify $\mathcal{S}$ with the set of all the ground states of these hamiltonians,
 	\[
 		\mathcal{S} = \left\lbrace
-			\ket{\Psi} \,\mid\, \text{$\ket{\Psi}$ is the ground-state of some $\hat K$}
+			\ket{\Psi} \,\mid\, \text{$\ket{\Psi}$ is the ground-state of some $\hat H_\mathrm{HF}$}
 		\right\rbrace \, .
 	\]
 	\DownImplication
@@ -80,6 +80,36 @@
 
 \begin{frame}
 	\frametitle{The self-consistency mapping}
+	Target parametric hamiltonian:
+	\[
+		\hat H_\mathrm{HF}[\mathbf{v}] \equiv
+		\sum_{\alpha} E_\alpha [\mathbf{v}] \hat\gamma_\alpha^\dagger [\mathbf{v}] \hat\gamma_\alpha [\mathbf{v}] \, ,
+	\]
+	being $\mathbf{v}$ a vector of variational parameters.\medskip
+	
+	The entire variational problem can be reformulated equivalently:\medskip
+	\begin{columns}[t]
+		\column{0.45\linewidth}
+			\textbf{Variational picture}:
+			\[
+				\ket{\Psi_0} \simeq \ket{\Psi[\mathbf{v}]} \, ,
+			\]
+			where $\mathbf{v}$ is the vector of parameters that minimises energy
+			\[
+				\fdv{\ket{\Phi}} E[\ket{\Phi}] \bigg|_{\ket{\Phi} = \ket{\Psi[\mathbf{v}]}} = 0 \, .
+			\]
+		\column{0.45\linewidth}
+			\textbf{Self-consistency picture}:
+			\[
+				\ket{\Psi_0} \simeq \ket{\Psi[\mathbf{v}]} \, ,
+			\]
+			where $\mathbf{v}$ is the vector of parameters that satisfies the self-consistency relation
+			\[
+				\mathrm{A}(\mathbf{v}) = \mathbf{v} \, ,
+			\]
+			being $\mathrm{A}$ a non-linear map that can be uniquely determined.
+	\end{columns}
+	
 \end{frame}
 
 \begin{frame}
