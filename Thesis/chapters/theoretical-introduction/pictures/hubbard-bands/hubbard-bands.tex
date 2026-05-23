@@ -10,13 +10,13 @@
 		ylabel style={above},
 		xtick=\empty,
 		ytick=\empty,
-		xmin=-0.15, xmax=8,
+		xmin=0, xmax=8,
 		ymin=-4.15, ymax=4.15,
 		height=0.5\linewidth,
 		width=0.8\linewidth
 	]
 	
-	\addplot[gray] table[x=y1, y=x, col sep=comma]
+	\addplot[gray] table[x=y1, y=x, col sep=comma, name path=DoS0]
 		{\DataFolder/data.csv};
 		
 	\node[color=gray,anchor=south west]

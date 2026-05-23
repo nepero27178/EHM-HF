@@ -1485,9 +1485,9 @@ Eqs.~\eqref{eq:normal-tx}, \eqref{eq:normal-ty} hold,
 \end{align}
 If $u^{(s^*)} \neq 0$, the hopping amplitude is isotropically renormalised. If $u^{(d)} \neq 0$, planar rotational symmetry $\mathrm{C}_4$ is broken and renormalised hopping is different in directions $x$ and $y$.
 
-\section{Discussion of numeric results for the singlet channel}\label{sec:sc-numeric}
+\section{Numeric results for the the singlet SC phase}\label{sec:sc-numeric}
 
-The last part of this chapter is devoted to presenting and discussing the numeric results we extracted from the iHF procedure. {\color{tabred}\textbf{We limited simulations to the singlet channel, because} [I wanted to see the end of this project!]}. The SC is described by five HFPs
+In this section, we present the numeric results obtained from the iHF procedure. We limited simulations to the the singlet channel, leaving the triplet channel for future works. The singlet SC phase is described by five HFPs
 \[
 	\mathbf{v} = \begin{bmatrix}
 		u^{(s^*)} \\ u^{(d)} \\ w^{(s)} \\ w^{(s^*)} \\ w^{(d)}
@@ -1495,29 +1495,28 @@ The last part of this chapter is devoted to presenting and discussing the numeri
 	\qq{with}
 	\mathbf{v} = \mathbb{R}^5 \, ,
 \]
-and three RMPs:
+leading to three RMPs
 \[
 \begin{aligned}
 	\tilde{t}_{ij}^{(s^*)} &\equiv \left(
 	t - \frac{u^{(s^*)}V}{2}
 	\right) \varphi_{ij}^{(s^*)} \, , \\
-	\tilde{t}_{ij}^{(d)} &\equiv - \frac{u^{(s^*)}V}{2} \varphi_{ij}^{(d)} \, , \\
+	\tilde{t}_{ij}^{(d)} &\equiv - \frac{u^{(d)}V}{2} \varphi_{ij}^{(d)} \, , \\
 	\tilde{\mu} &\equiv \mu + n (2zV-U) \, .
 \end{aligned}
 \]
-For AF and normal phase, we had two HFPs and no $d$-wave component of the renormalised hopping. We ran simulations at $\beta=100.0$ within the boundaries:
+We notice that, in contrast to the AF and normal phases, the renormalised hopping has a finite $d$-wave component. We ran simulations at $\beta=100.0$ (in absolute units, see Sec.~\ref{sec:normal-numeric}) within the boundaries:
 \[
-	0 \le U \le 12
+	0 \le U \le 12 \, ,
 	\qquad
-	0 \le V \le 8
+	0 \le V \le 8 \, ,
 	\qquad
-	0 \le \delta \le 0.45
+	0 \le \delta \le 0.45 \, .
 \]
-For the normal phase we did not vary $U$; for the AF phase we did not vary $\delta$. Here, we need to vary both in order to explore the entire parametric space.
 
 \subsection{Multi-symmetry singlet superconductivity}
 
-In singlet channel, the most general gap function is a combination of $s$, $s^*$ and $d$ components. The resulting gap function $\tilde{\Delta}_{\mathbf{k}}$ emerges from a competition among these channels. Running unconstrained simulations, we are able to see directly the result of the competition in the self-consistent solution. We discuss the three channels separately.
+In the singlet channel, the most general gap function is a combination of $s$, $s^*$ and $d$ components, and the resulting gap function $\tilde{\Delta}_{\mathbf{k}}$ emerges from a competition among these channels. Let us discuss the gap components of the self-consistent solution for the three symmetry channels separately.
 
 \paragraph{$s$-wave gap.}
 
@@ -1537,21 +1536,17 @@ In singlet channel, the most general gap function is a combination of $s$, $s^*$
 	\label{fig:sc-data-ws-AB256-compared}
 \end{figure}
 
-Consider the isotropic harmonic of the gap function, namely the $s$-wave component. In Fig.~\ref{fig:sc-data-ws-AB256-compared}, we show the data for $w^{(s)}$. It is given by:
+Consider the isotropic harmonic of the gap function, namely the $s$-wave component. In Fig.~\ref{fig:sc-data-ws-AB256-compared}, we show the data for $w^{(s)}$, which determines the isotropic gap through
 \[
 	\tilde{\Delta}^{(s)} = -U w^{(s)} \, .
 \]
-In the conventional HM we know that $s$-wave superconductivity is impossible at HF level. This was discussed in Sec.~\eqref{subsec:sc-hm-diagonalisation}. Instead in the EHM there is no symmetry selection rule for $w^{(s)}$. The only constraint comes from Eq.~\eqref{eq:sc-wgamma-circle}: $w^{(s)}$ can be non-zero as long as at least one $w^{(\gamma)}$ with $\gamma=s^*,d$ is non-zero. This is a necessary but insufficient condition.
+We now recall the constraint of Eq.~\eqref{eq:sc-hm-ws=0}. In the conventional HM, at HF level, isotropic superconductivity is impossible. As we move to the EHM, namely setting $V>0$, the SC gap can acquire a $s$-wave component, as long as the constraint of Eq.~\eqref{eq:sc-wgamma-circle} is satisfied: $w^{(s)}$ can be non-zero if at least one of  $w^{(s^*)}$, $w^{(d)}$ is non-zero. This is a necessary but not sufficient condition.
 
-In Fig.~\ref{subfig:sc-data-ws-A256-compared} we see that $w^{(s)}$ is null at $\delta=0$ (left panel). Hence
+In Fig.~\ref{subfig:sc-data-ws-A256-compared} we see that $w^{(s)}$ is null at $\delta=0$ (left panel), namely
 \begin{equation}\label{eq:sc-Delta^s=0}
-	\forall\ U/t, V/t
-	\quad\colon\quad
 	\tilde{\Delta}^{(s)}\big|_{\delta=0} = 0 \, ,
 \end{equation}
-at least within the range of parameters we explored. Increasing doping (central and right panels), $w^{(s)}$ is null up to a critical value $V_\mathrm{c}^{(s)}$, which depends also on $U$. For $V \ge V_\mathrm{c}^{(s)}$, $w^{(s)}$ is negative and the shape of the curve depends strongly on $U$. In particular, the amplitude $\abs{w^{(s)}}$ exhibits a local maximum. At almost unitary filling, ratios $V/t$ comparable with $1$ are sufficient to develop a finite convergence value for $w^{(s)}$. Therefore, doping lowers the critical value of the non-local attraction that is needed in order to establish an isotropic gap in the local channel.
-
-The dependence of $w^{(s)}$ on doping is shown in Fig.~\ref{subfig:sc-data-ws-B256-compared}. As anticipated, $w^{(s)}=0$ at half-filling. Varying $U/t$ and $V/t$ we see that $w^{(s)}=0$ reaches some negative minimum whose absolute value is lower at higher $U$s.
+within the range of parameters we explored. Increasing doping (central and right panels), $w^{(s)}$ is null up to a critical value $V_\mathrm{c}^{(s)}$, which depends also on $U$. For $V \ge V_\mathrm{c}^{(s)}$, $w^{(s)}$ is negative and the shape of the curve depends on $U$. In particular, the amplitude $\abs{w^{(s)}}$ exhibits a local maximum. We observe that doping lowers the critical value $V_\mathrm{c}^{(s)}$, with $V_\mathrm{c}^{(s)}/t \approx 1$, at almost unitary filling ($\delta = 0.4$). In Fig.~\ref{subfig:sc-data-ws-B256-compared}, we report the dependence of $w^{(s)}$ on doping. As anticipated, $w^{(s)}=0$ at half-filling. Varying $U/t$ and $V/t$ we see that $w^{(s)}=0$ reaches some negative minimum, whose absolute value lowers as $U$ grows.
 
 \paragraph{$s^*$-wave gap.}
 
@@ -1571,21 +1566,13 @@ The dependence of $w^{(s)}$ on doping is shown in Fig.~\ref{subfig:sc-data-ws-B2
 	\label{fig:sc-data-wS-AB256-compared}
 \end{figure}
 
-The results for the non-local isotropic HFP $w^{(s^*)}$ are shown in Fig.~\ref{fig:sc-data-wS-AB256-compared}. This component of the full gap is given by
+In Fig.~\ref{fig:sc-data-wS-AB256-compared}, we show the results for the non-local isotropic HFP $w^{(s^*)}$. The resulting component of the full gap reads
 \[
 	\tilde{\Delta}^{(s^*)} = V w^{(s^*)} \, .
 \]
-Consider first Fig.~\ref{subfig:sc-data-wS-A256-compared}. At null and finite fillings, $w^{(s^*)}$ is null up to a critical value $V_\mathrm{c}^{(s^*)}$. Its position depends on $\delta$ and weakly on $U/t$. The half-filling curve (left panel) is independent of $U/t$. Differently from $w^{(s)}$, we have
-\[
-	\forall\ U/t
-	\quad\land\quad
-	\forall V < V_\mathrm{c}^{(s^*)}
-	\quad\colon\quad
-	\tilde{\Delta}^{(s^*)}\big|_{\delta=0} = 0 \, ,
-\]
-The local isotropic gap harmonic $\tilde{\Delta}^{(s)}$ was always null at half filling. Its non-local counterpart $\tilde{\Delta}^{(s^*)}$ is null up to the critical value delimiting the phase transition. Therefore, superconductivity can establish at half-filling with a gap whose isotropic part is purely non-local. Note that we are not saying that pure $s^*$-wave superconductivity is possible. As we discuss later, at half-filling the dominant harmonic of the gap function has $d$-wave symmetry.
+Consider first Fig.~\ref{subfig:sc-data-wS-A256-compared}. At null and finite fillings, $w^{(s^*)}$ is null up to a critical value $V_\mathrm{c}^{(s^*)}$. Its position depends on $\delta$ and weakly on $U/t$. In particular, the half-filling curve (left panel) is independent of $U/t$. The local isotropic gap harmonic $\tilde{\Delta}^{(s)}$ was always null at half filling, see Eq.~\eqref{eq:sc-Delta^s=0}. In contrast, its non-local counterpart $\tilde{\Delta}^{(s^*)}$ is null up to the critical value delimiting the phase transition. Therefore, thanks to the non-local pairing, the SC gap at half-filling can develop a purely non-local isotropic component.
 
-In Fig.~\ref{subfig:sc-data-wS-B256-compared} we see that the dependence on doping of $w^{(s^*)}$ is peculiar. At low doping ($\delta \lesssim 0.3$), $w^{(s^*)}$ is small for small values of $V$ (left panel). At higher doping (central and right panels) we see that a local maximum emerges, indicating that $w^{(s^*)}$ converges to higher values at smaller $V$s.
+In Fig.~\ref{subfig:sc-data-wS-B256-compared}, we see that the dependence on doping of $w^{(s^*)}$ is peculiar. At low doping ($\delta \lesssim 0.3$), $w^{(s^*)}$ is small for small values of $V$ (left panel). At higher doping (central and right panels) we see that a local maximum emerges, indicating that $w^{(s^*)}$ converges to higher values at smaller values of $V$.
 
 \paragraph{$d$-wave gap.}
 
@@ -1605,25 +1592,17 @@ In Fig.~\ref{subfig:sc-data-wS-B256-compared} we see that the dependence on dopi
 	\label{fig:sc-data-wd-AB256-compared}
 \end{figure}
 
-In Fig.~\ref{fig:sc-data-wd-AB256-compared} we report our findings for the HFP $w^{(d)}$, recalling that the $d$-wave gap is given by:
+In Fig.~\ref{fig:sc-data-wd-AB256-compared}, we report our findings for the HFP $w^{(d)}$, which is related to the $d$-wave gap is given by:
 \[
 	\tilde{\Delta}^{(d)} = V w^{(d)} \, .
 \]
-We see from the top panel (Fig.~\ref{subfig:sc-data-wd-A256-compared}) that $w^{(d)}$ depends weakly on $U$. At half-filling (left panel), the $d$-wave gap is zero only at $V=0$:
-\[
-	\forall\ U/t
-	\quad\land\quad
-	V=0
-	\quad\colon\quad
-	\tilde{\Delta}^{(d)}\big|_{\delta=0} = 0 \, .
-\]
-Differently from the other components, $w^{(d)}$ grows to finite values already at infinitesimal $V/t$. Recalling what we said in the above paragraph, we note that when the strength of the non-local attraction grows enough, the $s^*$-wave part sets in and symmetries mix. At finite filling (central and right panels) a critical value $V_\mathrm{c}^{(d)}$ emerges such that the $d$-wave gap appears at $V > V_\mathrm{c}^{(d)}$.
+From the top panel (Fig.~\ref{subfig:sc-data-wd-A256-compared}), we see that $w^{(d)}$ depends weakly on $U$. At half-filling (left panel), the $d$-wave gap is zero only at $V=0$ for any value of $U$. Differently from the other components, $w^{(d)}$ grows to finite values already at infinitesimal $V/t$. Recalling the results of Figs.~\ref{fig:sc-data-ws-AB256-compared} and \ref{fig:sc-data-wS-AB256-compared}, we note that when the strength of the non-local attraction grows enough, the $s^*$-wave part sets in, meaning that, in this region, the SC gap has a mixed symmetry. At finite filling (central and right panels), the $d$-wave gap emerges for $V > V_\mathrm{c}^{(d)}$.
 
-The dependence of $w^{(d)}$ on doping at different values of $U$ is shown in the bottom row (Fig.~\ref{subfig:sc-data-wd-B256-compared}). For any $V/t$, the HFP $w^{(d)}$ is a monotonically decreasing function of $\delta$. As we said, the critical value $V_\mathrm{c}^{(d)}$ increases with doping. Because of this, we see that the lighter curves of Fig.~\ref{subfig:sc-data-wd-B256-compared}, corresponding to lower values of $V$, reach zero quite rapidly. The curves for larger values of $V$, instead, reach zero at almost unitary filling. In all three panels of Fig.~\ref{subfig:sc-data-wd-B256-compared} we see that at doping $\delta \approx 0.3$ various lines cross at $w^{(d)} \approx 0.3$. Finally, at null doping, there exists a finite value of $V$ that maximises $w^{(d)}$: it is visible in Fig.~\ref{subfig:sc-data-wd-A256-compared}.
+In the bottom row (Fig.~\ref{subfig:sc-data-wd-B256-compared}), we show the dependence of $w^{(d)}$ on doping at different values of $U$. For any value of $V/t$, the HFP $w^{(d)}$ is a monotonically decreasing function of $\delta$, and the critical value $V_\mathrm{c}^{(d)}$ increases with doping. Because of this, we see that the lighter curves of Fig.~\ref{subfig:sc-data-wd-B256-compared}, corresponding to lower values of $V$, reach zero quite rapidly for $\delta \gtrsim 0.3$. The curves for larger values of $V$, instead, reach zero at almost unitary filling. In all three panels of Fig.~\ref{subfig:sc-data-wd-B256-compared} we see that at doping $\delta \approx 0.2$ various lines cross at $w^{(d)} \approx 0.3$. Finally, at null doping, there exists a finite value of $V$ that maximises $w^{(d)}$, see Fig.~\ref{subfig:sc-data-wd-A256-compared}.
 
 \paragraph{Competition among the channels.}
 
-To get a valid understanding of the competition among channels, we need to compare the values of the harmonics $\tilde{\Delta}^{(\gamma)}$ for $\gamma=s,s^*,d$. Competition is reflected in the relative ratio between different components. We report a comparison of such in Fig.~\ref{fig:sc-data-surface-wS-B256}. {\color{tabred}\textbf{The presented data are limited to the case $U/t=4$ for graphic reasons,but data and plots for other values of $U$ are openly accessible at our repository.}}
+To understand the competition among channels, we compare the values of the harmonics $\tilde{\Delta}^{(\gamma)}$ for $\gamma=s,s^*,d$. In Fig.~\ref{fig:sc-data-surface-wS-B256}, we plot the different components as a function of $\delta$ and $V$ for $U=4$.Data and plots for other values of $U$ \href{https://github.com/nepero27178/EHM-HF}{are openly accessible at our repository}.
 
 \begin{figure}
 	\centering
@@ -1632,20 +1611,20 @@ To get a valid understanding of the competition among channels, we need to compa
 	\label{fig:sc-data-surface-wS-B256}
 \end{figure}
 
-On the left column we plot three heatmaps, one for each harmonic in singlet SC phase. The same data are shown, superimposed, in the surface plot on the right. The harmonics $\tilde{\Delta}^{(\gamma)}$ cross if $V/t$ gets large enough, with the $d$-wave component reaching the largest values in the parametric region we investigated, followed closely by the $s^*$-wave harmonic. Isotropic harmonics ($s$ and $s^*$) are significantly non-zero in the same region, as we see in the first two rows of the left column. The two channel differ in amplitude significantly: the maximum value reached by the local gap harmonic $\tilde{\Delta}^{(s)}$ is approximately an order of magnitude smaller than the maximum of the non-local harmonic $\tilde{\Delta}^{(s^*)}$. Moreover, we see that at $\delta=0.0$ the local isotropic harmonic $\tilde{\Delta}^{(s)}$ is completely suppressed, as we expressed in Eq.~\eqref{eq:sc-Delta^s=0}.
+The left column shows three heatmaps, one for each harmonic in singlet SC phase. The same data are shown, superimposed, in the surface plot on the right. The harmonics $\tilde{\Delta}^{(\gamma)}$ cross if $V/t$ gets large enough, with the $d$-wave component reaching the largest values in the parametric region we investigated, followed closely by the $s^*$-wave harmonic. Isotropic harmonics ($s$ and $s^*$) are significantly non-zero in the same region, as we see in the first two rows of the left column. The two channel differ in amplitude significantly: the maximum value reached by the local gap harmonic $\tilde{\Delta}^{(s)}$ is approximately an order of magnitude smaller than the maximum of the non-local harmonic $\tilde{\Delta}^{(s^*)}$. Moreover, we see that at $\delta=0.0$ the local isotropic harmonic $\tilde{\Delta}^{(s)}$ is completely suppressed, as we expressed in Eq.~\eqref{eq:sc-Delta^s=0}.
 
-All harmonics share a quite strange boundary around $\delta \approx 0.34$, $V/t \approx 2.5$, visible as a sharp vertical segment in the three heatmaps on the left column of Fig.~\ref{fig:sc-data-surface-wS-B256}. The isotropic harmonics suddenly change from zero to large values moving from left to right, while the $d$-wave part does the opposite. Whether this behaviour underlies some deeper structure we were not able to tackle with our coarse-grained simulations, or is a numeric artifact, we do not know.
+All the harmonics share a sharp boundary around $\delta \approx 0.34$, $V/t \approx 2.5$, visible as a vertical segment in the three heatmaps on the left column of Fig.~\ref{fig:sc-data-surface-wS-B256}. The isotropic harmonics suddenly change from zero to large values moving from left to right, while the $d$-wave part does the opposite. With our coarse-grained simulations, we were not able to verify if this behaviour underlies some deeper structure.
 
-Four phases can be distinguished: the normal state and three superconducting regions (pure $d$-wave, pure $s \oplus s^*$-wave, mixed). In Fig.~\ref{fig:sc-mix} we give a schematic depiction of how the plane $(\delta,V)$ divides in the four regions at $U/t=0$ (left), $U/t=4$ (centre) and $U/t=12$ (right). The boundaries were computed by setting an arbitrary threshold $\varepsilon=10^{-2}$, with the following rule:
+Summarising all results, we can distinguish four phases: the normal state and three superconducting regions (pure $d$-wave, pure $s \oplus s^*$-wave, mixed). In Fig.~\ref{fig:sc-mix}, we show the phase diagram in the plane $(\delta,V)$ for $U/t=0$ (left), $U/t=4$ (centre) and $U/t=12$ (right). The boundaries were computed by setting a threshold $\varepsilon=10^{-2}$, with the following rule:
 \begin{center}
 	\begin{tabular}{r r c l c c}
 		Normal & $\big| \tilde{\Delta}^{(s)} \big| < \varepsilon$ & $\land$ & $\big| \tilde{\Delta}^{(s^*)} \big| < \varepsilon$ & $\land$ & $\big| \tilde{\Delta}^{(d)} \big| < \varepsilon$ \, ,\\[0.5em]
 		$d$-wave & $\big| \tilde{\Delta}^{(s)} \big| < \varepsilon$ & $\land$ & $\big| \tilde{\Delta}^{(s^*)} \big| < \varepsilon$ & $\land$ & $\big| \tilde{\Delta}^{(d)} \big| \ge \varepsilon$ \, ,\\[0.5em]
 		$s \oplus s^*$-wave & $\big[\, \big| \tilde{\Delta}^{(s)} \big| \ge \varepsilon$ & $\lor$ & $\big| \tilde{\Delta}^{(s^*)} \big| \ge \varepsilon \,\big]$ & $\land$ & $\big| \tilde{\Delta}^{(d)} \big| < \varepsilon$ \, ,\\[0.5em]
-		Mixed & $\big[\, \big| \tilde{\Delta}^{(s)} \big| \ge \varepsilon$ & $\lor$ & $\big| \tilde{\Delta}^{(s^*)} \big| \ge \varepsilon \,\big]$ & $\land$ & $\big| \tilde{\Delta}^{(d)} \big| \ge \varepsilon$ \, .
+		Mixed & $\big[\, \big| \tilde{\Delta}^{(s)} \big| \ge \varepsilon$ & $\lor$ & $\big| \tilde{\Delta}^{(s^*)} \big| \ge \varepsilon \,\big]$ & $\land$ & $\big| \tilde{\Delta}^{(d)} \big| \ge \varepsilon$ \, ,
 	\end{tabular}
 \end{center}
-We consider $s$ and $s^*$ as part of the same isotropic channel: just one harmonic being larger than the threshold is sufficient for us to assert that the gap function has an isotropic harmonic.
+and by considering the $s$ and $s^*$ components as part of the same isotropic channel.
 
 \begin{figure}
 	\centering
@@ -1657,7 +1636,7 @@ We consider $s$ and $s^*$ as part of the same isotropic channel: just one harmon
 Comparing the three panels of Fig.~\ref{fig:sc-mix}, we see that increasing the value of the local repulsion $U$
 the shapes of the four regions change. In particular, the $d$-wave region expands to the right (larger $\delta$s); the normal-$s \oplus s^*$ SC boundary moves up (larger $V$s). Note that on the left panel the isotropic region is labeled as purely $s^*$-wave: this is because if $U=0$, the $s$-wave gap harmonic is null, even if $w^{(s)}$ converges to a non-zero value. The growth of the local repulsion $U$ has two effects:
 \begin{enumerate}
-	\item turning on the $s$-wave gap harmonic;
+	\item turning on the $s$-wave gap harmonic at finite doping (see Fig.~\ref{fig:sc-data-ws-AB256-compared});
 	\item expanding the $d$-wave region and restricting the isotropic and mixed region.
 \end{enumerate}
 From the last point we understand that increasing $U$ we allow for the gap function to have a finite $s$-wave component, but this acts as a sort of internal competition within the isotropic region. Indeed, from the constraint of Eq.~\eqref{eq:sc-wgamma-circle}, we know that $w^{(s)} \neq 0$ only if $w^{(\gamma)} \neq 0$, with $\gamma \neq s$. In the $s \oplus s^*$ region the constraint reads:
@@ -1668,27 +1647,26 @@ From the last point we understand that increasing $U$ we allow for the gap funct
 \] 
 Suppose we work at fixed $\delta$ and $V>0$ in the isotropic region at $U=0$. There is no constraint whatsoever on $w^{(s^*)}$. Also, $w^{(s)}$ is free to converge at some finite value (we saw this in the left panel of Fig.~\ref{subfig:sc-data-ws-B256-compared}): the gap still has no $s$-wave component. Suppose now we switch on $U>0$. Now, in order for $w^{(s)}$ to reach the same value as before, $w^{(s^*)}$ has to respect the constraint posed by the above equation. As $U$ increases, the right-hand side gets bigger and $w^{(s^*)}$ needs to converge to larger and larger values to sustain $w^{(s)}$, otherwise to drop to zero. This is why increasing $U$ the isotropic boundary moves up: $w^{(s^*)}$ isn't ``free'' anymore and must respect the constraint of Eq.~\eqref{eq:sc-wgamma-circle}.
 
-In the three panels of Fig.~\ref{fig:sc-mix}, the mixing region is pretty much unchanged. At low doping, it is bounded from below by an horizontal line at $V/t \approx 3$. Increasing doping at fixed $U$, we see that the lower boundary reaches a cusp-like minimum around $\delta \approx 0.3 \divisionsymbol 0.4$ and then grows. This cusp coincides with the aforementioned sharp vertical segment, visible in Fig.~\ref{fig:sc-data-surface-wS-B256}. If we work at fixed doping and $U$, and choose $\delta$ such that we are aligned with the horizontal position of the cusp on the $(\delta,V)$ plane, the critical value of $V/t$ for transitioning to a mixed SC state is minimised. At high values of $V/t$ the mixing region extends to almost unitary doping, being limited on the right by a vertical line at $\delta \gtrsim 0.4$. We remind that we are discerning the SC phases by applying an arbitrary threshold $\varepsilon$ to each gap component: we imagine that by using a more refined technique and by increasing the resolution of the simulation the boundary would appear less straight. Anyway, apart from a vertical stripe at almost unitary filling, at high $V/t$ the dominant singlet SC phase is described by a mix of $d$-wave and $s \oplus s^*$-wave component. Recalling the surface plot of Fig.~\ref{fig:sc-data-surface-wS-B256}, we see that at $V/t \gg 1$ the $s$-wave component gets weaker with respect to the other two. In this limit, if $U \ll V$, the $s$-wave component is negligible, giving an approximate $d \oplus s^*$ mixed phase. 
+In the three panels of Fig.~\ref{fig:sc-mix}, the mixing region is almost independent of $U$. At low doping, it is bounded from below by an horizontal line at $V/t \approx 3$. Increasing doping at fixed $U$, we see that the lower boundary reaches a cusp-like minimum around $\delta \approx 0.3 \divisionsymbol 0.4$ and then grows. This cusp coincides with the aforementioned sharp vertical segment, visible in Fig.~\ref{fig:sc-data-surface-wS-B256}. If we work at fixed doping and $U$, and choose $\delta$ such that we are aligned with the horizontal position of the cusp on the $(\delta,V)$ plane, the critical value of $V/t$ for transitioning to a mixed SC state is minimised. At high values of $V/t$ the mixing region extends to almost unitary doping, being limited on the right by a vertical line at $\delta \gtrsim 0.4$. We remind that we are discerning the SC phases by applying an arbitrary threshold $\varepsilon$ to each gap component: we imagine that by using a more refined technique and by increasing the resolution of the simulation the boundary would appear less straight. Apart from a vertical stripe at almost unitary filling, at high $V/t$ the dominant singlet SC phase is described by a mix of $d$-wave and $s \oplus s^*$-wave component. Recalling the surface plot of Fig.~\ref{fig:sc-data-surface-wS-B256}, we see that at $V/t \gg 1$ the $s$-wave component gets weaker with respect to the other two. In this limit, if $U \ll V$, the $s$-wave component is negligible, giving an approximate $d \oplus s^*$ mixed phase. 
 
-The mixing region is of particular interest also due its connection with the planar rotational SSB,
+The mixing region is of particular interest also due its connection with the planar rotational SSB. Indeed, as we show in next section, the mixed-symmetry region coincides with the portion of the $(\delta,V)$ plane where planar rotational symmetry is broken,
 \[
 	\text{Symmetry mixing}
 	\quad\implies\quad
 	\mathrm{C}_4 \SSB \mathrm{C}_2 \, .
 \]
-As we show in next section, the mixed-symmetry region coincides with the portion of the $(\delta,V)$ plane where planar rotational symmetry is broken.
 
 \subsection{Rotational SSB and nematic superconductivity}
 
-In the context of this thesis, nematicity is established whenever $\tilde{t}^{(d)}$ becomes non-zero. This was discussed in detail in the context of the normal phase. If the renormalised hopping parameter has a non-zero $d$-wave component, this means that bare hopping is effectively boosted in one direction and damped in the other. Indeed, from Eq.~\eqref{eq:normal-ud(tx,ty)}, we know that
+As we discussed in Sec.~\ref{subsec:normal-d-wave-hopping}, and at the end of Sec.~\ref{sec:sc-hf-hfps}, nematicity is established whenever $\tilde{t}^{(d)}$ becomes non-zero. If the renormalised hopping parameter has a non-zero $d$-wave component, this means that bare hopping is effectively boosted in one direction and damped in the other. Indeed, from Eq.~\eqref{eq:normal-ud(tx,ty)}, we know that
 \[
 	\tilde{t}^{(d)} = \frac{\tilde{t}^{(y)} - \tilde{t}^{(x)}}{2} \, .
 \]
-As we anticipated at the end of Sec.~\ref{subsec:normal-d-wave-hopping}, if $\tilde{t}^{(d)}>0$ the renormalised hopping is larger in direction $y$, if $\tilde{t}^{(d)}<0$ instead it's larger in direction $x$. This interpretation serves to grasp the general idea behind nematicity, but is to be taken carefully. Let us get more rigorous. In the SC phase, the many body state is a gas of Bogoliubov quasiparticles which do not ``hop on neighbouring sites''. If $\tilde{t}^{(d)}$ is non-zero, the superconductor is nematic in the sense that Bogoliubov quasibands are not rotationally invariant,
+As we anticipated at the end of Sec.~\ref{subsec:normal-d-wave-hopping}, if $\tilde{t}^{(d)}>0$ the renormalised hopping is larger in direction $y$, if $\tilde{t}^{(d)}<0$ instead it's larger in direction $x$. In terms of the Bogoliubov energies, this means that the Bogoliubov bands are not rotationally invariant,
 \[
 	\tilde{E}_\mathbf{k} \neq \tilde{E}_{\mathcal{R}\mathbf{k}} \, ,
 \]
-being $\mathcal{R}$ a $\pi/2$ rotation. We connect this effect to hopping renormalisation \textit{a posteriori} following the formal discussion of Sec.~\ref{subsec:normal-d-wave-hopping}.
+being $\mathcal{R}$ a $\pi/2$ rotation.
 
 \begin{figure}
 	\centering
@@ -1704,22 +1682,15 @@ being $\mathcal{R}$ a $\pi/2$ rotation. We connect this effect to hopping renorm
 	\label{fig:sc-data-td-AB256-compared}
 \end{figure}
 
-For the normal and AF phases we were able to prove that $u^{(d)}=0$ for any choice of model parameters. For the SC phase, instead, $u^{(d)}$ converges to non-zero values. For the sake of conciseness, we skip plotting the curves for $u^{(d)}$ {\color{tabred}\textbf{(which are, anyway, openly accessible at our repository)}}, and show directly the curves for the quantity
+For the normal and AF phases we were able to prove that $u^{(d)}=0$ for any choice of model parameters. For the SC phase, instead, $u^{(d)}$ converges to non-zero values. In Fig.~\ref{fig:sc-data-td-AB256-compared}, we show
 \[
 	\tilde{t}^{(d)} = -\frac{V u^{(d)}}{2} \, .
 \]
-This is done in Fig.~\ref{fig:sc-data-td-AB256-compared}: nematicity is undoubtedly present. In the top panel (Fig.~\ref{subfig:sc-data-td-A256-compared}), we see that a critical value of $V$ exists over which nematicity is established. Moreover, the $\delta=0.0$ case (left panel) is independent of $U$. In all cases, the convergence values for $\tilde{t}^{(d)}$ are two order of magnitudes smaller than $t=1.0$: in the region of parametric space we explore, nematicity is a sharp but small effect. Note that at $\delta=0.2$ (central panel) $\tilde{t}^{(d)}\ge0$, while at $\delta=0.4$ (right panel) $\tilde{t}^{(d)}\le0$. Increasing the doping we change the sign of $\tilde{t}^{(d)}$
+as a function of $U$, $V$ and $\delta$. In the top panel (Fig.~\ref{subfig:sc-data-td-A256-compared}), we see that a critical value of $V$ exists over which nematicity is established. Moreover, the $\delta=0.0$ case (left panel) is independent of $U$. In all cases, the convergence values for $\tilde{t}^{(d)}$ are two order of magnitudes smaller than $t=1.0$, meaning that nematicity is a sharp but small effect. Note that at $\delta=0.2$ (central panel) $\tilde{t}^{(d)}\ge0$, while at $\delta=0.4$ (right panel) $\tilde{t}^{(d)}\le0$. Increasing the doping we change the sign of $\tilde{t}^{(d)}$.
 
 This sign change is most evident in the first two figures of the bottom panel (Fig.~\ref{subfig:sc-data-td-B256-compared}), where we vary the doping level while keeping fixed the local repulsion $U$. The behaviour of $\tilde{t}^{(d)}$ is similar at low doping in the three cases, but changes significantly at larger doping. Indeed, at $U/t=0$ (left figure) and $U/t=5$ (central figure) at some point $\tilde{t}^{(d)}$ changes sign. At $U/t=10$ (right figure), all our data points are positive (possibly the sign flip occurs at higher $V$s). Moreover, as $U$ increases, the amplitude of the oscillation of $\tilde{t}^{(d)}$ as a function of $\delta$ reduces. We conclude that both the local repulsion and electronic doping disrupt nematicity, which is instead most effective for a purely NNs attractive model.
 
-\begin{figure}
-	\centering
-	\includegraphics[width=\linewidth]{../Project/src/labs/superconductor-boundary/w-U=[0.0, 4.0, 12.0]-curves.pdf}
-	\caption{Heatmap of the anisotropic component of renormalised hopping, $\tilde{t}^{(d)}$, at $U/t=0,4,12$ from left to right. The dataset is the same of Fig.~\ref{fig:sc-mix}, and the mixing boundary is the set of points separating the mixed region from the rest of the phases.}
-	\label{fig:sc-td}
-\end{figure}
-
-Nematic effects are directly related to symmetry mixing in the superconducting order parameter. Consider Fig.~\ref{fig:sc-td}, where we plot the convergence values for $\tilde{t}^{(d)}$ in the $(\delta,V)$ plane for $U/t=0,4,12$. The used dataset is the same of Fig.~\ref{fig:sc-mix}. The superimposed black lines are the mixing boundaries, the set of extremal points of the deeper blue regions of Fig.~\ref{fig:sc-mix}. Despite a bit of roughness related to the gridded nature of our data, it is evident that these boundaries encircle the regions where $\tilde{t}^{(d)}\neq 0$. Note that the set of points composing the mixing regions are those satisfying the threshold rule exposed in last section; choosing another threshold, the black curves change. Nevertheless, the key point is that there is an evident connection between symmetry mixing and breaking of planar rotational symmetry.
+Nematic effects are directly related to symmetry mixing in the superconducting order parameter. In Fig.~\ref{fig:sc-td}, we plot the convergence values for $\tilde{t}^{(d)}$ in the $(\delta,V)$ plane for $U/t=0,4,12$. The used dataset is the same of Fig.~\ref{fig:sc-mix}. The superimposed black lines are the mixing boundaries, the set of extremal points of the deeper blue regions of Fig.~\ref{fig:sc-mix}. Despite a bit of roughness related to the gridded nature of our data, it is evident that these boundaries encircle the regions where $\tilde{t}^{(d)}\neq 0$, clearly highlighting an evident connection between symmetry mixing and breaking of planar rotational symmetry.
 
 The mixing region coincides with the nematic region. As we said at the beginning of this section, nematicity can be established in two ways, based on the direction along which hopping is boosted. Hence it must hold
 \[
@@ -1735,9 +1706,16 @@ with the following convention on notation:
 \]
 The notation $\mathrm{N}_\ell$ has the following meaning: the index $\ell$ indicates the direction along which renormalised hopping is larger. We indicate in Fig.~\ref{fig:sc-td} these regions for $U/t=0,4,12$.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{../Project/src/labs/superconductor-boundary/w-U=[0.0, 4.0, 12.0]-curves.pdf}
+	\caption{Heatmap of the anisotropic component of renormalised hopping, $\tilde{t}^{(d)}$, at $U/t=0,4,12$ from left to right. The dataset is the same of Fig.~\ref{fig:sc-mix}, and the mixing boundary is the set of points separating the mixed region from the rest of the phases.}
+	\label{fig:sc-td}
+\end{figure}
+
 Note that the map were colour-corrected in order to enhance the visibility of the blue region. The intensity of the colouring there suggests that the amplitude is comparable with the red region, but is not. Indeed, we set up the colormap such that gray is aligned with $\tilde{t}^{(d)}=0.0$, and intensity of colour grows asimmetrically in the negative and positive direction.
 
-The three panels of Fig.~\ref{fig:sc-td} differ crucially in the fact that the data for $U/t=12$ (right) are all positive, while those for $U/t=0,4$ (left,centre) are negative in a portion of space. In other words, as we increase $U/t$, $\mathrm{N}_y$ expands and $\mathrm{N}_x$ shrinks. Moving from $U/t=0$ (left) to $U/t=4$ (centre) we see that the amplitude of $\tilde{t}^{(d)}$ decreases in $\mathrm{N}_x$ and not in $\mathrm{N}_y$. We already observed this in Fig.~\ref{subfig:sc-data-td-B256-compared}. Moreover, for $U/t=12$ (right) $\mathrm{N}_x$ is apparently absent and $\mathrm{N}_y$ takes up the entirety of the mixing region. Whether there exists some critical value of $U/t$ above which $\mathrm{N}_x$ disappears in the entirety of the $(\delta,V)$ plane, we do not know.
+The three panels of Fig.~\ref{fig:sc-td} differ crucially in the fact that the data for $U/t=12$ (right) are all positive, while those for $U/t=0,4$ (left,centre) are negative in a portion of space. In other words, as we increase $U/t$, $\mathrm{N}_y$ expands and $\mathrm{N}_x$ shrinks. Moving from $U/t=0$ (left) to $U/t=4$ (centre) we see that the amplitude of $\tilde{t}^{(d)}$ decreases in $\mathrm{N}_x$ and not in $\mathrm{N}_y$. We already observed this in Fig.~\ref{subfig:sc-data-td-B256-compared}. Moreover, for $U/t=12$ (right) $\mathrm{N}_x$ is apparently absent and $\mathrm{N}_y$ takes up the entirety of the mixing region.
 
 Breaking of planar rotational symmetry and the insurgence of a $d$-wave harmonic for the renormalised hopping is certainly the most peculiar effect for the singlet SC phase. It adds to the isotropic bands shrinking, which is, the $s^*$-wave renormalisation of the hopping parameter. We discuss it in next section.
 
@@ -1757,13 +1735,11 @@ Breaking of planar rotational symmetry and the insurgence of a $d$-wave harmonic
 	\label{fig:sc-data-tS-AB256-compared}
 \end{figure}
 
-The last HFP to be checked is $u^{(s^*)}$, responsible of bands shrinking. Its physical role is the isotropic renormalisation of the hopping parameter
+In this section, we discuss the behaviour of the HFP $u^{(s^*)}$, responsible of the pairing-induced Mott localisation effect through the isotropic renormalisation of the hopping parameter,
 \[
-	\tilde{t}^{(s^*)} = t-{V u^{(s^*)}}{2} \, ,
+	\tilde{t}^{(s^*)} = t-\frac{V u^{(s^*)}}{2} \, .
 \]
-again, we skip plotting $u^{(s^*)}$ and plot directly $\tilde{t}^{(s^*)}$ in Fig.~\ref{fig:sc-data-tS-AB256-compared}. In the top panel (Fig.~\ref{subfig:sc-data-tS-A256-compared}), we show the dependence of $t^{(s^*)}$ on $V$. The three curves, obtained at three doping levels, are approximately independent of $U$. The common feature is that $\tilde{t}^{(s^*)}$ decreases somewhat linearly with $V$ up to some critical value, above which it flattens to an horizontal asymptote. Electronic doping changes primarily the height of this asymptote
-
-As was for the AF and normal phases, electronic doping disrupts the isotropic bands shrinking effect. At half-filling (left figure) we see that bands shrinking is most effective, reducing the hopping parameter to less than half its $V=0$ value. In the bottom panel (Fig.~\ref{subfig:sc-data-tS-B256-compared}) we show $t^{(s^*)}$ as a function of $\delta$, varying $V$ and $U$. As we already noted, the dependence on $U$ is very weak and the three figures are a lot alike. As we already noted, $t^{(s^*)}$ increases with doping.
+In Fig.~\ref{fig:sc-data-tS-AB256-compared}, we plot $\tilde{t}^{(s^*)}$ as a function of $U$, $V$ and $\delta$. In the top panel (Fig.~\ref{subfig:sc-data-tS-A256-compared}), we show the dependence of $t^{(s^*)}$ on $V$. The three curves, obtained at three doping levels, are approximately independent of $U$. The common feature is that $\tilde{t}^{(s^*)}$ decreases linearly with $V$ up to some critical value, above which it converges to a constant value which increases as a function of the doping. As was for the AF and normal phases, electronic doping suppresses the isotropic bands shrinking effect. At half-filling (left figure) we see that bands shrinking is most effective, reducing the hopping parameter to less than half its $V=0$ value. In the bottom panel (Fig.~\ref{subfig:sc-data-tS-B256-compared}) we show $t^{(s^*)}$ as a function of $\delta$, varying $V$ and $U$. As we already noted, the dependence on $U$ is very weak and the three figures are a lot alike. As we already mentioned, $t^{(s^*)}$ increases with doping.
 
 \begin{figure}
 	\centering
@@ -1772,7 +1748,7 @@ As was for the AF and normal phases, electronic doping disrupts the isotropic ba
 	\label{fig:sc-tS-vs-n}
 \end{figure}
 
-In Fig.~\ref{fig:sc-tS-vs-n} we compare $t^{(s^*)}$ for the normal phase (blue surface) and the SC phase (green surface). The two surfaces share a general feature: $t^{(s^*)}$ is approximately unitary at low $V/t$ and almost unitary doping, and decreases significantly in the low-$\delta$ and high-$V/t$ limit. In this region, for the normal phase we observe the Mott-localisation plateau discussed in Sec.~\ref{subsec:normal-mott-numeric}, where $t^{(s^*)} \approx 0$. In the SC phase, looking at the same region, $t^{(s^*)}$ is minimised but no plateau is formed. More importantly, isotropic hopping is reduced to roughly half the value of $t$ and not nullified. We do not observe a Mott-like area as for the normal phase.
+In Fig.~\ref{fig:sc-tS-vs-n} we compare $t^{(s^*)}$ for the normal phase (blue surface) and the SC phase (green surface). The two surfaces share a general feature: $t^{(s^*)}$ is approximately unitary at low $V/t$ and almost unitary doping, and decreases significantly in the low-$\delta$ and high-$V/t$ limit. In this region, for the normal phase we observe the Mott-localisation plateau discussed in Sec.~\ref{subsec:normal-mott-numeric}, where $t^{(s^*)} \approx 0$. In the SC phase, looking at the same region, $t^{(s^*)}$ is minimised, but, in contrast to the normal phase, we do not observe the complete Mott localisation effect.
 
 Recalling the plots of Fig.~\ref{fig:sc-mix}, the low-$\delta$ and high-$V/t$ limit (the corner where $t^{(s^*)}$ is minimised) falls deep within the mixed region. Recalling also Fig.~\ref{fig:sc-data-surface-wS-B256}, in this corner the $d$-wave and $s^*$-wave harmonics of the gap function are large and comparable. Finally, we know from Fig.~\ref{fig:sc-td} (central panel) that here nematic effects are small, but significantly non-zero. In particular, considering that 
 \[
@@ -1780,7 +1756,7 @@ Recalling the plots of Fig.~\ref{fig:sc-mix}, the low-$\delta$ and high-$V/t$ li
 	\qq{and}
 	\lim_{\delta \to 0} \lim_{V/t \gg 1} \frac{\tilde{t}^{(d)}}{t} \approx 0.06 \, ,
 \]
-we see that the two components differ just by one order of magnitude. Nematic effects account for a rather large portion of hopping renormalisation.
+we see that the two components differ by one order of magnitude.
 
 With this consideration, we end the presentation of HFPs and RMPs and move to the last section, where we discuss the results regarding free energy and entropy densities.
 
@@ -1793,7 +1769,7 @@ With this consideration, we end the presentation of HFPs and RMPs and move to th
 	\label{fig:sc-data-fs-B128}
 \end{figure}
 
-For the SC phase, free energy density is given by Eq.~\eqref{eq:sc-fMFT}, while entropy density is given by Eq.~\eqref{eq:sc-s}. In Fig.~\ref{fig:sc-data-fs-B128} we plot, sided, the heatmaps for $f$ and $s$ at $U/t=4$ in the $(\delta,V)$ plane. Superimposed, we show the boundaries between the four regions identified in Fig.~\ref{fig:sc-mix}. Consider first the free energy, on the left: our data suggest that free energy is maximised in the $d$-wave phase, followed by the mixed phase. At high doping, the $s \oplus s^*$-wave phase is low-energetic. Overall, $f$ varies smoothly across phase boundaries, and we do not identify the black lines with some isoenergetic line separating phases.
+For the SC phase, free energy density is given by Eq.~\eqref{eq:sc-fMFT}, while entropy density is given by Eq.~\eqref{eq:sc-s}. In Fig.~\ref{fig:sc-data-fs-B128} we plot the heatmaps for $f$ and $s$ at $U/t=4$ in the $(\delta,V)$ plane. Superimposed, we show the boundaries between the four regions identified in Fig.~\ref{fig:sc-mix}. Consider first the free energy, on the left: our data suggest that free energy is maximised in the $d$-wave phase, followed by the mixed phase. At high doping, the $s \oplus s^*$-wave phase is low-energetic. Overall, $f$ varies smoothly across phase boundaries, and we do not identify the black lines with some isoenergetic line separating phases.
 
 This is not the case for entropy density. Indeed, the entropic region on the right panel of Fig.~\ref{fig:sc-data-fs-B128} coincides with the normal phase. The three superconducting regions are low-entropic. This is explained by the following argument:
 \begin{itemize}
@@ -1816,7 +1792,7 @@ This is the reason behind the sharp separation of the normal region from the SC 
 	\label{fig:sc-data-fs-B256-compared}
 \end{figure}
 
-In Fig.~\ref{fig:sc-data-fs-B256-compared} we show $f$ and $s$ as functions of $V$, varying $\delta$ and comparing for three values of $U$. On both rows, moving from left to right we do not observe significant differences: $f$ and $s$ depend weakly on $U$. We already observed the presence of a maximum of the free energy at ratios $V/t$ comparable with $1$. In Fig.~\ref{subfig:sc-data-f-B256-compared} we see this maximum around $V/t \lesssim 4$. Comparing with the data of Fig.~\ref{fig:sc-data-fs-B128}, we can imagine that this maximum could be located at at the boundary between $d$-wave and mixed regions. Our data and methods are too rough to assert with certainty.
+In Fig.~\ref{fig:sc-data-fs-B256-compared} we show $f$ and $s$ as functions of $V$, varying $\delta$ and comparing for three values of $U$. On both rows, moving from left to right we do not observe significant differences: $f$ and $s$ depend weakly on $U$. We already observed the presence of a maximum of the free energy at ratios $V/t$ comparable with $1$. In Fig.~\ref{subfig:sc-data-f-B256-compared} we see this maximum around $V/t \lesssim 4$. Comparing with the data of Fig.~\ref{fig:sc-data-fs-B128}, we can imagine that this maximum could be located at at the boundary between $d$-wave and mixed regions.
 
 In the bottom panel, entropy density (Fig.~\ref{subfig:sc-data-s-B256-compared}) shows the aforementioned sharp separation between normal and SC regions, and is maximised at half-filling and $V=0$. That is the case of the conventional HM. We already argued that superconductivity is impossible at HF level, while commensurate antiferromagnetism is favoured at null doping with respect to the normal phase.
 
@@ -1851,15 +1827,3 @@ We colour-corrected the surface plot to align the gray with the $f=0$ level. Col
 	\text{(Critical ratio)}
 \]
 delimiting a phase transition from antiferromagnetic to superconducting ordering at half-filling.
-
-\section{A final note}
-
-We conclude this chapter with a note of method. We performed simulations on the singlet channel, but also gathered data for the triplet channel. We omitted to show them in order to avoid unnecessary complications. Indeed, we observed that triplet superconductivity (as we formulated it at HF level) is suppressed everywhere in the region of parametric space we are exploring. This means that 
-\[
-	w^{(p_x)} = w^{(p_y)} = 0 \, .
-	\qquad
-	\text{(Observed numerically)}
-\]
-Although non present in this discussions, {\color{tabred}\textbf{the plots for these HFPs are openly accessible at our repository.}}
-
-We did not provide any theoretical constraint on the five HFPs for the singlet SC phase. We tried to obtain a proof similar to those presented for the normal and AF phases, but we did not find any. It would be interesting, if possible, to work out a method to express analytically the position of the various boundaries we identified.
