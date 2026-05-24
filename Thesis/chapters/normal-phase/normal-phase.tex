@@ -26,7 +26,7 @@ Translational invariance implies the following result:
 	\[
 		\big\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'} \big\rangle \Feq \frac{1}{L_x L_y} \sum_{\mathbf{r} \in \mathcal{L}} \sum_{\mathbf{r}' \in \mathcal{L}} e^{-i \left(\mathbf{k} \cdot \mathbf{r} - \mathbf{k}' \cdot \mathbf{r}' \right)} \big\langle \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}'\sigma'} \big\rangle \, ,
 	\]
-	where we used the convention of Eq.~\eqref{eq:fourier-convention}. Let now $\Delta \mathbf{r} \equiv \mathbf{r}_2 - \mathbf{r}_1$. Translational invariance implies that the function
+	where we used the convention of Eq.~\eqref{eq:fourier-convention}. Let now $\Delta \mathbf{r} \equiv \mathbf{r}' - \mathbf{r}$. Translational invariance implies that the function
 	\[
 		g(\Delta \mathbf{r}, \sigma, \sigma') = \big\langle \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}+\Delta\mathbf{r}\sigma'} \big\rangle
 	\]
@@ -276,13 +276,13 @@ We notice that the \textit{plus} sign in front of the displayed term comes from 
 Using the Fourier transform of $\hat H_V$ given in Eq.~\eqref{eq:HV-ss-fourier}, we obtain
 \begin{multline}
 	\hat H_V \HFsimeq (\text{Hartree channel}) \\
-	+ \frac{2V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left(
+	+ \frac{2V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left[
 	\cos \left(
 	\delta k_x
 	\right)	+ \cos \left(
 	\delta k_y
 	\right)	
-	\right)
+	\right]
 	\langle
 	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger 
 	\hat c_{\mathbf{K}-\mathbf{k}' \sigma}
@@ -291,13 +291,13 @@ Using the Fourier transform of $\hat H_V$ given in Eq.~\eqref{eq:HV-ss-fourier},
 \end{multline}
 Here, the $2$ prefactor comes from the fact that the first two operators in square brackets in Eq.~\eqref{eq:normal-HV-fock} are equal in reciprocal space. The contraction energy shift is given by
 \begin{align}\label{eq:normal-V-fock-double-counting}
-	E_{\mathrm{F},V}^{(\mathrm{N})} \equiv \frac{V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left(
+	E_{\mathrm{F},V}^{(\mathrm{N})} \equiv \frac{V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left[
 		\cos \left(
 			\delta k_x
 		\right)	+ \cos \left(
 			\delta k_y
 		\right)	
-	\right)
+	\right]
 	\langle
 		\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger 
 	\hat c_{\mathbf{K}-\mathbf{k}' \sigma}
@@ -414,7 +414,7 @@ where $u_\sigma^{(\gamma)}$ are the harmonics of the occupation $u_{\mathbf{k}\s
 	Using this observation in Eq.~\eqref{eq:normal-V-fock-int5}, we obtain Eq.~\eqref{eq:normal-HV-fock-approx}.
 \end{tabproof}
 
-Bringing together Eq.~\eqref{eq:normal-HV-fock-approx} with Eqs.~\eqref{eq:normal-HU-hartree-approx}, \eqref{eq:normal-HV-hartree-approx} we obtain that the quadratic HF approximation to the EHM, for the normal phase, depends on the renormalised chemical potential $\tilde{\mu}$, and the occupation harmonics $u^{(s^*)}$ and $u^{(d)}$. The chemical potential $\tilde{\mu}$ is fixed by density and determined during computations. To find the ground-state, we must determine self-consistently the two HFPs $u_\sigma^{(s^*)}$, $u_\sigma^{(d)}$ through the self-consistency Eq.~\eqref{eq:normal-ugamma-harmonics}. The symmetry-resolved equations are reported in Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}.
+Bringing together Eqs.~\eqref{eq:normal-HU+HV-hartree-approx} and \eqref{eq:normal-HV-fock-approx}, we obtain that the quadratic HF approximation to the EHM, for the normal phase, depends on the renormalised chemical potential $\tilde{\mu}$, and the occupation harmonics $u^{(s^*)}$ and $u^{(d)}$. The chemical potential $\tilde{\mu}$ is fixed by density and determined during computations. To find the ground-state, we must determine self-consistently the two HFPs $u_\sigma^{(s^*)}$, $u_\sigma^{(d)}$ through the self-consistency Eq.~\eqref{eq:normal-ugamma-harmonics}, which is reported symmetry-resolved in Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}.
 
 \begin{table}
 	\centering
@@ -629,7 +629,7 @@ From now on, we will omit the spin index $\sigma$ from both the renormalised ban
 	\quad\colon\quad
 	\tilde{t}_\sigma^{(\alpha)} \to \tilde{t}^{(\alpha)} \, .
 \]
-The normal phase does not break spin rotational invariance. Therefore the renormalised bands must be independent of the spin index. Inverting Eq.~\eqref{eq:normal-tS-td}, we can
+The normal phase does not break spin rotational invariance. Therefore the renormalised bands $\tilde{\epsilon}_\mathbf{k}$ must be independent of the spin index. Inverting Eq.~\eqref{eq:normal-tS-td}, we can
 express $\tilde{t}^{(x)}$ and $\tilde{t}^{(y)}$ in terms of the HFPs $u^{(s^*)}$ and $u^{(d)}$
 \[
 \begin{aligned}
@@ -700,7 +700,7 @@ The $2$ prefactor was included to account for spin degeneracy. The above equatio
 		- \beta (\tilde{\epsilon}_\mathbf{k}-\tilde{\mu}) f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) - f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu}) \ln f( \tilde{\epsilon}_\mathbf{k}; \beta,\tilde{\mu})
 		\Big] \, .
 	\end{multline*}
-	Second and fourth terms cancel out. The remaining parts give Eq.~\eqref{eq:normal-s-variant}.
+	The second and the fourth terms cancel out. The remaining parts give Eq.~\eqref{eq:normal-s-variant}.
 \end{tabproof}
 
 \subsection{The free energy density of the normal ground-state}\label{subsec:normal-f}
@@ -864,7 +864,7 @@ with the equality being verified when bands are completely flattened. The fact t
 	which ends the proof.
 \end{tabproof}
 
-This is the first expected behaviour of the self-consistent functional $u^{(s^*)}$: if there exists a region of parametric space where the shrinking effect is not strong enough to flatten the band, a rise in the doping level must lower $u^{(s^*)}$. Such a region must exist: at least all the segment $(V=0,\delta)$ is included, since on said region of parametric space the HF hamiltonian reduces to the that of the free Fermi gas.
+This is the first expected behaviour of $u^{(s^*)}$: if there exists a region of parametric space where the shrinking effect is not strong enough to flatten the band, a rise in the doping level must lower $u^{(s^*)}$. Such a region must exist: at least all the segment $(V=0,\delta)$ is included, since in that region of parametric space the HF hamiltonian reduces to the that of the free Fermi gas.
 
 We conclude this section with the analytic computation of $u^{(s^*)}$ at half filling and unitary filling, both at low temperature:
 \begin{align}
@@ -898,7 +898,7 @@ We draw the MBZ in Fig.~\ref{fig:normal-MBZ}. The renormalised bands satisfy
 \[
 	\tilde{\epsilon}_\mathbf{k} = - 4 \tilde{t}^{(s^*)} \varphi_\mathbf{k}^{(s^*)} \, .
 \]
-Hence, $\tilde{\epsilon}_\mathbf{k}<0$ inside the MBZ and $\tilde{\epsilon}_\mathbf{k}>0$ outside. Along the boundary $\partial \mathrm{MBZ}$ we have $\tilde{\epsilon}_\mathbf{k}=0$.
+Hence, $\tilde{\epsilon}_\mathbf{k}<0$ inside the MBZ and $\tilde{\epsilon}_\mathbf{k}>0$ outside. This is also visible in the top-left panel of Fig.~\ref{fig:x-wave-reciprocal-factors}. Along the boundary $\partial \mathrm{MBZ}$ we have $\tilde{\epsilon}_\mathbf{k}=0$.
 
 \begin{tabproof}[Proof of Eqs.~\eqref{eq:normal-uS-half-filling}, \eqref{eq:normal-uS-unitary-filling}]
 
@@ -1046,13 +1046,13 @@ Increasing temperature, Mott localisation is suppressed. In Fig.~\ref{subfig:nor
 	\qquad
 	\delta = 0.0, 0.2, 0.4 \, .
 \]
-Increasing temperature, the constant $u^{(s^*)}$ region progressively disappears in favour of a monotonically decreasing behaviour. In Fig.~\ref{subfig:normal-data-uS-C256-compared} the same dataset is plotted with focus on the RMP $\tilde{t}^{(s^*)}$. Temperature increase disrupts localisation effects, at least at small values of $V$. However, the bands shrinking effect is still relevant up to $\beta=1.0$, with the hopping parameter approximately halving at $V \approx 5 \divisionsymbol 6$.
+Increasing temperature, the constant $u^{(s^*)}$ region progressively disappears in favour of a monotonically decreasing behaviour. In Fig.~\ref{subfig:normal-data-tS-C256-compared} the same dataset is plotted with focus on the RMP $\tilde{t}^{(s^*)}$. Temperature increase disrupts localisation effects, at least at small values of $V$. However, the bands shrinking effect is still relevant up to $\beta=1.0$, with the hopping parameter approximately halving at $V \approx 5 \divisionsymbol 6$.
 
 \subsection{Solution free energy and entropy densities}\label{subsec:normal-f-s}
 
 In order to compare phases, we need an estimation of free energy of each. The plots of Fig.~\ref{fig:normal-f-data} report our findings on the normal phase free energy, computed based on Eq.~\eqref{eq:normal-fMFT}. The free energy is intended in unities of $t$. For a non-flat band, doping increases energy because the band fills up and electrons populate higher energy levels. 
 
-Looking at the data of Fig.~\ref{subfig:normal-f-data-B128} at fixed $\delta$, free energy density remains approximately constant up to the Mott boundary. Indeed, as long as a band with non-zero amplitude is present, the HFP correction of Eq.~\eqref{eq:normal-fMFT} compensates the free energy increase due to shrinking of bands,
+Looking at the data of Fig.~\ref{subfig:normal-f-data-B128} at fixed $\delta$, free energy density remains approximately constant up to the Mott boundary. This is better appreciated in Fig.~\ref{subfig:normal-f-data-B256}. Indeed, as long as a band with non-zero amplitude is present, the HFP correction of Eq.~\eqref{eq:normal-fMFT} compensates the free energy increase due to shrinking of bands,
 \[
 \begin{aligned}
 	- V \big| u^{(s^*)} \big|^2 &= - \frac{V u^{(s^*)*}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \\
@@ -1079,7 +1079,7 @@ Recalling the first point of the proof given in Sec.~\ref{subsec:normal-f}, to a
 	\label{fig:normal-f-data}
 \end{figure}
 
-Mott localisation is energetically expensive. This is visible in both panels of Fig.~\ref{fig:normal-f-data}. The $V$-dependent energy increase is an entropic effect: indeed, for a flat band,
+Mott localisation is energetically expensive. This is visible in both panels of Fig.~\ref{fig:normal-f-data}. The $V$-dependent energy increase is an entropic effect: indeed, for a flat band, the Fermi-Dirac distribution equals
 \[
 	f(0;\beta,\tilde{\mu}(\delta)) = \frac 1 2
 \]
@@ -1087,7 +1087,7 @@ at any temperature. The expression for the contribution to entropy of a single p
 \[
 	s(f) = -k_\mathrm{B} \left[ f \log f + (1-f) \log (1-f) \right] \, ,
 \]
-and is represented in Fig.~\ref{subfig:normal-entropy}. The maximum is located at $f=1/2$, then a flat band realises the maximally entropic condition. The Mott insulating region can be seen as a degeneration of the FS interface to the entire BZ, a process that maximises entropy.
+and is represented in Fig.~\ref{subfig:normal-entropy}. The maximum is located at $f=1/2$, then a flat band realises the maximally entropic condition. The Mott insulating region can be seen as a degeneration of the Fermi surface (FS) to the entire BZ, a process that maximises entropy.
 
 \begin{figure}
 	\centering
@@ -1124,15 +1124,15 @@ We defined $g$ in Sec.~\ref{subsec:reject-mix-iterate}, and operatively in Eq.~\
 	\qquad
 	\beta = 100.0 \, .
 \]
-This point is inside the Mott region, as can be checked in Fig.~\ref{subfig:normal-uS-data-B128}. The HFP $u^{(s^*)}$ needs to converge at $2t/V=t/3$ in order to give complete localisation. The initialiser
+This point is inside the Mott region, as can be checked in Fig.~\ref{subfig:normal-tS-data-B128-mott}. The HFP $u^{(s^*)}$ needs to converge at $2t/V=t/3$ in order to give complete localisation. The initialiser
 \[
 	\text{Step $1$}
 	\quad\colon\quad
 	u^{(s^*)} = 0.1 \, ,
 \]
-was arbitrarily chosen. In each panel of Fig.~\ref{fig:normal-tracks-compared}, the red track represents the value of $u^{(s^*)}$ we plug in the self-consistency equations, the blue the result of the self-consistent equation, the green one the mixed value of the two based on different $g$s. The gray dashed line is the theoretical convergence target. 
+was arbitrarily chosen. In each panel of Fig.~\ref{fig:normal-tracks-compared}, the red track represents the value of $u^{(s^*)}$ we plug in the self-consistency equations, the blue the result of the self-consistent equation, the green one the mixed value of the two based on different values of $g$. The gray dashed line is the theoretical convergence target. 
 
-In the first two panels, there is an evident infinite loop occurring whenever the green line crosses the threshold $2t/V$. At those steps, the green point is out of bounds with respect to Eq.~\eqref{eq:normal-us*-ud-constraint}. When this happens, the successive red point gives a band with inverted sign, a feature that ``breaks'' the self-consistency equation and generates a blue point with no physical significance.
+In the first two panels, there is an evident infinite loop occurring whenever the green line crosses the threshold $2t/V$. At those steps, the green point is out of bounds with respect to Eq.~\eqref{eq:normal-us*-ud-constraint}. When this happens, the successive red point gives a band with inverted sign, a feature that ``breaks'' the self-consistency equation and generates a blue point ``far away''.
 
 To overcome this problem it is necessary to move ``slowly''. As is shown in the right panel, the choice of a small enough mixing parameter ensures convergence. In the track, each blue dot is above the target and would produce a band with inverted sign. Mixing blue and red dots with a $95\%$ unbalance on the red ones, we ensure that the green track approaches the target from below.
 

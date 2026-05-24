@@ -1,7 +1,7 @@
  \def\GraphicsFolder{chapters/ehm-symmetries/pictures}
 \chapter{Phase transitions and spontaneous symmetry breaking in the extended Hubbard model}\label{chap:ehm-symmetries}
 
-In this chapter we discuss the symmetries of the extended Hubbard model, and classify the various phases discussed in this thesis based on the spontaneous symmetry breaking (SSB) mechanism. Therefore, we describe the explicit implementation of the HF method to investigate phase transitions hosted by the model.
+In this chapter, we discuss the symmetries of the extended Hubbard model, and classify the various phases discussed in this thesis based on the spontaneous symmetry breaking (SSB) mechanism. Therefore, we describe the explicit implementation of the HF method to investigate phase transitions hosted by the model.
 
 \section{Symmetries of the extended Hubbard model on the square lattice}\label{sec:ehm-syms}
 
@@ -83,7 +83,7 @@ The conventional HM shows a global $\mathrm{U}(2)$ symmetry, extended to $\mathr
 The EHM is symmetric under the global gauge transformation
 \begin{equation}\label{eq:gauge-symmetry}
 	\hat c_{i\sigma} \to e^{-i\eta} \hat c_{i\sigma} \, ,
-	\qquad
+	\quad
 	\hat c_{i\sigma}^\dagger \to e^{i\eta} \hat c_{i\sigma}^\dagger
 	\qq{where}
 	\eta \in \mathbb{R} \, .
@@ -100,7 +100,7 @@ We observe that the on-site density is gauge invariant,
 \begin{equation}\label{eq:ehm-n-gauge}
 	\hat n_{i\sigma} \to \hat n_{i\sigma} \, .
 \end{equation}
-Since $\comm{\hat H}{\hat N} = 0$, it follows that the total number of particles (charge)
+Since $\big[ \hat H,\hat N \big] = 0$, it follows that the total number of particles (charge)
 \[
 	\hat{N} = \sum_{i\sigma} \hat c_{i\sigma}^\dagger \hat c_{i\sigma}
 \]
@@ -121,7 +121,7 @@ where we defined the spinors $\hat \Psi_i$
 	\end{bmatrix} \, ,
 \end{equation}
 and the Pauli matrices
-\[
+\begin{equation}\label{eq:pauli-def}
 	\tau^x \equiv \begin{bmatrix}
 		& 1 \\
 		1 &
@@ -136,8 +136,8 @@ and the Pauli matrices
 		1 & \\
 		& -1
 	\end{bmatrix} \, .
-\]
-The spin operators of Eq.~\eqref{eq:local-S} obey an $\mathfrak{su}(2)$ algebra,
+\end{equation}
+Everywhere in the following, we will represent zeros in matrices as blank entries. The spin operators of Eq.~\eqref{eq:local-S} obey an $\mathfrak{su}(2)$ algebra,
 \begin{equation}\label{eq:local-su(2)}
 	\left[ \hat S_j^\alpha, \hat S_j^\beta \right] = i \sum_\gamma \epsilon_{\alpha\beta\gamma} \hat S_j^\gamma \, ,
 \end{equation}
@@ -217,7 +217,7 @@ Also $\hat H_V$ and $\hat N$ commutate with each component of the global spin gi
 	\comm{\hat N}{\hat{\mathbf{S}}} = 0 \, .
 \end{equation}
 
-\begin{tabproof}[Proof of Eq.~\eqref{eq:[HV,S]=0-[N,S]=0}: $\hat H_V$ and $\hat N$ are $\mathrm{SU}(2)$ symmetric.]
+\begin{tabproof}[Proof of Eq.~\eqref{eq:[HV,S]=0-[N,S]=0}: $\hat H_V$ and $\hat N$ are $\mathrm{SU}(2)$ symmetric]
 	
 	The proof is organised through a sequence of results:	
 	\begin{enumerate}
@@ -248,7 +248,7 @@ Also $\hat H_V$ and $\hat N$ commutate with each component of the global spin gi
 		\begin{equation}\label{eq:ehm-R-exp}
 			\mathcal{R}(\bm{\theta}) = \exp(- \frac{i}{2} \bm{\theta} \cdot \bm{\tau})
 			\qq{where}
-			\bm{\tau} = (\tau_x,\tau_y,\tau_z) \, .
+			\bm{\tau} = (\tau^x,\tau^y,\tau^z) \, .
 		\end{equation}
 		Let us prove this. Let $\hat A = i \bm{\theta} \cdot \hat{\mathbf{S}}$ e $\hat B = \hat \Psi_i$. The following identity, a consequence of Baker-Campbell-Housdorff formula, holds:
 		\[
@@ -301,7 +301,7 @@ Also $\hat H_V$ and $\hat N$ commutate with each component of the global spin gi
 				&= \hat \Psi_i^\dagger \hat \Psi_i
 			\end{aligned}
 		\]
-		being $\mathcal{R} \in \mathrm{SU}(2)$. Recalling Eqs.~\eqref{eq:ehm-HV-4xPsi}, \eqref{eq:ehm-N-2xPsi}, we conclude that $\hat H_V$ and $\hat N$ are $\mathrm{SU}(2)$ symmetric -- which means, it does not change under global spin rotations. This fact implies Eq.~\eqref{eq:[HV,S]=0-[N,S]=0}.
+		being $\mathcal{R} \in \mathrm{SU}(2)$. Recalling Eqs.~\eqref{eq:ehm-HV-4xPsi}, \eqref{eq:ehm-N-2xPsi}, we conclude that $\hat H_V$ and $\hat N$ are $\mathrm{SU}(2)$ symmetric, i.e. do not change under global spin rotations. This fact implies Eq.~\eqref{eq:[HV,S]=0-[N,S]=0}.
 	\end{enumerate}
 \end{tabproof}
 %
@@ -322,7 +322,7 @@ We will refer to $\mathrm{U}(2)$ symmetry to indicate full charge-spin conservat
 \[
 	\mathrm{U}^z(1) \subset \mathrm{SU}(2) \, ,
 \]
-where the $z$ superscript serves to distinguish from the gauge group. The $z$ axis does not need to be identified with the ``real'' $z$ axis, perpendicular with the lattice plane. Any given direction works. In Fig.~\ref{fig:su2-u1-domains} we show schematically how $\mathrm{U}^z(1)$ is a subgroup of $\mathrm{SU}(2)$ for a given direction $m$.
+where the $z$ superscript serves to distinguish from the gauge group. The $z$ axis does not need to be identified with the ``real'' $z$ axis, perpendicular with the lattice plane. Any given direction works. In Fig.~\ref{fig:su2-u1-domains} we show schematically how $\mathrm{U}^z(1)$ is a subgroup of $\mathrm{SU}(2)$ for a given direction $\mathbf{m}$.
 
 \begin{figure}
 	\centering
@@ -401,9 +401,9 @@ The equality $\mathrm{P} \lbrace \hat H \rbrace = \hat H$ expresses PHS, which h
 		&= - \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{i\sigma} \hat h_{j\sigma'} - \hat h_{i\sigma}^\dagger \hat h_{i\sigma} + \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger - \left(
 			\hat h_{i\sigma} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}
 		\right) \delta_{ij}\delta_{\sigma\sigma'} \nonumber \\
-		&= \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} + \left(
+		&= \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} - \left(
 			\hat n_{i\sigma} + \hat n_{j\sigma'}
-		\right) - 1 - \left(
+		\right) + 1 - \left(
 			\hat h_{i\sigma} \hat h_{j\sigma'}^\dagger - \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}
 		\right) \delta_{ij}\delta_{\sigma\sigma'} \, . \label{eq:phs-hhhh-chain}
 	\end{align}
@@ -437,10 +437,10 @@ The equality $\mathrm{P} \lbrace \hat H \rbrace = \hat H$ expresses PHS, which h
 	\[
 	\begin{aligned}
 		\mathrm{P} \lbrace \hat H_U \rbrace &= U \sum_{i\in\mathcal{L}} \hat h_{i\uparrow} \hat h_{i\downarrow} \hat h_{i\downarrow}^\dagger \hat h_{i\uparrow}^\dagger \\
-		&= U \sum_{i\in\mathcal{L}} \hat h_{i\uparrow}^\dagger \hat h_{i\downarrow}^\dagger \hat h_{i\downarrow}\hat h_{i\uparrow} + U \sum_{i\in\mathcal{L}} \left(
+		&= U \sum_{i\in\mathcal{L}} \hat h_{i\uparrow}^\dagger \hat h_{i\downarrow}^\dagger \hat h_{i\downarrow}\hat h_{i\uparrow} - U \sum_{i\in\mathcal{L}} \left(
 			\hat n_{i\uparrow} + \hat n_{i\downarrow}
-		\right) - U \sum_{i\in\mathcal{L}} (1) \\
-		&= U \sum_i \hat h_{i\uparrow}^\dagger \hat h_{i\downarrow}^\dagger \hat h_{i\downarrow}\hat h_{i\uparrow} + U (\hat N - L_x L_y) \, .
+		\right) + U \sum_{i\in\mathcal{L}} (1) \\
+		&= U \sum_i \hat h_{i\uparrow}^\dagger \hat h_{i\downarrow}^\dagger \hat h_{i\downarrow}\hat h_{i\uparrow} - U (\hat N - L_x L_y) \, .
 	\end{aligned}
 	\]
 	At half filling, $\langle \hat N \rangle = L_x L_y$. The unitary map of Eq.~\eqref{eq:phs-P-general}, independently of the condition of Eq.~\eqref{eq:phs-P-condition}, leaves the hamiltonian identical at half-filling.
@@ -451,10 +451,10 @@ The equality $\mathrm{P} \lbrace \hat H \rbrace = \hat H$ expresses PHS, which h
 	\[
 	\begin{aligned}
 		\mathrm{P} \lbrace \hat H_V \rbrace &= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma} \hat h_{j\sigma'} \hat h_{j\sigma'}^\dagger \hat h_{i\sigma}^\dagger \\
-		&= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \left(
+		&= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} + V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \left(
 			\hat n_{i\sigma} + \hat n_{j\sigma'}
-		\right) + V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} (1) \\
-		&= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} - 2zV (\hat N - L_x L_y) \, ,
+		\right) - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} (1) \\
+		&= - V \sum_{\langle ij \rangle} \sum_{\sigma \sigma'} \hat h_{i\sigma}^\dagger \hat h_{j\sigma'}^\dagger \hat h_{j\sigma'} \hat h_{i\sigma} + 2zV (\hat N - L_x L_y) \, ,
 	\end{aligned}
 	\]
 	with $z=4$ the lattice coordination number. In the last line, we used that on the square lattice
@@ -466,9 +466,7 @@ The equality $\mathrm{P} \lbrace \hat H \rbrace = \hat H$ expresses PHS, which h
 	%
 \end{tabproof}
 %
-As for the conventional HM \cite{arovas2022hubbard}, this result can be generalised to any bipartite lattice. In turn, if a lattice is not bipartite, PHS is not present. 
-
-We report in Tab.~\ref{tab:symmetry-groups} all identified symmetries.
+As for the conventional HM \cite{arovas2022hubbard}, this result can be generalised to any bipartite lattice. In turn, if a lattice is not bipartite, PHS is not present. We report in Tab.~\ref{tab:symmetry-groups} all identified symmetries.
 
 \begin{table}
 	\centering
@@ -702,6 +700,7 @@ where the sum over $\mathcal{L}/2$, in last line, means that we are summing over
 	}_{\text{Cooper}}	
 	\label{eq:ehm-HV(ss)-wick} \, .
 \end{align}
+where $\bm{\delta} \in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace$, using the notation of Fig.~\ref{fig:square-nearest-neighbors}.
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:ehm-HV(ss)}]
 
@@ -795,7 +794,7 @@ The separation of $\hat H_V$ in o.s. and s.s. sector is necessary in order to de
 
 \paragraph{Hartree terms.}
 
-As was for the local repulsion $\hat H_U$, the non-local Hartree terms of Eqs.~\eqref{eq:ehm-HV(os)}, \eqref{eq:ehm-HV(ss)} are not subject to symmetry selection rules for any symmetry of Tab.~\ref{tab:symmetry-groups}. Thus they are allowed for all sectors.
+As was for the local repulsion $\hat H_U$, the non-local Hartree terms of Eqs.~\eqref{eq:ehm-HV(ss)}, \eqref{eq:ehm-HV(os)} are not subject to symmetry selection rules for any symmetry of Tab.~\ref{tab:symmetry-groups}. Thus they are allowed for all sectors.
 
 \paragraph{Fock terms.}
 
@@ -889,7 +888,7 @@ where we defined the bare bands:
 		&= -2t\sum_{\mathbf{k},\mathbf{k}'} \sum_\sigma \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \times \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}/2} e^{i(\mathbf{k}-\mathbf{k}')\cdot\mathbf{r}} \times \sum_{\bm{\delta} \in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} e^{i \mathbf{k}' \cdot \bm{\delta}} \, .
 	\end{aligned}
 	\]
-	We used Eq.~\eqref{eq:ehm-NNs-sum(f)} and recognised that the h.c. term gives an identical contribution. We recognise in the central term the relation of Eq.~\eqref{eq:ehm-delta/2}. Hence,
+	We used Eq.~\eqref{eq:ehm-NNs-sum(f)} and recognised that the $\hc$ term gives an identical contribution. We recognise in the central term the relation of Eq.~\eqref{eq:ehm-delta/2}. Hence,
 	\[
 	\begin{aligned}
 		\hat H_t &\Feq -2t\sum_{\mathbf{k},\mathbf{k}'} \sum_\sigma \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \left[
@@ -923,7 +922,7 @@ Sums over the variables $\mathbf{K}, \mathbf{k}, \mathbf{k}'$ must be intended a
 	\end{aligned}
 	\]
 	where we used Eq.~\eqref{eq:ehm-delta}. Let $\mathbf{k}_1 + \mathbf{k}_2 = \mathbf{k}_3 + \mathbf{k}_4 = \mathbf{K}$, and define $\mathbf{k}$, $\mathbf{k}'$ such that
-	\[
+	\begin{equation}\label{eq:k-k'-K}
 		\mathbf{k}_1 \equiv \mathbf{K} + \mathbf{k} \, ,
 		\qquad
 		\mathbf{k}_2 \equiv \mathbf{K} - \mathbf{k} \, ,
@@ -931,7 +930,7 @@ Sums over the variables $\mathbf{K}, \mathbf{k}, \mathbf{k}'$ must be intended a
 		\mathbf{k}_3 \equiv \mathbf{K} - \mathbf{k}' \, ,
 		\qquad
 		\mathbf{k}_4 \equiv \mathbf{K} + \mathbf{k}' \, .
-	\]
+	\end{equation}
 	Substituting, we get the expression of Eq.~\eqref{eq:HU-fourier}.
 
 \end{tabproof}
@@ -947,9 +946,9 @@ In o.s. sector, the non-local attraction transforms as:
 	\right)	+ \cos \left(
 	\delta k_y
 	\right)	
-	\right]	\hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\downarrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\downarrow} \hat c_{\mathbf{K}+\mathbf{k}'\uparrow} \, .
+	\right]	\hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\downarrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\downarrow} \hat c_{\mathbf{K}+\mathbf{k}'\uparrow} \, ,
 \end{equation}
-In the s.s. sector:
+where $\delta k_\ell \equiv k_\ell - k_\ell'$. In the s.s. sector:
 \begin{multline}\label{eq:HV-ss-fourier}
 	\hat H_V^{(\mathrm{s.s.})} \Feq - \frac{V}{L_x L_y}
 	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
@@ -967,25 +966,23 @@ Sums over the variables $\mathbf{K}, \mathbf{k}, \mathbf{k}'$ must be intended a
 
 \begin{tabproof}[Proof of Eqs.~\eqref{eq:HV-os-fourier}, \eqref{eq:HV-ss-fourier}: $\mathcal{F}$-transform of $\hat H_V$]
 	
-	To prove Eqs.~\eqref{eq:HV-os-fourier}, \eqref{eq:HV-ss-fourier}, it is useful to start by defining:
-	\[
+	Let
+	\begin{equation}\label{eq:ehm-h-def}
 		h_{\mathbf{r}\sigma\sigma'} \equiv - V \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left(
 			\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} + \bm{\delta} \sigma'} + \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} - \bm{\delta} \sigma'}
 		\right) \, ,
-	\]
-	with:
-	\[
+	\end{equation}
+	which implies
+	\begin{equation}\label{eq:HV=sum(h)}
 		\hat H_V = \sum_{\mathbf{r}\in\mathcal{L}/2} \sum_{\sigma,\sigma'} h_{\mathbf{r}\sigma\sigma'} \, .
-	\]
+	\end{equation}
 	The product of densities on neighbouring sites transforms as:
-	\[
-	\begin{aligned}
-		\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} \pm \bm{\delta} \sigma'} &= \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \sigma'}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \sigma'} \hat c_{\mathbf{r}\sigma} \\
+	\begin{align}
+		\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} \pm \bm{\delta} \sigma'} &= \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \sigma'}^\dagger \hat c_{\mathbf{r} \pm \bm{\delta} \sigma'} \hat c_{\mathbf{r}\sigma} \nonumber \\
 		&\Feq \frac{1}{(L_xL_y)^2} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{k}_3,\mathbf{k}_4}
-		e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} e^{\pm i(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}}  \hat c_{\mathbf{k}_1 \sigma}^\dagger \hat c_{\mathbf{k}_2 \sigma'}^\dagger \hat c_{\mathbf{k}_3 \sigma'} \hat c_{\mathbf{k}_4\sigma} \, .
-	\end{aligned}
-	\]
-	Then
+		e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} e^{\pm i(\mathbf{k}_2-\mathbf{k}_3) \cdot \bm{\delta}}  \hat c_{\mathbf{k}_1 \sigma}^\dagger \hat c_{\mathbf{k}_2 \sigma'}^\dagger \hat c_{\mathbf{k}_3 \sigma'} \hat c_{\mathbf{k}_4\sigma} \label{eq:NN-densities-fourier} \, .
+	\end{align}
+	Then, inserting Eq.~\eqref{eq:NN-densities-fourier} in Eq.~\eqref{eq:ehm-h-def}, we obtain
 	\[
 	\begin{aligned}
 		h_{\mathbf{r}\sigma\sigma'} &\Feq -\frac{V}{(L_xL_y)^2} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \sum_{\mathbf{k}_1,\mathbf{k}_2,\mathbf{k}_3,\mathbf{k}_4} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} \\
@@ -998,11 +995,11 @@ Sums over the variables $\mathbf{K}, \mathbf{k}, \mathbf{k}'$ must be intended a
 		\right]	\hat c_{\mathbf{k}_1 \sigma}^\dagger \hat c_{\mathbf{k}_2 \sigma'}^\dagger \hat c_{\mathbf{k}_3 \sigma'} \hat c_{\mathbf{k}_4\sigma} \, .
 	\end{aligned}
 	\]
-	The full non-local interaction is given by summing over all sites of $\mathcal{L}/2$ (which is, one sublattice). Applying Eq.~\eqref{eq:ehm-delta/2} gives back momentum conservation
+	The full non-local attraction $\hat H_V$ is given, as in Eq.~\eqref{eq:HV=sum(h)}, by summing over all sites of $\mathcal{L}/2$ (i.e. one sublattice). Applying Eq.~\eqref{eq:ehm-delta/2} gives back momentum conservation
 	\[
 		\frac{1}{L_xL_y} \sum_{\mathbf{r} \in \mathcal{L}/2} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} = \frac{1}{2} \delta_{\mathbf{k}_1 + \mathbf{k}_2 = \mathbf{k}_3 + \mathbf{k}_4} \, ,
 	\]
-	where we used Eq.~\eqref{eq:ehm-delta/2}. Define $\mathbf{k}$, $\mathbf{k}'$ and $\mathbf{K}$ as we did fo the local repulsion, and
+	where we used Eq.~\eqref{eq:ehm-delta/2}. We define $\mathbf{k}$, $\mathbf{k}'$ and $\mathbf{K}$ as we did fo the local repulsion in Eq.~\eqref{eq:k-k'-K}, and
 	\[
 		\delta \mathbf{k} \equiv \mathbf{k}-\mathbf{k}' \, .
 	\]

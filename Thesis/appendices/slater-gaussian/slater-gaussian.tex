@@ -1,6 +1,6 @@
 \chapter{Gaussian states}\label{app:slater-gaussian}
 
-In this appendix we discuss the properties of the many-body states we use to approximate the real ground-state of the system within HF method. We introduce Slater determinants to grasp the general idea behind HF variational method, and then extend to a larger set of states.
+In this appendix, we discuss the properties of the many-body states we use to approximate the real ground-state of the system within HF method, introduced in Chap.~\ref{chap:hf}. We introduce Slater determinants to grasp the general idea behind HF variational method, and then extend to a larger set of states.
 
 \section{Slater determinants}
 
@@ -10,7 +10,7 @@ A many-body wavefunction describing a collective electronic state needs to be an
 \]
 being $\mathcal{V}$ the total volume. 
 
-Let $\mathrm{S}_N$ be the $N!$ elements symmetric group of permutations of $N$ objects and $\mathrm{P} \in \mathrm{S}_N$ a specific permutation of a given $N$-uple,
+Let $\mathrm{S}_N$ be the $N!$ elements symmetric group of permutations of $N$ objects, and $\mathrm{P} \in \mathrm{S}_N$ a specific permutation of a given $N$-uple,
 \[
 	\mathrm{P}
 	\quad\colon\quad
@@ -34,7 +34,7 @@ Consider now the many-body wavefunction
 	\prod_{i=1}^{N} \psi_i(\mathbf{r}_i,\sigma_i)
 	\right] \, .
 \]
-This class of wavefunctions, obtained as antisymmetric combinations of product states, are representable as so-called Slater determinants,
+This class of wavefunctions, obtained as an antisymmetric combinations of product states, are representable as so-called Slater determinants,
 \[
 	\Psi(\mathbf{r}_1,\sigma_1;\mathbf{r}_2,\sigma_2;\cdots;\mathbf{r}_N,\sigma_N) = \frac{1}{\sqrt{N!}} \det \begin{bmatrix}
 		\psi_1 (\mathbf{r}_1,\sigma_1) & \psi_1 (\mathbf{r}_2,\sigma_2) & \cdots & \psi_1 (\mathbf{r}_N,\sigma_N) \\
@@ -61,7 +61,7 @@ being $\ket{\Omega}$ the vacuum. Antisymmetry is guaranteed by Fermi anticommuta
 
 The concept of vacuum state needs to be interpreted in relation to an appropriate choice of second-quantisation annihilation and creation operators. For a given set of fermion operators, the vacuum is that state mapped to zero by any annihilation operator. As we will see, to correctly define the vacuum state is crucial in order to apply Wick's theorem and develop an HF approximation of EHM. Before moving to generalisation, let us discuss a playground setup.
 
-Consider some unspecified model whose ground state at null temperature is given in Eq.~\eqref{appeq:slater-Psi} for a given set of electronic operators $\hat c_i$, $\hat c_i^\dagger$. Let $\hat c_i$ with $N <i < D$ identify all spin-orbitals not already included in the definition of $\ket{\Psi}$ of Eq.~\eqref{appeq:slater-Psi} (thus, non populated). Then it holds:
+Consider some unspecified model whose ground state at null temperature is given in Eq.~\eqref{appeq:slater-Psi} for a given set of electronic operators $\hat c_i$, $\hat c_i^\dagger$. Let $\hat c_i$ with $N <i < D$ identify all spin-orbitals not already included in the definition of $\ket{\Psi}$ of Eq.~\eqref{appeq:slater-Psi} (thus, non populated). Then, it holds:
 \[
 	\begin{aligned}
 		0\le i &\le N \qquad &\hat c_i^\dagger \ket{\Psi} = 0 \, , \\
@@ -69,12 +69,12 @@ Consider some unspecified model whose ground state at null temperature is given 
 	\end{aligned}
 \]
 Let:
-\[
+\begin{equation}\label{appeq:ai-def}
 	\hat a_i \equiv \begin{cases}
 		\hat c_i^\dagger &\text{for $0\le i \le N$,}\\
 		\hat c_i &\text{for $i > N$.} \\
 	\end{cases}
-\]
+\end{equation}
 These new operators satisfy a Fermi algebra $\lbrace \hat a_i , \hat a_j^\dagger \rbrace = \delta_{ij}$ and annihilate the ``vacuum'' state $\ket{\Psi}$. In other words, any Slater state like Eq.~\eqref{appeq:slater-Psi} can be seen as a vacuum state for a suitably chosen set of fermionic operators.
 
 This property is handy for evaluation of expectation values (EV). Let $\hat O^{(\ell)}$ be a linear combination of $\hat c_i$ or $\hat c_i^\dagger$,
@@ -94,19 +94,19 @@ Inserting the above decomposition, we get a large sum of many terms, each contai
 	\hat{\mathcal{O}} = \cdots + (\text{coefficient}) \times \hat C_1 \hat C_2 \cdots \hat C_{2k} + \cdots \, ,
 \]
 with $\hat C_i$ some fermionic operator, either $\hat c_j$ or $\hat c_j^\dagger$ for some $j$. Now, Wick's theorem states that
+\begin{multline}\label{appeq:wick-general}
+	\hat C_1 \hat C_2 \cdots \hat C_{2k} = \mathrm{N} \left\lbrace \hat C_1 \hat C_2 \cdots \hat C_{2k} \right\rbrace + \sum_{(\alpha\beta)} (-1)^{\zeta_{\alpha\beta}} D_{\alpha\beta} \mathrm{N} \left\lbrace \prod_{i \neq \alpha,\beta} \hat C_i \right\rbrace \\
+	+ \sum_{(\alpha\beta)(\gamma\delta)} (-1)^{\zeta_{\alpha\beta}} D_{\alpha\beta} (-1)^{\zeta_{\gamma\delta}} D_{\gamma\delta} \mathrm{N} \left\lbrace \prod_{i \neq \alpha,\beta,\gamma,\delta} \hat C_i \right\rbrace + \cdots \, ,
+\end{multline}
+where $\mathrm{N}\lbrace \cdots \rbrace$ indicates normal ordering, $D_{\alpha\beta}$ is the contraction of the pair $\hat C_\alpha \hat C_\beta$ and $\zeta_{\alpha\beta}$ is a symmetry factor included to take care of the number of fermionic algebra. In this context contractions are just expectation values over $\ket{\Psi}$,
 \[
-\begin{aligned}
-	\hat C_1 \hat C_2 \cdots \hat C_{2k} &= \mathrm{N} \left\lbrace \hat C_1 \hat C_2 \cdots \hat C_{2k} \right\rbrace \\
-	&+ \sum_{(\alpha\beta)} (-1)^{\zeta_{\alpha\beta}} D_{\alpha\beta} \mathrm{N} \left\lbrace \prod_{i \neq \alpha,\beta} \hat C_i \right\rbrace \\
-	&+ \sum_{(\alpha\beta)(\gamma\delta)} (-1)^{\zeta_{\alpha\beta}} D_{\alpha\beta} (-1)^{\zeta_{\gamma\delta}} D_{\gamma\delta} \mathrm{N} \left\lbrace \prod_{i \neq \alpha,\beta,\gamma,\delta} \hat C_i \right\rbrace \\
-	&+ \cdots \, ,
-\end{aligned}
+	D_{\alpha\beta} \equiv \mel{\Psi}{\hat C_\alpha \hat C_\beta}{\Psi} \, .
 \]
-where $\mathrm{N}\lbrace \cdots \rbrace$ indicates normal ordering, $D_{\alpha\beta}$ is the contraction of the pair $\hat C_\alpha \hat C_\beta$ and $\zeta_{\alpha\beta}$ is a symmetry factor included to take care of the number of fermionic algebra. In this context contractions are just expectation values over $\ket{\Psi}$. Sums are performed over pairs of indices, implicitly taken to be different from each other. To take averages of this last operator over $\ket{\Psi}$ is a not-so-hard task, given the simple expression of the state in terms of electronic annihilations and creations. However it can be made simpler: if we change basis and express all operators in terms of $\hat a$, $\hat a^\dagger$,
+Sums are performed over pairs of indices, implicitly taken to be different from each other. To take averages of this last operator over $\ket{\Psi}$ is a not-so-hard task, given the simple expression of the state in terms of electronic annihilations and creations. However it can be made simpler: let us change basis and express all operators in terms of the operators defined in Eq.~\eqref{appeq:ai-def},
 \[
 	\hat C_i \quad\to\quad \hat A_i \, ,
 \]
-the above decomposition holds identically, with slight change of notation. Now, taking a zero temperature average on $\ket{\Psi}$ (the vacuum with respect to the new operators) all normal-ordered terms disappear,
+being $\hat A_i$ either $\hat a_i$ or $\hat a_i^\dagger$. The Wick's decomposition of Eq.~\eqref{appeq:wick-general} holds identically, upon making substitutions. Now, taking a zero temperature average on $\ket{\Psi}$ (the vacuum with respect to the new operators) all normal-ordered terms disappear,
 \[
 	\mel{\Psi}{\mathrm{N}\lbrace \hat A_i \hat A_j \cdots \rbrace}{\Psi} = 0 \, ,
 \]
@@ -139,7 +139,7 @@ being the average intended on a Slater state. In this context, only contractions
 
 \section{Generalisation to Bogoliubov-Valatin states}\label{appsec:bogoliubov-valatin}
 
-In HF theory we look for a good approximation of the true many-body wavefunction constraining search to a class of states. Introducing Slater determinants was useful to grasp the concrete idea behind the method. However, in order to treat some physical phenomena we need to extend the variational procedure to a other sets of states. For example, Bardeen-Cooper-Shrieffer (BCS) theory of superconductivity gives a many-body ground-state which is not representable as a Slater determinant of ``standard'' electronic operators. In this section we extend the notions introduced before and set grounds for the generalised Hartree-Fock-Bogoliubov (HFB) method we use in this thesis.
+In HF theory we look for a good approximation of the true many-body wavefunction constraining search to a class of states. Introducing Slater determinants was useful to grasp the concrete idea behind the method. However, in order to treat some physical phenomena we need to extend the variational procedure to a other sets of states. For example, Bardeen-Cooper-Shrieffer (BCS) theory of superconductivity gives a many-body ground-state which is not representable as a Slater determinant of ``standard'' electronic operators. In this section, we extend the idea introduced above.
 
 Consider the Nambu spinor
 \[
@@ -168,7 +168,7 @@ If $M$ is unitary, it follows:
 	&= \begin{bmatrix}
 		U & V \\ U^\dagger & V^\dagger
 	\end{bmatrix} \begin{bmatrix}
-		U & U^\dagger \\ V^\dagger & V
+		U^\dagger & U \\ V^\dagger & V
 	\end{bmatrix} \\
 	&= \begin{bmatrix}
 		UU^\dagger + VV^\dagger & U^2 + V^2 \\
@@ -176,14 +176,19 @@ If $M$ is unitary, it follows:
 	\end{bmatrix} \, ,
 \end{aligned}
 \]
-thus, among other conditions, $UU^\dagger + VV^\dagger = \mathbb{I}_{D \times D}$.
+therefore, 
+\begin{align}
+	UU^\dagger + VV^\dagger &= \mathbb{I}_{D \times D} \, , \label{appeq:UU++VV+=I} \\
+	U^2 + V^2 &= 0 \label{appeq:U2+V2=0} \, ,
+\end{align}
+where in last line $0$ is intended as a $D \times D$ zero matrix.
 
 The new operators in $\hat \Gamma$ satisfy Fermi anticommutation rules. In fact, writing the mapping explicitly for any of the new operators and some index $i \in [1,D]$,
-\[
+\begin{equation}\label{appeq:c-gamma}
 	\hat \gamma_i \equiv \sum_{j=1}^D U_{ij} \hat c_j + \sum_{j=1}^D V_{ij} \hat c_j^\dagger
 	\qq{and}
 	\hat \gamma_i^\dagger \equiv \sum_{j=1}^D U_{ji}^* \hat c_j^\dagger + \sum_{j=1}^D V_{ji}^* \hat c_j \, ,
-\]
+\end{equation}
 and substituting in the anti-commutator 
 \[
 \begin{aligned}
@@ -193,7 +198,7 @@ and substituting in the anti-commutator
 	&= \delta_{ij} \, ,
 \end{aligned}
 \]
-being $M$ unitary.
+being $M$ unitary. In last line we used Eq.~\eqref{appeq:UU++VV+=I}.
 
 Assume now $\ket{\Psi}$ to be the vacuum state for the new operators,
 \[
@@ -205,12 +210,12 @@ Suppose we want to evaluate, with identical meaning of the notation as in previo
 \[
 	\left\langle \hat C_1 \hat C_2 \cdots \hat C_{2k} \right\rangle \, .
 \]
-We can apply the result obtained above. Indeed, inverse maps linking old and new operators read:
-\[
+We can apply the result obtained above. Indeed, the inverse version of the maps of Eq.~\eqref{appeq:c-gamma}, linking old and new operators, read
+\begin{equation}\label{appeq:gamma-c}
 	\hat c_i \equiv \sum_{j=1}^D U_{ij} \hat \gamma_j + \sum_{j=1}^D U_{ji}^* \hat \gamma_j^\dagger
 	\qq{and}
 	\hat c_i^\dagger \equiv \sum_{j=1}^D V_{ji}^* \hat \gamma_j^\dagger + \sum_{j=1}^D V_{ij} \hat \gamma_j \, .
-\]
+\end{equation}
 In Sec.~\ref{appsec:slater-wick} we argued that, when averaging a product of operators like the one of Eq.~\eqref{appeq:slater-Ol}, only $2$-points EVs contribute. This time the idea is the same, substituting $\mathcal{O}^{(\ell)} \to \hat C_\ell$ and $\hat c_i, \hat c_i^\dagger \to \hat \gamma_i, \hat \gamma_i^\dagger$. Thus, also here we can decompose the product operator, apply Wick's theorem, discard all non-fully-contracted terms and recompose the results. All we used was just the unitary mapping between $\hat \Phi$ and $\hat \Gamma$, the fact that $\gamma_i, \hat \gamma_i^\dagger$ obey Fermi anticommutation rules and ``see'' $\ket{\Psi}$ as a vacuum state.
 
 As in Sec.~\ref{appsec:slater-wick}, we conclude that:

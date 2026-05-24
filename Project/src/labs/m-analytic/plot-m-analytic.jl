@@ -50,8 +50,8 @@ DF = CSV.read(FilePathIn,DataFrame)
 
 xx = unique(DF.U)
 yy = filter(:δ => x -> x==0.0, DF).m
-scatterlines!(axs[1],xx,yy,color=RGB(0.75,0.75,0.75),label="Data")
-scatterlines!(axs[2],xx,yy,color=RGB(0.75,0.75,0.75))
+scatterlines!(axs[1],xx,yy,color=:black,label="Data")
+scatterlines!(axs[2],xx,yy,color=:black)
 
 H[1,3] = Legend(H,axs[1],framevisible=false)
 FilePathOut = "m-analytic.pdf"

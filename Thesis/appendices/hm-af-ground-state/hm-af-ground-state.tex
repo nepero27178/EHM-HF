@@ -67,7 +67,7 @@ Let $\ket{\Uparrow_{\mathbf{k}\sigma}}$ and $\ket{\Downarrow_{\mathbf{k}\sigma}}
 \begin{equation}\label{appeq:af-hm-gs-1}
 	\ket{\Psi} \equiv \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \ket{\overline{\Downarrow}_{\mathbf{k}\sigma}} \, .
 \end{equation}
-We can link the ``down'' states via an inverse rotation,
+Let us rotate the ``down'' states,
 \begin{align}
 	\ket{\overline{\Downarrow}_{\mathbf{k}\sigma}} &= e^{-i\theta_{\mathbf{k}\sigma} \hat s_{\mathbf{k}\sigma}^y} \ket{\Downarrow_{\mathbf{k}\sigma}} \nonumber \\
 	&= \cos \theta_{\mathbf{k}\sigma} \ket{\Downarrow_{\mathbf{k}\sigma}} - i \sin\theta_{\mathbf{k}\sigma} \hat s_{\mathbf{k}\sigma}^y \ket{\Downarrow_{\mathbf{k}\sigma}} \nonumber \\
@@ -141,7 +141,14 @@ Using Eq.~\eqref{appeq:af-hm-gs-2}, we conclude
 \end{equation}
 For low-temperature physics, we can expect the ground-state density matrix to be highly dominated by this BCS-like zero-temperature ground-state, which highlights the essential features of the system. 
 
-Finally, using Eq.~\eqref{eq:af-Gamma=WPsi}, we check that correctly the ground-state describes a perfect degenerate $\gamma^{(-)}$ quasiparticles Fermi gas,
+Finally, using Eq.~\eqref{eq:af-Gamma=WPsi}, we check that correctly the ground-state describes a perfect degenerate Fermi gas described by operators $\hat \gamma^{(-)}_{\mathbf{k}\sigma}$. Indeed,
+\[
+\begin{aligned}
+	\hat \gamma^{(-)}_{\mathbf{k}\sigma} &= \left[W_{\mathbf{k}\sigma} \hat \Psi_{\mathbf{k}\sigma}\right]_2 \\
+	&= \sin \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma} + \cos \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}+\bm{\pi}\sigma}
+\end{aligned}
+\]
+Therefore, Eq.~\eqref{appeq:af-hm-gs-3} reduces to
 \begin{equation}\label{appeq:af-hm-gs-4}
 	\ket{\Psi} = \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \gamma_{\mathbf{k}\sigma}^{(-)\dagger} \ket{\Omega_{\mathbf{k}\sigma}} \, .
 \end{equation}
@@ -205,9 +212,9 @@ because, as we said, in that case we do not have a pole for the transverse spin-
 	\lambda_0(\mathbf{k}\to\bm{\pi},0) &= \frac 1 U \, , &\text{(half filling)} \label{appeq:af-unstable-half} \\
 	\lambda_\delta(\mathbf{k}\to\bm{\pi},0) &= \frac 1 U + \frac{2\epsilon_\mathrm{F}}{\Delta} N(\epsilon_\mathrm{F}) \, . &\text{(finite doping)} \label{appeq:af-unstable}
 \end{align}
-The reason for the distinction above is the intrinsic metallic nature of the system for infinitesimal doping. The half-filled AF phase is insulating, because the chemical potential lies within the gap. For an insulator Fermi energy is not defined. Instead, at finite filling the phase is metallic because the chemical potential crosses the upper band.
+The reason for the distinction above is the intrinsic metallic nature of the system for infinitesimal doping. As we discuss at the end of Sec.~\ref{subsec:af-hm-diagonalisation}, the half-filled AF phase is insulating, because the chemical potential lies within the gap. For an insulator Fermi energy is not defined. Instead, at finite filling the phase is metallic because the chemical potential crosses the upper band.
 
-From Eq.~\eqref{appeq:af-instability-condition} and \eqref{appeq:af-unstable-half}, we see that the half filled antiferromagnet is stable towards transverse spin fluctuations, because $\chi^{+-}$ develops a divergence at zero frequency. At any finite doping, since we are describing a metal, a FS exists and thus $N(\epsilon_\mathrm{F})$ is finite. This makes the phase unstable, and this is the reason we do not discuss the AF phase outside of half-filling.
+From Eq.~\eqref{appeq:af-instability-condition} and \eqref{appeq:af-unstable-half}, we see that the half filled antiferromagnet is stable towards transverse spin fluctuations, because $\chi^{+-}$ develops a divergence at zero frequency. At any finite doping, since we are describing a metal, a Fermi surface exists and thus $N(\epsilon_\mathrm{F})$ is finite. This makes the phase unstable, and this is the reason we do not discuss the AF phase outside of half-filling.
 
 As we discussed at the beginning of Chap.~\ref{chap:af}, antiferromagnetism can establish in many ways. For instance, striped antiferromagnets are of particular interest \cite{wietek2021stripes}. In order to investigate the most stable physical realisation of an antiferromagnet on the conventional HM, on a pure HF level, we should implement a variational search for the minimum of free energy while varying the AF wavevector $\mathbf{k}$. Notice that at incommensurate wavevectors, $\mathbf{k} \neq \bm{\pi}$, the unit cell is not as simple as a pair of sites, but can become much larger. Hence, the HF analytical solution would be more complicated than our pseudospin representation of the HM hamiltonian in the commensurate AF channel.
 
@@ -227,9 +234,7 @@ where we indicated as $m_i$ the value of magnetisation at step $i$. We ran iHF s
 \]
 We considered also $\delta>0$, although -- as we specified in previous section -- a doped commensurate antiferromagnet is actually unstable.
 
-In Fig.~\ref{appfig:mdU-beta=100} magnetisation $m$ at $\beta=100$ is plotted. As is visible in Fig.~\ref{appsubfig:mU-beta=100}, ignoring instability issues, doping disrupts AF ordering; the horizontal asymptote lowers as $\delta$ gets bigger. Also, for $\delta > 0$, a finite magnetisation $m$ exists only for $U \ge U_c[\delta]$ (a critical value parametrically dependent on doping).
-
-Fig.~\ref{appsubfig:dU-beta=100} shows the dependence of the magnetisation on doping varying the local repulsion $U$. Identical analysis have been performed for different temperatures, leading to analogous results as long as $\beta \gtrsim 10$ and to $m \simeq 0$ for higher temperatures.
+In Fig.~\ref{appfig:mdU-beta=100} magnetisation $m$ at $\beta=100$ is plotted. As is visible in Fig.~\ref{appsubfig:mU-beta=100}, ignoring instability issues, doping disrupts AF ordering; the horizontal asymptote lowers as $\delta$ gets bigger. Also, for $\delta > 0$, a finite magnetisation $m$ exists only for $U \ge U_\mathrm{c}[\delta]$ (a critical value parametrically dependent on doping). In Fig.~\ref{appsubfig:dU-beta=100}, we show the dependence of the magnetisation on doping varying the local repulsion $U$. As $U$ grows, the maximum value of $\delta$ at which a finite magnetisation is developed gets larger.
 
 \begin{figure}
 	\centering
@@ -248,7 +253,7 @@ Fig.~\ref{appsubfig:dU-beta=100} shows the dependence of the magnetisation on do
 
 \section{Analytic expression of self-consistent magnetisation at half-filling}
 
-In this subsection we provide an analytic expression to compute $m$ self-consistently at half-filling. Multiply Eq.~\eqref{eq:af-hm-m-self-consistency} on both sides by $U$. Since due to symmetry $\mu=0$, we have the finite-temperature self-consistent equation
+In this subsection, we provide an analytic expression to compute $m$ self-consistently at half-filling. Let us multiply Eq.~\eqref{eq:af-hm-m-self-consistency} on both sides by $U$. Since at half filling $\mu=0$, we have the finite-temperature self-consistent equation
 \[
 	\Delta = \frac{U}{L_xL_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \frac{\Delta}{\sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2}) \, ,
 \]
@@ -256,11 +261,11 @@ where we used the relation
 \[
 	\mathrm{Th}_\mathbf{k}^{(-)}[\beta,0] = \tanh(\frac{\beta E_\mathbf{k}}{2}) \, .
 \]
-In thermodynamic limit $L \to \infty$
+In thermodynamic limit, $L \to \infty$,
 \[
 	\frac{1}{U} = \frac{1}{2} \int_\mathrm{BZ} \frac{\mathrm{d}\mathbf{k}}{(2\pi)^2} \frac{1}{\sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon_{\mathbf{k}}^2 + \Delta^2}) \, .
 \]
-Substitute the momentum integral with an integral over energies:
+We substitute the momentum integral with an integral over energies:
 \[
 	\frac{2}{U} = \int_{-4t}^{4t}  \frac{\mathrm{d}\epsilon \rho(\epsilon)}{\sqrt{\epsilon^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon^2 + \Delta^2}) \, ,
 \]
@@ -273,7 +278,7 @@ being $\rho(\epsilon)$ the $2$D square lattice DoS. Its explicit form \cite{koga
 	K(x) \equiv \int_0^{\pi/2} \frac{\mathrm{d}\theta}{\sqrt{1-x^2 \sin^2\theta}} \, ,
 \]
 where $K(x)$ is the complete elliptic integral of the first kind, shown in Fig.~\ref{appsubfig:K(x)}.
-
+%
 \begin{figure}
 	\centering
 	\subfloat[Plot of $K(x)$.]{
@@ -287,8 +292,8 @@ where $K(x)$ is the complete elliptic integral of the first kind, shown in Fig.~
 	\caption{Plots of the complete elliptic integral of the first kind $K(x)$ and the density of states for the planar square lattice.}
 	\label{appfig:square-dos}
 \end{figure}
-
-As is plotted in Fig.~\ref{appsubfig:D(x)}, the resulting DoS is logarithmically peaked at $\epsilon=0$, on the MBZ. A common approximation is to substitute the actual DoS with a step function,
+%
+As is plotted in Fig.~\ref{appsubfig:D(x)}, the DoS $\rho(\epsilon)$ is logarithmically peaked at $\epsilon=0$, on the MBZ. A common approximation is to substitute the actual DoS with a step function,
 \[
 	\rho(\epsilon) \simeq \rho_0 \mathrm{H} \left( \epsilon_0 - \abs{\epsilon} \right)
 	\qq{with}
@@ -298,7 +303,7 @@ Here, the peak parameters $\epsilon_0$ and $\rho_0$ are chosen in order to maint
 \[
 	\frac{2}{U} \simeq \rho_0 \int_{-\epsilon_0}^{\epsilon_0}  \frac{\mathrm{d}\epsilon}{\sqrt{\epsilon^2 + \Delta^2}} \tanh(\frac{\beta}{2} \sqrt{\epsilon^2 + \Delta^2}) \, .
 \]
-Suppose the system is magnetised, $\Delta>0$. At low temperature, $\beta \gg 1$, as a first approximation we can substitute the hyperbolic tangent with unity, obtaining
+Suppose the system is magnetised, $\Delta>0$. At low temperature, $\beta \gg 1$, as a first approximation we can substitute the hyperbolic tangent with $1$, obtaining
 \[
 \begin{aligned}
 	\frac{2}{\rho_0 U} &\simeq \int_{-\epsilon_0}^{\epsilon_0}  \frac{\mathrm{d}\epsilon}{\sqrt{\epsilon^2 + \Delta^2}} \\
@@ -311,7 +316,7 @@ thus
 \begin{equation}\label{appeq:m-analytic}
 	m \simeq \frac{\epsilon_0}{U\sinh(1/\rho_0 U)} \, ,
 \end{equation}
-having we used $\Delta = mU$. In the left panel of Fig.~\ref{appfig:m-analytic} we sketch this function of $U$ varying $\rho_0$, $\epsilon_0$. The same data of Fig.~\ref{appsubfig:mU-beta=100}, $\delta=0$ are plotted as gray dots. The shown curves are not fits.
+having we used $\Delta = mU$. In the left panel of Fig.~\ref{appfig:m-analytic} we sketch this function of $U$ varying $\rho_0$, $\epsilon_0$. The same data of Fig.~\ref{appsubfig:mU-beta=100}, $\delta=0$ are plotted as black dots. The shown curves are not fits.
 
 \begin{figure}
 	\centering
@@ -320,7 +325,7 @@ having we used $\Delta = mU$. In the left panel of Fig.~\ref{appfig:m-analytic} 
 	\label{appfig:m-analytic}
 \end{figure}
 
-Now: at large $U$,
+At large $U$, we have
 \[
 	\lim_{U\to +\infty} m \simeq \epsilon_0 \rho_0 = \frac{1}{2} \, ,
 \]

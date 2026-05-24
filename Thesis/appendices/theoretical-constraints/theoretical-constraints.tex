@@ -2,7 +2,7 @@
 
 \chapter{Theoretical constraints on the normal and AF HFPs}\label{app:theoretical-constraints}
 
-In this appendix we derive some theoretical constraints on the HFPs of the normal and AF phase. The derivations presented here are used in the discussions of Chap.~\ref{chap:normal} and Chap.~\ref{chap:af}.
+In this appendix, we derive some theoretical constraints on the HFPs of the normal and AF phase. The derivations presented here are used in the discussions of Chaps.~\ref{chap:normal} and \ref{chap:af}.
 
 \section{Normal phase}\label{appsec:normal-constraints}
 
@@ -19,7 +19,7 @@ which obey the self-consistency equations of Tab.~\ref{tab:normal-ehm-ugamma-sel
 	\qq{and}
 	u^{(d)} = 0 \, .
 \end{equation}
-The discussion is divided in three parts: in Sec.~\ref{appsubsec:normal-s*+d-bands}, we discuss the spatial geometry of bands with a mixed symmetry $s^* \oplus d$. In Sec.~\ref{appsubsec:normal-bands-shrinking} we derive Eq.~\eqref{appeq:normal-us*-ud-constraint} by considering the simpler case of unbroken $\mathrm{C}_4$ symmetry (hence setting $u^{(d)} = 0$ ``by hand''). In Sec.~\ref{appsubsec:normal-bands-shrinking-C2} we break rotational symmetry, $\mathrm{C}_4 \SSB \mathrm{C}_2$, and terminate the proof.
+The discussion is divided in three parts: in Sec.~\ref{appsubsec:normal-s*+d-bands}, we discuss the spatial geometry of bands with a mixed symmetry $s^* \oplus d$. In Sec.~\ref{appsubsec:normal-bands-shrinking} we derive Eq.~\eqref{appeq:normal-us*-ud-constraint} by considering the simpler case of unbroken $\mathrm{C}_4$ symmetry (hence setting $u^{(d)} = 0$ ``by hand''). In Sec.~\ref{appsubsec:normal-bands-shrinking-C2} we break rotational symmetry, $\mathrm{C}_4 \SSB \mathrm{C}_2$, and end the proof.
 
 \subsection{Mixed $s^* \oplus d$ bands}\label{appsubsec:normal-s*+d-bands}
 
@@ -51,11 +51,11 @@ represented in the top-left panel of Fig.~\ref{fig:normal-nematic-bands}. In the
 \[
 \begin{aligned}
 	\epsilon^{(s^*)} < 0 \qq{and} \epsilon^{(d)} < 0
-	\quad&\implies\quad \text{Invert colors in Fig.~\ref{fig:normal-nematic-bands}} \\
+	\quad&\implies\quad \text{Invert colours in Fig.~\ref{fig:normal-nematic-bands}} \\
 	\epsilon^{(s^*)} > 0 \qq{and} \epsilon^{(d)} < 0
 	\quad&\implies\quad \text{Rotate plots by $\pi/2$ in Fig.~\ref{fig:normal-nematic-bands}} \\
 	\epsilon^{(s^*)} < 0 \qq{and} \epsilon^{(d)} > 0
-	\quad&\implies\quad \text{Rotate plots by $\pi/2$ and invert colors in Fig.~\ref{fig:normal-nematic-bands}} \\
+	\quad&\implies\quad \text{Rotate plots by $\pi/2$ and invert colours in Fig.~\ref{fig:normal-nematic-bands}} \\
 \end{aligned}
 \]
 
@@ -120,7 +120,7 @@ and will be used later on. Whatever the shape of the mixed band, the following e
 \]
 since only cosines are involved. This identifies four node points, represented as black dots in Fig.~\ref{appfig:BZ-sectors}.
 
-\subsection{Bands shrinking in $\mathrm{C}_4$}\label{appsubsec:normal-bands-shrinking}
+\subsection{Bands shrinking effect within unbroken $\mathrm{C}_4$ symmetry}\label{appsubsec:normal-bands-shrinking}
 
 Consider the simpler situation where $\mathrm{C}_4$ symmetry is imposed. This implies that the renormalised bands are given by
 \[
@@ -136,7 +136,7 @@ We have the following constraint on $u^{(s^*)}$
 	\quad\implies\quad
 	0 < u^{(s^*)} < 2t/V \, .
 \end{equation}
-The effective hopping is smaller than the original hopping. We can denominate this net effect ``bands shrinking''.
+The effective hopping is smaller than the original hopping, therefore this effect is dubbed as ``bands shrinking''.
 
 \begin{tabproof}[Proof of Eq.~\eqref{appeq:normal-us*-constraint}: bands shrinking effect in $\mathrm{C}_4$]
 The proof follows from this chain of deductions:	
@@ -151,7 +151,7 @@ The proof follows from this chain of deductions:
 		g_\mathbf{k} + g_{\mathbf{k}+\bm{\pi}}
 		\right] \, ,
 	\]
-	where we defined the vector $\bm{\pi}\equiv(\pi,\pi)$. The self-consistency equation thus reads
+	where we defined the vector $\bm{\pi}\equiv(\pi,\pi)$ as in Eq.~\eqref{eq:af-pi}. The self-consistency equation thus reads
 	\begin{align}
 		u^{(s^*)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \left[
 		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) + f(\tilde{\epsilon}_{\mathbf{k}+\bm{\pi}};\beta,\tilde{\mu})
@@ -206,7 +206,7 @@ The proof follows from this chain of deductions:
 Collecting the two points above, we obtain the constraint of Eq.~\eqref{appeq:normal-us*-constraint}.
 \end{tabproof}
 
-\subsection{Bands shrinking in $\mathrm{C}_2/\mathbb{Z}_2$}\label{appsubsec:normal-bands-shrinking-C2}
+\subsection{Bands shrinking effect within broken $\mathrm{C}_4 \SSB \mathrm{C}_2$ symmetry}\label{appsubsec:normal-bands-shrinking-C2}
 
 \begin{figure}[t]
 	\centering
@@ -219,7 +219,7 @@ Collecting the two points above, we obtain the constraint of Eq.~\eqref{appeq:no
 		\includegraphics[width=0.45\linewidth]{../Project/src/labs/bands/normal-nematic-bands-mp.pdf}
 		\label{appsubfig:normal-nematic-bands-detail-mp}
 	}
-	\caption{Theoretical example of bands with $u^{(s^*)} > 2t/V$, $u^{(d)}>0$ (top-left) and $u^{(s^*)} < 0$, $u^{(d)}>0$ (top right). Two example points are reported, connected by a $\pi/2$ rotation as given in Eqns.~\eqref{appeq:normal-A=RB}, \eqref{appeq:normal-B=RA}.}
+	\caption{Theoretical example of bands with $u^{(s^*)} > 2t/V$, $u^{(d)}>0$ (top-left) and $u^{(s^*)} < 0$, $u^{(d)}>0$ (top right). Two example points are reported, connected by a $\pi/2$ rotation as given in Eqns.~\eqref{appeq:normal-B=RA}, \eqref{appeq:normal-A=RB}}
 	\label{appfig:normal-nematic-bands-detail}
 \end{figure}
 
@@ -241,7 +241,7 @@ The proof is organised as a series of sub-proofs. We start by proving the left s
 \[
 	0 < u^{(s^*)} < 2t/V \, .
 \]
-We use everywhere $t>0$.
+We use everywhere $t,V>0$.
 	
 \begin{enumerate}
 	\item \textit{The following implication holds:}
@@ -339,7 +339,7 @@ We use everywhere $t>0$.
 	
 	\paragraph{Proof.}
 
-	From Eq.~\eqref{appeq:normal-us*-no-nematic-1}, we know that if $u^{(s^*)} \ge 2t/V$ then $u^{(d)} = 0$. But then $\mathrm{C}_4$ is unbroken, and we get back to the discussion of Sec.~\ref{appsubsec:normal-bands-shrinking}. Then we cannot have $u^{(s^*)} \ge 2t/V$.
+	From Eq.~\eqref{appeq:normal-us*-no-nematic-1}, we know that if $u^{(s^*)} \ge 2t/V$ then $u^{(d)} = 0$. But then $\mathrm{C}_4$ is unbroken, and we get back to the discussion of Sec.~\ref{appsubsec:normal-bands-shrinking}. Then, we cannot have $u^{(s^*)} \ge 2t/V$.
 	%
 	\item \textit{The following implication holds}:
 	\begin{equation}\label{appeq:normal-us*-absurd-5}
@@ -433,7 +433,7 @@ We use everywhere $t>0$.
 	\newcounter{enumTemp}
 	\setcounter{enumTemp}{\theenumi}
 \end{enumerate}
-From the chain of derivations above, we can conclude self-consistently that also in the nematic structure the constraint of Eq.~\eqref{appeq:normal-us*-constraint},
+From the chain of derivations above, we can conclude self-consistently that, also allowing for $\mathrm{C}_4 \SSB \mathrm{C}_2$, the constraint of Eq.~\eqref{appeq:normal-us*-constraint},
 \[
 	0 < u^{(s^*)} < 2t/V \, ,
 \]
@@ -504,19 +504,19 @@ Hence we conclude that Eq.~\eqref{appeq:normal-us*-ud-constraint} holds.
 \section{AF phase}
 \label{appappsec:af-constraints}
 
-The AF phase divides in two subphases, namely aAF and sAF phases, as reported in Tab.~\ref{tab:af-saf-aaf-hfps}. The sAF phase is described by five HFPs,
+As we discuss in App.~\ref{app:af-hf-hamiltonian}, the AF phase divides in two subphases, namely aAF and sAF phases, as reported in Tab.~\ref{tab:af-saf-aaf-hfps}. The sAF phase is described by five HFPs,
 \[
 	\text{sAF HFPs}
 	\quad\colon\quad
 	m, u^{(s^*)}, u^{(d)}, v^{(s^*)}, v^{(d)} \, ,
 \]
-while for the sAF phase
+while for the aAF phase
 \[
 	\text{aAF HFPs}
 	\quad\colon\quad
 	m, u^{(s^*)}, u^{(d)}, -iv^{(p_x)}, -iv^{(p_y)} \, .
 \]
-Self-consistency equations are reported in Eq.~\eqref{eq:af-ehm-m-self-consistency} and Tabs.~\ref{tab:af-ehm-ugamma-self-consistencies}, \ref{tab:af-ehm-vgamma-self-consistencies}. 
+Self-consistency equations are reported in Eq.~\eqref{eq:af-ehm-m-self-consistency} and Tabs.~\ref{tab:af-ehm-ugamma-self-consistencies}, \ref{tab:af-ehm-vgamma-self-consistencies}. We will use all conventions on notations introduced in App.~\ref{app:af-hf-hamiltonian}.
 
 In this section we show that
 \begin{itemize}
@@ -537,17 +537,17 @@ In this section we show that
 \end{itemize} 
 The discussion is divided in four parts: in Sec.~\ref{appsubsec:af-bands-shrinking}, we derive Eq.~\eqref{appeq:af-us*-ud-constraint} within $\mathrm{C}_4$ symmetry (as in Sec.~\ref{appsubsec:normal-bands-shrinking}, setting $u^{(d)} = 0$). In Sec.~\ref{appsubsec:af-HFPs=0-sAF} we prove Eq.~\eqref{appeq:af-vgamma-constraint} for the sAF phase within $\mathrm{C}_2$ symmetry. In Sec.~\ref{appsubsec:af-HFPs=0-aAF} we do the same for the aAF phase. We conclude, in Sec.~\ref{appsubsec:af-bands-shrinking-C2}, by proving Eq.~\eqref{appeq:af-us*-ud-constraint} within $\mathrm{C}_2$ symmetry.
 
-\subsection{Bands shrinking in $\mathrm{C}_4$}\label{appsubsec:af-bands-shrinking}
+\subsection{Bands shrinking effect within unbroken $\mathrm{C}_4$ symmetry}\label{appsubsec:af-bands-shrinking}
 
 For the normal phase, we saw that when $\mathrm{C}_4$ symmetry is preserved (Sec.~\ref{appsubsec:normal-bands-shrinking}) we can conclude immediately that bands renormalisation is actually a shrinking. An identical result holds here: if $\mathrm{C}_4$ symmetry is imposed onto the renormalized bands,
 \[
 	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv (u^{(s^*)} V - 2t) (\cos k_x + \cos k_y) \, .
 \]
 Among the harmonics $u^{(\gamma)}$, just the $s^*$-wave channel contributes to renormalisation of bands, with a single self-consistency equation
-\[
-	u^{(s^*)} = - \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \frac{\tilde{\epsilon}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}] \, .
-\]
-We now prove that:
+\begin{equation}\label{appeq:af-uS-sceq}
+	u^{(s^*)} = - \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \frac{\tilde{\epsilon}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}] \, ,
+\end{equation}
+where the renormalised band $\tilde{E}_\mathbf{k}$ is given in Eq.~\eqref{eq:af-bands-2}, and the renormalised thermal factor $\tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]$ in Eq.~\eqref{eq:af-~Th}. We now prove that:
 \begin{equation}\label{appeq:af-us*-constraint}
 	0 < u^{(s^*)} < 2t/V \, .
 \end{equation}
@@ -568,7 +568,7 @@ As we did for the normal phase:
 		\quad\colon\quad
 		\tilde{\epsilon}_\mathbf{k} \le 0 \, ,
 	\]
-	the equality only holding on the MBZ contour. Looking at the self-consistency equation, all other objects inside the sum are positive-defined. This gives
+	the equality only holding on the MBZ contour. Looking at the self-consistency Eq.~\eqref{appeq:af-uS-sceq}, all other objects inside the sum are positive-defined. This gives
 	\[
 		u^{(s^*)} \le 0
 		\quad\implies\quad
@@ -600,7 +600,7 @@ As we did for the normal phase:
 
 \subsection{Selection rules on the magnetic HFPs in sAF phase}\label{appsubsec:af-HFPs=0-sAF}
 
-We applied HF methods to the EHM and obtained two flavours of antiferromagnetism, each of which involves five HFPs. The scenario appears to be rich. In this section we present an argument to prove that the actual number of HFPs is much smaller, as many of those are mathematically suppressed. 
+In App.~\ref{app:af-hf-hamiltonian}, we apply HF methods to the EHM and obtain two flavours of antiferromagnetism, each of which involves five HFPs listed in Tab.~\ref{tab:af-saf-aaf-hfps}. The scenario appears to be rich. In this section we present an argument to prove that the actual number of HFPs is much smaller, as many of those vanish. 
 
 Let us start from the sAF phase, assuming
 \[
@@ -627,9 +627,9 @@ The relation above is implied by the fact that both $\tilde{\mathrm{Th}}_\mathbf
 	\qq{and}
 	\tilde{E}_\mathbf{k} = \sqrt{\tilde{\epsilon}_\mathbf{k}^2 + \abs{\Delta_{\mathbf{k}\sigma}}^2} \ge 0 \, ,
 \]
-so, being the functional $F$ essentially a weighted integral over MBZ, any positive-defined function has a positive image. An identical statement with inverted inequalities holds for negative-defined function.
+so, being the functional $F$ of Eq.~\eqref{appeq:saf-F-definition} essentially a weighted integral over MBZ, any positive-defined function has a positive image. An identical statement with inverted inequalities holds for negative-defined function.
 
-Consider now the self-consistency equation for $u^{(s^*)}$: explicitly,
+Consider now the self-consistency Eq.~\eqref{appeq:af-uS-sceq} for $u^{(s^*)}$: explicitly,
 \[
 \begin{aligned}
 	u^{(s^*)} &= -\frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (c_x + c_y)
@@ -639,7 +639,7 @@ Consider now the self-consistency equation for $u^{(s^*)}$: explicitly,
 	\frac{ \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}]}{\tilde{E}_\mathbf{k}} (c_x^2 - c_y^2) \, ,
 \end{aligned}
 \]
-having we used the notation $c_\ell \equiv \cos k_\ell$ and substituted the full bare bands
+having we used the notation $c_\ell \equiv \cos k_\ell$ and substituted the full renormalised bands
 \[
 	\tilde{\epsilon}_\mathbf{k} \equiv -\left[2t - u^{(s^*)}_\sigma V\right] (c_x + c_y) + u^{(d)}_\sigma V (c_x - c_y) \, .
 \]
@@ -685,7 +685,7 @@ These equations define a four-components nonlinear map, whose parameters $A,B,C$
 
 \begin{tabproof}[Proof of Eq.~\eqref{appeq:af-vs*-vd-constraint}: all symmetric complexifiers vanish]
 	
-Let us start by applying a linear transform on the map: define the new ``sum'' and ``difference'' variables
+We use everywhere $t,V > 0$. Let us start by applying a linear transform on the map: define the new ``sum'' and ``difference'' variables
 \[
 	S_u \equiv u^{(s^*)} + u^{(d)} \, ,
 	\qquad
@@ -733,7 +733,7 @@ The map transform is obtained by summing and subtracting two couples of equation
 	
 	\paragraph{Proof.}
 	
-	To prove this, consider for example Eq.~\eqref{appeq:saf-Sv-sc-ABC}: we are working at $V>0$, thus
+	Consider Eq.~\eqref{appeq:saf-Sv-sc-ABC}: we are working at $V>0$, thus
 	\[
 		B = - \frac{1 + 2AV}{V} \frac{S_v}{D_v} \, ,
 	\]
@@ -763,7 +763,7 @@ The map transform is obtained by summing and subtracting two couples of equation
 	
 	\paragraph{Proof.}
 	
-	We multiply Eq.~\eqref{appeq:saf-Su-sc-ABC} by $BV$ on both sides,
+	We multiply Eq.~\eqref{appeq:saf-Su-sc-ABC} by $BV \neq 0$ (see points above) on both sides,
 	\[
 		BV (1+2AV) S_u + (BV)^2 D_u = 2t BV(2A+B) \, ,
 	\]
@@ -789,10 +789,14 @@ The map transform is obtained by summing and subtracting two couples of equation
 	\]
 	which is absurd, being $A\ge0$, $C\ge0$ from Eq.~\eqref{appeq:saf-F-positivity}. 
 	%
-	\item Using the above point in Eq.~\eqref{appeq:saf-B2-4AC-relation} we get that $V>0$ satisfies:
+	\item  \textit{Let $S_v \neq 0 \land D_v \neq 0$. Hence the following relation holds:}
 	\begin{equation}\label{appeq:saf-B2-4AC-relation-int1}
 		V = \frac{B+2C}{B^2 - 4AC} \, .
 	\end{equation}
+	
+	\paragraph{Proof.}
+	
+	Use the above point in Eq.~\eqref{appeq:saf-B2-4AC-relation}.
 	%
 	\item \textit{Let $S_v \neq 0 \land D_v \neq 0$. Then $A=C$.}
 	
@@ -894,7 +898,7 @@ We have:
 
 \begin{tabproof}[Proof of Eq.~\eqref{appeq:af-vx-vy-constraint}: all antisymmetric complexifiers vanish]
 
-	Let us write the equation for $Q$, given in Eq.~\eqref{appeq:saf-PQR-def}, explicitly:
+	We use everywhere $t,V > 0$. Let us write the equation for $Q$, given in Eq.~\eqref{appeq:saf-PQR-def}, explicitly:
 	\[
 	\begin{aligned}
 		Q &= F\left[s_x s_y\right] \\
@@ -923,7 +927,7 @@ We have:
 
 This ends this short section and shows that also for the aAF phase all gap complexifiers actually vanish. Eqs.~\eqref{appeq:af-vs*-vd-constraint} and \eqref{appeq:af-vx-vy-constraint}, combined, give Eq.~\eqref{appeq:af-vgamma-constraint}.
 
-\subsection{Bands shrinking in $\mathrm{C}_2/\mathbb{Z}_2$}\label{appsubsec:af-bands-shrinking-C2}
+\subsection{Bands shrinking effect within broken $\mathrm{C}_4 \SSB \mathrm{C}_2$ symmetry}\label{appsubsec:af-bands-shrinking-C2}
 
 A consequence of the two sections above is that the gap function is purely real, non-renormalized and constant across all reciprocal space,
 \[
@@ -941,7 +945,7 @@ Starting from a rather complicated scenario, we were able to reduce all the AF H
 \[
 	m, u^{(s^*)} \, .
 \]
-Perhaps not-so-excitingly, the real net effect of the non-local extension of the HM is, once again, the shrinking effect on bands.
+The net effect of the non-local extension of the HM is, once again, the shrinking effect on bands.
 
 \begin{figure}
 	\centering
@@ -952,16 +956,16 @@ Perhaps not-so-excitingly, the real net effect of the non-local extension of the
 
 \begin{tabproof}[Proof of Eq.~\eqref{appeq:af-us*-ud-constraint}: non-nematic bands shrinking effect in $\mathrm{C}_2$]
 
-While the proof given in Sec.~\ref{appsubsec:normal-bands-shrinking-C2} was long and quite elaborated, this one is shorter. Let us start from recalling the normal phase context:
+While the proof given in Sec.~\ref{appsubsec:normal-bands-shrinking-C2} was long and quite elaborated, this one is shorter. Let us start from recalling the normal phase self-consistency equations from Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies},
 \[
 \text{Normal phase:}
 \qquad
 \begin{aligned}
 	u^{(s^*)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \, , \\
-	u^{(d)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \, ,
+	u^{(d)} &= \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \, .
 \end{aligned}
 \]
-while, using $\bm{\pi}$ periodicity, in the present context we can re-write all equations doubling the integration domain,
+Using $\bm{\pi}$ periodicity, for the AF phase we can re-write all equations (from Tab.~\ref{tab:af-ehm-ugamma-self-consistencies}) doubling the integration domain,
 \[
 \text{AF phase:}
 \qquad
@@ -974,7 +978,7 @@ Let us define the pseudo distribution
 \[
 	f'(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \equiv - \frac{\tilde{\epsilon}_\mathbf{k}}{2\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}] \, ,
 \]
-which, substituted in the self-consistency equations, makes them very similar to the normal ones, up to a $f \to f'$ exchange. We plot $f(x)$ and $f'(x)$ in Fig.~\ref{appfig:pseudo-dirac} for various choices of the chemical potential.
+which, substituted in the self-consistency equations, makes them very similar to the ones for the normal phase, upon substituting $f \to f'$. We plot $f(x)$ and $f'(x)$ in Fig.~\ref{appfig:pseudo-dirac} for various choices of the chemical potential.
 
 The fact that $u^{(d)}=0$ follows from the simple consideration that in Sec.~\ref{appsubsec:normal-bands-shrinking-C2} (when showing the same for the normal phase) we never used the specific form of $f$; instead, we only made use of it being monotonically descendent as a function of $\epsilon_\mathbf{k}$. If $f'$ also is a monotonically descendent function of $\epsilon_\mathbf{k}$, we can re-use the entire derivation of Sec.~\ref{appsubsec:normal-bands-shrinking-C2}. Let us show that using a somewhat lighter notation,
 \[
@@ -1036,7 +1040,7 @@ The following points are true:
 		\quad\implies\quad
 		\dv{f'}{x} < 0 \, .
 	\]
-	Hence $f'$ decreases monotonously.
+	Hence $f'$ decreases monotonically.
 \end{enumerate}
 These points end the proof: as anticipated, $f'$ is a monotonically descendent function of $\epsilon_\mathbf{k}$, a feature that allows us to re-use the entire derivation of Sec.~\ref{appsubsec:normal-bands-shrinking-C2}, and conclude that also for the AF phase
 \[

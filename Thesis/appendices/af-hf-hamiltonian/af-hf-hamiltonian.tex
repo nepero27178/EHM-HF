@@ -117,7 +117,7 @@ At half-filling, we have:
 	\tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(+)}[\beta,0] &= 1  \, , \label{eq:af-Th+=1} \\
 	\tilde{\mathrm{Th}}_{\mathbf{k}\sigma}^{(-)}[\beta,0] &= \tanh(\frac{\beta \tilde{E}_{\mathbf{k}\sigma}}{2}) \, . \label{eq:af-Th-=tanh}
 \end{align}
-We will use these expression only in the last part, carrying out computation at generic $\tilde{\mu}$.
+We will carry out computations at generic density, using these expression only in the last part.
 
 \begin{tabproof}[Proof of Eqs.~\eqref{eq:af-Th+=1}, \eqref{eq:af-Th-=tanh}]
 	
@@ -182,7 +182,6 @@ We will be able to prove this statement rigorously in Sec.~\ref{sec:af-hf-hamilt
 	\qquad
 	\text{(half-filling)}
 \end{equation}
-
 For the density $n$ an identical argument holds, and Eq.~\eqref{eq:af-hm-n-MBZ-Th} is extended to
 \begin{equation}\label{eq:af-ehm-n-MBZ-Th}
 	n = \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{MBZ}} \tilde{\mathrm{Th}}_{\mathbf{k}\uparrow}^{(+)}[\beta,\tilde{\mu}] \, .
@@ -290,7 +289,7 @@ which is identical to what we found for the normal phase, in Eq.~\eqref{eq:norma
 	
 	\paragraph{Magnetisation terms.}
 	
-	The magnetisation $\mathrm{s.s.}$ and $\mathrm{o.s.}$ terms of Expr.~\eqref{eq:af-ehm-hartree-int-1} perfectly cancel out:
+	The magnetisation $\mathrm{s.s.}$ and $\mathrm{o.s.}$ terms of Eq.~\eqref{eq:af-ehm-hartree-int-1} perfectly cancel out:
 	\[
 	mV \sum_{\ev{\mathbf{r}\mathbf{r}'}} \sum_\sigma (-1)^{x+y+\delta_{\sigma=\uparrow}} \left[ \left(
 	\hat n_{\mathbf{r}\sigma} - \hat n_{\mathbf{r}'\sigma}
@@ -304,7 +303,7 @@ which is identical to what we found for the normal phase, in Eq.~\eqref{eq:norma
 
 The contraction energy of Eq.~\eqref{eq:af-HV-hartree-Ec-implicit} reduces to
 \begin{equation}\label{eq:af-HV-hartree-Ec}
-	E_{\mathrm{H},V}^{(\mathrm{AF})} = - L_x L_y \times 2n^2  \, ,
+	E_{\mathrm{H},V}^{(\mathrm{AF})} = - L_x L_y \times 2zn^2V  \, ,
 \end{equation}
 which coincides with that for the normal phase, given in Eq.~\eqref{eq:normal-HV-hartree-Ec}. This is coherent with the fact that the shift to chemical potential is identical.
 
@@ -398,23 +397,26 @@ which coincides with that for the normal phase, given in Eq.~\eqref{eq:normal-HV
 	\end{equation}
 	Then, summing Eqs.~\eqref{eq:af-HV(ss)-hartree-Ec} and \eqref{eq:af-HV(os)-hartree-Ec}, we get
 	\[
-	E_{\mathrm{H},V}^{(\mathrm{AF})} = - 2V \sum_{\ev{ij}} \sum_\sigma n^2 = - 4n^2 V \times \frac{z}{2} L_x L_y \, .
+	\begin{aligned}
+	E_{\mathrm{H},V}^{(\mathrm{AF})} &= - 2V \sum_{\ev{ij}} \sum_\sigma n^2 \\
+	&= - 4n^2 V \times \frac{z}{2} L_x L_y \, ,
+	\end{aligned}
 	\]
-	which coincides with Eq.~\eqref{eq:af-HV-hartree-Ec}.
+	where we used Eq.~\eqref{eq:square-NN-ghost-sum}. 	The above result coincides with Eq.~\eqref{eq:af-HV-hartree-Ec}.
 \end{tabproof}
 
 \subsection{Effects of the Fock terms: gap and bare bands renormalisation}\label{subsec:af-fock}
 
-In this subsection we discuss the Fock contributions to the HF approximated hamiltonian, in the AF phase. We start by Eq.~\eqref{eq:normal-V-fock-int1}, derived in the context of the normal phase,
+In this subsection, we discuss the Fock contributions to the HF hamiltonian in the AF phase. We start by Eq.~\eqref{eq:normal-V-fock-int1}, derived in the context of the normal phase,
 \begin{multline}
 	\hat H_V \HFsimeq (\text{Hartree channel}) \\
-	+ \frac{2V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left(
+	+ \frac{2V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left[
 	\cos \left(
 	\delta k_x
 	\right)	+ \cos \left(
 	\delta k_y
 	\right)	
-	\right)
+	\right]
 	\langle
 	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger 
 	\hat c_{\mathbf{K}-\mathbf{k}' \sigma}
@@ -423,13 +425,13 @@ In this subsection we discuss the Fock contributions to the HF approximated hami
 \end{multline}
 where $E_{\mathrm{F},V}^{(\mathrm{AF})}$, see Eq.~\eqref{eq:normal-V-fock-double-counting}, reads
 \begin{equation}\label{eq:af-V-fock-double-counting}
-	E_{\mathrm{F},V}^{(\mathrm{AF})} \equiv \frac{V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left(
+	E_{\mathrm{F},V}^{(\mathrm{AF})} \equiv \frac{V}{L_x L_y} \sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \sum_\sigma \left[
 	\cos \left(
 	\delta k_x
 	\right)	+ \cos \left(
 	\delta k_y
 	\right)	
-	\right)
+	\right]
 	\langle
 	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger 
 	\hat c_{\mathbf{K}-\mathbf{k}' \sigma}
@@ -532,7 +534,7 @@ where we used Eq.~\eqref{appeq:af-ugamma-harmonics}, where the harmonics of $u_{
 		\rangle
 		\hat c_{\mathbf{q}'\sigma}^\dagger \hat c_{\mathbf{q}'\sigma}
 		\nonumber \\
-		&= \sum_{\gamma,\sigma} \left(
+		&= \sum_{\gamma \neq s} \sum_\sigma \left(
 		\frac{1}{L_x L_y} \sum_{\mathbf{q}\in\mathrm{BZ}} \varphi_\mathbf{q}^{(\gamma)}
 		\langle
 		\hat n_{\mathbf{q}\sigma}
@@ -541,7 +543,7 @@ where we used Eq.~\eqref{appeq:af-ugamma-harmonics}, where the harmonics of $u_{
 		\sum_{\mathbf{q}'\in\mathrm{BZ}}
 		\varphi_{\mathbf{q}'}^{(\gamma)*}
 		\hat n_{\mathbf{q}'\sigma} \nonumber \\ 
-		&= \sum_{\gamma,\sigma} u_\sigma^{(\gamma)} \times V
+		&= \sum_{\gamma \neq s} \sum_\sigma u_\sigma^{(\gamma)} \times V
 		\sum_{\mathbf{q}'\in\mathrm{BZ}}
 		\varphi_{\mathbf{q}'}^{(\gamma)*}
 		\hat n_{\mathbf{q}'\sigma} \, .
@@ -549,7 +551,7 @@ where we used Eq.~\eqref{appeq:af-ugamma-harmonics}, where the harmonics of $u_{
 	\end{align}
 	We used the decomposition of Eq.~\eqref{eq:coscos-symmetries-decomposition}. In the last line, we recognised the harmonics given in Eq.~\eqref{appeq:af-ugamma-harmonics}.
 	
-	We can re-use the argument that, for the normal phase, lead us to Eq.~\eqref{eq:normal-up=0}. We are not breaking inversion symmetry (and as a consequence, neither $\mathrm{C}_2$): this implies that, whatever the shape of the renormalised bands, it must be
+	We can re-use the argument that, for the normal phase, led us to Eq.~\eqref{eq:normal-up=0}. We are not breaking inversion symmetry (and as a consequence, neither $\mathrm{C}_2$): this implies that, whatever the shape of the renormalised bands, these are symmetric functions of the moment. Therefore,
 	\[
 	\tilde{\epsilon}_{\mathbf{q}\sigma} = \tilde{\epsilon}_{-\mathbf{q}\sigma}
 	\quad\implies\quad
@@ -557,7 +559,7 @@ where we used Eq.~\eqref{appeq:af-ugamma-harmonics}, where the harmonics of $u_{
 	\qq{with}
 	\ell\in\lbrace x,y \rbrace \, .
 	\]
-	Renormalised bare bands need to be symmetric functions of the moment. Hence for $\gamma\in\lbrace p_x, p_y \rbrace$ the above sum vanishes. Using this selection rule, Eq.~\eqref{eq:af-V-fock-int3-implicit} reduces to Eq.~\eqref{eq:af-V-fock-int3-diag}.
+	Using this selection rule, Eq.~\eqref{eq:af-V-fock-int3-implicit} reduces to Eq.~\eqref{eq:af-V-fock-int3-diag}.
 \end{tabproof}
 
 Apart from the explicit form of the self-consistency equations, this discussion is formally the same of the normal phase, carried out in Sec.~\ref{subsec:normal-fock-bands}. Therefore the bands renormalisation, discussed in Sec.~\ref{subsec:normal-d-wave-hopping}, applies also for the AF phase. Specifically, the renormalised bands are
@@ -584,7 +586,7 @@ The symmetry-resolved self-consistency equations are reported explicitly in Tab.
 		\frac{\tilde{\epsilon}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}] $ & Fig.~\ref{subfig:d-wave-correlator} \\
 		\midrule
 	\end{tabular}
-	\caption{Symmetry and spin resolved self-consistency equations for the harmonics of $u_\mathbf{k}$.}
+	\caption{Symmetry and spin resolved self-consistency equations for the harmonics of $u_\mathbf{k}$. The shown equations are reformulations of Eq.~\eqref{appeq:af-ugamma-harmonics}, which is equal to Eq.~\eqref{eq:af-ugamma-self-consistency}.}
 	\label{tab:af-ehm-ugamma-self-consistencies}
 \end{table}
 
@@ -809,7 +811,7 @@ where we used the harmonics of $v_{\mathbf{k}\sigma}$, defined in Eq.~\eqref{app
 		$d_{x^2-y^2}$-wave & $v^{(d)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x - \cos k_y) \frac{\Im\lbrace\tilde{\Delta}_\mathbf{k}\rbrace}{\tilde{E}_\mathbf{k}} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta,\tilde{\mu}] $ & Fig.~\ref{subfig:d-wave-correlator} \\
 		\midrule
 	\end{tabular}
-	\caption{Symmetry and spin resolved self-consistency equations for the harmonics of $v_\mathbf{k}$.}
+	\caption{Symmetry and spin resolved self-consistency equations for the harmonics of $v_\mathbf{k}$. The shown equations are reformulations of Eq.~\eqref{appeq:af-vgamma-harmonics}, which is equal to Eq.~\eqref{eq:af-vgamma-self-consistency}.}
 	\label{tab:af-ehm-vgamma-self-consistencies}
 \end{table}
 
@@ -965,7 +967,7 @@ Note that, due to spin independency, we can omit the spin index, remove the sum 
 		\right) \, ,
 	\end{aligned}
 	\]
-	where in the second passage we employed the change of variables $\mathbf{q}'=\mathbf{k}+\bm{\pi}$ and used BZ periodicity to map the original sum onto a new sum for $\mathbf{k}\in\mathrm{BZ}$. 	
+	where in the second passage we employed the change of variables $\mathbf{q}'=\mathbf{k}+\bm{\pi}$ and used BZ periodicity to map the original sum onto a new sum for $\mathbf{k}\in\mathrm{BZ}$. We conclude that
 	\begin{align}
 		\frac{1}{(L_x L_y)^2} \sum_{\mathbf{q}, \mathbf{q}'} \varphi_{\mathbf{q}}^{(\gamma)} \varphi_{\mathbf{q}'}^{(\gamma)*}
 		v_{\mathbf{q}\sigma} v_{\mathbf{q}'\sigma} &= v^{(\gamma)}_\sigma \left(
@@ -991,22 +993,28 @@ We recollect all results into a single hamiltonian approximation. Summing Eqs.~\
 	\right)
 	- \tilde{\mu} \hat N + E_\mathrm{c}^{(\mathrm{AF})} \, , \label{appeq:af-full-h}
 \end{multline}
-which coincides with Eq.~\eqref{eq:af-full-h}. We defined renormalised bands, see Eq.~\eqref{eq:af-bands-renormalisation}, as
+which coincides with Eq.~\eqref{eq:af-full-h}. We defined renormalised bands, see Eq.~\eqref{eq:af-bands-renormalisation},
 \[
 \tilde{\epsilon}_{\mathbf{k}\sigma} = \epsilon_{\mathbf{k}\sigma} + V \sum_{\gamma\in\lbrace s^*,d \rbrace} u^{(\gamma)}_\sigma \varphi_{\mathbf{k}}^{(\gamma)*} \, ,
 \]
-the renormalised gap function as
+which proves Eq.~\eqref{eq:af-ehm-full-bands}. The renormalised gap function is given by
 \begin{equation}\label{eq:af-full-gap}
-	\tilde{\Delta}_{\mathbf{k}\sigma} \equiv \Delta_{\mathbf{k}\sigma} - iV \sum_{\gamma \neq \sigma} v^{(\gamma)}_\sigma \varphi_\mathbf{k}^{(\gamma)*} \, ,
+	\tilde{\Delta}_{\mathbf{k}\sigma} \equiv \Delta_{\mathbf{k}\sigma} - iV \sum_{\gamma \neq s} v^{(\gamma)}_\sigma \varphi_\mathbf{k}^{(\gamma)*} \, ,
 \end{equation}
-and total contraction energy as the (negative) sum of all contraction energies, see Eqs.~\eqref{eq:af-HU-hartree-Ec}, \eqref{eq:af-HV-hartree-Ec} and \eqref{eq:af-HV-fock-Ec},
-\begin{equation}\label{appeq:af-Ec}
-	E_\mathrm{c}^{(\mathrm{AF})} \equiv -
+which coincides with Eq.~\eqref{eq:af-ehm-full-gap}. Finally, the total contraction energy is given by the (negative) sum of all contraction energies, see Eqs.~\eqref{eq:af-HU-hartree-Ec}, \eqref{eq:af-HV-hartree-Ec} and \eqref{eq:af-HV-fock-Ec},
+\begin{align}
+	E_\mathrm{c}^{(\mathrm{AF})} &\equiv -
 	\left( 
 	E_{\mathrm{H},U}^{(\mathrm{AF})} + 
 	E_{\mathrm{H},V}^{(\mathrm{AF})} + E_{\mathrm{F},V}^{(\mathrm{AF})}
-	\right) \, ,
-\end{equation}
+	\right) \nonumber \\
+	&= U(m^2 - n^2) + V \left[
+	2zn^2 - \frac{1}{2} \sum_{\gamma \neq s} \sum_\sigma \left(
+	\big|u^{(\gamma)}_\sigma\big|^2 + \big|v^{(\gamma)}_\sigma\big|^2
+	\right)
+	\right]
+	\label{appeq:af-Ec}\, ,
+\end{align}
 which coincides with Eq.~\eqref{eq:af-Ec}.
 
 \subsection{Gap complexification and AF flavours}\label{subsec:af-gap-complexification}
@@ -1023,7 +1031,7 @@ Recalling Eq.~\eqref{eq:af-ehm-ivvphi-imag}, we observe that the correction to t
 	\[
 	\left\langle \hat s_{\mathbf{k}\uparrow}^x \right\rangle = -\left\langle \hat s_{\mathbf{k}\downarrow}^x \right\rangle
 	\]
-	Then Eq.~\eqref{appeq:af-ehm-m-self-consistency} holds identically, because the proof that lead us to Eq.~\eqref{eq:af-hm-m-self-consistency} for the HM was based on this property.
+	Then Eq.~\eqref{appeq:af-ehm-m-self-consistency} holds identically, because the proof that led us to Eq.~\eqref{eq:af-hm-m-self-consistency} for the HM was based on this property.
 \end{tabproof}
 
 In this analysis, antiferromagnetism is realised without breaking inversion symmetry. This translates in the requirement that:
@@ -1048,7 +1056,7 @@ hence inversion symmetry is respected only if
 \]
 Either the imaginary part of the gap is inversion symmetric, or is antisymmetric. Based on this consideration, we are able two discard two of the four self-consistency equations for the harmonics $v_\sigma^{(\gamma)}$, listed in Tab.~\ref{tab:af-ehm-vgamma-self-consistencies}. If $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is an even function of momentum, $v_\sigma^{(p_x)} = v_\sigma^{(p_y)} = 0$. If $\Im\lbrace \tilde{\Delta}_{\mathbf{k}\sigma}\rbrace$ is an odd function of momentum, $v_\sigma^{(s^*)} = v_\sigma^{(d)} = 0$. The two options cannot coexist, and separate simulations can be implemented in the two symmetry sectors.
 
-We denote the symmetric flavour of the AF phase, described by the harmonics $v^{(s^*)}$ and $v^{(d)}$, as ``sAF''. The antisymmetric flavour, described by $v^{(p_x)}$, $v^{(p_y)}$, we denote ``aAF''. We report the set of HFPs for each in Tab.~\ref{tab:af-saf-aaf-hfps}.
+From now on, we use spin degeneracy and omit the spin index $\sigma$. We denote the symmetric flavour of the AF phase, described by the harmonics $v^{(s^*)}$ and $v^{(d)}$, as ``sAF''. The antisymmetric flavour, described by $v^{(p_x)}$, $v^{(p_y)}$, we denote ``aAF''. We report the set of HFPs for each in Tab.~\ref{tab:af-saf-aaf-hfps}.
 
 %\subsection{The zero-temperature ground-state at half-filling}\label{subsec:af-gs}
 %
@@ -1091,7 +1099,7 @@ In this section, we calculate the entropy density of the AF ground state, follow
 \[
 s^{(\mathrm{AF})} = s_-^{(\mathrm{AF})} + s_+^{(\mathrm{AF})} \, ,
 \]
-where the superscript indicates the band,
+where the subscript indicates the band,
 \begin{multline}
 	s_\pm^{(\mathrm{AF})} \equiv -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \Big[
 	\left(
@@ -1103,7 +1111,7 @@ where the superscript indicates the band,
 	\pm\tilde{E}_\mathbf{k}; \beta,\tilde{\mu})
 	\ln f( \pm\tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \, . \label{eq:af-s}
 \end{multline}
-Using Eq.~\eqref{eq:ln-x-id}, we can give an alternate formula for the entropy density
+Using Eq.~\eqref{eq:ln-x-id}, we can give an alternate formula for the entropy density,
 \begin{multline}
 	s^{(\mathrm{AF})} = -\frac{k_\mathrm{B}}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} \ln \left(
 	1- f( \tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \right) - \frac{2}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\tilde{E}_\mathbf{k}-\tilde{\mu}) f( \tilde{E}_\mathbf{k}; \beta,\tilde{\mu}) \\
@@ -1218,7 +1226,7 @@ From a computational point of view, Eq.~\eqref{eq:af-fMFT-approx} can be useful 
 	\qquad
 	(x \to \infty) \, .
 	\]
-	Let now $x=\beta \tilde{E}_\mathbf{k}$. At low temperature for a band with no nodes, we can approximate $\forall\mathbf{k}\,\colon\,\beta \tilde{E}_\mathbf{k}\to +\infty$ on the entire BZ. Hence
+	Let now $x=\beta \tilde{E}_\mathbf{k}$. At low temperature for a band with no nodes, we can approximate $\forall\mathbf{k}\,\colon\,\beta \tilde{E}_\mathbf{k}\to +\infty$ on the entire BZ. Hence,
 	\[
 	\ln(1 - \frac{1}{e^{\beta \tilde{E}_\mathbf{k}} + 1}) + \ln(1 - \frac{1}{e^{-\beta \tilde{E}_\mathbf{k}} + 1}) \simeq -\beta \tilde{E}_\mathbf{k} \, .
 	\]

@@ -14,7 +14,7 @@
 \contentsline {subsection}{\numberline {2.2.3}Operative hamiltonian approximation}{15}{subsection.2.2.3}%
 \contentsline {paragraph}{Local repulsion.}{15}{section*.7}%
 \contentsline {paragraph}{Non-local attraction.}{15}{section*.8}%
-\contentsline {section}{\numberline {2.3}The iHF algorithm}{15}{section.2.3}%
+\contentsline {section}{\numberline {2.3}The iHF algorithm}{16}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Fixed density simulations and the role of $\mu $}{17}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}The convergence scheme}{18}{subsection.2.3.2}%
 \contentsline {chapter}{\chapternumberline {3}Phase transitions and spontaneous symmetry breaking in the extended Hubbard model}{21}{chapter.3}%
@@ -37,7 +37,7 @@
 \contentsline {paragraph}{Fock terms.}{32}{section*.24}%
 \contentsline {paragraph}{Cooper terms.}{33}{section*.25}%
 \contentsline {section}{\numberline {3.3}The EHM in reciprocal space}{33}{section.3.3}%
-\contentsline {paragraph}{Kinetic part.}{33}{section*.27}%
+\contentsline {paragraph}{Kinetic part.}{34}{section*.27}%
 \contentsline {paragraph}{Local repulsion.}{34}{section*.28}%
 \contentsline {paragraph}{Non-local attraction.}{35}{section*.29}%
 \contentsline {section}{\numberline {3.4}Square lattice spatial symmetry channels}{36}{section.3.4}%
@@ -54,8 +54,8 @@
 \contentsline {subsection}{\numberline {4.3.1}Nematicity: $d$-wave bands and anisotropic hopping}{48}{subsection.4.3.1}%
 \contentsline {subsection}{\numberline {4.3.2}The entropy density of the normal ground-state}{50}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}The free energy density of the normal ground-state}{50}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}Constraints on the self-consistent solution}{52}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Numeric results for the normal phase}{55}{section.4.5}%
+\contentsline {section}{\numberline {4.4}Constraints on the self-consistent solution}{51}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Numeric results for the normal phase}{54}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}Mott localisation}{56}{subsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.5.2}Solution free energy and entropy densities}{57}{subsection.4.5.2}%
 \contentsline {subsection}{\numberline {4.5.3}Convergence problems and mixing fine-tuning}{58}{subsection.4.5.3}%
@@ -86,7 +86,7 @@
 \contentsline {paragraph}{Hopping renormalisation.}{79}{section*.70}%
 \contentsline {subsection}{\numberline {5.5.2}Mott-induced enhancement of magnetisation}{80}{subsection.5.5.2}%
 \contentsline {subsection}{\numberline {5.5.3}Solution free energy density}{81}{subsection.5.5.3}%
-\contentsline {subsection}{\numberline {5.5.4}Fixed-point interpretation of HF solution}{82}{subsection.5.5.4}%
+\contentsline {subsection}{\numberline {5.5.4}Fixed-point interpretation of HF solution}{83}{subsection.5.5.4}%
 \contentsline {chapter}{\chapternumberline {6}Superconducting phase}{85}{chapter.6}%
 \contentsline {section}{\numberline {6.1}The SC phase and its symmetries}{85}{section.6.1}%
 \contentsline {section}{\numberline {6.2}The HF hamiltonian and the variational parameters}{86}{section.6.2}%
@@ -142,51 +142,52 @@
 \contentsline {section}{\numberline {E.2}The HF hamiltonian and its properties}{136}{section.E.2}%
 \contentsline {subsection}{\numberline {E.2.1}Gap complexification and AF flavours}{136}{subsection.E.2.1}%
 \contentsline {subsection}{\numberline {E.2.2}The entropy density of the AF ground-state}{137}{subsection.E.2.2}%
-\contentsline {subsection}{\numberline {E.2.3}The free energy density of the AF ground-state}{137}{subsection.E.2.3}%
+\contentsline {subsection}{\numberline {E.2.3}The free energy density of the AF ground-state}{138}{subsection.E.2.3}%
 \contentsline {paragraph}{The general expression of free energy.}{138}{section*.125}%
 \contentsline {paragraph}{Approximation of free energy at half-filling.}{139}{section*.126}%
 \contentsline {appendix}{\chapternumberline {F}Theoretical constraints on the normal and AF HFPs}{141}{appendix.F}%
 \contentsline {section}{\numberline {F.1}Normal phase}{141}{section.F.1}%
 \contentsline {subsection}{\numberline {F.1.1}Mixed $s^* \oplus d$ bands}{141}{subsection.F.1.1}%
-\contentsline {subsection}{\numberline {F.1.2}Bands shrinking in $\mathrm {C}_4$}{143}{subsection.F.1.2}%
+\contentsline {subsection}{\numberline {F.1.2}Bands shrinking effect within unbroken $\mathrm {C}_4$ symmetry}{143}{subsection.F.1.2}%
 \contentsline {paragraph}{Proof.}{143}{section*.129}%
 \contentsline {paragraph}{Proof.}{144}{section*.130}%
-\contentsline {subsection}{\numberline {F.1.3}Bands shrinking in $\mathrm {C}_2/\mathbb {Z}_2$}{144}{subsection.F.1.3}%
+\contentsline {subsection}{\numberline {F.1.3}Bands shrinking effect within broken $\mathrm {C}_4 \stackrel {\mathrm {SSB}}{\to }\mathrm {C}_2$ symmetry}{144}{subsection.F.1.3}%
 \contentsline {paragraph}{Proof.}{145}{section*.132}%
 \contentsline {paragraph}{Proof.}{146}{section*.133}%
 \contentsline {paragraph}{Proof.}{146}{section*.134}%
 \contentsline {paragraph}{Proof.}{147}{section*.135}%
 \contentsline {paragraph}{Proof.}{148}{section*.136}%
 \contentsline {section}{\numberline {F.2}AF phase}{148}{section.F.2}%
-\contentsline {subsection}{\numberline {F.2.1}Bands shrinking in $\mathrm {C}_4$}{149}{subsection.F.2.1}%
+\contentsline {subsection}{\numberline {F.2.1}Bands shrinking effect within unbroken $\mathrm {C}_4$ symmetry}{149}{subsection.F.2.1}%
 \contentsline {paragraph}{Proof.}{149}{section*.137}%
 \contentsline {paragraph}{Proof.}{149}{section*.138}%
-\contentsline {subsection}{\numberline {F.2.2}Selection rules on the magnetic HFPs in sAF phase}{149}{subsection.F.2.2}%
+\contentsline {subsection}{\numberline {F.2.2}Selection rules on the magnetic HFPs in sAF phase}{150}{subsection.F.2.2}%
 \contentsline {paragraph}{Proof.}{151}{section*.139}%
 \contentsline {paragraph}{Proof.}{151}{section*.140}%
 \contentsline {paragraph}{Proof.}{152}{section*.141}%
 \contentsline {paragraph}{Proof.}{152}{section*.142}%
 \contentsline {paragraph}{Proof.}{152}{section*.143}%
-\contentsline {paragraph}{Proof.}{153}{section*.144}%
+\contentsline {paragraph}{Proof.}{152}{section*.144}%
 \contentsline {paragraph}{Proof.}{153}{section*.145}%
+\contentsline {paragraph}{Proof.}{153}{section*.146}%
 \contentsline {subsection}{\numberline {F.2.3}Selection rules on the magnetic HFPs in aAF phase}{154}{subsection.F.2.3}%
-\contentsline {subsection}{\numberline {F.2.4}Bands shrinking in $\mathrm {C}_2/\mathbb {Z}_2$}{155}{subsection.F.2.4}%
+\contentsline {subsection}{\numberline {F.2.4}Bands shrinking effect within broken $\mathrm {C}_4 \stackrel {\mathrm {SSB}}{\to }\mathrm {C}_2$ symmetry}{155}{subsection.F.2.4}%
 \contentsline {appendix}{\chapternumberline {G}The HF hamiltonian in the SC phase}{159}{appendix.G}%
 \contentsline {section}{\numberline {G.1}Superconductivity in the conventional HM: derivation of the HF hamiltonian}{159}{section.G.1}%
 \contentsline {subsection}{\numberline {G.1.1}Effects of the local Hartree terms: chemical potential renormalisation}{160}{subsection.G.1.1}%
 \contentsline {subsection}{\numberline {G.1.2}Effects of the local Cooper terms: isotropic pairing}{160}{subsection.G.1.2}%
 \contentsline {subsection}{\numberline {G.1.3}Diagonalisation of the HF hamiltonian}{162}{subsection.G.1.3}%
-\contentsline {paragraph}{Matrix representation.}{162}{section*.147}%
-\contentsline {paragraph}{Pseudospin representation.}{163}{section*.148}%
-\contentsline {paragraph}{Diagonalisation.}{163}{section*.149}%
-\contentsline {paragraph}{Pseudospin EVs.}{164}{section*.150}%
-\contentsline {paragraph}{$s$-wave gap self-consistency equation.}{164}{section*.151}%
-\contentsline {paragraph}{Density.}{165}{section*.152}%
+\contentsline {paragraph}{Matrix representation.}{162}{section*.148}%
+\contentsline {paragraph}{Pseudospin representation.}{163}{section*.149}%
+\contentsline {paragraph}{Diagonalisation.}{163}{section*.150}%
+\contentsline {paragraph}{Pseudospin EVs.}{164}{section*.151}%
+\contentsline {paragraph}{$s$-wave gap self-consistency equation.}{164}{section*.152}%
+\contentsline {paragraph}{Density.}{165}{section*.153}%
 \contentsline {subsection}{\numberline {G.1.4}Impossibility of $s$-wave superconductivity in the HM}{165}{subsection.G.1.4}%
 \contentsline {section}{\numberline {G.2}Generalisation to the EHM}{166}{section.G.2}%
-\contentsline {paragraph}{Pseudospin EVs.}{166}{section*.153}%
-\contentsline {paragraph}{$w^{(s)}$ and density self-consistency equations.}{167}{section*.154}%
-\contentsline {paragraph}{Contributions of each channel.}{167}{section*.155}%
+\contentsline {paragraph}{Pseudospin EVs.}{166}{section*.154}%
+\contentsline {paragraph}{$w^{(s)}$ and density self-consistency equations.}{167}{section*.155}%
+\contentsline {paragraph}{Contributions of each channel.}{167}{section*.156}%
 \contentsline {subsection}{\numberline {G.2.1}Effects of the non-local Hartree terms: chemical potential renormalisation}{167}{subsection.G.2.1}%
 \contentsline {subsection}{\numberline {G.2.2}Effects of the Fock terms: bare bands renormalisation}{167}{subsection.G.2.2}%
 \contentsline {subsection}{\numberline {G.2.3}Effects of the non-local Cooper terms: generalised pairing}{169}{subsection.G.2.3}%
@@ -195,4 +196,4 @@
 \contentsline {subsection}{\numberline {G.3.2}The entropy density of the SC ground-state}{172}{subsection.G.3.2}%
 \contentsline {subsection}{\numberline {G.3.3}The free energy density of the SC ground-state}{173}{subsection.G.3.3}%
 \contentsline {subsection}{\numberline {G.3.4}The energetic constraint on the gap harmonics}{175}{subsection.G.3.4}%
-\contentsline {chapter}{Bibliography}{179}{section*.160}%
+\contentsline {chapter}{Bibliography}{179}{section*.161}%

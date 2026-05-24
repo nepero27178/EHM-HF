@@ -1,20 +1,20 @@
 \def\GraphicsFolder{chapters/antiferromagnetic-instability/pictures}
 \chapter{Antiferromagnetic phase}\label{chap:af}
 
-In this chapter, we study antiferromagnetism in the extended Hubbard model, limiting ourselves to commensurate antiferromagnetism at half-filling. This phase is well known and studied on the square Hubbard lattice. Here we show that the insertion of the non-local attraction $\hat H_V$ leads to an enhancement of the antiferromagnetic (AF) instability, as a result of two cooperative effects. First, the direct amplification of the AF gap, and, second, the shrinking of electronic bandwidth that lead to the aforementioned Mott localisation.
+In this chapter, we study antiferromagnetic (AF) ordering in the extended Hubbard model, limiting ourselves to commensurate antiferromagnetism at half-filling. This phase is well known and studied on the square Hubbard lattice. Here we show that the insertion of the non-local attraction $\hat H_V$ leads to an enhancement of the AF instability, as a result of two cooperative effects. First, the direct amplification of the AF gap, and, second, the shrinking of electronic bandwidth that lead to the aforementioned Mott localisation.
 
-This chapter is organised as follows. In Sec.~\ref{sec:af-phase-theory}, we present the commensurate antiferromagnetic (AF) phase and discuss its symmetries. In Sec.~\ref{sec:af-hm}, we discuss the HF approximation in the AF phase for the conventional HM. In Sec.~\ref{sec:af-hf-hfps}, we generalise to the EHM, showing how the HF hamiltonian obtained for the HM can be renormalised. In Sec.~\ref{sec:af-mott}, we prove that Mott localisation can enhance long-range antiferromagnetic ordering. Finally, in Sec.~\ref{sec:af-numeric}, we present the results of numeric simulations.
+This chapter is organised as follows. In Sec.~\ref{sec:af-phase-theory}, we present the commensurate AF phase and discuss its symmetries. In Sec.~\ref{sec:af-hm}, we discuss the HF approximation in the AF phase for the conventional HM. In Sec.~\ref{sec:af-hf-hfps}, we generalise to the EHM, showing how the HF hamiltonian obtained for the HM can be renormalised. In Sec.~\ref{sec:af-mott}, we prove that Mott localisation can enhance long-range AF ordering. Finally, in Sec.~\ref{sec:af-numeric}, we present the results of numeric simulations.
 
 \section{The AF phase and its symmetries}\label{sec:af-phase-theory}
 
 \begin{figure}
 	\centering
 	\input{\GraphicsFolder/antiferromagnets.tex}
-	\caption{Three possible antiferromagnetic structures. Dots and arrows indicate spin abundance on a given site, while empty sites are intended as spin-balanced. Within this text we deal with the lowest-periodicity commensurate phase, the antiferromagnet on left panel.}
+	\caption{Three possible AF structures. Dots and arrows indicate spin abundance on a given site, while empty sites are intended as spin-balanced. Within this text we deal with the lowest-periodicity commensurate phase, the antiferromagnet on left panel.}
 	\label{fig:antiferromagnets}
 \end{figure}
 
-Long-range antiferromagnetic ordering is defined by the insurgence of a staggered pattern of spin density with a given periodicity, with zero net magnetisation. In Fig.~\ref{fig:antiferromagnets}, we show three (of many) possible AF orderings, with the blue/red arrows indicating an abundance of spin-up/down electrons on-site.
+Long-range AF ordering is defined by the insurgence of a staggered pattern of spin density with a given periodicity, with zero net magnetisation. In Fig.~\ref{fig:antiferromagnets}, we show three (of many) possible AF orderings, with the blue/red arrows indicating an abundance of spin-up/down electrons on-site.
 The left panel of Fig.~\ref{fig:antiferromagnets} shows an alternating structure with two-sites periodicity in both directions. We denote this configuration as ``commensurate''. This structure is periodic by shifts of an amount $(1,1)$ in lattice units. Therefore, in reciprocal space this phase has a non-zero component at wavevector
 \begin{equation}\label{eq:af-pi}
 	\bm{\pi} = (\pi,\pi) \, .
@@ -303,7 +303,7 @@ We report these results in the summary of Tab.~\ref{tab:af-RWCs}, provided in ne
 	\right) = nU \times \hat N \, .
 	\]
 	
-	Using Eq.~\eqref{eq:af-<psi>-not0-int}, the second term of Eq.~\eqref{eq:af-HU-hartree-Ec-implicit} becomes
+	Using Eq.~\eqref{eq:af-<psi>-not0-int}, the second term of Eq.~\eqref{eq:af-HU-hartree-Ec-implicit-int1} becomes
 	\[
 	mU \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \left(
 	\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
@@ -311,11 +311,16 @@ We report these results in the summary of Tab.~\ref{tab:af-RWCs}, provided in ne
 	\]
 	Recall the definition of the MBZ given in Eq.~\eqref{eq:MBZ-def}. The full BZ can be seen as the sum of two MBZs shifted by $\bm{\pi}$. Then, from Eq.~\eqref{eq:af-(psi+pi)=psi}, we get
 	\[
-	mU \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \left(
-	\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
-	\right) = mU \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma (-1)^{\delta_{\sigma=\downarrow}} \left(
-	\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger
-	\right) \, .
+	\begin{aligned}
+		mU \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \left(
+		\hat n_{\mathbf{r}\uparrow} - \hat n_{\mathbf{r}\downarrow}
+		\right) &= mU \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma (-1)^{\delta_{\sigma=\downarrow}} \left(
+		\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}+\bm{\pi}\sigma}
+		\right) \\
+		&= mU \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma (-1)^{\delta_{\sigma=\downarrow}} \left(
+		\hat \psi_{\mathbf{k}\sigma} + \hat \psi_{\mathbf{k}\sigma}^\dagger
+		\right) \, .
+	\end{aligned}
 	\]
 	Composing everything, Eq.~\eqref{eq:af-HU-hartree-Ec-implicit-int1} becomes
 	\[
@@ -366,7 +371,7 @@ Compared with that for the normal phase given in Eq.~\eqref{eq:normal-HU-hartree
 
 \subsection{Diagonalisation of the HF hamiltonian}\label{subsec:af-hm-diagonalisation}
 
-In this section, we diagonalise the HF hamiltonian identified by Eqs.~\eqref{eq:af-HU-hartree-approx} and \eqref{eq:af-HU-hartree-Ec}.
+In this section, we diagonalise the HF hamiltonian identified by Eqs.~\eqref{eq:af-HU-hartree-approx} and \eqref{eq:af-HU-hartree-Ec}. The procedure hereby sketched will be reused when inserting the non-local attraction, and when analysing the SC phase in Chap.~\ref{chap:sc}.
 
 \paragraph{Matrix representation.}
 
@@ -419,7 +424,7 @@ and the spinors
 
 %The operator given in Eq.~\eqref{eq:af-HM-hk} is a parametric hamiltonian. We need to identify its ground state for each choice of the parameters $\Delta_{\mathbf{k}\sigma}$. This is done by mapping the problem to the one of a set of spins subject to local magnetic fields: let us show this. 
 
-\paragraph{Pseudospin representation.} The matrix $h_{\mathbf{k}\sigma}$ can be written in term of the Pauli matrices $\tau^\alpha$,
+\paragraph{Pseudospin representation.} The matrix $h_{\mathbf{k}\sigma}$ can be written in term of the Pauli matrices $\tau^\alpha$ of Eq.~\eqref{eq:pauli-def},
 \[
 h_{\mathbf{k}\sigma} = \epsilon_{\mathbf{k}\sigma} \tau^z - \Delta_{\mathbf{k}\sigma} \tau^x \, .
 \]
@@ -515,7 +520,7 @@ In order to diagonalise the HF hamiltonian, Eq.~\eqref{eq:af-hm-spin-h}, we perf
 		& - E_{\mathbf{k}\sigma}
 	\end{bmatrix} \, .
 \end{equation}
-The diagonal values of $d_{\mathbf{k}\sigma}$ are $\pm E_{\mathbf{k}\sigma}$, with
+This kind of procedure is referred to as ``Bogliubov rotation''. The diagonal values of $d_{\mathbf{k}\sigma}$ are the ``Bogoliubov bands'' $\pm E_{\mathbf{k}\sigma}$, with
 \begin{equation}\label{eq:af-bands}
 	E_{\mathbf{k}\sigma} = \sqrt{
 		\epsilon_{\mathbf{k}\sigma}^2 + \abs{\Delta_{\mathbf{k}\sigma}}^2
@@ -647,12 +652,18 @@ The two are equivalent, but the second one is handier to implement in numeric co
 		\frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k} \in \mathrm{BZ}} e^{i \mathbf{k} \cdot \mathbf{r}} \hat c_{\mathbf{k}\sigma}^\dagger \frac{1}{\sqrt{L_x L_y}} \sum_{\mathbf{k}' \in \mathrm{BZ}} e^{-i \mathbf{k}' \cdot \mathbf{r}} \hat c_{\mathbf{k}'\sigma} \, , \label{eq:af-<n>-not0-int1}
 	\end{align}
 	where we used Eq.~\eqref{eq:fourier-convention}. By further elaboration, we obtain
-	\begin{align}
+	\[
+	\begin{aligned}
 		\sum_{\mathbf{r}\in\mathcal{L}} \hat n_{\mathbf{r}\sigma} &=\sum_{\mathbf{k} \in \mathrm{BZ}} \sum_{\mathbf{k}' \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} e^{-i (\mathbf{k}' - \mathbf{k}) \cdot \mathbf{r}} \nonumber \\
-		&= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \nonumber \\
-		&= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat n_{\mathbf{k}\sigma} \, , \label{eq:af-<n>-not0}
+		&= \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_{\mathbf{k}' \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma} \delta_{\mathbf{k}=\mathbf{k}'} \, ,
+	\end{aligned}
+	\]
+	where we used Eq.~\eqref{eq:ehm-delta}. Therefore,
+	\begin{align}
+		\sum_{\mathbf{r}\in\mathcal{L}} \hat n_{\mathbf{r}\sigma} &= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \nonumber \\
+		&= \sum_{\mathbf{k} \in \mathrm{BZ}} \hat n_{\mathbf{k}\sigma} \, . \label{eq:af-<n>-not0}
 	\end{align}
-	where we used Eq.~\eqref{eq:ehm-delta}. Hence, applying Eq.~\eqref{eq:af-ansatz},
+	Hence, applying Eq.~\eqref{eq:af-ansatz},
 	\begin{align}
 		n &= \frac{1}{2} \sum_\sigma \Bigg(
 		\frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} n + \overbrace{\frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} m}^{=0}
@@ -667,9 +678,9 @@ The two are equivalent, but the second one is handier to implement in numeric co
 		\rangle \nonumber \\
 		&= \frac{1}{2L_x L_y} \sum_\sigma \sum_{\mathbf{k} \in \mathrm{MBZ}} \left\langle 
 		\hat \Psi_{\mathbf{k}\sigma}^\dagger \hat \Psi_{\mathbf{k}\sigma} 
-		\right\rangle \, . \label{eq:af-hm-n-MBZ-Th-int1}
+		\right\rangle \, , \label{eq:af-hm-n-MBZ-Th-int1}
 	\end{align}
-	The mapping $\hat \Psi \to \hat \Gamma$ is unitary, so 
+	where we used the spinors of Eq.~\eqref{eq:af-Psi-def}. The mapping $\hat \Psi \to \hat \Gamma$ is unitary, so 
 	\[
 	\hat \Psi_{\mathbf{k}\sigma}^\dagger \hat \Psi_{\mathbf{k}\sigma} = \hat \Gamma_{\mathbf{k}\sigma}^\dagger \hat \Gamma_{\mathbf{k}\sigma} \, .
 	\]
@@ -690,7 +701,7 @@ The two are equivalent, but the second one is handier to implement in numeric co
 	Eq.~\eqref{eq:af-Th}. The thermal factor is spin-independent, hence we can set $\sigma=\uparrow$ and remove the sum over spin. This proves Eq.~\eqref{eq:af-hm-n-MBZ-Th}.
 \end{tabproof}
 
-In Fig.~\ref{subfig:af-Ek-density} we sketch density as a function of the chemical potential, computed using Eq.~\eqref{eq:af-hm-n-MBZ-Th} at $U/t=10$ and $L=256$. As we increase $\beta$, we observe that a sort of plateau emerges at $\mu \in [-\Delta,\Delta]$, becoming sharper as we decrease temperature. For an insulating phase, any infinitesimal shift to $\mu$ does not increase $n$. Indeed, in that case the chemical potential lies within a gap and no states can be filled by incrementing a little the chemical potential. On the contrary, for a metallic phase $n$ changes as we vary infinitesimally $\mu$. In Fig.~\ref{subfig:af-Ek-density}, we observe that the plateau is located at $n=1/2$, i.e. half-filling, while for $\abs{\mu} > \Delta$ the density varies with $\mu$. Therefore, the commensurate AF phase is insulating only at half-filling.
+In Fig.~\ref{subfig:af-Ek-density} we sketch density as a function of the chemical potential, computed using Eq.~\eqref{eq:af-hm-n-BZ-Th} at $U/t=10$ and $L=256$. As we increase $\beta$, we observe that a sort of plateau emerges at $\mu \in [-\Delta,\Delta]$, becoming sharper as we decrease temperature. For an insulating phase, any infinitesimal shift to $\mu$ does not increase $n$. Indeed, in that case the chemical potential lies within a gap and no states can be filled by incrementing a little the chemical potential. On the contrary, for a metallic phase $n$ changes as we vary infinitesimally $\mu$. In Fig.~\ref{subfig:af-Ek-density}, we observe that the plateau is located at $n=1/2$, i.e. half-filling, while for $\abs{\mu} > \Delta$ the density varies with $\mu$. Therefore, the commensurate AF phase is insulating only at half-filling.
 
 \begin{figure}
 	\centering
@@ -793,11 +804,11 @@ By following a procedure very similar to Sec.~\ref{sec:af-hm}, we obtain the ren
 	\right)
 	- \tilde{\mu} \hat N + E_\mathrm{c}^{(\mathrm{AF})} \, , \label{eq:af-full-h}
 \end{multline}
-where we defined the contraction energy, which satisfies
+where we defined the contraction energy,
 \begin{equation}\label{eq:af-Ec}
 	\frac{E_\mathrm{c}^{(\mathrm{AF})}}{L_x L_y} \equiv U(m^2 - n^2) + V \left[
-	2zn^2 - \sum_{\gamma \neq s} \left(
-	\big|u^{(\gamma)}\big|^2 + \big|v^{(\gamma)}\big|^2
+	2zn^2 - \frac{1}{2} \sum_{\gamma \neq s} \sum_\sigma \left(
+	\big|u^{(\gamma)}_\sigma\big|^2 + \big|v^{(\gamma)}_\sigma\big|^2
 	\right)
 	\right] \, .
 \end{equation}
@@ -1096,7 +1107,7 @@ In Fig.~\ref{fig:af-tS-compared} we show a comparative plot of the converged val
 
 For the AF phase, we conclude that the non-local attraction $\hat H_V$ induces the flattening of bare bands, while the local repulsion $\hat H_U$ does the opposite. When we discussed Mott localisation in the context of the normal phase (see Sec.~\ref{subsec:normal-mott-numeric}), we argued that bands flattening was induced by $V$, while $U$ was irrelevant. Here we see that in the AF phase, the local repulsion opposes Mott localisation. This is somewhat the opposite of what we would expect, based on the phenomenology of Mott localisation, which is in general enhanced by the repulsion of two electrons on the same site (see Sec.~\ref{subsec:mott-cuprates}).
 
-The above observation need to be addressed in the context of antiferromagnetic ordering, where magnetisation $m$ is a macroscopic observable. Recall the discussion of Sec.~\ref{sec:af-mott}: we claimed that the flattening of bare bands could induce magnetisation. Indeed, if by increasing $U$ we are ``by force'' enhancing the AF gap (even at low magnetisation), by increasing $V$ we are reducing the bare bandwidth. This suggests that we can obtain the same macroscopic magnetisation even if the underlying physics is much different. Indeed, as we observe from Fig.~\ref{fig:af-tS-data-A256}, it is only by increasing the non-local attraction that the actual hopping amplitude of electrons in reduced. From the above considerations, we observe that either increasing $U$ or $V$ we should expect approximately the same magnetic ordering.
+The above observation need to be addressed in the context of AF ordering, where magnetisation $m$ is a macroscopic observable. Recall the discussion of Sec.~\ref{sec:af-mott}: we claimed that the flattening of bare bands could induce magnetisation. Indeed, if by increasing $U$ we are ``by force'' enhancing the AF gap (even at low magnetisation), by increasing $V$ we are reducing the bare bandwidth. This suggests that we can obtain the same macroscopic magnetisation even if the underlying physics is much different. Indeed, as we observe from Fig.~\ref{fig:af-tS-data-A256}, it is only by increasing the non-local attraction that the actual hopping amplitude of electrons in reduced. From the above considerations, we observe that either increasing $U$ or $V$ we should expect approximately the same magnetic ordering.
 
 \subsection{Mott-induced enhancement of magnetisation}\label{subsec:af-m-boost}
 
@@ -1109,7 +1120,7 @@ In Fig.~\ref{fig:af-m-data-C128} we show the converged results for $m$ as a func
 	\label{fig:af-m-data-C128}
 \end{figure}
 
-In Fig.~\ref{fig:af-m-data-C128}, we see that isomagnetic curves are actually straight lines, and become approximately parallel as we move towards the top-right corner of the plot. This is similar to what we found for the HFP $u^{(s^*)}$. The fact that isovalued curves are linearly shaped suggests that possibly some kind of critical ratio among the interactions exists, such that the net sum of local repulsion and Mott physics lead to the same macroscopic magnetic ordering. This relation should be, roughly, something like
+In Fig.~\ref{fig:af-m-data-C128}, we see that isomagnetic curves are actually straight lines, and become approximately parallel as we move towards the top-right corner of the plot. This is similar to what we found for the HFP $u^{(s^*)}$. The fact that isovalued curves are linearly shaped suggests that possibly some kind of critical ratio among the interactions exists, such that the net sum of local repulsion and Mott physics leads to the same macroscopic magnetic ordering. This relation should be, roughly, something like
 \[
 \frac{V}{V_0} = \frac{U_0 - U}{U_0} \, ,
 \]
@@ -1129,7 +1140,7 @@ where $V_0$ is the intersection of the isomagnetic line with the vertical axis (
 	\label{fig:af-m-data-A256}
 \end{figure}
 
-In Fig.~\ref{fig:af-m-data-A256} we show the converged data for $m$ as we vary, alternatively, $U$ (left panel) and $V$ (right panel). As we already commented, magnetisation is induced by both interactions, but the general shape of the curves is slightly different. In Fig.~\ref{subfig:af-m-data-A256-pVar=V} we see that $m$ saturates rapidly, but as we lower $U$ all curves go to zero. In Fig.~\ref{subfig:af-m-data-A256-pVar=U}, instead, lowering $V$ the curves reach a finite intersection with the vertical axis. The local repulsion is necessary in order to establish antiferromagnetic ordering, while the non-local attraction acts -- at fixed $U$ -- as a sort of magnetisation boost.
+In Fig.~\ref{fig:af-m-data-A256} we show the converged data for $m$ as we vary, alternatively, $U$ (left panel) and $V$ (right panel). As we already commented, magnetisation is induced by both interactions, but the general shape of the curves is slightly different. In Fig.~\ref{subfig:af-m-data-A256-pVar=V} we see that $m$ saturates rapidly, but as we lower $U$ all curves go to zero. In Fig.~\ref{subfig:af-m-data-A256-pVar=U}, instead, lowering $V$ the curves reach a finite intersection with the vertical axis. The local repulsion is necessary in order to establish AF ordering, while the non-local attraction acts -- at fixed $U$ -- as a sort of magnetisation boost.
 
 \subsection{Solution free energy density}\label{subsec:af-f-s}
 
@@ -1149,9 +1160,9 @@ In this section, we show the data for the free energy density, computed at half-
 	\label{fig:af-f-data}
 \end{figure}
 
-It is then evident how, even if the macroscopic magnetic properties are the same along one isomagnetic line of those plotted in Fig.~\ref{fig:af-m-data-C128}, and thus the realised state exhibits an identical value of $m$, much different is the energetic content of the state itself. Increasing $U$ while keeping $V$ fixed, we amplify the gap. Hence, Bogoliubov bands $\pm \tilde{E}_\mathbf{k}$ are shifted away, namely the lower band is pushed towards more negative energies and the upper band towards more positive energies. At half-filling and low temperature, the lower band is roughly completely occupied while the upper band is roughly completely empty. Hence, quasiparticles lower their energy by the amplification of the gap. On the other hand, increasing $V$ while keeping $U$ fixed does the opposite. As bands get flattened, their distance lowers and quasiparticles increase their energies (namely, the lower band gets closer to zero). Hence, even if we observe isomagnetic domains, this does not mean that the content in energy of the HF ground state is identical.
+It is then evident how, even if the macroscopic magnetic properties are the same along one isomagnetic line of those plotted in Fig.~\ref{fig:af-m-data-C128}, and thus the realised state exhibits an identical value of $m$, much different is the energetic content of the state itself. Increasing $U$ while keeping $V$ fixed, we amplify the gap. Hence, Bogoliubov bands $\pm \tilde{E}_\mathbf{k}$ are shifted away, namely the lower band is pushed towards more negative energies and the upper band towards more positive energies. At half-filling and low temperature, the lower band is approximately completely occupied while the upper band is approximately completely empty. Hence, quasiparticles lower their energy due to the amplification of the gap. On the other hand, increasing $V$ while keeping $U$ fixed does the opposite. As bands get flattened, their distance lowers and quasiparticles increase their energies (namely, the lower band gets closer to zero). Hence, even if we observe isomagnetic domains, this does not mean that the content in energy of the HF ground state is identical.
 
-The AF phase is always energetically favoured at half-filling, with respect to the normal phase. In Fig.~\ref{fig:af-f-compared} we plot the energy difference
+The commensurate AF phase is always energetically favoured at half-filling, with respect to the normal phase. In Fig.~\ref{fig:af-f-compared} we plot the energy difference
 \[
 f^{(\mathrm{N})} - f^{(\mathrm{AF})} \, .
 \]
@@ -1205,7 +1216,7 @@ In figures, different colours indicate different evolutions, while the tip size 
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{/home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/attractor-ink.pdf}
-	\caption{Quiver plot of algorithmic evolution in HFPs space at fixed model parametrisation. The black dot $\mathbf{v}$ represents the nonlinear map fixed point, while the colored paths the sequences of HFPs coordinates simulated via iterative HF procedure, starting from different HFPs initialisers (colored dots).}
+	\caption{Quiver plot of algorithmic evolution in HFPs space at fixed model parametrisation. The black dot $\mathbf{v}$ represents the nonlinear map fixed point, while the coloured paths the sequences of HFPs coordinates simulated via iterative HF procedure, starting from different HFPs initialisers (coloured dots).}
 	\label{fig:af-attractor}
 \end{figure}
 
