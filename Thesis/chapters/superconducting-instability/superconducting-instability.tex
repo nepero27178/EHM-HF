@@ -3,8 +3,8 @@
 
 In this chapter, we study the translationally invariant superconducting (SC) phase. We observe various effects: bare bands shrinking, insurgence of mixed-symmetry superconductivity and nematicity.
 
-This chapter is organised as follows. In Sec.~\ref{sec:sc-phase-theory} we present the translationally invariant superconducting phase and its symmetries. In Sec.~\ref{sec:sc-hf-hfps} we report the HF approximation to the EHM hamiltonian in the normal phase, the self-consistency equations and two constraints for the various HFPs.
-In Sec.~\ref{sec:sc-numeric} we present the result of numeric simulations.
+This chapter is organised as follows. In Sec.~\ref{sec:sc-phase-theory}, we present the translationally invariant superconducting (SC) phase and its symmetries. In Sec.~\ref{sec:sc-hf-hfps}, we report the HF approximation to the EHM hamiltonian in the normal phase, the self-consistency equations and two constraints for the various HFPs.
+In Sec.~\ref{sec:sc-numeric}, we present the results of numeric simulations.
 
 The analytical computations for the SC phase are almost identical to the ones carried out for the AF phase. For the sake of conciseness, in this section we limit to reporting the essential result, while the entire derivation is moved to App.~\ref{app:sc-hf-hamiltonian}.
 
@@ -14,7 +14,7 @@ The translationally invariant SC phase is described by the SSB
 \[
 	\mathrm{U}^z(1) \SSB 0 \, , \\
 \]
-as we discussed in Sec.~\ref{sec:ehm-sym-break}. In the SC phase, products of two creation operators can be non-zero,
+as we discussed in Sec.~\ref{sec:ehm-sym-break}. In the SC phase, we have
 \[
 	\big\langle
 	\hat c_{i\sigma}^\dagger \hat c_{j\sigma'}^\dagger \rangle \neq 0 \, ,
@@ -30,7 +30,7 @@ which means that two $\mathfrak{su}(2)$ algebras are composed into a singlet and
 	\item Singlet, with total spin equal to $0$. In this channel, the Cooper pairs must exhibit spatial inversion symmetry.
 	\item Triplet, with total spin equal to $1$. In this channel, the Cooper pairs must exhibit spatial inversion anti-symmetry.
 \end{enumerate}
-This concept is summarised in Tab.~\ref{tab:sc-pairings-symmetry-structures}. We can choose to restrict to just one of these pairing channels. This provides specific symmetry selection rules on the superconducting gap function harmonics. In this thesis, we restrict to the singlet channel.
+This concept is summarised in Tab.~\ref{tab:sc-pairings-symmetry-structures}. We can choose to restrict to just one of these pairing channels. This provides specific symmetry selection rules on the SC gap function harmonics. In this thesis, we restrict to the singlet channel.
 
 \begin{table}
 	\centering
@@ -74,7 +74,7 @@ Using the functions of Tab.~\ref{tab:x-wave-reciprocal-factors}, we define the h
 	u^{(\gamma)}_\sigma &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} u_{\mathbf{k}\sigma} \, , \label{eq:sc-ugamma-harmonics} \\
 	w^{(\gamma)} &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} w_\mathbf{k} \, . \label{eq:sc-wgamma-harmonics}
 \end{align}
-As was for the AF phase, these harmonics are HFPs in the SC phase and must be determined self-consistently. Eqs.~\eqref{eq:sc-ugamma-harmonics} and \eqref{eq:sc-wgamma-harmonics}.
+As was for the AF phase, these harmonics are HFPs in the SC phase and must be determined self-consistently through Eqs.~\eqref{eq:sc-ugamma-harmonics} and \eqref{eq:sc-wgamma-harmonics}.
 
 %\section{The SC phase in the conventional HM}\label{sec:sc-hm}
 %
@@ -507,7 +507,7 @@ As was for the AF phase, these harmonics are HFPs in the SC phase and must be de
 %\begin{equation}\label{eq:sc-hm-ws=0}
 %	w^{(s)} = 0 \, ,
 %\end{equation}
-%therefore no superconducting gap can develop at HF level. This does not hold for $U<0$: an attractive model can host $s$-wave superconductivity.
+%therefore no SC gap can develop at HF level. This does not hold for $U<0$: an attractive model can host $s$-wave superconductivity.
 %
 %\begin{tabproof}[Proof of Eq.~\eqref{eq:sc-hm-ws=0}: impossibility of $s$-wave superconductivity in the conventional HM]
 %	
@@ -974,7 +974,7 @@ As was for the AF phase, these harmonics are HFPs in the SC phase and must be de
 %
 %\begin{tabproof}[Proof of Eq.~\eqref{eq:sc-ehm-wgamma-self-consistency}: self-consistency equations for $w^{(\gamma)}$]
 %	
-%	Consider Eq.~\eqref{eq:sc-wgamma-harmonics}. For the $\gamma$-wave component of the superconducting order parameter, the following chain holds:
+%	Consider Eq.~\eqref{eq:sc-wgamma-harmonics}. For the $\gamma$-wave component of the SC order parameter, the following chain holds:
 %	\[
 %	\begin{aligned}
 %		w^{(\gamma)} &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} \big\langle
@@ -1321,7 +1321,7 @@ As was for the AF phase, these harmonics are HFPs in the SC phase and must be de
 %
 %\end{tabproof}
 
-%In this section, we derive one constraint on the solution for the SC phase, which ``regulates'' the competition among various symmetries of the superconducting gap. We specify that, differently from AF and normal phases, for the singlet SC phase we do not have any theoretical constraint on the HFPs $u^{(\gamma)}$, $w^{(\gamma)}$.
+%In this section, we derive one constraint on the solution for the SC phase, which ``regulates'' the competition among various symmetries of the SC gap. We specify that, differently from AF and normal phases, for the singlet SC phase we do not have any theoretical constraint on the HFPs $u^{(\gamma)}$, $w^{(\gamma)}$.
 
 \paragraph{The role of each contraction channel.}
 
@@ -1435,11 +1435,11 @@ In the SC phase, we have two possible channels of Cooper pairing: singlet and tr
 	\label{tab:sc-ssc-tsc-hfps}
 \end{table}
 
-As was for the normal and AF phase, and is reported in Eq.~\eqref{eq:sc-ehm-full-bands}, the occupation harmonics $u^{(\gamma)}$ are involved in the renormalisation of the bare bands. We report their self-consistency equations in explicit form, reformulating Eq.~\eqref{eq:sc-ugamma-harmonics}, in Tab.~\ref{tab:sc-ehm-ugamma-self-consistencies}. Instead, the HFPs $w^{(\gamma)}$ are components of the gap function. Indeed,
+As was for the normal and AF phase, and is reported in Eq.~\eqref{eq:sc-ehm-full-bands}, the occupation harmonics $u^{(\gamma)}$ are involved in the renormalisation of the bare bands. We report their self-consistency equations in explicit form, reformulating Eq.~\eqref{eq:sc-ugamma-harmonics}, in Tab.~\ref{tab:sc-ehm-ugamma-self-consistencies}. Instead, the HFPs $w^{(\gamma)}$ are components of the gap function, as we see in Eq.~\eqref{eq:sc-ehm-full-gap}. Indeed,
 \[
 	\tilde{\Delta}^{(s)} = -U w^{(s)} \, ,
 	\qquad
-	\tilde{\Delta}^{(\gamma)} = -U w^{(\gamma)}
+	\tilde{\Delta}^{(\gamma)} = V w^{(\gamma)}
 	\qquad
 	\text{for $\gamma \neq s$.}
 \]
@@ -1451,9 +1451,9 @@ In this thesis, we focus on the singlet channel, therefore the first rule of HFP
 	\begin{equation}\label{eq:sc-hm-ws=0}
 		V=0
 		\quad\implies\quad
-		w^{(s)} = 0 \, .
+		w^{(s)} = 0 \, ,
 	\end{equation}
-	Indeed, if in Eq.~\eqref{eq:sc-ehm-full-gap} we plug in $V=0$ and Eq.~\eqref{eq:sc-hm-ws=0}, we see that the SC gap is identically zero, and we return to the normal phase. Eq.~\eqref{eq:sc-hm-ws=0} is proven in Sec.~\ref{appsubsec:sc-w^s=0}
+	which implies that the SC gap is identically zero. This can be seen by plugging in Eq.~\eqref{eq:sc-ehm-full-gap} both $V=0$ and $w^{(s)}=0$. Eq.~\eqref{eq:sc-hm-ws=0} is proven in Sec.~\ref{appsubsec:sc-w^s=0}
 	%
 	\item At $V \neq 0$, we can have $w^{(s)} \neq 0$. The harmonics of $w_\mathbf{k}$ obey the relation
 	\begin{equation}\label{eq:sc-wgamma-circle}
@@ -1468,7 +1468,7 @@ In this thesis, we focus on the singlet channel, therefore the first rule of HFP
 
 \paragraph{Hopping renormalisation and nematicity.}
 
-We conclude this summary by recalling the discussion of Sec.~\ref{subsec:normal-d-wave-hopping}, where we discussed the renormalisation of the hopping parameter in the context of the normal phase. Being the SC phase translationally invariant, the discussion of the entire section holds identically, upon substituting in Eq.~\eqref{eq:normal-<nr>}
+We conclude this summary by recalling the renormalisation of the hopping parameter in the context of the normal phase. Being the SC phase translationally invariant, and since the band renormalisation of Eq.~\eqref{eq:sc-ehm-full-bands} is formally identical to the one given in Eq.~\eqref{eq:normal-bands-renormalisation}, the discussion of Sec.~\ref{subsec:normal-d-wave-hopping} holds identically, upon substituting in Eq.~\eqref{eq:normal-<nr>}
 \[
 	f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) \to u_\mathbf{k} \, .
 \]
@@ -1592,7 +1592,7 @@ In Fig.~\ref{subfig:sc-data-wS-B256-compared}, we see that the dependence on dop
 	\label{fig:sc-data-wd-AB256-compared}
 \end{figure}
 
-In Fig.~\ref{fig:sc-data-wd-AB256-compared}, we report our findings for the HFP $w^{(d)}$, which is related to the $d$-wave gap is given by:
+In Fig.~\ref{fig:sc-data-wd-AB256-compared}, we report our findings for the HFP $w^{(d)}$, which is related to the $d$-wave gap,
 \[
 	\tilde{\Delta}^{(d)} = V w^{(d)} \, .
 \]
@@ -1602,7 +1602,7 @@ In the bottom row (Fig.~\ref{subfig:sc-data-wd-B256-compared}), we show the depe
 
 \paragraph{Competition among the channels.}
 
-To understand the competition among channels, we compare the values of the harmonics $\tilde{\Delta}^{(\gamma)}$ for $\gamma=s,s^*,d$. In Fig.~\ref{fig:sc-data-surface-wS-B256}, we plot the different components as a function of $\delta$ and $V$ for $U=4$.Data and plots for other values of $U$ \href{https://github.com/nepero27178/EHM-HF}{are openly accessible at our repository}.
+To understand the competition among channels, we compare the values of the harmonics $\tilde{\Delta}^{(\gamma)}$ for $\gamma=s,s^*,d$. In Fig.~\ref{fig:sc-data-surface-wS-B256}, we plot the different components as a function of $\delta$ and $V$ for $U/t=4$. Data and plots for other values of $U$ \href{https://github.com/nepero27178/EHM-HF}{are openly accessible at our repository}.
 
 \begin{figure}
 	\centering
@@ -1611,11 +1611,11 @@ To understand the competition among channels, we compare the values of the harmo
 	\label{fig:sc-data-surface-wS-B256}
 \end{figure}
 
-The left column shows three heatmaps, one for each harmonic in singlet SC phase. The same data are shown, superimposed, in the surface plot on the right. The harmonics $\tilde{\Delta}^{(\gamma)}$ cross if $V/t$ gets large enough, with the $d$-wave component reaching the largest values in the parametric region we investigated, followed closely by the $s^*$-wave harmonic. Isotropic harmonics ($s$ and $s^*$) are significantly non-zero in the same region, as we see in the first two rows of the left column. The two channel differ in amplitude significantly: the maximum value reached by the local gap harmonic $\tilde{\Delta}^{(s)}$ is approximately an order of magnitude smaller than the maximum of the non-local harmonic $\tilde{\Delta}^{(s^*)}$. Moreover, we see that at $\delta=0.0$ the local isotropic harmonic $\tilde{\Delta}^{(s)}$ is completely suppressed, as we expressed in Eq.~\eqref{eq:sc-Delta^s=0}.
+The left column shows three heatmaps, one for each harmonic in singlet SC phase. The same data are shown, superimposed, in the surface plot on the right. The harmonics $\tilde{\Delta}^{(\gamma)}$ cross if $V/t$ gets large enough, with the $d$-wave component reaching the largest values in the parametric region we investigated, followed closely by the $s^*$-wave harmonic. Isotropic harmonics ($s$ and $s^*$) are significantly non-zero in the same region, as we see in the first two rows of the left column. The two channel significantly differ in amplitude: the maximum value reached by the local gap harmonic $\tilde{\Delta}^{(s)}$ is approximately one order of magnitude smaller than the maximum of the non-local harmonic $\tilde{\Delta}^{(s^*)}$. Moreover, we see that at $\delta=0.0$ the local isotropic harmonic $\tilde{\Delta}^{(s)}$ is completely suppressed, as we expressed in Eq.~\eqref{eq:sc-Delta^s=0}.
 
 All the harmonics share a sharp boundary around $\delta \approx 0.34$, $V/t \approx 2.5$, visible as a vertical segment in the three heatmaps on the left column of Fig.~\ref{fig:sc-data-surface-wS-B256}. The isotropic harmonics suddenly change from zero to large values moving from left to right, while the $d$-wave part does the opposite. With our coarse-grained simulations, we were not able to verify if this behaviour underlies some deeper structure.
 
-Summarising all results, we can distinguish four phases: the normal state and three superconducting regions (pure $d$-wave, pure $s \oplus s^*$-wave, mixed). In Fig.~\ref{fig:sc-mix}, we show the phase diagram in the plane $(\delta,V)$ for $U/t=0$ (left), $U/t=4$ (centre) and $U/t=12$ (right). The boundaries were computed by setting a threshold $\varepsilon=10^{-2}$, with the following rule:
+Summarising all results, we can distinguish four phases: the normal state and three SC regions (pure $d$-wave, pure $s \oplus s^*$-wave, mixed). In Fig.~\ref{fig:sc-mix}, we show the phase diagram in the plane $(\delta,V)$ for $U/t=0$ (left), $U/t=4$ (centre) and $U/t=12$ (right). The boundaries were computed by setting a threshold $\varepsilon=10^{-2}$, with the following rule:
 \begin{center}
 	\begin{tabular}{r r c l c c}
 		Normal & $\big| \tilde{\Delta}^{(s)} \big| < \varepsilon$ & $\land$ & $\big| \tilde{\Delta}^{(s^*)} \big| < \varepsilon$ & $\land$ & $\big| \tilde{\Delta}^{(d)} \big| < \varepsilon$ \, ,\\[0.5em]
@@ -1629,7 +1629,7 @@ and by considering the $s$ and $s^*$ components as part of the same isotropic ch
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{../Project/src/labs/superconductor-boundary/w-U=[0.0, 4.0, 12.0]-solid.pdf}
-	\caption{Depiction of the normal state region and the three singlet superconducting regions, at $U/t=0,4,12$ from left to right. Lighter blue indicates the pure $d$-wave SC phase, blue the isotropic $s \oplus s^*$ phase, deeper blue the mixed region. In text is described the convention we used to identify the boundaries.}
+	\caption{Depiction of the normal state region and the three singlet SC regions, at $U/t=0,4,12$ from left to right. Lighter blue indicates the pure $d$-wave SC phase, blue the isotropic $s \oplus s^*$ phase, deeper blue the mixed region. In text is described the convention we used to identify the boundaries.}
 	\label{fig:sc-mix}
 \end{figure}
 
@@ -1658,11 +1658,11 @@ The mixing region is of particular interest also due its connection with the pla
 
 \subsection{Rotational SSB and nematic superconductivity}
 
-As we discussed in Sec.~\ref{subsec:normal-d-wave-hopping}, and at the end of Sec.~\ref{sec:sc-hf-hfps}, nematicity is established whenever $\tilde{t}^{(d)}$ becomes non-zero. If the renormalised hopping parameter has a non-zero $d$-wave component, this means that bare hopping is effectively boosted in one direction and damped in the other. Indeed, from Eq.~\eqref{eq:normal-ud(tx,ty)}, we know that
+As we discussed in Sec.~\ref{subsec:normal-d-wave-hopping}, and at the end of Sec.~\ref{sec:sc-hf-hfps}, nematicity is established whenever $\tilde{t}^{(d)}$ becomes non-zero. If the renormalised hopping parameter has a non-zero $d$-wave component, this means that bare hopping is effectively boosted in one direction and damped in the other. Indeed, from Eqs.~\eqref{eq:sc-tx}, \eqref{eq:sc-ty}, we know that
 \[
 	\tilde{t}^{(d)} = \frac{\tilde{t}^{(y)} - \tilde{t}^{(x)}}{2} \, .
 \]
-As we anticipated at the end of Sec.~\ref{subsec:normal-d-wave-hopping}, if $\tilde{t}^{(d)}>0$ the renormalised hopping is larger in direction $y$, if $\tilde{t}^{(d)}<0$ instead it's larger in direction $x$. In terms of the Bogoliubov energies, this means that the Bogoliubov bands are not rotationally invariant,
+If $\tilde{t}^{(d)}>0$ the renormalised hopping is larger in direction $y$, if $\tilde{t}^{(d)}<0$ instead it's larger in direction $x$. In terms of the Bogoliubov energies, this means that the Bogoliubov bands are not rotationally invariant,
 \[
 	\tilde{E}_\mathbf{k} \neq \tilde{E}_{\mathcal{R}\mathbf{k}} \, ,
 \]
@@ -1682,15 +1682,15 @@ being $\mathcal{R}$ a $\pi/2$ rotation.
 	\label{fig:sc-data-td-AB256-compared}
 \end{figure}
 
-For the normal and AF phases we were able to prove that $u^{(d)}=0$ for any choice of model parameters. For the SC phase, instead, $u^{(d)}$ converges to non-zero values. In Fig.~\ref{fig:sc-data-td-AB256-compared}, we show
+For the normal and AF phases we were able to prove that $u^{(d)}=0$ for any choice of model parameters. For the SC phase, instead, $u^{(d)}$ converges to non-zero values. In Fig.~\ref{fig:sc-data-td-AB256-compared}, we show the quantity
 \[
-	\tilde{t}^{(d)} = -\frac{V u^{(d)}}{2} \, .
+	\tilde{t}^{(d)} = -\frac{V u^{(d)}}{2} \, ,
 \]
 as a function of $U$, $V$ and $\delta$. In the top panel (Fig.~\ref{subfig:sc-data-td-A256-compared}), we see that a critical value of $V$ exists over which nematicity is established. Moreover, the $\delta=0.0$ case (left panel) is independent of $U$. In all cases, the convergence values for $\tilde{t}^{(d)}$ are two order of magnitudes smaller than $t=1.0$, meaning that nematicity is a sharp but small effect. Note that at $\delta=0.2$ (central panel) $\tilde{t}^{(d)}\ge0$, while at $\delta=0.4$ (right panel) $\tilde{t}^{(d)}\le0$. Increasing the doping we change the sign of $\tilde{t}^{(d)}$.
 
 This sign change is most evident in the first two figures of the bottom panel (Fig.~\ref{subfig:sc-data-td-B256-compared}), where we vary the doping level while keeping fixed the local repulsion $U$. The behaviour of $\tilde{t}^{(d)}$ is similar at low doping in the three cases, but changes significantly at larger doping. Indeed, at $U/t=0$ (left figure) and $U/t=5$ (central figure) at some point $\tilde{t}^{(d)}$ changes sign. At $U/t=10$ (right figure), all our data points are positive (possibly the sign flip occurs at higher $V$s). Moreover, as $U$ increases, the amplitude of the oscillation of $\tilde{t}^{(d)}$ as a function of $\delta$ reduces. We conclude that both the local repulsion and electronic doping disrupt nematicity, which is instead most effective for a purely NNs attractive model.
 
-Nematic effects are directly related to symmetry mixing in the superconducting order parameter. In Fig.~\ref{fig:sc-td}, we plot the convergence values for $\tilde{t}^{(d)}$ in the $(\delta,V)$ plane for $U/t=0,4,12$. The used dataset is the same of Fig.~\ref{fig:sc-mix}. The superimposed black lines are the mixing boundaries, the set of extremal points of the deeper blue regions of Fig.~\ref{fig:sc-mix}. Despite a bit of roughness related to the gridded nature of our data, it is evident that these boundaries encircle the regions where $\tilde{t}^{(d)}\neq 0$, clearly highlighting an evident connection between symmetry mixing and breaking of planar rotational symmetry.
+Nematic effects are directly related to symmetry mixing in the SC order parameter. In Fig.~\ref{fig:sc-td}, we plot the convergence values for $\tilde{t}^{(d)}$ in the $(\delta,V)$ plane for $U/t=0,4,12$. The used dataset is the same of Fig.~\ref{fig:sc-mix}. The superimposed black lines are the mixing boundaries, the set of extremal points of the deeper blue regions of Fig.~\ref{fig:sc-mix}. Despite a bit of roughness related to the gridded nature of our data, it is evident that these boundaries encircle the regions where $\tilde{t}^{(d)}\neq 0$, clearly highlighting a connection between symmetry mixing and breaking of planar rotational symmetry.
 
 The mixing region coincides with the nematic region. As we said at the beginning of this section, nematicity can be established in two ways, based on the direction along which hopping is boosted. Hence it must hold
 \[
@@ -1748,7 +1748,7 @@ In Fig.~\ref{fig:sc-data-tS-AB256-compared}, we plot $\tilde{t}^{(s^*)}$ as a fu
 	\label{fig:sc-tS-vs-n}
 \end{figure}
 
-In Fig.~\ref{fig:sc-tS-vs-n} we compare $t^{(s^*)}$ for the normal phase (blue surface) and the SC phase (green surface). The two surfaces share a general feature: $t^{(s^*)}$ is approximately unitary at low $V/t$ and almost unitary doping, and decreases significantly in the low-$\delta$ and high-$V/t$ limit. In this region, for the normal phase we observe the Mott-localisation plateau discussed in Sec.~\ref{subsec:normal-mott-numeric}, where $t^{(s^*)} \approx 0$. In the SC phase, looking at the same region, $t^{(s^*)}$ is minimised, but, in contrast to the normal phase, we do not observe the complete Mott localisation effect.
+In Fig.~\ref{fig:sc-tS-vs-n}, we compare $t^{(s^*)}$ for the normal phase (blue surface) and the SC phase (green surface). The two surfaces share a general feature: $t^{(s^*)}$ is approximately unitary at low $V/t$ and almost unitary doping, and decreases significantly in the low-$\delta$ and high-$V/t$ limit. In this region, for the normal phase we observe the Mott-localisation plateau of Fig.~\ref{fig:normal-tS-data}, discussed in Sec.~\ref{subsec:normal-mott-numeric}, where $t^{(s^*)} \approx 0$. In the SC phase, looking at the same region, $t^{(s^*)}$ is minimised, but, in contrast to the normal phase, we do not observe the complete Mott localisation effect.
 
 Recalling the plots of Fig.~\ref{fig:sc-mix}, the low-$\delta$ and high-$V/t$ limit (the corner where $t^{(s^*)}$ is minimised) falls deep within the mixed region. Recalling also Fig.~\ref{fig:sc-data-surface-wS-B256}, in this corner the $d$-wave and $s^*$-wave harmonics of the gap function are large and comparable. Finally, we know from Fig.~\ref{fig:sc-td} (central panel) that here nematic effects are small, but significantly non-zero. In particular, considering that 
 \[
@@ -1771,10 +1771,10 @@ With this consideration, we end the presentation of HFPs and RMPs and move to th
 
 For the SC phase, free energy density is given by Eq.~\eqref{eq:sc-fMFT}, while entropy density is given by Eq.~\eqref{eq:sc-s}. In Fig.~\ref{fig:sc-data-fs-B128} we plot the heatmaps for $f$ and $s$ at $U/t=4$ in the $(\delta,V)$ plane. Superimposed, we show the boundaries between the four regions identified in Fig.~\ref{fig:sc-mix}. Consider first the free energy, on the left: our data suggest that free energy is maximised in the $d$-wave phase, followed by the mixed phase. At high doping, the $s \oplus s^*$-wave phase is low-energetic. Overall, $f$ varies smoothly across phase boundaries, and we do not identify the black lines with some isoenergetic line separating phases.
 
-This is not the case for entropy density. Indeed, the entropic region on the right panel of Fig.~\ref{fig:sc-data-fs-B128} coincides with the normal phase. The three superconducting regions are low-entropic. This is explained by the following argument:
+This is not the case for entropy density. Indeed, the entropic region on the right panel of Fig.~\ref{fig:sc-data-fs-B128} coincides with the normal phase. The three SC regions are low-entropic. This is explained by the following argument:
 \begin{itemize}
-	\item In the normal phase, the Bogoliubov band reduces to $\tilde{E}_\mathbf{k} \to \tilde{\xi}_\mathbf{k}$. The chemical potential crosses the bare band and a Fermi surface exists. Hence, at finite temperature, the Fermi-Dirac occupation of single-particle states varies continuously from almost unitary (deep in the Fermi sea) to almost zero (far outside). All those states in the middle, around the Fermi level, are highly entropic: we have shown this in Fig.~\ref{subfig:normal-entropy}. It  is the intrinsic metallic nature of the normal phase that makes is entropic.
-	\item In the SC phase, we open a gap at the chemical potential, not at zero energy (as instead was in the AF phase). Computing entropy as in Sec.~\ref{subsec:sc-s}, we apply the Fermi-Dirac distribution on the two bands $\pm\tilde{E}_\mathbf{k}$. As the gap opens, the lower one fills ($f \approx 1$), while the upper empties ($f \approx 0$). As we lower temperature, the above statement gets exact. Recalling Fig.~\ref{subfig:normal-entropy}, we see that entropy is minimised at $f=0,1$. Hence, the SC phase is low-entropic.
+	\item In the normal phase, the Bogoliubov band reduces to $\tilde{E}_\mathbf{k} \to \tilde{\xi}_\mathbf{k}$. The chemical potential crosses the bare band and a Fermi surface exists. Hence, at finite temperature, the Fermi-Dirac occupation of single-particle states varies continuously from almost unitary (deep in the Fermi sea) to almost zero (far outside). All those states in the middle, around the Fermi level, are highly entropic: we have shown this in Fig.~\ref{subfig:normal-entropy}. It  is the intrinsic metallic nature of the normal phase that makes it entropic.
+	\item In the SC phase, we open a gap at the chemical potential, not at zero energy (as instead was in the AF phase). Computing entropy as in Sec.~\ref{subsec:sc-s}, we apply the Fermi-Dirac distribution on the two bands $\pm\tilde{E}_\mathbf{k}$. As the gap opens, the lower one fills (occupation $\approx 1$), while the upper empties (occupation $\approx 0$). As we lower temperature, the above statement gets exact. Recalling Fig.~\ref{subfig:normal-entropy}, we see that entropy is minimised at occupation equal to $0$ or $1$. Hence, the SC phase is low-entropic.
 \end{itemize}
 This is the reason behind the sharp separation of the normal region from the SC regions in the right panel of Fig.~\ref{fig:sc-data-fs-B128}.
 
@@ -1792,7 +1792,7 @@ This is the reason behind the sharp separation of the normal region from the SC 
 	\label{fig:sc-data-fs-B256-compared}
 \end{figure}
 
-In Fig.~\ref{fig:sc-data-fs-B256-compared} we show $f$ and $s$ as functions of $V$, varying $\delta$ and comparing for three values of $U$. On both rows, moving from left to right we do not observe significant differences: $f$ and $s$ depend weakly on $U$. We already observed the presence of a maximum of the free energy at ratios $V/t$ comparable with $1$. In Fig.~\ref{subfig:sc-data-f-B256-compared} we see this maximum around $V/t \lesssim 4$. Comparing with the data of Fig.~\ref{fig:sc-data-fs-B128}, we can imagine that this maximum could be located at at the boundary between $d$-wave and mixed regions.
+In Fig.~\ref{fig:sc-data-fs-B256-compared} we show $f$ and $s$ as functions of $V$, varying $\delta$ and comparing for three values of $U$. On both rows, moving from left to right we do not observe significant differences: $f$ and $s$ depend weakly on $U$. We already observed the presence of a maximum of the free energy at ratios $V/t$ of order unity. In Fig.~\ref{subfig:sc-data-f-B256-compared} we see this maximum around $V/t \lesssim 4$. Comparing with the data of Fig.~\ref{fig:sc-data-fs-B128}, we can imagine that this maximum could be located at at the boundary between $d$-wave and mixed regions.
 
 In the bottom panel, entropy density (Fig.~\ref{subfig:sc-data-s-B256-compared}) shows the aforementioned sharp separation between normal and SC regions, and is maximised at half-filling and $V=0$. That is the case of the conventional HM. We already argued that superconductivity is impossible at HF level, while commensurate antiferromagnetism is favoured at null doping with respect to the normal phase.
 
@@ -1814,16 +1814,16 @@ To conclude, we compare the free energy of the SC phase with that of the normal 
 \[
 	f^{(\mathrm{N})} - f^{(\mathrm{SC})} \, ,
 \]
-and observe that it is greater or equal to zero over the entire explored region. The energy difference is null only at $V/t \lesssim 2$, where the superconducting gap is null. We plot, superimposed, the boundaries of the normal region extracted from Fig.~\ref{fig:sc-mix}. In the rest of the $(\delta,V)$ plane the SC phase is energetically favoured with respect to the normal phase. 
+and observe that it is greater or equal to zero over the entire explored region. The energy difference is null only at $V/t \lesssim 2$, where the SC gap is null. We plot, superimposed, the boundaries of the normal region extracted from Fig.~\ref{fig:sc-mix}. In the rest of the $(\delta,V)$ plane the SC phase is energetically favoured with respect to the normal phase. 
 
 In Fig.~\ref{subfig:sc-Δf-af} we show the energy difference between AF and SC phases,
 \[
 	f^{(\mathrm{AF})} - f^{(\mathrm{SC})} \, .
 \]
-We colour-corrected the surface plot to align the gray with the $f=0$ level. Colour separates positive and negative regions: the SC phase is dominant where $f^{(\mathrm{AF})} > f^{(\mathrm{SC})}$ (green region), in the rest of the plot the AF phase dominates (blue region). We indicate the contour level at $f=0$ as a black dotted line, obtained as the set of data points whose energy difference is closest to zero. At half-filling, commensurate antiferromagnetism is almost everywhere energetically favoured. Singlet superconductivity prevails in the $U/t \ll 1$, $V/t \gg 1$ limit. The fact that the phase boundary has somewhat a linear shape suggests the fact that possibly a critical ratio exists,
+We colour-corrected the surface plot to align gray with zero. Colour separates positive and negative regions: the SC phase is dominant where $f^{(\mathrm{AF})} > f^{(\mathrm{SC})}$ (green region), in the rest of the plot the AF phase dominates (blue region). We indicate the contour level at $f=0$ as a black dotted line, obtained as the set of data points whose energy difference is closest to zero. At half-filling, commensurate antiferromagnetism is almost everywhere energetically favoured. Singlet superconductivity prevails in the $U/t \ll 1$, $V/t \gg 1$ limit. The fact that the phase boundary has somewhat a linear shape suggests the fact that possibly a critical ratio exists,
 \[
 	\left(\frac{V}{U}\right)_\mathrm{c} = k \, ,
 	\qquad
 	\text{(Critical ratio)}
 \]
-delimiting a phase transition from antiferromagnetic to superconducting ordering at half-filling.
+delimiting a phase transition from antiferromagnetic to SC ordering at half-filling.

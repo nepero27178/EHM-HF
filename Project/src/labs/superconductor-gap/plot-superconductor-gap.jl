@@ -95,7 +95,7 @@ surface!(ax3,xx,yy,ZZs,colormap=colorschemes[:tabwarm],shading=false)
 surface!(ax3,xx,yy,ZZS,colormap=colorschemes[:tabcoolrev],shading=false)
 surface!(ax3,xx,yy,ZZd,colormap=colorschemes[:tabquietrev],shading=false)
 
-Label(F[0,:], L"Singlet gap $\tilde{\Delta}_{\mathbf{k}}$ harmonics ($t=1.0$, $U=%$(U)$, $\beta=100.0$)",fontsize=20)
+Label(F[0,:], L"Singlet gap $\tilde{\Delta}_{\mathbf{k}}$ harmonics ($t=1.0$, $U=%$(U)$, $L=128$, $\beta=100.0$)",fontsize=20)
 
 FilePathOut = "gap_U=$(U).png"
 save(FilePathOut, F, px_per_unit=6)

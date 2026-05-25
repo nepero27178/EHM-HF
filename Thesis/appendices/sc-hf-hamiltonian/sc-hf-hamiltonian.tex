@@ -32,7 +32,7 @@ Before starting, note that translational invariance is unbroken. Therefore, Eqs.
 
 The conventional HM is given by $\hat H_t + \hat H_U$, thus its unique two-body interaction is the local repulsion. In this section, we study superconductivity in the conventional HM, and prove that it is impossible at HF level.
 
-Following Tab.~\ref{tab:HU-sel-rules} and Eqs.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}, we know the local repulsion decomposes in Hartree and Cooper channels,
+Following Tab.~\ref{tab:HU-sel-rules} and Eq.~\eqref{eq:mft-HU}, we know that the local repulsion decomposes in Hartree and Cooper channels,
 \[
 \begin{aligned}
 	\hat H_U &= U \sum_{\mathbf{r}\in\mathcal{L}} \hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}\downarrow} \\
@@ -49,7 +49,7 @@ while the Fock channel is identically zero. We deal with each channel separately
 
 \subsection{Effects of the local Hartree terms: chemical potential renormalisation}
 
-For the Hartree channel, being the density uniform across sites, we can re-use the entirety of Sec.~\ref{subsec:normal-hartree-mu} for the normal phase. Substituting Eq.~\eqref{eq:sc-<n_i>}, we get the approximation of Eq.~\eqref{eq:normal-HU-hartree-approx},
+For the Hartree channel, being the density uniform across sites, we can re-use the entirety of Sec.~\ref{subsec:normal-hartree-mu} for the normal phase. Using Eq.~\eqref{eq:sc-<n_i>}, we get the approximation of Eq.~\eqref{eq:normal-HU-hartree-approx},
 \begin{equation}\label{eq:sc-HU-hartree-approx}
 	\hat H_U \HFsimeq nU \times \hat N - E_{\mathrm{H},U}^{(\mathrm{SC})} + \text{(Cooper channel)} \, ,
 \end{equation}
@@ -280,7 +280,7 @@ and the ``anticommutation energy'' $E_\mathrm{a}^{(\mathrm{SC})}$,
 		E_{\mathrm{H},U}^{(\mathrm{SC})} + E_{\mathrm{C},U}^{(\mathrm{SC})}
 		\right) \, , \label{eq:sc-HU-approx}
 	\end{multline}
-	where $\tilde{\mu} = \mu - nU$ and $\Delta^{(s)} = \Delta_\mathbf{k}$. The energies $E_{\mathrm{H},U}^{(\mathrm{SC})}$, $E_{\mathrm{C},U}^{(\mathrm{SC})}$ are given respectively in Eqs.~\eqref{eq:sc-HU-hartree-Ec} and \eqref{eq:sc-HU-cooper-Ec}. Using the Nambu spinors defined in Eq.~\eqref{eq:sc-Phi-def} and the $2 \times 2$ matrix $h_\mathbf{k}$ of Eq.~\eqref{eq:sc-HM-hk}, the HM hamiltonian is reduced to the matrix form of Eq.~\eqref{eq:sc-HM-hk}.
+	where $\tilde{\mu} = \mu - nU$ and $\Delta^{(s)} = \Delta_\mathbf{k}$. The energies $E_{\mathrm{H},U}^{(\mathrm{SC})}$, $E_{\mathrm{C},U}^{(\mathrm{SC})}$ are given respectively in Eqs.~\eqref{eq:sc-HU-hartree-Ec} and \eqref{eq:sc-HU-cooper-Ec}. Using the Nambu spinors defined in Eq.~\eqref{eq:sc-Phi-def} and the $2 \times 2$ matrix $h_\mathbf{k}$ of Eq.~\eqref{eq:sc-hk}, the HM hamiltonian is reduced to the matrix form of Eq.~\eqref{eq:sc-HM-hk}.
 \end{tabproof}
 
 \paragraph{Pseudospin representation.}
@@ -297,9 +297,9 @@ Let now the pseudospin operator $\hat{\mathbf{s}}_\mathbf{k}$ and the pseudofiel
 \qquad
 \mathbf{b}_\mathbf{k} \equiv \begin{bmatrix}
 	- \Re \lbrace \Delta_\mathbf{k} \rbrace \\ - \Im \lbrace \Delta_\mathbf{k} \rbrace \\ \xi_\mathbf{k} 
-\end{bmatrix} \, .
+\end{bmatrix} \, ,
 \]
-As was for the AF phase, these operators $\hat s_\mathbf{k}^\alpha$ satisfy a $\mathfrak{su}(2)$ algebra up to a constant, irrelevant in the context of this discussion. They satisfy the identities:
+with $\tau^\alpha$ the Pauli matrices of Eq.~\eqref{eq:pauli-def}. As was for the AF phase, the pseudospin operators $\hat s_\mathbf{k}^\alpha$ satisfy a $\mathfrak{su}(2)$ algebra up to a constant, irrelevant in the context of this discussion. They satisfy the identities:
 \begin{align}
 	\hat s_\mathbf{k}^x &= \hat \phi_\mathbf{k} + \hat \phi_\mathbf{k}^\dagger \, , \label{eq:sc-hm-x-psi} \\
 	\hat s_\mathbf{k}^y &= i \left(
@@ -347,8 +347,14 @@ Let us define the angles $\theta_\mathbf{k}$, $\zeta_\mathbf{k}$ through the rel
 \qquad
 \sin 2\theta_\mathbf{k} \cos 2\zeta_\mathbf{k} = \frac{\Re\lbrace \Delta_\mathbf{k} \rbrace}{E_\mathbf{k}} \, ,
 \qquad
-\sin 2\theta_\mathbf{k} \sin 2\zeta_\mathbf{k} = \frac{\Im\lbrace \Delta_\mathbf{k} \rbrace}{E_\mathbf{k}} \, .
+\sin 2\theta_\mathbf{k} \sin 2\zeta_\mathbf{k} = \frac{\Im\lbrace \Delta_\mathbf{k} \rbrace}{E_\mathbf{k}} \, ,
 \]
+where we defined the Bogoliubov bands $E_\mathbf{k}$,
+\begin{equation}\label{appeq:sc-bands}
+	E_\mathbf{k} \equiv \sqrt{\xi_\mathbf{k}^2 + \abs{\Delta_\mathbf{k}}^2} \, .
+\end{equation}
+Recall the Bogoliubov bands for the AF phase, of Eq.~\eqref{eq:af-bands}. The key difference, here, is that the bands $E_\mathbf{k}$ depend on $\xi_\mathbf{k}$, not $\epsilon_\mathbf{k}$. We discussed at the end of Sec.~\ref{subsec:af-hm-diagonalisation} that, in the AF phase, the chemical potential stays the same for electrons and Bogoliubov particles. For the SC phase, being the bands $E_\mathbf{k}$ dependent on $\tilde{\mu}$ through $\xi_\mathbf{k}$, the chemical potential for the Bogoliubov particles is identically zero. This implies that the chemical potential lies within the SC gap.
+
 For the SC phase, diagonalisation of the HF hamiltonian follows the same procedure as was for the AF phase. Indeed, the diagonalising matrix is given by
 \begin{equation}\label{eq:sc-hm-diagonalizer}
 	W_\mathbf{k} \equiv e^{-i \theta_\mathbf{k} \tau^y} e^{-i \zeta_\mathbf{k} \tau^z} \, ,
@@ -360,11 +366,7 @@ and the graphic procedure for the diagonalisation is the same of Fig.~\ref{fig:p
 	d_\mathbf{k} \equiv \begin{bmatrix}
 		E_\mathbf{k} & \\
 		& - E_\mathbf{k}
-	\end{bmatrix} \, ,
-\end{equation}
-where we defined the Bogoliubov bands $E_\mathbf{k}$,
-\begin{equation}\label{appeq:sc-bands}
-	E_\mathbf{k} \equiv \sqrt{\xi_\mathbf{k}^2 + \abs{\Delta_\mathbf{k}}^2} \, .
+	\end{bmatrix} \, .
 \end{equation}
 
 In the tilted frame we have the expression for the Nambu spinors:
@@ -408,7 +410,7 @@ The only difference with Eq.~\eqref{eq:sc-Th} is in the fact that the chemical p
 	\mathrm{Th}_\mathbf{k}^{(+)}[\beta] &= 1 \, , \label{eq:sc-Th+=1} \\
 	\mathrm{Th}_\mathbf{k}^{(-)}[\beta] &= \tanh(\frac{\beta E_\mathbf{k}}{2}) \, . \label{eq:sc-Th-=tanh}
 \end{align}
-The proofs are identical to the ones provided for Eqs.~\eqref{eq:af-Th+=1}, \eqref{eq:af-Th+=1}. 
+The proofs are identical to the ones provided for Eqs.~\eqref{eq:af-Th+=1}, \eqref{eq:af-Th-=tanh}. 
 
 In the tilted frame, the averaged $z$ projection of pseudospin is:
 \begin{align}
@@ -505,8 +507,8 @@ therefore no superconducting gap can develop at HF level. This does not hold for
 		\frac{1}{2 L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{1}{E_\mathbf{k}} \tanh(\frac{\beta E_\mathbf{k}}{2})
 		\right]^{-1} \, .
 	\end{equation}
-	By construction $U_\mathrm{c}[\beta] > 0$. Using Eq.~\eqref{eq:sc-hm-Uc}
-	Eq.~\eqref{eq:sc-hm-ws-self-consistency-2} can be rewritten as:
+	By construction $U_\mathrm{c}[\beta] > 0$. Using
+	Eq.~\eqref{eq:sc-hm-ws-self-consistency-2} and $\Delta_\mathbf{k} = -U w^{(s)}$, Eq.~\eqref{eq:sc-hm-Uc} can be rewritten as:
 	\[
 	w^{(s)} = -\frac{U}{U_\mathrm{c}[\beta]} w^{(s)} \, .
 	\]
@@ -870,11 +872,11 @@ In both the above equations, the sum is intended for $\gamma \in \lbrace s^*, p_
 
 The contraction energy of Eq.~\eqref{eq:sc-HV-cooper-Ec-implicit} can be written as follows:
 \begin{equation}\label{eq:sc-HV-cooper-Ec}
-	E_{\mathrm{C},V}^{(\mathrm{SC})} = - L_x L_y \times V \sum_{\gamma\neq s} \big| w^{(\gamma)} \big|^2 \, .
+	E_{\mathrm{C},V}^{(\mathrm{SC})} = - L_x L_y \times V \sum_{\gamma\neq s} \big| w^{(\gamma)} \big|^2 \, ,
 \end{equation}
 with $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$.
 
-\begin{tabproof}[Proof of Eq.~\eqref{eq:sc-HV-cooper-Ec}: non-local Cooper contraction energy.]
+\begin{tabproof}[Proof of Eq.~\eqref{eq:sc-HV-cooper-Ec}: non-local Cooper contraction energy]
 	
 	The contraction energy is formally given by Eq.~\eqref{eq:sc-HV-cooper-Ec-implicit}. Substituting the harmonics decomposition of Eq.~\eqref{appeq:sc-wgamma-harmonics}, we get:
 	\[
@@ -963,17 +965,28 @@ We compose Eqs.~\eqref{eq:sc-HU-approx}, \eqref{eq:sc-HV-hartree-approx}, \eqref
 which coincides with Eq.~\eqref{eq:sc-H-approx}.
 We included the anticommutation energy defined in Eq.~\eqref{appeq:sc-anticommutation-energy} and extended to renormalised quantities,
 \[
-	E_\mathrm{a}^{(\mathrm{SC})} \equiv \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{\xi}_\mathbf{k} \, .
+	E_\mathrm{a}^{(\mathrm{SC})} \equiv \sum_{\mathbf{k}\in\mathrm{BZ}} \tilde{\xi}_\mathbf{k} \, ,
 \]
-and the total contraction energy,
-\begin{equation}\label{appeq:sc-Ec}
-	E_\mathrm{c}^{(\mathrm{SC})} \equiv -
+and the total contraction energy $E_\mathrm{c}^{(\mathrm{SC})}$, which includes all the shifts to energy we encountered. These are given, respectively, in Eqs.~\eqref{eq:sc-HU-hartree-Ec}, \eqref{eq:sc-HU-cooper-Ec}, \eqref{eq:sc-HV-hartree-Ec}, \eqref{eq:sc-HV-fock-Ec} and \eqref{eq:sc-HV-cooper-Ec}. Namely,
+\begin{align}\label{appeq:sc-Ec}
+	E_\mathrm{c}^{(\mathrm{SC})} &\equiv -
 	\left(
 	E_{\mathrm{H},U}^{(\mathrm{SC})} +		E_{\mathrm{C},U}^{(\mathrm{SC})} +
 	E_{\mathrm{H},V}^{(\mathrm{SC})} + E_{\mathrm{F},V}^{(\mathrm{SC})} + E_{\mathrm{C},V}^{(\mathrm{SC})}
-	\right)
-\end{equation}
-which include all the shifts to energy we encountered. These are given, respectively, in Eqs.~\eqref{eq:sc-HU-hartree-Ec}, \eqref{eq:sc-HU-cooper-Ec}, \eqref{eq:sc-HV-hartree-Ec}, \eqref{eq:sc-HV-fock-Ec} and \eqref{eq:sc-HV-cooper-Ec}. Eq.~\eqref{appeq:sc-Ec} coincides with Eq.~\eqref{eq:sc-Ec}.
+	\right) \nonumber \\
+	&= -L_x L_y \times U \left(
+	n^2 + \big|
+	w^{(s)}
+	\big|^2
+	\right) + L_x L_y \times V \left(
+	2zn^2 - \sum_\gamma \big|
+	u^{(\gamma)}
+	\big|^2 + \sum_\gamma \big|
+	w^{(\gamma)}
+	\big|^2
+	\right) \, ,
+\end{align}
+which coincides with Eq.~\eqref{eq:sc-Ec}.
 
 \subsection{Gap symmetries and anisotropic pairing}\label{sec:sc-gap-syms}
 
@@ -981,7 +994,7 @@ We focus on the renormalised quantities. The bare bands are given by:
 \begin{equation}\label{appeq:sc-ehm-full-bands}
 	\tilde{\xi}_\mathbf{k} = \epsilon_\mathbf{k} + V \sum_{\gamma\in\lbrace s^*,d \rbrace} u^{(\gamma)} \varphi_{\mathbf{k}}^{(\gamma)*} - \tilde{\mu} \, ,
 \end{equation}
-and the full gap function by
+which coincides with Eq.~\eqref{eq:sc-ehm-full-bands}. The full gap function, as in Eq.~\eqref{eq:sc-ehm-full-gap}, is given by
 \begin{equation}\label{appeq:sc-ehm-full-gap}
 	\tilde{\Delta}_\mathbf{k} = -Uw^{(s)} + V \sum_{\gamma \neq s} w^{(\gamma)} \varphi_\mathbf{k}^{(\gamma)*} \, .
 \end{equation}
@@ -1060,11 +1073,11 @@ These concept are summaries in Tab.~\ref{tab:sc-ssc-tsc-hfps}, where we list the
 
 \subsection{The entropy density of the SC ground-state}\label{subsec:sc-s}
 
-In this section, we calculate the entropy density of the SC ground state, following the scheme presented for the normal phase in Sec.~\ref{subsec:normal-s}. The approximated ground-state in the SC phase is given by a gas of free fermions populating the two bands $\pm \tilde{E}_\mathbf{k}$, with occupations specified by the Fermi-Dirac distribution. Hence, the total entropy density of the ground state is given by that of a Fermi gas \cite{grosso2014solid}:
+In this section, we calculate the entropy density of the SC ground state, following the scheme presented for the normal phase in Sec.~\ref{subsec:normal-s}. The approximated ground-state in the SC phase is given by a gas of free fermions populating the two bands $\pm \tilde{E}_\mathbf{k}$, with occupations specified by the Fermi-Dirac distribution. Hence, the total entropy density of the ground state is given by that of a Fermi gas \cite{grosso2014solid},
 \[
 s^{(\mathrm{SC})} = s_-^{(\mathrm{SC})} + s_+^{(\mathrm{SC})} \, ,
 \]
-where the superscript indicates the band,
+where the subscript indicates the band,
 \begin{multline}
 	s_\pm^{(\mathrm{SC})} \equiv -\frac{k_B}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \Big[
 	\left(
@@ -1084,7 +1097,7 @@ Note the fact that the Fermi-Dirac distributions are computed at null chemical p
 	s^{(\mathrm{SC})} \equiv s_-^{(\mathrm{SC})} + s_+^{(\mathrm{SC})} = 2 s_+^{(\mathrm{SC})} \, .
 \end{equation}
 
-\begin{tabproof}[Proof of Eq.~\eqref{eq:sc-s+=s-}: Bogoliubov bands $\pm \tilde{E}_\mathbf{k}$ give equal entropy densities.]
+\begin{tabproof}[Proof of Eq.~\eqref{eq:sc-s+=s-}: Bogoliubov bands $\pm \tilde{E}_\mathbf{k}$ give equal entropy densities]
 	
 	Consider the entropy of the lower band,
 	\begin{multline*}
@@ -1267,7 +1280,7 @@ which gives the analytic expression for the free energy. Note that, as the gap c
 
 \subsection{The energetic constraint on the gap harmonics}\label{appsubsec:sc-w^s-constraint}
 
-We derived the expression of Eq.~\eqref{eq:sc-fMFT}, which contains in its second row the HFPs $u^{(\gamma)}$ and $w^{(\gamma)}$. We have:
+In this final section we present a proof of the constraint of Eq.~\eqref{eq:sc-wgamma-circle}. We derived the expression of Eq.~\eqref{eq:sc-fMFT}, which contains in its second row the HFPs $u^{(\gamma)}$ and $w^{(\gamma)}$. We have:
 \begin{equation}\label{eq:sc-ehm-gap-energy}
 	-U \big|
 	w^{(s)}
@@ -1291,7 +1304,7 @@ where we defined the radius:
 \[
 	M^{(\mathrm{SC})} \equiv \big| w^{(s)} \big|^2 \frac U V \, .
 \]
-For the conventional HM, we know from Sec.~\ref{subsec:sc-hm-diagonalisation} that $w^{(s)}=0$. For the EHM, it can assume non-zero values, as long as Eq.~\eqref{appeq:sc-wgamma-circle} is satisfied.
+We recognise Eq.~\eqref{eq:sc-wgamma-circle}. For the conventional HM, we know from Sec.~\ref{subsec:sc-hm-diagonalisation} that $w^{(s)}=0$. For the EHM, it can assume non-zero values, as long as Eq.~\eqref{appeq:sc-wgamma-circle} is satisfied.
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:sc-ehm-gap-energy}]
 	
