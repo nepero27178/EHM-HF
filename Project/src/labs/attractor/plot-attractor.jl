@@ -12,9 +12,10 @@ set_theme!(fonts = (
 
 LAB_ROOT = @__DIR__
 include(LAB_ROOT * "/../../setup/graphic-setup.jl")
-gg = [0.25, 0.1, 0.05]
+# gg = [0.25, 0.1, 0.05]
+gg = [0.1]
 
-F = Figure(size=(1300,500), figure_padding=1)
+F = Figure(size=(400*length(gg)+100,500), figure_padding=1)
 axs = [Axis(F[1,i],aspect=1) for i in 1:length(gg)]
 linkyaxes!(axs...)
 
@@ -55,11 +56,13 @@ for (i,g) in enumerate(gg)
 	text!(ax,vx,vy,text=L"$\mathbf{v}$",color=:black,align=(:right,:top))
 end
 
-for i in [2,3]
-	axs[i].ylabelvisible = false
-	axs[i].yticklabelsvisible = false
-end
+# for i in [2,3]
+# 	axs[i].ylabelvisible = false
+# 	axs[i].yticklabelsvisible = false
+# end
 
-Label(F[0,:], L"Algorithm paths ($t=1.0$, $U=3.0$, $V=6.0$, $L=128$, $\beta=100.0$, $\delta=0.0$)")
-FilePathOut = "attractor.pdf"
+# Label(F[0,:], L"Algorithm paths ($t=1.0$, $U=3.0$, $V=6.0$, $L=128$, $\beta=100.0$, $\delta=0.0$)")
+Label(F[0,:], L"Example path (AF) ($t=1.0$, $U=3.0$, $V=6.0$, $L=128$, $\beta=100.0$, $\delta=0.0$)")
+# FilePathOut = "attractor.pdf"
+FilePathOut = "example-attractor.pdf"
 save(FilePathOut,F)

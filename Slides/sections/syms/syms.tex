@@ -1,0 +1,89 @@
+\def\SectionFolder{sections/syms}
+\section{The HF method and symmetry breaking mechanisms}
+
+\begin{frame}
+	\frametitle{Symmetry breaking and HF method}
+	\begin{columns}	
+		\column{0.53\linewidth}
+			\textbf{Phase transition}: spontaneous breaking of some symmetries of the model. \medskip
+			
+			Phase $X$: shows symmetries $Y$, $Z$ \dots
+			\DownImplication
+			Further constraining of HF subspace to $\mathcal{P} \subset \mathcal{S}$, states with symmetries $Y$, $Z$ \dots
+			\DownImplication
+			Symmetry selection rules.
+		\column{0.37\linewidth}
+			\begin{figure}
+				\centering
+				\resizebox{\columnwidth}{!}{\input{\SectionFolder/sym-subspace}}
+				\caption*{}
+			\end{figure}
+	\end{columns}
+	\vfil
+	
+	e.g.
+	\[
+		\text{Charge is conserved}
+		\quad\implies\quad
+		\langle 
+		\hat c_\alpha^\dagger \hat c_\beta^\dagger
+		\rangle = 0
+	\]
+\end{frame}
+
+\begin{frame}
+	\frametitle{The symmetries of the EHM}
+	\textbf{The model (EHM)}:
+	\begin{equation*}
+		\hat H_\mathrm{EHM} = 
+		\underbrace{
+			-t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma}
+		}_\text{Kinetic operator}
+		\underbrace{
+			+
+			\vphantom{\sum_{\langle ij \rangle}}
+			U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow}
+		}_\text{Local repulsion} 
+		\underbrace{
+			-V \sum_{\langle ij \rangle} \hat n_i \hat n_j
+		}_\text{Non-local attraction}
+		\qquad
+		\text{with $t, U, V  > 0$,}
+	\end{equation*}
+	and its symmetries:
+	\begin{itemize}
+		\item \textit{Translational invariance} in directions $x$ and $y$, $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$.\\
+		\textbf{If broken}: Non-uniform spin density.
+		\item \textit{Rotational invariance} under $\pi/2$ rotations, $\mathrm{C}_4$.\\
+		\textbf{If broken}: nematicity.
+		\item \textit{Gauge invariance} (charge conservation), $\mathrm{U}(1)$.\\
+		\textbf{If broken}: Superconductivity.
+		\item \textit{Global spin rotational invariance}, $\mathrm{SU}(2)$.\\
+		\textbf{If broken}: Magnetism.	
+		\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{The spatial symmetry channels}
+	It is useful to introduce five symmetry structures:\bigskip
+	
+	\begin{figure}
+		\begin{tikzpicture}[scale=0.8]
+		\input{\SectionFolder/s-wave-correlator}
+		\begin{scope}[xshift=4.8cm]
+			\input{\SectionFolder/s*-wave-correlator}
+		\end{scope}
+		\begin{scope}[yshift=-3.5cm]
+			\begin{scope}[xshift=-2.4cm]
+				\input{\SectionFolder/px-wave-correlator}
+			\end{scope}
+			\begin{scope}[xshift=2.4cm]
+				\input{\SectionFolder/py-wave-correlator}
+			\end{scope}
+			\begin{scope}[xshift=7.2cm]
+				\input{\SectionFolder/d-wave-correlator}
+			\end{scope}
+		\end{scope}
+		\end{tikzpicture}
+	\end{figure}
+\end{frame}

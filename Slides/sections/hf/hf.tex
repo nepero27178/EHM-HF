@@ -7,16 +7,16 @@
 		\column{0.55\linewidth}
 		We want to approximate the true ground state $\ket{\Psi_0}$ of the EHM, with energy $E_0$.\medskip
 		
-		Variational principle:
+		\textbf{Variational principle}:
 		\[
 			\forall \ket{\Phi} \in \mathcal{S} \subset \mathcal{H} \quad\colon\quad
-			E[\ket{\Phi}] \ge E_0 \, .
+			E[\Phi] \ge E_0 \, .
 		\]
 		\DownImplication
-		Constrained minimisation procedure:
+		\textbf{Constrained minimisation} procedure:
 		\[
 			\ket{\Psi} \quad\colon\quad
-			\fdv{\ket{\Phi}} E[\ket{\Phi}] \bigg|_{\ket{\Phi} = \ket{\Psi}} = 0 \, .
+			\fdv{E[\Phi]}{\ket{\Phi}} \bigg|_{\ket{\Phi} = \ket{\Psi}} = 0 \, .
 		\]
 		The state $\ket{\Psi}$ is the best approximation to $\ket{\Psi_0}$ inside of $\mathcal{S}$.
 		\column{0.35\linewidth}
@@ -32,21 +32,21 @@
 
 \begin{frame}
 	\frametitle{The Hartree-Fock method in a nutshell}
-	Consider all possible fermionic non-interacting hamiltonians:
-	\[
-		\hat H_\mathrm{HF} \equiv
-		\sum_{\alpha} E_\alpha \hat\gamma_\alpha^\dagger \hat\gamma_\alpha 
-		\qq{with}
-		\acomm{\hat \gamma_\alpha}{\hat \gamma_\beta^\dagger} = \delta_{\alpha\beta} \, ,
-	\]
-	with $\hat \gamma \leftrightarrow \hat c$ through a unitary map.\medskip
 	
-	\textbf{Hartree-Fock method}: we identify $\mathcal{S}$ with the set of all the ground states of these hamiltonians,
+	\textbf{Hartree-Fock method}: we identify $\mathcal{S}$ with the set of all the ground states of non-interacting hamiltonians,
 	\[
 		\mathcal{S} = \left\lbrace
 			\ket{\Psi} \,\mid\, \text{$\ket{\Psi}$ is the ground-state of some $\hat H_\mathrm{HF}$}
-		\right\rbrace \, .
+		\right\rbrace \, ,
 	\]
+	where 
+	\[
+	\hat H_\mathrm{HF} \equiv
+	\sum_{\alpha} E_\alpha \hat\gamma_\alpha^\dagger \hat\gamma_\alpha 
+	\qq{with}
+	\acomm{\hat \gamma_\alpha}{\hat \gamma_\beta^\dagger} = \delta_{\alpha\beta} \, ,
+	\]
+	with $\hat \gamma \leftrightarrow \hat c$ through a unitary map.\medskip
 	\DownImplication
 	\textbf{Wick's theorem}:
 	\[
@@ -83,35 +83,64 @@
 	Target parametric hamiltonian:
 	\[
 		\hat H_\mathrm{HF}[\mathbf{v}] \equiv
-		\sum_{\alpha} E_\alpha [\mathbf{v}] \hat\gamma_\alpha^\dagger [\mathbf{v}] \hat\gamma_\alpha [\mathbf{v}] \, ,
+		\sum_{\alpha} E_\alpha [\mathbf{v}] \hat\gamma_\alpha^\dagger [\mathbf{v}] \hat\gamma_\alpha [\mathbf{v}] 
+		\qquad
+		\text{with ground state $\ket{\Psi[\mathbf{v}]}$,}
 	\]
-	being $\mathbf{v}$ a vector of variational parameters.\medskip
+	being $\mathbf{v}$ a vector of variational parameters. HF approximation:
+	\[
+		\ket{\Psi_0} \simeq \ket{\Psi[\mathbf{v}]} \, ,
+	\]
+	with $\mathbf{v}$ such that:
 	
-	The entire variational problem can be reformulated equivalently:\medskip
 	\begin{columns}[t]
 		\column{0.45\linewidth}
-			\textbf{Variational picture}:
+			\begin{center}
+			\textbf{Variational picture}
+			\end{center}
+			Energy is minimised,
 			\[
-				\ket{\Psi_0} \simeq \ket{\Psi[\mathbf{v}]} \, ,
-			\]
-			where $\mathbf{v}$ is the vector of parameters that minimises energy
-			\[
-				\fdv{\ket{\Phi}} E[\ket{\Phi}] \bigg|_{\ket{\Phi} = \ket{\Psi[\mathbf{v}]}} = 0 \, .
+				\fdv{E[\Phi]}{\ket{\Phi}} \bigg|_{\ket{\Phi} = \ket{\Psi[\mathbf{v}]}} = 0 \, .
 			\]
 		\column{0.45\linewidth}
-			\textbf{Self-consistency picture}:
-			\[
-				\ket{\Psi_0} \simeq \ket{\Psi[\mathbf{v}]} \, ,
-			\]
-			where $\mathbf{v}$ is the vector of parameters that satisfies the self-consistency relation
+			\begin{center}
+			\textbf{Self-consistency picture}
+			\end{center}
+			A self-consistency problem is satisfied,
 			\[
 				\mathrm{A}(\mathbf{v}) = \mathbf{v} \, ,
 			\]
-			being $\mathrm{A}$ a non-linear map that can be uniquely determined.
+			being $\mathrm{A}$ a non-linear map \textbf{to be determined}.
 	\end{columns}
 	
 \end{frame}
 
 \begin{frame}
-	\frametitle{The iterative algorithm}
+	\frametitle{The iterative algorithm (iHF)}
+	\begin{columns}
+		\column{0.45\linewidth}
+	The HF solution is the \textbf{fixed point} of a non-linear map $\mathrm{A}$,
+	\[
+		\mathrm{A}(\mathbf{v}) = \mathbf{v} \, .
+	\]
+	\DownImplication
+	\textbf{Strategy}: ``follow'' the map up to the fixed point,
+	\[
+		\mathbf{v}_{i+1} \equiv g \mathrm{A}(\mathbf{v}_i) + (1-g) \mathbf{v}_i \, .
+	\]
+	with $i>0$, $g \in [0,1]$.
+%	\DownImplication
+	\column{0.45\linewidth}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\columnwidth]{/home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/example-attractor-ink.pdf}
+		\caption*{Example path for the AF phase.}
+	\end{figure}
+	\end{columns}
+%	\textbf{Convergence criterion}:
+%	\[
+%		\forall j \quad\colon\quad
+%		\left[ \mathbf{v}_{i+1} - \mathbf{v}_i \right]_j < \Delta v_j \, ,
+%	\]
+%	with $\Delta \mathbf{v}$ the vector of tolerances.
 \end{frame}
