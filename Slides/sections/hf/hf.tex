@@ -13,12 +13,13 @@
 			E[\Phi] \ge E_0 \, .
 		\]
 		\DownImplication
-		\textbf{Constrained minimisation} procedure:
-		\[
-			\ket{\Psi} \quad\colon\quad
-			\fdv{E[\Phi]}{\ket{\Phi}} \bigg|_{\ket{\Phi} = \ket{\Psi}} = 0 \, .
-		\]
-		The state $\ket{\Psi}$ is the best approximation to $\ket{\Psi_0}$ inside of $\mathcal{S}$.
+		\begin{tabbox}[frametitle=Constrained minimisation procedure]
+			\[
+				\ket{\Psi} \quad\colon\quad
+				\fdv{E[\Phi]}{\ket{\Phi}} \bigg|_{\ket{\Phi} = \ket{\Psi}} = 0 \, .
+			\]
+			The state $\ket{\Psi}$ is the best approximation to $\ket{\Psi_0}$ inside of $\mathcal{S}$.
+		\end{tabbox}		
 		\column{0.35\linewidth}
 		\begin{figure}
 			\centering
@@ -87,7 +88,7 @@
 		\qquad
 		\text{with ground state $\ket{\Psi[\mathbf{v}]}$,}
 	\]
-	being $\mathbf{v}$ a vector of variational parameters. HF approximation:
+	being $\mathbf{v}$ a vector of variational parameters (HFPs). HF approximation:
 	\[
 		\ket{\Psi_0} \simeq \ket{\Psi[\mathbf{v}]} \, ,
 	\]
@@ -95,22 +96,20 @@
 	
 	\begin{columns}[t]
 		\column{0.45\linewidth}
-			\begin{center}
-			\textbf{Variational picture}
-			\end{center}
-			Energy is minimised,
-			\[
-				\fdv{E[\Phi]}{\ket{\Phi}} \bigg|_{\ket{\Phi} = \ket{\Psi[\mathbf{v}]}} = 0 \, .
-			\]
+			\begin{tabbox}[frametitle=Variational picture]
+				Energy is minimised,
+				\[
+					\fdv{E[\Phi]}{\ket{\Phi}} \bigg|_{\ket{\Phi} = \ket{\Psi[\mathbf{v}]}} = 0 \, .
+				\]
+			\end{tabbox}
 		\column{0.45\linewidth}
-			\begin{center}
-			\textbf{Self-consistency picture}
-			\end{center}
-			A self-consistency problem is satisfied,
-			\[
-				\mathrm{A}(\mathbf{v}) = \mathbf{v} \, ,
-			\]
-			being $\mathrm{A}$ a non-linear map \textbf{to be determined}.
+			\begin{tabbox}[frametitle=Self-consistency picture]
+				A self-consistency problem is satisfied,
+				\[
+					\mathrm{A}(\mathbf{v}) = \mathbf{v} \, ,
+				\]
+				being $\mathrm{A}$ a non-linear map \textbf{uniquely determined}.
+			\end{tabbox}
 	\end{columns}
 	
 \end{frame}

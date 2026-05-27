@@ -1,3 +1,4 @@
+\def\SectionFolder{sections/phases}
 \section{The normal phase}
 
 \begin{frame}
@@ -13,25 +14,46 @@
 	\end{cases}	
 	\]
 	\DownImplication
-	\textbf{Reciprocal space}: let $u_\mathbf{k} \equiv \langle \hat n_\mathbf{k} \rangle$ be the occupation and $u^{(\gamma)}$ its harmonics,
+	\textbf{Self-consistency problem}: one HFP,
 	\[
-		\tilde{t}^{(s^*)} = t - \frac{u^{(s^*)} V}{2} \, .
+		u^{(s^*)} = \text{($s^*$-wave component of $u_\mathbf{k} \equiv \ev{\hat n_\mathbf{k}}$)} \, ,
 	\]
+	s.t. hopping amplitude is isotropically renormalised,
+	\[
+		t \quad\to\quad \tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)}V}{2} \, .
+	\]\medskip
+	
+	Therefore: renormalisation of electronic bands, $\epsilon_{\mathbf{k}\sigma} \to \tilde{\epsilon}_{\mathbf{k}\sigma}$.
 \end{frame}
 
 \begin{frame}	
 	\frametitle{Mott localisation in the normal phase}
+	\textbf{Theoretical constraint}:
+	\[
+	0 < \tilde{t} < t
+	\quad\implies\quad
+	\text{\textbf{Flattening} of bands = Mott localisation.}
+	\]
+	\begin{figure}
+		\centering
+		\input{\SectionFolder/bands-shrinking}
+	\end{figure}
+\end{frame}
 
-	\begin{columns}
-		\column{0.6\linewidth}
-		Bare bands:
-		\[
-		\epsilon_\mathbf{k} = -2t (\cos k_x + \cos k_y)
-		\]
-		Bands renormalisation effect:
-		\[
-			\tilde{\epsilon}_\mathbf{k} = \epsilon_\mathbf{k} + u^{(s^*)} V (\cos k_x + \cos k_y)
-		\]
-		\column{0.3\linewidth}
-	\end{columns}
+\begin{frame}
+	\frametitle{Complete flattening of bare bands}
+	In $(\delta,V)$ plane, we have determined theoretically the presence of a Mott critical boundary $V_\mathrm{c}[\beta,\delta]$,
+	\begin{figure}
+		\centering
+		\subfloat[Numerical results for $\tilde{t}^{(s^*)}$]{
+			\includegraphics[height=0.36\linewidth]{../Project/src/labs/normal-mott-plateau/tS(N)-ink.pdf}
+			\label{subfig:normal-tS-data-B128}
+		}
+		\subfloat[Critical Mott boundary.]{
+			\includegraphics[height=0.36\linewidth]{../Project/src/labs/mott-localization/normal-mott-boundary-tS.pdf}
+			\label{subfig:normal-tS-data-B128-mott}
+		}
+	\end{figure}
+	Within the Mott plateau, electrons are completely localised.
+	
 \end{frame}
