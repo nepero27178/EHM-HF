@@ -34,22 +34,15 @@
 \begin{frame}
 	\frametitle{The Hartree-Fock method in a nutshell}
 	
-	\textbf{Hartree-Fock method}: we identify $\mathcal{S}$ with the set of all the ground states of non-interacting hamiltonians,
+	\textbf{Hartree-Fock method}: $\mathcal{S}$ is the set of all \textbf{gaussian states}, i.e. states that are non-interacting for some fermionic operators 
 	\[
-		\mathcal{S} = \left\lbrace
-			\ket{\Psi} \,\mid\, \text{$\ket{\Psi}$ is the ground-state of some $\hat H_\mathrm{HF}$}
-		\right\rbrace \, ,
-	\]
-	where 
-	\[
-	\hat H_\mathrm{HF} \equiv
-	\sum_{\alpha} E_\alpha \hat\gamma_\alpha^\dagger \hat\gamma_\alpha 
-	\qq{with}
+	\ket{\Psi} = \bigotimes_\alpha \hat \gamma_\alpha^\dagger \ket{\Omega_\gamma} \, ,
+	\qquad
 	\acomm{\hat \gamma_\alpha}{\hat \gamma_\beta^\dagger} = \delta_{\alpha\beta} \, ,
 	\]
 	with $\hat \gamma \leftrightarrow \hat c$ through a unitary map.\medskip
 	\DownImplication
-	\textbf{Wick's theorem}:
+	\textbf{Wick's theorem}: averages of quartic operators decompose nicely,
 	\[
 		\langle
 		\hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta
@@ -77,18 +70,22 @@
 			\rangle 
 		}_{\text{Cooper}}.
 	\]
+	The EHM hamiltonian is a quartic operator!
 \end{frame}
 
 \begin{frame}
 	\frametitle{The self-consistency mapping}
-	Target parametric hamiltonian:
+	Each $\ket{\Psi}\in\mathcal{S}$ is uniquely defined by a particular choice of the variational parameters (HFPs)
 	\[
-		\hat H_\mathrm{HF}[\mathbf{v}] \equiv
-		\sum_{\alpha} E_\alpha [\mathbf{v}] \hat\gamma_\alpha^\dagger [\mathbf{v}] \hat\gamma_\alpha [\mathbf{v}] 
+		\Delta_{\alpha\beta}^{+-} = \langle 
+		\hat c_\alpha^\dagger \hat c_\beta
+		\rangle \, ,
 		\qquad
-		\text{with ground state $\ket{\Psi[\mathbf{v}]}$,}
+		\Delta_{\alpha\beta}^{++} = \langle 
+		\hat c_\alpha^\dagger \hat c_\beta^\dagger
+		\rangle \, .
 	\]
-	being $\mathbf{v}$ a vector of variational parameters (HFPs). HF approximation:
+	Let $\mathbf{v}$ be the vector that collects all HFPs. We aim to find
 	\[
 		\ket{\Psi_0} \simeq \ket{\Psi[\mathbf{v}]} \, ,
 	\]
@@ -111,36 +108,4 @@
 				being $\mathrm{A}$ a non-linear map \textbf{uniquely determined}.
 			\end{tabbox}
 	\end{columns}
-	
 \end{frame}
-
-\begin{frame}
-	\frametitle{The iterative algorithm (iHF)}
-	\begin{columns}
-		\column{0.45\linewidth}
-		{\color{tabred}[\textbf{Unsure: move to backup?}]}
-		The HF solution is the \textbf{fixed point} of a non-linear map $\mathrm{A}$,
-		\[
-			\mathrm{A}(\mathbf{v}) = \mathbf{v} \, .
-		\]
-		\DownImplication
-		\textbf{Strategy}: ``follow'' the map up to the fixed point,
-		\[
-			\mathbf{v}_{i+1} \equiv g \mathrm{A}(\mathbf{v}_i) + (1-g) \mathbf{v}_i \, .
-		\]
-		with $i>0$, $g \in [0,1]$.
-	%	\DownImplication
-		\column{0.45\linewidth}
-		\begin{figure}
-			\centering
-			\includegraphics[width=\columnwidth]{/home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/example-attractor-ink.pdf}
-			\caption*{Example path for the AF phase.}
-		\end{figure}
-		\end{columns}
-	%	\textbf{Convergence criterion}:
-	%	\[
-	%		\forall j \quad\colon\quad
-	%		\left[ \mathbf{v}_{i+1} - \mathbf{v}_i \right]_j < \Delta v_j \, ,
-	%	\]
-	%	with $\Delta \mathbf{v}$ the vector of tolerances.
-	\end{frame}
