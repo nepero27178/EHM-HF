@@ -48,23 +48,23 @@
 		\filldraw[color=tabblue] 
 			(axis cs:-\DeltaPar,\EpsPar) circle (1.2pt)
 				node[anchor=south west] (E)
-					{$\tilde{E}_\mathbf{k}$};
+					{$E_\mathbf{k}$};
 		\filldraw[color=tabblue] 
 			(axis cs:\DeltaPar,-\EpsPar) circle (1.2pt)
 				node[anchor=north east] (mE)
-					{$-\tilde{E}_\mathbf{k}$};
+					{$-E_\mathbf{k}$};
 		
 		% Pseudo field
 		\draw[color=tabgreen,-stealth]
 			(axis cs:0,0) node (O) {} -- (axis cs:-\DeltaPar,\EpsPar) 
 				node[anchor=north east]
-					{$\tilde{\mathbf{b}}_\mathbf{k}$};
+					{$\mathbf{b}_\mathbf{k}$};
 				
 		\draw[color=tabgreen] 
 			(0,\EpsPar/2) arc [start angle=90,end angle=90+atan(\DeltaPar/\EpsPar),radius=\EpsPar/2];
 		\node[anchor=center,color=tabgreen]
 			at (-\DeltaPar/9,\EpsPar/3.3)
-				{$2\tilde{\theta}_\mathbf{k}$};
+				{$2\theta_\mathbf{k}$};
 					
 		\draw[color=tabred,dashed,-stealth] 
 			(0,\r*\EpsPar) node[anchor=west]

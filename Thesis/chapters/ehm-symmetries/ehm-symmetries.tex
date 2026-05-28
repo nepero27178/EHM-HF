@@ -500,7 +500,7 @@ with an operator $\hat H_\mathrm{HF}$ that respects the symmetries of the given 
 \begin{figure}
 	\centering
 	\input{\GraphicsFolder/square-nearest-neighbors}
-	\caption{Schematic representation of the four NNs of a given site $i$ for a planar square lattice.}
+	\caption{Schematic representation of the four NNs of a given site $\mathbf{r}$ for a planar square lattice.}
 	\label{fig:square-nearest-neighbors}
 \end{figure}
 
@@ -836,11 +836,11 @@ We have a ``mirrored'' situation with respect to the Fock terms. For the Cooper 
 		& Cooper & Prohibited & Prohibited & Prohibited \\
 		\midrule
 	\end{tabular}
-	\caption{Summary of symmetry selection rules for the Wick's decomposition of Eqs.~\eqref{eq:ehm-HV(os)-wick}, \eqref{eq:ehm-HV(ss)-wick} of the non-local attraction $\hat H_V$.}
+	\caption{Summary of symmetry selection rules for the Wick's decomposition of Eqs.~\eqref{eq:ehm-HV(ss)-wick}, \eqref{eq:ehm-HV(os)-wick} of the non-local attraction $\hat H_V$.}
 	\label{tab:HV-sel-rules}
 \end{table}
 
-In Tab.~\ref{tab:HV-sel-rules} we summarise these considerations, listing a set of symmetry selection rules about the EVs of Eqs.~\eqref{eq:ehm-HV(os)-wick}, \eqref{eq:ehm-HV(ss)-wick}, dividing in the two sectors ``o.s.'' and ``s.s.''. By identifying these symmetry selection rules, we set grounds for the detailed derivation of each chapter and heavily simplify application of HF model to the EHM.
+In Tab.~\ref{tab:HV-sel-rules} we summarise these considerations, listing a set of symmetry selection rules about the EVs of Eqs.~\eqref{eq:ehm-HV(ss)-wick}, \eqref{eq:ehm-HV(os)-wick}, dividing in the two sectors ``o.s.'' and ``s.s.''. By identifying these symmetry selection rules, we set grounds for the detailed derivation of each chapter and heavily simplify application of HF model to the EHM.
 
 \section{The EHM in reciprocal space}
 
@@ -1104,7 +1104,7 @@ which is proven by direct computation.
 \begin{table}[t]
 	\centering
 	\begin{tabular}{r E l l}
-		\textbf{Channel} & \multicolumn{2}{c}{\textbf{Form factor}} & \textbf{Graph} \\
+		\textbf{Channel} & \multicolumn{2}{c}{\textbf{Harmonic}} & \textbf{Graph} \\
 		\midrule
 		$s$-wave & $\varphi^{(s)}_{\mathbf{r}\mathbf{r}'}$ & $\delta_{\mathbf{r}\mathbf{r}'}$ & Fig.~\ref{subfig:s-wave-correlator} \\
 		$s^*$-wave & $\varphi^{(s^*)}_{\mathbf{r}\mathbf{r}'}$ &
@@ -1118,7 +1118,7 @@ which is proven by direct computation.
 		$p_y$-wave & $\varphi^{(p_y)}_{\mathbf{r}\mathbf{r}'}$ & $ \displaystyle \frac{1}{\sqrt{2}} \left[
 		\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} - \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
 		\right]$ & Fig.~\ref{subfig:py-wave-correlator} \\
-		$d_{x^2-y^2}$-wave & $\varphi^{(d)}_{\mathbf{r}\mathbf{r}'}$ & $\displaystyle \frac{1}{2} \left[
+		$d$-wave & $\varphi^{(d)}_{\mathbf{r}\mathbf{r}'}$ & $\displaystyle \frac{1}{2} \left[
 		\delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{x}}} + \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{x}}} - \delta_{\mathbf{r}'=\mathbf{r}+\underline{\mathbf{y}}} - \delta_{\mathbf{r}'=\mathbf{r}-\underline{\mathbf{y}}}
 		\right]$ & Fig.~\ref{subfig:d-wave-correlator} \\[0.5em]
 		\midrule
@@ -1130,30 +1130,30 @@ which is proven by direct computation.
 
 \begin{figure}[t]
 	\centering
-	\subfloat[Local $s$-wave]{
+	\subfloat[$s$-wave harmonic.]{
 		\input{\GraphicsFolder/s-wave-correlator}
 		\label{subfig:s-wave-correlator}
 	}
 	\hspace{2em}
-	\subfloat[Extended $s$-wave.]{
+	\subfloat[$s^*$-wave harmonic.]{
 		\input{\GraphicsFolder/s*-wave-correlator}
 		\label{subfig:s*-wave-correlator}
 	}\\[3em]
-	\subfloat[$p_x$-wave.]{
+	\subfloat[$p_x$-wave harmonic.]{
 		\input{\GraphicsFolder/px-wave-correlator}
 		\label{subfig:px-wave-correlator}
 	}
 	\hspace{2em}
-	\subfloat[$p_y$-wave.]{
+	\subfloat[$p_y$-wave harmonic.]{
 		\input{\GraphicsFolder/py-wave-correlator}
 		\label{subfig:py-wave-correlator}
 	}
 	\hspace{2em}
-	\subfloat[$d_{x^2-y^2}$-wave.]{
+	\subfloat[$d$-wave harmonic.]{
 		\input{\GraphicsFolder/d-wave-correlator}
 		\label{subfig:d-wave-correlator}
 	}
-	\caption{The harmonics listed in Tab.~\ref{tab:x-wave-real-factors}. In figures five sites are represented: the hub site $i$ and its four NNs. Solid lines connect the hub sites to a rim site where the harmonic is non-zero. Dashed lines connect to a rim site where the harmonic is zero.}
+	\caption{The harmonics listed in Tab.~\ref{tab:x-wave-real-factors}. In figures five sites are represented: the hub site $\mathbf{r}$ and its four NNs. Solid lines connect the hub sites to a rim site where the harmonic is non-zero. Dashed lines connect to a rim site where the harmonic is zero.}
 	\label{fig:x-wave-real-factors}
 \end{figure}
 
@@ -1232,13 +1232,13 @@ The functions of Tab.~\ref{tab:x-wave-reciprocal-factors} are plotted in the BZ 
 \begin{table}
 	\centering
 	\begin{tabular}{r E l l}
-		\textbf{Structure} & \multicolumn{2}{c}{\textbf{Structure factor}} & \textbf{Graph} \\
+		\textbf{Channel} & \multicolumn{2}{c}{\textbf{Harmonic}} & \textbf{Graph} \\
 		\midrule
 		$s$-wave & $\varphi_\mathbf{k}^{(s)}$ & $1$ & Fig.~\ref{subfig:s-wave-correlator} \\
-		Extended $s$-wave & $\varphi^{(s^*)}_{\mathbf{k}}$ & $\cos k_x + \cos k_y$ & Fig.~\ref{subfig:s*-wave-correlator} \\
+		$s^*$-wave & $\varphi^{(s^*)}_{\mathbf{k}}$ & $\cos k_x + \cos k_y$ & Fig.~\ref{subfig:s*-wave-correlator} \\
 		$p_x$-wave & $\varphi_\mathbf{k}^{(p_x)}$ & $i \sqrt{2} \sin k_x $ & Fig.~\ref{subfig:px-wave-correlator} \\
 		$p_y$-wave & $\varphi_\mathbf{k}^{(p_y)}$ & $i \sqrt{2} \sin k_y$ & Fig.~\ref{subfig:py-wave-correlator} \\
-		$d_{x^2-y^2}$-wave & $\varphi_\mathbf{k}^{(d)}$ & $\cos k_x - \cos k_y$ & Fig.~\ref{subfig:d-wave-correlator} \\[0.5em]
+		$d$-wave & $\varphi_\mathbf{k}^{(d)}$ & $\cos k_x - \cos k_y$ & Fig.~\ref{subfig:d-wave-correlator} \\[0.5em]
 		\midrule
 	\end{tabular}
 	\caption{$\mathcal{F}$-transforms of the harmonics of Tab.~\ref{tab:x-wave-real-factors}. These functions are plotted in Fig.~\ref{fig:x-wave-reciprocal-factors}.}
@@ -1249,7 +1249,7 @@ The functions of Tab.~\ref{tab:x-wave-reciprocal-factors} are plotted in the BZ 
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.9\linewidth]{../Project/src/labs/structure-factors/plot-structure-factors.pdf}
-	\caption{Representation of the various structure factors listed in Tab.~\ref{tab:x-wave-reciprocal-factors} on the BZ. For the $s^*$ and $d_{x^2-y^2}$-wave factors, the real part is plotted; for the $p_\ell$ factors, the imaginary part is plotted.}
+	\caption{Representation of the harmonics $\varphi_\mathbf{k}^{(\gamma)}$ listed in Tab.~\ref{tab:x-wave-reciprocal-factors} on the BZ. For the $s^*$ and $d$-wave harmonics, the real part is plotted; for the $p_\ell$ harmonics, the imaginary part is plotted.}
 	\label{fig:x-wave-reciprocal-factors}
 \end{figure}
 
@@ -1260,7 +1260,7 @@ Using the harmonics functions, it is useful to prove the following identity:
 	\cos \left( \delta k_x \right)	+ \cos \left( \delta k_y  \right) &= \frac 1 2 \sum_{\gamma \neq s} \varphi_\mathbf{k}^{(\gamma)} \varphi_{\mathbf{k}'}^{(\gamma)*} \label{eq:coscos-symmetries-decomposition} \\
 	&= \frac 1 2 \sum_{\gamma \neq s} \varphi_\mathbf{k}^{(\gamma)*} \varphi_{\mathbf{k}'}^{(\gamma)} \label{eq:coscos-symmetries-decomposition-variant} \, .
 \end{align}
-Note that in both rows above the sum is intended for $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$, excluding $s$.
+Note that in both rows above the sum is intended for $\gamma \in \lbrace s^*, p_x, p_y, d \rbrace$, excluding $s$.
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:coscos-symmetries-decomposition}]
 
@@ -1294,7 +1294,7 @@ Note that in both rows above the sum is intended for $\gamma \in \lbrace s^*, p_
 		\cos \left( \delta k_x \right)	+ \cos \left( \delta k_y  \right) &= \frac{1}{2}  (c_x + c_y)(c_x' + c_y') &&\qquad\text{($s^*$-wave)} \\
 		&\hphantom{=}+ s_x s_x' &&\qquad\text{($p_x$-wave)} \\
 		&\hphantom{=}+ s_y s_y' &&\qquad\text{($p_y$-wave)} \\
-		&\hphantom{=}+ \frac{1}{2} (c_x - c_y)(c_x' - c_y') \, , &&\qquad\text{($d_{x^2-y^2}$-wave)}
+		&\hphantom{=}+ \frac{1}{2} (c_x - c_y)(c_x' - c_y') \, , &&\qquad\text{($d$-wave)}
 	\end{aligned}
 	\]
 	which is written in compact form as in Eq.~\eqref{eq:coscos-symmetries-decomposition}.

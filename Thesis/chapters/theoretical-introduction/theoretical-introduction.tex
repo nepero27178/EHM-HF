@@ -1,15 +1,24 @@
 \def\GraphicsFolder{chapters/theoretical-introduction/pictures}
 \chapter{Introduction}\label{chap:theoretical-introduction}
 
-The discovery of superconductivity in copper oxide compounds, commonly referred to as cuprates, is one of the major breakthroughs in condensed matter physics in the last 50 years. In \citeyear{bednorz1986possible}, \citeauthor{bednorz1986possible} \cite{bednorz1986possible} discovered that the compound BaLaCuO exhibits superconductivity below a critical temperature around $30 \mathrm{K}$. Until then, superconductivity had been observed  up to critical temperatures ($T_\mathrm{c}$) of few Kelvins. This new class of superconductors marked the beginning of the era of high-$T_\mathrm{c}$ superconductivity. Today, the highest observed value is $T_\mathrm{c} \approx 151~\mathrm{K}$ at ambient pressure on the cuprate $\mathrm{Hg}\mathrm{Ba}_2 \mathrm{Ca}_2 \mathrm{Cu}_3 \mathrm{O}_{8+\delta}$ \cite{deng2026ambient}.
+The discovery of superconductivity in copper oxide compounds, commonly referred to as cuprates, is one of the major breakthroughs in condensed matter physics in the last 50 years. In \citeyear{bednorz1986possible}, \citeauthor{bednorz1986possible} \cite{bednorz1986possible} discovered that the compound BaLaCuO exhibits superconductivity below a critical temperature around $30 \mathrm{K}$. Until then, superconductivity had been observed  up to critical temperatures ($T_\mathrm{c}$) of few Kelvins. This new class of superconductors marked the beginning of the era of high-$T_\mathrm{c}$ superconductivity. Today, the highest observed value is $T_\mathrm{c} \approx 151~\mathrm{K}$ at ambient pressure on the cuprate $\mathrm{Hg}\mathrm{Ba}_2 \mathrm{Ca}_2 \mathrm{Cu}_3 \mathrm{O}_{8+\delta}$ \cite{deng2026ambient}. We give a representation of the timeline of high-$T_\mathrm{c}$ superconductivity discoveries in Fig.~\ref{subfig:timeline}.
 
-Cuprates are the prototypical example of quantum materials characterised by rich phase diagrams, hosting very different phases upon changing external parameters. In Fig.~\ref{fig:cuprates-phase-diagram} we sketch a typical example of the cuprates phase diagram as a function of temperature $T$ and doping $\delta$, with respect to the parent compound, at $\delta=0$ \cite{keimer2015quantum}. The parent compounds are antiferromagnetic (AF) insulators below a Néel temperature $T_\mathrm{N} \approx 300 \mathrm{K}$. Upon doping with either electron or holes, the Néel temperature decreases, until antiferromagnetism is eventually suppressed. Increasing doping, the system undergoes a superconducting (SC) phase transition with a critical temperature $T_\mathrm{c}$ that shows a dome-like structure, and is maximised at an optimal doping $\delta^*$. The optimal doping discriminates an underdoped region ($\delta < \delta^*$), where the system shows a bad metallic behaviour, and an overdoped region ($\delta > \delta^*$), where it obeys conventional Fermi liquid theory. The full microscopic understanding of such complex phase diagrams and the interplay between the different phases have been subjects of an intense research activity in the last 40 years, and remain, to date, an open question.
+Cuprates are the prototypical example of quantum materials characterised by rich phase diagrams, hosting very different phases upon changing external parameters. In Fig.~\ref{subfig:cuprates-phase-diagram} we sketch a typical example of the cuprates phase diagram as a function of temperature $T$ and doping $\delta$, with respect to the parent compound, at $\delta=0$ \cite{keimer2015quantum}. The parent compounds are antiferromagnetic (AF) insulators below a Néel temperature $T_\mathrm{N} \approx 300 \mathrm{K}$. Upon doping with either electron or holes, the Néel temperature decreases, until antiferromagnetism is eventually suppressed. Increasing doping, the system undergoes a superconducting (SC) phase transition with a critical temperature $T_\mathrm{c}$ that shows a dome-like structure, and is maximised at an optimal doping $\delta^*$. The optimal doping discriminates an underdoped region ($\delta < \delta^*$), where the system shows a bad metallic behaviour, and an overdoped region ($\delta > \delta^*$), where it obeys conventional Fermi liquid theory. The full microscopic understanding of such complex phase diagrams and the interplay between the different phases have been subjects of an intense research activity in the last 40 years, and remain, to date, an open question.
 
 \begin{figure}
 	\centering
-	\includegraphics[height=0.32\linewidth]{\GraphicsFolder/phase-diagram/phase-diagram.pdf}
-	\caption{Sketch of the phase diagram of cuprates. These curves result from graphic elaboration and do not refer to a specific physical dataset.}
-	\label{fig:cuprates-phase-diagram}
+	\subfloat[Timeline of high-$T_\mathrm{c}$ superconductivity.]{
+		\includegraphics[height=0.3\linewidth]{\GraphicsFolder/timeline.pdf}
+		\label{subfig:timeline}
+	}
+	\subfloat[Approximate phase diagram of cuprates.]{
+		\includegraphics[height=0.3\linewidth]{\GraphicsFolder/phase-diagram/phase-diagram.pdf}
+		\label{subfig:cuprates-phase-diagram}
+	}
+	\caption{
+		Left: timeline of the discovery of superconductivity in various compounds. The cuprates branch is represented as cyan diamonds. Image source: Refs.~\cite{ray2016masters} and \cite{gingras2021supraconductivite}, distributed according to \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{the license CC BY-SA 4.0}.
+		Right: sketch of the phase diagram of cuprates. These curves result from graphic elaboration and do not refer to any specific physical dataset.}
+	\label{fig:cuprates}
 \end{figure}
 
 Today, it is generally accepted that the physics of cuprates is highly determined by strong electronic correlations, namely the fact that many observed phenomena cannot be described by standard Fermi liquid theory. The simplest theoretical framework to describe strong electronic correlations in cuprates is the single-band Hubbard model which, as we are going to explain, is able to capture the formation of the AF state at zero doping, as well as the emergence of a $d$-wave SC state upon doping. 
@@ -146,7 +155,7 @@ In this section, we give an outline of next chapters.
 		\item The insurgence of nematic effects (namely, breaking of planar rotational symmetry) related to the mixing of gap symmetries;
 		\item The presence of Mott localisation in SC phase.
 	\end{enumerate}
-	\item[Chap.~\ref{chap:conclusions}] We summarise our findings and \textit{thank for all the fish}.
+	\item[Chap.~\ref{chap:conclusions}] We summarise our findings and propose further developments.
 \end{enumerate}
 Appendices are organised as follows:
 \begin{enumerate}[align=left]

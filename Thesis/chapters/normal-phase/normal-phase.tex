@@ -339,7 +339,7 @@ where $u_\sigma^{(\gamma)}$ are the harmonics of the occupation $u_{\mathbf{k}\s
 		\label{subfig:Kk-qq'-newvariables}
 		\input{\GraphicsFolder/qq'}
 	}
-	\caption{Representation of the variable change employed to pass from Eq.~\eqref{eq:normal-V-fock-int2} to \eqref{eq:normal-V-fock-int3}. In Fig.~\ref{subfig:Kk-qq'-generic} generic vectors are considered, cycling over all values of $\mathbf{K},\mathbf{k}\in\mathrm{BZ}$. In Fig.~\ref{subfig:Kk-qq'-newvariables} is depicted the variables change to the new vectors $\mathbf{q},\mathbf{q}'$.}
+	\caption{Representation of the variable change used in Eqs.~\eqref{eq:normal-V-fock-int2}, \eqref{eq:normal-V-fock-int3}. In Fig.~\ref{subfig:Kk-qq'-generic} generic vectors are considered, for all values of $\mathbf{K},\mathbf{k}\in\mathrm{BZ}$. In Fig.~\ref{subfig:Kk-qq'-newvariables} is depicted the variables change to the new vectors $\mathbf{q},\mathbf{q}'$.}
 	\label{fig:Kk-qq'}
 \end{figure}
 
@@ -422,10 +422,10 @@ Bringing together Eqs.~\eqref{eq:normal-HU+HV-hartree-approx} and \eqref{eq:norm
 		\textbf{Symmetry} & \multicolumn{2}{c}{\textbf{Self-consistency equation}} & \textbf{Graph} \\
 		\midrule
 		$s^*$-wave & $u^{(s^*)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) $ & Fig.~\ref{subfig:s*-wave-correlator} \\[1.5em]
-		$d_{x^2-y^2}$-wave & $u^{(d)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) $ & Fig.~\ref{subfig:d-wave-correlator} \\
+		$d$-wave & $u^{(d)}$ & $\displaystyle \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) $ & Fig.~\ref{subfig:d-wave-correlator} \\
 		\midrule
 	\end{tabular}
-	\caption{Symmetry resolved self-consistency equations for the harmonics of $u_\mathbf{k}$.}
+	\caption{Symmetry resolved self-consistency equations for the harmonics of $u_\mathbf{k}$. The shown equations are reformulations of Eq.~\eqref{eq:normal-ugamma-harmonics}. To obtain these expressions, Eq.~\eqref{eq:normal-<cc>-FD} was used.}
 	\label{tab:normal-ehm-ugamma-self-consistencies}
 \end{table}
 \setlength{\extrarowheight}{0em}
@@ -597,7 +597,7 @@ A schematics of anisotropic hopping is given in Fig.~\ref{fig:anisotropic-hoppin
 \begin{figure}
 	\centering
 	\input{\GraphicsFolder/anisotropic-hopping}
-	\caption{Graphic rendition of anisotropic hopping, with a $s^*$-wave component (symmetric by $\pi/2$ rotations) and a $d$-wave component (antisymmetric).}
+	\caption{Graphic representation of anisotropic hopping, with a $s^*$-wave component (symmetric by $\pi/2$ rotations) and a $d$-wave component (antisymmetric).}
 	\label{fig:anisotropic-hopping}
 \end{figure}
 
@@ -974,7 +974,7 @@ being $\beta_0 = 1/ (1\mathrm{K} \times k_\mathrm{B})$.
 		\includegraphics[height=0.32\linewidth]{../Project/src/labs/normal-upper-boundary/normal-upper-boundary-uS.pdf}
 		\label{subfig:normal-uS-data-B256}
 	}
-	\caption{Numerical results for $u^{(s^*)}$. On the left: colour plot in the $(\delta,V)$ plane. On the right: line plot at doubled lattice size, varying $\delta$. The theoretical value for $u^{(s^*)}$ computed in Eqs.~\eqref{eq:normal-uS-half-filling} at half-filling is plotted as a green dashed line.}
+	\caption{Numerical results for $u^{(s^*)}$. On the left: colour plot in the $(\delta,V)$ plane. On the right: line plot at doubled lattice size, varying $\delta$. The theoretical value for $u^{(s^*)}$ at half-filling, computed in Eq.~\eqref{eq:normal-uS-half-filling}, is plotted as a green dashed line. The upper boundary of Eq.~\eqref{eq:normal-us*-ud-constraint} is plotted as a black dashed line.}
 	\label{fig:normal-uS-data}
 \end{figure}
 
@@ -1012,7 +1012,7 @@ When $V$ becomes larger than this critical value, due to the constraint of Eq.~\
 		\includegraphics[height=0.36\linewidth]{../Project/src/labs/mott-localization/normal-mott-boundary-tS.pdf}
 		\label{subfig:normal-tS-data-B128-mott}
 	}
-	\caption{Plots of $t^{(s^*)}$ and the Mott-boundary $V_\mathrm{c}$, computed as in Eq.~\eqref{eq:normal-Vc}.}
+	\caption{Plots of $\tilde{t}^{(s^*)}$ and the Mott-boundary $V_\mathrm{c}$, computed as in Eq.~\eqref{eq:normal-Vc}.}
 	\label{fig:normal-tS-data}
 \end{figure}
 

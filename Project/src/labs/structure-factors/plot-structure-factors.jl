@@ -49,7 +49,7 @@ Ky::Vector{Float64} = [ky for ky in -pi:2*pi/L[2]:pi]
 K::Matrix{Vector{Float64}} = [ [kx,ky] for kx in Kx, ky in Ky ]
 
 Syms = ["S","d","x","y"]
-SymsStr = ["\$s*\$","\$d_{x^2-y^2}\$","\$p_x\$","\$p_y\$"]
+SymsStr = ["\$s*\$","\$d\$","\$p_x\$","\$p_y\$"]
 
 fig = Figure(size=(800,700),figure_padding = 1)
 axs = [Axis(fig[i, j], aspect=1) for i in 1:2, j in 1:2]
@@ -68,7 +68,7 @@ for (s,Sym) in enumerate(Syms)
 		SS = imag.(SS)
 	end
 	heatmap!(ax,Kx,Ky,SS,colormap=cmap)
-	ax.title = L"%$(SymsStr[s])-wave structure factor"
+	ax.title = L"%$(SymsStr[s])-wave harmonic $\varphi_\mathbf{k}^{(%$(SymsStr[s]))}$"
 	ax.xlabel = L"$k_x$"
 	ax.ylabel = L"$k_y$"
 	ax.xticks = ([-pi, -pi/2, 0, pi/2, pi], [L"$-\pi$", L"$-\pi/2$", L"$0$", L"$\pi/2$", L"$\pi$"])

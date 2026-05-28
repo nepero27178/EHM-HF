@@ -674,7 +674,7 @@ we report these equations, writing explicitly the harmonics from Tab.~\ref{tab:x
 		$s^*$-wave & $u^{(s^*)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) \left[
 		1 - \frac{\tilde{\xi}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
 		\right] $ & Fig.~\ref{subfig:s*-wave-correlator} \\[1.5em]
-		$d_{x^2-y^2}$-wave & $u^{(d)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) \left[
+		$d$-wave & $u^{(d)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) \left[
 		1 - \frac{\tilde{\xi}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2})
 		\right] $ & Fig.~\ref{subfig:d-wave-correlator} \\
 		\midrule
@@ -781,7 +781,7 @@ where the harmonics $w^{(\gamma)}$ have been defined in Eq.~\eqref{appeq:sc-wgam
 \begin{equation}\label{eq:sc-HV-cooper-Ec-implicit}
 	E_{\mathrm{C},V}^{(\mathrm{SC})} \equiv - \frac{V}{L_x L_y} \sum_{\gamma\neq s} \sum_{\mathbf{k}, \mathbf{k}'}  \varphi_\mathbf{k}^{(\gamma)} \varphi_{\mathbf{k}'}^{(\gamma)*} w_\mathbf{k} w_{\mathbf{k}'}^* \, .
 \end{equation}
-In both the above equations, the sum is intended for $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$.
+In both the above equations, the sum is intended for $\gamma \in \lbrace s^*, p_x, p_y, d \rbrace$.
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:sc-HV-cooper-approx}: HF approximation of $\hat H_V$ in Cooper channel]
 	
@@ -854,7 +854,7 @@ In both the above equations, the sum is intended for $\gamma \in \lbrace s^*, p_
 		w_\mathbf{k} \hat \phi_{\mathbf{k}'} \\
 		- \frac{V}{L_x L_y} \sum_{\gamma\neq s} \sum_{\mathbf{k}, \mathbf{k}'} \varphi_\mathbf{k}^{(\gamma)*} \varphi_{\mathbf{k}'}^{(\gamma)} w_\mathbf{k}^* \hat \phi_{\mathbf{k}'}^\dagger	- E_{\mathrm{C},V}^{(\mathrm{SC})} \, .
 	\end{multline}
-	Sum is intended for $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$. We recognised $E_{\mathrm{C},V}^{(\mathrm{SC})}$ as defined in Eq.~\eqref{eq:sc-HV-cooper-Ec-implicit}.  Eq.~\eqref{eq:sc-V-os-cooper-int1} is reduced to
+	Sum is intended for $\gamma \in \lbrace s^*, p_x, p_y, d \rbrace$. We recognised $E_{\mathrm{C},V}^{(\mathrm{SC})}$ as defined in Eq.~\eqref{eq:sc-HV-cooper-Ec-implicit}.  Eq.~\eqref{eq:sc-V-os-cooper-int1} is reduced to
 	\begin{multline} 
 		\hat H_V^{(\mathrm{o.s.})} \HFsimeq \text{(Hartree channel)}
 		-\sum_{\gamma\neq s}
@@ -874,7 +874,7 @@ The contraction energy of Eq.~\eqref{eq:sc-HV-cooper-Ec-implicit} can be written
 \begin{equation}\label{eq:sc-HV-cooper-Ec}
 	E_{\mathrm{C},V}^{(\mathrm{SC})} = - L_x L_y \times V \sum_{\gamma\neq s} \big| w^{(\gamma)} \big|^2 \, ,
 \end{equation}
-with $\gamma \in \lbrace s^*, p_x, p_y, d_{x^2-y^2} \rbrace$.
+with $\gamma \in \lbrace s^*, p_x, p_y, d \rbrace$.
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:sc-HV-cooper-Ec}: non-local Cooper contraction energy]
 	
@@ -905,7 +905,7 @@ we report these equations, writing explicitly the harmonics from Tab.~\ref{tab:x
 		$s^*$-wave & $w^{(s^*)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x + \cos k_y) \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:s*-wave-correlator} \\[1.5em]
 		$p_x$-wave & $w^{(p_x)}$ & $\displaystyle \frac{i\sqrt{2}}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \sin k_x \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:px-wave-correlator} \\[1.5em]
 		$p_y$-wave & $w^{(p_y)}$ & $\displaystyle \frac{i\sqrt{2}}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \sin k_y \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:py-wave-correlator} \\[1.5em]
-		$d_{x^2-y^2}$-wave & $w^{(d)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:d-wave-correlator} \\
+		$d$-wave & $w^{(d)}$ & $\displaystyle \frac{1}{2L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} (\cos k_x - \cos k_y) \frac{\tilde{\Delta}_\mathbf{k}}{\tilde{E}_\mathbf{k}} \tanh(\frac{\beta\tilde{E}_\mathbf{k}}{2}) $ & Fig.~\ref{subfig:d-wave-correlator} \\
 		\midrule
 	\end{tabular}
 	\caption{Symmetry resolved self-consistency equations for the harmonics of $w_\mathbf{k}$. The shown equations are reformulations of Eq.~\eqref{appeq:sc-wgamma-harmonics}, which is equal to Eq.~\eqref{eq:sc-ehm-wgamma-self-consistency}.}
