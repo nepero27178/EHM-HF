@@ -20,16 +20,77 @@
 	
 \begin{frame}
 	\frametitle{Antiferromagnetism in the conventional Hubbard model}
+	\begin{columns}
+		\column{0.4\linewidth}
+			AF phase: lowers $\mathrm{SU}(2)$ and $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$.\medskip
+		
+			In the HM ($V=0$), the only HFP is the magnetisation $m$.
+			\DownImplication
+			$U$-induced magnetisation, disrupted by $\delta$.\bigskip
+		\column{0.5\linewidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\columnwidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf}
+			\caption{Numerical results for $m$.}
+			\label{appfig:mdU-beta=100}
+		\end{figure}
+	\end{columns}
+	\begin{tabbox}[frametitle=Half-filling restriction]
+		At any finite filling ($\delta \neq 0$) the commensurate AF phase is \textbf{unstable}. We limit to $\delta=0$ (half-filling).
+	\end{tabbox}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Mott localisation in the AF phase}
+	\begin{columns}
+		\column{0.5\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\columnwidth]{../Project/src/labs/compare-tS-normal-af/tS(N)+tS(AF)-ink.pdf}
+				\caption{Comparative plot of the converged values for $\tilde{t}^{(s^*)}$ for the normal phase and the AF phase.}
+				\label{fig:af-tS-compared}
+			\end{figure}
+		\column{0.4\linewidth}
+			Setting $V>0$, we get the new HFP $u^{(s^*)}$ as for the normal phase,
+			\[
+			t \to \tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)}V}{2} \, .
+			\]\medskip
+			
+			\textbf{Theoretical constraint}:
+			\[
+			0 < \tilde{t}^{(s^*)} < t
+			\]
+			\DownImplication
+	\end{columns}
+	\begin{tabbox}[frametitle=Mott localisation in the AF phase]
+		The non-local repulsion $V$ reduces the hopping amplitude $t$. Instead, the local repulsion $U$ \textbf{opposes Mott localisation} $\implies$ counter-intuitive!
+	\end{tabbox}
 \end{frame}
 
 \begin{frame}
 	\frametitle{The Mott enhancement of magnetisation}
+	Magnetisation is \textbf{enhanced} by Mott localisation:
+	\[
+		0 < \tilde{t}^{(s^*)} < t
+		\quad\implies\quad
+		U/\tilde{t}^{(s^*)} > U/t \, .
+	\]
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\linewidth]{../Project/src/labs/antiferromagnet-iso-heatmaps/af-m-data-C128.pdf}
+		\caption{Numerical results for the HFP $m$. The gray curves indicate isomagnetic lines.}
+		\label{fig:af-m-data-C128}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
-	\frametitle{The HF solution in the AF phase}
+	\frametitle{The HF solution in the commensurate AF phase}
+	The \textbf{AF phase}, summarised:
+	\begin{itemize}
+		\item Breaks spin rotation and translational invariance;
+		\item The HF approximation is only stable at half-filling;
+		\item Presence of $V$-induced Mott localisation and \textbf{bands flattening}, enhanced by $V$ and opposed by $U$;
+		\item Two ways of magnetising the lattice: increasing $U$ (``conventional'') or using Mott effects (``unconventional'').
+	\end{itemize}
 \end{frame}
