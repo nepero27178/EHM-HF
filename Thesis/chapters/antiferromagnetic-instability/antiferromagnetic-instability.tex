@@ -169,7 +169,7 @@ Recalling Eq.~\eqref{eq:af-ehm-psi-def}, we see that removing one electron at $(
 		\right) \nonumber \\
 		&= \frac{1}{L_x L_y} \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \langle \hat n_{\mathbf{r}\sigma} \rangle \, , \label{eq:af-m-EV-int}
 	\end{align}
-	where we used $1 = \left((-1)^{x+y}\right)^2$. $\mathcal{F}$-transforming the operator and its sign factor inside the sum in last line, we get
+	where we used $1 = \left[(-1)^{x+y}\right]^2$. $\mathcal{F}$-transforming the operator and its sign factor inside the sum in last line, we get
 	\[
 	\begin{aligned}
 		\sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \hat n_{\mathbf{r}\sigma} &= \sum_{\mathbf{r}\in\mathcal{L}} (-1)^{x+y} \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \\
@@ -479,11 +479,11 @@ The proof of Eq.~\eqref{eq:af-almost-su2} is identical to the one presented in S
 %
 
 We define the pseudofield $\mathbf{b}_{\mathbf{k}\sigma}$:
-\[
+\begin{equation}\label{eq:af-pseudofield-def}
 \mathbf{b}_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
 	-\Delta_{\mathbf{k}\sigma} \\ 0 \\ \epsilon_{\mathbf{k}\sigma} 
 \end{bmatrix} \, .
-\]
+\end{equation}
 In pseudospin representation, the hamiltonian of Eq.~\eqref{eq:af-HM-hk} can be expressed as
 \begin{equation}\label{eq:af-hm-spin-h}
 	\hat H_t + \hat H_U \HFsimeq \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \mathbf{b}_{\mathbf{k}\sigma} \cdot \hat{\mathbf{s}}_{\mathbf{k}\sigma} + nU \hat N - E_{\mathrm{H},U}^{(\mathrm{AF})} \, ,
@@ -862,7 +862,7 @@ are the remaining HFPs. These harmonics obey, respectively, the self-consistency
 	\label{tab:af-saf-aaf-hfps}
 \end{table}
 
-The harmonics $u_\sigma^{(\gamma)}$ have the identical role we described for the normal phase, in Sec.~\ref{subsec:normal-d-wave-hopping}. Indeed, the renormalisation of bare bands of Eq.~\eqref{eq:af-ehm-full-bands} coincides exactly with that discussed for the normal phase, and reported in Eq.~\eqref{eq:normal-bands-renormalisation}. Therefore, Eq.~\eqref{eq:normal-tS-td} hold identically,
+The harmonics $u^{(\gamma)}$ have the identical role we described for the normal phase, in Sec.~\ref{subsec:normal-d-wave-hopping}. Indeed, the renormalisation of bare bands of Eq.~\eqref{eq:af-ehm-full-bands} coincides exactly with that discussed for the normal phase, and reported in Eq.~\eqref{eq:normal-bands-renormalisation}. Therefore, Eq.~\eqref{eq:normal-tS-td} hold identically,
 \begin{equation}\label{eq:af-tS-td}
 	\tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)} V}{2}
 	\qq{and}
@@ -965,7 +965,7 @@ By inserting Eq.~\eqref{eq:af-Ek-approx} in Eq.~\eqref{eq:af-ehm-m-self-consiste
 	1 - \frac{1}{2} \abs{\frac{\tilde{\epsilon}_\mathbf{k}}{mU}}^2 + \mathcal{O} \left(r^4\right)
 	\right] \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) \label{eq:af-mott-m-int1} \, .
 \end{align}
-Let $m \neq 0$. From Eq.~\eqref{eq:af-Ek>Um} we know that $\tilde{E}_\mathbf{k} \neq 0$. The hyperbolic tangent is, at low temperature, approximated by,
+Let $m \neq 0$. From Eq.~\eqref{eq:af-Ek>Um} we know that $\tilde{E}_\mathbf{k} \neq 0$. The hyperbolic tangent is, at low temperature, approximated as
 \[
 \lim_{\beta \to \infty} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) = 1 \, .
 \]
@@ -1148,11 +1148,11 @@ In this section, we show the data for the free energy density, computed at half-
 
 \begin{figure}
 	\centering
-	\subfloat[Heatmap of $f$ in $\delta V$ plane.]{
+	\subfloat[Heatmap of $f$ in $(U,V)$ plane.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=rs/Phase=AF/Setup=C[128]/Syms=/RB=S/Obj=phys/xVar=U_yVar=V/f_t=1.0_L=128_δ=0.0_β=100.0.pdf}
 		\label{subfig:af-f-data-C128}
 	}
-	\subfloat[$V$-dependency of $f$ varying $\delta$.]{
+	\subfloat[$V$-dependency of $f$ varying $U$.]{
 		\includegraphics[height=0.32\linewidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=A[256]/Syms=/RB=S/Obj=phys/xVar=V_pVar=U/f_t=1.0_L=256_δ=0.0_β=100.0.pdf}
 		\label{subfig:af-f-data-A256}
 	}

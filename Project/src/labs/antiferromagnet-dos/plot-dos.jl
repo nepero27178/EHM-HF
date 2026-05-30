@@ -53,7 +53,7 @@ lines!(ax,xx,HH,color=tabred,linestyle=:dash,label=L"$\rho_0\mathrm{H}(\epsilon_
 
 xlims!(ax,-4,4)
 ylims!(ax,0,0.5)
-ax.xticks = ([-4,-2,-x0,0,x0,2,4],["-4","-2",L"$-\epsilon_0$","0",L"$\epsilon_0$","2","4"])
+ax.xticks = ([-4,-2,-x0,0,x0,2,4],["-4","-2",L"$-\epsilon_0/t$","0",L"$\epsilon_0/t$","2","4"])
 ax.yticks = ([0.0,0.1,0.2,0.3,0.4,ρ0,0.5],["0.0","0.1","0.2","0.3","0.4",L"$\rho_0$","0.5"])
 axislegend(ax,position=:rt)
 FilePathOut = "D(x).pdf"

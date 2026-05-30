@@ -13,20 +13,20 @@ The normal phase is described by two HFPs:
 	u^{(s^*)},
 	u^{(d)} \, ,
 \]
-which obey the self-consistency equations of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}. In this section we show that Eq.~\eqref{eq:normal-us*-ud-constraint} holds,
+which obey the self-consistency equations of Tab.~\ref{tab:normal-ehm-ugamma-self-consistencies}. In this section, we show that Eq.~\eqref{eq:normal-us*-ud-constraint} holds,
 \begin{equation}\label{appeq:normal-us*-ud-constraint}
 	0 < u^{(s^*)} < 2t/V
 	\qq{and}
 	u^{(d)} = 0 \, .
 \end{equation}
-The discussion is divided in three parts: in Sec.~\ref{appsubsec:normal-s*+d-bands}, we discuss the spatial geometry of bands with a mixed symmetry $s^* \oplus d$. In Sec.~\ref{appsubsec:normal-bands-shrinking} we derive Eq.~\eqref{appeq:normal-us*-ud-constraint} by considering the simpler case of unbroken $\mathrm{C}_4$ symmetry (hence setting $u^{(d)} = 0$ ``by hand''). In Sec.~\ref{appsubsec:normal-bands-shrinking-C2} we break rotational symmetry, $\mathrm{C}_4 \SSB \mathrm{C}_2$, and end the proof.
+The discussion is divided in three parts: in Sec.~\ref{appsubsec:normal-s*+d-bands}, we discuss the spatial geometry of bands with a mixed symmetry $s^* \oplus d$. In Sec.~\ref{appsubsec:normal-bands-shrinking}, we derive Eq.~\eqref{appeq:normal-us*-ud-constraint} by considering the simpler case of unbroken $\mathrm{C}_4$ symmetry (hence setting $u^{(d)} = 0$ ``by hand''). In Sec.~\ref{appsubsec:normal-bands-shrinking-C2}, we break rotational symmetry, $\mathrm{C}_4 \SSB \mathrm{C}_2$, and end the proof.
 
 \subsection{Mixed $s^* \oplus d$ bands}\label{appsubsec:normal-s*+d-bands}
 
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.9\linewidth]{../Project/src/labs/bands/normal-nematic-bands.pdf}
-	\caption{Theoretical representation of mixed-symmetry nematic bands for the normal phase. The white contours represent level lines. In top-left panel, the MBZ and NBZ are depicted. While these plots only account for positive-defined components, in text is described how to map each one on its counterpart with different sign.}
+	\caption{Mixed-symmetry bands for the normal phase. The white contours represent level lines. In top-left panel, the MBZ and NBZ are depicted. While these plots only account for positive-defined components, in text is described how to map each one on its counterpart with different sign.}
 	\label{fig:normal-nematic-bands}
 \end{figure}
 
@@ -73,7 +73,7 @@ represented in the top-left panel of Fig.~\ref{fig:normal-nematic-bands}. In the
 		\input{\GraphicsFolder/NBZ-sectors}
 		\label{appsubfig:NBZ-sectors}
 	}
-	\caption{Depiction of the sectors composing the MBZ (Fig.~\ref{appsubfig:MBZ-sectors}) and the NBZ (Fig.~\ref{appsubfig:NBZ-sectors}), based on the divisions shown in the top-left panel of Fig.~\ref{fig:normal-nematic-bands}. The full green zone composes $\mathcal{A}$, the region where both the $s^*$-wave and $d$-wave structure factors are positive defined; its MBZ complementary white counterpart in the left panel gives $\mathcal{B}$, for which the $s^*$-wave structure factors is positive-definite while the $d$-wave is negative. Similarly the NBZ complementary white counterpart in the right panel gives $\mathcal{C}$, for which signs are exchanged. The black dots, at the contours intersection, are band nodes.}
+	\caption{Depiction of the sectors composing the MBZ (Fig.~\ref{appsubfig:MBZ-sectors}) and the NBZ (Fig.~\ref{appsubfig:NBZ-sectors}), based on the divisions shown in the top-left panel of Fig.~\ref{fig:normal-nematic-bands}. The full green zone composes $\mathcal{A}$, the region where both the $s^*$-wave and $d$-wave harmonics $\varphi_\mathbf{k}^{(\gamma)}$, see Tab.~\ref{tab:x-wave-reciprocal-factors}, are positive defined; its MBZ complementary white counterpart in the left panel gives $\mathcal{B}$, for which the $s^*$-wave harmonic is positive-definite while the $d$-wave is negative. Similarly the NBZ complementary white counterpart in the right panel gives $\mathcal{C}$, for which signs are exchanged. The black dots, at the contours intersection, are band nodes.}
 	\label{appfig:BZ-sectors}
 \end{figure}
 
@@ -180,13 +180,13 @@ The proof follows from this chain of deductions:
 	
 	\paragraph{Proof.}
 	
-	We proceed exactly as did for the previous point, up to Eq.~\eqref{appeq:normal-us*-constraint-int1}:
+	We proceed exactly as for the previous point, up to Eq.~\eqref{appeq:normal-us*-constraint-int1}:
 	\[
 		u^{(s^*)} = \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{MBZ}} (\cos k_x + \cos k_y) \left[
 		f(\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu}) - f(-\tilde{\epsilon}_\mathbf{k};\beta,\tilde{\mu})
 		\right] \, .
 	\]
-	Now, if $u^{(s^*)} \ge 2t/V$ this means the prefactor in front of the renormalised bands is positive. Then $\tilde{\epsilon}_\mathbf{k}$ is positive inside the MBZ and negative outside, implying
+	If $u^{(s^*)} \ge 2t/V$, the prefactor in front of the renormalised bands is positive. Then $\tilde{\epsilon}_\mathbf{k}$ is positive inside the MBZ and negative outside, implying
 	\[
 		\forall \mathbf{k} \in \mathrm{MBZ}
 		\quad\colon\quad
@@ -219,7 +219,7 @@ Collecting the two points above, we obtain the constraint of Eq.~\eqref{appeq:no
 		\includegraphics[width=0.45\linewidth]{../Project/src/labs/bands/normal-nematic-bands-mp.pdf}
 		\label{appsubfig:normal-nematic-bands-detail-mp}
 	}
-	\caption{Theoretical example of bands with $u^{(s^*)} > 2t/V$, $u^{(d)}>0$ (top-left) and $u^{(s^*)} < 0$, $u^{(d)}>0$ (top right). Two example points are reported, connected by a $\pi/2$ rotation as given in Eqns.~\eqref{appeq:normal-B=RA}, \eqref{appeq:normal-A=RB}}
+	\caption{Nematic bands $\tilde{\epsilon_\mathbf{k}}$ with $u^{(s^*)} > 2t/V$, $u^{(d)}>0$ (top-left) and $u^{(s^*)} < 0$, $u^{(d)}>0$ (top right). Two example points are reported, connected by a $\pi/2$ rotation as given in Eqs.~\eqref{appeq:normal-B=RA}, \eqref{appeq:normal-A=RB}}
 	\label{appfig:normal-nematic-bands-detail}
 \end{figure}
 
@@ -277,7 +277,7 @@ We use everywhere $t,V>0$.
 	\end{multline*}
 	
 	Consider the sum over $\mathcal{B}$. Looking at the bottom-left panel of Fig.~\ref{fig:normal-nematic-bands}, such a region contains nodal curves across which bands change sign.	
-	Let $\mathcal{R}$ be the clockwise $\pi/2$ rotation: then, any point in $\mathcal{B}$ can be seen as the rotation of a point in $\mathcal{A}$
+	Let $\mathcal{R}$ be the counter-clockwise $\pi/2$ rotation: then, any point in $\mathcal{B}$ can be seen as the rotation of a point in $\mathcal{A}$
 	\begin{equation}\label{appeq:normal-B=RA}
 		\forall \mathbf{k}' \in \mathcal{B} 
 		\quad\exists\quad \mathbf{k} \in \mathcal{A} \mid \mathbf{k}' = \mathcal{R} \mathbf{k} \, .
@@ -529,17 +529,19 @@ In this section we show that
 	Hence also in the AF phase we have a Mott localisation effect;
 	\item Eq.~\eqref{eq:af-vgamma-constraint} holds,
 	\begin{equation}\label{appeq:af-vgamma-constraint}
-		\forall \gamma
+		V \ge 0
+		\quad\implies\quad
+		\forall \gamma \in \lbrace s^*, p_x, p_y, d \rbrace
 		\quad\colon\quad
-		v^{(\gamma)}=0 \, .
+		v^{(\gamma)} = 0 \, .
 	\end{equation}
 	Hence the AF gap is not ``complexified''.
 \end{itemize} 
-The discussion is divided in four parts: in Sec.~\ref{appsubsec:af-bands-shrinking}, we derive Eq.~\eqref{appeq:af-us*-ud-constraint} within $\mathrm{C}_4$ symmetry (as in Sec.~\ref{appsubsec:normal-bands-shrinking}, setting $u^{(d)} = 0$). In Sec.~\ref{appsubsec:af-HFPs=0-sAF} we prove Eq.~\eqref{appeq:af-vgamma-constraint} for the sAF phase within $\mathrm{C}_2$ symmetry. In Sec.~\ref{appsubsec:af-HFPs=0-aAF} we do the same for the aAF phase. We conclude, in Sec.~\ref{appsubsec:af-bands-shrinking-C2}, by proving Eq.~\eqref{appeq:af-us*-ud-constraint} within $\mathrm{C}_2$ symmetry.
+The discussion is divided in four parts: in Sec.~\ref{appsubsec:af-bands-shrinking}, we derive Eq.~\eqref{appeq:af-us*-ud-constraint} within $\mathrm{C}_4$ symmetry (as in Sec.~\ref{appsubsec:normal-bands-shrinking}, setting $u^{(d)} = 0$). In Sec.~\ref{appsubsec:af-HFPs=0-sAF}, we prove Eq.~\eqref{appeq:af-vgamma-constraint} for the sAF phase within $\mathrm{C}_2$ symmetry. In Sec.~\ref{appsubsec:af-HFPs=0-aAF}, we do the same for the aAF phase. We conclude, in Sec.~\ref{appsubsec:af-bands-shrinking-C2}, by proving Eq.~\eqref{appeq:af-us*-ud-constraint} within $\mathrm{C}_2$ symmetry.
 
 \subsection{Bands shrinking effect within unbroken $\mathrm{C}_4$ symmetry}\label{appsubsec:af-bands-shrinking}
 
-For the normal phase, we saw that when $\mathrm{C}_4$ symmetry is preserved (Sec.~\ref{appsubsec:normal-bands-shrinking}) we can conclude immediately that bands renormalisation is actually a shrinking. An identical result holds here: if $\mathrm{C}_4$ symmetry is imposed onto the renormalized bands,
+For the normal phase, we saw that when $\mathrm{C}_4$ symmetry is preserved (Sec.~\ref{appsubsec:normal-bands-shrinking}) we can conclude immediately that bands renormalisation is actually a shrinking. An identical result holds here: if $\mathrm{C}_4$ symmetry is imposed onto the renormalised bands,
 \[
 	\tilde{\epsilon}_{\mathbf{k}\sigma} \equiv (u^{(s^*)} V - 2t) (\cos k_x + \cos k_y) \, .
 \]
@@ -866,7 +868,7 @@ Eq.~\eqref{appeq:af-vs*-vd-constraint} is a consequence of the last point.
 
 We explored any possibility for $S_v$, $D_v$: no stable solution with finite values of the HFPs $v^{(s^*)}$, $v^{(d)}$ exists, thus both must be zero and can be eliminated from the algorithm.
 
-To gain full knowledge on the map fixed point's shape, we should analyse similarly the behaviour of the self-consistency equations for $u^{(s^*)}$, $u^{(d)}$. This is done later in Sec.~\ref{appsubsec:af-bands-shrinking-C2}. For now, it suffices to note that -- limitedly to the sAF phase -- gap complexification is not present. This effect is not a consequence of HF derivation, which remains self-coherent and general; it is instead of the peculiar form of the non-linear map defined by the set of self-consistency equations.
+To gain full knowledge on the HF solution for the AF phase, we should analyse similarly the behaviour of the self-consistency equations for $u^{(s^*)}$, $u^{(d)}$. This is done later in Sec.~\ref{appsubsec:af-bands-shrinking-C2}. For now, it suffices to note that -- limitedly to the sAF phase -- gap complexification is not present. This effect is not a consequence of HF derivation, which stays coherent and general; it is instead of the peculiar form of the non-linear map defined by the set of self-consistency equations.
 
 \subsection{Selection rules on the magnetic HFPs in aAF phase}\label{appsubsec:af-HFPs=0-aAF}
 
@@ -907,7 +909,7 @@ We have:
 		&= \frac{1}{2L_x L_y} \sum_{k_x=-\pi}^{+\pi} \sin k_x \sum_{k_y=-\pi}^{+\pi} \frac{\tilde{\mathrm{Th}}_{(k_x,k_y)}^{(-)}[\beta,\tilde{\mu}]}{\tilde{E}_{(k_x,k_y)}} \sin k_y \, .
 	\end{aligned}
 	\]
-	Passing from second to third line, we used MBZ periodicity. The $k_y$ sum at last line is null: even if using antiperiodic harmonics for $\Im\lbrace \tilde{\Delta}_\mathbf{k} \rbrace$, we did not break inversion symmetry neither in $x$ nor $y$ direction. Bogoliubov bands $\tilde{E}_\mathbf{k}$ and thermal factors must show said symmetry. The product of a symmetric function ($\tilde{\mathrm{Th}}/\tilde{E}$) with $\sin k_y$ integrates to zero. Then
+	Passing from second to third line, we used MBZ periodicity. The $k_y$ sum at last line is null: even if using antiperiodic harmonics for $\Im\lbrace \tilde{\Delta}_\mathbf{k} \rbrace$, we did not break inversion symmetry neither in $x$ nor $y$ direction. Bogoliubov bands $\tilde{E}_\mathbf{k}$ and thermal factors must show said symmetry. The product of a symmetric function ($\tilde{\mathrm{Th}}/\tilde{E}$) with $\sin k_y$ integrates to zero. Then,
 	\[
 		Q=0 \, .
 	\]
@@ -929,7 +931,7 @@ This ends this short section and shows that also for the aAF phase all gap compl
 
 \subsection{Bands shrinking effect within broken $\mathrm{C}_4 \SSB \mathrm{C}_2$ symmetry}\label{appsubsec:af-bands-shrinking-C2}
 
-A consequence of the two sections above is that the gap function is purely real, non-renormalized and constant across all reciprocal space,
+A consequence of the two sections above is that the gap function is purely real, non-renormalised and constant across all reciprocal space,
 \[
 	\tilde{\Delta}_\mathbf{k} = mU
 	\quad\implies\quad
@@ -950,7 +952,7 @@ The net effect of the non-local extension of the HM is, once again, the shrinkin
 \begin{figure}
 	\centering
 	\includegraphics[width=0.75\linewidth]{../Project/src/labs/functions/pseudo-dirac.pdf}
-	\caption{Sketch of the Fermi-Dirac distribution $f(x)$ and the pseudo-distribution $f'(x)$ described in text for the normal phase. These example data have been plotted arbitrarily at $mU=\Delta=0.2 t$ for $\mu=0.0,0.3,0.6$.}
+	\caption{Sketch of the Fermi-Dirac distribution $f(x)$ and the pseudo-distribution $f'(x)$ described in text for the AF phase. These example data have been plotted arbitrarily at $mU=\Delta=0.2 t$ for $\mu=0.0,0.3,0.6$.}
 	\label{appfig:pseudo-dirac}
 \end{figure}
 
@@ -980,13 +982,13 @@ Let us define the pseudo distribution
 \]
 which, substituted in the self-consistency equations, makes them very similar to the ones for the normal phase, upon substituting $f \to f'$. We plot $f(x)$ and $f'(x)$ in Fig.~\ref{appfig:pseudo-dirac} for various choices of the chemical potential.
 
-The fact that $u^{(d)}=0$ follows from the simple consideration that in Sec.~\ref{appsubsec:normal-bands-shrinking-C2} (when showing the same for the normal phase) we never used the specific form of $f$; instead, we only made use of it being monotonically descendent as a function of $\epsilon_\mathbf{k}$. If $f'$ also is a monotonically descendent function of $\epsilon_\mathbf{k}$, we can re-use the entire derivation of Sec.~\ref{appsubsec:normal-bands-shrinking-C2}. Let us show that using a somewhat lighter notation,
+The fact that $u^{(d)}=0$ follows from the simple consideration that in Sec.~\ref{appsubsec:normal-bands-shrinking-C2} (when showing the same for the normal phase) we never used the specific form of $f$; instead, we only made use of it being monotonically descendent as a function of $\epsilon_\mathbf{k}$. If $f'$ also is a monotonically descendent function of $\epsilon_\mathbf{k}$, we can re-use the entire derivation of Sec.~\ref{appsubsec:normal-bands-shrinking-C2}. Let us show this. We use a somewhat lighter notation,
 \[
 	\epsilon_\mathbf{k} \to x
 	\qq{and}
 	mU \to \Delta \, ,
 \]
-and omitting parametric arguments. The function $f'$ is given by the product
+and omit parametric arguments. The function $f'$ is given by the product
 \[
 	f'(x) = g(x) h(x) \, ,
 \]
@@ -999,50 +1001,44 @@ with
 	\right) \, .
 \end{aligned}
 \]
-The following points are true:
-\begin{enumerate}
-	\item The function is antisymmetric about $x=0$, because $g(x)$ is antisymmetric, while $h(x)$ is symmetric.
-	%
-	\item $g(x)$ is monotonically descendent. Its derivative is given by
-	\[
-	\begin{aligned}
-		\dv{g}{x} &= - \frac{\sqrt{x^2 + \Delta^2} - x^2/\sqrt{x^2 + \Delta^2}}{x^2 + \Delta^2} \\
-		&= -\frac{\Delta^2}{(x^2 + \Delta^2)^{3/2}} < 0 \, .
-	\end{aligned}
-	\]
-	%
-	\item The product $g(x)h(x)$ is monotonically descendent at positive finite doping. To prove this, we can compute the derivative of $f'$,
-	\[
-		\dv{f'}{x} = \dv{g}{x} h(x) + g(x) \dv{h}{x} \, .
-	\]
-	We have $h(x)>0$, and as we said $\mathrm{d}g/\mathrm{d}x<0$, which makes the first term negative. The second is negative too: let
-	\[
-		E(x) \equiv \sqrt{x^2 + \Delta^2}
-		\quad\implies\quad
-		\dv{E}{x} = \frac{x}{E(x)} = -g(x) \, .
-	\]
-	Then:
-	\[
-	\begin{aligned}
-		\dv{h}{x} &= \dv{}{x} \left[
-		\frac{1}{e^{\beta(-E(x)-\mu)}+1} - \frac{1}{e^{\beta(E(x)-\mu)}+1}
-		\right] \\
-		&= \beta \dv{E}{x} \underbrace{
-			\left[
-			\frac{e^{\beta(-E(x)-\mu)}}{\left[e^{\beta(-E(x)-\mu)}+1\right]^2} + \frac{e^{\beta(E(x)-\mu)}}{\left[e^{\beta(E(x)-\mu)}+1\right]^2}
-			\right]	
-		}_{k(x)} \, .
-	\end{aligned}
-	\]
-	The term in square brackets is positive, $k(x)>0$. Taking all together, we have
-	\[
-		g(x) \dv{h}{x} = -\beta g^2(x) k(x) < 0
-		\quad\implies\quad
-		\dv{f'}{x} < 0 \, .
-	\]
-	Hence $f'$ decreases monotonically.
-\end{enumerate}
-These points end the proof: as anticipated, $f'$ is a monotonically descendent function of $\epsilon_\mathbf{k}$, a feature that allows us to re-use the entire derivation of Sec.~\ref{appsubsec:normal-bands-shrinking-C2}, and conclude that also for the AF phase
+The function $g(x)$ is monotonically descendent. Its derivative is given by
+\[
+\begin{aligned}
+	\dv{g}{x} &= - \frac{\sqrt{x^2 + \Delta^2} - x^2/\sqrt{x^2 + \Delta^2}}{x^2 + \Delta^2} \\
+	&= -\frac{\Delta^2}{(x^2 + \Delta^2)^{3/2}} < 0 \, .
+\end{aligned}
+\]
+
+The product $g(x)h(x)$ is monotonically descendent at positive finite doping. To prove this, we can compute the derivative of $f'$,
+\[
+	\dv{f'}{x} = \dv{g}{x} h(x) + g(x) \dv{h}{x} \, .
+\]
+We have $h(x)>0$, and as we said $\mathrm{d}g/\mathrm{d}x<0$, which makes the first term negative. The second is negative too: let
+\[
+	E(x) \equiv \sqrt{x^2 + \Delta^2}
+	\quad\implies\quad
+	\dv{E}{x} = \frac{x}{E(x)} = -g(x) \, .
+\]
+Then:
+\[
+\begin{aligned}
+	\dv{h}{x} &= \dv{}{x} \left[
+	\frac{1}{e^{\beta(-E(x)-\mu)}+1} - \frac{1}{e^{\beta(E(x)-\mu)}+1}
+	\right] \\
+	&= \beta \dv{E}{x} \underbrace{
+		\left[
+		\frac{e^{\beta(-E(x)-\mu)}}{\left[e^{\beta(-E(x)-\mu)}+1\right]^2} + \frac{e^{\beta(E(x)-\mu)}}{\left[e^{\beta(E(x)-\mu)}+1\right]^2}
+		\right]	
+	}_{k(x)} \, .
+\end{aligned}
+\]
+The term in square brackets is positive, $k(x)>0$. Taking all together, we have
+\[
+	g(x) \dv{h}{x} = -\beta g^2(x) k(x) < 0
+	\quad\implies\quad
+	\dv{f'}{x} < 0 \, .
+\]
+Hence $f'$ decreases monotonically, as anticipated, as a function of $\epsilon_\mathbf{k}$. This feature allows us to re-use the entire derivation of Sec.~\ref{appsubsec:normal-bands-shrinking-C2}, and conclude that also for the AF phase
 \[
 	u^{(d)} = 0 \, ,
 \]

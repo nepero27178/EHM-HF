@@ -2,7 +2,7 @@
 
 In this appendix, we derive the analytic expression of the HF hamiltonian for the SC phase, demonstrating all the results mentioned in Sec.~\ref{sec:sc-hf-hfps}. In particular, we aim to obtain Eqs.~\eqref{eq:sc-H-approx} and \eqref{eq:sc-Ec}. We start by discussing the SC phase on the conventional HM, and then generalise to the EHM.
 
-Let, as in Eqs.~\eqref{eq:sc-ehm-n-def}, \eqref{eq:sc-ehm-phi-def}
+Let, as in Eqs.~\eqref{eq:sc-ehm-n-def}, \eqref{eq:sc-ehm-phi-def},
 \begin{align}
 	\hat n_{\mathbf{k}\sigma} &\equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \, , \label{appeq:sc-ehm-n-def} \\
 	\hat \phi_\mathbf{k} &\equiv \hat c_{-\mathbf{k}\downarrow} \hat c_{\mathbf{k}\uparrow} \, . \label{appeq:sc-ehm-phi-def}
@@ -21,8 +21,7 @@ Using the functions of Tab.~\ref{tab:x-wave-reciprocal-factors}, as in Eqs.~\eqr
 	u^{(\gamma)}_\sigma &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} u_{\mathbf{k}\sigma} \, , \label{appeq:sc-ugamma-harmonics} \\
 	w^{(\gamma)} &\equiv \frac{1}{L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \varphi_\mathbf{k}^{(\gamma)} w_\mathbf{k} \, . \label{appeq:sc-wgamma-harmonics}
 \end{align}
-
-Before starting, note that translational invariance is unbroken. Therefore, Eqs.~\eqref{eq:normal-<cc>} and \eqref{eq:normal-<n_i>}, derived in the context of the normal phase, hold equivalently,
+Note that translational invariance is unbroken. Therefore, Eqs.~\eqref{eq:normal-<cc>} and \eqref{eq:normal-<n_i>}, derived in the context of the normal phase, hold equivalently,
 \begin{align}
 	\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'} \rangle &= \delta_{\mathbf{k}=\mathbf{k}'} \delta_{\sigma=\sigma'} \langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \rangle \label{eq:sc-<cc>} \, , \\
 	\ev{\hat n_{i\sigma}} &= n \label{eq:sc-<n_i>} \, .
@@ -86,7 +85,7 @@ We are not breaking translational invariance, therefore,
 \begin{equation}\label{eq:sc-<cc>=delta}
 	\big\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'}^\dagger \big\rangle = \big\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma'}^\dagger \big\rangle \delta_{\mathbf{k}=-\mathbf{k}'} \, .
 \end{equation}
-The above equation ``completes'' Eq.~\eqref{eq:sc-<cc>}, and completely specifies the behaviour of fermionic EVs in the translationally invariant SC phase.
+The above equation is similar to Eq.~\eqref{eq:sc-<cc>}.
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:sc-<cc>=delta}]
 	Consider the EV
@@ -299,7 +298,7 @@ Let now the pseudospin operator $\hat{\mathbf{s}}_\mathbf{k}$ and the pseudofiel
 	- \Re \lbrace \Delta_\mathbf{k} \rbrace \\ - \Im \lbrace \Delta_\mathbf{k} \rbrace \\ \xi_\mathbf{k} 
 \end{bmatrix} \, ,
 \]
-with $\tau^\alpha$ the Pauli matrices of Eq.~\eqref{eq:pauli-def}. As was for the AF phase, the pseudospin operators $\hat s_\mathbf{k}^\alpha$ satisfy a $\mathfrak{su}(2)$ algebra up to a constant, irrelevant in the context of this discussion. They satisfy the identities:
+with $\tau^\alpha$ the Pauli matrices of Eq.~\eqref{eq:pauli-def}. As was for the AF phase in Eq.~\eqref{eq:af-almost-su2}, the pseudospin operators $\hat s_\mathbf{k}^\alpha$ satisfy a $\mathfrak{su}(2)$ algebra up to a constant, irrelevant in the context of this discussion. They satisfy the identities:
 \begin{align}
 	\hat s_\mathbf{k}^x &= \hat \phi_\mathbf{k} + \hat \phi_\mathbf{k}^\dagger \, , \label{eq:sc-hm-x-psi} \\
 	\hat s_\mathbf{k}^y &= i \left(
@@ -473,7 +472,7 @@ Density $n$ can be computed as
 	\[
 	\hat s_\mathbf{k}^z+1 = \hat n_{\mathbf{k}\uparrow} + \hat n_{\mathbf{k}\downarrow} \, .
 	\]
-	Then, density can be compute as:
+	Then, the following chain holds,
 	\[
 	\begin{aligned}
 		n &= \frac{1}{2L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \langle 
@@ -501,16 +500,16 @@ therefore no superconducting gap can develop at HF level. This does not hold for
 
 \begin{tabproof}[Proof of Eq.~\eqref{appeq:sc-hm-ws=0}: impossibility of $s$-wave superconductivity in the conventional HM]
 	
-	Let 
+	Let
 	\begin{equation}\label{eq:sc-hm-Uc}
-		U_\mathrm{c}[\beta] \equiv \left[
+		U_0 \equiv \left[
 		\frac{1}{2 L_x L_y} \sum_{\mathbf{k}\in\mathrm{BZ}} \frac{1}{E_\mathbf{k}} \tanh(\frac{\beta E_\mathbf{k}}{2})
 		\right]^{-1} \, .
 	\end{equation}
-	By construction $U_\mathrm{c}[\beta] > 0$. Using
+	By construction $U_0 > 0$ at any choice of $\beta$. Using
 	Eq.~\eqref{eq:sc-hm-ws-self-consistency-2} and $\Delta_\mathbf{k} = -U w^{(s)}$, Eq.~\eqref{eq:sc-hm-Uc} can be rewritten as:
 	\[
-	w^{(s)} = -\frac{U}{U_\mathrm{c}[\beta]} w^{(s)} \, .
+	w^{(s)} = -\frac{U}{U_0} w^{(s)} \, .
 	\]
 	The unique possible self-consistent solution for the equation above is $w^{(s)}=0$. This implication terminates the argument and proves Eq.~\eqref{appeq:sc-hm-ws=0}: superconductivity cannot establish self-consistently at HF level in the repulsive HM. 
 \end{tabproof}
@@ -610,7 +609,7 @@ where we used Eq.~\eqref{eq:mft-HV}. We have already carried out this computatio
 \begin{equation}\label{eq:sc-HV-hartree-approx}
 	\hat H_V \HFsimeq -2nzV \times \hat N - E_{\mathrm{H},V}^{(\mathrm{SC})} + (\text{Fock channel}) + (\text{Cooper channel}) \, ,
 \end{equation}
-This, together Eq.~\eqref{eq:sc-HU-hartree-approx}, gives the chemical potential full renormalisation, identical to Eq.~\eqref{eq:normal-mu-shift},
+This, together with Eq.~\eqref{eq:sc-HU-hartree-approx}, gives the chemical potential full renormalisation, identical to Eq.~\eqref{eq:normal-mu-shift},
 \begin{equation}\label{appeq:sc-mu-shift}
 	\tilde{\mu} \equiv \mu + n(2zV-U) \, .
 \end{equation}
@@ -641,7 +640,7 @@ Repeating the same derivation of Sec.~\ref{subsec:normal-fock-bands}, with the a
 	\right)
 	\hat c_{\mathbf{k}\sigma}^\dagger
 	\hat c_{\mathbf{k}\sigma}
-	- E_{\mathrm{F},V}^{(\mathrm{SC})} \\ + (\text{Cooper channel}) \label{eq:sc-HV-fock-approx} \, .
+	- E_{\mathrm{F},V}^{(\mathrm{SC})} \\ + (\text{Cooper channel}) \label{eq:sc-HV-fock-approx} \, ,
 \end{multline}
 where, as was for the normal phase,
 \begin{equation}\label{eq:sc-HV-fock-Ec}
@@ -847,7 +846,7 @@ In both the above equations, the sum is intended for $\gamma \in \lbrace s^*, p_
 		\big\rangle
 		\Big] \, .
 	\end{multline*}
-	Recall now Eq.~\eqref{appeq:sc-wq-def}, where we defined $w_\mathbf{k} \equiv \big\langle \phi_\mathbf{k}^\dagger \big\rangle$. Using the decomposition of Eqs.~\eqref{eq:coscos-symmetries-decomposition}, \eqref{eq:coscos-symmetries-decomposition-variant}, we end up with:
+	Recall now Eq.~\eqref{appeq:sc-wq-def}, where we defined $w_\mathbf{k} \equiv \big\langle \phi_\mathbf{k}^\dagger \big\rangle$. Using the decomposition of Eqs.~\eqref{eq:coscos-symmetries-decomposition}, \eqref{eq:coscos-symmetries-decomposition-variant}, we end up with
 	\begin{multline} \label{eq:sc-V-os-cooper-int1}
 		\hat H_V^{(\mathrm{o.s.})} \HFsimeq \text{(Hartree channel)}
 		- \frac{V}{L_x L_y} \sum_{\gamma\neq s} \sum_{\mathbf{k}, \mathbf{k}'} \varphi_\mathbf{k}^{(\gamma)} \varphi_{\mathbf{k}'}^{(\gamma)*}
@@ -870,7 +869,7 @@ In both the above equations, the sum is intended for $\gamma \in \lbrace s^*, p_
 	Inserting the expression for $w^{(\gamma)}$ of Eq.~\eqref{appeq:sc-wgamma-harmonics}, since we have no s.s. contribution, we obtain Eq.~\eqref{eq:sc-HV-cooper-approx}.
 \end{tabproof}
 
-The contraction energy of Eq.~\eqref{eq:sc-HV-cooper-Ec-implicit} can be written as follows:
+The contraction energy of Eq.~\eqref{eq:sc-HV-cooper-Ec-implicit} can be written as
 \begin{equation}\label{eq:sc-HV-cooper-Ec}
 	E_{\mathrm{C},V}^{(\mathrm{SC})} = - L_x L_y \times V \sum_{\gamma\neq s} \big| w^{(\gamma)} \big|^2 \, ,
 \end{equation}
@@ -948,7 +947,7 @@ With this proof we conclude this cumbersome algebraic derivation. In next sectio
 
 \section{The HF hamiltonian and its properties}\label{sec:sc-hf-hamiltonian}
 
-In this section we take together everything we said so far. Adding $\hat H_V$ to the conventional HM, we have seen, produces renormalisation of the bare bands, the gap function and the chemical potential. 
+In this section, we take together everything we said so far. Adding $\hat H_V$ to the conventional HM, we have seen, produces renormalisation of the bare bands, the gap function and the chemical potential. 
 
 We compose Eqs.~\eqref{eq:sc-HU-approx}, \eqref{eq:sc-HV-hartree-approx}, \eqref{eq:sc-HV-fock-approx} and \eqref{eq:sc-HV-cooper-approx}. The final form of the HF gran-canonical hamiltonian reads
 \begin{equation}\label{appeq:sc-H-approx}
@@ -1006,7 +1005,7 @@ We can identify the gap harmonics as
 \qq{being}
 \gamma\in\lbrace s^*, p_x, p_y, d \rbrace \, .
 \]
-We will investigate competition among these components.
+In Sec.~\ref{sec:sc-numeric}, we investigate the competition among these components.
 
 We anticipated in Tab.~\ref{tab:sc-pairings-symmetry-structures} that Cooper pairing in the singlet channel requires for the gap wavefunction to be inversion-symmetric. Triplet pairing, instead, requires inversion anti-symmetry.
 This gives a symmetry selection rule for the symmetries of the gap function: if we work in singlet channel, the gap must be symmetric, thus only three harmonics are allowed:
@@ -1190,21 +1189,21 @@ which gives the analytic expression for the free energy. Note that, as the gap c
 	
 	Free energy density of the SC phase is derived following the procedure used for the other two phases. The five contributions to free energy are:
 	\begin{enumerate}
-		\item Quasiparticles energy:
+		\item Quasiparticles energy,
 		\[
 		\begin{aligned}
 			e_\mathrm{g}^{(\mathrm{SC})} &= -\frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \tilde{E}_\mathbf{k} \tilde{\mathrm{Th}}_\mathbf{k}^{(-)}[\beta] \\
 			&= -\frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \tilde{E}_\mathbf{k} \tanh(\frac{\beta \tilde{E}_\mathbf{k}}{2}) \, .
 		\end{aligned}
 		\]
-		\item Anticommutation energy, as defined in Eq.~\eqref{appeq:sc-anticommutation-energy}:
+		\item Anticommutation energy, as defined in Eq.~\eqref{appeq:sc-anticommutation-energy},
 		\[
 		\begin{aligned}
 			e_\mathrm{a}^{(\mathrm{SC})} &\equiv \frac{E_\mathrm{a}^{(\mathrm{SC})}}{L_x L_y} \\
 			&= \frac{1}{L_x L_y} \sum_{\mathbf{k} \in \mathrm{BZ}} \tilde{\xi}_\mathbf{k} \, .
 		\end{aligned}
 		\]
-		\item Contraction energy:
+		\item Contraction energy,
 		\[
 		\begin{aligned}
 			e_\mathrm{c}^{(\mathrm{SC})} &= \frac{E_\mathrm{c}^{(\mathrm{SC})}}{L_x L_y} \\
@@ -1222,7 +1221,7 @@ which gives the analytic expression for the free energy. Note that, as the gap c
 		\end{aligned}
 		\]
 		where we used Eq.~\eqref{appeq:sc-Ec}.
-		\item Entropic energy
+		\item Entropic energy,
 		\[
 		\begin{aligned}
 			e_s^{(\mathrm{SC})} &= - \frac{s^{(\mathrm{SC})}}{k_\mathrm{B}\beta} \\
@@ -1232,7 +1231,7 @@ which gives the analytic expression for the free energy. Note that, as the gap c
 		\end{aligned}
 		\]
 		where we used Eq.~\eqref{eq:sc-s-variant}.
-		\item Chemical potential correction
+		\item Chemical potential correction,
 		\[
 		e_n^{(\mathrm{SC})} = \mu n \, .
 		\]

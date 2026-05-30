@@ -1,27 +1,27 @@
 \chapter{Antiferromagnetism in the HM}\label{app:hm-af-ground-state}
 
-In this appendix we give some details about the antiferromagnetic phase in the conventional Hubbard model,
+In this appendix we give some details about the antiferromagnetic phase in the conventional Hubbard model of Eq.~\eqref{eq:hubbard-model},
 \begin{equation}\label{appeq:hm}
 	\hat H = 
-	-t \sum_{\langle ij \rangle} \sum_\sigma \left[
+	-t \sum_{\langle ij \rangle} \sum_\sigma \left(
 	\hat c_{i\sigma}^\dagger \hat c_{j\sigma} + \hc
-	\right]
+	\right)
 	+ U \sum_i \hat n_{i\uparrow} \hat n_{i\downarrow}
-	\qq{where}
-	t, U  > 0 \, ,
+	\qquad
+	\text{where $t, U  > 0$,}
 \end{equation}
 approximated by HF methods. We use the results discussed in Sec.~\ref{sec:af-hm}.
 
 \section{The AF ground-state for the conventional HM}
 
-Let the Nambu spinors:
+Let the Nambu spinors,
 \[
 	\hat \Psi_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
 		\hat c_{\mathbf{k}\sigma} \\
 		\hat c_{\mathbf{k}+\bm{\pi}\sigma} 
 	\end{bmatrix} \, .
 \]
-Let also the gap function:
+Let also the gap function,
 \[
 	\Delta_{\mathbf{k}\sigma} = (-1)^{\delta_{\sigma=\downarrow}} mU \, .
 \]
@@ -29,7 +29,7 @@ We know from Eq.~\eqref{eq:af-hm-spin-h} that the approximated hamiltonian is:
 \[
 	\hat H_t + \hat H_U \simeq \sum_{\mathbf{k} \in \mathrm{MBZ}} \sum_\sigma \mathbf{b}_{\mathbf{k}\sigma} \cdot \hat{\mathbf{s}}_{\mathbf{k}\sigma} + nU \hat N - E_{\mathrm{H}/U}^{(\mathrm{AF})} \, ,
 \]
-where:
+where we defined the pseudospin operators and the pseudofield, see Eqs.~\eqref{eq:af-pseudospin-def}, \eqref{eq:af-pseudofield-def},
 \[
 	\mathbf{b}_{\mathbf{k}\sigma} \equiv \begin{bmatrix}
 		-\Delta_{\mathbf{k}\sigma} \\ 0 \\ \epsilon_{\mathbf{k}\sigma} 
@@ -105,7 +105,7 @@ Thus, up to a phase
 \]
 being $\ket{\Omega_{\mathbf{k}\sigma}}$ the $(\mathbf{k},\sigma)$ Hilbert subspace vacuum. 
 
-It follows that composing Eqs.~\eqref{appeq:af-hm-gs-1} and \eqref{appeq:af-hm-tilted-down} the ground state $\ket{\Psi}$ can be written as:
+It follows that composing Eqs.~\eqref{appeq:af-hm-gs-1} and \eqref{appeq:af-hm-tilted-down} the ground state $\ket{\Psi}$ can be written as
 \begin{equation}\label{appeq:af-hm-gs-2}
 	\ket{\Psi} = \bigotimes_\sigma \bigotimes_{\mathbf{k}\in\mathrm{MBZ}} \left[
 	\sin\theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma}^\dagger + e^{2i\zeta_{\mathbf{k}\sigma}} \cos \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger
@@ -139,7 +139,6 @@ Using Eq.~\eqref{appeq:af-hm-gs-2}, we conclude
 	\sin \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}\sigma}^\dagger + \cos \theta_{\mathbf{k}\sigma} \hat c_{\mathbf{k}+\bm{\pi}\sigma}^\dagger
 	\right] \ket{\Omega_{\mathbf{k}\sigma}} \, .
 \end{equation}
-For low-temperature physics, we can expect the ground-state density matrix to be highly dominated by this BCS-like zero-temperature ground-state, which highlights the essential features of the system. 
 
 Finally, using Eq.~\eqref{eq:af-Gamma=WPsi}, we check that correctly the ground-state describes a perfect degenerate Fermi gas described by operators $\hat \gamma^{(-)}_{\mathbf{k}\sigma}$. Indeed,
 \[
@@ -190,18 +189,18 @@ We move to momentum-frequency space. Within RPA approximation, low-lying spin wa
 \end{equation}
 Commensurate antiferromagnetism is stable if the above equation is satisfied at $\mathbf{q}\to\bm{\pi}$. Indeed, the wavevector $\bm{\pi}$ expresses two-sites periodicity in both directions.
 
-Now, as we specified in Sec.~\ref{sec:af-phase-theory}, commensurate antiferromagnetism is described by the simultaneous SSB:
+Now, as we specified in Sec.~\ref{sec:af-phase-theory}, commensurate antiferromagnetism is described by the simultaneous SSBs
 \[
 \begin{aligned}
 	\mathrm{SU}(2) &\SSB \mathrm{U}^z(1) \, , \\
-	\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)} &\SSB \mathrm{T}_2^{(x)} \otimes \mathrm{T}_2^{(y)} \, .
+	\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)} &\SSB \mathrm{T}_2^{(x)} \otimes \mathrm{T}_2^{(y)} \, ,
 \end{aligned}
 \]
-Thus translational invariance is halved in both directions. The lattice $\mathcal{L}$ is separated in the two sublattices $\mathcal{S}_1$, $\mathcal{S}_2$ of Fig.~\ref{fig:square-sublattices}. As a consequence, the non-interacting response function $\chi_0^{+-}$ does not depend strictly on $\mathbf{r}$, $\mathbf{r}'$ themselves. Instead, it depends only on which sublattice $\mathbf{r}$ and $\mathbf{r}'$ belong to. Because of this $\chi_0^{+-}$ is representable as a $2 \times 2$ matrix $\bm{\chi}_0^{+-}$. Then Eq.~\eqref{eq:1-Uchi=0} is actually an eigenvalue equation,
+thus translational invariance is halved in both directions. The lattice $\mathcal{L}$ is separated in the two sublattices $\mathcal{S}_1$, $\mathcal{S}_2$ of Fig.~\ref{fig:square-sublattices}. As a consequence, the non-interacting response function $\chi_0^{+-}$ does not depend strictly on $\mathbf{r}$, $\mathbf{r}'$ themselves. Instead, it depends only on which sublattice $\mathbf{r}$ and $\mathbf{r}'$ belong to. Because of this $\chi_0^{+-}$ is representable as a $2 \times 2$ matrix $\bm{\chi}_0^{+-}$. Then Eq.~\eqref{eq:1-Uchi=0} is actually an eigenvalue equation,
 \[
 	\Id - U \bm{\chi}_0^{+-}(\mathbf{q},0) = \bm{0} \, ,
 \]
-with $\bm{0}$ the $2\times2$ zero matrix. Diagonalising $\bm{\chi}_0^{+-}(\mathbf{q},0)$ (which is symmetric due to lattice exchange symmetry) we can express the above equation in terms of the diagonal matrix containing its eigenvalues.
+with $\bm{0}$ the $2\times2$ zero matrix. Diagonalising $\bm{\chi}_0^{+-}(\mathbf{q},0)$ (which is symmetric due to sublattice exchange symmetry) we can express the above equation in terms of the diagonal matrix containing its eigenvalues.
 
 Consider the largest eigenvalue $\lambda_\delta(\mathbf{k},\omega)$ of the matrix $[\chi_0^{+-}]$ at doping $\delta$. We work in momentum-frequency space. The phase is unstable if
 \begin{equation}\label{appeq:af-instability-condition}
@@ -210,13 +209,13 @@ Consider the largest eigenvalue $\lambda_\delta(\mathbf{k},\omega)$ of the matri
 because, as we said, in that case we do not have a pole for the transverse spin-spin response function. \citeauthor{singh1990collective} \cite{singh1990collective} found 
 \begin{align}
 	\lambda_0(\mathbf{k}\to\bm{\pi},0) &= \frac 1 U \, , &\text{(half filling)} \label{appeq:af-unstable-half} \\
-	\lambda_\delta(\mathbf{k}\to\bm{\pi},0) &= \frac 1 U + \frac{2\epsilon_\mathrm{F}}{\Delta} N(\epsilon_\mathrm{F}) \, . &\text{(finite doping)} \label{appeq:af-unstable}
+	\lambda_\delta(\mathbf{k}\to\bm{\pi},0) &= \frac 1 U + \frac{2\epsilon_\mathrm{F}}{\Delta} N(\epsilon_\mathrm{F}) \, , &\text{(finite doping)} \label{appeq:af-unstable}
 \end{align}
-The reason for the distinction above is the intrinsic metallic nature of the system for infinitesimal doping. As we discuss at the end of Sec.~\ref{subsec:af-hm-diagonalisation}, the half-filled AF phase is insulating, because the chemical potential lies within the gap. For an insulator Fermi energy is not defined. Instead, at finite filling the phase is metallic because the chemical potential crosses the upper band.
+being $\epsilon_\mathrm{F}$ the Fermi energy and $N(\epsilon)$ the DoS at energy $\epsilon$. The reason for the distinction above is the intrinsic metallic nature of the system for infinitesimal doping. As we discuss at the end of Sec.~\ref{subsec:af-hm-diagonalisation}, the half-filled AF phase is insulating, because the chemical potential lies within the gap. For an insulator Fermi energy is not defined. Instead, at finite filling the phase is metallic because the chemical potential crosses the upper band.
 
 From Eq.~\eqref{appeq:af-instability-condition} and \eqref{appeq:af-unstable-half}, we see that the half filled antiferromagnet is stable towards transverse spin fluctuations, because $\chi^{+-}$ develops a divergence at zero frequency. At any finite doping, since we are describing a metal, a Fermi surface exists and thus $N(\epsilon_\mathrm{F})$ is finite. This makes the phase unstable, and this is the reason we do not discuss the AF phase outside of half-filling.
 
-As we discussed at the beginning of Chap.~\ref{chap:af}, antiferromagnetism can establish in many ways. For instance, striped antiferromagnets are of particular interest \cite{wietek2021stripes}. In order to investigate the most stable physical realisation of an antiferromagnet on the conventional HM, on a pure HF level, we should implement a variational search for the minimum of free energy while varying the AF wavevector $\mathbf{k}$. Notice that at incommensurate wavevectors, $\mathbf{k} \neq \bm{\pi}$, the unit cell is not as simple as a pair of sites, but can become much larger. Hence, the HF analytical solution would be more complicated than our pseudospin representation of the HM hamiltonian in the commensurate AF channel.
+As we discuss at the beginning of Chap.~\ref{chap:af}, antiferromagnetism can establish in many ways. For instance, striped antiferromagnets are of particular interest \cite{wietek2021stripes}. In order to investigate the most stable physical realisation of an antiferromagnet on the conventional HM, on a pure HF level, we should implement a variational search for the minimum of free energy while varying the AF wavevector $\mathbf{k}$. Notice that at incommensurate wavevectors, $\mathbf{k} \neq \bm{\pi}$, the unit cell is not as simple as a pair of sites, but can become much larger. Hence, the HF analytical solution would be more complicated than our pseudospin representation of the HM hamiltonian in the commensurate AF channel.
 
 \section{iHF results}\label{appsubsec:af-ihf-results}
 

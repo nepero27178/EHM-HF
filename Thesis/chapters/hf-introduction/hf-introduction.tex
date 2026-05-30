@@ -4,7 +4,7 @@
 
 In this chapter, we give a general introduction to the Hartree-Fock (HF) variational method and its numerical implementation. In Quantum Mechanics, variational methods allow to approximate the ground state of a many-body hamiltonian by minimising the energy computed for a specific subspace of physical states. In particular, in the HF method we approximate the real ground-state with the best possible many-body state that is an eigenstate of a non-interacting fermionic hamiltonian.
 
-Despite its simplicity, the method is very powerful for describing various types of quantum many-body phenomena and, in particular, spontaneous symmetry breaking (SSB). The description of HF method in this chapter is largely based on \cite{grosso2014solid, fabrizio2022course}.
+Despite its simplicity, the method is very powerful for describing various types of quantum many-body phenomena and, in particular, spontaneous symmetry breaking (SSB). The description of the HF method in this chapter is largely based on \cite{grosso2014solid, fabrizio2022course}.
 
 \section{Variational principle and gaussian states}
 
@@ -93,7 +93,7 @@ to ensure hermiticity. Moreover, the following equation must hold:
 \end{equation}
 due to the property $\hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\gamma \hat c_\delta = \hat c_\beta^\dagger \hat c_\alpha^\dagger \hat c_\delta \hat c_\gamma$, which follows from Fermi anticommutation rules.
 
-Our aim is to approximate the above hamiltonian with a non-interacting hamiltonian. The most general quadratic hamiltonian is given by
+Our aim is to approximate the hamiltonian of Eq.~\eqref{eq:hf-quartic-H} with a non-interacting hamiltonian. The most general quadratic hamiltonian is given by
 \begin{equation}\label{eq:hf-Hhf-k}
 	\hat H \HFsimeq \hat H_\mathrm{HF} \equiv E_0 + \sum_{\alpha,\beta} k_{\alpha\beta} \hat\gamma_\alpha^\dagger \hat\gamma_\beta \, .
 \end{equation}
@@ -107,7 +107,7 @@ Note that, in terms of the algebraic solution, $E_0$ is irrelevant. To determine
 
 \subsection{Properties of the target quadratic hamiltonian}
 
-In this section we enumerate some useful properties of $\hat H_\mathrm{HF}$. We will use also the following notation:
+In this section, we enumerate some useful properties of $\hat H_\mathrm{HF}$. We will use also the following notation:
 \[
 	\hat a_\alpha^- \equiv \hat c_\alpha
 	\qq{and}
@@ -355,13 +355,13 @@ We notice that the right-hand side of both Eqs.~\eqref{eq:hf-solution-h+-}, \eqr
 \end{equation}
 The three Eqs.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++} and \eqref{eq:hf-self-consistency-general} define the solution of the HF variational method. Specifically, we need to determine $\Delta_{\alpha\beta}^{pq}$ such that, for given fields, Eq.~\eqref{eq:hf-self-consistency-general} is respected.
 
-The list of parameters $\lbrace \Delta_{\alpha\beta}^{pq} \rbrace$ to be determined self-consistently may be not that short: by looking at Eq.~\eqref{eq:hf-self-consistency-general}, the indices $\alpha,\beta,p,q$ are spanning a large Hilbert space. However, this equation can be manipulated and transformed, reducing the set of parameters to be determined self-consistently to a very manageable number. For each phase we define these last as ``Hartree-Fock parameters'' (HFPs): a set of objects self-consistently determined by a set of equivalent, but transformed, version of Eq.~\eqref{eq:hf-self-consistency-general}.
+The list of parameters $\lbrace \Delta_{\alpha\beta}^{pq} \rbrace$ to be determined self-consistently may be not so short: by looking at Eq.~\eqref{eq:hf-self-consistency-general}, the indices $\alpha,\beta,p,q$ are spanning a large Hilbert space. However, this equation can be manipulated and transformed, reducing the set of parameters to be determined self-consistently to a very manageable number. We denominate these ``Hartree-Fock parameters'' (HFPs): a set of objects self-consistently determined by a set of equivalent, but transformed, versions of Eq.~\eqref{eq:hf-self-consistency-general}.
 
 The great advantage of this scheme is that, with an appropriate choice of the Hilbert space basis (for example, moving to reciprocal space for a translationally-invariant model), we can implement easily model symmetries.
 
 \subsection{Operative hamiltonian approximation}
 
-In this section we give an alternative expression for Eqs.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}, by using an equivalent (but more straightforward) operatorial approximation. For a generic two-body quartic operator, the HF approximation is given by the decomposition
+In this section, we give an alternative expression for Eqs.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++}, by using an equivalent (but more straightforward) operatorial approximation. For a generic two-body quartic operator, the HF approximation is given by the decomposition
 \[
 \begin{aligned}
 	\hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\beta \hat c_\alpha \HFsimeq &\hat c_\alpha^\dagger \hat c_\beta^\dagger \big\langle \hat c_\beta \hat c_\alpha \big\rangle + \big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \big\rangle \hat c_\beta \hat c_\alpha - \big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \big\rangle \big\langle \hat c_\beta \hat c_\alpha \big\rangle \quad&&(\text{Cooper})\\
@@ -383,7 +383,7 @@ The proof of this statement is given in App.~\ref{app:hf-mft}, where we also arg
 	\Big) \, . &&(\text{Cooper}) \nonumber
 \end{align}
 
-\paragraph{Non-local attraction.} Applying the HF method, the local repulsion $\hat H_V$ is approximated by the quadratic operator:
+\paragraph{Non-local attraction.} Applying the HF method, the non-local attraction $\hat H_V$ is approximated by the quadratic operator:
 \begin{align}
 	\hat H_V &= -V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \hat n_{i\sigma} \hat n_{j\sigma'} \label{eq:mft-HV} \\
 	&\HFsimeq -V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \Big(
@@ -398,7 +398,7 @@ We will use these decomposition referring to each sector in dedicated chapters.
 
 \section{The iHF algorithm}\label{sec:sketch-ihf-algorithm}
 
-In this section we describe the algorithm we used to compute Eq.~\eqref{eq:hf-self-consistency-general}. We refer to this technique as ``iterative Hartree Fock'' (iHF). Let $\mathbf{v}$ be the vector containing all HFPs. Suppose we have $N$ HFPs $v_i$,
+In this section, we describe the algorithm we used to compute Eq.~\eqref{eq:hf-self-consistency-general}. We refer to this technique as ``iterative Hartree Fock'' (iHF). Let $\mathbf{v}$ be the vector containing all HFPs. Suppose we have $N$ HFPs $v_i$,
 \[
 	\mathbf{v} \in \mathbb{C}^N
 	\qq{with}
@@ -423,7 +423,7 @@ We implement the search for a self-consistent solution as follows: first, we obt
 \begin{figure}
 	\centering
 	\input{\GraphicsFolder/effective-model-scheme}
-	\caption{Schematisation of the self-consistent Hartree Fock method described in Sec.~\ref{sec:sketch-ihf-algorithm}. The effective model is solved, the solution is used to estimate self-consistently the Hartree Fock vector $\mathbf{v}$, which is then used to update iteratively the model itself. The notation $\mathbf{v}_0$ indicates the initialiser HFPs vector, $\mathbf{v}_\mathrm{c}$ the converged HFPs vector.}
+	\caption{Schematisation of the self-consistent Hartree Fock method described in Sec.~\ref{sec:sketch-ihf-algorithm}. The effective model is solved, the solution is used to estimate self-consistently the HFPs vector $\mathbf{v}$, which is then used to update iteratively the model itself. The notation $\mathbf{v}_0$ indicates the initialiser HFPs vector, $\mathbf{v}_\mathrm{c}$ the converged HFPs vector.}
 	\label{fig:effective-model-scheme}
 \end{figure}
 %
@@ -470,7 +470,7 @@ being $\mathcal{V}$ the volume. Suppose we fix density to a value $n_0\in[0,1]$.
 	n(\mathbf{v}_i,\mu) - n_0
 	\right| \, .
 \end{equation}
-The density $n$ must be a monotonically increasing function of $\mu$: then we can translate the above equation, which would inspire a minimisation procedure, to a much simpler node-search rule:
+The density $n$ must be a monotonically increasing function of $\mu$: then we can translate the above equation, which would inspire a minimisation procedure, to a much simpler node search process:
 \[
 	\mu_i = \mu \mid_{\delta n(\mathbf{v}_i,\mu) = 0}
 	\qq{being}
@@ -508,7 +508,7 @@ In order to find where the function changes sign (i.e. the position of $\mu_i$) 
 \end{enumerate}
 The bottleneck of the procedure is our ability to compute expectation values. This depends on how much we are able to simplify analytically the computations for each phase.
 
-As will turn out in the derivation, chemical potential will be renormalised by interaction. This means that applying self-consistent HF methods to the EHM will produce an effective hamiltonian containing a shift to the chemical potential,
+As will turn out in the derivation, chemical potential will be renormalised by the interactions. This means that the application of self-consistent HF methods to the EHM will produce an effective hamiltonian containing a shift to the chemical potential,
 \[
 	\mu \to \mu + F[\mathbf{v}] \equiv \tilde{\mu} [\mathbf{v}] \, ,
 \]

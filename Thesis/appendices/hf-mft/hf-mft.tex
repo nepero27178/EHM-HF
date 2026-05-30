@@ -37,7 +37,7 @@ with $\forall \alpha, \beta \colon V_{\alpha\beta}=V_{\beta\alpha}^*$. In terms 
 \begin{equation}\label{appeq:mft-B=2V}
 	B_{\alpha\beta\gamma\delta} = 2V_{\alpha\beta} \delta_{\alpha\delta} \delta_{\beta\gamma} \, .
 \end{equation}
-We work with HF states. Thus Eq.~\eqref{eq:hf-wick-hfc} holds exactly (adapted for two indices instead of four)
+We work with gaussian states. Thus Eq.~\eqref{eq:hf-wick-hfc} holds exactly (adapted for two indices instead of four),
 \[
 \alpha \neq \beta
 \quad\colon\quad
@@ -107,13 +107,13 @@ where $x_{\alpha\beta} = x_{\beta\alpha}^*$ to ensure hermiticity. Note that we 
 x_{\alpha\beta} \big\langle \hat c_\alpha^\dagger \hat c_\beta \big\rangle + y_{\alpha\beta} \big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \big\rangle + y_{\beta\alpha}^* \big\langle \hat c_\alpha \hat c_\beta \big\rangle
 \right] + (\text{some constant}) \, .
 \]
-Deriving the equation above, we obtain:
+Deriving the equation above, we obtain
 \[
 x_{\alpha\beta} = \pdv{\big\langle \hat V \big\rangle}{\big\langle \hat c_\alpha^\dagger \hat c_\beta \big\rangle}
 \qq{and}
 y_{\alpha\beta} = \pdv{\big\langle \hat V \big\rangle}{\big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \big\rangle} \, .
 \]
-Applying Eqs.~\eqref{appeq:mft-x-implicit} and \eqref{appeq:mft-y-implicit}, we get the identities:
+Applying Eqs.~\eqref{appeq:mft-x-implicit} and \eqref{appeq:mft-y-implicit}, we get the identities
 \begin{align}
 	x_{\alpha\beta} &= \delta_{\alpha\beta} \left[
 	\sum_\gamma V_{\alpha\gamma} \big\langle \hat c_\gamma^\dagger \hat c_\gamma \big\rangle
@@ -123,7 +123,7 @@ Applying Eqs.~\eqref{appeq:mft-x-implicit} and \eqref{appeq:mft-y-implicit}, we 
 \end{align}
 These equations are a rephrasing of Eqs.~\eqref{eq:hf-solution-h+-}, \eqref{eq:hf-solution-h++} for the fields $h_{\alpha\beta}^{pq}$, setting $A_{\alpha\beta}=0$. This can be checked by using Eq.~\eqref{appeq:mft-B=2V}.
 
-Now: consider the special case where $\forall \alpha \colon V_{\alpha\alpha}=0$. This is the case for the EHM. Then the above equations imply:
+Now, consider the special case where $\forall \alpha \colon V_{\alpha\alpha}=0$. This is the case for the EHM, see Eq.~\eqref{eq:extended-hubbard-model}. Then the above equations imply:
 \begin{multline*}
 	\hat V = \sum_{\alpha\neq\beta} V_{\alpha\beta} \hat c_\alpha^\dagger \hat c_\beta^\dagger \hat c_\beta \hat c_\alpha \\
 	\simeq \sum_{\alpha\neq\beta} V_{\alpha\beta} \Big(
@@ -154,4 +154,4 @@ with $C$ a constant. A similar implication holds for the Fock and the Cooper sec
 	+ \hat c_\alpha^\dagger \hat c_\beta^\dagger \big\langle \hat c_\beta \hat c_\alpha \big\rangle + \big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \big\rangle \hat c_\beta \hat c_\alpha - \big\langle \hat c_\alpha^\dagger \hat c_\beta^\dagger \big\rangle  \big\langle \hat c_\beta \hat c_\alpha \big\rangle
 	\Big) \, . &&(\text{Cooper}) \nonumber
 \end{align}
-Passing from the first row to the following ones, we decomposed the original quartic operator to a sum of three decomposition much similar to Eq.~\eqref{appeq:mft-A=BC}. This is the main connection with MFT. In HF theory, we do not write the quartic operator as a product of two quadratic operators and decompose it as we would do in MFT. Instead, a very similar decomposition (summed over the three sectors) is given by the fact that EVs are computed over HF states.
+Passing from the first row to the following ones, we decomposed the original quartic operator to a sum of three decomposition much similar to Eq.~\eqref{appeq:mft-A=BC}. This is the main connection with MFT. In HF theory, we do not write the quartic operator as a product of two quadratic operators and decompose it as we would do in MFT. Instead, a very similar decomposition (summed over the three sectors) is given by the fact that EVs are computed over gaussian states.

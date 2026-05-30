@@ -3,7 +3,7 @@
 
 In this chapter, we study the normal phase, namely the phase characterised by the absence of any spontaneous symmetry breaking mechanism.
 
-We show that the non-local pairing induces a renormalisation of the hopping amplitude, leading to a Mott localisation effect. The chapter is organised as follows. In Sec.~\ref{sec:normal-phase-theory} we discuss the symmetries of the normal phase. In Secs.~\ref{sec:normal-hf}, \ref{sec:normal-hf-hamiltonian} we derive the HF approximation to the EHM in the normal phase. In Sec.~\ref{sec:normal-sceq-analysis} we analyse the self-consistency equations and derive constraints on the self-consistent parameters identified by the Hartree-Fock method. In Sec.~\ref{sec:normal-numeric} we present the result of numeric simulations.
+We show that the non-local pairing induces a renormalisation of the hopping amplitude, leading to a Mott localisation effect. The chapter is organised as follows. In Sec.~\ref{sec:normal-phase-theory}, we discuss the symmetries of the normal phase. In Secs.~\ref{sec:normal-hf} and \ref{sec:normal-hf-hamiltonian}, we derive the HF approximation to the EHM in the normal phase. In Sec.~\ref{sec:normal-sceq-analysis}, we analyse the self-consistency equations and derive constraints on the self-consistent parameters identified by the Hartree-Fock method. In Sec.~\ref{sec:normal-numeric}, we present the result of numeric simulations.
 
 \section{The normal phase and its  symmetries}\label{sec:normal-phase-theory}
 
@@ -18,7 +18,7 @@ Translational invariance implies the following result:
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:normal-<cc>}]
 	
-	Consider the generic EV on the left side of Eq.~\eqref{eq:normal-<cc>}
+	Consider the generic EV on the left side of Eq.~\eqref{eq:normal-<cc>},
 	\[
 		\big\langle \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}'\sigma'} \big\rangle \, ,
 	\]
@@ -48,9 +48,9 @@ Translational invariance and spin rotational symmetry imply that the site occupa
 \end{equation}
 with $n \in [0,1]$.
 
-We define the single-state occupation operator in reciprocal space:
+We define the single-state occupation operator in reciprocal space,
 \[
-\hat n_{\mathbf{k}\sigma} \equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}
+\hat n_{\mathbf{k}\sigma} \equiv \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \, ,
 \]
 and its EV
 \begin{equation}\label{eq:normal-uqsigma-def}
@@ -103,7 +103,7 @@ As we will see in detail and is summarised in Tab.~\ref{tab:normal-RWCs}, Hartre
 
 \subsection{Effects of the Hartree terms: chemical potential renormalisation}\label{subsec:normal-hartree-mu}
 
-In this section we show that the Hartree channels of $\hat H_U$ and $\hat H_V$ reduce to multiples of the number operator. Applying HF methods, we get the decomposition of Eqs.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}. Specifically, the Hartree channels are given by
+In this section, we show that the Hartree channels of $\hat H_U$ and $\hat H_V$ reduce to multiples of the number operator. Applying HF methods, we get the decomposition of Eqs.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}. Specifically, the Hartree channels are given by
 \[
 \begin{aligned}
 	\hat H_U &\HFsimeq U \sum_i \left(
@@ -118,7 +118,7 @@ Summing the two terms, we obtain
 \begin{equation}\label{eq:normal-HU+HV-hartree-approx}
 	\hat H_U + \hat H_V \HFsimeq -n(2zV-U) \hat N - \left(E_{\mathrm{H},U}^{(\mathrm{N})} + E_{\mathrm{H},V}^{(\mathrm{N})}\right) + (\text{Fock channel}) \, ,
 \end{equation}
-where we introduces the ``Hartree contraction energy'', namely a shift to energy coming from the scalar terms of Eqs.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}:
+where we introduced the ``Hartree contraction energy'', namely a shift to energy coming from the scalar terms of Eqs.~\eqref{eq:mft-HU}, \eqref{eq:mft-HV}:
 \begin{align}
 	E_{\mathrm{H},U}^{(\mathrm{N})} &= - U \sum_{i \in\mathcal{L}} \big\langle \hat c_{i\uparrow}^\dagger \hat c_{i\uparrow} \big\rangle  \big\langle \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow} \big\rangle \, , \label{eq:normal-HU-hartree-Ec-implicit} \\
 	E_{\mathrm{H},V}^{(\mathrm{N})} &= V \sum_{\ev{ij}} \sum_{\sigma,\sigma'} \big\langle \hat c_{i\sigma}^\dagger \hat c_{i\sigma} \big\rangle  \big\langle \hat c_{j\sigma'}^\dagger \hat c_{j\sigma'} \big\rangle \, . \label{eq:normal-HV-hartree-Ec-implicit}
@@ -259,7 +259,7 @@ where $z=4$ is the lattice coordination number.
 
 \subsection{Effects of the Fock terms: bare bands renormalisation}\label{subsec:normal-fock-bands}
  
-From the Wick's decomposition of $\hat H_V$ (see Eq.~\eqref{eq:mft-HV}), the only Fock term allowed in the normal phase comes from the same-spin sector. See Tab.~\ref{tab:HV-sel-rules} for a summary. Explicitly,
+From the Wick's decomposition of $\hat H_V$, see Eq.~\eqref{eq:mft-HV}, the only Fock term allowed in the normal phase comes from the same-spin sector. See Tab.~\ref{tab:HV-sel-rules} for a summary. Explicitly,
 \begin{equation}\label{eq:normal-HV-fock}
 	\hat H_V \HFsimeq (\text{Hartree channel}) + 
 	V \sum_{\ev{ij}} \sum_\sigma \left(
@@ -479,7 +479,7 @@ Later, using spin degeneracy, we will omit the sum on $\sigma$ and the $1/2$ pre
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:normal-HV-fock-Ec}: non-local Fock contraction energy]
 
-	Recall Eq.~\eqref{eq:normal-V-fock-double-counting}. Using Eq.~\eqref{eq:normal-<cc>}, it reduces to:
+	Recall Eq.~\eqref{eq:normal-V-fock-double-counting}. Using Eq.~\eqref{eq:normal-<cc>}, it reduces to
 	\[
 		E_{\mathrm{F},V}^{(\mathrm{N})} = \frac{V}{L_x L_y} \sum_{ \mathbf{q}, \mathbf{q}'} \sum_\sigma \left[
 		\cos \left(
@@ -494,7 +494,7 @@ Later, using spin degeneracy, we will omit the sum on $\sigma$ and the $1/2$ pre
 		\hat c_{\mathbf{q}' \sigma}^\dagger  \hat c_{\mathbf{q}' \sigma}
 		\rangle \, .
 	\]
-	Inserting Eq.~\eqref{eq:normal-uqsigma-def}, we get:
+	Inserting Eq.~\eqref{eq:normal-uqsigma-def}, we get
 	\[
 	\begin{aligned}
 		E_{\mathrm{F},V}^{(\mathrm{N})} &= L_x L_y \times \frac{V}{2} \sum_{\gamma,\sigma} \left(
@@ -597,7 +597,7 @@ A schematics of anisotropic hopping is given in Fig.~\ref{fig:anisotropic-hoppin
 \begin{figure}
 	\centering
 	\input{\GraphicsFolder/anisotropic-hopping}
-	\caption{Graphic representation of anisotropic hopping, with a $s^*$-wave component (symmetric by $\pi/2$ rotations) and a $d$-wave component (antisymmetric).}
+	\caption{Graphic representation of anisotropic hopping, with a $s^*$-wave component (symmetric by $\pi/2$ rotations) and a $d$-wave component (antisymmetric). We represent in blue the effective hopping in direction $x$, see Eq.~\eqref{eq:normal-tx}, and in green the effective hopping in direction $y$, see Eq.~\eqref{eq:normal-ty}.}
 	\label{fig:anisotropic-hopping}
 \end{figure}
 
@@ -628,7 +628,7 @@ From now on, we will omit the spin index $\sigma$ from both the renormalised ban
 	\tilde{t}_\sigma^{(\alpha)} \to \tilde{t}^{(\alpha)} \, .
 \]
 The normal phase does not break spin rotational invariance. Therefore the renormalised bands $\tilde{\epsilon}_\mathbf{k}$ must be independent of the spin index. Inverting Eq.~\eqref{eq:normal-tS-td}, we can
-express $\tilde{t}^{(x)}$ and $\tilde{t}^{(y)}$ in terms of the HFPs $u^{(s^*)}$ and $u^{(d)}$
+express $\tilde{t}^{(x)}$ and $\tilde{t}^{(y)}$ in terms of the HFPs $u^{(s^*)}$ and $u^{(d)}$,
 \[
 \begin{aligned}
 	\tilde{t}^{(x)} &\equiv t - \frac{u^{(s^*)} + u^{(d)}}{2} V \, , \\
@@ -750,7 +750,7 @@ Here $E_\mathrm{HF}^{(\mathrm{N})}$ is the ground-state energy for the HF hamilt
 		\end{aligned}
 		\]
 		where we used Eq.~\eqref{eq:normal-Ec}.
-		\item The entropic contribution to free energy
+		\item The entropic contribution to free energy,
 		\[
 		\begin{aligned}
 			e_s^{(\mathrm{N})} &\equiv -\frac{s^{(\mathrm{N})}}{k_\mathrm{B} \beta} \\
@@ -759,7 +759,7 @@ Here $E_\mathrm{HF}^{(\mathrm{N})}$ is the ground-state energy for the HF hamilt
 		\end{aligned}
 		\]
 		We used Eq.~\eqref{eq:normal-s-variant}.
-		\item The chemical potential correction
+		\item The chemical potential correction,
 		\[
 			e_n^{(\mathrm{N})} = \mu n \, .
 		\]
@@ -815,7 +815,7 @@ is actually a flattening. We denote this effect as ``bands shrinking'', and show
 	\label{fig:bands-shrinking}
 \end{figure}
 
-From Eq.~\eqref{eq:normal-tS-td} we notice that, if the converged value of $u^{(s^*)}$ approaches its boundaries, we have
+From Eq.~\eqref{eq:normal-tS-td} we notice that, if the converged value of $u^{(s^*)}$ approaches its boundaries, so does (inversely) the effective hopping,
 \[
 \begin{aligned}
 	u^{(s^*)} &\to 0
@@ -928,7 +928,7 @@ Hence, $\tilde{\epsilon}_\mathbf{k}<0$ inside the MBZ and $\tilde{\epsilon}_\mat
 
 \section{Numeric results for the normal phase}\label{sec:normal-numeric}
 
-In this section we present and discuss the numeric results we obtained for the normal phase. In the end we present a concrete scenario where careful tuning of the algorithm is necessary to ensure convergence. As is discussed above, in the normal phase the HFPs vector (defined in Sec.~\ref{subsec:reject-mix-iterate}) has just one component:
+In this section, we present and discuss the numeric results we obtained for the normal phase. In the end we present a concrete scenario where careful tuning of the algorithm is necessary to ensure convergence. As is discussed above, in the normal phase the HFPs vector (defined in Sec.~\ref{subsec:reject-mix-iterate}) has just one component:
 \[
 	\mathbf{v} = \begin{bmatrix}
 		u^{(s^*)}
@@ -978,7 +978,7 @@ being $\beta_0 = 1/ (1\mathrm{K} \times k_\mathrm{B})$.
 	\label{fig:normal-uS-data}
 \end{figure}
 
-The trend of Eq.~\eqref{eq:normal-pdv-uS} is confirmed in  Fig.~\ref{fig:normal-uS-data}, where we show $u^{(s^*)}$ as a function of $V$ and varying $\delta$, with $\beta=100$. We see that  $u^{(s^*)}$ decreases as we increase $\delta$ while keeping $V$ fixed. In the colour plot of  Fig.~\ref{subfig:normal-uS-data-B128} we observe that in the top-left corner (low-$\delta$ and high-$V$ limit) there is a brighter region in which, increasing $\delta$ while keeping $V$ fixed, the converged value of $u^{(s^*)}$ is approximately constant. This effect is more visible in Fig.~\ref{subfig:normal-uS-data-B256}, where we doubled $L$ and ran simulations with a smaller $\delta$ resolution. At small values of $V$, the convergence value of $u^{(s^*)}$ is approximately independent of $V$. Note that, as was expected from the discussion of Sec.~\ref{sec:normal-sceq-analysis}, the half-filling convergence value of $u^{(s^*)}$ in the $V$-independent region is approximately given by Eq.~\eqref{eq:normal-uS-half-filling}, which we report in Fig.~\ref{subfig:normal-uS-data-B256} as an horizontal dashed green line. We did not find significant discrepancies in the converged data for $L=128$ and $L=256$.
+The trend of Eq.~\eqref{eq:normal-pdv-uS} is confirmed in  Fig.~\ref{fig:normal-uS-data}, where we show $u^{(s^*)}$ as a function of $V$ and $\delta$, with $\beta=100$. We see that  $u^{(s^*)}$ decreases as we increase $\delta$ while keeping $V$ fixed. In the colour plot of  Fig.~\ref{subfig:normal-uS-data-B128} we observe that in the top-left corner (low-$\delta$ and high-$V$ limit) there is a brighter region in which, increasing $\delta$ while keeping $V$ fixed, the converged value of $u^{(s^*)}$ is approximately constant. This effect is more visible in Fig.~\ref{subfig:normal-uS-data-B256}, where we doubled $L$ and ran simulations with a smaller $\delta$ resolution. At small values of $V$, the convergence value of $u^{(s^*)}$ is approximately independent of $V$. Note that, as was expected from the discussion of Sec.~\ref{sec:normal-sceq-analysis}, the half-filling convergence value of $u^{(s^*)}$ in the $V$-independent region is approximately given by Eq.~\eqref{eq:normal-uS-half-filling}, which we report in Fig.~\ref{subfig:normal-uS-data-B256} as an horizontal dashed green line. We did not find significant discrepancies in the converged data for $L=128$ and $L=256$.
 
 For larger values of $V$, $u^{(s^*)}$ starts to decrease monotonically, consistently with the constraints of Eq.~\eqref{eq:normal-us*-ud-constraint}. We sketch the upper boundary $u^{(s^*)}_\mathrm{c}(V)=2t/V$, defined in Eq.~\eqref{eq:normal-uS-upper}, in Fig.~\ref{subfig:normal-uS-data-B256} as a black dashed line. We observe that when the red lines (numerical results) reach the black line (theoretical upper boundary), we have
 \[
@@ -1040,7 +1040,7 @@ which we report in  Fig.~\ref{subfig:normal-tS-data-B128-mott} as a tick of the 
 
 Increasing temperature, Mott localisation is suppressed. In Fig.~\ref{subfig:normal-data-uS-C256-compared} we report results for the HFP $u^{(s^*)}$ computed at decreasingly lower temperature and three example doping levels,
 \[
-	1.0 \le \beta \le 100.0 \, ,
+	0.1 \le \beta \le 100.0 \, ,
 	\qquad
 	\delta = 0.0, 0.2, 0.4 \, .
 \]
@@ -1081,7 +1081,7 @@ Mott localisation is energetically expensive. This is visible in both panels of 
 \[
 	f(0;\beta,\tilde{\mu}(\delta)) = \frac 1 2
 \]
-at any temperature. The expression for the contribution to entropy of a single particle state with occupation $f$ \cite{grosso2014solid} is given by
+at any temperature. The expression for the contribution to entropy of a single particle state with occupation $f$ is given by \cite{grosso2014solid}
 \[
 	s(f) = -k_\mathrm{B} \left[ f \log f + (1-f) \log (1-f) \right] \, ,
 \]
@@ -1105,7 +1105,7 @@ All of this holds, as all the rest, at low temperature: by lowering $\beta$, fin
 
 \subsection{Convergence problems and mixing fine-tuning}\label{subsec:normal-g-optimization}
 
-In this subsection we describe some of the typical convergence problems arising in HF iterative schemes anticipated in Sec.~\ref{subsec:reject-mix-iterate}. Bands flattening is a source of algorithmic instability: numerics can lead to values of $u^{(s^*)}$, during iterations, slightly out of bounds with respect to Eq.~\eqref{eq:normal-us*-ud-constraint}. Even if the numeric effect is small, the consequence can be vast. To heal this effect and extract the actual convergence values, it is necessary to optimise the mixing parameter $g \in [0,1]$. 
+In this final section, we describe some of the typical convergence problems arising in HF iterative schemes anticipated in Sec.~\ref{subsec:reject-mix-iterate}. Bands flattening is a source of algorithmic instability: numerics can lead to values of $u^{(s^*)}$, during iterations, slightly out of bounds with respect to Eq.~\eqref{eq:normal-us*-ud-constraint}. Even if the numeric effect is small, the consequence can be vast. To heal this effect and extract the actual convergence values, it is necessary to optimise the mixing parameter $g \in [0,1]$. 
 
 \begin{figure}[t]
 	\centering

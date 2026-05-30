@@ -3,9 +3,9 @@
 
 In this chapter, we discuss the symmetries of the extended Hubbard model, and classify the various phases discussed in this thesis based on the spontaneous symmetry breaking (SSB) mechanism. Therefore, we describe the explicit implementation of the HF method to investigate phase transitions hosted by the model.
 
-\section{Symmetries of the extended Hubbard model on the square lattice}\label{sec:ehm-syms}
+\section{Symmetries of the EHM on the square lattice}\label{sec:ehm-syms}
 
-In this section, we present the symmetries of the extended Hubbard model (EHM) introduced in Eq.~\eqref{eq:extended-hubbard-model}
+In this section, we present the symmetries of the extended Hubbard model (EHM) introduced in Eq.~\eqref{eq:extended-hubbard-model},
 \[
 	\hat H_\mathrm{EHM} =
 	\underbrace{
@@ -48,7 +48,7 @@ We study the EHM on the planar square lattice, with one orbital per site. We ind
 	implying that, in $2$D space, a rotation by $\pi$ around the origin and the reflection of the position of a point are the same operation.
 \end{enumerate}
 
-The planar square lattice is bipartite: it can be divided in two square lattices, as represented in Fig.~\ref{fig:square-sublattices}. Two sites are ``connected'' if linked by a non-zero hopping operator. Which is, if they are NNs. Note that odd-site translations leave the hamiltonian invariant but exchange the two sublattices, while even-sites translations don't. Specifically, let us consider a graph $\mathcal{L}$ and the set of its vertices $V(\mathcal{L}) = \lbrace v_i \rbrace$. Let $E(\mathcal{L})$ be the set of graph edges,
+The planar square lattice is bipartite: it can be divided in two square lattices, as represented in Fig.~\ref{fig:square-sublattices}. Two sites are ``connected'' if linked by a non-zero hopping operator. Which is, if they are NNs. Note that odd-site translations exchange the two sublattices (leaving, nevertheless, the hamiltonian invariant), while even-sites translations don't. Specifically, let us consider a graph $\mathcal{L}$ and the set of its vertices $V(\mathcal{L}) = \lbrace v_i \rbrace$. Let $E(\mathcal{L})$ be the set of graph edges,
 \[
 	E(\mathcal{L}) = \left\lbrace (v,w) \mid v,w \in V(\mathcal{L}) \land \text{$v$, $w$ are connected} \right\rbrace \, .
 \]
@@ -58,7 +58,7 @@ The graph is said to be bipartite if two sub-graphs $\mathcal{S}_1$, $\mathcal{S
 	\[
 		V(\mathcal{L}) = V(\mathcal{S}_1) \cup V(\mathcal{S}_2) \, .
 	\]
-	\item Vertices of one sub-graph are linked only to vertices of the other sub-graph. In other words
+	\item Vertices of one sub-graph are linked only to vertices of the other sub-graph. In other words,
 	\[
 		v,w \in \mathcal{S}_i
 		\quad\implies\quad
@@ -221,14 +221,14 @@ Also $\hat H_V$ and $\hat N$ commutate with each component of the global spin gi
 	
 	The proof is organised through a sequence of results:	
 	\begin{enumerate}
-		\item The non-local attraction can be written as:
+		\item The non-local attraction can be written as
 		\begin{align}
 			\hat H_V &= V\sum_{\ev{ij}} \sum_{\sigma\sigma'} \hat n_{i\sigma} \hat n_{j\sigma'} \nonumber \\
 			&= V\sum_{\ev{ij}} \hat \Psi_i^\dagger \hat \Psi_i \hat \Psi_j^\dagger \hat \Psi_j \, , \label{eq:ehm-HV-4xPsi}
 		\end{align}
 		having we used $\hat \Psi_i^\dagger \hat \Psi_i = \hat c_{i\uparrow}^\dagger \hat c_{i\uparrow} + \hat c_{i\downarrow}^\dagger \hat c_{i\downarrow}$.
 		%
-		\item Similarly, the number operator is given by:
+		\item Similarly, the number operator is given by
 		\begin{align}
 			\hat N &= \sum_{i \in \mathcal{L}} \sum_{\sigma} \hat n_{i\sigma} \nonumber \\
 			&= \sum_{i \in \mathcal{L}} \hat \Psi_i^\dagger \hat \Psi_i \label{eq:ehm-N-2xPsi} \, .
@@ -240,7 +240,7 @@ Also $\hat H_V$ and $\hat N$ commutate with each component of the global spin gi
 			\qq{where}
 			\bm{\theta} = (\theta_x,\theta_y,\theta_z) \, ,
 		\]
-		with $\hat {\mathbf{S}}$ the global spin given in Eq.~\eqref{eq:global-S}. Spinors transform as:
+		with $\hat {\mathbf{S}}$ the global spin given in Eq.~\eqref{eq:global-S}. Spinors transform as
 		\[
 			\hat R (\bm{\theta}) \hat \Psi_i \hat R (\bm{\theta})^\dagger = \mathcal{R}(\bm{\theta}) \hat \Psi_i \, ,
 		\]
@@ -254,7 +254,7 @@ Also $\hat H_V$ and $\hat N$ commutate with each component of the global spin gi
 		\[
 			e^{\hat A} \hat B e^{-\hat A} = \hat B + \comm{\hat A}{\hat B} + \frac{1}{2!} \comm{\hat A}{ \comm{\hat A}{\hat B}} + \frac{1}{3!} \comm{\hat A}{\comm{\hat A}{\comm{\hat A}{\hat B}}} + \cdots \, .
 		\]
-		The first order of the expansion gives:
+		The first order of the expansion gives
 		\[
 		\begin{aligned}
 			[i \bm{\theta} \cdot \hat{\mathbf{S}}, \hat \Psi_i] &= i \sum_\alpha \theta_\alpha [\hat S^\alpha, \hat \Psi_i] \\
@@ -318,7 +318,7 @@ The $\mathrm{U}^\mathrm{c}(1)$ gauge symmetry and the $\mathrm{SU}(2)$ spin rota
 \[
 	\mathrm{U}^\mathrm{c}(1) \otimes \mathrm{SU}(2) = \mathrm{U}(2) \, .
 \]
-We will refer to $\mathrm{U}(2)$ symmetry to indicate full charge-spin conservation. Finally, note the group of $3$D rotations contains the subgroup of $2$D rotations around a given axis $z$,
+We will refer to $\mathrm{U}(2)$ symmetry to indicate full charge-spin conservation. Finally, we notice that the group of $3$D rotations contains the subgroup of $2$D rotations around a given axis $z$,
 \[
 	\mathrm{U}^z(1) \subset \mathrm{SU}(2) \, ,
 \]
@@ -349,7 +349,7 @@ At half-filling (equal number of electrons and lattice sites), the EHM on the sq
 	\quad\to\quad
 	e^{i\eta_{i\sigma}} \hat h_{i\sigma}^\dagger \, ,
 \end{equation}
-being in general $\eta_i$ a phase dependent on the fermionic quantum state $(i\sigma)$. Inserting the above transformation in the EHM, we get
+being $\eta_i$ a phase dependent on the fermionic quantum state $(i\sigma)$. Inserting the above transformation in the EHM, we get
 \[
 	\mathrm{P} \lbrace \hat H \rbrace =
 	-t \sum_{\langle ij \rangle} \sum_\sigma e^{i(\eta_{i\sigma} + \eta_{j\sigma})} \hat h_{i\sigma} \hat h_{j\sigma}^\dagger
@@ -388,7 +388,7 @@ The equality $\mathrm{P} \lbrace \hat H \rbrace = \hat H$ expresses PHS, which h
 		&= \delta_{ij} \delta_{\sigma\sigma'} \, .
 	\end{aligned}
 	\]
-	The on-site density operator is given by:
+	The on-site density operator is given by
 	\[
 		\hat h_{i\sigma} \hat h_{i\sigma}^\dagger = \hat n_{i\sigma} \, ,
 	\]
@@ -415,7 +415,7 @@ The equality $\mathrm{P} \lbrace \hat H \rbrace = \hat H$ expresses PHS, which h
 	\[
 		\hat H_t = -t \sum_{\langle ij \rangle} \sum_\sigma \hat c_{i\sigma}^\dagger \hat c_{j\sigma} \, .
 	\]
-	We apply the PH transform of Eq.~\eqref{eq:phs-P-general}
+	We apply the PH transform of Eq.~\eqref{eq:phs-P-general},
 	\[
 		\mathrm{P} \lbrace \hat H_t \rbrace = -t \sum_{\langle ij \rangle} \sum_\sigma e^{i(\eta_{i\sigma} + \eta_{j\sigma})} \hat h_{i\sigma} \hat h_{j\sigma}^\dagger \, .
 	\]
@@ -595,20 +595,20 @@ to conclude that this operator is in general not gauge invariant. It is instead 
 		&= \frac{1}{2} \comm{\hat c_{\mathbf{r}\uparrow}^\dagger}{\hat n_{\mathbf{r}\uparrow}} \hat c_{\mathbf{r}\downarrow}^\dagger - \frac{1}{2} \hat c_{\mathbf{r}\uparrow}^\dagger \comm{\hat c_{\mathbf{r}\downarrow}^\dagger}{\hat n_{\mathbf{r}\downarrow}} \, .
 	\end{aligned}
 	\]
-	Since:
+	Since
 	\begin{align}
 		\comm{\hat c_{\mathbf{r}\sigma}^\dagger}{\hat n_{\mathbf{r}\sigma}} &= \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} - \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \hat c_{\mathbf{r}\sigma}^\dagger \nonumber \\
 		&= -\hat c_{\mathbf{r}\sigma}^\dagger \left(
 		1 - \hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}\sigma} \right) \nonumber \\
 		&= -\hat c_{\mathbf{r}\sigma}^\dagger \label{eq:[c+,n]} \, ,
 	\end{align}
-	we have:
+	we have
 	\[
 		\comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\hat S^z} = -\frac{1}{2} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger + \frac{1}{2} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger = 0 \, .
 	\]
 	Hence, $\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger$ is $\mathrm{U}^z(1)$-symmetric.
 	
-	Moreover, considering the raising operator:
+	Moreover, considering the raising operator
 	\[
 	\begin{aligned}
 		\comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\hat S^+} &= \comm{\hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger}{\frac{1}{2} \sum_{\mathbf{r}'\in\mathcal{L}} \hat c_{\mathbf{r}^\uparrow}^\dagger \hat c_{\mathbf{r}^\downarrow}} \\
@@ -634,7 +634,7 @@ to conclude that this operator is in general not gauge invariant. It is instead 
 	\label{tab:HU-sel-rules}
 \end{table}
 
-In Tab.~\ref{tab:HU-sel-rules} we collect the symmetry selection rules for the Hartree, Fock and Cooper terms of Eq.~\eqref{eq:ehm-HU-wick}, based on the symmetry specifications given for each phase in above paragraphs. Note that Fock-like EVs are prohibited for all phases.
+In Tab.~\ref{tab:HU-sel-rules}, we collect the symmetry selection rules for the Hartree, Fock and Cooper terms of Eq.~\eqref{eq:ehm-HU-wick}, based on the symmetry specifications given for each phase in above paragraphs. Note that Fock-like EVs are prohibited for all phases.
 
 \subsection{Non-local attraction}\label{subsec:ehm-sym-break-HV}
 
@@ -667,7 +667,7 @@ The operator $\hat H^{(\mathrm{s.s.})}$ can be written as follows:
 	\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}+\bm{\delta} \sigma} + \hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r}-\bm{\delta}\sigma}
 	\right) \, , \label{eq:ehm-HV(ss)}
 \end{align}
-where the sum over $\mathcal{L}/2$, in last line, means that we are summing over just one sublattice (it does not matter which one). Applying Wick's theorem in the subspace of gaussian states, we get:
+where the sum over $\mathcal{L}/2$, in last line, means that we are summing over just one sublattice (it does not matter which one). Applying Wick's theorem in the subspace of gaussian states, we get
 \begin{align}
 	\langle 
 	\hat n_{\mathbf{r}\sigma} \hat n_{\mathbf{r} \pm \bm{\delta} \sigma}
@@ -732,7 +732,7 @@ The operator $\hat H^{(\mathrm{o.s.})}$ can be written as follows:
 	&= - V 
 	\sum_{\mathbf{r}\in\mathcal{L}} \sum_{\bm{\delta}\in \lbrace \underline{\mathbf{x}}, \underline{\mathbf{y}} \rbrace} \left(\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}+\bm{\delta}\downarrow} + \hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r}-\bm{\delta}\downarrow}\right) \label{eq:ehm-HV(os)} \, .
 \end{align}
-From Wick's theorem:
+From Wick's theorem, see Eq.~\eqref{eq:hf-wick-hfc},
 \begin{align}
 	\langle 
 	\hat n_{\mathbf{r}\uparrow} \hat n_{\mathbf{r} \pm \bm{\delta} \downarrow}
@@ -794,7 +794,7 @@ The separation of $\hat H_V$ in o.s. and s.s. sector is necessary in order to de
 
 \paragraph{Hartree terms.}
 
-As was for the local repulsion $\hat H_U$, the non-local Hartree terms of Eqs.~\eqref{eq:ehm-HV(ss)}, \eqref{eq:ehm-HV(os)} are not subject to symmetry selection rules for any symmetry of Tab.~\ref{tab:symmetry-groups}. Thus they are allowed for all sectors.
+As was for the local repulsion $\hat H_U$, the non-local Hartree terms of Eqs.~\eqref{eq:ehm-HV(ss)-wick}, \eqref{eq:ehm-HV(os)-wick} are not subject to symmetry selection rules for any symmetry of Tab.~\ref{tab:symmetry-groups}. Thus they are allowed for all sectors.
 
 \paragraph{Fock terms.}
 
@@ -812,7 +812,7 @@ where in last passage we used Eq.~\eqref{eq:[c+,n]} and its conjugate version,
 \]
 Now, if $\sigma=\sigma'$ the last passage of Eq.~\eqref{eq:ehm-HV-wick-int1} is zero; otherwise is not. This proves that the o.s. Fock EVs are non-zero only for a phase that completely breaks $\mathrm{SU}(2)$; instead, in the s.s. sector we can have non-zero EVs for a phase that reduces $\mathrm{SU}(2)$ to $\mathrm{U}^z(1)$.
 
-\paragraph{Cooper terms.} Cooper terms are not gauge invariant. The proof is analogous to the one given for $\hat H_U$. Instead, the o.s. and s.s. spin sectors behave differently under global spin rotations. With an identical procedure as for Eq.~\eqref{eq:ehm-HV-wick-int1}, we get:
+\paragraph{Cooper terms.} Non-local Cooper terms are not gauge invariant. The proof is analogous to the one given for $\hat H_U$. Instead, the o.s. and s.s. spin sectors behave differently under global spin rotations. With an identical procedure as for Eq.~\eqref{eq:ehm-HV-wick-int1}, we get:
 \begin{align}
 	\comm{\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}+\bm{\delta}\sigma'}^\dagger}{\hat S^z} &= \comm{\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}+\bm{\delta}\sigma'}^\dagger}{\frac{1}{2} \sum_{\mathbf{r}'\in\mathcal{L}} (\hat n_{\mathbf{r}'\uparrow}-\hat n_{\mathbf{r}'\downarrow}) } \nonumber \\
 	&= \frac{(-1)^{\delta_{\sigma=\downarrow}}}{2} \comm{\hat c_{\mathbf{r}\sigma}^\dagger}{\hat n_{\mathbf{r}\sigma}} \hat c_{\mathbf{r}+\bm{\delta}\sigma'}^\dagger + \frac{(-1)^{\delta_{\sigma'=\downarrow}}}{2} \hat c_{\mathbf{r}\sigma}^\dagger \comm{\hat c_{\mathbf{r}+\bm{\delta}\sigma'}^\dagger}{\hat n_{\mathbf{r}+\bm{\delta}\sigma'}} \nonumber \\
@@ -820,7 +820,7 @@ Now, if $\sigma=\sigma'$ the last passage of Eq.~\eqref{eq:ehm-HV-wick-int1} is 
 	-\frac{(-1)^{\delta_{\sigma=\downarrow}}}{2} - \frac{(-1)^{\delta_{\sigma'=\downarrow}}}{2}
 	\right)\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}+\bm{\delta}\sigma'}^\dagger \, . \label{eq:ehm-HV-wick-int2}
 \end{align}
-We have a ``mirrored'' situation with respect to the Fock terms. For the Cooper channel, the s.s. EVs are zero if $\mathrm{U}^z(1)$ is unbroken, while the o.s. sector are not.
+We have a ``mirrored'' situation with respect to the Fock terms. For the Cooper channel, the s.s. EVs are zero if $\mathrm{U}^z(1)$ is unbroken, while the o.s. sector are not. In other words: if $\mathrm{U}^z(1)$ is preserved by a given phase, the only contribution comes from the o.s. Cooper terms, namely from Eq.~\eqref{eq:ehm-HV(os)-wick}.
 
 \begin{table}
 	\centering
@@ -848,7 +848,7 @@ The EHM is symmetric under discrete lattice translations. We will investigate ph
 \begin{equation}\label{eq:fourier-convention}
 	\hat c_{\mathbf{r}\sigma} \Feq \frac{1}{\sqrt{L_xL_y}} \sum_{\mathbf{k} \in \mathrm{BZ}} e^{-i \mathbf{k} \cdot \mathbf{r}} \hat c_{\mathbf{k}\sigma} \, .
 \end{equation}
-Throughout the text, $\Feq$ will indicate a passage where a Fourier transform is used. ``BZ'' is shorthand notation for the Brillouin Zone.
+Throughout the text, $\Feq$ will indicate a passage where a Fourier transform is used. The notation ``BZ'' is shorthand for the Brillouin Zone.
 
 It is useful to recall that the following equation for Kronecker's delta holds:
 \begin{equation}\label{eq:ehm-delta}
@@ -862,11 +862,11 @@ The notation $\mathcal{L}/2$ is shorthand to indicate either $\mathcal{S}_1$ or 
 
 \paragraph{Kinetic part.}
 
-The kinetic operators transforms as follows:
+The kinetic operators transforms as follows,
 \begin{equation}\label{eq:Ht-Fourier}
 	\hat H_t \Feq \sum_{\mathbf{k} \in \mathrm{BZ}} \sum_\sigma \epsilon_\mathbf{k} \hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma} \, ,
 \end{equation}
-where we defined the bare bands: 
+where we defined the bare bands,
 \begin{equation}\label{eq:bare-bands}
 	\epsilon_\mathbf{k} \equiv -2t \left(
 	\cos k_x + \cos k_y
@@ -875,7 +875,7 @@ where we defined the bare bands:
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:Ht-Fourier}: $\mathcal{F}$-transform of $\hat H_t$]
 	
-	Consider the kinetic operator $\hat H_t$:
+	Consider the kinetic operator $\hat H_t$,
 	\[
 		\hat H_t = -t \sum_{\langle \mathbf{r}\mathbf{r}' \rangle} \sum_\sigma \left[
 		\hat c_{\mathbf{r}\sigma}^\dagger \hat c_{\mathbf{r}'\sigma} + \hc
@@ -912,7 +912,7 @@ Sums over the variables $\mathbf{K}, \mathbf{k}, \mathbf{k}'$ must be intended a
 
 \begin{tabproof}[Proof of Eq.~\eqref{eq:HU-fourier}: $\mathcal{F}$-transform of $\hat H_U$]
 	
-	Using the convention of Eq.~\eqref{eq:fourier-convention}, we get for $\hat H_U$:
+	Using the convention of Eq.~\eqref{eq:fourier-convention}, we get for $\hat H_U$
 	\[
 	\begin{aligned}
 		\hat H_U &= U \sum_{\mathbf{r}\in\mathcal{L}} \hat c_{\mathbf{r}\uparrow}^\dagger \hat c_{\mathbf{r}\downarrow}^\dagger \hat c_{\mathbf{r}\downarrow} \hat c_{\mathbf{r}\uparrow} \\
@@ -937,7 +937,7 @@ Sums over the variables $\mathbf{K}, \mathbf{k}, \mathbf{k}'$ must be intended a
 
 \paragraph{Non-local attraction.}
 
-In o.s. sector, the non-local attraction transforms as:
+In o.s. sector, the non-local attraction transforms as
 \begin{equation}\label{eq:HV-os-fourier}
 	\hat H_V^{(\mathrm{o.s.})} \Feq - \frac{2V}{L_x L_y}
 	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
@@ -948,7 +948,7 @@ In o.s. sector, the non-local attraction transforms as:
 	\right)	
 	\right]	\hat c_{\mathbf{K}+\mathbf{k} \uparrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\downarrow}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\downarrow} \hat c_{\mathbf{K}+\mathbf{k}'\uparrow} \, ,
 \end{equation}
-where $\delta k_\ell \equiv k_\ell - k_\ell'$. In the s.s. sector:
+where $\delta k_\ell \equiv k_\ell - k_\ell'$. In the s.s. sector,
 \begin{multline}\label{eq:HV-ss-fourier}
 	\hat H_V^{(\mathrm{s.s.})} \Feq - \frac{V}{L_x L_y}
 	\sum_{\mathbf{K}, \mathbf{k}, \mathbf{k}'} \left[
@@ -995,7 +995,7 @@ Sums over the variables $\mathbf{K}, \mathbf{k}, \mathbf{k}'$ must be intended a
 		\right]	\hat c_{\mathbf{k}_1 \sigma}^\dagger \hat c_{\mathbf{k}_2 \sigma'}^\dagger \hat c_{\mathbf{k}_3 \sigma'} \hat c_{\mathbf{k}_4\sigma} \, .
 	\end{aligned}
 	\]
-	The full non-local attraction $\hat H_V$ is given, as in Eq.~\eqref{eq:HV=sum(h)}, by summing over all sites of $\mathcal{L}/2$ (i.e. one sublattice). Applying Eq.~\eqref{eq:ehm-delta/2} gives back momentum conservation
+	The full non-local attraction $\hat H_V$ is given, as in Eq.~\eqref{eq:HV=sum(h)}, by summing over all sites of $\mathcal{L}/2$ (i.e. one sublattice). Applying Eq.~\eqref{eq:ehm-delta/2} gives back momentum conservation,
 	\[
 		\frac{1}{L_xL_y} \sum_{\mathbf{r} \in \mathcal{L}/2} e^{i \left[ (\mathbf{k}_1 + \mathbf{k}_2) - (\mathbf{k}_3 + \mathbf{k}_4) \right] \cdot \mathbf{r}} = \frac{1}{2} \delta_{\mathbf{k}_1 + \mathbf{k}_2 = \mathbf{k}_3 + \mathbf{k}_4} \, ,
 	\]
@@ -1018,8 +1018,7 @@ Sums over the variables $\mathbf{K}, \mathbf{k}, \mathbf{k}'$ must be intended a
 		\right)	
 		\right]	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k} \sigma'}^\dagger \hat c_{\mathbf{K}-\mathbf{k}' \sigma'} \hat c_{\mathbf{K}+\mathbf{k}'\sigma} \, . \label{eq:HV-fourier}
 	\end{align}
-	
-	Finally, we can separate in same spin and opposite spin channels. This gives:
+	Finally, we can separate in same spin and opposite spin channels. This gives
 	\begin{multline*}
 		\hat H_V \Feq 
 		\overbrace{
@@ -1043,7 +1042,7 @@ Sums over the variables $\mathbf{K}, \mathbf{k}, \mathbf{k}'$ must be intended a
 			\right]	\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\overline{\sigma}}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\overline{\sigma}} \hat c_{\mathbf{K}+\mathbf{k}'\sigma}
 		}_{\mathrm{o.s.}} \, .
 	\end{multline*}
-	The s.s. part confirms Eq.~\eqref{eq:HV-ss-fourier}. The o.s. part can be simplified: since
+	The s.s. part confirms Eq.~\eqref{eq:HV-ss-fourier}. The o.s. part can be simplified. Indeed, since
 	\[
 		\hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}-\mathbf{k}\overline{\sigma}}^\dagger \hat c_{\mathbf{K}-\mathbf{k}'\overline{\sigma}} \hat c_{\mathbf{K}+\mathbf{k}'\sigma} = \hat c_{\mathbf{K}-\mathbf{k}\overline{\sigma}}^\dagger \hat c_{\mathbf{K}+\mathbf{k} \sigma}^\dagger \hat c_{\mathbf{K}+\mathbf{k}'\sigma} \hat c_{\mathbf{K}-\mathbf{k}'\overline{\sigma}} 
 	\]
@@ -1090,7 +1089,7 @@ In reciprocal space, following the general decomposition presented in Eq.~\eqref
 		} \, .
 	\]
 \end{itemize}
-with appropriate sign factors.
+For each, appropriate sign factors are intended.
 
 \section{Square lattice spatial symmetry channels}\label{sec:square-lattice-symmetries}
 
@@ -1153,7 +1152,7 @@ which is proven by direct computation.
 		\input{\GraphicsFolder/d-wave-correlator}
 		\label{subfig:d-wave-correlator}
 	}
-	\caption{The harmonics listed in Tab.~\ref{tab:x-wave-real-factors}. In figures five sites are represented: the hub site $\mathbf{r}$ and its four NNs. Solid lines connect the hub sites to a rim site where the harmonic is non-zero. Dashed lines connect to a rim site where the harmonic is zero.}
+	\caption{The harmonics listed in Tab.~\ref{tab:x-wave-real-factors}. In figures, five sites are represented: the hub site $\mathbf{r}$ and its four NNs. Solid lines connect the hub sites to a rim site where the harmonic is non-zero. Dashed lines connect to a rim site where the harmonic is zero.}
 	\label{fig:x-wave-real-factors}
 \end{figure}
 
@@ -1165,15 +1164,15 @@ Consider a generic function of two variables $f(\mathbf{r},\mathbf{r}')$. Suppos
 	\quad\iff\quad
 	\abs{\mathbf{r}-\mathbf{r}'} = 0, 1 \, ,
 \end{equation}
-in units of the lattice step. Using the harmonics $\varphi_{\mathbf{r}\mathbf{r}'}^{(\gamma)}$, we get the following decomposition:
+in units of the lattice step. Using the harmonics $\varphi_{\mathbf{r}\mathbf{r}'}^{(\gamma)}$, we get the following decomposition,
 \begin{equation}\label{eq:f-decomposition}
 	f(\mathbf{r},\mathbf{r}') = \sum_\gamma f^{(\gamma)} \varphi_{\mathbf{r}\mathbf{r}'}^{(\gamma)} \, ,
 \end{equation}
-where we defined:
+where the sum over $\gamma$ is extended to the five symmetries of Tab.~\ref{tab:x-wave-real-factors}. We defined the function harmonic components,
 \begin{equation}\label{eq:f-gamma}
 	f^{(\gamma)} = \frac{1}{L_x L_y} \sum_{\mathbf{r},\mathbf{r}'} f(\mathbf{r},\mathbf{r}') \varphi_{\mathbf{r}\mathbf{r}'}^{(\gamma)} \, .
 \end{equation}
-Eq.~\eqref{eq:f-decomposition} will be referred to as ``decomposition in symmetry channels''. The sum over $\gamma$ is extended to the five symmetries of Tab.~\ref{tab:x-wave-real-factors}.
+Eq.~\eqref{eq:f-decomposition} will be referred to as ``decomposition in symmetry channels''.
 
 \begin{tabproof}[Decomposition in symmetry channels of Eq.~\eqref{eq:f-decomposition}]
 	
