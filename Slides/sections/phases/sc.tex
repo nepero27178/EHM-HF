@@ -2,19 +2,122 @@
 
 \begin{frame}
 	\frametitle{Singlet channel Cooper pairing symmetries}
+	
+	SC phase: breaking of charge conservation $\mathrm{U}(1)$, insurgence of a SC gap.
+	\DownImplication
+	Anomalous densities can be non-zero,
+	\[
+		\Delta_{\alpha\beta}^{++} = \langle 
+		\hat c_\alpha^\dagger \hat c_\beta^\dagger
+		\rangle \neq 0 \, .
+	\]
+	\medskip
+	\begin{tabbox}[frametitle=HFPs of the SC phase]
+		Harmonics of the conventional density,
+		\[
+			u_\mathbf{k} \equiv \ev{\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}}
+			\quad\to\quad
+			u^{(\gamma)} \, ,
+		\]
+		Harmonics of the anomalous density,
+		\[
+			w_\mathbf{k} \equiv \ev{\hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{-\mathbf{k}\downarrow}^\dagger}
+			\quad\to\quad
+			w^{(\gamma)} \, .
+		\]
+	\end{tabbox}
+	
 \end{frame}
 
 \begin{frame}
 	\frametitle{The competition in the isotropic channel}
+	
+	\begin{columns}
+		\column{0.65\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\columnwidth]{/home/nepero27178/Thesis/EHM-HF/Project/src/labs/superconductor-gap/gap_U=4.0.pdf}
+				\caption{Singlet gap harmonics $\tilde{\Delta}^{(\gamma)}$, with $\gamma=s,s^*,d$ at $U/t=4$.}
+				\label{fig:sc-data-surface-wS-B256}
+			\end{figure}
+		\column{0.25\linewidth}
+			Gap components in \textbf{singlet} channel:
+			\[\begin{aligned}
+				\tilde{\Delta}^{(s)} &= -Uw^{(s)} \, ,\\
+				\tilde{\Delta}^{(s^*)} &= Vw^{(s^*)} \, ,\\
+				\tilde{\Delta}^{(d)} &= Vw^{(d)} \, .
+			\end{aligned}\]
+	\end{columns}\medskip
+	
+	\begin{tabbox}[frametitle=Internal constraint among singlet harmonics]
+		\[
+			V \sum_{\gamma \neq s} \big| w^{(\gamma)} \big|^2 \ge U \big| w^{(s)} \big|^2 \, .
+		\]
+	\end{tabbox}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Symmetry mixing and insurgence of nematicity}
+	\frametitle{Symmetry mixing and insurgence of nematicity (1/2)}
+	
+	In the SC phase, the renormalisation of $t$ gives two components,
+	\[
+		t \quad\to\quad
+		\tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)} V}{2}
+		\qq{and}
+		\tilde{t}^{(d)} \equiv - \frac{u^{(d)} V}{2} \, .
+	\]
+	\begin{columns}
+		\column{0.4\linewidth}
+		\begin{figure}
+			\centering
+			\resizebox{\columnwidth}{!}{\input{/home/nepero27178/Thesis/EHM-HF/Thesis/chapters/normal-phase/pictures/anisotropic-hopping}}
+		\end{figure}
+		\column{0.5\linewidth}
+		\begin{tabbox}[frametitle=Anisotropic hopping]
+			Direction-resolved effective hopping:
+			\[\begin{aligned}
+				\tilde{t}^{(x)} &\equiv \frac{\tilde{t}^{(s^*)} + \tilde{t}^{(d)}}{2} \, , \\
+				\tilde{t}^{(y)} &\equiv \frac{\tilde{t}^{(s^*)} - \tilde{t}^{(d)}}{2} \, .
+			\end{aligned}\]
+			\DownImplication
+			$\tilde{t}^{(d)} \neq 0 \implies$ \textbf{nematic SSB}.
+		\end{tabbox}
+	\end{columns}
+	
+\end{frame}
+
+\begin{frame}
+	\frametitle{Symmetry mixing and insurgence of nematicity (2/2)}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\columnwidth]{../Project/src/labs/superconductor-boundary/w-U=[0.0, 4.0, 12.0]-compared.pdf}
+		\caption{Comparison of phase diagrams for the singlet SC phase and convergence values for the nematic order parameter.}
+	\end{figure}
+	
 \end{frame}
 
 \begin{frame}
 	\frametitle{Mott localisation in the SC phase}
+	
+	\begin{columns}
+		\column{0.5\linewidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\columnwidth]{../Project/src/labs/compare-tS-normal-sc/tS(N)+tS(SC)-ink.pdf}
+			\caption{Comparative plot of the converged values for $\tilde{t}^{(s^*)}$ for the normal phase and the SC phase.}
+		\end{figure}
+		\column{0.4\linewidth}
+		As for normal and AF phase, another HFP is $u^{(s^*)}$,
+		\[
+		\tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)}V}{2} \, .
+		\]
+	\end{columns}\bigskip	
+	
+	But: [blabla]
+	
 \end{frame}
+
 
 \begin{frame}
 	\frametitle{The HF solution in the SC phase}
