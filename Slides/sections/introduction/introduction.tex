@@ -4,7 +4,7 @@
 \begin{frame}
 	\frametitle{Superconductivity in cuprates}
 	\begin{columns}
-		\column{0.3\linewidth}
+		\column{0.4\linewidth}
 		\begin{figure}
 			\centering
 			\subfloat{
@@ -14,15 +14,24 @@
 				\includegraphics[width=\columnwidth]{\SectionFolder/article.png}
 			}
 		\end{figure}
-		\column{0.6\linewidth}
+		\column{0.5\linewidth}
 		\textbf{What makes cuprates interesting?}
 		\begin{itemize}
 			\item Strong ``unconventional'' insulators;
-			\item Rich phase diagram;
-			\item Origin of Cooper pairing: still unclear;
-			\item Highest critical temperatures for SC transition in this class of materials.
+			\item Rich phase diagrams;
+			\item High-$T_\mathrm{c}$ superconductivity;
+			\item Unclear origin of Cooper pairing.
 		\end{itemize}
 	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{The timeline of high-$T_\mathrm{c}$ superconductivity}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\columnwidth]{\SectionFolder/timeline.png}
+		\caption{Timeline of the discovery of superconductivity in various compounds. The cuprates branch is represented as cyan diamonds. Image source: P. Ray and O. Gingras, distributed according to \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{the license CC BY-SA 4.0}.}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -34,6 +43,7 @@
 			\item $2$D copper oxide active layers;
 			\item intermediate layers of inert material.
 		\end{itemize}
+		\DownImplication
 		\column{0.48\linewidth}
 		\begin{figure}
 			\centering
@@ -43,7 +53,9 @@
 			}
 		\end{figure}
 	\end{columns}
-	Most of the cuprates physics is well described by the single-band Hubbard model on the square lattice:
+	\bigskip
+	
+	Single-band Hubbard model on the square lattice:
 	\[
 	\hat H_\mathrm{HM} = 
 	\underbrace{
@@ -68,8 +80,10 @@
 			\item \textbf{Antiferromagnetism} at null and low doping;
 			\item \textbf{$d$-wave superconductivity} as we inject or remove charge.
 		\end{itemize}
-		Both arise from \textbf{strong electronic correlations}.
-		\DownImplication
+		Both arise from \textbf{strong electronic correlations}.\medskip
+		
+		\DownImplication\medskip
+		
 		Failure of band theory in describing insulation.
 		\column{0.45\linewidth}
 		\begin{figure}
@@ -121,15 +135,15 @@
 			\DownImplication
 			HM at strong coupling:
 			\[
-				\hat H_\mathrm{HM} \simeq \frac{4t^2}{U} \sum_{\langle ij \rangle} \hat{\mathbf{S}}_i \cdot \hat{\mathbf{S}}_j + \Delta E \, ,
+				\hat H_\mathrm{HM} \simeq \frac{4t^2}{U} \sum_{\langle ij \rangle} \hat{\mathbf{S}}_i \cdot \hat{\mathbf{S}}_j + \Delta E \, .
 			\]
 		\end{tabbox}
 		
 		\column{0.45\linewidth}
 		\begin{tabbox}[frametitle=Superconductivity]
 			Condensation of Cooper pairs with $d$-wave spatial structure.
-			\DownImplication
-			Order parameter $\psi(\mathbf{r}_1 - \mathbf{r}_2)$: antisymmetric upon $\pi/2$ rotations.
+%			\DownImplication
+%			Order parameter $\psi(\mathbf{r}_1 - \mathbf{r}_2)$: antisymmetric upon $\pi/2$ rotations.
 			\DownImplication
 			\textbf{Suppressed on-site paring}.
 		\end{tabbox}
