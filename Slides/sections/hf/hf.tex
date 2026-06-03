@@ -44,11 +44,13 @@
 		with $\hat \gamma \leftrightarrow \hat c$ through a unitary map.
 	\end{tabbox}
 	
+	\uncover<2>{
+	
 	\medskip
 	\DownImplication
 	\medskip
 	
-	Each state can be identified \textbf{uniquely} by choosing
+	Each gaussian state can be identified \textbf{uniquely} by fixing
 	\[
 		\Delta_{\alpha\beta}^{+-} = \langle 
 		\hat c_\alpha^\dagger \hat c_\beta
@@ -62,6 +64,8 @@
 	\[
 		\ket{\Psi[\mathbf{v}]} \simeq \ket{\Psi_0} \, .
 	\]
+	
+	}
 
 \end{frame}
 
@@ -74,7 +78,7 @@
 		
 		Phase $X$: shows symmetries $Y$, $Z$ \dots
 		\DownImplication
-		Further constraining of HF subspace to $\mathcal{P} \subset \mathcal{S}$, states with symmetries $Y$, $Z$ \dots
+		Restrict to $\mathcal{P} \subset \mathcal{S}$, gaussian states with symmetries $Y$, $Z$ \dots
 		\DownImplication
 		Reduction of complexity on $\mathbf{v}$.
 		\column{0.37\linewidth}
@@ -83,6 +87,17 @@
 			\resizebox{\columnwidth}{!}{\input{\SectionFolder/sym-subspace}}
 		\end{figure}
 	\end{columns}
+	
+	\vfil
+	
+	\[
+		\text{Identify symmetries}
+		\quad\to\quad
+		\text{Derive $\mathbf{v}$}
+		\quad\to\quad
+		\text{Solve the variational problem.}
+	\]
+	
 \end{frame}
 
 \begin{frame}
@@ -122,7 +137,7 @@
 	It is useful to introduce five spatial symmetry channels:\bigskip
 	
 	\begin{figure}
-		\begin{tikzpicture}[scale=0.8]
+		\begin{tikzpicture}[scale=0.7]
 			\input{\SectionFolder/s-wave-correlator}
 			\begin{scope}[xshift=4.8cm]
 				\input{\SectionFolder/s*-wave-correlator}
@@ -140,4 +155,9 @@
 			\end{scope}
 		\end{tikzpicture}
 	\end{figure}
+	\medskip
+	
+	Function $f$ on NNs: decomposition in harmonics $f^{(\gamma)}$.
+	
+	
 \end{frame}

@@ -2,7 +2,7 @@
 \section{The normal phase}
 
 \begin{frame}
-	\frametitle{The self-consistency problem for the normal phase}
+	\frametitle{The variational problem for the normal phase}
 	\textbf{Normal phase}: no broken symmetries. Just one variational parameter,
 	\[
 		\mathbf{v} = \left[ u^{(s^*)} \right] \, ,
@@ -10,28 +10,18 @@
 	where $u^{(s^*)}$ is the $s^*$-wave component of $u_{\mathbf{k}\sigma} \equiv \ev{\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}}$.
 	\DownImplication
 	
-	\begin{tabbox}[frametitle=Kinetics renormalisation]
+	\begin{tabbox}[frametitle=Renormalisation of kinetics]
 		Hopping amplitude is \textbf{isotropically renormalised},
 		\[
-			t \quad\to\quad \tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)}V}{2} \, .
+			t \quad\to\quad \tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)}V}{2} \, ,
 		\]
-		\DownImplication
-		Renormalisation of electronic bands, $\epsilon_{\mathbf{k}\sigma} \to \tilde{\epsilon}_{\mathbf{k}\sigma}$.
+		with the \textbf{theoretical constraint}:
+		\[
+		0 < \tilde{t}^{(s^*)} < t
+		\quad\implies\quad
+		\text{Possible Mott localisation.}
+		\]
 	\end{tabbox}
-\end{frame}
-
-\begin{frame}	
-	\frametitle{Mott localisation in the normal phase}
-	\textbf{Theoretical constraint}:
-	\[
-	0 < \tilde{t}^{(s^*)} < t
-	\quad\implies\quad
-	\text{\textbf{Flattening} of bands = Mott localisation.}
-	\]
-	\begin{figure}
-		\centering
-		\input{\SectionFolder/bands-shrinking}
-	\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -39,7 +29,7 @@
 	In $(\delta,V)$ plane, we have determined theoretically the presence of a Mott critical boundary $V_\mathrm{c}[\beta,\delta]$,
 	\begin{figure}
 		\centering
-		\subfloat[Numerical results for $\tilde{t}^{(s^*)}$]{
+		\subfloat[Numerical results for $\tilde{t}^{(s^*)}$.]{
 			\includegraphics[height=0.36\linewidth]{../Project/src/labs/normal-mott-plateau/tS(N)-ink.pdf}
 			\label{subfig:normal-tS-data-B128}
 		}
@@ -48,16 +38,22 @@
 			\label{subfig:normal-tS-data-B128-mott}
 		}
 	\end{figure}
-	Within the Mott plateau, electrons are completely localised.
+	Within the Mott plateau, electrons are completely localised and \textbf{bands are flattened}.
 \end{frame}
 
 \begin{frame}
-	\frametitle{The HF solution in the normal phase}
-	The \textbf{normal phase}, summarised:
+	\frametitle{What we found: $V$-induced Mott physics}
+	\begin{tabbox}[frametitle=The original results]
+		\begin{itemize}
+			\item The non-local attraction $-V$ induces Mott localisation by reducing the hopping amplitude;
+			\item We identify a phase boundary for the Mott transition in the $(\delta,V)$ plane.
+		\end{itemize}
+	\end{tabbox}
+	
+	\bigskip
+	
+	\textbf{Remarks}:
 	\begin{itemize}
-		\item Preserves all symmetries of the EHM;
-		\item The HF approximation is \textbf{independent of $U$};
-		\item Presence of $V$-induced Mott localisation and \textbf{bands flattening};
-		\item We identify a Mott transition boundary as we vary the doping level.
+		\item Our solution is independent of $U$, which is generally the source of Mott physics.
 	\end{itemize}
 \end{frame}

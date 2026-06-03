@@ -105,10 +105,13 @@
 		\[
 			U \gg t \, .
 		\]
-		\DownImplication
-		\begin{tabbox}[frametitle=Mott insulation mechanism]
-		Electrons are \textbf{localised} as in a sort of ``traffic jam''.
-		\end{tabbox}
+		\uncover<3>{
+			\vspace{-2em}
+			\DownImplication
+			\begin{tabbox}[frametitle=Mott insulation mechanism]
+			Electrons are \textbf{localised} as in a sort of ``traffic jam''.
+			\end{tabbox}
+		}
 		
 		\column{0.4\linewidth}
 		\begin{figure}
@@ -116,46 +119,11 @@
 			\subfloat{
 				\input{\SectionFolder/local-repulsion}
 			}\\[0.5em]
+			\uncover<3>{
 			\subfloat{
 				\includegraphics[width=\columnwidth]{\SectionFolder/traffico-fipili.jpeg}
-			}
+			}}
 		\end{figure}
-	\end{columns}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Mott physics, antiferromagnetism and $d$-wave superconductivity}
-	How does Mott localisation relate to antiferromagnetism and superconductivity?
-	\begin{columns}[t]
-		\column{0.45\linewidth}		
-		\begin{tabbox}[frametitle=Antiferromagnetism]
-			Mott localisation at half-filling. 
-			\DownImplication
-			Singlet pairing $\leftrightarrow$ AF ordering.
-			\DownImplication
-			HM at strong coupling:
-			\[
-				\hat H_\mathrm{HM} \simeq \frac{4t^2}{U} \sum_{\langle ij \rangle} \hat{\mathbf{S}}_i \cdot \hat{\mathbf{S}}_j + \Delta E \, .
-			\]
-		\end{tabbox}
-		
-		\column{0.45\linewidth}
-		\begin{tabbox}[frametitle=Superconductivity]
-			Condensation of Cooper pairs with $d$-wave spatial structure.
-%			\DownImplication
-%			Order parameter $\psi(\mathbf{r}_1 - \mathbf{r}_2)$: antisymmetric upon $\pi/2$ rotations.
-			\DownImplication
-			\textbf{Suppressed on-site paring}.
-		\end{tabbox}
-		
-%		Phenomenology: we observe $d$-wave superconductivity, i.e. the superconducting gap is anisotropic under $\pi/2$ rotations $\mathcal{R}$,
-%		\begin{multline*}
-%			\left\langle \hat c_{\uparrow\mathbf{r}}^\dagger \hat c_{\downarrow\mathbf{r}+\Delta\mathbf{r}}^\dagger \right\rangle \\
-%			= -\left\langle \hat c_{\uparrow\mathcal{R}\mathbf{r}}^\dagger \hat c_{\downarrow\mathcal{R}(\mathbf{r}+\Delta\mathbf{r})}^\dagger \right\rangle \, .
-%		\end{multline*}
-%		
-%		``Mottness'': \textbf{non-local Cooper pairing}.
-		
 	\end{columns}
 \end{frame}
 
@@ -169,16 +137,19 @@
 			\caption*{Hari Padma et al., 2025. \textbf{Physical Review X 15 (2): 021049}.
 			}
 		\end{figure}
-		\column{0.5\linewidth}
-		Incompatibilities with the spectrum of magnetic excitation in cuprates.
-		\DownImplication
-		Proposal: extension of the model with a \textbf{non-local attraction},
-		\[
-			\hat H_\mathrm{EHM} = \hat H_\mathrm{HM} \underbrace{
-				-V \sum_{\langle ij \rangle} \hat n_i \hat n_j
-			}_{\hat H_V} \, .
-		\]
-		$\hat H_V$ can act \textbf{as a source of $d$-wave superconductivity}.
+		\column{0.5\linewidth} 
+		\textbf{Observed}: the Hubbard model does not reproduce the spectrum of magnetic excitation in certain cuprates.
+		
+		\uncover<2>{
+			\DownImplication
+			Proposal: extension of the model with a \textbf{non-local attraction},
+			\[
+				\hat H_\mathrm{EHM} = \hat H_\mathrm{HM} \underbrace{
+					-V \sum_{\langle ij \rangle} \hat n_i \hat n_j
+				}_{\hat H_V} \, .
+			\]
+			$\hat H_V$ can act \textbf{as a source of $d$-wave superconductivity}.
+		}
 	\end{columns}
 	
 \end{frame}
@@ -205,13 +176,13 @@
 
 	\vspace{1em}
 
-	\textbf{The motivation}: Compatibility with recent experimental findings.
+	\textbf{The motivation}: recent experimental findings.
 	
 	\vspace{1em}
 	
-	\textbf{The idea}: we know that the EHM can host $d$-wave superconductivity. Can we obtain Mott physics?
+	\textbf{The idea}: we know that the EHM can host $d$-wave superconductivity. Can it also produce Mott physics?
 	
 	\vspace{1em}
 	
-	\textbf{The method}: theoretical and numerical Hartree-Fock technique.
+	\textbf{The method}: theoretical and numerical Hartree-Fock technique, investigation of antiferromagnetic and superconducting phases.
 \end{frame}

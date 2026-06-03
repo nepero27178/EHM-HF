@@ -1,7 +1,21 @@
-\section*{Backup slides}
+\section{Backup 1: details on Mott localisation}
+
+\begin{frame}	
+	\frametitle{Bands flattening: a signature of Mott localisation (1/2)}
+	Renormalisation of electronic bands, $\epsilon_{\mathbf{k}\sigma} \to \tilde{\epsilon}_{\mathbf{k}\sigma}$:
+	\[
+	0 < \tilde{t}^{(s^*)} < t
+	\quad\implies\quad
+	\text{\textbf{Flattening} of bands = Mott localisation.}
+	\]
+	\begin{figure}
+		\centering
+		\input{sections/phases/bands-shrinking}
+	\end{figure}
+\end{frame}
 
 \begin{frame}
-	\frametitle{Bands flattening: a signature of Mott localisation}
+	\frametitle{Bands flattening: a signature of Mott localisation (2/2)}
 	\begin{columns}
 		\column{0.4\linewidth}
 		\begin{figure}
@@ -21,6 +35,34 @@
 		Localisation = flattening of bare bands.
 	\end{columns}
 \end{frame}
+
+\begin{frame}
+	\frametitle{Mott physics, antiferromagnetism and $d$-wave superconductivity}
+	
+	\textbf{Mott localisation}: ``electrons avoid being on the same site''. How does this relate to antiferromagnetism and superconductivity?
+	\begin{columns}[t]
+		\column{0.45\linewidth}		
+		\begin{tabbox}[frametitle=Antiferromagnetism]
+			Mott localisation at half-filling. 
+			\DownImplication
+			Singlet pairing $\leftrightarrow$ AF ordering.
+			\DownImplication
+			HM at strong coupling:
+			\[
+			\hat H_\mathrm{HM} \simeq \frac{4t^2}{U} \sum_{\langle ij \rangle} \hat{\mathbf{S}}_i \cdot \hat{\mathbf{S}}_j + \Delta E \, .
+			\]
+		\end{tabbox}
+		
+		\column{0.45\linewidth}
+		\begin{tabbox}[frametitle=Superconductivity]
+			Condensation of Cooper pairs with $d$-wave spatial structure.
+			\DownImplication
+			\textbf{Suppressed on-site paring}.
+		\end{tabbox}
+	\end{columns}
+\end{frame}
+
+\section{Backup 2: details on the HF method}
 
 \begin{frame}
 	\frametitle{The Hartree-Fock method in a nutshell}
