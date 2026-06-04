@@ -1,70 +1,215 @@
 \def\SectionFolder{sections/phases}
+%\section{The antiferromagnetic phase (OLD)}
+%
+%\begin{frame}
+%	\frametitle{Commensurate antiferromagnetism}
+%	
+%	Among all possible realisations of AF ordering,\medskip
+%	
+%	\begin{figure}
+%		\centering
+%		\resizebox{!}{0.45\linewidth}{
+%			\input{\SectionFolder/antiferromagnets.tex}
+%		}
+%	\end{figure}	
+%	\medskip
+%	
+%	\uncover<2>{
+%		we restrict to ``\textbf{commensurate antiferromagnetism}'' (left panel), lowering $\mathrm{SU}(2)$ and $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$.
+%	}
+%	
+%\end{frame}	
+%	
+%\begin{frame}
+%	\frametitle{Antiferromagnetism in the conventional Hubbard model}
+%	\begin{columns}
+%		\column{0.4\linewidth}
+%		
+%			\textbf{Staggered magnetisation} $m$:
+%			\[
+%				2m = \abs{\ev{\hat n_{i\uparrow}} - \ev{\hat n_{i\downarrow}}} \, ,
+%			\]
+%			with $i$ a site.
+%			
+%			\bigskip
+%		
+%			In the HM ($V=0$), the only variational parameter is $m$, controlled by the ratio $U/t$.
+%			\bigskip
+%		\column{0.5\linewidth}
+%		\begin{figure}
+%			\centering
+%			\includegraphics[width=\columnwidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf}
+%			\caption{Numerical results for $m$.}
+%			\label{appfig:mdU-beta=100}
+%		\end{figure}
+%	\end{columns}
+%	\uncover<2>{
+%	\begin{tabbox}[frametitle=Half-filling restriction]
+%		At any finite filling ($\delta \neq 0$) the commensurate AF phase is \textbf{unstable}. We limit to $\delta=0$ (half-filling).
+%	\end{tabbox}
+%	}
+%\end{frame}
+%
+%\begin{frame}
+%	\frametitle{The variational problem for the AF phase}
+%	
+%	Restrictions: commensurate AF phase, at half-filling.\medskip
+%	
+%	\textbf{Variational parameters} for the EHM:
+%	\[
+%		\mathbf{v} = \begin{bmatrix}
+%			m \\ u^{(s^*)}
+%		\end{bmatrix} \, ,
+%	\]
+%	with $u^{(s^*)}$ defined as for the normal phase. \medskip
+%	
+%	\begin{tabbox}[frametitle=Renormalisation of kinetics]
+%		Identical Mott localisation effect:
+%		\[
+%		t \quad\to\quad \tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)}V}{2} \, ,
+%		\]
+%		with the \textbf{theoretical constraint}: $0 < \tilde{t}^{(s^*)} < t$.
+%	\end{tabbox}
+%	
+%\end{frame}
+%
+%\begin{frame}
+%	\frametitle{Mott localisation in the AF phase}
+%	\begin{columns}
+%		\column{0.3\linewidth}
+%					
+%			Effective hopping is:
+%			\begin{itemize}
+%				\item reduced by $V$;
+%				\item \textbf{increased} by $U$.
+%			\end{itemize}
+%			
+%			\medskip
+%			\DownImplication
+%			\medskip
+%			
+%			The two interactions oppose each other.
+%		\column{0.6\linewidth}
+%				\begin{figure}
+%				\centering
+%				\includegraphics[width=\columnwidth]{../Project/src/labs/compare-tS-normal-af/tS(N)+tS(AF)-ink.pdf}
+%				\caption{Comparative plot of $\tilde{t}^{(s^*)}$ for normal and AF phase.}
+%				\label{fig:af-tS-compared}
+%			\end{figure}
+%	\end{columns}
+%\end{frame}
+%
+%\begin{frame}
+%	\frametitle{The Mott enhancement of magnetisation}	
+%	\begin{columns}
+%		\column{0.65\linewidth}
+%		\begin{figure}
+%			\centering
+%			\subfloat{
+%				\includegraphics[width=\columnwidth]{../Project/src/labs/antiferromagnet-iso-heatmaps/af-tS-data-C128.pdf}
+%			}\\
+%			\subfloat{
+%				\includegraphics[width=\columnwidth]{../Project/src/labs/antiferromagnet-iso-heatmaps/af-m-data-C128.pdf}
+%			}
+%			\caption{Numerical results for $\tilde{t}^{(s^*)}$ (top) and $m$ (bottom). The gray curves indicate isovalued lines.}
+%		\end{figure}
+%		\column{0.25\linewidth}
+%		
+%			\uncover<2-4>{
+%				At $U/t \gg V/t$: Coulomb-induced magnetisation.
+%			}
+%			
+%			\bigskip
+%			
+%			\uncover<3-4>{
+%				At $V/t \gg U/t$: \textbf{Mott-induced magnetisation}.
+%			}
+%			
+%			\bigskip
+%			
+%			\uncover<4>{
+%				In the middle: \textbf{cooperation}.
+%			}
+%		
+%	\end{columns}
+%
+%\end{frame}
+%
+%\begin{frame}
+%	\frametitle{What we found: cooperative magnetisation}
+%	\begin{tabbox}[frametitle=The original results]
+%		\begin{itemize}
+%			\item The non-local attraction $-V$ induces Mott localisation by reducing the hopping amplitude;
+%			\item Mott localisation \textbf{enhances magnetisation},
+%			\[
+%			0 < \tilde{t}^{(s^*)} < t
+%			\quad\implies\quad
+%			U/\tilde{t}^{(s^*)} > U/t \, .
+%			\]
+%			In the conventional HM, the ratio $U/t$ governs $m$.
+%		\end{itemize}
+%	\end{tabbox}
+%	
+%	\bigskip
+%	
+%	\textbf{Remarks}:
+%	\begin{itemize}
+%		\item $U$ opposes Mott localisation: Hartree-Fock artifact?
+%		\item $U$ and $V$ cooperate in magnetising the lattice: is there an ''optimal ratio''?
+%	\end{itemize}
+%\end{frame}
+
 \section{The antiferromagnetic phase}
 
 \begin{frame}
-	\frametitle{Commensurate antiferromagnetism}
+	\frametitle{Commensurate antiferromagnetism in cuprates}
 	
-	Among all possible realisations of AF ordering,\medskip
-	
-	\begin{figure}
-		\centering
-		\resizebox{!}{0.45\linewidth}{
-			\input{\SectionFolder/antiferromagnets.tex}
-		}
-	\end{figure}	
-	\medskip
-	
-	\uncover<2>{
-		we restrict to ``\textbf{commensurate antiferromagnetism}'' (left panel), lowering $\mathrm{SU}(2)$ and $\mathrm{T}_1^{(x)} \otimes \mathrm{T}_1^{(y)}$.
-	}
-	
-\end{frame}	
-	
-\begin{frame}
-	\frametitle{Antiferromagnetism in the conventional Hubbard model}
 	\begin{columns}
-		\column{0.4\linewidth}
-		
-			\textbf{Staggered magnetisation} $m$:
-			\[
-				2m = \abs{\ev{\hat n_{i\uparrow}} - \ev{\hat n_{i\downarrow}}} \, ,
-			\]
-			with $i$ a site.
-			
-			\bigskip
-		
-			In the HM ($V=0$), the only variational parameter is the $m$, controlled by the ratio $U/t$.
-			\bigskip
-		\column{0.5\linewidth}
+		\column{0.3\linewidth}
 		\begin{figure}
 			\centering
-			\includegraphics[width=\columnwidth]{../Project/plots/refined/Mode=hs/Phase=AF/Setup=D[256]/Syms=/RB=S/Obj=HFPs/xVar=U_pVar=δ/m_t=1.0_V=0.0_L=256_β=100.0.pdf}
-			\caption{Numerical results for $m$.}
-			\label{appfig:mdU-beta=100}
+			\input{\SectionFolder/commensurate-af.tex}
 		\end{figure}
+		\smallskip
+		
+		\column{0.6\linewidth}
+		In cuprates, the AF phase is \textbf{commensurate}:
+		\begin{itemize}
+			\item $2$-sites periodic in each direction;
+			\item Sublattices oppositely magnetised;
+			\item Zero net magnetisation.
+		\end{itemize}
+		\DownImplication
+		\textbf{Staggered magnetisation} $m$:
+		\[
+		2m = \abs{\ev{\hat n_{i\uparrow}} - \ev{\hat n_{i\downarrow}}} \, ,
+		\]
+		with $i$ a site.
+		
+		
 	\end{columns}
+	
 	\uncover<2>{
-	\begin{tabbox}[frametitle=Half-filling restriction]
-		At any finite filling ($\delta \neq 0$) the commensurate AF phase is \textbf{unstable}. We limit to $\delta=0$ (half-filling).
-	\end{tabbox}
+		\begin{tabbox}[frametitle=Half-filling restriction]
+			We limit to $\delta=0$ (half-filling) due to \textbf{stability considerations}.
+		\end{tabbox}
 	}
+	
 \end{frame}
 
 \begin{frame}
 	\frametitle{The variational problem for the AF phase}
 	
-	Restrictions: commensurate AF phase, at half-filling.\medskip
-	
-	\textbf{Variational parameters} for the EHM:
+	\textbf{Variational parameters} for the AF phase:
 	\[
-		\mathbf{v} = \begin{bmatrix}
-			m \\ u^{(s^*)}
-		\end{bmatrix} \, ,
+	\mathbf{v} = \begin{bmatrix}
+		m \\ u^{(s^*)}
+	\end{bmatrix} \, ,
 	\]
-	with $u^{(s^*)}$ defined as for the normal phase. \medskip
+	with $u^{(s^*)}$ defined as for the normal phase. \bigskip
 	
 	\begin{tabbox}[frametitle=Renormalisation of kinetics]
-		Identical Mott localisation effect:
+		Mott localisation effect \textbf{formally} identical to the normal phase:
 		\[
 		t \quad\to\quad \tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)}V}{2} \, ,
 		\]
@@ -74,59 +219,93 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Mott localisation in the AF phase}
+	\frametitle{The cooperation on magnetisation}
+	
+	\begin{figure}
+		\centering
+		\input{\SectionFolder/magnetisation}
+		\caption{Numerical results for $m$. The gray curves indicate isovalued lines.}
+	\end{figure}
+	
 	\begin{columns}
-		\column{0.3\linewidth}
-			
-			Mott effects are:
-			\begin{itemize}
-				\item Favoured by $V$;
-				\item \textbf{Opposed} by $U$.
-			\end{itemize}
-			\DownImplication
-			Counter-intuitive?
-		\column{0.6\linewidth}
-				\begin{figure}
-				\centering
-				\includegraphics[width=\columnwidth]{../Project/src/labs/compare-tS-normal-af/tS(N)+tS(AF)-ink.pdf}
-				\caption{Comparative plot of $\tilde{t}^{(s^*)}$ for normal and AF phase.}
-				\label{fig:af-tS-compared}
-			\end{figure}
+		\column{0.45\linewidth}
+		\uncover<3>{
+			\begin{tabbox}[frametitle=$U/t \ll V/t$]
+				New ``unconventional'' source of magnetisation, induced by the ratio $V/t$.
+			\end{tabbox}
+		}
+		
+		\column{0.45\linewidth}
+		\uncover<2>{
+			\begin{tabbox}[frametitle=$U/t \gg V/t$]
+				``Conventional'' Hubbard magnetisation, induced by the ratio $U/t$.
+			\end{tabbox}
+		}
 	\end{columns}
+	
 \end{frame}
 
 \begin{frame}
 	\frametitle{The Mott enhancement of magnetisation}	
 	\begin{columns}
-		\column{0.65\linewidth}
+		\column{0.6\linewidth}
 		\begin{figure}
 			\centering
 			\subfloat{
-				\includegraphics[width=\columnwidth]{../Project/src/labs/antiferromagnet-iso-heatmaps/af-tS-data-C128.pdf}
+				\includegraphics[width=\columnwidth]{../Project/src/labs/antiferromagnet-iso-heatmaps/af-m-data-C128.pdf}
 			}\\
 			\subfloat{
-				\includegraphics[width=\columnwidth]{../Project/src/labs/antiferromagnet-iso-heatmaps/af-m-data-C128.pdf}
+				\includegraphics[width=\columnwidth]{../Project/src/labs/antiferromagnet-iso-heatmaps/af-tS-data-C128.pdf}
 			}
-			\caption{Numerical results for $\tilde{t}^{(s^*)}$ (top) and $m$ (bottom). The gray curves indicate isovalued lines.}
+			\caption{Numerical results for $m$ (top) and $\tilde{t}^{(s^*)}$ (bottom). The gray curves indicate isovalued lines.}
 		\end{figure}
-		\column{0.25\linewidth}
-		
-			At $U/t \gg V/t$: Coulomb-induced magnetisation.
+		\column{0.3\linewidth}
+		At low temperature:
+		\[
+			m \simeq \frac{1}{2} - C \left(r^2\right) \, ,
+		\]
+		where $r=\tilde{t}^{(s^*)}/U$, and
+		\[
+			\lim_{r \to 0} C(r) = 0 \, .
+		\]
+		\uncover<2>{
+			\vspace{-1em}
+			\DownImplication\medskip
 			
-			\bigskip
-			
-			\uncover<2-3>{
-				At $V/t \gg U/t$: \textbf{Mott-induced magnetisation}.
-			}
-			
-			\bigskip
-			
-			\uncover<3>{
-				In the middle: \textbf{cooperation}.
-			}
+			To enhance $m$, either:
+			\begin{itemize}
+				\item Increase $U$;
+				\item Decrease $\tilde{t}^{(s^*)}$ .
+			\end{itemize}
+		}
 		
 	\end{columns}
+	
+\end{frame}
 
+\begin{frame}
+	\frametitle{Mott localisation in the AF phase}
+	\begin{columns}
+		\column{0.3\linewidth}
+		
+		Effective hopping is:
+		\begin{itemize}
+			\item reduced by $V$;
+			\item \textbf{increased} by $U$.
+		\end{itemize}
+		
+		\medskip
+		\DownImplication
+		\medskip
+		
+		The two interactions oppose each other.
+		\column{0.6\linewidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\columnwidth]{../Project/src/labs/compare-tS-normal-af/tS(N)+tS(AF)-ink.pdf}
+			\caption{Comparative plot of $\tilde{t}^{(s^*)}$ for normal and AF phase.}
+		\end{figure}
+	\end{columns}
 \end{frame}
 
 \begin{frame}

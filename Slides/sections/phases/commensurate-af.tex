@@ -1,0 +1,24 @@
+\begin{tikzpicture}[
+    site/.style={circle, fill=#1, minimum size=0.3em, outer sep=0pt, inner sep=0pt},
+    up/.style={site=tabblue},
+    down/.style={site=tabred},
+    empty/.style={site=lightgray},
+    arrow/.style={-stealth, line width=1pt, shorten <=2pt, shorten >=2pt},
+]
+
+    \draw[lightgray, dashed] (-0.4,0.4) grid (2.4,-4.4);
+    \foreach \i in {0,...,4} {
+        \foreach \j in {0,...,2} {
+            \pgfmathparse{mod(\i+\j,2)}
+            \ifcase\pgfmathresult
+            	\node[up] (n-\i-\j) at (\j, -\i) {};
+            	\draw[tabblue, arrow, rotate=60] ([shift={(-0.3,0)}]n-\i-\j.center) -- ([shift={(0.3,0)}]n-\i-\j.center);
+            \or
+            	\node[down] (n-\i-\j) at (\j, -\i) {};
+            	\draw[tabred, arrow, rotate=240] ([shift={(-0.3,0)}]n-\i-\j.center) -- ([shift={(0.3,0)}]n-\i-\j.center);
+            \fi
+        }
+    }
+
+\end{tikzpicture}
+% \end{document}
