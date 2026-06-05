@@ -230,14 +230,14 @@
 	\begin{columns}
 		\column{0.45\linewidth}
 		\uncover<3>{
-			\begin{tabbox}[frametitle=$U/t \ll V/t$]
+			\begin{tabbox}[frametitle={$V \gg U,t$}]
 				New ``unconventional'' source of magnetisation, induced by the ratio $V/t$.
 			\end{tabbox}
 		}
 		
 		\column{0.45\linewidth}
 		\uncover<2>{
-			\begin{tabbox}[frametitle=$U/t \gg V/t$]
+			\begin{tabbox}[frametitle={$U \gg V,t$}]
 				``Conventional'' Hubbard magnetisation, induced by the ratio $U/t$.
 			\end{tabbox}
 		}
@@ -262,20 +262,16 @@
 		\column{0.3\linewidth}
 		At low temperature:
 		\[
-			m \simeq \frac{1}{2} - C \left(r^2\right) \, ,
+			m \simeq \frac{1}{2} + \mathcal{O} \left(r^2\right) \, ,
 		\]
-		where $r=\tilde{t}^{(s^*)}/U$, and
-		\[
-			\lim_{r \to 0} C(r) = 0 \, .
-		\]
+		where $r=\tilde{t}^{(s^*)}/U$.
 		\uncover<2>{
-			\vspace{-1em}
-			\DownImplication\medskip
+			\medskip\DownImplication\medskip
 			
 			To enhance $m$, either:
 			\begin{itemize}
 				\item Increase $U$;
-				\item Decrease $\tilde{t}^{(s^*)}$ .
+				\item \textbf{Decrease} $\tilde{t}^{(s^*)}$ .
 			\end{itemize}
 		}
 		
@@ -312,14 +308,13 @@
 	\frametitle{What we found: cooperative magnetisation}
 	\begin{tabbox}[frametitle=The original results]
 		\begin{itemize}
-			\item The non-local attraction $-V$ induces Mott localisation by reducing the hopping amplitude;
+			\item Mott localisation induced by $-V$;
 			\item Mott localisation \textbf{enhances magnetisation},
 			\[
 			0 < \tilde{t}^{(s^*)} < t
 			\quad\implies\quad
 			U/\tilde{t}^{(s^*)} > U/t \, .
 			\]
-			In the conventional HM, the ratio $U/t$ governs $m$.
 		\end{itemize}
 	\end{tabbox}
 	
@@ -328,6 +323,5 @@
 	\textbf{Remarks}:
 	\begin{itemize}
 		\item $U$ opposes Mott localisation: Hartree-Fock artifact?
-		\item $U$ and $V$ cooperate in magnetising the lattice: is there an ''optimal ratio''?
 	\end{itemize}
 \end{frame}
