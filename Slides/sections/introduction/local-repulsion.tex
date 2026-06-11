@@ -1,4 +1,10 @@
-\resizebox{0.9\columnwidth}{!}{\begin{tikzpicture}
+\resizebox{0.9\columnwidth}{!}{\begin{tikzpicture}[
+		site/.style={circle, fill=#1, minimum size=0.3em, outer sep=0pt, inner sep=0pt},
+		up/.style={site=tabblue},
+		down/.style={site=tabred},
+		empty/.style={site=lightgray},
+		arrow/.style={-stealth, line width=1pt, shorten <=2pt, shorten >=2pt},
+		]
 	\draw[color=lightgray]
 		(-0.3,-0.3) grid (4.3,2.3);
 		
@@ -6,31 +12,93 @@
 		\foreach \y in {0,1,2} {
 			\draw[color=lightgray]
 				(\x,\y) circle (5pt);
-				
-			\only<1>{
-				\fill[color=tabblue]
-					({\x+0.05,\y+0.05}) circle (1.5pt);
-			}	
-			
-			\only<2-3>{
-				
-			\node[anchor=south west,color=tabred] at (3,1)
-				{$+U$};			
-			
-			\if\x2
-				\if\y1
-					\fill[color=tabblue]
-					({\x+0.95,\y-0.05}) circle (1.5pt);
-				\else
-					\fill[color=tabblue]
-					({\x+0.05,\y+0.05}) circle (1.5pt);
-				\fi
-			\else
-				\fill[color=tabblue]
-					({\x+0.05,\y+0.05}) circle (1.5pt);
-			\fi
-			}
+					
+%			\only<1>{	
+%				\fill[color=tabblue]
+%					({\x+0.05,\y+0.05}) circle (1.5pt);
+%			}	
+%			
+%			\only<2-3>{
+%				
+%			\node[anchor=south west,color=tabred] at (3,1)
+%				{$+U$};			
+%			
+%			\if\x2
+%				\if\y1
+%					\fill[color=tabblue]
+%					({\x+0.95,\y-0.05}) circle (1.5pt);
+%				\else
+%					\fill[color=tabblue]
+%					({\x+0.05,\y+0.05}) circle (1.5pt);
+%				\fi
+%			\else
+%				\fill[color=tabblue]
+%					({\x+0.05,\y+0.05}) circle (1.5pt);
+%			\fi
+%			}
 		}
+	}
+	
+	% DOWN SITES
+	\node[down] (n00) at (0,0) {};
+	\draw[tabred, arrow, rotate=60] ([shift={(-0.3,0)}]n00.center) -- ([shift={(0.3,0)}]n00.center);
+	
+	\node[down] (n30) at (3,0) {};
+	\draw[tabred, arrow, rotate=60] ([shift={(-0.3,0)}]n30.center) -- ([shift={(0.3,0)}]n30.center);
+	
+	\node[down] (n40) at (4,0) {};
+	\draw[tabred, arrow, rotate=60] ([shift={(-0.3,0)}]n40.center) -- ([shift={(0.3,0)}]n40.center);
+	
+	\node[down] (n41) at (4,1) {};
+	\draw[tabred, arrow, rotate=60] ([shift={(0.3,0)}]n41.center) -- ([shift={(-0.3,0)}]n41.center);
+	
+	\node[down] (n12) at (1,2) {};
+	\draw[tabred, arrow, rotate=60] ([shift={(0.3,0)}]n12.center) -- ([shift={(-0.3,0)}]n12.center);
+	
+	\node[down] (n22) at (2,2) {};
+	\draw[tabred, arrow, rotate=60] ([shift={(0.3,0)}]n22.center) -- ([shift={(-0.3,0)}]n22.center);
+	
+	% UP SITES
+	\node[up] (n10) at (1,0) {};
+	\draw[tabblue, arrow, rotate=60] ([shift={(-0.3,0)}]n10.center) -- ([shift={(0.3,0)}]n10.center);
+	
+	\node[up] (n20) at (2,0) {};
+	\draw[tabblue, arrow, rotate=60] ([shift={(-0.3,0)}]n20.center) -- ([shift={(0.3,0)}]n20.center);
+
+	\node[up] (n01) at (0,1) {};
+	\draw[tabblue, arrow, rotate=60] ([shift={(-0.3,0)}]n01.center) -- ([shift={(0.3,0)}]n01.center);
+	
+	\node[up] (n31) at (3,1) {};
+	\draw[tabblue, arrow, rotate=60] ([shift={(-0.3,0)}]n31.center) -- ([shift={(0.3,0)}]n31.center);
+	
+	\node[up] (n02) at (0,2) {};
+	\draw[tabblue, arrow, rotate=60] ([shift={(-0.3,0)}]n02.center) -- ([shift={(0.3,0)}]n02.center);
+	
+	\node[up] (n32) at (3,2) {};
+	\draw[tabblue, arrow, rotate=60] ([shift={(-0.3,0)}]n32.center) -- ([shift={(0.3,0)}]n32.center);
+	
+	\node[up] (n42) at (4,2) {};
+	\draw[tabblue, arrow, rotate=60] ([shift={(-0.3,0)}]n42.center) -- ([shift={(0.3,0)}]n42.center);
+	
+	\only<1>{
+		\node[down] (n11) at (1,1) {};
+		\draw[tabred, arrow, rotate=60] ([shift={(0.3,0)}]n11.center) -- ([shift={(-0.3,0)}]n11.center);
+		
+		\node[up] (n21) at (2,1) {};
+		\draw[tabblue, arrow, rotate=60] ([shift={(-0.3,0)}]n21.center) -- ([shift={(0.3,0)}]n21.center);
+	}
+	\only<2->{		
+		\node[down] (D) at (2-0.05,1+0.05) {};
+		\draw[tabred, arrow, rotate=60] ([shift={(0.3,0)}]D.center) -- ([shift={(-0.3,0)}]D.center);
+		
+		\node[up] (U) at (2+0.05,1-0.05) {};
+		\draw[tabblue, arrow, rotate=60] ([shift={(-0.3,0)}]U.center) -- ([shift={(0.3,0)}]U.center);
+		
+		\draw[color=tabgreen,dashed,-stealth] (n01) to [bend right=45] (n11);
+		
+		\node[color=tabgreen,font=\footnotesize,anchor=north] at (0.5,0.75) {$-t$};
+		
+		\node[color=black,font=\footnotesize,anchor=south west] at (2.1,1.1) {$+U$};
 	}
 	
 \end{tikzpicture}}

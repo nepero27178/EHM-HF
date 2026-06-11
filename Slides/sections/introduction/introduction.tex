@@ -109,7 +109,7 @@
 		\[
 			U \gg t \, ,
 		\]
-		can describe \textbf{Mott insulation}.
+		can describe the \textbf{Mott insulator} state.
 		\uncover<3>{
 			\DownImplication
 			\begin{tabbox}[frametitle=Mott insulation mechanism]
@@ -129,6 +129,43 @@
 			}}
 		\end{figure}
 	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Antiferromagnetism in the undoped Hubbard model}
+	\begin{columns}
+		\column{0.5\linewidth}
+			On the $2$-sites Hubbard model with $2$ electrons, at $U \gg t$, singlet pairing is energetically favoured:
+			\begin{figure}
+				\centering
+				\input{\SectionFolder/splitting}
+			\end{figure}
+		\column{0.4\linewidth}
+		\uncover<2>{
+			\begin{tabbox}[frametitle=Extension to $N$ sites]
+				On the square lattice, AF ordering is favourite:
+				\begin{figure}
+					\centering
+					\input{sections/phases/commensurate-af.tex}
+				\end{figure}
+			\end{tabbox}
+		}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{$d$-wave superconductivity in the doped Hubbard model}
+	
+	Superconductivity emerges from attractive interactions between electrons.
+	\begin{columns}
+		\column{0.3\linewidth}
+			\begin{figure}
+				\centering
+				\input{\SectionFolder/dwave-cartoon}
+			\end{figure}
+		\column{0.6\linewidth}
+	\end{columns}
+	
 \end{frame}
 
 \begin{frame}
@@ -152,7 +189,7 @@
 					-V \sum_{\langle ij \rangle} \hat n_i \hat n_j
 				}_{\hat H_V} \, .
 			\]
-			$\hat H_V$ can act \textbf{as a source of $d$-wave superconductivity}.
+			$\hat H_V$ can act \textbf{as an independent source of $d$-wave superconductivity}.
 		}
 	\end{columns}
 	
@@ -188,5 +225,5 @@
 	
 	\vspace{1em}
 	
-	\textbf{The method}: theoretical and numerical Hartree-Fock method, at low temperature.
+	\textbf{The method}: Hartree-Fock variational method, at low temperature.
 \end{frame}
