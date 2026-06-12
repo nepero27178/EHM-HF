@@ -10,7 +10,7 @@
 	\draw[thick] (0,0) -- (1,0)
 		node[midway,anchor=south,align=center,font=\footnotesize] {Singly\\occupied\\states};
 		
-	\uncover<2->{
+	\uncover<3->{
 		\draw[very thin,dashed] (1,0) -- ++ (0.75,0);
 		\draw[thick] (1.75,0) -- ++ (1,0)
 			node[midway,anchor=south,align=center,font=\footnotesize] {Triplet};
@@ -25,12 +25,94 @@
 	\draw[thick] (0,2) -- (1,2)
 		node[midway,anchor=south,align=center,font=\footnotesize] {Doubly\\occupied\\states};
 		
+	\uncover<2>{
+		
+		% DOUBLE
+		
+		\draw[lightgray] (2,2) -- (2.5,2);
+		
+		\node[double] (2-1double) at (2,2) {};
+		\draw[tabblue, arrow] ([shift={(-0.1,-0.25)}]2-1double.center) -- ([shift={(-0.1,0.25)}]2-1double.center);
+		
+		\draw[tabred, arrow] ([shift={(0.1,0.25)}]2-1double.center) -- ([shift={(0.1,-0.25)}]2-1double.center);
+		
+		\node[empty] (2-1double) at (2.5,2) {};
+		
+		% ---
+		
+		\node at (2.75,1.95) {,};
+		
+		% ---
+		
+		\draw[lightgray] (3,2) -- (3.5,2);
+		
+		\node[empty] (5-1empty) at (3,2) {};
+		
+		\node[double] (5-2double) at (3.5,2) {};
+		\draw[tabblue, arrow] ([shift={(-0.1,-0.25)}]5-2double.center) -- ([shift={(-0.1,0.25)}]5-2double.center);
+		
+		\draw[tabred, arrow] ([shift={(0.1,0.25)}]5-2double.center) -- ([shift={(0.1,-0.25)}]5-2double.center);
+		
+		% SINGLE
+		
+		\draw[lightgray] (2,0) -- (2.5,0);
+		
+		\node[up] (1-1up) at (2,0) {};
+		\draw[tabblue, arrow] ([shift={(0,-0.25)}]1-1up.center) -- ([shift={(0,0.25)}]1-1up.center);
+		
+		\node[up] (1-2up) at (2.5,0) {};
+		\draw[tabblue, arrow] ([shift={(0,-0.25)}]1-2up.center) -- ([shift={(0,0.25)}]1-2up.center);
+		
+		% ---
+		
+		\node at (2.75,-0.05) {,};
+		
+		% ---
+		
+		\draw[lightgray] (3,0) -- (3.5,0);
+		
+		\node[up] (3-1up) at (3,0) {};
+		\draw[tabblue, arrow] ([shift={(0,-0.25)}]3-1up.center) -- ([shift={(0,0.25)}]3-1up.center);
+		
+		\node[down] (3-2down) at (3.5,0) {};
+		\draw[tabred, arrow] ([shift={(0,0.25)}]3-2down.center) -- ([shift={(0,-0.25)}]3-2down.center);
+		
+		% ---
+		
+		\node at (3.75,-0.05) {,};
+		
+		% ---
+		
+		\draw[lightgray] (2,-0.75) -- (2.5,-0.75);
+		
+		\node[down] (4-1down) at (2,-0.75) {};
+		\draw[tabred, arrow] ([shift={(0,0.25)}]4-1down.center) -- ([shift={(0,-0.25)}]4-1down.center);
+		
+		\node[up] (4-2up) at (2.5,-0.75) {};
+		\draw[tabblue, arrow] ([shift={(0,-0.25)}]4-2up.center) -- ([shift={(0,0.25)}]4-2up.center);
+		
+		% ---
+		
+		\node at (2.75,-0.8) {,};
+		
+		% ---
+		
+		\draw[lightgray] (3,-0.75) -- (3.5,-0.75);
+		
+		\node[down] (6-1down) at (3,-0.75) {};	
+		\draw[tabred, arrow] ([shift={(0,0.25)}]6-1down.center) -- ([shift={(0,-0.25)}]6-1down.center);
+		
+		\node[down] (6-2down) at (3.5,-0.75) {};
+		\draw[tabred, arrow] ([shift={(0,0.25)}]6-2down.center) -- ([shift={(0,-0.25)}]6-2down.center);
+		
+	}
+		
 	\draw[stealth-stealth] (-0.25,0) -- (-0.25,2)
 		node[midway,anchor=east,font=\footnotesize] {$U$};
 	
 	% SINGLET
 	
-	\uncover<3->{
+	\uncover<4->{
 		
 		\draw[-stealth] (2.25,-0.9) -- ++ (0,-0.3);
 		

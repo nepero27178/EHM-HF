@@ -99,16 +99,27 @@
 \end{frame}
 
 \begin{frame}
+	\frametitle{Hubbard physics and cuprates}
+	
+	Despite its simplicity, the Hubbard model describes:
+	\begin{itemize}
+		\item Insulation at half-filling (\textbf{Mott localisation});
+		\item \textbf{Antiferromagnetism} induced by Mott localisation;
+		\item \textbf{$d$-wave superconductivity} emerging by doping the antiferromagnetic phase.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
 	\frametitle{Mott localisation: a many-body insulator}
 	\begin{columns}
 		\column{0.5\linewidth}
-		\textbf{What is the origin of the insulation mechanism?}\medskip
+		\textbf{What is the origin of the insulating state at half-filling?}\medskip
 		
-		The strongly coupled Hubbard model,
+		The Hubbard model at strong coupling,
 		\[
 			t \ll U \, ,
 		\]
-		can describe the \textbf{Mott insulator} state.
+		describes the \textbf{Mott insulator} state.
 		\uncover<3>{
 			\DownImplication
 			\begin{tabbox}[frametitle=Mott insulation mechanism]
@@ -133,32 +144,34 @@
 \begin{frame}
 	\frametitle{Antiferromagnetism in the undoped Hubbard model}
 	\begin{columns}
-		\column{0.5\linewidth}
-			On the $2$-sites Hubbard model with $2$ electrons, at $U \gg t$, singlet pairing is energetically favoured:
+		\column{0.3\linewidth}
+			\textbf{What is the origin of the antiferromagnetic ordering?}
+			
 			\begin{figure}
 				\centering
-				\input{\SectionFolder/splitting}
-			\end{figure}
-		\column{0.4\linewidth}
-		\uncover<4>{
-			\begin{tabbox}[frametitle=Extension to $N$ sites]
-				On the square lattice, AF ordering is favourite:
-				\begin{figure}
-					\centering
-					\input{sections/phases/commensurate-af.tex}
-				\end{figure}
-			\end{tabbox}
-		}
+				\input{sections/phases/commensurate-af.tex}
+		\end{figure}
+		\column{0.6\linewidth}
+			\uncover<2->{
+				\begin{tabbox}[frametitle={Example: $2$ sites, $2$ electrons}]
+					At $U \gg t$, singlet pairing is energetically favoured:
+					\begin{figure}
+						\centering
+						\input{\SectionFolder/splitting}
+					\end{figure}
+				\end{tabbox}
+			}
 	\end{columns}
 \end{frame}
 
 \begin{frame}
 	\frametitle{$d$-wave superconductivity in the doped Hubbard model}
 	
-	How does superconductivity emerge from doping the AF state in the Hubbard model?\medskip
+	\textbf{How does superconductivity emerge from doping the AF state in the Hubbard model?}\medskip
 	
 	\begin{columns}
 		\column{0.3\linewidth}
+			\vspace{0.22em}
 			\begin{figure}
 				\centering
 				\input{\SectionFolder/dwave-cartoon}
@@ -169,7 +182,7 @@
 			\uncover<5->{
 				Neighbouring electrons with opposite spin ``move together'':
 				\DownImplication
-				\textbf{Effective} attractive interaction.
+				\textbf{Effective} attractive interaction\dots \only<6>{favoured by doping.}
 				
 			}
 	\end{columns}
