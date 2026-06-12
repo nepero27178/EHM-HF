@@ -44,18 +44,17 @@
 		\column{0.45\linewidth}
 		\begin{itemize}
 			\item \textbf{Antiferromagnetism} at null and low doping;
-			\item \textbf{$d$-wave superconducting} domes;
-			\item \textbf{Strange metals} above critical temperatures.
+			\item \textbf{$d$-wave superconducting} domes.
 		\end{itemize}
-		All arise from \textbf{strong electronic correlations}.\smallskip
+		Both arise from \textbf{strong electronic correlations}.\smallskip
 		
 		\DownImplication\smallskip
 		
-		Failure of band theory in describing the insulation mechanism.
+		Failure of band theory in microscopic description.
 		\column{0.45\linewidth}
 		\begin{figure}
 			\includegraphics[width=\columnwidth]{\SectionFolder/phase-diagram.pdf}
-			\caption*{Schematic phase diagram of cuprates. Author: Holger Motzkau, \hyperlink{https://commons.wikimedia.org/w/index.php?curid=27862441}{Wikimedia commons}, CC BY-SA 3.0.}
+			\caption*{Schematic phase diagram of cuprates. Author: Holger Motzkau, \hyperlink{https://commons.wikimedia.org/w/index.php?curid=27862441}{Wikimedia commons}, distributed according to \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{the license CC BY-SA 4.0}}
 		\end{figure}
 	\end{columns}
 \end{frame}
@@ -107,7 +106,7 @@
 		
 		The strongly coupled Hubbard model,
 		\[
-			U \gg t \, ,
+			t \ll U \, ,
 		\]
 		can describe the \textbf{Mott insulator} state.
 		\uncover<3>{
@@ -141,7 +140,7 @@
 				\input{\SectionFolder/splitting}
 			\end{figure}
 		\column{0.4\linewidth}
-		\uncover<2>{
+		\uncover<4>{
 			\begin{tabbox}[frametitle=Extension to $N$ sites]
 				On the square lattice, AF ordering is favourite:
 				\begin{figure}
@@ -156,7 +155,8 @@
 \begin{frame}
 	\frametitle{$d$-wave superconductivity in the doped Hubbard model}
 	
-	Superconductivity emerges from attractive interactions between electrons.
+	How does superconductivity emerge from doping the AF state in the Hubbard model?\medskip
+	
 	\begin{columns}
 		\column{0.3\linewidth}
 			\begin{figure}
@@ -164,6 +164,14 @@
 				\input{\SectionFolder/dwave-cartoon}
 			\end{figure}
 		\column{0.6\linewidth}
+			Superconductivity emerges from attractive interaction between electrons.\bigskip
+			
+			\uncover<5->{
+				Neighbouring electrons with opposite spin ``move together'':
+				\DownImplication
+				\textbf{Effective} attractive interaction.
+				
+			}
 	\end{columns}
 	
 \end{frame}

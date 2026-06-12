@@ -9,50 +9,56 @@
 	
 	\draw[thick] (0,0) -- (1,0)
 		node[midway,anchor=south,align=center,font=\footnotesize] {Singly\\occupied\\states};
-	\draw[very thin,dashed] (1,0) -- ++ (0.75,0);
-	\draw[thick] (1.75,0) -- ++ (1,0)
-		node[midway,anchor=south,align=center,font=\footnotesize] {Triplet};
-	\draw[very thin,dashed] (1,0) -- ++ (0.75,-0.8);
-	\draw[thick] (1.75,-0.8) -- ++ (1,0)
-		node[midway,anchor=south,align=center,font=\footnotesize] {Singlet};
+		
+	\uncover<2->{
+		\draw[very thin,dashed] (1,0) -- ++ (0.75,0);
+		\draw[thick] (1.75,0) -- ++ (1,0)
+			node[midway,anchor=south,align=center,font=\footnotesize] {Triplet};
+		\draw[very thin,dashed] (1,0) -- ++ (0.75,-0.8);
+		\draw[thick] (1.75,-0.8) -- ++ (1,0)
+			node[midway,anchor=south,align=center,font=\footnotesize] {Singlet};
+			
+		\draw[stealth-stealth] (3,-0.8) -- (3,0)
+			node[midway,anchor=west,font=\footnotesize] {$\displaystyle \frac{4t^2}{U}$};
+	}
 	
 	\draw[thick] (0,2) -- (1,2)
 		node[midway,anchor=south,align=center,font=\footnotesize] {Doubly\\occupied\\states};
 		
 	\draw[stealth-stealth] (-0.25,0) -- (-0.25,2)
 		node[midway,anchor=east,font=\footnotesize] {$U$};
-		
-	\draw[stealth-stealth] (3,-0.8) -- (3,0)
-		node[midway,anchor=west,font=\footnotesize] {$\displaystyle \frac{4t^2}{U}$};
-		
-	\draw[-stealth] (2.25,-0.9) -- ++ (0,-0.3);
 	
 	% SINGLET
 	
-	\node[anchor=center] at (1,-1.5) {$\displaystyle \Big|$};
-	\node[anchor=center] at (2,-1.5) {$\displaystyle \Big\rangle$};
-	
-	\draw[lightgray] (1.25,-1.5) -- (1.75,-1.5);
-	
-	\node[up] (3-1up) at (1.25,-1.5) {};
-	\draw[tabblue, arrow] ([shift={(0,-0.3)}]3-1up.center) -- ([shift={(0,0.3)}]3-1up.center);
-	
-	\node[down] (3-2down) at (1.75,-1.5) {};
-	\draw[tabred, arrow] ([shift={(0,0.3)}]3-2down.center) -- ([shift={(0,-0.3)}]3-2down.center);
-	
-	\node[anchor=center] at (2.5,-1.5) {$\displaystyle \Big|$};
-	\node[anchor=center] at (3.5,-1.5) {$\displaystyle \Big\rangle$};
-	
-	\draw[lightgray] (2.75,-1.5) -- (3.25,-1.5);
-	
-	\node[down] (4-1down) at (2.75,-1.5) {};
-	\draw[tabred, arrow] ([shift={(0,0.3)}]4-1down.center) -- ([shift={(0,-0.3)}]4-1down.center);
-	
-	\node[up] (4-2up) at (3.25,-1.5) {};
-	\draw[tabblue, arrow] ([shift={(0,-0.3)}]4-2up.center) -- ([shift={(0,0.3)}]4-2up.center);
-	
-	\node at (2.25,-1.5) {$-$};
-	\node at (2.25,-2.1) {$\sqrt{2}$};
-	\draw (1,-1.85) -- (3.6,-1.85);
+	\uncover<3->{
+		
+		\draw[-stealth] (2.25,-0.9) -- ++ (0,-0.3);
+		
+		\node[anchor=center] at (1,-1.5) {$\displaystyle \Big|$};
+		\node[anchor=center] at (2,-1.5) {$\displaystyle \Big\rangle$};
+		
+		\draw[lightgray] (1.25,-1.5) -- (1.75,-1.5);
+		
+		\node[up] (3-1up) at (1.25,-1.5) {};
+		\draw[tabblue, arrow] ([shift={(0,-0.3)}]3-1up.center) -- ([shift={(0,0.3)}]3-1up.center);
+		
+		\node[down] (3-2down) at (1.75,-1.5) {};
+		\draw[tabred, arrow] ([shift={(0,0.3)}]3-2down.center) -- ([shift={(0,-0.3)}]3-2down.center);
+		
+		\node[anchor=center] at (2.5,-1.5) {$\displaystyle \Big|$};
+		\node[anchor=center] at (3.5,-1.5) {$\displaystyle \Big\rangle$};
+		
+		\draw[lightgray] (2.75,-1.5) -- (3.25,-1.5);
+		
+		\node[down] (4-1down) at (2.75,-1.5) {};
+		\draw[tabred, arrow] ([shift={(0,0.3)}]4-1down.center) -- ([shift={(0,-0.3)}]4-1down.center);
+		
+		\node[up] (4-2up) at (3.25,-1.5) {};
+		\draw[tabblue, arrow] ([shift={(0,-0.3)}]4-2up.center) -- ([shift={(0,0.3)}]4-2up.center);
+		
+		\node at (2.25,-1.5) {$-$};
+		\node at (2.25,-2.1) {$\sqrt{2}$};
+		\draw (1,-1.85) -- (3.6,-1.85);
+	}
 		
 \end{tikzpicture}
