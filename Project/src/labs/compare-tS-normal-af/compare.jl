@@ -36,7 +36,7 @@ end
 Sim = Simulation(DF_N,Setup,Phase,Syms,RB)
 EnlargeDF!(Sim)
 
-H = Figure(size=(800,650),figure_padding=1)
+H = Figure(size=(850,650),figure_padding=1)
 ax = Axis3(
 	H[1,1],
 	xlabel = L"$U$",

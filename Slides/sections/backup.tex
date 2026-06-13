@@ -146,3 +146,83 @@
 	\]
 	with $\Delta \mathbf{v}$ the vector of tolerances.
 \end{frame}
+
+\section{Backup 3: Mott localisation in AF and SC phases}
+
+\begin{frame}
+	\frametitle{Mott localisation in the AF phase}
+	\begin{columns}
+			\column{0.3\linewidth}
+			
+			Effective hopping is:
+			\begin{itemize}
+					\item reduced by $V$;
+					\item \textbf{increased} by $U$.
+				\end{itemize}
+			
+			\medskip
+			\DownImplication
+			\medskip
+			
+			The two interactions ``oppose'' each other.
+			\column{0.6\linewidth}
+			\begin{figure}
+					\centering
+					\includegraphics[width=\columnwidth]{../Project/src/labs/compare-tS-normal-af/tS(N)+tS(AF)-ink.pdf}
+					\caption{Comparative plot of $\tilde{t}^{(s^*)}$ for normal and AF phase.}
+				\end{figure}
+		\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mott localisation in the SC phase}
+	
+	\begin{columns}
+			\column{0.6\linewidth}
+			\begin{figure}
+					\centering
+					\includegraphics[width=\columnwidth]{../Project/src/labs/compare-tS-normal-sc/tS(N)+tS(SC)-ink.pdf}
+					\caption{Comparative plot of the converged values for $\tilde{t}^{(s^*)}$ for the normal phase and the SC phase.}
+				\end{figure}
+			\column{0.3\linewidth}
+			Isotropic hopping renormalisation:
+			\[
+			\tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)}V}{2} \, .
+			\]
+			Formally identical to normal and AF phases.
+		\end{columns}
+	\bigskip
+	
+	The effective hopping is mainly isotropic:
+	\[
+		\big| \tilde{t}^{(s^*)} \big| \gg \big| \tilde{t}^{(d)} \big| \, .
+	\]
+	
+\end{frame}
+
+\section{Backup 4: energetic competition between AF and SC phases}
+
+\begin{frame}
+	\frametitle{The AF-SC phase boundary}
+	
+	\begin{columns}
+		\column{0.5\linewidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\columnwidth]{/home/nepero27178/Thesis/EHM-HF/Project/src/labs/compare-f-af-sc/f(AF)-f(SC)-ink.pdf}
+				\caption{Energy difference: SC versus AF phase.}
+			\end{figure}
+		\column{0.4\linewidth}
+			By computing the free energy difference,
+			\[
+				f^{(\mathrm{AF})} -  f^{(\mathrm{SC})} \, ,
+			\]
+			we identify a phase boundary. Possibly a critical ratio
+			\[
+				\left(\frac{V}{U}\right)_\mathrm{c} = k 
+			\]
+			exists?
+	\end{columns}\bigskip
+	
+	The SC phase is dominant when $V \gg U,t$, the AF phase when $U \gg V,t$.
+\end{frame}

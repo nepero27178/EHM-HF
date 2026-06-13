@@ -3,25 +3,31 @@
 \begin{frame}
 	\frametitle{The translationally invariant SC phase}
 	
-	\textbf{SC phase}: breaking of charge conservation. \medskip
+	Cooper pairing:
+	\begin{itemize}
+		\item Described by a SC gap $\tilde{\Delta}_{ij}$, roughly the ``binding energy'' of the pairs;
+		\item The pair spin obeys sum rules:
+		\[
+			\frac 1 2 \otimes \frac 1 2 = 
+				\only<1>{0}
+				\only<2->{\mathbf{0}} 
+			\oplus 1 = 
+				\only<1>{\text{singlet}}
+				\only<2->{\text{\bfseries singlet}} 
+			\oplus \text{triplet.}
+		\]
+	\end{itemize}
 	
-	Cooper pairing $\implies$ SC gap, roughly the ``binding energy'' of the pairs.
-	\bigskip
+	\uncover<2->{
+		\DownImplication
 	
-	\begin{tabbox}[frametitle=Gap symmetries and Cooper pairing channels]
-		The gap is a function of momentum with harmonics $\tilde{\Delta}^{(\gamma)}$.
-		\begin{itemize}
-			\item \textbf{Singlet channel}: symmetric components, 
+		\begin{tabbox}[frametitle=The singlet channel]
+			The gap function is inversion symmetric, i.e. its harmonics are
 			\[
 				\tilde{\Delta}^{(s)} \, , \quad \tilde{\Delta}^{(s^*)}\qq{and} \tilde{\Delta}^{(d)} \, .
 			\]
-			\item \textbf{Triplet channel}: antisymmetric components,
-			\[
-				\tilde{\Delta}^{(p_x)}\qq{and} \tilde{\Delta}^{(p_y)} \, .
-			\]
-		\end{itemize}
-		
-	\end{tabbox}
+		\end{tabbox}
+	}
 \end{frame}
 
 \begin{frame}
@@ -29,7 +35,7 @@
 	
 	We limit to the \textbf{singlet channel}. Let the quantities:
 	\[
-		u_\mathbf{k} \equiv \ev{\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}}
+		u_{\mathbf{k}\sigma} \equiv \ev{\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}}
 		\, , \quad
 		w_\mathbf{k} \equiv \ev{\hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{-\mathbf{k}\downarrow}^\dagger} \, .
 	\]
@@ -50,6 +56,32 @@
 \end{frame}
 
 \begin{frame}
+	\frametitle{The competition among gap components}
+	
+	Isotropic gap components:
+	\[
+	\begin{aligned}
+		\tilde{\Delta}^{(s^*)} &= Vw^{(s^*)} 
+		\qquad\text{(Mediated by the isotropic non-local attraction)}\\
+		\tilde{\Delta}^{(s)} &= -Uw^{(s)} \qquad\text{(Mediated by the \textbf{local repulsion})}
+	\end{aligned}
+	\]
+	Anisotropic gap component:
+	\[
+		\tilde{\Delta}^{(d)} = Vw^{(d)} 
+		\qquad\text{(Mediated by the isotropic non-local attraction)}
+	\]
+	
+	\uncover<2->{
+		\begin{figure}
+			\centering
+			\includegraphics[width=\columnwidth]{../Project/src/labs/superconductor-boundary/w-U=[0.0, 4.0, 12.0]-solid.pdf}
+			\caption{Phase diagram for the SC phase.}
+		\end{figure}}
+	
+\end{frame}
+
+\begin{frame}
 	\frametitle{The nematic order parameter}
 	
 	In the SC phase, the renormalisation of $t$ gives two components,
@@ -59,7 +91,7 @@
 	\,\qq{and}\,
 	\tilde{t}^{(d)} \equiv - \frac{u^{(d)} V}{2} \, .
 	\]
-	\begin{columns}
+	\uncover<2->{\begin{columns}
 		\column{0.4\linewidth}
 		\begin{figure}
 			\centering
@@ -75,7 +107,7 @@
 			\DownImplication
 			$\tilde{t}^{(d)} \neq 0 \implies$ \textbf{nematic SSB}.
 		\end{tabbox}
-	\end{columns}
+	\end{columns}}
 	
 \end{frame}
 
@@ -123,32 +155,6 @@
 	\end{figure}
 	
 \end{frame}
-
-%\begin{frame}
-%	\frametitle{Mott localisation in the SC phase}
-%	
-%	\begin{columns}
-%		\column{0.6\linewidth}
-%		\begin{figure}
-%			\centering
-%			\includegraphics[width=\columnwidth]{../Project/src/labs/compare-tS-normal-sc/tS(N)+tS(SC)-ink.pdf}
-%			\caption{Comparative plot of the converged values for $\tilde{t}^{(s^*)}$ for the normal phase and the SC phase.}
-%		\end{figure}
-%		\column{0.3\linewidth}
-%		Isotropic hopping renormalisation:
-%		\[
-%		\tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)}V}{2} \, .
-%		\]
-%		Formally identical to normal and AF phases.
-%	\end{columns}
-%	\bigskip
-%	
-%	The effective hopping is mainly isotropic:
-%	\[
-%		\big| \tilde{t}^{(s^*)} \big| \gg \big| \tilde{t}^{(d)} \big| \, .
-%	\]
-%	
-%\end{frame}
 
 \begin{frame}
 	\frametitle{The original results}
