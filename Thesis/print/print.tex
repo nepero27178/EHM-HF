@@ -1,0 +1,52 @@
+\documentclass[a4paper,openright]{memoir}
+
+\input{misc/packages}
+\input{misc/definitions}
+\addbibresource{misc/bibliography.bib}
+
+\begin{document}
+	
+% Front matter
+\pagenumbering{gobble}
+\input{misc/cover}
+\input{misc/dedication}
+\input{misc/abstract}
+\input{misc/toc}
+\input{misc/abbreviations}
+
+% Bonus
+% \input{misc/introduction}
+
+% Chapters
+\pagenumbering{arabic}
+%\pagestyle{plain}
+\input{chapters/theoretical-introduction/theoretical-introduction}
+\input{chapters/hf-introduction/hf-introduction}
+\input{chapters/ehm-symmetries/ehm-symmetries}
+\input{chapters/normal-phase/normal-phase}
+\input{chapters/antiferromagnetic-instability/antiferromagnetic-instability}
+\input{chapters/superconducting-instability/superconducting-instability}
+\input{chapters/conclusions/conclusions}
+\blankpage
+
+% Appendices
+\part*{Appendices}
+\appendix
+\input{appendices/superexchange-virtual-hopping/superexchange-virtual-hopping}
+\input{appendices/slater-gaussian/slater-gaussian}
+\input{appendices/hf-mft/hf-mft}
+\input{appendices/hm-af-ground-state/hm-af-ground-state}
+\input{appendices/af-hf-hamiltonian/af-hf-hamiltonian}
+\input{appendices/theoretical-constraints/theoretical-constraints}
+\input{appendices/sc-hf-hamiltonian/sc-hf-hamiltonian}
+
+% Bonus
+%\input{appendices/g-optimization-hubbard/g-optimization-hubbard}
+
+% Back matter
+\blankpage
+\input{misc/acknowledgements}
+\printbibliography\nocite{*}
+\blankpage
+
+\end{document}

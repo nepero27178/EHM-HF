@@ -1,0 +1,19 @@
+[0] Config.pm:308> INFO - This is Biber 2.20
+[0] Config.pm:311> INFO - Logfile is 'print.blg'
+[55] biber:340> INFO - === Mon Jun 15, 2026, 16:27:02
+[67] Biber.pm:420> INFO - Reading 'print.bcf'
+[126] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[139] Biber.pm:4463> INFO - Processing section 0
+[147] Biber.pm:4654> INFO - Looking for bibtex file 'misc/bibliography.bib' for section 0
+[150] bibtex.pm:1713> INFO - LaTeX decoding ...
+[203] bibtex.pm:1519> INFO - Found BibTeX data source 'misc/bibliography.bib'
+[531] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[531] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[531] Biber.pm:4283> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
+[531] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[556] bbl.pm:676> INFO - Writing 'print.bbl' with encoding 'UTF-8'
+[573] bbl.pm:779> INFO - Output to print.bbl
+[573] Biber.pm:131> WARN - legacy month field 'Jul' in entry 'scholle2023comprehensive' is not an integer - this will probably not sort properly.
+[573] Biber.pm:131> WARN - legacy month field 'Jan' in entry 'cao2025dominant' is not an integer - this will probably not sort properly.
+[573] Biber.pm:131> WARN - legacy month field 'Apr' in entry 'hirsch1985twodimensional' is not an integer - this will probably not sort properly.
+[573] Biber.pm:133> INFO - WARNINGS: 3
