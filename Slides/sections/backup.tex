@@ -21,7 +21,8 @@
 		\begin{figure}
 			\centering
 			\includegraphics[width=\columnwidth]{sections/introduction/dos.png}
-			\caption*{Gabriel Kotliar and Dieter Vollhardt, 2004. \textbf{Physics Today 57 (March): 53–59}.}
+			\caption{Image source: Gabriel Kotliar and Dieter Vollhardt, 2004. \textbf{Physics Today 57 (March): 53–59}.}
+			\label{fig:dos}
 		\end{figure}
 		\column{0.5\linewidth}
 		As we increase the ratio $U/t$, the many-body DoS undergoes a transition:
@@ -136,7 +137,8 @@
 		\begin{figure}
 			\centering
 			\includegraphics[width=\columnwidth]{/home/nepero27178/Thesis/EHM-HF/Project/src/labs/attractor/example-attractor-ink.pdf}
-			\caption*{Example path for the AF phase.}
+			\label{fig:attractor}
+			\caption{Example path for the AF phase.}
 		\end{figure}
 	\end{columns}
 	\textbf{Convergence criterion}:
@@ -244,4 +246,24 @@
 	\end{columns}\bigskip
 	
 	The SC phase is dominant when $V \gg U,t$, the AF phase when $U \gg V,t$.
+\end{frame}
+
+\section{Backup 6: The origin of the $-V$ attraction}
+
+\begin{frame}
+	\frametitle{The $e$-phonon interaction}
+	\[
+		\hat H_V = -V \sum_{\langle ij \rangle} \hat n_i \hat n_j \, :
+		\qquad
+		\text{Isotropic, spin independent attraction.}
+	\]\bigskip
+	
+	\textbf{Postulated}: originated by $e$-ph Coulomb interaction. It is believed that this attraction is mediated by phonons (lattice vibrations). \bigskip
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.75\linewidth]{sections/HV-origin.png}
+		\caption{Image source: Wang et al., \textbf{Phys. Rev. Lett. 127: 197003}}
+		\label{fig:HV-origin}
+	\end{figure}
 \end{frame}

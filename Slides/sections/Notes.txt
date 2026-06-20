@@ -1,0 +1,29 @@
+Gutzwiller method:
+- Expansion of HF variational approach
+- The variational wavefunction is an HF wavefunction suitably projected through combinations of Gutzwiller projectors P, which eliminate all configurations with doubly occupied sites
+- Imposes Mott effects by tuning the strength of the Gutzwiller projection
+- Variational method: the Gutzwiller wavefunction is optimised
+
+DMFT:
+- Approximation of the a lattice problem with many DoF with a single-site effective problem with less DoF
+- The dynamics at a given site can be thought of as the interaction of the DoF at this site with an external bath created by all other degrees of freedom on other sites
+- Classical MFT: prototypical Weiss mean field to classical Ising model with ferromagnetic exchange
+- Curie-Weiss: as dimensionality grows, the solution becomes exact
+- DMFT: self-consistent iterative cycle involving the bath Green's function, the local Green's function and the self-energy
+- Dynamical nature: it describes the non-static properties
+
+Cluster DMFT:
+- Extension to clusters of sites
+- Example: Hubbard square
+
+Quantum Monte Carlo in Hubbard simulations:
+- Path integral through lattice configurations to retrieve the optimal action
+- Markov chain problems yield the sign problem (fermionic nature)
+
+Real-time reconstruction of processes in Hubbard model:
+
+
+Gaussian states:
+- Ground-states of quadratic hamiltonians
+- All coherent states are gaussian
+- Wigner quasiprobability distribution (quasi-wavefunction) is gaussian
