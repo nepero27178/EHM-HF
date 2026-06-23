@@ -6,7 +6,7 @@
 	Cooper pairing:
 	\begin{itemize}
 		\item Described by a SC gap $\tilde{\Delta}_{ij}$, roughly the ``binding energy'' of the pairs;
-		\item The pair spin obeys sum rules:
+		\item The spin of the Cooper pairs obeys QM spin composition rules,
 		\[
 			\frac 1 2 \otimes \frac 1 2 = 
 				\only<1>{0}
@@ -24,7 +24,7 @@
 		\begin{tabbox}[frametitle=The singlet channel]
 			The gap function is inversion symmetric, i.e. its harmonics are
 			\[
-				\tilde{\Delta}^{(s)} \, , \quad \tilde{\Delta}^{(s^*)}\qq{and} \tilde{\Delta}^{(d)} \, .
+				\tilde{\Delta}^{(s)} \, \text{,} \quad \tilde{\Delta}^{(s^*)}\qq{and} \tilde{\Delta}^{(d)} \, \text{.}
 			\]
 		\end{tabbox}
 	}
@@ -33,13 +33,13 @@
 \begin{frame}
 	\frametitle{The variational problem for the singlet SC phase}
 	
-	We limit to the \textbf{singlet channel}. Let the quantities:
+	We limit to the \textbf{singlet channel}. Let
 	\[
 		u_{\mathbf{k}\sigma} \equiv \ev{\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}}
-		\, , \quad
-		w_\mathbf{k} \equiv \ev{\hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{-\mathbf{k}\downarrow}^\dagger} \, .
+		\, \text{,} \quad
+		w_\mathbf{k} \equiv \ev{\hat c_{\mathbf{k}\uparrow}^\dagger \hat c_{-\mathbf{k}\downarrow}^\dagger} \, \text{.}
 	\]
-	\textbf{Variational parameters}: symmetric harmonics,
+	\textbf{Variational parameters}: symmetric harmonics of $u_{\mathbf{k}\sigma}$ and $w_\mathbf{k}$, 
 	\[
 		\mathbf{v} = \left( u^{(s^*)}, u^{(d)}, w^{(s)}, w^{(s^*)}, w^{(d)} \right)
 	\]	
@@ -88,8 +88,8 @@
 	\[
 	t \quad\to\quad
 	\tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)} V}{2}
-	\,\qq{and}\,
-	\tilde{t}^{(d)} \equiv - \frac{u^{(d)} V}{2} \, .
+	\quad\qq{and}\quad
+	\tilde{t}^{(d)} \equiv - \frac{u^{(d)} V}{2} \, \text{.}
 	\]
 	\uncover<2->{\begin{columns}
 		\column{0.4\linewidth}
@@ -103,8 +103,8 @@
 		\begin{tabbox}[frametitle=Anisotropic hopping]
 			Direction-resolved effective hopping:
 			\[\begin{aligned}
-				\tilde{t}^{(x)} &\equiv \frac{\tilde{t}^{(s^*)} + \tilde{t}^{(d)}}{2} \, , \\
-				\tilde{t}^{(y)} &\equiv \frac{\tilde{t}^{(s^*)} - \tilde{t}^{(d)}}{2} \, .
+				\tilde{t}^{(x)} &\equiv \frac{\tilde{t}^{(s^*)} + \tilde{t}^{(d)}}{2} \, \text{,} \\
+				\tilde{t}^{(y)} &\equiv \frac{\tilde{t}^{(s^*)} - \tilde{t}^{(d)}}{2} \, \text{.}
 			\end{aligned}\]
 			\DownImplication
 			$\tilde{t}^{(d)} \neq 0 \implies$ \textbf{nematic SSB}.

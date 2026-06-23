@@ -44,9 +44,9 @@
 	
 	\textbf{Hartree-Fock method}: $\mathcal{S}$ is the set of all \textbf{gaussian states}, i.e. states that are non-interacting for some fermionic operators 
 	\[
-	\ket{\Psi} = \bigotimes_\alpha \hat \gamma_\alpha^\dagger \ket{\Omega_\gamma} \, ,
+	\ket{\Psi} = \bigotimes_\alpha \hat \gamma_\alpha^\dagger \ket{\Omega_\gamma} \, \text{,}
 	\qquad
-	\acomm{\hat \gamma_\alpha}{\hat \gamma_\beta^\dagger} = \delta_{\alpha\beta} \, ,
+	\acomm{\hat \gamma_\alpha}{\hat \gamma_\beta^\dagger} = \delta_{\alpha\beta} \, \text{,}
 	\]
 	with $\hat \gamma \leftrightarrow \hat c$ through a unitary map.\medskip
 	\DownImplication
@@ -76,7 +76,7 @@
 		\rangle \langle	
 		\hat c_\gamma \hat c_\delta 
 		\rangle 
-	}_{\text{Cooper}}.
+	}_{\text{Cooper}} \text{.}
 	\]
 	The EHM hamiltonian is a quartic operator!
 \end{frame}
@@ -87,15 +87,15 @@
 	\[
 	\Delta_{\alpha\beta}^{+-} = \langle 
 	\hat c_\alpha^\dagger \hat c_\beta
-	\rangle \, ,
+	\rangle \, \text{,}
 	\qquad
 	\Delta_{\alpha\beta}^{++} = \langle 
 	\hat c_\alpha^\dagger \hat c_\beta^\dagger
-	\rangle \, .
+	\rangle \, \text{.}
 	\]
 	Let $\mathbf{v}$ be the vector that collects all HFPs. We aim to find
 	\[
-	\ket{\Psi[\mathbf{v}]} \simeq \ket{\Psi_0} \, ,
+	\ket{\Psi[\mathbf{v}]} \simeq \ket{\Psi_0} \, \text{,}
 	\]
 	with $\mathbf{v}$ such that:
 	
@@ -104,14 +104,14 @@
 		\begin{tabbox}[frametitle=Variational picture]
 			Energy is minimised,
 			\[
-			\fdv{E[\Phi]}{\ket{\Phi}} \bigg|_{\ket{\Phi} = \ket{\Psi[\mathbf{v}]}} = 0 \, .
+			\fdv{E[\Phi]}{\ket{\Phi}} \bigg|_{\ket{\Phi} = \ket{\Psi[\mathbf{v}]}} = 0 \, \text{.}
 			\]
 		\end{tabbox}
 		\column{0.45\linewidth}
 		\begin{tabbox}[frametitle=Self-consistency picture]
 			A self-consistency problem is satisfied,
 			\[
-			\mathrm{A}(\mathbf{v}) = \mathbf{v} \, ,
+			\mathrm{A}(\mathbf{v}) = \mathbf{v} \, \text{,}
 			\]
 			being $\mathrm{A}$ a non-linear map \textbf{uniquely determined}.
 		\end{tabbox}
@@ -124,12 +124,12 @@
 		\column{0.45\linewidth}
 		The HF solution is the \textbf{fixed point} of a non-linear map $\mathrm{A}$,
 		\[
-		\mathrm{A}(\mathbf{v}) = \mathbf{v} \, .
+		\mathrm{A}(\mathbf{v}) = \mathbf{v} \, \text{.}
 		\]
 		\DownImplication
 		\textbf{Strategy}: ``follow'' the map up to the fixed point,
 		\[
-		\mathbf{v}_{i+1} \equiv g \mathrm{A}(\mathbf{v}_i) + (1-g) \mathbf{v}_i \, .
+		\mathbf{v}_{i+1} \equiv g \mathrm{A}(\mathbf{v}_i) + (1-g) \mathbf{v}_i \, \text{.}
 		\]
 		with $i>0$, $g \in [0,1]$.
 		\DownImplication
@@ -144,7 +144,7 @@
 	\textbf{Convergence criterion}:
 	\[
 	\forall j \quad\colon\quad
-	\left[ \mathbf{v}_{i+1} - \mathbf{v}_i \right]_j < \Delta v_j \, ,
+	\left[ \mathbf{v}_{i+1} - \mathbf{v}_i \right]_j < \Delta v_j \, \text{,}
 	\]
 	with $\Delta \mathbf{v}$ the vector of tolerances.
 \end{frame}
@@ -188,7 +188,7 @@
 	\[
 		\text{Increase in temperature}
 		\quad\implies\quad
-		\text{Disruption of Mott effects}
+		\text{Disruption of Mott effects.}
 	\]
 \end{frame}
 
@@ -232,7 +232,7 @@
 			\column{0.3\linewidth}
 			Isotropic hopping renormalisation:
 			\[
-			\tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)}V}{2} \, .
+			\tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)}V}{2} \, \text{.}
 			\]
 			Formally identical to normal and AF phases.
 		\end{columns}
@@ -240,7 +240,7 @@
 	
 	The effective hopping is mainly isotropic:
 	\[
-		\big| \tilde{t}^{(s^*)} \big| \gg \big| \tilde{t}^{(d)} \big| \, .
+		\big| \tilde{t}^{(s^*)} \big| \gg \big| \tilde{t}^{(d)} \big| \, \text{.}
 	\]
 	
 \end{frame}
@@ -260,7 +260,7 @@
 		\column{0.4\linewidth}
 			By computing the free energy difference,
 			\[
-				f^{(\mathrm{AF})} -  f^{(\mathrm{SC})} \, ,
+				f^{(\mathrm{AF})} -  f^{(\mathrm{SC})} \, \text{,}
 			\]
 			we identify a phase boundary. Possibly a critical ratio
 			\[
@@ -277,8 +277,8 @@
 \begin{frame}
 	\frametitle{The $e$-phonon interaction}
 	\[
-		\hat H_V = -V \sum_{\langle ij \rangle} \hat n_i \hat n_j \, :
-		\qquad
+		\hat H_V = -V \sum_{\langle ij \rangle} \hat n_i \hat n_j
+		\quad\implies\quad
 		\text{Isotropic, spin independent attraction.}
 	\]\bigskip
 	

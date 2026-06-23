@@ -5,15 +5,15 @@
 	\frametitle{The variational problem for the normal phase}
 	\textbf{Normal phase}: no broken symmetries. Just one variational parameter,
 	\[
-		\mathbf{v} = \left[ u^{(s^*)} \right] \, ,
+		\mathbf{v} = \left[ u^{(s^*)} \right] \, \text{,}
 	\]
 	where $u^{(s^*)}$ is the $s^*$-wave component of $u_{\mathbf{k}\sigma} \equiv \ev{\hat c_{\mathbf{k}\sigma}^\dagger \hat c_{\mathbf{k}\sigma}}$.
 	\DownImplication
 	
 	\begin{tabbox}[frametitle=Renormalisation of kinetics]
-		Hopping amplitude is \textbf{isotropically renormalised},
+		The hopping amplitude $t$ is \textbf{isotropically renormalised},
 		\[
-			t \quad\to\quad \tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)}V}{2} \, .
+			t \quad\to\quad \tilde{t}^{(s^*)} \equiv t - \frac{u^{(s^*)}V}{2} \, \text{.}
 		\]
 		We have proved the \textbf{constraint}:
 		\[
@@ -26,19 +26,20 @@
 
 \begin{frame}
 	\frametitle{Complete flattening of bare bands}
-	In $(\delta,V)$ plane, we have determined theoretically the presence of a Mott critical boundary $V_\mathrm{c}[\beta,\delta]$,
+	In the $(\delta,V)$ plane (with $\delta$ the electronic doping level), we have determined analytically the presence of a Mott critical boundary $V_\mathrm{c}[\beta,\delta]$,
 	\begin{figure}
 		\centering
-		\subfloat[Numerical results for $\tilde{t}^{(s^*)}$.]{
+		\subfloat{
 			\includegraphics[height=0.36\linewidth]{../Project/src/labs/normal-mott-plateau/tS(N)-ink.pdf}
 			\label{subfig:normal-tS-data-B128}
 		}
-		\subfloat[Critical Mott boundary.]{
+		\subfloat{
 			\includegraphics[height=0.36\linewidth]{../Project/src/labs/mott-localization/normal-mott-boundary-tS.pdf}
 			\label{subfig:normal-tS-data-B128-mott}
 		}
+		\caption{Numerical results for $\tilde{t}^{(s^*)}$ and critical Mott boundary (dotted line in the right plot).}
 	\end{figure}
-	Within the Mott plateau, electrons are completely localised and \textbf{bands are flattened}.
+	Within the Mott plateau, electrons are completely localised.
 \end{frame}
 
 %\begin{frame}
@@ -66,7 +67,7 @@
 		\item \textbf{Renormalise hopping};
 		\item \textbf{Induce complete Mott localisation}:
 		\[
-			\text{Effective kinetics energy scale} \ll \text{Interaction energy scale} \, .
+			\text{Effective kinetics energy} \ll \text{Interaction energy} \, .
 		\]
 	\end{itemize}
 	The role of $U/t$:
